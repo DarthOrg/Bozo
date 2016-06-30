@@ -7,7 +7,7 @@
 
     <!--ThemeSplash-->
     <color name="colorPrimary_splash">#4D4D4D</color>
-    <color name="colorPrimaryDark_splash">#4D4D4D</color>
+    <color name="colorPrimaryDark_splash">#4d4d4d</color>
     <color name="holo_blue_dark">#0071bc</color>
 
     <!--cores-->

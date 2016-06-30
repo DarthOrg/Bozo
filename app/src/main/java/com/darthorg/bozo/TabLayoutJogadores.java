@@ -17,10 +17,10 @@ public class TabLayoutJogadores extends FragmentPagerAdapter {
     @Override
     public CharSequence getPageTitle(int position) {
         if (position == 0) {
-            return "Jogador 01";
+            return "WENDELL UGALDS";
         }
         else if (position == 1) {
-            return "Jogador 02";
+            return "GUSTAVO CANDIDO";
         }
         else if (position == 2) {
             return "Jogador 03";
