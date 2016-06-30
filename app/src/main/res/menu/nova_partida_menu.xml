@@ -3,9 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
-        android:id="@+id/action_proximo"
-        android:title="Próximo"
+        android:id="@+id/action_jogar_partida"
+        android:title="Jogar"
         android:orderInCategory="100"
         app:showAsAction="always"/>
-
 </menu>

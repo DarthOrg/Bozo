@@ -32,7 +32,7 @@ public class Inicio extends AppCompatActivity {
         int id = item.getItemId();
 
         if (id == R.id.action_nova_partida) {
-            Intent intent = new Intent(this,NomePartida.class);
+            Intent intent = new Intent(this,NovaPartida.class);
             startActivity(intent);
             //return true;
 
