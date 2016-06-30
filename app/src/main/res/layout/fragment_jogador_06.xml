@@ -1,0 +1,197 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context="com.darthorg.bozo.FragmentJogador06">
+
+
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        app:elevation="5dp">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:background="@color/colorWhite">
+
+
+            <TextView
+                android:id="@+id/txtResultadoJogador"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="25"
+                android:textSize="50dp"
+                android:layout_marginRight="20dp"
+                android:layout_gravity="right|center_vertical" />
+
+        </FrameLayout>
+
+    </android.support.design.widget.AppBarLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="100dp">
+
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="50dp"
+                android:layout_marginBottom="50dp">
+                <Button
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:text="01"
+                    android:id="@+id/btnAs"
+                    android:background="@android:color/white"
+                    android:layout_marginRight="1dp"
+                    android:layout_marginLeft="1dp"
+                    android:layout_marginBottom="2dp"
+                    android:layout_marginTop="50dp"
+                    android:textSize="50dp" />
+
+                <Button
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:text="40"
+                    android:layout_below="@+id/btnQuadrada"
+                    android:layout_toRightOf="@+id/btnTerno"
+                    android:layout_toEndOf="@+id/btnTerno"
+                    android:id="@+id/btnGeneral"
+                    android:background="@android:color/white"
+                    android:layout_marginRight="1dp"
+                    android:layout_marginLeft="1dp"
+                    android:textSize="50dp" />
+
+                <Button
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:text="06"
+                    android:layout_below="@+id/btnQuina"
+                    android:layout_toRightOf="@+id/btnQuadrada"
+                    android:layout_toEndOf="@+id/btnQuadrada"
+                    android:id="@+id/btnSena"
+                    android:background="@android:color/white"
+                    android:layout_marginRight="1dp"
+                    android:layout_marginLeft="1dp"
+                    android:layout_marginBottom="2dp"
+                    android:layout_alignParentEnd="false"
+                    android:textSize="50dp" />
+
+                <Button
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:text="30"
+                    android:layout_below="@+id/btnSeguida"
+                    android:layout_toRightOf="@+id/btnTerno"
+                    android:layout_toEndOf="@+id/btnTerno"
+                    android:id="@+id/btnQuadrada"
+                    android:background="@android:color/white"
+                    android:layout_marginLeft="1dp"
+                    android:layout_marginRight="1dp"
+                    android:layout_marginBottom="2dp"
+                    android:textSize="50dp" />
+
+                <Button
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:text="03"
+                    android:layout_below="@+id/btnSeguida"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:id="@+id/btnTerno"
+                    android:background="@android:color/white"
+                    android:layout_marginRight="1dp"
+                    android:layout_marginLeft="1dp"
+                    android:layout_marginBottom="2dp"
+                    android:textSize="50dp" />
+
+                <Button
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:text="05"
+                    android:layout_below="@+id/btnQuadra"
+                    android:layout_toRightOf="@+id/btnSeguida"
+                    android:layout_toEndOf="@+id/btnSeguida"
+                    android:id="@+id/btnQuina"
+                    android:background="@android:color/white"
+                    android:layout_marginRight="1dp"
+                    android:layout_marginLeft="1dp"
+                    android:layout_marginBottom="2dp"
+                    android:textSize="50dp" />
+
+                <Button
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:text="20"
+                    android:layout_alignTop="@+id/btnDuque"
+                    android:layout_toRightOf="@+id/btnDuque"
+                    android:layout_toEndOf="@+id/btnDuque"
+                    android:id="@+id/btnSeguida"
+                    android:background="@android:color/white"
+                    android:layout_marginRight="1dp"
+                    android:layout_marginLeft="1dp"
+                    android:layout_marginBottom="2dp"
+                    android:textSize="50dp" />
+
+                <Button
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:text="02"
+                    android:layout_below="@+id/btnAs"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:id="@+id/btnDuque"
+                    android:background="@android:color/white"
+                    android:layout_marginRight="1dp"
+                    android:layout_marginLeft="1dp"
+                    android:layout_marginBottom="2dp"
+                    android:textSize="50dp" />
+
+                <Button
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:text="04"
+                    android:layout_alignParentTop="true"
+                    android:layout_toRightOf="@+id/btnFull"
+                    android:layout_toEndOf="@+id/btnFull"
+                    android:id="@+id/btnQuadra"
+                    android:background="@android:color/white"
+                    android:layout_marginRight="1dp"
+                    android:layout_marginLeft="1dp"
+                    android:layout_marginBottom="2dp"
+                    android:layout_marginTop="50dp"
+                    android:textSize="50dp" />
+
+                <Button
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:text="10"
+                    android:layout_alignParentTop="true"
+                    android:layout_toRightOf="@+id/btnAs"
+                    android:layout_toEndOf="@+id/btnAs"
+                    android:id="@+id/btnFull"
+                    android:background="@android:color/white"
+                    android:layout_marginRight="1dp"
+                    android:layout_marginLeft="1dp"
+                    android:layout_marginBottom="2dp"
+                    android:layout_marginTop="50dp"
+                    android:textSize="50dp" />
+            </RelativeLayout>
+
+        </ScrollView>
+
+    </FrameLayout>
+
+
+
+</FrameLayout>

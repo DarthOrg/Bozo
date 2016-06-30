@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--AppTheme-->
+    <color name="colorPrimary">#FFFFFF</color>
+    <color name="colorPrimaryDark">#4D4D4D</color>
+    <color name="colorAccent">#0071bc</color>
+
+    <!--ThemeSplash-->
+    <color name="colorPrimary_splash">#4D4D4D</color>
+    <color name="colorPrimaryDark_splash">#4D4D4D</color>
+    <color name="holo_blue_dark">#0071bc</color>
+
+    <!--cores-->
+    <color name="colorWhite">#FFFFFF</color>
+    <color name="colorTrasnparente">#00ffffff</color>
+    <color name="colorRed">#FF1D25</color>
+    <color name="colorFundoPartida">#E6E6E6</color>
+    <color name="colorBlack">#000000</color>
+    <color name="colorBlackTransparente">#4b000000</color>
+
+    <!--Cores texto-->
+    <color name="colorTextoHint">#B3B3B3</color>
+</resources>
