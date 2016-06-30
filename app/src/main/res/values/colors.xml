@@ -11,7 +11,7 @@
     <color name="holo_blue_dark">#00b2ff</color>
 
     <!--cores-->
-    <color name="colorWhite">#FFFFFF</color>
+    <color name="colorWhite">#ffffff</color>
     <color name="colorTrasnparente">#00ffffff</color>
     <color name="colorRed">#FF1D25</color>
     <color name="colorFundoPartida">#E6E6E6</color>
