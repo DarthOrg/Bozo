@@ -18,8 +18,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".Inicio" />
-        <activity android:name=".NomePartida" />
-        <activity android:name=".NomeJogadores" />
+        <activity android:name=".NovaPartida"
+            android:theme="@style/ThemeNovaPartida"/>
         <activity
             android:name=".PartidaAberta"
             android:theme="@style/ThemePartidaAberta" />

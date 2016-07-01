@@ -2,21 +2,22 @@
 <resources>
     <!--AppTheme-->
     <color name="colorPrimary">#FFFFFF</color>
-    <color name="colorPrimaryDark">#4D4D4D</color>
-    <color name="colorAccent">#0071bc</color>
+    <color name="colorPrimaryDark">#000000</color>
+    <color name="colorAccent">#00b2ff</color>
 
     <!--ThemeSplash-->
     <color name="colorPrimary_splash">#4D4D4D</color>
     <color name="colorPrimaryDark_splash">#4d4d4d</color>
-    <color name="holo_blue_dark">#0071bc</color>
+    <color name="holo_blue_dark">#00b2ff</color>
 
     <!--cores-->
-    <color name="colorWhite">#FFFFFF</color>
+    <color name="colorWhite">#ffffff</color>
     <color name="colorTrasnparente">#00ffffff</color>
     <color name="colorRed">#FF1D25</color>
     <color name="colorFundoPartida">#E6E6E6</color>
     <color name="colorBlack">#000000</color>
     <color name="colorBlackTransparente">#4b000000</color>
+    <color name="colorSinza">#834d4d4d</color>
 
     <!--Cores texto-->
     <color name="colorTextoHint">#B3B3B3</color>
