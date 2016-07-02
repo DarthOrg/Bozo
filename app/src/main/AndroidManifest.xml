@@ -10,32 +10,37 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".Splash"
-            android:theme="@style/ThemeSplash"
-            android:screenOrientation="portrait">
+            android:screenOrientation="portrait"
+            android:theme="@style/ThemeSplash">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Inicio"
-            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".Inicio"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".NovaPartida"
             android:theme="@style/ThemeNovaPartida" />
         <activity
             android:name=".PartidaAberta"
-            android:theme="@style/ThemePartidaAberta"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait"
+            android:theme="@style/ThemePartidaAberta" />
         <activity
             android:name=".Placar"
             android:theme="@style/ThemePlacar" />
         <activity android:name=".ListaDePartidas" />
-        <!-- ATTENTION: This was auto-generated to add Google Play services to your project for
-     App Indexing.  See https://g.co/AppIndexing/AndroidStudio for more information. -->
+        <!--
+     ATTENTION: This was auto-generated to add Google Play services to your project for
+     App Indexing.  See https://g.co/AppIndexing/AndroidStudio for more information.
+        -->
         <meta-data
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
+
+        <activity android:name=".ThemeDialogNovoJogador"></activity>
     </application>
 
 </manifest>

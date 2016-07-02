@@ -14,26 +14,39 @@
         <Button
             android:layout_marginTop="10dp"
             android:layout_marginBottom="10dp"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:textAlignment="viewStart"
+            android:layout_marginLeft="20dp"
+            android:background="@drawable/ic_nova_partida" />
+
+        <Button
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Nova partida"
             android:textAlignment="viewStart"
-            android:paddingLeft="30dp"
             android:textSize="13dp"
+            android:paddingLeft="90dp"
             android:background="@color/colorTrasnparente"
-            android:id="@+id/btn_nova_partida" />
+            android:id="@+id/btn_nova_partida"
+            android:layout_gravity="right|center_vertical" />
 
     </FrameLayout>
-
-    <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="@color/colorBlack"/>
-
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/colorWhite">
+
+        <Button
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:textAlignment="viewStart"
+            android:layout_marginLeft="20dp"
+            android:background="@drawable/ic_lista" />
 
         <Button
             android:layout_marginTop="10dp"
@@ -43,7 +56,7 @@
             android:textSize="13dp"
             android:text="Partidas salvas"
             android:textAlignment="viewStart"
-            android:paddingLeft="30dp"
+            android:paddingLeft="90dp"
             android:background="@color/colorTrasnparente"
             android:id="@+id/btn_partidas_salvas" />
 

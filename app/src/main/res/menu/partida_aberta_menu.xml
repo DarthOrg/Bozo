@@ -4,10 +4,22 @@
 
 
     <item
+        android:id="@+id/action_add_jogador"
+        android:title="Adicionar Jogador"
+        android:orderInCategory="100"
+        android:icon="@drawable/ic_add_jogador"
+        app:showAsAction="always"/>
+    <item
         android:id="@+id/action_placar"
         android:title="Placar"
         android:orderInCategory="100"
         app:showAsAction="always"/>
+    <item
+        android:id="@+id/action_sair"
+        android:title="Sair"
+        android:orderInCategory="100"
+        android:icon="@drawable/ic_sair"
+        app:showAsAction="never"/>
 
 
 </menu>

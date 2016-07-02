@@ -21,6 +21,7 @@ public class PartidaAberta extends AppCompatActivity {
     private TabLayout tabLayout;
     private Toolbar toolbar;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -67,11 +68,38 @@ public class PartidaAberta extends AppCompatActivity {
             startActivity(intent);
             //return true;
         }
-        else if (id == android.R.id.home) {
+        else if (id == R.id.action_add_jogador) {
+
+                    LayoutInflater inflater = getLayoutInflater();
+                    //Recebe a activity para persolnalizar o dialog
+                    View dialogLayout = inflater.inflate(R.layout.theme_dialog_novo_jogador, null);
+
+                    AlertDialog.Builder builder = new AlertDialog.Builder(PartidaAberta.this);
+                    builder.setTitle("Novo jogador");
+                    builder.setPositiveButton("Ok",null);
+                    builder.setNegativeButton("Cancelar",null);
+                    builder.setView(dialogLayout);
+                    builder.show();
+            //return true;
+        }
+        else if (id == R.id.action_sair) {
             finish();
+            //return true;
+        }
+        else if (id == android.R.id.home) {
+            AlertDialog.Builder builder = new AlertDialog.Builder(PartidaAberta.this);
+            builder.setTitle("Sair da partida");
+            builder.setMessage("Gostaria mesmo de sair da partida ?");
+            builder.setPositiveButton("Sim",null);
+            builder.setNegativeButton("Não",null);
+            builder.show();
+
+
         }
 
         return super.onOptionsItemSelected(item);
     }
+
+
 
 }

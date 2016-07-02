@@ -47,6 +47,8 @@ public class Inicio extends AppCompatActivity {
                     public void onClick(View view) {
                         Intent intent = new Intent(Inicio.this, NovaPartida.class);
                         startActivity(intent);
+
+
                     }
                 });
 
@@ -57,6 +59,7 @@ public class Inicio extends AppCompatActivity {
                     public void onClick(View view) {
                         Intent intent = new Intent(Inicio.this, ListaDePartidas.class);
                         startActivity(intent);
+
                     }
                 });
                 AlertDialog.Builder builder = new AlertDialog.Builder(Inicio.this);
