@@ -4,10 +4,34 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
-        android:id="@+id/action_nova_partida"
-        android:title="Nova partida"
+        android:id="@+id/action_bloquear_som"
+        android:title="Bloquear Som"
         android:orderInCategory="100"
+        android:visible="true"
+        android:icon="@drawable/ic_bloquear_audio"
+        app:showAsAction="always"/>
+    <item
+        android:id="@+id/action_bloquear_som_selecionado"
+        android:title="Bloquear Som"
+        android:orderInCategory="100"
+        android:visible="false"
+        android:icon="@drawable/ic_bloquear_audio_selecionado"
+        app:showAsAction="always"/>
 
-        app:showAsAction="never"/>
+    <item
+        android:id="@+id/action_configuracoes"
+        android:title="Configuraçoes"
+        android:orderInCategory="100"
+        android:icon="@drawable/ic_configuracoes"
+        app:showAsAction="always"/>
+
+    <item
+        android:id="@+id/action_sobre"
+        android:title="Sobre"
+        android:orderInCategory="100"
+        android:icon="@drawable/ic_sobre"
+        app:showAsAction="always"/>
+
+
 
 </menu>

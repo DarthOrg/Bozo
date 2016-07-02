@@ -87,7 +87,7 @@
                 android:text="01"
                 android:textSize="35dp"
                 android:id="@+id/btnAs"
-                android:textColor="@color/colorPrimaryDark_splash"
+                android:textColor="@color/colorBlack"
                 android:background="@color/colorTrasnparente"
                  />
             </RelativeLayout>
@@ -110,7 +110,7 @@
                     android:text="10"
                     android:textSize="35dp"
                     android:id="@+id/btnFull"
-                    android:textColor="@color/colorPrimaryDark_splash"
+                    android:textColor="@color/colorBlack"
                     android:background="@color/colorTrasnparente"
                      />
             </RelativeLayout>
@@ -132,7 +132,7 @@
                     android:text="04"
                     android:textSize="35dp"
                     android:id="@+id/btnQuadra"
-                    android:textColor="@color/colorPrimaryDark_splash"
+                    android:textColor="@color/colorBlack"
                     android:background="@color/colorTrasnparente"
                      />
             </RelativeLayout>
@@ -154,7 +154,7 @@
                     android:text="02"
                     android:textSize="35dp"
                     android:id="@+id/btnDuque"
-                    android:textColor="@color/colorPrimaryDark_splash"
+                    android:textColor="@color/colorBlack"
                     android:background="@color/colorTrasnparente"
                      />
             </RelativeLayout>
@@ -177,7 +177,7 @@
                     android:text="20"
                     android:textSize="35dp"
                     android:id="@+id/btnSeguida"
-                    android:textColor="@color/colorPrimaryDark_splash"
+                    android:textColor="@color/colorBlack"
                     android:background="@color/colorTrasnparente"
                      />
             </RelativeLayout>
@@ -198,7 +198,7 @@
                     android:text="05"
                     android:textSize="35dp"
                     android:id="@+id/btnQuina"
-                    android:textColor="@color/colorPrimaryDark_splash"
+                    android:textColor="@color/colorBlack"
                     android:background="@color/colorTrasnparente"
                      />
             </RelativeLayout>
@@ -220,7 +220,7 @@
                     android:text="03"
                     android:textSize="35dp"
                     android:id="@+id/btnTerno"
-                    android:textColor="@color/colorPrimaryDark_splash"
+                    android:textColor="@color/colorBlack"
                     android:background="@color/colorTrasnparente"
                      />
             </RelativeLayout>
@@ -243,7 +243,7 @@
                     android:text="30"
                     android:textSize="35dp"
                     android:id="@+id/btnQuadrada"
-                    android:textColor="@color/colorPrimaryDark_splash"
+                    android:textColor="@color/colorBlack"
                     android:background="@color/colorTrasnparente"
                      />
             </RelativeLayout>
@@ -264,7 +264,7 @@
                     android:text="06"
                     android:textSize="35dp"
                     android:id="@+id/btnSena"
-                    android:textColor="@color/colorPrimaryDark_splash"
+                    android:textColor="@color/colorBlack"
                     android:background="@color/colorTrasnparente"
                      />
             </RelativeLayout>
@@ -306,7 +306,7 @@
                     android:text="40"
                     android:textSize="35dp"
                     android:id="@+id/btnGeneral"
-                    android:textColor="@color/colorPrimaryDark_splash"
+                    android:textColor="@color/colorBlack"
                     android:background="@color/colorTrasnparente"
                      />
             </RelativeLayout>
