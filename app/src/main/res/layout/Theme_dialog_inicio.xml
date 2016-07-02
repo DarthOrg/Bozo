@@ -6,11 +6,10 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     >
-
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/colorPrimaryDark">
+        android:background="@color/colorWhite">
 
         <Button
             android:layout_marginTop="10dp"
@@ -20,12 +19,16 @@
             android:text="Nova partida"
             android:textAlignment="viewStart"
             android:paddingLeft="30dp"
-            android:textColor="@color/colorWhite"
             android:textSize="13dp"
             android:background="@color/colorTrasnparente"
             android:id="@+id/btn_nova_partida" />
 
     </FrameLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/colorBlack"/>
 
     <FrameLayout
         android:layout_width="match_parent"
@@ -40,7 +43,6 @@
             android:textSize="13dp"
             android:text="Partidas salvas"
             android:textAlignment="viewStart"
-            android:textColor="@color/colorBlack"
             android:paddingLeft="30dp"
             android:background="@color/colorTrasnparente"
             android:id="@+id/btn_partidas_salvas" />
