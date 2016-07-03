@@ -4,22 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical"
-    >
-    <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/colorWhite">
-
-        <Button
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="10dp"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:textAlignment="viewStart"
-            android:layout_marginLeft="20dp"
-            android:background="@drawable/ic_nova_partida" />
-
+    android:orientation="vertical">
         <Button
             android:layout_marginTop="10dp"
             android:layout_marginBottom="10dp"
@@ -28,25 +13,12 @@
             android:text="Nova partida"
             android:textAlignment="viewStart"
             android:textSize="13dp"
-            android:paddingLeft="90dp"
+            android:drawablePadding="@dimen/fab_margin"
+            android:paddingLeft="30dp"
+            android:drawableLeft="@drawable/ic_nova_partida"
             android:background="@color/colorTrasnparente"
             android:id="@+id/btn_nova_partida"
             android:layout_gravity="right|center_vertical" />
-
-    </FrameLayout>
-    <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/colorWhite">
-
-        <Button
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="10dp"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:textAlignment="viewStart"
-            android:layout_marginLeft="20dp"
-            android:background="@drawable/ic_lista" />
 
         <Button
             android:layout_marginTop="10dp"
@@ -54,13 +26,12 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="13dp"
+            android:drawableLeft="@drawable/ic_lista"
+            android:drawablePadding="@dimen/fab_margin"
             android:text="Partidas salvas"
             android:textAlignment="viewStart"
-            android:paddingLeft="90dp"
+            android:paddingLeft="30dp"
             android:background="@color/colorTrasnparente"
             android:id="@+id/btn_partidas_salvas" />
-
-    </FrameLayout>
-
 
 </LinearLayout>

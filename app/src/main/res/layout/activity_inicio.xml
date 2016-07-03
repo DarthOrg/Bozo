@@ -34,12 +34,85 @@
             android:background="@drawable/ic_jogar"
             android:layout_gravity="center" />
 
-        <ImageView
+        <!--Campo de informações dos dados-->
+        <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="400dp"
-            android:id="@+id/imageView"
-            android:src="@drawable/img_tela_principal"
-            android:layout_gravity="center" />
+            android:layout_gravity="center">
+
+            <!--Botão info AS (01)-->
+            <Button
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:id="@+id/btn_info_as"
+                android:background="@color/colorTrasnparente"
+                android:layout_gravity="center"
+                android:layout_marginRight="115dp"/>
+
+            <!--Botão info Duque (02)-->
+            <Button
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:id="@+id/btn_info_duque"
+                android:background="@color/colorTrasnparente"
+                android:layout_gravity="center"
+                android:layout_marginBottom="110dp"
+                android:layout_marginRight="45dp"/>
+
+
+            <!--Botão info Terno (03)-->
+            <Button
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:id="@+id/btn_info_terno"
+                android:background="@color/colorTrasnparente"
+                android:layout_gravity="center"
+                android:layout_marginBottom="110dp"
+                android:layout_marginLeft="45dp"/>
+
+            <!--Botão info Quadra (04)-->
+            <Button
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:id="@+id/btn_info_quadra"
+                android:background="@color/colorTrasnparente"
+                android:layout_gravity="center"
+                android:layout_marginLeft="115dp"/>
+
+            <!--Botão info Quina (05)-->
+            <Button
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:id="@+id/btn_info_quina"
+                android:background="@color/colorTrasnparente"
+                android:layout_gravity="center"
+                android:layout_marginTop="110dp"
+                android:layout_marginLeft="45dp"/>
+
+            <!--Botão info Sena (06)-->
+            <Button
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:id="@+id/btn_info_sena"
+                android:background="@color/colorTrasnparente"
+                android:layout_gravity="center"
+                android:layout_marginTop="110dp"
+                android:layout_marginRight="45dp"/>
+
+
+
+            <!--Imagem dados-->
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="400dp"
+                android:id="@+id/imageView"
+                android:src="@drawable/img_tela_principal"
+                android:layout_gravity="center" />
+
+
+
+        </FrameLayout>
+
 
         <ImageView
             android:layout_width="200dp"
