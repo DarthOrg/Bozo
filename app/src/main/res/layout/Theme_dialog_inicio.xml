@@ -11,6 +11,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Nova partida"
+            android:textColor="@color/colorAccent"
             android:textAlignment="viewStart"
             android:textSize="13dp"
             android:drawablePadding="@dimen/fab_margin"

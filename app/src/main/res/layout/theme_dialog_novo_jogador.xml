@@ -9,14 +9,13 @@
     <EditText
         android:layout_margin="20dp"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="wrap_content"
         android:inputType="textPersonName"
-        android:textSize="20dp"
         android:textColor="@color/colorAccent"
-        android:hint="nome do novo jogador"
+        android:textColorLink="@color/colorAccent"
+        android:hint="Digite o nome do jogador aqui..."
         android:textColorHint="@color/colorTextoHint"
         android:ems="10"
-        android:id="@+id/edit_nome_novo_jogador"
-        android:layout_gravity="center_horizontal" />
+        android:id="@+id/edit_nome_novo_jogador" />
 
 </LinearLayout>

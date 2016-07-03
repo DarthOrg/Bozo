@@ -7,6 +7,7 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.view.Menu;
 import android.view.MenuItem;
 
 public class Placar extends AppCompatActivity {
@@ -26,11 +27,22 @@ public class Placar extends AppCompatActivity {
     }
 
     @Override
+    public boolean onCreateOptionsMenu (Menu menu){
+        getMenuInflater().inflate(R.menu.placar_menu, menu);
+        return true;
+    }
+
+    @Override
     public boolean onOptionsItemSelected(MenuItem item) {
 
         int id = item.getItemId();
 
-        if (id == android.R.id.home) {
+        if (id == R.id.action_zerar) {
+            //Intent intent = new Intent(this,PartidaAberta.class);
+            //startActivity(intent);
+            //return true;
+        }
+        else if (id == android.R.id.home) {
             finish();
         }
 

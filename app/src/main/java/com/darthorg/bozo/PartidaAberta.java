@@ -30,7 +30,7 @@ public class PartidaAberta extends AppCompatActivity {
 
 
         toolbar = (Toolbar) findViewById(R.id.toolbar);
-        toolbar.setTitle("Nome da partida");
+        toolbar.setTitle("Partida 01");
         setSupportActionBar(toolbar);
 
         viewPager = (ViewPager) findViewById(R.id.viewPagerMarcadorJogador);
@@ -46,6 +46,7 @@ public class PartidaAberta extends AppCompatActivity {
         tabLayout.setSelectedTabIndicatorColor(corBarra);
         tabLayout.setSelectedTabIndicatorHeight(7);
         tabLayout.setTabMode(TabLayout.MODE_SCROLLABLE); // Adiciona o scroll horizontal para as tabs
+
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
@@ -84,7 +85,10 @@ public class PartidaAberta extends AppCompatActivity {
         }
         else if (id == R.id.action_sair) {
             finish();
-            //return true;
+    //      //return true;
+        }
+        else if (id == R.id.action_configuracoes) {
+            return true;
         }
         else if (id == android.R.id.home) {
             AlertDialog.Builder builder = new AlertDialog.Builder(PartidaAberta.this);

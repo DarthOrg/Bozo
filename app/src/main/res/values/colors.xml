@@ -3,21 +3,23 @@
     <!--AppTheme-->
     <color name="colorPrimary">#FFFFFF</color>
     <color name="colorPrimaryDark">#B4B4B4</color>
-    <color name="colorAccent">#00b2ff</color>
+    <color name="colorAccent">#ff009688</color>
 
     <!--ThemeSplash-->
     <color name="colorPrimary_splash">#FFFFFF</color>
     <color name="colorPrimaryDark_splash">#B4B4B4</color>
-    <color name="holo_blue_dark">#00b2ff</color>
+    <color name="holo_blue_dark">#ff009688</color>
 
     <!--cores-->
     <color name="colorWhite">#ffffff</color>
     <color name="colorTrasnparente">#00ffffff</color>
     <color name="colorRed">#ff1d25</color>
-    <color name="colorFundoPartida">#E6E6E6</color>
+    <color name="colorFundoPartida">#f2f2f2</color>
     <color name="colorBlack">#000000</color>
     <color name="colorBlackTransparente">#4b000000</color>
     <color name="colorSinza">#834d4d4d</color>
+    <color name="colorFab">#ff009688</color>
+    <color name="colorFabPressed">#003d37</color>
 
     <!--Cores texto-->
     <color name="colorTextoHint">#B4B4B4</color>

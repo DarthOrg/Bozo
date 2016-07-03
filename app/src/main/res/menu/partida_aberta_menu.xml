@@ -13,7 +13,12 @@
         android:id="@+id/action_placar"
         android:title="Placar"
         android:orderInCategory="100"
-        app:showAsAction="always"/>
+        app:showAsAction="never"/>
+    <item
+        android:id="@+id/action_configuracoes"
+        android:title="configuracoes"
+        android:orderInCategory="100"
+        app:showAsAction="never"/>
     <item
         android:id="@+id/action_sair"
         android:title="Sair"
