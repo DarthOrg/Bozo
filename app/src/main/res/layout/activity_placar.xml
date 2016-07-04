@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context="com.darthorg.bozo.Placar"
+    tools:context=".ListaDePlacar"
     android:orientation="vertical"
     android:background="@color/colorFundoPartida">
 
@@ -56,7 +56,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceMedium"
-                android:text="12"
+                android:text="38"
                 android:textColor="@color/colorAccent"
                 android:id="@+id/textView2"
                 android:layout_gravity="center"
@@ -67,6 +67,13 @@
         </RelativeLayout>
 
     </android.support.design.widget.AppBarLayout>
+
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/list_view_placar"
+        android:cacheColorHint="@color/colorBlack"
+        android:layout_gravity="center_horizontal" />
 
 
 </LinearLayout>

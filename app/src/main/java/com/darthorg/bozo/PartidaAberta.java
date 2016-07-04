@@ -15,9 +15,6 @@ import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.ProgressBar;
 import android.widget.Toast;
 
 public class PartidaAberta extends AppCompatActivity {
@@ -74,7 +71,7 @@ public class PartidaAberta extends AppCompatActivity {
 
 
         if (id == R.id.action_placar) {
-            Intent intent = new Intent(this,Placar.class);
+            Intent intent = new Intent(this,ListaDePlacar.class);
             startActivity(intent);
             //return true;
         }

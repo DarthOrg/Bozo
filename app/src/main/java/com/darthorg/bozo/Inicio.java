@@ -192,15 +192,15 @@ public class Inicio extends AppCompatActivity {
         int id = item.getItemId();
 
         if (id == R.id.action_configuracoes) {
-            //Intent intent = new Intent(this,Placar.class);
+            //Intent intent = new Intent(this,ListaDePlacar.class);
             //startActivity(intent);
             return true;
         } else if (id == R.id.action_sobre) {
-            //Intent intent = new Intent(this,Placar.class);
+            //Intent intent = new Intent(this,ListaDePlacar.class);
             //startActivity(intent);
             return true;
         } else if (id == R.id.action_bloquear_som) {
-            //Intent intent = new Intent(this,Placar.class);
+            //Intent intent = new Intent(this,ListaDePlacar.class);
             //startActivity(intent);
             return true;
         }
