@@ -4,6 +4,12 @@
 
 
     <item
+        android:id="@+id/action_salvar_partida"
+        android:title="Salvar"
+        android:orderInCategory="100"
+        android:icon="@drawable/ic_salvar_partida"
+        app:showAsAction="always"/>
+    <item
         android:id="@+id/action_add_jogador"
         android:title="Adicionar Jogador"
         android:orderInCategory="100"
@@ -15,8 +21,15 @@
         android:orderInCategory="100"
         app:showAsAction="never"/>
     <item
+        android:id="@+id/action_bloquear_som"
+        android:title="Bloquear som"
+        android:icon="@drawable/ic_bloquear_som"
+        android:orderInCategory="100"
+        app:showAsAction="never"/>
+    <item
         android:id="@+id/action_configuracoes"
-        android:title="configuracoes"
+        android:title="Configurações"
+        android:icon="@drawable/ic_configuracoes"
         android:orderInCategory="100"
         app:showAsAction="never"/>
     <item

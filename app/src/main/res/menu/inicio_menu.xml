@@ -8,7 +8,7 @@
         android:title="Bloquear Som"
         android:orderInCategory="100"
         android:visible="true"
-        android:icon="@drawable/ic_bloquear_audio"
+        android:icon="@drawable/ic_bloquear_som"
         app:showAsAction="always"/>
     <item
         android:id="@+id/action_bloquear_som_selecionado"

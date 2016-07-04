@@ -13,7 +13,10 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AbsListView;
 import android.widget.ArrayAdapter;
+import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.*;
+import android.view.*;
 
 import com.melnykov.fab.ScrollDirectionListener;
 
@@ -42,6 +45,7 @@ public class NovaPartida extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 LayoutInflater inflater = getLayoutInflater();
                 //Recebe a activity para persolnalizar o dialog
                 View dialogLayout = inflater.inflate(R.layout.theme_dialog_novo_jogador, null);
@@ -72,6 +76,8 @@ public class NovaPartida extends AppCompatActivity {
         if (id == R.id.action_inciar_partida) {
             Intent intent = new Intent(this,PartidaAberta.class);
             startActivity(intent);
+
+
             //return true;
         }
         else if (id == android.R.id.home) {
@@ -80,4 +86,6 @@ public class NovaPartida extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
+
+
 }
