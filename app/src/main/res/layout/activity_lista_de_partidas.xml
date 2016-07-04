@@ -25,6 +25,7 @@
     <ListView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:divider="@color/colorWhite"
         android:id="@+id/list_view_partidas"
         android:cacheColorHint="@color/colorBlack"
         android:layout_gravity="center_horizontal" />

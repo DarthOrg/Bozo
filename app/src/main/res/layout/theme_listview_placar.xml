@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal" android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:orientation="vertical"
+        android:background="@color/colorFundoPartida">
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left|center_vertical"
+            android:layout_marginLeft="16dp">
+
+
+            <RelativeLayout
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center"
+                android:layout_centerVertical="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true">
+
+
+                <Button
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:padding="14dp"
+                    android:drawableLeft="@drawable/ic_jogador"
+                    android:background="@drawable/circulo"/>
+
+                <Button
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:text="1"
+                    android:textColor="@color/colorWhite"
+                    android:textSize="10dp"
+                    android:background="@drawable/circulo_accent"
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentEnd="true"
+                    android:id="@+id/txt_id" />
+
+
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginRight="40dp"
+            android:layout_marginLeft="85dp">
+
+            <TextView
+                android:id="@+id/txt_lista_nome_jogador"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Nome partida"
+                android:textColor="@color/colorAccent"
+                android:textSize="20dp"
+                android:layout_gravity="left|center_vertical"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"
+                android:layout_marginBottom="10dp" />
+
+            <TextView
+            android:id="@+id/txt_lista_txt_partidas"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Nome jogadores"
+            android:gravity="bottom"
+            android:textColor="@color/colorTextoHint"
+            android:textSize="10dp"
+            android:textAllCaps="true"
+            android:allowUndo="true"
+                android:layout_gravity="left|bottom"
+                android:layout_below="@+id/txt_lista_nome_partida"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:paddingBottom="5dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginBottom="10dp" />
+
+        </FrameLayout>
+
+        <RelativeLayout
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_alignTop="@+id/textView"
+            android:layout_toRightOf="@+id/textView"
+            android:layout_toEndOf="@+id/textView"
+            android:background="@drawable/circulo_accent"
+            android:layout_gravity="right|center_vertical"
+            android:layout_marginRight="16dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="12"
+                android:textColor="@color/colorWhite"
+                android:id="@+id/txt_lista_numero_rodada"
+                android:layout_gravity="center"
+                android:layout_centerVertical="true"
+                android:layout_centerHorizontal="true"/>
+
+        </RelativeLayout>
+
+        <!--<FrameLayout-->
+            <!--android:layout_width="300dp"-->
+            <!--android:layout_height="1dp"-->
+            <!--android:layout_gravity="bottom|center_horizontal"-->
+            <!--android:background="@color/colorFundoPartida"></FrameLayout>-->
+
+
+    </FrameLayout>
+
+</RelativeLayout>

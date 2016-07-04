@@ -29,7 +29,7 @@
             android:screenOrientation="portrait"
             android:theme="@style/ThemePartidaAberta" />
         <activity
-            android:name=".Placar"
+            android:name=".ListaDePlacar"
             android:theme="@style/ThemePlacar" />
         <activity android:name=".ListaDePartidas" />
         <!--
