@@ -6,13 +6,14 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context="com.darthorg.bozo.NovaPartida"
     android:orientation="vertical"
-    android:background="@color/colorFundoPartida"
+    android:background="@color/colorWhite"
     android:weightSum="1">
 
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:elevation="5dp">
+        android:background="@color/colorTrasnparente"
+        app:elevation="0dp">
 
         <!--TOOLBAR TOPO-->
         <android.support.v7.widget.Toolbar
@@ -20,114 +21,114 @@
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"/>
 
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:padding="20dp"
-            android:orientation="horizontal">
-
-            <FrameLayout
-                android:layout_width="wrap_content"
-                android:layout_height="65dp"
-                android:id="@+id/frameLayout">
-            <Button
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:id="@+id/btn_jogar"
-                android:background="@drawable/ic_jogar"/>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textAppearance="?android:attr/textAppearanceSmall"
-                    android:text="Jogar"
-                    android:textSize="10dp"
-                    android:id="@+id/txt_jogar"
-                    android:layout_below="@+id/btn_jogar"
-                    android:layout_centerHorizontal="true"
-                    android:layout_gravity="center_horizontal|bottom" />
-
-            </FrameLayout>
-
-            <FrameLayout
-                android:layout_width="wrap_content"
-                android:layout_height="65dp"
-                android:layout_alignTop="@+id/frameLayout"
-                android:layout_centerHorizontal="true"
-                android:id="@+id/frameLayout3">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textAppearance="?android:attr/textAppearanceSmall"
-                    android:text="Configurações"
-                    android:textSize="10dp"
-                    android:id="@+id/txt_configuracoes"
-                    android:layout_below="@+id/btn_jogar"
-                    android:layout_centerHorizontal="true"
-                    android:layout_gravity="center_horizontal|bottom" />
-
-                <Button
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
-                    android:id="@+id/btn_configuracoes"
-                    android:background="@drawable/ic_configuracoes"
-                    android:layout_gravity="center_horizontal|top" />
-
-            </FrameLayout>
-
-            <FrameLayout
-                android:layout_width="wrap_content"
-                android:layout_height="65dp"
-                android:layout_alignTop="@+id/frameLayout3"
-                android:layout_alignParentRight="true"
-                android:layout_alignParentEnd="true">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textAppearance="?android:attr/textAppearanceSmall"
-                    android:text="Sobre"
-                    android:textSize="10dp"
-                    android:id="@+id/txt_sobre"
-                    android:layout_below="@+id/button2"
-                    android:layout_centerHorizontal="true"
-                    android:layout_gravity="center_horizontal|bottom" />
-
-                <Button
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
-                    android:id="@+id/btn_sobre"
-                    android:background="@drawable/ic_sobre"
-                    android:layout_gravity="center_horizontal|top" />
-            </FrameLayout>
-
-
-        </RelativeLayout>
-
     </android.support.design.widget.AppBarLayout>
 
     <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="25dp"
-        android:layout_gravity="center_horizontal"
-        android:background="@color/colorAccent">
+        android:layout_height="match_parent">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="Suas partidas"
-            android:id="@+id/txt_lista_partidas"
-            android:layout_gravity="center"
-            android:textSize="12dp"
-            android:textColor="@color/colorWhite" />
+        <Button
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:id="@+id/btn_jogar"
+            android:background="@drawable/ic_jogar"
+            android:layout_gravity="center" />
+
+        <!--Campo de informações dos dados-->
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="400dp"
+            android:layout_gravity="center">
+
+            <!--Botão info AS (01)-->
+            <Button
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:id="@+id/btn_info_as"
+                android:background="@color/colorTrasnparente"
+                android:layout_gravity="center"
+                android:layout_marginRight="115dp"/>
+
+            <!--Botão info Duque (02)-->
+            <Button
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:id="@+id/btn_info_duque"
+                android:background="@color/colorTrasnparente"
+                android:layout_gravity="center"
+                android:layout_marginBottom="110dp"
+                android:layout_marginRight="45dp"/>
+
+
+            <!--Botão info Terno (03)-->
+            <Button
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:id="@+id/btn_info_terno"
+                android:background="@color/colorTrasnparente"
+                android:layout_gravity="center"
+                android:layout_marginBottom="110dp"
+                android:layout_marginLeft="45dp"/>
+
+            <!--Botão info Quadra (04)-->
+            <Button
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:id="@+id/btn_info_quadra"
+                android:background="@color/colorTrasnparente"
+                android:layout_gravity="center"
+                android:layout_marginLeft="115dp"/>
+
+            <!--Botão info Quina (05)-->
+            <Button
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:id="@+id/btn_info_quina"
+                android:background="@color/colorTrasnparente"
+                android:layout_gravity="center"
+                android:layout_marginTop="110dp"
+                android:layout_marginLeft="45dp"/>
+
+            <!--Botão info Sena (06)-->
+            <Button
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:id="@+id/btn_info_sena"
+                android:background="@color/colorTrasnparente"
+                android:layout_gravity="center"
+                android:layout_marginTop="110dp"
+                android:layout_marginRight="45dp"/>
+
+
+
+            <!--Imagem dados-->
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="400dp"
+                android:id="@+id/imageView"
+                android:src="@drawable/img_tela_principal"
+                android:layout_gravity="center" />
+
+
+
+        </FrameLayout>
+
+
+        <ImageView
+            android:layout_width="200dp"
+            android:layout_height="60dp"
+            android:id="@+id/imageView3"
+            android:layout_gravity="center_horizontal|top"
+            android:src="@drawable/nome_bozo" />
+
+        <Button
+            android:layout_width="100dp"
+            android:layout_height="40dp"
+            android:id="@+id/btn_instrucoes"
+            android:layout_gravity="bottom|center_horizontal"
+            android:background="@drawable/ic_instrucoes"
+            android:layout_marginBottom="50dp" />
+
     </FrameLayout>
-
-    <ListView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/list_view_partidas"
-        android:layout_gravity="center_horizontal" />
 
 </LinearLayout>

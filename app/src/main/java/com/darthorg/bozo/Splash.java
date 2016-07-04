@@ -7,7 +7,7 @@ import android.os.Bundle;
 
 public class Splash extends AppCompatActivity {
 
-    private final int SPLASH = 2000;
+    private final int SPLASH = 5000;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
