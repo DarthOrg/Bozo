@@ -19,19 +19,19 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".Inicio"
+            android:name=".view.Inicio"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".NovaPartida"
+            android:name=".view.NovaPartida"
             android:theme="@style/ThemeNovaPartida" />
         <activity
-            android:name=".PartidaAberta"
+            android:name=".view.PartidaAberta"
             android:screenOrientation="portrait"
             android:theme="@style/ThemePartidaAberta" />
         <activity
             android:name=".view.ListaDePlacar"
             android:theme="@style/ThemePlacar" />
-        <activity android:name=".ListaDePartidas" />
+        <activity android:name=".view.ListaDePartidas" />
         <!--
      ATTENTION: This was auto-generated to add Google Play services to your project for
      App Indexing.  See https://g.co/AppIndexing/AndroidStudio for more information.
@@ -40,7 +40,7 @@
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
 
-        <activity android:name=".ThemeDialogNovoJogador"></activity>
+        <activity android:name=".view.ThemeDialogNovoJogador" />
     </application>
 
 </manifest>

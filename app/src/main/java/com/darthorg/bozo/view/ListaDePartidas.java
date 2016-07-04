@@ -1,12 +1,13 @@
-package com.darthorg.bozo;
+package com.darthorg.bozo.view;
 
-import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
+
+import com.darthorg.bozo.R;
+import com.darthorg.bozo.adapter.PartidasListaAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
