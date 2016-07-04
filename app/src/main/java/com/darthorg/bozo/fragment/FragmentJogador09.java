@@ -1,4 +1,4 @@
-package com.darthorg.bozo.view;
+package com.darthorg.bozo.fragment;
 
 
 import android.os.Bundle;
@@ -10,16 +10,16 @@ import android.view.ViewGroup;
 import com.darthorg.bozo.R;
 
 
-public class FragmentJogador07 extends Fragment {
+public class FragmentJogador09 extends Fragment {
 
 
-    public FragmentJogador07() {    }
+    public FragmentJogador09() {    }
 
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_jogador_07, container, false);
+        return inflater.inflate(R.layout.fragment_jogador_09, container, false);
     }
 
 

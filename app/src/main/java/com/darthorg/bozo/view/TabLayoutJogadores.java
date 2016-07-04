@@ -5,6 +5,17 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
+import com.darthorg.bozo.fragment.FragmentJogador01;
+import com.darthorg.bozo.fragment.FragmentJogador02;
+import com.darthorg.bozo.fragment.FragmentJogador03;
+import com.darthorg.bozo.fragment.FragmentJogador04;
+import com.darthorg.bozo.fragment.FragmentJogador05;
+import com.darthorg.bozo.fragment.FragmentJogador06;
+import com.darthorg.bozo.fragment.FragmentJogador07;
+import com.darthorg.bozo.fragment.FragmentJogador08;
+import com.darthorg.bozo.fragment.FragmentJogador09;
+import com.darthorg.bozo.fragment.FragmentJogador10;
+
 
 public class TabLayoutJogadores extends FragmentPagerAdapter {
     private Context context;

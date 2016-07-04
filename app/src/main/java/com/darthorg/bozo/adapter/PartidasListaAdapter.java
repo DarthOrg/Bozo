@@ -1,4 +1,4 @@
-package com.darthorg.bozo.view;
+package com.darthorg.bozo.adapter;
 
 import android.content.Context;
 import android.view.View;
@@ -7,6 +7,7 @@ import android.widget.BaseAdapter;
 import android.widget.TextView;
 
 import com.darthorg.bozo.R;
+import com.darthorg.bozo.view.Partidas;
 
 import java.util.List;
 

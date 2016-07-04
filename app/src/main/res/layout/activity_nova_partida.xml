@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:fab="http://schemas.android.com/apk/res-auto"
-    tools:context="com.darthorg.bozo.NovaPartida"
+    tools:context=".view.NovaPartida"
     android:orientation="vertical"
     android:background="@color/colorFundoPartida"
     android:weightSum="1">

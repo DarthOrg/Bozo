@@ -8,6 +8,7 @@ import android.view.MenuItem;
 import android.widget.ListView;
 
 import com.darthorg.bozo.R;
+import com.darthorg.bozo.adapter.JogadoresPlacarListaAdapter;
 
 import java.util.ArrayList;
 import java.util.List;

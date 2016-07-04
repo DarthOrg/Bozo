@@ -1,4 +1,4 @@
-package com.darthorg.bozo.view;
+package com.darthorg.bozo.fragment;
 
 
 import android.os.Bundle;
