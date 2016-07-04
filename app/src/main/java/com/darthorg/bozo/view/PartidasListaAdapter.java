@@ -1,10 +1,12 @@
-package com.darthorg.bozo;
+package com.darthorg.bozo.view;
 
 import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
+
+import com.darthorg.bozo.R;
 
 import java.util.List;
 

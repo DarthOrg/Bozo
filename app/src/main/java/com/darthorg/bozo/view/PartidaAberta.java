@@ -1,4 +1,4 @@
-package com.darthorg.bozo;
+package com.darthorg.bozo.view;
 
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
@@ -16,6 +16,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
+
+import com.darthorg.bozo.R;
 
 public class PartidaAberta extends AppCompatActivity {
 

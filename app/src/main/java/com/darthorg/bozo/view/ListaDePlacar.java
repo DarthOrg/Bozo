@@ -1,4 +1,4 @@
-package com.darthorg.bozo;
+package com.darthorg.bozo.view;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -6,6 +6,8 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ListView;
+
+import com.darthorg.bozo.R;
 
 import java.util.ArrayList;
 import java.util.List;

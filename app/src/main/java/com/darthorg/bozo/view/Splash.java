@@ -1,9 +1,11 @@
-package com.darthorg.bozo;
+package com.darthorg.bozo.view;
 
 import android.content.Intent;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+
+import com.darthorg.bozo.R;
 
 public class Splash extends AppCompatActivity {
 

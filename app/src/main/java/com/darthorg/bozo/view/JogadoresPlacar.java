@@ -1,4 +1,4 @@
-package com.darthorg.bozo;
+package com.darthorg.bozo.view;
 
 /**
  * Created by wende on 03/07/2016.

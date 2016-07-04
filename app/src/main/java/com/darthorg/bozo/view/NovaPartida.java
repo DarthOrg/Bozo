@@ -1,24 +1,18 @@
-package com.darthorg.bozo;
+package com.darthorg.bozo.view;
 
 import android.content.Intent;
-import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.AbsListView;
 import android.widget.ArrayAdapter;
-import android.widget.EditText;
 import android.widget.ListView;
-import android.widget.*;
-import android.view.*;
 
-import com.melnykov.fab.ScrollDirectionListener;
+import com.darthorg.bozo.R;
 
 public class NovaPartida extends AppCompatActivity {
 
