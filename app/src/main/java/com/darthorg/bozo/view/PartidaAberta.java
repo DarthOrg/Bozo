@@ -72,28 +72,7 @@ public class PartidaAberta extends AppCompatActivity {
         int id = item.getItemId();
 
 
-        if (id == R.id.action_placar) {
-            Intent intent = new Intent(this,ListaDePlacar.class);
-            startActivity(intent);
-            //return true;
-        }
-        else if (id == R.id.action_add_jogador) {
-
-                    LayoutInflater inflater = getLayoutInflater();
-                    //Recebe a activity para persolnalizar o dialog
-                    View dialogLayout = inflater.inflate(R.layout.theme_dialog_novo_jogador, null);
-
-                    AlertDialog.Builder builder = new AlertDialog.Builder(PartidaAberta.this);
-                    builder.setTitle("Novo jogador");
-                    builder.setPositiveButton("Ok",null);
-                    builder.setNegativeButton("Cancelar",null);
-                    builder.setView(dialogLayout);
-                    builder.show();
-
-
-            //return true;
-        }
-        else if (id == R.id.action_salvar_partida) {
+        if (id == R.id.action_salvar_partida) {
 
             //ProgressDialog Função carregar
             ProgressDialog builder = new ProgressDialog(PartidaAberta.this);
@@ -111,15 +90,56 @@ public class PartidaAberta extends AppCompatActivity {
                     alertaMenssagem.show();
                 }
             }, ProgressSalvar);
-            //return true;
         }
-        else if (id == R.id.action_sair) {
-            finish();
-    //      //return true;
+        else if (id == R.id.action_add_jogador) {
+
+            LayoutInflater inflater = getLayoutInflater();
+            //Recebe a activity para persolnalizar o dialog
+            View dialogLayout = inflater.inflate(R.layout.theme_dialog_novo_jogador, null);
+
+            AlertDialog.Builder builder = new AlertDialog.Builder(PartidaAberta.this);
+            builder.setTitle("Novo jogador");
+            builder.setPositiveButton("Ok",null);
+            builder.setNegativeButton("Cancelar",null);
+            builder.setView(dialogLayout);
+            builder.show();
+        }
+        else if (id == R.id.action_placar) {
+            Intent intent = new Intent(this,ListaDePlacar.class);
+            startActivity(intent);
+        }
+        else if (id == R.id.action_excluir_este_jogador) {
+        }
+        else if (id == R.id.action_bloquear_som) {
         }
         else if (id == R.id.action_configuracoes) {
             return true;
         }
+        else if (id == R.id.action_sair) {
+            AlertDialog.Builder builder = new AlertDialog.Builder(PartidaAberta.this);
+            builder.setMessage("Tem certeza que deseja salvar e sair ?");
+            builder.setPositiveButton("Salvar e sair", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialogInterface, int i) {
+
+
+                    ProgressDialog builder = new ProgressDialog(PartidaAberta.this);
+                    builder.setMessage("Salvando só um momento...");
+                    builder.show();
+
+                    new Handler().postDelayed(new Runnable() {
+                        public void run() {
+                            Toast alertaMenssagem = Toast.makeText(getApplicationContext(),"Partida salva com sucesso", Toast.LENGTH_LONG);
+                            alertaMenssagem.show();
+                            finish();
+                        }
+                    }, Progress);
+                }
+            });
+            builder.setNegativeButton("Não",null);
+            builder.show();
+        }
+
         else if (id == android.R.id.home) {
             AlertDialog.Builder builder = new AlertDialog.Builder(PartidaAberta.this);
             builder.setMessage("Tem certeza que deseja salvar e sair ?");
