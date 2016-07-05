@@ -7,16 +7,18 @@ public class JogadoresPlacar {
 
     private int id;
     private String nomeJogador;
-    private String txtRodada;
+    private String numeroPosicao;
+    private String posicaoJogador;
     private String numeroRodadas;
 
     //Construtor
 
 
-    public JogadoresPlacar(int id, String nomeJogador, String txtRodada, String numeroRodadas) {
+    public JogadoresPlacar(int id, String nomeJogador, String numeroPosicao, String posicaoJogador, String numeroRodadas) {
         this.id = id;
         this.nomeJogador = nomeJogador;
-        this.txtRodada = txtRodada;
+        this.numeroPosicao = numeroPosicao;
+        this.posicaoJogador = posicaoJogador;
         this.numeroRodadas = numeroRodadas;
     }
 
@@ -39,12 +41,20 @@ public class JogadoresPlacar {
         this.nomeJogador = nomeJogador;
     }
 
-    public String getTxtRodada() {
-        return txtRodada;
+    public String getNumeroPosicao() {
+        return numeroPosicao;
     }
 
-    public void setTxtRodada(String txtRodada) {
-        this.txtRodada = txtRodada;
+    public void setNumeroPosicao(String numeroPosicao) {
+        this.numeroPosicao = numeroPosicao;
+    }
+
+    public String getPosicaoJogador() {
+        return posicaoJogador;
+    }
+
+    public void setPosicaoJogador(String posicaoJogador) {
+        this.posicaoJogador = posicaoJogador;
     }
 
     public String getNumeroRodadas() {

@@ -1,35 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".view.ListaDePlacar"
-    android:orientation="vertical"
-    android:background="@color/colorFundoPartida">
+    android:background="@color/colorWhite">
 
     <android.support.design.widget.AppBarLayout
-        android:layout_width="match_parent"
+        android:id="@+id/appbar"
         android:layout_height="wrap_content"
-        app:elevation="0dp">
+        android:layout_width="match_parent"
+        android:fitsSystemWindows="true"
+        app:elevation="5dp">
 
-        <!--TOOLBAR TOPO-->
         <android.support.v7.widget.Toolbar
             android:id="@+id/toolbar"
+            android:layout_height="?attr/actionBarSize"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"/>
+            app:layout_scrollFlags="scroll|enterAlways"
+            android:fitsSystemWindows="true"/>
 
-        <!--TAB LAYOUT A BAIXO-->
-
-    </android.support.design.widget.AppBarLayout>
-    <android.support.design.widget.AppBarLayout
-        android:layout_width="match_parent"
-        android:layout_height="56dp"
-        app:elevation="0dp">
-
-        <RelativeLayout
+        <FrameLayout
+            android:fitsSystemWindows="true"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="60dp"
+            android:orientation="vertical"
+            android:background="@color/colorAccent">
 
 
             <TextView
@@ -38,42 +35,33 @@
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:text="Total de rodadas"
                 android:id="@+id/textView"
-                android:layout_gravity="center"
-                android:layout_centerVertical="true"
-                android:layout_centerHorizontal="true" />
+                android:textSize="15dp"
+                android:layout_gravity="center" />
 
-
-            <RelativeLayout
-                android:layout_width="25dp"
-                android:layout_height="25dp"
-                android:layout_alignTop="@+id/textView"
-                android:layout_toRightOf="@+id/textView"
-                android:layout_toEndOf="@+id/textView"
-                android:layout_marginLeft="20dp"
-                android:background="@drawable/circulo"
-                >
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceMedium"
+            <Button
+                android:layout_width="30dp"
+                android:layout_height="30dp"
                 android:text="38"
                 android:textColor="@color/colorAccent"
+                android:textSize="15dp"
+                android:background="@drawable/circulo"
                 android:id="@+id/textView2"
-                android:layout_gravity="center"
+                android:layout_gravity="right|center_vertical"
                 android:layout_centerVertical="true"
-                android:layout_centerHorizontal="true"/>
-
-            </RelativeLayout>
-        </RelativeLayout>
+                android:layout_centerHorizontal="true"
+                android:layout_marginRight="16dp" />
+        </FrameLayout>
 
     </android.support.design.widget.AppBarLayout>
 
+
     <ListView
+        android:background="@color/colorFundoPartida"
+        android:layout_marginTop="115dp"
+        android:dividerHeight="1dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/list_view_placar"
-        android:cacheColorHint="@color/colorBlack"
-        android:layout_gravity="center_horizontal" />
+        android:id="@+id/list_view_placar"/>
 
 
-</LinearLayout>
+</android.support.design.widget.CoordinatorLayout>

@@ -30,7 +30,7 @@
             android:theme="@style/ThemePartidaAberta" />
         <activity
             android:name=".view.ListaDePlacar"
-            android:theme="@style/ThemePlacar" />
+            android:theme="@style/ThemeDistaque" />
         <activity android:name=".view.ListaDePartidas" />
         <!--
      ATTENTION: This was auto-generated to add Google Play services to your project for

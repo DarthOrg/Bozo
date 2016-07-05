@@ -4,6 +4,7 @@ import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.darthorg.bozo.R;
@@ -46,13 +47,15 @@ public class JogadoresPlacarListaAdapter extends BaseAdapter {
     public View getView(int position, View view, ViewGroup viewGroup) {
         View v = View.inflate(mContext, R.layout.theme_listview_placar, null);
         TextView tvNomeJogador = (TextView)v.findViewById(R.id.txt_lista_nome_jogador);
-        TextView tvTxtPlacar = (TextView)v.findViewById(R.id.txt_lista_txt_partidas);
-        TextView tvNumeroRodada = (TextView)v.findViewById(R.id.txt_lista_numero_rodada);
+        Button btNumeroPosicao = (Button) v.findViewById(R.id.btn_lista_numero_posicao);
+        TextView tvposicaoJogador = (TextView)v.findViewById(R.id.txt_lista_posicao_jogador);
+        Button btNumeroRodada = (Button)v.findViewById(R.id.btn_lista_numero_rodada);
 
 
         tvNomeJogador.setText(mJogadoresPlacar.get(position).getNomeJogador());
-        tvTxtPlacar.setText(mJogadoresPlacar.get(position).getTxtRodada());
-        tvNumeroRodada.setText(String.valueOf(mJogadoresPlacar.get(position).getNumeroRodadas()));
+        btNumeroPosicao.setText(mJogadoresPlacar.get(position).getNumeroPosicao());
+        tvposicaoJogador.setText(mJogadoresPlacar.get(position).getPosicaoJogador());
+        btNumeroRodada.setText(String.valueOf(mJogadoresPlacar.get(position).getNumeroRodadas()));
 
         v.setTag(mJogadoresPlacar.get(position).getId());
 

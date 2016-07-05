@@ -26,23 +26,18 @@ public class ListaDePlacar extends AppCompatActivity {
         setContentView(R.layout.activity_placar);
 
         toolbar = (Toolbar) findViewById(R.id.toolbar);
-        toolbar.setTitle("ListaDePlacar");
+        toolbar.setTitle("Placar de rodadas");
         setSupportActionBar(toolbar);
+
 
         listViewPlacar = (ListView) findViewById(R.id.list_view_placar);
 
         mPlacarLista = new ArrayList<>();
 
-        mPlacarLista.add(new JogadoresPlacar(1, "Wendell Ugalds", "Rodadas ganhadas","11"));
-        mPlacarLista.add(new JogadoresPlacar(2, "Selma", "Rodadas ganhadas","9"));
-        mPlacarLista.add(new JogadoresPlacar(3, "Aryane", "Rodadas ganhadas","7"));
-        mPlacarLista.add(new JogadoresPlacar(4, "Regiane", "Rodadas ganhadas","5"));
-        mPlacarLista.add(new JogadoresPlacar(5, "Yasmin", "Rodadas ganhadas","4"));
-        mPlacarLista.add(new JogadoresPlacar(6, "Gustavo candido", "Rodadas ganhadas","2"));
-        mPlacarLista.add(new JogadoresPlacar(7, "Outra pessoa", "Rodadas ganhadas","0"));
-        mPlacarLista.add(new JogadoresPlacar(8, "Outra pessoa", "Rodadas ganhadas","0"));
-        mPlacarLista.add(new JogadoresPlacar(9, "Outra pessoa", "Rodadas ganhadas","0"));
-        mPlacarLista.add(new JogadoresPlacar(10, "Outra pessoa", "Rodadas ganhadas","0"));
+        mPlacarLista.add(new JogadoresPlacar(1, "Wendell Ugalds","1", "Ganhando","11"));
+        mPlacarLista.add(new JogadoresPlacar(2, "Selma","2", "Segundo lugar","9"));
+        mPlacarLista.add(new JogadoresPlacar(3, "Gustavo candido","3", "Terceiro lugar","7"));
+        mPlacarLista.add(new JogadoresPlacar(6, "Aryane","6", "Perdendo","2"));
 
         adapter = new JogadoresPlacarListaAdapter(getApplicationContext(), mPlacarLista);
         listViewPlacar.setAdapter(adapter);

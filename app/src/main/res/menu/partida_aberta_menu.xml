@@ -22,7 +22,7 @@
         app:showAsAction="never"/>
     <item
         android:id="@+id/action_excluir_este_jogador"
-        android:title="Ecluir este jogador"
+        android:title="Excluir este jogador"
         android:orderInCategory="100"
         app:showAsAction="never"/>
     <item
