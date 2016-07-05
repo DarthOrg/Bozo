@@ -7,6 +7,7 @@ import android.database.sqlite.SQLiteDatabase;
 
 import com.darthorg.bozo.datamodel.DataModel;
 import com.darthorg.bozo.datasource.DataSource;
+import com.darthorg.bozo.model.Jogador;
 import com.darthorg.bozo.model.Partida;
 
 import java.util.ArrayList;
@@ -61,6 +62,36 @@ public class PartidaDAO {
             } while (cursor.moveToNext());
         }
         return list;
+    }
+
+    //TODO: Testar esse método
+    public List<Jogador> buscarJogadoresPartida(long idPartida) {
+        List<Jogador> jogadorList = new ArrayList<Jogador>();
+
+        String[] colunas = new String[]{"_id", "nome", "pontuacao", "fk_rodada"};
+
+        String sql = "SELECT " + DataModel.getTabelaJogadores() + "._id ," + DataModel.getTabelaJogadores() + ".nome ," + DataModel.getTabelaJogadores() + ".pontuacao , " + DataModel.getTabelaJogadores() + ".fk_rodada ";
+        sql += " FROM " + DataModel.getTabelaPartidas() + " JOIN " + DataModel.getTabelaRodadas() + " ON " + DataModel.getTabelaRodadas() + ".fk_partida = " + DataModel.getTabelaPartidas() + "._id ";
+        sql += " JOIN " + DataModel.getTabelaJogadores() + " ON " + DataModel.getTabelaJogadores() + ".fk_rodada = " + DataModel.getTabelaRodadas() + "._id ";
+        sql += " WHERE " + DataModel.getTabelaPartidas() + "._id = " + idPartida + " ;";
+
+        Cursor cursor = db.rawQuery(sql, colunas, null);
+
+        if (cursor.getCount() > 0) {
+            cursor.moveToFirst();
+            do {
+
+                Jogador j = new Jogador();
+                j.setIdJogador(cursor.getLong(0));
+                j.setNome(cursor.getString(1));
+                j.setPontuacao(cursor.getInt(2));
+                j.setIdRodada(cursor.getLong(3));
+
+                jogadorList.add(j);
+            } while (cursor.moveToNext());
+        }
+
+        return jogadorList;
     }
 
 }
