@@ -7,7 +7,7 @@ import android.widget.BaseAdapter;
 import android.widget.TextView;
 
 import com.darthorg.bozo.R;
-import com.darthorg.bozo.view.Partidas;
+import com.darthorg.bozo.model.Partida;
 
 import java.util.List;
 
@@ -17,12 +17,12 @@ import java.util.List;
 public class PartidasListaAdapter extends BaseAdapter {
 
     private Context mContext;
-    private List<Partidas> mPartidasLista;
+    private List<Partida> mPartidasLista;
 
     //Construtor
 
 
-    public PartidasListaAdapter(Context mContext, List<Partidas> mPartidasLista) {
+    public PartidasListaAdapter(Context mContext, List<Partida> mPartidasLista) {
         this.mContext = mContext;
         this.mPartidasLista = mPartidasLista;
     }
@@ -49,11 +49,11 @@ public class PartidasListaAdapter extends BaseAdapter {
         TextView tvNomePartida = (TextView)v.findViewById(R.id.txt_lista_nome_partida);
         TextView tvNomeJogadores = (TextView)v.findViewById(R.id.txt_lista_nome_jogadores);
 
-        tvNumero.setText(String.valueOf(mPartidasLista.get(position).getNumero()));
-        tvNomePartida.setText(mPartidasLista.get(position).getNomePartida());
-        tvNomeJogadores.setText(mPartidasLista.get(position).getNomeJogadores());
+        tvNumero.setText(String.valueOf(mPartidasLista.get(position).getIdPartida()));
+        tvNomePartida.setText(mPartidasLista.get(position).getNome());
+        //tvNomeJogadores.setText(mPartidasLista.get(position).getNomeJogadores());
 
-        v.setTag(mPartidasLista.get(position).getId());
+        //v.setTag(mPartidasLista.get(position).getId());
 
         return v;
     }
