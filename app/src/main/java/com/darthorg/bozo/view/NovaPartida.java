@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -15,14 +16,8 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import com.darthorg.bozo.R;
-import com.darthorg.bozo.dao.PartidaDAO;
-import com.darthorg.bozo.model.Partida;
 
 public class NovaPartida extends AppCompatActivity {
-
-    private PartidaDAO partidaDAO;
-    private Partida partida = new Partida();
-    private EditText nomePartida;
 
     private Toolbar toolbar;
 
@@ -76,21 +71,15 @@ public class NovaPartida extends AppCompatActivity {
         int id = item.getItemId();
 
         if (id == R.id.action_inciar_partida) {
-            partidaDAO = new PartidaDAO(this);
             EditText etNovaPartida = (EditText) findViewById(R.id.editText_nomePartida);
 
-
-            if (etNovaPartida.getText() != null) {
-                partida.setNome(etNovaPartida.getText().toString());
-                partidaDAO.novaPartida(partida);
-
-                Intent intent = new Intent(this, PartidaAberta.class);
-                startActivity(intent);
-            } else {
+            if (TextUtils.isEmpty(etNovaPartida.getText().toString())) {
                 Toast.makeText(this, "Por favor insira um nome para sua partida!", Toast.LENGTH_SHORT).show();
+            } else {
+                Intent intent = new Intent(this, PartidaAberta.class);
+                intent.putExtra("nomepartida", etNovaPartida.getText().toString());
+                startActivity(intent);
             }
-
-
             //return true;
         } else if (id == android.R.id.home) {
             finish();
