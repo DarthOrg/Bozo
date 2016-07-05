@@ -45,15 +45,13 @@ public class PartidasListaAdapter extends BaseAdapter {
     @Override
     public View getView(int position, View view, ViewGroup viewGroup) {
         View v = View.inflate(mContext, R.layout.theme_listview_partidas, null);
-        TextView tvNumero = (TextView)v.findViewById(R.id.txt_lista_numero);
-        TextView tvNomePartida = (TextView)v.findViewById(R.id.txt_lista_nome_partida);
-        TextView tvNomeJogadores = (TextView)v.findViewById(R.id.txt_lista_nome_jogadores);
+        TextView tvNumero = (TextView) v.findViewById(R.id.txt_lista_numero);
+        TextView tvNomePartida = (TextView) v.findViewById(R.id.txt_lista_nome_partida);
 
         tvNumero.setText(String.valueOf(mPartidasLista.get(position).getIdPartida()));
         tvNomePartida.setText(mPartidasLista.get(position).getNome());
-        //tvNomeJogadores.setText(mPartidasLista.get(position).getNomeJogadores());
 
-        //v.setTag(mPartidasLista.get(position).getId());
+        v.setTag(mPartidasLista.get(position).getIdPartida());
 
         return v;
     }
