@@ -3,7 +3,9 @@ package com.darthorg.bozo.dao;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
+import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
+import android.util.Log;
 
 import com.darthorg.bozo.datamodel.DataModel;
 import com.darthorg.bozo.datasource.DataSource;
@@ -62,6 +64,32 @@ public class PartidaDAO {
             } while (cursor.moveToNext());
         }
         return list;
+    }
+
+    public Partida buscarPartidaPorNome(String nome) {
+
+        Partida partida = null;
+
+        try {
+
+            String[] colunas = new String[]{"_id", "nome"};
+            // Idem a: SELECT _id,nome,cpf,idade from pessoa where nome = ?
+            Cursor c = db.query(DataModel.getTabelaPartidas(), colunas, "nome " + "='" + nome + "'", null, null, null, null);
+
+            // Se encontrou...
+            if (c.moveToNext()) {
+
+                partida = new Partida();
+                // utiliza os métodos getLong(), getString(), getInt(), etc para recuperar os valores
+                partida.setIdPartida(c.getLong(0));
+                partida.setNome(c.getString(1));
+            }
+        } catch (SQLException e) {
+            Log.e("bugsinistro", "Erro ao buscar a pessoa pelo nome: " + e.toString());
+            return null;
+        }
+
+        return partida;
     }
 
     //TODO: Testar esse método
