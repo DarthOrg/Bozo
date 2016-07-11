@@ -63,11 +63,11 @@
 
     </LinearLayout>
 
-    <ImageButton
-        android:id="@+id/button"
+    <Button
+        android:id="@+id/btnDeletarPartida"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
-        android:background="@color/colorTrasnparente"
-        android:src="@drawable/ic_menu_lista" />
+        android:backgroundTint="@color/colorAccent"
+        android:text="Del" />
 
 </LinearLayout>
