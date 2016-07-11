@@ -11,20 +11,34 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
 
 import com.darthorg.bozo.R;
 import com.darthorg.bozo.adapter.TabsDinamicosAdapter;
+import com.darthorg.bozo.controller.JogadorController;
 import com.darthorg.bozo.controller.PartidaController;
+import com.darthorg.bozo.controller.RodadaController;
+import com.darthorg.bozo.dao.PartidaDAO;
+import com.darthorg.bozo.dao.RodadaDAO;
 import com.darthorg.bozo.fragment.FragmentFilho;
 import com.darthorg.bozo.model.Partida;
+import com.darthorg.bozo.model.Rodada;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class PartidaAberta extends AppCompatActivity {
 
+    private Partida partida;
+    private Rodada rodada = new Rodada();
+    private List<Partida> partidas = new ArrayList<Partida>();
+
     private PartidaController partidaController;
-    private Partida partida = new Partida();
+    private RodadaController rodadaController;
+    private JogadorController jogadorController;
     private ViewPager viewPager;
     private TabLayout tabLayout;
     private Toolbar toolbar;
@@ -41,17 +55,19 @@ public class PartidaAberta extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_partida_aberta);
 
-        Intent intent = getIntent();
-        bundle = intent.getExtras();
-        partida.setNome(bundle.getString("nomepartida"));
+        //Busca a partida atual
+        partida = buscarPartida();
 
-        toolbar = (Toolbar) findViewById(R.id.toolbar);
+        // teste para ver se cria as rodadas
+        rodada.setIdPartida(partida.getIdPartida());
+        RodadaDAO rodadaDAO = new RodadaDAO(this);
+        rodadaDAO.novaRodada(rodada);
+
+        //Busca os Ids nos Xml
+        getIDs();
+
         toolbar.setTitle(partida.getNome());
-
         setSupportActionBar(toolbar);
-
-        viewPager = (ViewPager) findViewById(R.id.viewPagerMarcadorJogador);
-        tabLayout = (TabLayout) findViewById(R.id.tabLayoutJogadores);
 
         adapter = new TabsDinamicosAdapter(getSupportFragmentManager(), PartidaAberta.this, viewPager, tabLayout);
         viewPager.setAdapter(adapter);
@@ -63,12 +79,26 @@ public class PartidaAberta extends AppCompatActivity {
         tabLayout.setTabTextColors(corOff, corOn);
         tabLayout.setSelectedTabIndicatorColor(corBarra);
         tabLayout.setSelectedTabIndicatorHeight(7);
-        tabLayout.setTabMode(TabLayout.MODE_SCROLLABLE); // Adiciona o scroll horizontal para as tabs
 
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+    }
 
+    public void getIDs() {
+        toolbar = (Toolbar) findViewById(R.id.toolbar);
+        viewPager = (ViewPager) findViewById(R.id.viewPagerMarcadorJogador);
+        tabLayout = (TabLayout) findViewById(R.id.tabLayoutJogadores);
+    }
 
+    public Partida buscarPartida() {
+        Intent intent = getIntent();
+        bundle = intent.getExtras();
+        Partida partidaAtual;
+
+        PartidaDAO partidaDAO = new PartidaDAO(this);
+        partidaAtual = partidaDAO.buscarPartidaPorNome(bundle.getString("nomepartida"));
+        Log.i("bugsinistro", "nome : " + partidaAtual.getNome() + " " + " id : " + partidaAtual.getIdPartida());
+        return partidaAtual;
     }
 
     @Override
@@ -93,13 +123,7 @@ public class PartidaAberta extends AppCompatActivity {
             //Tepo que a barra vai demorar para carregar
             new Handler().postDelayed(new Runnable() {
                 public void run() {
-                    partidaController = new PartidaController(PartidaAberta.this);
-                    if (partidaController.inserirPartida(partida)) {
-                        //Menssagem que vai aparecer após o salvamento
-                        Toast.makeText(PartidaAberta.this, "Partida salva com sucesso", Toast.LENGTH_LONG).show();
-                    } else {
-                        Toast.makeText(PartidaAberta.this, "Ocorreu um erro", Toast.LENGTH_LONG).show();
-                    }
+                    //TODO: Implementar o metodo para salvar a partida
                     builder.dismiss();
                 }
             }, ProgressSalvar);
@@ -131,41 +155,39 @@ public class PartidaAberta extends AppCompatActivity {
             return true;
         } else if (id == R.id.action_sair) {
             AlertDialog.Builder builder = new AlertDialog.Builder(PartidaAberta.this);
-            builder.setMessage("Tem certeza que deseja salvar e sair ?");
-            builder.setPositiveButton("Salvar e sair", new DialogInterface.OnClickListener() {
+            builder.setMessage("Deseja salvar antes de Sair ?");
+            builder.setCancelable(true);
+            builder.setPositiveButton("Sim ", new DialogInterface.OnClickListener() {
                 @Override
-                public void onClick(DialogInterface dialogInterface, int i) {
-
-
-                    ProgressDialog builder = new ProgressDialog(PartidaAberta.this);
-                    builder.setMessage("Salvando só um momento...");
-                    builder.show();
-
-                    new Handler().postDelayed(new Runnable() {
-                        public void run() {
-                            Toast alertaMenssagem = Toast.makeText(getApplicationContext(), "Partida salva com sucesso", Toast.LENGTH_LONG);
-                            alertaMenssagem.show();
-                            finish();
-                        }
-                    }, Progress);
+                public void onClick(DialogInterface dialog, int which) {
+                    //TODO: Implementar o metodo para salvar a partida
+                    finish();
                 }
             });
-            builder.setNegativeButton("Não", null);
+
+            builder.setNegativeButton("Não", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    PartidaDAO partidaDAO = new PartidaDAO(PartidaAberta.this);
+                    partidaDAO.deletarPartida(partida);
+                    finish();
+                }
+            });
+
             builder.show();
         } else if (id == android.R.id.home) {
             AlertDialog.Builder builder = new AlertDialog.Builder(PartidaAberta.this);
-            builder.setMessage("Tem certeza que deseja salvar e sair ?");
+            builder.setMessage("Deseja salvar antes de Sair ?");
             builder.setPositiveButton("Salvar e sair", new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialogInterface, int i) {
-
-
                     ProgressDialog builder = new ProgressDialog(PartidaAberta.this);
                     builder.setMessage("Salvando só um momento...");
                     builder.show();
 
                     new Handler().postDelayed(new Runnable() {
                         public void run() {
+                            //TODO: Implementar o metodo para salvar a partida
                             Toast alertaMenssagem = Toast.makeText(getApplicationContext(), "Partida salva com sucesso", Toast.LENGTH_LONG);
                             alertaMenssagem.show();
                             finish();
@@ -173,7 +195,14 @@ public class PartidaAberta extends AppCompatActivity {
                     }, Progress);
                 }
             });
-            builder.setNegativeButton("Não", null);
+            builder.setNegativeButton("Não", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    PartidaDAO partidaDAO = new PartidaDAO(PartidaAberta.this);
+                    partidaDAO.deletarPartida(partida);
+                    finish();
+                }
+            });
             builder.show();
 
 

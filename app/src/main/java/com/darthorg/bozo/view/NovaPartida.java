@@ -17,15 +17,21 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import com.darthorg.bozo.R;
+import com.darthorg.bozo.controller.PartidaController;
+import com.darthorg.bozo.model.Partida;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class NovaPartida extends AppCompatActivity {
 
+    private Partida partida = new Partida();
+    private PartidaController partidaController;
+
     private Toolbar toolbar;
     private List<String> jogadores = new ArrayList<>();
     private ArrayAdapter<String> adapter;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -86,16 +92,21 @@ public class NovaPartida extends AppCompatActivity {
         int id = item.getItemId();
 
         if (id == R.id.action_inciar_partida) {
+            partidaController = new PartidaController(this);
+
             EditText etNovaPartida = (EditText) findViewById(R.id.editText_nomePartida);
+            partida.setNome(etNovaPartida.getText().toString());
 
             if (TextUtils.isEmpty(etNovaPartida.getText().toString())) {
                 Toast.makeText(this, "Por favor insira um nome para sua partida!", Toast.LENGTH_SHORT).show();
-            } else {
+            } else if (partidaController.inserirPartida(partida)) {
                 Intent intent = new Intent(this, PartidaAberta.class);
                 intent.putExtra("nomepartida", etNovaPartida.getText().toString());
                 startActivity(intent);
+                finish();
+            } else {
+                Toast.makeText(this, "Ocorreu um erro ao dar um nome a partida", Toast.LENGTH_SHORT).show();
             }
-            //return true;
         } else if (id == android.R.id.home) {
             finish();
         }
