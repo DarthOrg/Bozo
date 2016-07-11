@@ -163,12 +163,17 @@ public class PartidaAberta extends AppCompatActivity {
             Intent intent = new Intent(this, ListaDePlacar.class);
             startActivity(intent);
         } else if (id == R.id.action_excluir_este_jogador) {
-            adapter.removeFrag(viewPager.getCurrentItem());
-            adapter.notifyDataSetChanged();
-
             if (adapter.getCount() > 0) {
+
+                adapter.removeFrag(viewPager.getCurrentItem());
+                adapter.notifyDataSetChanged();
+                // vincula denovo o viewpager com o tablayout
                 tabLayout.setupWithViewPager(viewPager);
+                // coloca como o item atual o ultimo
                 viewPager.setCurrentItem(adapter.getCount() - 1);
+
+            } else {
+                Toast.makeText(this, "Não tem mais jogadores para excluir", Toast.LENGTH_SHORT).show();
             }
 
         } else if (id == R.id.action_bloquear_som) {
