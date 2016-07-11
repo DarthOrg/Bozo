@@ -21,9 +21,11 @@ import com.darthorg.bozo.adapter.TabsDinamicosAdapter;
 import com.darthorg.bozo.controller.JogadorController;
 import com.darthorg.bozo.controller.PartidaController;
 import com.darthorg.bozo.controller.RodadaController;
+import com.darthorg.bozo.dao.JogadorDAO;
 import com.darthorg.bozo.dao.PartidaDAO;
 import com.darthorg.bozo.dao.RodadaDAO;
 import com.darthorg.bozo.fragment.FragmentFilho;
+import com.darthorg.bozo.model.Jogador;
 import com.darthorg.bozo.model.Partida;
 import com.darthorg.bozo.model.Rodada;
 
@@ -34,6 +36,7 @@ public class PartidaAberta extends AppCompatActivity {
 
     private Partida partida;
     private Rodada rodada = new Rodada();
+    private Jogador jogador = new Jogador();
     private List<Partida> partidas = new ArrayList<Partida>();
 
     private PartidaController partidaController;
@@ -62,6 +65,14 @@ public class PartidaAberta extends AppCompatActivity {
         rodada.setIdPartida(partida.getIdPartida());
         RodadaDAO rodadaDAO = new RodadaDAO(this);
         rodadaDAO.novaRodada(rodada);
+
+        Rodada rodadaAtual = buscarRodada(partida.getIdPartida());
+
+        jogador.setNome("Jorgewal");
+        jogador.setIdRodada(rodadaAtual.getIdRodada());
+
+        JogadorDAO jogadorDAO = new JogadorDAO(this);
+        jogadorDAO.novoJogador(jogador);
 
         //Busca os Ids nos Xml
         getIDs();
@@ -99,6 +110,16 @@ public class PartidaAberta extends AppCompatActivity {
         partidaAtual = partidaDAO.buscarPartidaPorNome(bundle.getString("nomepartida"));
         Log.i("bugsinistro", "nome : " + partidaAtual.getNome() + " " + " id : " + partidaAtual.getIdPartida());
         return partidaAtual;
+    }
+
+    public Rodada buscarRodada(long idRodada) {
+
+        Rodada rodadaAtual;
+
+        RodadaDAO rodadaDAO = new RodadaDAO(this);
+        rodadaAtual = rodadaDAO.buscarRodadaPorPartida(idRodada);
+        //Log.i("bugsinistro", "Rodada : " + rodadaAtual.getIdRodada() + "da partida : " + rodadaAtual.getIdPartida());
+        return rodadaAtual;
     }
 
     @Override
