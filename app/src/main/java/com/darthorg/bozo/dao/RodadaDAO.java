@@ -3,7 +3,9 @@ package com.darthorg.bozo.dao;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
+import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
+import android.util.Log;
 
 import com.darthorg.bozo.datamodel.DataModel;
 import com.darthorg.bozo.datasource.DataSource;
@@ -63,6 +65,33 @@ public class RodadaDAO {
             } while (cursor.moveToNext());
         }
         return list;
+    }
+
+    public Rodada buscarRodadaPorPartida(long idPartida) {
+
+        Rodada rodada = null;
+
+        try {
+
+            String[] colunas = new String[]{"_id", "vencedor", "fk_partida"};
+            // Idem a: SELECT _id,nome,cpf,idade from pessoa where nome = ?
+            Cursor c = db.query(DataModel.getTabelaRodadas(), colunas, "fk_partida " + "='" + idPartida + "'", null, null, null, null);
+
+            // Se encontrou...
+            if (c.moveToNext()) {
+
+                rodada = new Rodada();
+                // utiliza os métodos getLong(), getString(), getInt(), etc para recuperar os valores
+                rodada.setIdRodada(c.getLong(0));
+                rodada.setNomeVencedor(c.getString(1));
+                rodada.setIdPartida(c.getLong(2));
+            }
+        } catch (SQLException e) {
+            Log.e("bugsinistro", "Erro ao buscar a pessoa pelo nome: " + e.toString());
+            return null;
+        }
+
+        return rodada;
     }
 
 
