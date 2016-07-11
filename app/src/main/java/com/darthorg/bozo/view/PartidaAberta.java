@@ -17,13 +17,13 @@ import android.widget.Toast;
 
 import com.darthorg.bozo.R;
 import com.darthorg.bozo.adapter.TabsDinamicosAdapter;
-import com.darthorg.bozo.dao.PartidaDAO;
+import com.darthorg.bozo.controller.PartidaController;
 import com.darthorg.bozo.fragment.FragmentFilho;
 import com.darthorg.bozo.model.Partida;
 
 public class PartidaAberta extends AppCompatActivity {
 
-    private PartidaDAO partidaDAO;
+    private PartidaController partidaController;
     private Partida partida = new Partida();
     private ViewPager viewPager;
     private TabLayout tabLayout;
@@ -93,12 +93,14 @@ public class PartidaAberta extends AppCompatActivity {
             //Tepo que a barra vai demorar para carregar
             new Handler().postDelayed(new Runnable() {
                 public void run() {
-                    partidaDAO = new PartidaDAO(PartidaAberta.this);
-                    partidaDAO.novaPartida(partida);
+                    partidaController = new PartidaController(PartidaAberta.this);
+                    if (partidaController.inserirPartida(partida)) {
+                        //Menssagem que vai aparecer após o salvamento
+                        Toast.makeText(PartidaAberta.this, "Partida salva com sucesso", Toast.LENGTH_LONG).show();
+                    } else {
+                        Toast.makeText(PartidaAberta.this, "Ocorreu um erro", Toast.LENGTH_LONG).show();
+                    }
                     builder.dismiss();
-                    //Menssagem que vai aparecer após o salvamento
-                    Toast alertaMenssagem = Toast.makeText(getApplicationContext(), "Partida salva com sucesso", Toast.LENGTH_LONG);
-                    alertaMenssagem.show();
                 }
             }, ProgressSalvar);
         } else if (id == R.id.action_add_jogador) {
