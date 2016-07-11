@@ -18,10 +18,17 @@ public class DataSource extends SQLiteOpenHelper {
     }
 
     @Override
+    public void onOpen(SQLiteDatabase db) {
+        super.onOpen(db);
+        db.setForeignKeyConstraintsEnabled(true);
+    }
+
+    @Override
     public void onCreate(SQLiteDatabase db) {
         db.execSQL(DataModel.criarTabelaPartidas());
         db.execSQL(DataModel.criarTabelaRodadas());
         db.execSQL(DataModel.criarTabelaJogadores());
+
     }
 
     @Override
