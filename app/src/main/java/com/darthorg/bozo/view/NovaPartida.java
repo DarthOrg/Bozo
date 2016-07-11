@@ -1,5 +1,6 @@
 package com.darthorg.bozo.view;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
@@ -17,9 +18,14 @@ import android.widget.Toast;
 
 import com.darthorg.bozo.R;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class NovaPartida extends AppCompatActivity {
 
     private Toolbar toolbar;
+    private List<String> jogadores = new ArrayList<>();
+    private ArrayAdapter<String> adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,10 +37,8 @@ public class NovaPartida extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
 
-        String[] jogadores = {"Jogador 01", "Jogador 02"};
-
         ListView listView = (ListView) findViewById(R.id.list_view_jogadores);
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_activated_1, jogadores);
+        adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_activated_1, jogadores);
         listView.setAdapter(adapter);
 
         com.melnykov.fab.FloatingActionButton fab = (com.melnykov.fab.FloatingActionButton) findViewById(R.id.fab);
@@ -45,10 +49,21 @@ public class NovaPartida extends AppCompatActivity {
                 LayoutInflater inflater = getLayoutInflater();
                 //Recebe a activity para persolnalizar o dialog
                 View dialogLayout = inflater.inflate(R.layout.theme_dialog_novo_jogador, null);
+                final EditText etNomeJogador = (EditText) dialogLayout.findViewById(R.id.edit_nome_novo_jogador);
 
                 AlertDialog.Builder builder = new AlertDialog.Builder(NovaPartida.this);
                 builder.setTitle("Novo jogador");
-                builder.setPositiveButton("Ok", null);
+                builder.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        if (jogadores.size() < 10) {
+                            jogadores.add(etNomeJogador.getText().toString());
+                            adapter.notifyDataSetChanged();
+                        } else {
+                            Toast.makeText(NovaPartida.this, "Numero máximo de jogadores é 10", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                });
                 builder.setNegativeButton("Cancelar", null);
                 builder.setView(dialogLayout);
                 builder.show();

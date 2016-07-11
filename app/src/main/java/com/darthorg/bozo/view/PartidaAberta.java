@@ -11,20 +11,27 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
 import android.widget.Toast;
 
 import com.darthorg.bozo.R;
+import com.darthorg.bozo.adapter.TabsDinamicosAdapter;
+import com.darthorg.bozo.dao.PartidaDAO;
+import com.darthorg.bozo.fragment.FragmentFilho;
+import com.darthorg.bozo.model.Partida;
 
 public class PartidaAberta extends AppCompatActivity {
 
-
+    private PartidaDAO partidaDAO;
+    private Partida partida = new Partida();
     private ViewPager viewPager;
     private TabLayout tabLayout;
     private Toolbar toolbar;
+
+    private Bundle bundle;
+    private TabsDinamicosAdapter adapter;
+
     private final int Progress = 1000;
     private final int ProgressSalvar = 1000;
 
@@ -34,18 +41,22 @@ public class PartidaAberta extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_partida_aberta);
 
-
+        Intent intent = getIntent();
+        bundle = intent.getExtras();
+        partida.setNome(bundle.getString("nomepartida"));
 
         toolbar = (Toolbar) findViewById(R.id.toolbar);
-        toolbar.setTitle("Partida 01");
+        toolbar.setTitle(partida.getNome());
+
         setSupportActionBar(toolbar);
 
         viewPager = (ViewPager) findViewById(R.id.viewPagerMarcadorJogador);
         tabLayout = (TabLayout) findViewById(R.id.tabLayoutJogadores);
 
-        viewPager.setAdapter(new TabLayoutJogadores(this, getSupportFragmentManager()));
-
+        adapter = new TabsDinamicosAdapter(getSupportFragmentManager(), PartidaAberta.this, viewPager, tabLayout);
+        viewPager.setAdapter(adapter);
         tabLayout.setupWithViewPager(viewPager);
+
         int corOn = ContextCompat.getColor(this, R.color.colorBlack);
         int corOff = ContextCompat.getColor(this, R.color.colorBlackTransparente);
         int corBarra = ContextCompat.getColor(this, R.color.colorBlack);
@@ -61,7 +72,7 @@ public class PartidaAberta extends AppCompatActivity {
     }
 
     @Override
-    public boolean onCreateOptionsMenu (Menu menu){
+    public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.partida_aberta_menu, menu);
         return true;
     }
@@ -75,47 +86,48 @@ public class PartidaAberta extends AppCompatActivity {
         if (id == R.id.action_salvar_partida) {
 
             //ProgressDialog Função carregar
-            ProgressDialog builder = new ProgressDialog(PartidaAberta.this);
+            final ProgressDialog builder = new ProgressDialog(PartidaAberta.this);
             builder.setMessage("Salvando só um momento...");
             builder.show();
 
             //Tepo que a barra vai demorar para carregar
             new Handler().postDelayed(new Runnable() {
                 public void run() {
-                    //Activity que vai entrar e sair
-                    startActivity(new Intent(PartidaAberta.this,PartidaAberta.class));
-                    finish();
+                    partidaDAO = new PartidaDAO(PartidaAberta.this);
+                    partidaDAO.novaPartida(partida);
+                    builder.dismiss();
                     //Menssagem que vai aparecer após o salvamento
-                    Toast alertaMenssagem = Toast.makeText(getApplicationContext(),"Partida salva com sucesso", Toast.LENGTH_LONG);
+                    Toast alertaMenssagem = Toast.makeText(getApplicationContext(), "Partida salva com sucesso", Toast.LENGTH_LONG);
                     alertaMenssagem.show();
                 }
             }, ProgressSalvar);
-        }
-        else if (id == R.id.action_add_jogador) {
+        } else if (id == R.id.action_add_jogador) {
 
-            LayoutInflater inflater = getLayoutInflater();
-            //Recebe a activity para persolnalizar o dialog
-            View dialogLayout = inflater.inflate(R.layout.theme_dialog_novo_jogador, null);
+            FragmentFilho fragmentFilho = new FragmentFilho();
+            adapter.addFrag(fragmentFilho, "teste");
+            adapter.notifyDataSetChanged();
+            if (adapter.getCount() > 0) {
+                tabLayout.setupWithViewPager(viewPager);
+                viewPager.setCurrentItem(adapter.getCount() - 1);
+            }
 
-            AlertDialog.Builder builder = new AlertDialog.Builder(PartidaAberta.this);
-            builder.setTitle("Novo jogador");
-            builder.setPositiveButton("Ok",null);
-            builder.setNegativeButton("Cancelar",null);
-            builder.setView(dialogLayout);
-            builder.show();
-        }
-        else if (id == R.id.action_placar) {
-            Intent intent = new Intent(this,ListaDePlacar.class);
+
+        } else if (id == R.id.action_placar) {
+            Intent intent = new Intent(this, ListaDePlacar.class);
             startActivity(intent);
-        }
-        else if (id == R.id.action_excluir_este_jogador) {
-        }
-        else if (id == R.id.action_bloquear_som) {
-        }
-        else if (id == R.id.action_configuracoes) {
+        } else if (id == R.id.action_excluir_este_jogador) {
+            adapter.removeFrag(viewPager.getCurrentItem());
+            adapter.notifyDataSetChanged();
+
+            if (adapter.getCount() > 0) {
+                tabLayout.setupWithViewPager(viewPager);
+                viewPager.setCurrentItem(adapter.getCount() - 1);
+            }
+
+        } else if (id == R.id.action_bloquear_som) {
+        } else if (id == R.id.action_configuracoes) {
             return true;
-        }
-        else if (id == R.id.action_sair) {
+        } else if (id == R.id.action_sair) {
             AlertDialog.Builder builder = new AlertDialog.Builder(PartidaAberta.this);
             builder.setMessage("Tem certeza que deseja salvar e sair ?");
             builder.setPositiveButton("Salvar e sair", new DialogInterface.OnClickListener() {
@@ -129,18 +141,16 @@ public class PartidaAberta extends AppCompatActivity {
 
                     new Handler().postDelayed(new Runnable() {
                         public void run() {
-                            Toast alertaMenssagem = Toast.makeText(getApplicationContext(),"Partida salva com sucesso", Toast.LENGTH_LONG);
+                            Toast alertaMenssagem = Toast.makeText(getApplicationContext(), "Partida salva com sucesso", Toast.LENGTH_LONG);
                             alertaMenssagem.show();
                             finish();
                         }
                     }, Progress);
                 }
             });
-            builder.setNegativeButton("Não",null);
+            builder.setNegativeButton("Não", null);
             builder.show();
-        }
-
-        else if (id == android.R.id.home) {
+        } else if (id == android.R.id.home) {
             AlertDialog.Builder builder = new AlertDialog.Builder(PartidaAberta.this);
             builder.setMessage("Tem certeza que deseja salvar e sair ?");
             builder.setPositiveButton("Salvar e sair", new DialogInterface.OnClickListener() {
@@ -154,14 +164,14 @@ public class PartidaAberta extends AppCompatActivity {
 
                     new Handler().postDelayed(new Runnable() {
                         public void run() {
-                            Toast alertaMenssagem = Toast.makeText(getApplicationContext(),"Partida salva com sucesso", Toast.LENGTH_LONG);
+                            Toast alertaMenssagem = Toast.makeText(getApplicationContext(), "Partida salva com sucesso", Toast.LENGTH_LONG);
                             alertaMenssagem.show();
                             finish();
                         }
                     }, Progress);
                 }
             });
-            builder.setNegativeButton("Não",null);
+            builder.setNegativeButton("Não", null);
             builder.show();
 
 
@@ -169,7 +179,6 @@ public class PartidaAberta extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
-
 
 
 }
