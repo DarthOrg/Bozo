@@ -3,7 +3,9 @@ package com.darthorg.bozo.dao;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
+import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
+import android.util.Log;
 
 import com.darthorg.bozo.datamodel.DataModel;
 import com.darthorg.bozo.datasource.DataSource;
@@ -60,8 +62,8 @@ public class JogadorDAO {
     public List<Jogador> buscarJogadores() {
         List<Jogador> list = new ArrayList<Jogador>();
 
-        String[] colunas = new String[]{"_id", "nome", "fk_rodada"};
-        Cursor cursor = db.query("partida", colunas, null, null, null, null, null);
+        String[] colunas = new String[]{"_id", "nome", "pontuacao", "fk_rodada"};
+        Cursor cursor = db.query(DataModel.getTabelaJogadores(), colunas, null, null, null, null, null);
 
         if (cursor.getCount() > 0) {
             cursor.moveToFirst();
@@ -69,12 +71,40 @@ public class JogadorDAO {
                 Jogador j = new Jogador();
                 j.setIdJogador(cursor.getLong(0));
                 j.setNome(cursor.getString(1));
-                j.setIdRodada(cursor.getLong(2));
+                j.setPontuacao(cursor.getInt(2));
+                j.setIdRodada(cursor.getLong(3));
                 list.add(j);
 
             } while (cursor.moveToNext());
         }
         return list;
+    }
+
+    public Jogador buscarJogadorPorNome(String nome) {
+
+        Jogador jogador = null;
+
+        try {
+
+            String[] colunas = new String[]{"_id", "nome", "pontuacao", "fk_rodada"};
+            // Idem a: SELECT _id,nome,cpf,idade from pessoa where nome = ?
+            Cursor c = db.query(DataModel.getTabelaJogadores(), colunas, "nome " + "='" + nome + "'", null, null, null, null);
+
+            // Se encontrou...
+            if (c.moveToNext()) {
+
+                jogador = new Jogador();
+                // utiliza os métodos getLong(), getString(), getInt(), etc para recuperar os valores
+                jogador.setIdJogador(c.getLong(0));
+                jogador.setNome(c.getString(1));
+                jogador.setPontuacao(c.getInt(2));
+                jogador.setIdRodada(c.getLong(3));
+            }
+        } catch (SQLException e) {
+            Log.e("bugsinistro", "Erro ao buscar a pessoa pelo nome: " + e.toString());
+            return null;
+        }
+        return jogador;
     }
 
 
