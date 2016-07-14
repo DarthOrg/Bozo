@@ -21,7 +21,6 @@ import com.darthorg.bozo.controller.PartidaController;
 import com.darthorg.bozo.model.Partida;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class NovaPartida extends AppCompatActivity {
 
@@ -29,7 +28,7 @@ public class NovaPartida extends AppCompatActivity {
     private PartidaController partidaController;
 
     private Toolbar toolbar;
-    private List<String> jogadores = new ArrayList<>();
+    private ArrayList<String> jogadores = new ArrayList<>();
     private ArrayAdapter<String> adapter;
 
 
@@ -102,6 +101,7 @@ public class NovaPartida extends AppCompatActivity {
             } else if (partidaController.inserirPartida(partida)) {
                 Intent intent = new Intent(this, PartidaAberta.class);
                 intent.putExtra("nomepartida", etNovaPartida.getText().toString());
+                intent.putStringArrayListExtra("jogadores", jogadores);
                 startActivity(intent);
                 finish();
             } else {
