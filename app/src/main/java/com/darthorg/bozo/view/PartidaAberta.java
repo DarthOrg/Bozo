@@ -24,6 +24,7 @@ import com.darthorg.bozo.adapter.TabsDinamicosAdapter;
 import com.darthorg.bozo.controller.JogadorController;
 import com.darthorg.bozo.controller.PartidaController;
 import com.darthorg.bozo.controller.RodadaController;
+import com.darthorg.bozo.dao.JogadorDAO;
 import com.darthorg.bozo.dao.PartidaDAO;
 import com.darthorg.bozo.dao.RodadaDAO;
 import com.darthorg.bozo.fragment.FragmentFilho;
@@ -142,6 +143,20 @@ public class PartidaAberta extends AppCompatActivity {
     }
 
     /**
+     * Busca jogador por nome no banco
+     *
+     * @param nome
+     * @return
+     */
+    public Jogador buscarJogador(String nome) {
+        Jogador jogador;
+        JogadorDAO jogadorDAO = new JogadorDAO(this);
+        jogador = jogadorDAO.buscarJogadorPorNome(nome);
+
+        return jogador;
+    }
+
+    /**
      * Configura a partida de acordo com os jogadores
      */
     public void configurarPartida() {
@@ -249,18 +264,24 @@ public class PartidaAberta extends AppCompatActivity {
             startActivity(intent);
         } else if (id == R.id.action_excluir_este_jogador) {
             //Todo: Fazer um alert dialog perguntando se quer realmente excluir
+
             if (adapter.getCount() > 0) {
+                jogadorController = new JogadorController(this);
+
+                String nomeJogadorTabAtual = jogadoresRodada.get(viewPager.getCurrentItem()).getNome();
+                Jogador jogadorBuscado = buscarJogador(nomeJogadorTabAtual);
+                jogadorController.deletarJogador(jogadorBuscado);
+                jogadoresRodada.remove(viewPager.getCurrentItem());
+
 
                 adapter.removeFrag(viewPager.getCurrentItem());
                 adapter.notifyDataSetChanged();
                 // vincula denovo o viewpager com o tablayout
                 tabLayout.setupWithViewPager(viewPager);
-                // coloca como o item atual o ultimo
-                viewPager.setCurrentItem(adapter.getCount() - 1);
-
             } else {
                 Toast.makeText(this, "Não tem mais jogadores para excluir", Toast.LENGTH_SHORT).show();
             }
+
 
         } else if (id == R.id.action_bloquear_som) {
         } else if (id == R.id.action_configuracoes) {
