@@ -27,4 +27,15 @@ public class JogadorController {
             return false;
         }
     }
+
+    //Todo : Pensar em uma validação para esse método
+    public boolean deletarJogador(Jogador jogador) {
+        if (jogador != null) {
+            jogadorDAO.removerJogador(jogador);
+            return true;
+        } else {
+            return false;
+        }
+
+    }
 }
