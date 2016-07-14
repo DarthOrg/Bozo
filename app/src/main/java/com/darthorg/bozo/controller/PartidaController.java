@@ -19,6 +19,7 @@ public class PartidaController {
 
     }
 
+    //TODO: Nao deixar inserir partidas com nomes iguais
     public boolean inserirPartida(Partida partida) {
         if (partida.getNome() != null) {
             partidaDAO.novaPartida(partida);
