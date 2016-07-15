@@ -1,6 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Bozó</string>
-    <string name="title_activity_inicio">Inicio</string>
     <string name="txtNovaPartida">Nova Partida</string>
     <string name="txtNomePartida">Nome partida</string>
     <string name="txtSuasPartidas">Suas partidas</string>

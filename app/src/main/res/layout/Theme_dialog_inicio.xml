@@ -10,7 +10,7 @@
         android:id="@+id/btn_nova_partida"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="right|center_vertical"
+        android:layout_gravity="center_vertical"
         android:layout_marginBottom="10dp"
         android:layout_marginTop="10dp"
         android:background="@color/colorTrasnparente"
@@ -19,7 +19,8 @@
         android:paddingLeft="30dp"
         android:text="Nova partida"
         android:textColor="@color/colorAccent"
-        android:textSize="13dp" />
+        android:textSize="13dp"
+        android:textAlignment="textStart" />
 
     <Button
         android:id="@+id/btn_partidas_salvas"
@@ -33,6 +34,7 @@
 
         android:paddingLeft="30dp"
         android:text="Partidas salvas"
-        android:textSize="13dp" />
+        android:textSize="13dp"
+        android:textAlignment="textStart" />
 
 </LinearLayout>

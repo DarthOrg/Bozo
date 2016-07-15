@@ -12,7 +12,7 @@
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
         android:fitsSystemWindows="true"
-        app:elevation="5dp">
+        app:elevation="0dp">
 
         <android.support.v7.widget.Toolbar
             android:id="@+id/toolbar"
@@ -22,10 +22,9 @@
             android:fitsSystemWindows="true"/>
 
         <FrameLayout
-            android:fitsSystemWindows="true"
             android:layout_width="match_parent"
             android:layout_height="60dp"
-            android:orientation="vertical"
+            android:padding="15dp"
             android:background="@color/colorAccent">
 
 
@@ -39,25 +38,44 @@
                 android:layout_gravity="center" />
 
             <Button
-                android:layout_width="30dp"
-                android:layout_height="30dp"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
                 android:text="38"
                 android:textColor="@color/colorAccent"
                 android:textSize="15dp"
                 android:background="@drawable/circulo"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
                 android:id="@+id/textView2"
                 android:layout_gravity="right|center_vertical"
-                android:layout_centerVertical="true"
-                android:layout_centerHorizontal="true"
-                android:layout_marginRight="16dp" />
-        </FrameLayout>
+                android:layout_marginRight="16dp"
+                android:layout_marginLeft="10dp" />
 
+        </FrameLayout>
     </android.support.design.widget.AppBarLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="110dp"
+        android:background="@color/colorFundoPartida">
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Partidas ganhas"
+            android:layout_marginRight="8dp"
+            android:textColor="@color/colorCinzaEscuro"
+            android:textAlignment="textEnd"
+            android:padding="5dp"/>
+    </FrameLayout>
 
 
     <ListView
         android:background="@color/colorFundoPartida"
-        android:layout_marginTop="115dp"
+        android:layout_marginTop="135dp"
         android:dividerHeight="1dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

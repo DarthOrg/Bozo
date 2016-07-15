@@ -1,75 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="horizontal" android:layout_width="match_parent"
+    android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="wrap_content">
-
 
 
     <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="70dp"
-        android:orientation="vertical"
+        android:layout_height="wrap_content"
+        android:padding="15dp"
         android:background="@color/colorWhite">
 
-        <FrameLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginRight="50dp"
-            android:layout_marginLeft="20dp"
-            android:layout_gravity="left|top">
 
-            <TextView
-                android:id="@+id/txt_lista_nome_jogador"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Nome jogador"
-                android:textColor="@color/background_floating_material_dark"
-                android:textSize="20dp"
-                android:layout_gravity="left|center_vertical"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true"
-                android:layout_centerVertical="true"
-                android:layout_marginBottom="10dp" />
-
-            <TextView
-            android:id="@+id/txt_lista_posicao_jogador"
+        <TextView
+            android:id="@+id/txt_lista_nome_jogador"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Nome jogadores"
-            android:gravity="bottom"
-            android:textColor="@color/colorPrimaryDark"
-            android:textSize="10dp"
-            android:textAllCaps="true"
-            android:allowUndo="true"
-                android:layout_gravity="left|bottom"
-                android:layout_below="@+id/txt_lista_nome_partida"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true"
-                android:paddingBottom="5dp"
-                android:layout_marginRight="10dp"
-                android:layout_marginBottom="8dp"
-                android:layout_marginLeft="30dp" />
-
-            <Button
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:text="1"
-                android:textColor="@color/colorWhite"
-                android:textSize="10dp"
-                android:background="@drawable/circulo_cor"
-                android:layout_alignParentBottom="true"
-                android:layout_alignParentRight="true"
-                android:layout_alignParentEnd="true"
-                android:id="@+id/btn_lista_numero_posicao"
-                android:layout_gravity="left|bottom"
-                android:layout_marginRight="10dp"
-                android:layout_marginBottom="10dp" />
-
-        </FrameLayout>
+            android:text="Nome jogador"
+            android:textColor="@color/background_floating_material_dark"
+            android:textSize="15dp"
+            android:layout_gravity="left|center_vertical" />
 
         <Button
-            android:layout_width="30dp"
-            android:layout_height="30dp"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
             android:text="1"
             android:textColor="@color/colorWhite"
             android:textSize="15dp"
@@ -82,13 +35,7 @@
             android:layout_marginRight="16dp"
             android:layout_marginLeft="10dp" />
 
-        <!--<FrameLayout-->
-            <!--android:layout_width="300dp"-->
-            <!--android:layout_height="1dp"-->
-            <!--android:layout_gravity="bottom|center_horizontal"-->
-            <!--android:background="@color/colorFundoPartida"></FrameLayout>-->
-
-
     </FrameLayout>
+
 
 </RelativeLayout>

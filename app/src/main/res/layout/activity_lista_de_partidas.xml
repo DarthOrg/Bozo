@@ -18,9 +18,24 @@
         <android.support.v7.widget.Toolbar
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
+            android:background="@color/colorAccent"
             android:layout_height="?attr/actionBarSize"/>
 
     </android.support.design.widget.AppBarLayout>
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorFundoPartida">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="@string/txtSuasPartidas"
+            android:layout_marginLeft="15dp"
+            android:textColor="@color/colorCinzaEscuro"
+            android:textAlignment="textStart"
+            android:padding="5dp"/>
+    </FrameLayout>
 
     <ListView
         android:layout_width="match_parent"

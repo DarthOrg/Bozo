@@ -3,6 +3,7 @@ package com.darthorg.bozo.view;
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.design.widget.TabLayout;
@@ -16,6 +17,7 @@ import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -66,6 +68,10 @@ public class PartidaAberta extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        if (Build.VERSION.SDK_INT > 16) {
+            getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+                    WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        }
         setContentView(R.layout.activity_partida_aberta);
 
         //Busca os parametros passados por intent
@@ -256,6 +262,7 @@ public class PartidaAberta extends AppCompatActivity {
             });
             builder.setNegativeButton("Cancelar", null);
             builder.setView(dialogLayout);
+            builder.setCancelable(false);
             builder.show();
 
 

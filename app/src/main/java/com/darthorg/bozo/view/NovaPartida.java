@@ -2,6 +2,7 @@ package com.darthorg.bozo.view;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -11,6 +12,7 @@ import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ListView;
@@ -35,10 +37,14 @@ public class NovaPartida extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        if (Build.VERSION.SDK_INT > 16) {
+            getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+                    WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        }
         setContentView(R.layout.activity_nova_partida);
 
         toolbar = (Toolbar) findViewById(R.id.toolbar);
-        toolbar.setTitle("Nova partida");
+        toolbar.setTitle(" ");
         setSupportActionBar(toolbar);
 
 
@@ -65,12 +71,17 @@ public class NovaPartida extends AppCompatActivity {
                             jogadores.add(etNomeJogador.getText().toString());
                             adapter.notifyDataSetChanged();
                         } else {
-                            Toast.makeText(NovaPartida.this, "Numero máximo de jogadores é 10", Toast.LENGTH_SHORT).show();
+                            AlertDialog.Builder maximoJogador = new AlertDialog.Builder(NovaPartida.this);
+                            maximoJogador.setTitle("Máximo 10 jogadores");
+                            maximoJogador.setPositiveButton("Ok",null);
+                            maximoJogador.show();
+                            //Toast.makeText(NovaPartida.this, "Numero máximo de jogadores é 10", Toast.LENGTH_SHORT).show();
                         }
                     }
                 });
                 builder.setNegativeButton("Cancelar", null);
                 builder.setView(dialogLayout);
+                builder.setCancelable(false);
                 builder.show();
             }
         });

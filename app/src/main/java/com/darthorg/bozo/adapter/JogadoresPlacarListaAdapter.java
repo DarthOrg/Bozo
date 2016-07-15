@@ -47,14 +47,10 @@ public class JogadoresPlacarListaAdapter extends BaseAdapter {
     public View getView(int position, View view, ViewGroup viewGroup) {
         View v = View.inflate(mContext, R.layout.theme_listview_placar, null);
         TextView tvNomeJogador = (TextView)v.findViewById(R.id.txt_lista_nome_jogador);
-        Button btNumeroPosicao = (Button) v.findViewById(R.id.btn_lista_numero_posicao);
-        TextView tvposicaoJogador = (TextView)v.findViewById(R.id.txt_lista_posicao_jogador);
         Button btNumeroRodada = (Button)v.findViewById(R.id.btn_lista_numero_rodada);
 
 
         tvNomeJogador.setText(mJogadoresPlacar.get(position).getNomeJogador());
-        btNumeroPosicao.setText(mJogadoresPlacar.get(position).getNumeroPosicao());
-        tvposicaoJogador.setText(mJogadoresPlacar.get(position).getPosicaoJogador());
         btNumeroRodada.setText(String.valueOf(mJogadoresPlacar.get(position).getNumeroRodadas()));
 
         v.setTag(mJogadoresPlacar.get(position).getId());

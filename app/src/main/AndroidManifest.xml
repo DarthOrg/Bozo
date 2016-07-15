@@ -31,7 +31,9 @@
         <activity
             android:name=".view.ListaDePlacar"
             android:theme="@style/ThemeDistaque" />
-        <activity android:name=".view.ListaDePartidas" />
+        <activity android:name=".view.ListaDePartidas"
+            android:theme="@style/ThemeDistaque"/>
+
         <!--
      ATTENTION: This was auto-generated to add Google Play services to your project for
      App Indexing.  See https://g.co/AppIndexing/AndroidStudio for more information.
@@ -40,7 +42,6 @@
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
 
-        <activity android:name=".view.ThemeDialogNovoJogador" />
     </application>
 
 </manifest>
