@@ -15,6 +15,7 @@ import com.darthorg.bozo.R;
 
 /**
  * Created by Gustavo on 11/07/2016.
+ * Um fragmentFilho é responsavel por saber quantos pontos o jogador esta
  */
 public class FragmentFilho extends Fragment {
 
@@ -99,49 +100,49 @@ public class FragmentFilho extends Fragment {
                         if (TextUtils.isEmpty(et.getText().toString())) {
                             dialog.dismiss();
                         } else {
-                            if (posicao == "as") {
+                            if (posicao.equals("as")) {
                                 setPosicaoAs(et.getText().toString());
                                 btnAs.setText(getPosicaoAs());
                                 contador = contador + Integer.parseInt(getPosicaoAs());
-                            } else if (posicao == "duque") {
+                            } else if (posicao.equals("duque")) {
                                 setPosicaoDuque(et.getText().toString());
                                 btnDuque.setText(getPosicaoDuque());
                                 contador = contador + Integer.parseInt(getPosicaoDuque());
-                            } else if (posicao == "terno") {
+                            } else if (posicao.equals("terno")) {
                                 setPosicaoTerno(et.getText().toString());
                                 btnTerno.setText(getPosicaoTerno());
                                 contador = contador + Integer.parseInt(getPosicaoTerno());
-                            } else if (posicao == "quadra") {
+                            } else if (posicao.equals("quadra")) {
                                 setPosicaoQuadra(et.getText().toString());
                                 btnQuadra.setText(getPosicaoQuadra());
                                 contador = contador + Integer.parseInt(getPosicaoQuadra());
 
-                            } else if (posicao == "quadrada") {
+                            } else if (posicao.equals("quadrada")) {
                                 setPosicaoQuadrada(et.getText().toString());
                                 btnQuadrada.setText(getPosicaoQuadrada());
                                 contador = contador + Integer.parseInt(getPosicaoQuadrada());
 
-                            } else if (posicao == "quina") {
+                            } else if (posicao.equals("quina")) {
                                 setPosicaoQuina(et.getText().toString());
                                 btnQuina.setText(getPosicaoQuina());
                                 contador = contador + Integer.parseInt(getPosicaoQuina());
 
-                            } else if (posicao == "sena") {
+                            } else if (posicao.equals("sena")) {
                                 setPosicaoSena(et.getText().toString());
                                 btnSena.setText(getPosicaoSena());
                                 contador = contador + Integer.parseInt(getPosicaoSena());
 
-                            } else if (posicao == "general") {
+                            } else if (posicao.equals("general")) {
                                 setPosicaoGeneral(et.getText().toString());
                                 btnGeneral.setText(getPosicaoGeneral());
                                 contador = contador + Integer.parseInt(getPosicaoGeneral());
 
-                            } else if (posicao == "seguida") {
+                            } else if (posicao.equals("seguida")) {
                                 setPosicaoSeguida(et.getText().toString());
                                 btnSeguida.setText(getPosicaoSeguida());
                                 contador = contador + Integer.parseInt(getPosicaoSeguida());
 
-                            } else if (posicao == "full") {
+                            } else if (posicao.equals("full")) {
                                 setPosicaoFull(et.getText().toString());
                                 btnFull.setText(getPosicaoFull());
                                 contador = contador + Integer.parseInt(getPosicaoFull());
