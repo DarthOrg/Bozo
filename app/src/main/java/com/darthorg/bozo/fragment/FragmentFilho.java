@@ -1,8 +1,9 @@
 package com.darthorg.bozo.fragment;
 
-import android.app.Dialog;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.AlertDialog;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -25,13 +26,14 @@ public class FragmentFilho extends Fragment {
     private TextView resultadoFinal;
     private int contador = 0;
 
-    private Dialog dialog;
-    private EditText et;
+    private LayoutInflater dialogInflater;
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_filho, container, false);
         getIDs(view);
         setEvents();
+
+        dialogInflater = inflater;
 
         btnAs.setText(getPosicaoAs());
         btnDuque.setText(getPosicaoDuque());
@@ -71,27 +73,128 @@ public class FragmentFilho extends Fragment {
 
     private void setEvents() {
 
-        cliquePeca(btnAs, "as");
-        cliquePeca(btnDuque, "duque");
-        cliquePeca(btnTerno, "terno");
-        cliquePeca(btnQuadra, "quadra");
-        cliquePeca(btnQuadrada, "quadrada");
-        cliquePeca(btnQuina, "quina");
-        cliquePeca(btnSena, "sena");
-        cliquePeca(btnGeneral, "general");
-        cliquePeca(btnSeguida, "seguida");
-        cliquePeca(btnFull, "full");
+        cliquePeca(btnAs, "Az");
+        cliquePeca(btnDuque, "Duque");
+        cliquePeca(btnTerno, "Terno");
+        cliquePeca(btnQuadra, "Quadra");
+        cliquePeca(btnQuadrada, "Quadrada");
+        cliquePeca(btnQuina, "Quina");
+        cliquePeca(btnSena, "Sena");
+        cliquePeca(btnGeneral, "General");
+        cliquePeca(btnSeguida, "Seguida");
+        cliquePeca(btnFull, "Full");
     }
 
     public void cliquePeca(final Button button, final String posicao) {
 
         button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+                                      @Override
+                                      public void onClick(View v) {
+
+                                          View dialogLayout = dialogInflater.inflate(R.layout.dialog_pontos, null);
+                                          final EditText et = (EditText) dialogLayout.findViewById(R.id.etPonto);
+
+                                          final AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
+                                          switch (posicao) {
+                                              case "Az":
+                                                  builder.setTitle("Az");
+                                                  break;
+                                              case "Duque":
+                                                  builder.setTitle("Duque");
+                                                  break;
+                                              case "Terno":
+                                                  builder.setTitle("Terno");
+                                                  break;
+                                              case "Quadra":
+                                                  builder.setTitle("Quadra");
+                                                  break;
+                                              case "Quadrada":
+                                                  builder.setTitle("Quadrada");
+                                                  break;
+                                              case "Quina":
+                                                  builder.setTitle("Quina");
+                                                  break;
+                                              case "Sena":
+                                                  builder.setTitle("Sena");
+                                                  break;
+                                              case "Full":
+                                                  builder.setTitle("Full");
+                                                  break;
+                                              case "Seguida":
+                                                  builder.setTitle("Seguida");
+                                                  break;
+                                              case "General":
+                                                  builder.setTitle("General");
+                                                  break;
+                                              default:
+                                                  break;
+                                          }
+
+                                          builder.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+                                                      @Override
+                                                      public void onClick(DialogInterface dialog, int which) {
+                                                          if (TextUtils.isEmpty(et.getText().toString())) {
+                                                              dialog.dismiss();
+                                                          } else {
+                                                              if (posicao.equals("Az")) {
+                                                                  setPosicaoAs(et.getText().toString());
+                                                                  btnAs.setText(getPosicaoAs());
+                                                                  contador = contador + Integer.parseInt(getPosicaoAs());
+                                                              } else if (posicao.equals("Duque")) {
+                                                                  setPosicaoDuque(et.getText().toString());
+                                                                  btnDuque.setText(getPosicaoDuque());
+                                                                  contador = contador + Integer.parseInt(getPosicaoDuque());
+                                                              } else if (posicao.equals("Terno")) {
+                                                                  setPosicaoTerno(et.getText().toString());
+                                                                  btnTerno.setText(getPosicaoTerno());
+                                                                  contador = contador + Integer.parseInt(getPosicaoTerno());
+                                                              } else if (posicao.equals("Quadra")) {
+                                                                  setPosicaoQuadra(et.getText().toString());
+                                                                  btnQuadra.setText(getPosicaoQuadra());
+                                                                  contador = contador + Integer.parseInt(getPosicaoQuadra());
+                                                              } else if (posicao.equals("Quadrada")) {
+                                                                  setPosicaoQuadrada(et.getText().toString());
+                                                                  btnQuadrada.setText(getPosicaoQuadrada());
+                                                                  contador = contador + Integer.parseInt(getPosicaoQuadrada());
+                                                              } else if (posicao.equals("Quina")) {
+                                                                  setPosicaoQuina(et.getText().toString());
+                                                                  btnQuina.setText(getPosicaoQuina());
+                                                                  contador = contador + Integer.parseInt(getPosicaoQuina());
+                                                              } else if (posicao.equals("Sena")) {
+                                                                  setPosicaoSena(et.getText().toString());
+                                                                  btnSena.setText(getPosicaoSena());
+                                                                  contador = contador + Integer.parseInt(getPosicaoSena());
+                                                              } else if (posicao.equals("General")) {
+                                                                  setPosicaoGeneral(et.getText().toString());
+                                                                  btnGeneral.setText(getPosicaoGeneral());
+                                                                  contador = contador + Integer.parseInt(getPosicaoGeneral());
+                                                              } else if (posicao.equals("Seguida")) {
+                                                                  setPosicaoSeguida(et.getText().toString());
+                                                                  btnSeguida.setText(getPosicaoSeguida());
+                                                                  contador = contador + Integer.parseInt(getPosicaoSeguida());
+                                                              } else if (posicao.equals("Full")) {
+                                                                  setPosicaoFull(et.getText().toString());
+                                                                  btnFull.setText(getPosicaoFull());
+                                                                  contador = contador + Integer.parseInt(getPosicaoFull());
+                                                              }
+                                                              resultadoFinal.setText(contador + "");
+                                                          }
+                                                      }
+                                                  }
+                                          );
+                                          builder.setNegativeButton("Cancelar", null);
+                                          builder.setView(dialogLayout);
+                                          builder.setCancelable(false);
+                                          builder.show();
+
+
+                /*
 
                 dialog = new Dialog(getContext());
                 dialog.setContentView(R.layout.dialog_pontos);
                 et = (EditText) dialog.findViewById(R.id.etPonto);
+
+
                 Button btn = (Button) dialog.findViewById(R.id.btnOk);
                 btn.setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -154,8 +257,11 @@ public class FragmentFilho extends Fragment {
                     }
                 });// Fim evento de click no dialog
                 dialog.show();
-            }
-        });
+                */
+                                      }
+                                  }
+
+        );
     }
 
 

@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorWhite"
+    android:background="@color/colorFundo"
     android:orientation="vertical">
 
     <android.support.design.widget.AppBarLayout
@@ -24,8 +24,8 @@
                 android:layout_gravity="right|center_vertical"
                 android:layout_marginRight="20dp"
                 android:text="0"
-                android:textColor="@color/colorWhite"
                 android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textColor="@color/colorWhite"
                 android:textSize="100dp" />
 
             <TextView
@@ -259,9 +259,9 @@
                         android:id="@+id/btnNadaEsquerdo"
                         android:layout_width="75dp"
                         android:layout_height="75dp"
-                        android:background="@color/colorTrasnparente"
-                        android:textSize="35dp"
-                        android:textColor="@color/colorFundo" />
+                        android:background="@color/colorFundo"
+                        android:textColor="@color/colorFundo"
+                        android:textSize="35dp" />
                 </RelativeLayout>
 
                 <RelativeLayout
@@ -296,9 +296,9 @@
                         android:id="@+id/btnNadaDireito"
                         android:layout_width="75dp"
                         android:layout_height="75dp"
-                        android:background="@color/colorTrasnparente"
-                        android:textSize="35dp"
-                        android:textColor="@color/colorFundo" />
+                        android:background="@color/colorFundo"
+                        android:textColor="@color/colorFundo"
+                        android:textSize="35dp" />
                 </RelativeLayout>
 
             </RelativeLayout>

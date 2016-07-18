@@ -1,31 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-android:layout_width="match_parent"
-android:layout_height="wrap_content"
-android:orientation="vertical">
-
-<EditText
-    android:layout_margin="20dp"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:inputType="number"
-    android:textColor="@color/colorAccent"
-    android:textColorLink="@color/colorAccent"
-    android:textColorHint="@color/colorTextoHint"
-    android:ems="10"
-    android:id="@+id/etPonto" />
+    android:orientation="vertical">
 
-<Button
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:text="Ok"
-    android:layout_marginRight="20dp"
-    android:background="@color/colorTrasnparente"
-    android:textColor="@color/colorAccent"
-    android:id="@+id/btnOk"
-    android:layout_gravity="right" />
-
-
+    <EditText
+        android:id="@+id/etPonto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:ems="10"
+        android:inputType="number"
+        android:textColor="@color/colorAccent"
+        android:textColorHint="@color/colorTextoHint"
+        android:textColorLink="@color/colorAccent" />
 
 </LinearLayout>
 
