@@ -1,6 +1,5 @@
 package com.darthorg.bozo.view;
 
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Build;
 import android.support.v7.app.AlertDialog;
@@ -13,7 +12,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
-import android.widget.EditText;
 
 import com.darthorg.bozo.R;
 
@@ -44,7 +42,7 @@ public class Inicio extends AppCompatActivity {
             public void onClick(View view) {
                 LayoutInflater inflater = getLayoutInflater();
                 //Recebe a activity para persolnalizar o dialog
-                View dialogLayout = inflater.inflate(R.layout.theme_dialog_inicio, null);
+                View dialogLayout = inflater.inflate(R.layout.dialog_inicio, null);
                 //Botão nova partida
                 Button btnNovaPartida = (Button) dialogLayout.findViewById(R.id.btn_nova_partida);
                 btnNovaPartida.setOnClickListener(new View.OnClickListener() {

@@ -45,7 +45,7 @@ public class JogadoresPlacarListaAdapter extends BaseAdapter {
 
     @Override
     public View getView(int position, View view, ViewGroup viewGroup) {
-        View v = View.inflate(mContext, R.layout.theme_listview_placar, null);
+        View v = View.inflate(mContext, R.layout.adapter_listview_placar, null);
         TextView tvNomeJogador = (TextView)v.findViewById(R.id.txt_lista_nome_jogador);
         Button btNumeroRodada = (Button)v.findViewById(R.id.btn_lista_numero_rodada);
 

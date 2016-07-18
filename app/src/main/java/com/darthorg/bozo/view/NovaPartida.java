@@ -17,7 +17,6 @@ import android.view.WindowManager;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ListView;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.darthorg.bozo.R;
@@ -62,7 +61,7 @@ public class NovaPartida extends AppCompatActivity {
 
                 LayoutInflater inflater = getLayoutInflater();
                 //Recebe a activity para persolnalizar o dialog
-                View dialogLayout = inflater.inflate(R.layout.theme_dialog_novo_jogador, null);
+                View dialogLayout = inflater.inflate(R.layout.dialog_novo_jogador, null);
                 final EditText etNomeJogador = (EditText) dialogLayout.findViewById(R.id.edit_nome_novo_jogador);
 
                 AlertDialog.Builder builder = new AlertDialog.Builder(NovaPartida.this);

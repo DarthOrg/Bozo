@@ -3,11 +3,9 @@ package com.darthorg.bozo.view;
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
-import android.support.design.widget.Snackbar;
 import android.support.design.widget.TabLayout;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.view.ViewPager;
@@ -241,7 +239,7 @@ public class PartidaAberta extends AppCompatActivity {
             LayoutInflater inflater = getLayoutInflater();
 
             //Recebe a activity para persolnalizar o dialog
-            View dialogLayout = inflater.inflate(R.layout.theme_dialog_novo_jogador, null);
+            View dialogLayout = inflater.inflate(R.layout.dialog_novo_jogador, null);
             final EditText etNomeJogador = (EditText) dialogLayout.findViewById(R.id.edit_nome_novo_jogador);
 
             AlertDialog.Builder builder = new AlertDialog.Builder(PartidaAberta.this);

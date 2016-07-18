@@ -2,9 +2,7 @@ package com.darthorg.bozo.adapter;
 
 import android.content.Context;
 import android.content.DialogInterface;
-import android.content.Intent;
 import android.support.v7.app.AlertDialog;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
@@ -14,12 +12,7 @@ import android.widget.Toast;
 
 import com.darthorg.bozo.R;
 import com.darthorg.bozo.dao.PartidaDAO;
-import com.darthorg.bozo.fragment.FragmentFilho;
-import com.darthorg.bozo.model.Jogador;
 import com.darthorg.bozo.model.Partida;
-import com.darthorg.bozo.view.Inicio;
-import com.darthorg.bozo.view.ListaDePartidas;
-import com.darthorg.bozo.view.NovaPartida;
 
 import java.util.List;
 
@@ -57,7 +50,7 @@ public class PartidasListaAdapter extends BaseAdapter {
 
     @Override
     public View getView(final int position, View view, ViewGroup viewGroup) {
-        final View v = View.inflate(mContext, R.layout.theme_listview_partidas, null);
+        final View v = View.inflate(mContext, R.layout.adapter_listview_partidas, null);
         TextView tvNumero = (TextView) v.findViewById(R.id.txt_lista_numero);
         TextView tvNomePartida = (TextView) v.findViewById(R.id.txt_lista_nome_partida);
 
