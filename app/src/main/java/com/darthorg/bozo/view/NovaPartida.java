@@ -17,6 +17,7 @@ import android.view.WindowManager;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.darthorg.bozo.R;
@@ -33,6 +34,7 @@ public class NovaPartida extends AppCompatActivity {
     private Toolbar toolbar;
     private ArrayList<String> jogadores = new ArrayList<>();
     private ArrayAdapter<String> adapter;
+    TextView contadorJogador;
 
 
     @TargetApi(Build.VERSION_CODES.M)
@@ -44,6 +46,9 @@ public class NovaPartida extends AppCompatActivity {
                     WindowManager.LayoutParams.FLAG_FULLSCREEN);
         }
         setContentView(R.layout.activity_nova_partida);
+
+        contadorJogador = (TextView) findViewById(R.id.contagemJogadores);
+        contadorJogador.setText("Jogadores "+jogadores.size()+"/10");
 
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         toolbar.setTitle(" ");
@@ -72,6 +77,7 @@ public class NovaPartida extends AppCompatActivity {
                         if (jogadores.size() < 10) {
                             jogadores.add(etNomeJogador.getText().toString());
                             adapter.notifyDataSetChanged();
+                            contadorJogador.setText("Jogadores "+jogadores.size()+"/10");
                             Toast.makeText(NovaPartida.this, "Jogador ( "+etNomeJogador.getText().toString()+" ) adicionado!", Toast.LENGTH_SHORT).show();
                         } else {
                             Toast.makeText(NovaPartida.this, "Numero máximo de jogadores é 10", Toast.LENGTH_SHORT).show();
