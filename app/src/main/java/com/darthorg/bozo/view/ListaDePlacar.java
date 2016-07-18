@@ -40,10 +40,10 @@ public class ListaDePlacar extends AppCompatActivity {
 
         mPlacarLista = new ArrayList<>();
 
-        mPlacarLista.add(new JogadoresPlacar(1, "Wendell Ugalds","1", "Ganhando","11"));
-        mPlacarLista.add(new JogadoresPlacar(2, "Selma","2", "Segundo lugar","9"));
-        mPlacarLista.add(new JogadoresPlacar(3, "Gustavo candido","3", "Terceiro lugar","7"));
-        mPlacarLista.add(new JogadoresPlacar(6, "Aryane","6", "Perdendo","2"));
+        mPlacarLista.add(new JogadoresPlacar(1, "Wendell Ugalds","11"));
+        mPlacarLista.add(new JogadoresPlacar(2, "Selma","9"));
+        mPlacarLista.add(new JogadoresPlacar(3, "Gustavo candido","7"));
+        mPlacarLista.add(new JogadoresPlacar(6, "Aryane","2"));
 
         adapter = new JogadoresPlacarListaAdapter(getApplicationContext(), mPlacarLista);
         listViewPlacar.setAdapter(adapter);
