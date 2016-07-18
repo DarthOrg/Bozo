@@ -8,7 +8,6 @@
     <!--ThemeSplash-->
     <color name="colorPrimary_splash">#FFFFFF</color>
     <color name="colorPrimaryDark_splash">#B4B4B4</color>
-    <color name="holo_blue_dark">#80cbc4</color>
 
     <!--ThemeDistaque-->
     <color name="colorPrimary_distaque">#80cbc4</color>

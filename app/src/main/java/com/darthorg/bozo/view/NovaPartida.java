@@ -17,6 +17,7 @@ import android.view.WindowManager;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.darthorg.bozo.R;
@@ -49,10 +50,10 @@ public class NovaPartida extends AppCompatActivity {
         toolbar.setTitle(" ");
         setSupportActionBar(toolbar);
 
-
         ListView listView = (ListView) findViewById(R.id.list_view_jogadores);
         adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_activated_1, jogadores);
         listView.setAdapter(adapter);
+
 
         com.melnykov.fab.FloatingActionButton fab = (com.melnykov.fab.FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -72,12 +73,9 @@ public class NovaPartida extends AppCompatActivity {
                         if (jogadores.size() < 10) {
                             jogadores.add(etNomeJogador.getText().toString());
                             adapter.notifyDataSetChanged();
+                            Toast.makeText(NovaPartida.this, "Jogador ( "+etNomeJogador.getText().toString()+" ) adicionado!", Toast.LENGTH_SHORT).show();
                         } else {
-                            AlertDialog.Builder maximoJogador = new AlertDialog.Builder(NovaPartida.this);
-                            maximoJogador.setTitle("Máximo 10 jogadores");
-                            maximoJogador.setPositiveButton("Ok",null);
-                            maximoJogador.show();
-                            //Toast.makeText(NovaPartida.this, "Numero máximo de jogadores é 10", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(NovaPartida.this, "Numero máximo de jogadores é 10", Toast.LENGTH_SHORT).show();
                         }
                     }
                 });
@@ -106,22 +104,29 @@ public class NovaPartida extends AppCompatActivity {
         int id = item.getItemId();
 
         if (id == R.id.action_inciar_partida) {
-            partidaController = new PartidaController(this);
 
             EditText etNovaPartida = (EditText) findViewById(R.id.editText_nomePartida);
             partida.setNome(etNovaPartida.getText().toString());
 
-            if (TextUtils.isEmpty(etNovaPartida.getText().toString())) {
+            if (jogadores.size() < 2) {
+
+                Toast.makeText(NovaPartida.this, "Para iniciar precisa de 2 Jogadores", Toast.LENGTH_SHORT).show();
+
+            }else if (TextUtils.isEmpty(etNovaPartida.getText().toString())) {
                 Toast.makeText(this, "Por favor insira um nome para sua partida!", Toast.LENGTH_SHORT).show();
-            } else if (partidaController.inserirPartida(partida)) {
-                Intent intent = new Intent(this, PartidaAberta.class);
-                intent.putExtra("nomepartida", etNovaPartida.getText().toString());
-                intent.putStringArrayListExtra("jogadores", jogadores);
-                startActivity(intent);
-                finish();
-            } else {
-                Toast.makeText(this, "Ocorreu um erro ao dar um nome a partida", Toast.LENGTH_SHORT).show();
+            }else {
+                partidaController = new PartidaController(this);
+                if (partidaController.inserirPartida(partida)) {
+                    Intent intent = new Intent(this, PartidaAberta.class);
+                    intent.putExtra("nomepartida", etNovaPartida.getText().toString());
+                    intent.putStringArrayListExtra("jogadores", jogadores);
+                    startActivity(intent);
+                    finish();
+                } else {
+                    Toast.makeText(this, "Ocorreu um erro ao dar um nome a partida", Toast.LENGTH_SHORT).show();
+                }
             }
+
         } else if (id == android.R.id.home) {
             finish();
         }

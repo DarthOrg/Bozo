@@ -37,13 +37,16 @@
 
 
             <com.melnykov.fab.FloatingActionButton
-                android:id="@+id/btn_jogar"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/ic_play_white"
-                fab:fab_colorNormal="@color/colorFab"
-                fab:fab_colorPressed="@color/colorFabPressed"
-                android:layout_gravity="center" />
+            android:id="@+id/btn_jogar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_play_white"
+            fab:fab_colorNormal="@color/colorFab"
+            fab:fab_colorPressed="@color/colorFabPressed"
+            android:layout_gravity="center" />
+
+            <!--Dado 1(Áz)-->
+
 
             <ImageView
                 android:layout_width="200dp"
