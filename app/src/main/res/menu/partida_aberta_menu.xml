@@ -13,7 +13,7 @@
         android:id="@+id/action_add_jogador"
         android:title="Adicionar Jogador"
         android:orderInCategory="100"
-        android:icon="@drawable/ic_add_jogador"
+        android:icon="@drawable/ic_add_jogador_white"
         app:showAsAction="always"/>
     <item
         android:id="@+id/action_placar"

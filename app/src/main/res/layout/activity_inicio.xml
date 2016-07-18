@@ -4,9 +4,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:fab="http://schemas.android.com/apk/res-auto"
     tools:context=".view.NovaPartida"
     android:orientation="vertical"
-    android:background="@color/colorWhite"
+    android:background="@color/colorFundo"
     android:weightSum="1">
 
     <android.support.design.widget.AppBarLayout
@@ -27,12 +28,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <Button
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:id="@+id/btn_jogar"
-            android:background="@drawable/ic_jogar"
-            android:layout_gravity="center" />
 
         <!--Campo de informações dos dados-->
         <FrameLayout
@@ -40,95 +35,33 @@
             android:layout_height="400dp"
             android:layout_gravity="center">
 
-            <!--Botão info AS (01)-->
-            <Button
-                android:layout_width="70dp"
-                android:layout_height="70dp"
-                android:id="@+id/btn_info_as"
-                android:background="@color/colorTrasnparente"
-                android:layout_gravity="center"
-                android:layout_marginRight="115dp"/>
 
-            <!--Botão info Duque (02)-->
-            <Button
-                android:layout_width="70dp"
-                android:layout_height="70dp"
-                android:id="@+id/btn_info_duque"
-                android:background="@color/colorTrasnparente"
-                android:layout_gravity="center"
-                android:layout_marginBottom="110dp"
-                android:layout_marginRight="45dp"/>
-
-
-            <!--Botão info Terno (03)-->
-            <Button
-                android:layout_width="70dp"
-                android:layout_height="70dp"
-                android:id="@+id/btn_info_terno"
-                android:background="@color/colorTrasnparente"
-                android:layout_gravity="center"
-                android:layout_marginBottom="110dp"
-                android:layout_marginLeft="45dp"/>
-
-            <!--Botão info Quadra (04)-->
-            <Button
-                android:layout_width="70dp"
-                android:layout_height="70dp"
-                android:id="@+id/btn_info_quadra"
-                android:background="@color/colorTrasnparente"
-                android:layout_gravity="center"
-                android:layout_marginLeft="115dp"/>
-
-            <!--Botão info Quina (05)-->
-            <Button
-                android:layout_width="70dp"
-                android:layout_height="70dp"
-                android:id="@+id/btn_info_quina"
-                android:background="@color/colorTrasnparente"
-                android:layout_gravity="center"
-                android:layout_marginTop="110dp"
-                android:layout_marginLeft="45dp"/>
-
-            <!--Botão info Sena (06)-->
-            <Button
-                android:layout_width="70dp"
-                android:layout_height="70dp"
-                android:id="@+id/btn_info_sena"
-                android:background="@color/colorTrasnparente"
-                android:layout_gravity="center"
-                android:layout_marginTop="110dp"
-                android:layout_marginRight="45dp"/>
-
-
-
-            <!--Imagem dados-->
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="400dp"
-                android:id="@+id/imageView"
-                android:src="@drawable/img_tela_principal"
+            <com.melnykov.fab.FloatingActionButton
+                android:id="@+id/btn_jogar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_play_white"
+                fab:fab_colorNormal="@color/colorFab"
+                fab:fab_colorPressed="@color/colorFabPressed"
                 android:layout_gravity="center" />
 
+            <ImageView
+                android:layout_width="200dp"
+                android:layout_height="65dp"
+                android:id="@+id/imageView3"
+                android:layout_marginTop="80dp"
+                android:layout_gravity="center_horizontal|top"
+                android:src="@drawable/nome_bozo" />
 
+            <Button
+                android:layout_width="100dp"
+                android:layout_height="40dp"
+                android:id="@+id/btn_instrucoes"
+                android:layout_gravity="center_horizontal|bottom"
+                android:background="@drawable/ic_instrucoes"/>
 
         </FrameLayout>
 
-
-        <ImageView
-            android:layout_width="200dp"
-            android:layout_height="65dp"
-            android:id="@+id/imageView3"
-            android:layout_marginBottom="200dp"
-            android:layout_gravity="center_horizontal|center"
-            android:src="@drawable/nome_bozo" />
-
-        <Button
-            android:layout_width="100dp"
-            android:layout_height="40dp"
-            android:id="@+id/btn_instrucoes"
-            android:layout_gravity="center_horizontal|center"
-            android:background="@drawable/ic_instrucoes"
-            android:layout_marginTop="200dp"/>
 
     </FrameLayout>
 

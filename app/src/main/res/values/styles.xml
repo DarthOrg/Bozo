@@ -1,16 +1,16 @@
 <resources>
 
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+    <style name="AppTheme" parent="Theme.AppCompat.NoActionBar">
         <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorPrimary">@color/colorFundo</item>
+        <item name="colorPrimaryDark">@color/colorFundo</item>
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
     <style name="ThemeSplash" parent="Theme.AppCompat.NoActionBar">
         <item name="colorPrimary">@color/colorAccent</item>
-        <item name="colorPrimaryDark">@color/colorAccent</item>
+        <item name="colorPrimaryDark">@color/colorFundo</item>
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
@@ -23,22 +23,22 @@
 
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
-    <style name="ThemePartidaAberta" parent="Theme.AppCompat.Light.NoActionBar">
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/colorAccent</item>
+    <style name="ThemePartidaAberta" parent="Theme.AppCompat.NoActionBar">
+        <item name="colorPrimary">@color/colorFundo</item>
+        <item name="colorPrimaryDark">@color/colorFundo</item>
+        <item name="colorAccent">@color/colorWhite</item>
     </style>
 
-    <style name="ThemeDistaque" parent="Theme.AppCompat.NoActionBar">
+    <style name="ThemeDistaque" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="colorPrimary">@color/colorPrimary_distaque</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark_distaque</item>
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
-    <style name="ThemeNovaPartida" parent="Theme.AppCompat.Light.NoActionBar">
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/colorAccent</item>
+    <style name="ThemeNovaPartida" parent="Theme.AppCompat.NoActionBar">
+        <item name="colorPrimary">@color/colorFundo</item>
+        <item name="colorPrimaryDark">@color/colorFundo</item>
+        <item name="colorAccent">@color/colorWhite</item>
     </style>
 
 

@@ -96,9 +96,9 @@ public class PartidaAberta extends AppCompatActivity {
         tabLayout.setupWithViewPager(viewPager);
 
         // Configura as Cores no TabLayout
-        int corOn = ContextCompat.getColor(this, R.color.colorBlack);
-        int corOff = ContextCompat.getColor(this, R.color.colorBlackTransparente);
-        int corBarra = ContextCompat.getColor(this, R.color.colorBlack);
+        int corOn = ContextCompat.getColor(this, R.color.colorAccent);
+        int corOff = ContextCompat.getColor(this, R.color.colorWhiteTransparente);
+        int corBarra = ContextCompat.getColor(this, R.color.colorAccent);
         tabLayout.setTabTextColors(corOff, corOn);
         tabLayout.setSelectedTabIndicatorColor(corBarra);
         tabLayout.setSelectedTabIndicatorHeight(7);

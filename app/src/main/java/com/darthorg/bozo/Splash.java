@@ -11,7 +11,7 @@ import com.darthorg.bozo.view.Inicio;
 
 public class Splash extends AppCompatActivity {
 
-    private final int SPLASH = 2000;
+    private final int SPLASH = 10000;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
