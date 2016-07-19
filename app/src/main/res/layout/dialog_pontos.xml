@@ -8,10 +8,12 @@
         android:id="@+id/etPonto"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="20dp"
         android:ems="10"
+        android:textSize="100dp"
         android:inputType="number"
-        android:textColor="@color/colorAccent"
+        android:textColor="@color/colorFundo"
         android:textColorHint="@color/colorTextoHint"
         android:textColorLink="@color/colorAccent" />
 

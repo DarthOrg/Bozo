@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorFundo"
+    android:background="@color/colorWhite"
     android:orientation="vertical">
 
     <android.support.design.widget.AppBarLayout
@@ -57,18 +57,10 @@
             <RelativeLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:background="@color/colorFundo"
                 android:layout_gravity="center">
 
-                <RelativeLayout
-                    android:id="@+id/frameLayout2"
-                    android:layout_width="229dp"
-                    android:layout_height="300dp"
-                    android:layout_alignEnd="@+id/relativeLayout9"
-                    android:layout_alignParentBottom="true"
-                    android:layout_alignParentLeft="true"
-                    android:layout_alignParentStart="true"
-                    android:layout_alignRight="@+id/relativeLayout9"
-                    android:background="@color/colorFundo" />
+
 
                 <RelativeLayout
                     android:id="@+id/relativeLayout"
@@ -88,6 +80,16 @@
                         android:onClick="gerarDialog"
                         android:textColor="@color/colorFundo"
                         android:textSize="35dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:textColor="@color/colorFundo"
+                        android:textSize="8dp"
+                        android:layout_alignParentBottom="true"
+                        android:layout_centerHorizontal="true"
+                        android:id="@+id/indicador_az" />
                 </RelativeLayout>
 
                 <RelativeLayout
@@ -109,6 +111,16 @@
                         android:background="@color/colorTrasnparente"
                         android:textColor="@color/colorFundo"
                         android:textSize="35dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:textColor="@color/colorFundo"
+                        android:textSize="8dp"
+                        android:layout_alignParentBottom="true"
+                        android:layout_centerHorizontal="true"
+                        android:id="@+id/indicador_full" />
                 </RelativeLayout>
 
                 <RelativeLayout
@@ -128,6 +140,16 @@
                         android:background="@color/colorTrasnparente"
                         android:textColor="@color/colorFundo"
                         android:textSize="35dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:textColor="@color/colorFundo"
+                        android:textSize="8dp"
+                        android:layout_alignParentBottom="true"
+                        android:layout_centerHorizontal="true"
+                        android:id="@+id/indicador_quadra" />
                 </RelativeLayout>
 
                 <RelativeLayout
@@ -147,6 +169,16 @@
                         android:background="@color/colorTrasnparente"
                         android:textColor="@color/colorFundo"
                         android:textSize="35dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:textColor="@color/colorFundo"
+                        android:textSize="8dp"
+                        android:layout_alignParentBottom="true"
+                        android:layout_centerHorizontal="true"
+                        android:id="@+id/indicador_duque" />
                 </RelativeLayout>
 
                 <RelativeLayout
@@ -168,6 +200,16 @@
                         android:background="@color/colorTrasnparente"
                         android:textColor="@color/colorFundo"
                         android:textSize="35dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:textColor="@color/colorFundo"
+                        android:textSize="8dp"
+                        android:layout_alignParentBottom="true"
+                        android:layout_centerHorizontal="true"
+                        android:id="@+id/indicador_seguida" />
                 </RelativeLayout>
 
                 <RelativeLayout
@@ -186,6 +228,16 @@
                         android:background="@color/colorTrasnparente"
                         android:textColor="@color/colorFundo"
                         android:textSize="35dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:textColor="@color/colorFundo"
+                        android:textSize="8dp"
+                        android:layout_alignParentBottom="true"
+                        android:layout_centerHorizontal="true"
+                        android:id="@+id/indicador_quina" />
                 </RelativeLayout>
 
                 <RelativeLayout
@@ -205,6 +257,17 @@
                         android:background="@color/colorTrasnparente"
                         android:textColor="@color/colorFundo"
                         android:textSize="35dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:textColor="@color/colorFundo"
+                        android:textSize="8dp"
+                        android:layout_alignParentBottom="true"
+                        android:layout_centerHorizontal="true"
+                        android:id="@+id/indicador_terno" />
+
                 </RelativeLayout>
 
                 <RelativeLayout
@@ -226,6 +289,16 @@
                         android:background="@color/colorTrasnparente"
                         android:textColor="@color/colorFundo"
                         android:textSize="35dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:textColor="@color/colorFundo"
+                        android:textSize="8dp"
+                        android:layout_alignParentBottom="true"
+                        android:layout_centerHorizontal="true"
+                        android:id="@+id/indicador_quadrada" />
                 </RelativeLayout>
 
                 <RelativeLayout
@@ -244,6 +317,16 @@
                         android:background="@color/colorTrasnparente"
                         android:textColor="@color/colorFundo"
                         android:textSize="35dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:textColor="@color/colorFundo"
+                        android:textSize="8dp"
+                        android:layout_alignParentBottom="true"
+                        android:layout_centerHorizontal="true"
+                        android:id="@+id/indicador_sena" />
                 </RelativeLayout>
 
                 <RelativeLayout
@@ -259,15 +342,15 @@
                         android:id="@+id/btnNadaEsquerdo"
                         android:layout_width="75dp"
                         android:layout_height="75dp"
-                        android:background="@color/colorFundo"
-                        android:textColor="@color/colorFundo"
+                        android:background="@color/colorTrasnparente"
                         android:textSize="35dp" />
+
                 </RelativeLayout>
 
                 <RelativeLayout
                     android:id="@+id/relativeLayout8"
                     android:layout_width="75dp"
-                    android:layout_height="75dp"
+                    android:layout_height="74dp"
                     android:layout_alignTop="@+id/relativeLayout7"
                     android:layout_marginLeft="1dp"
                     android:layout_marginRight="1dp"
@@ -282,6 +365,16 @@
                         android:background="@color/colorTrasnparente"
                         android:textColor="@color/colorFundo"
                         android:textSize="35dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:textColor="@color/colorFundo"
+                        android:textSize="8dp"
+                        android:layout_alignParentBottom="true"
+                        android:layout_centerHorizontal="true"
+                        android:id="@+id/indicador_general" />
                 </RelativeLayout>
 
                 <RelativeLayout
@@ -296,7 +389,7 @@
                         android:id="@+id/btnNadaDireito"
                         android:layout_width="75dp"
                         android:layout_height="75dp"
-                        android:background="@color/colorFundo"
+                        android:background="@color/colorTrasnparente"
                         android:textColor="@color/colorFundo"
                         android:textSize="35dp" />
                 </RelativeLayout>
