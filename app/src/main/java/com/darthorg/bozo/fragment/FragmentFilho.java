@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.darthorg.bozo.R;
 
@@ -25,6 +26,7 @@ public class FragmentFilho extends Fragment {
     private String posicaoAs, posicaoDuque, posicaoTerno, posicaoQuadrada, posicaoSeguida, posicaoFull, posicaoQuina, posicaoSena, posicaoGeneral, posicaoQuadra;
     private TextView resultadoFinal;
     private int contador = 0;
+    TextView indAz,indDuque, indTerno, indQuadra, indQuina, indSena, indFull, indSeguida, indQuadrada, indGeneral;
 
     private LayoutInflater dialogInflater;
 
@@ -68,6 +70,16 @@ public class FragmentFilho extends Fragment {
         btnQuina = (Button) view.findViewById(R.id.btnQuina);
         btnSena = (Button) view.findViewById(R.id.btnSena);
         btnGeneral = (Button) view.findViewById(R.id.btnGeneral);
+        indAz = (TextView) view.findViewById(R.id.indicador_az);
+        indDuque = (TextView) view.findViewById(R.id.indicador_duque);
+        indTerno = (TextView) view.findViewById(R.id.indicador_terno);
+        indQuadra = (TextView) view.findViewById(R.id.indicador_quadra);
+        indQuina = (TextView) view.findViewById(R.id.indicador_quina);
+        indSena = (TextView) view.findViewById(R.id.indicador_sena);
+        indFull = (TextView) view.findViewById(R.id.indicador_full);
+        indSeguida = (TextView) view.findViewById(R.id.indicador_seguida);
+        indQuadrada = (TextView) view.findViewById(R.id.indicador_quadrada);
+        indGeneral = (TextView) view.findViewById(R.id.indicador_general);
     }
 
 
@@ -97,34 +109,34 @@ public class FragmentFilho extends Fragment {
                                           final AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
                                           switch (posicao) {
                                               case "Az":
-                                                  builder.setTitle("Az");
+                                                  builder.setTitle("ÁZ ( 1 á 5 )");
                                                   break;
                                               case "Duque":
-                                                  builder.setTitle("Duque");
+                                                  builder.setTitle("DUQUE ( 2 á 10 )");
                                                   break;
                                               case "Terno":
-                                                  builder.setTitle("Terno");
+                                                  builder.setTitle("TERNO ( 3 á 15 )");
                                                   break;
                                               case "Quadra":
-                                                  builder.setTitle("Quadra");
-                                                  break;
-                                              case "Quadrada":
-                                                  builder.setTitle("Quadrada");
+                                                  builder.setTitle("QUADRA ( 4 á 20 )");
                                                   break;
                                               case "Quina":
-                                                  builder.setTitle("Quina");
+                                                  builder.setTitle("QUINA ( 5 á 25 )");
                                                   break;
                                               case "Sena":
-                                                  builder.setTitle("Sena");
+                                                  builder.setTitle("SENA ( 6 á 30 )");
                                                   break;
                                               case "Full":
-                                                  builder.setTitle("Full");
+                                                  builder.setTitle("FULL ( 10 ou 15 )");
                                                   break;
                                               case "Seguida":
-                                                  builder.setTitle("Seguida");
+                                                  builder.setTitle("SEGUIDA ( 20 ou 25)");
+                                                  break;
+                                              case "Quadrada":
+                                                  builder.setTitle("QUADRADA ( 30 ou 35 )");
                                                   break;
                                               case "General":
-                                                  builder.setTitle("General");
+                                                  builder.setTitle("GENERAL ( 40 ou 100)");
                                                   break;
                                               default:
                                                   break;
@@ -139,50 +151,67 @@ public class FragmentFilho extends Fragment {
                                                               if (posicao.equals("Az")) {
                                                                   setPosicaoAs(et.getText().toString());
                                                                   btnAs.setText(getPosicaoAs());
+                                                                  indAz.setText("Áz");
                                                                   contador = contador + Integer.parseInt(getPosicaoAs());
                                                               } else if (posicao.equals("Duque")) {
                                                                   setPosicaoDuque(et.getText().toString());
                                                                   btnDuque.setText(getPosicaoDuque());
+                                                                  indDuque.setText("Duque");
                                                                   contador = contador + Integer.parseInt(getPosicaoDuque());
                                                               } else if (posicao.equals("Terno")) {
                                                                   setPosicaoTerno(et.getText().toString());
                                                                   btnTerno.setText(getPosicaoTerno());
+                                                                  indTerno.setText("Terno");
                                                                   contador = contador + Integer.parseInt(getPosicaoTerno());
                                                               } else if (posicao.equals("Quadra")) {
                                                                   setPosicaoQuadra(et.getText().toString());
                                                                   btnQuadra.setText(getPosicaoQuadra());
+                                                                  indQuadra.setText("Quadra");
                                                                   contador = contador + Integer.parseInt(getPosicaoQuadra());
                                                               } else if (posicao.equals("Quadrada")) {
                                                                   setPosicaoQuadrada(et.getText().toString());
                                                                   btnQuadrada.setText(getPosicaoQuadrada());
+                                                                  indQuadrada.setText("Quadrada");
                                                                   contador = contador + Integer.parseInt(getPosicaoQuadrada());
                                                               } else if (posicao.equals("Quina")) {
                                                                   setPosicaoQuina(et.getText().toString());
                                                                   btnQuina.setText(getPosicaoQuina());
+                                                                  indQuina.setText("Quina");
                                                                   contador = contador + Integer.parseInt(getPosicaoQuina());
                                                               } else if (posicao.equals("Sena")) {
                                                                   setPosicaoSena(et.getText().toString());
                                                                   btnSena.setText(getPosicaoSena());
+                                                                  indSena.setText("Sena");
                                                                   contador = contador + Integer.parseInt(getPosicaoSena());
                                                               } else if (posicao.equals("General")) {
                                                                   setPosicaoGeneral(et.getText().toString());
                                                                   btnGeneral.setText(getPosicaoGeneral());
+                                                                  indGeneral.setText("General");
                                                                   contador = contador + Integer.parseInt(getPosicaoGeneral());
                                                               } else if (posicao.equals("Seguida")) {
                                                                   setPosicaoSeguida(et.getText().toString());
                                                                   btnSeguida.setText(getPosicaoSeguida());
+                                                                  indSeguida.setText("Seguida");
                                                                   contador = contador + Integer.parseInt(getPosicaoSeguida());
                                                               } else if (posicao.equals("Full")) {
                                                                   setPosicaoFull(et.getText().toString());
                                                                   btnFull.setText(getPosicaoFull());
+                                                                  indFull.setText("Full");
                                                                   contador = contador + Integer.parseInt(getPosicaoFull());
                                                               }
-                                                              resultadoFinal.setText(contador + "");
+                                                              resultadoFinal.setText(contador+"");
                                                           }
                                                       }
                                                   }
                                           );
                                           builder.setNegativeButton("Cancelar", null);
+                                          builder.setNeutralButton("[ X ] Riscar", new DialogInterface.OnClickListener() {
+                                              @Override
+                                              public void onClick(DialogInterface dialogInterface, int i) {
+                                                  //Todo:Implementar metodo RISCAR
+                                                 
+                                              }
+                                          });
                                           builder.setView(dialogLayout);
                                           builder.setCancelable(false);
                                           builder.show();
