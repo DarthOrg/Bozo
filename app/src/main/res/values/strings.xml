@@ -5,4 +5,17 @@
     <string name="txtNomePartida">Nome partida</string>
     <string name="txtSuasPartidas">Suas partidas</string>
     <string name="txtNomePartidaExemplo">Partida</string>
+
+
+    <!-- Nomes das peças no bozó  -->
+    <string name="nameAz">Áz</string>
+    <string name="nameDuque">Duque</string>
+    <string name="nameTerno">Terno</string>
+    <string name="nameQuadra">Quadra</string>
+    <string name="nameQuina">Quina</string>
+    <string name="nameSena">Sena</string>
+    <string name="nameFull">Full</string>
+    <string name="nameSeguida">Seguida</string>
+    <string name="nameQuadrada">Quadrada</string>
+    <string name="nameGeneral">General</string>
 </resources>
