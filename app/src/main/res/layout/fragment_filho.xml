@@ -57,9 +57,8 @@
             <RelativeLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@color/colorFundo"
-                android:layout_gravity="center">
-
+                android:layout_gravity="center"
+                android:background="@color/colorFundo">
 
 
                 <RelativeLayout
@@ -72,24 +71,36 @@
                     android:layout_marginBottom="1dp"
                     android:background="@color/colorWhite">
 
-                    <Button
-                        android:id="@+id/btnAs"
-                        android:layout_width="75dp"
-                        android:layout_height="75dp"
-                        android:background="@color/colorTrasnparente"
-                        android:onClick="gerarDialog"
-                        android:textColor="@color/colorFundo"
-                        android:textSize="35dp" />
+                    <FrameLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                        <ImageView
+                            android:id="@+id/riscarAz"
+                            android:layout_width="75dp"
+                            android:layout_height="75dp"
+                            android:background="@color/colorBlack"
+                            android:visibility="invisible" />
+
+                        <Button
+                            android:id="@+id/btnAz"
+                            android:layout_width="75dp"
+                            android:layout_height="75dp"
+                            android:background="@color/colorTrasnparente"
+                            android:textColor="@color/colorFundo"
+                            android:textSize="35dp" />
+                    </FrameLayout>
 
                     <TextView
+                        android:id="@+id/indicador_az"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textAppearance="?android:attr/textAppearanceSmall"
-                        android:textColor="@color/colorFundo"
-                        android:textSize="8dp"
                         android:layout_alignParentBottom="true"
                         android:layout_centerHorizontal="true"
-                        android:id="@+id/indicador_az" />
+                        android:text="@string/nameAz"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:textColor="@color/colorFundo"
+                        android:textSize="8dp" />
                 </RelativeLayout>
 
                 <RelativeLayout
@@ -104,23 +115,36 @@
                     android:layout_toRightOf="@+id/relativeLayout"
                     android:background="@color/colorWhite">
 
-                    <Button
-                        android:id="@+id/btnFull"
-                        android:layout_width="75dp"
-                        android:layout_height="75dp"
-                        android:background="@color/colorTrasnparente"
-                        android:textColor="@color/colorFundo"
-                        android:textSize="35dp" />
+                    <FrameLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                        <ImageView
+                            android:id="@+id/riscarFull"
+                            android:layout_width="75dp"
+                            android:layout_height="75dp"
+                            android:background="@color/colorBlack"
+                            android:visibility="invisible" />
+
+                        <Button
+                            android:id="@+id/btnFull"
+                            android:layout_width="75dp"
+                            android:layout_height="75dp"
+                            android:background="@color/colorTrasnparente"
+                            android:textColor="@color/colorFundo"
+                            android:textSize="35dp" />
+                    </FrameLayout>
 
                     <TextView
+                        android:id="@+id/indicador_full"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textAppearance="?android:attr/textAppearanceSmall"
-                        android:textColor="@color/colorFundo"
-                        android:textSize="8dp"
                         android:layout_alignParentBottom="true"
                         android:layout_centerHorizontal="true"
-                        android:id="@+id/indicador_full" />
+                        android:text="@string/nameFull"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:textColor="@color/colorFundo"
+                        android:textSize="8dp" />
                 </RelativeLayout>
 
                 <RelativeLayout
@@ -133,23 +157,36 @@
                     android:layout_toRightOf="@+id/relativeLayout2"
                     android:background="@color/colorWhite">
 
-                    <Button
-                        android:id="@+id/btnQuadra"
-                        android:layout_width="75dp"
-                        android:layout_height="75dp"
-                        android:background="@color/colorTrasnparente"
-                        android:textColor="@color/colorFundo"
-                        android:textSize="35dp" />
+                    <FrameLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                        <ImageView
+                            android:id="@+id/riscarQuadra"
+                            android:layout_width="75dp"
+                            android:layout_height="75dp"
+                            android:background="@color/colorBlack"
+                            android:visibility="invisible" />
+
+                        <Button
+                            android:id="@+id/btnQuadra"
+                            android:layout_width="75dp"
+                            android:layout_height="75dp"
+                            android:background="@color/colorTrasnparente"
+                            android:textColor="@color/colorFundo"
+                            android:textSize="35dp" />
+                    </FrameLayout>
 
                     <TextView
+                        android:id="@+id/indicador_quadra"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textAppearance="?android:attr/textAppearanceSmall"
-                        android:textColor="@color/colorFundo"
-                        android:textSize="8dp"
                         android:layout_alignParentBottom="true"
                         android:layout_centerHorizontal="true"
-                        android:id="@+id/indicador_quadra" />
+                        android:text="@string/nameQuadra"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:textColor="@color/colorFundo"
+                        android:textSize="8dp" />
                 </RelativeLayout>
 
                 <RelativeLayout
@@ -162,23 +199,36 @@
                     android:layout_marginBottom="1dp"
                     android:background="@color/colorWhite">
 
-                    <Button
-                        android:id="@+id/btnDuque"
-                        android:layout_width="75dp"
-                        android:layout_height="75dp"
-                        android:background="@color/colorTrasnparente"
-                        android:textColor="@color/colorFundo"
-                        android:textSize="35dp" />
+                    <FrameLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                        <ImageView
+                            android:id="@+id/riscarDuque"
+                            android:layout_width="75dp"
+                            android:layout_height="75dp"
+                            android:background="@color/colorBlack"
+                            android:visibility="invisible" />
+
+                        <Button
+                            android:id="@+id/btnDuque"
+                            android:layout_width="75dp"
+                            android:layout_height="75dp"
+                            android:background="@color/colorTrasnparente"
+                            android:textColor="@color/colorFundo"
+                            android:textSize="35dp" />
+                    </FrameLayout>
 
                     <TextView
+                        android:id="@+id/indicador_duque"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textAppearance="?android:attr/textAppearanceSmall"
-                        android:textColor="@color/colorFundo"
-                        android:textSize="8dp"
                         android:layout_alignParentBottom="true"
                         android:layout_centerHorizontal="true"
-                        android:id="@+id/indicador_duque" />
+                        android:text="@string/nameDuque"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:textColor="@color/colorFundo"
+                        android:textSize="8dp" />
                 </RelativeLayout>
 
                 <RelativeLayout
@@ -193,23 +243,36 @@
                     android:layout_toRightOf="@+id/relativeLayout3"
                     android:background="@color/colorWhite">
 
-                    <Button
-                        android:id="@+id/btnSeguida"
-                        android:layout_width="75dp"
-                        android:layout_height="75dp"
-                        android:background="@color/colorTrasnparente"
-                        android:textColor="@color/colorFundo"
-                        android:textSize="35dp" />
+                    <FrameLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                        <ImageView
+                            android:id="@+id/riscarSeguida"
+                            android:layout_width="75dp"
+                            android:layout_height="75dp"
+                            android:background="@color/colorBlack"
+                            android:visibility="invisible" />
+
+                        <Button
+                            android:id="@+id/btnSeguida"
+                            android:layout_width="75dp"
+                            android:layout_height="75dp"
+                            android:background="@color/colorTrasnparente"
+                            android:textColor="@color/colorFundo"
+                            android:textSize="35dp" />
+                    </FrameLayout>
 
                     <TextView
+                        android:id="@+id/indicador_seguida"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textAppearance="?android:attr/textAppearanceSmall"
-                        android:textColor="@color/colorFundo"
-                        android:textSize="8dp"
                         android:layout_alignParentBottom="true"
                         android:layout_centerHorizontal="true"
-                        android:id="@+id/indicador_seguida" />
+                        android:text="@string/nameSeguida"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:textColor="@color/colorFundo"
+                        android:textSize="8dp" />
                 </RelativeLayout>
 
                 <RelativeLayout
@@ -221,23 +284,36 @@
                     android:layout_toRightOf="@+id/relativeLayout4"
                     android:background="@color/colorWhite">
 
-                    <Button
-                        android:id="@+id/btnQuina"
-                        android:layout_width="75dp"
-                        android:layout_height="75dp"
-                        android:background="@color/colorTrasnparente"
-                        android:textColor="@color/colorFundo"
-                        android:textSize="35dp" />
+                    <FrameLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                        <ImageView
+                            android:id="@+id/riscarQuina"
+                            android:layout_width="75dp"
+                            android:layout_height="75dp"
+                            android:background="@color/colorBlack"
+                            android:visibility="invisible" />
+
+                        <Button
+                            android:id="@+id/btnQuina"
+                            android:layout_width="75dp"
+                            android:layout_height="75dp"
+                            android:background="@color/colorTrasnparente"
+                            android:textColor="@color/colorFundo"
+                            android:textSize="35dp" />
+                    </FrameLayout>
 
                     <TextView
+                        android:id="@+id/indicador_quina"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textAppearance="?android:attr/textAppearanceSmall"
-                        android:textColor="@color/colorFundo"
-                        android:textSize="8dp"
                         android:layout_alignParentBottom="true"
                         android:layout_centerHorizontal="true"
-                        android:id="@+id/indicador_quina" />
+                        android:text="@string/nameQuina"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:textColor="@color/colorFundo"
+                        android:textSize="8dp" />
                 </RelativeLayout>
 
                 <RelativeLayout
@@ -250,23 +326,36 @@
                     android:layout_marginBottom="1dp"
                     android:background="@color/colorWhite">
 
-                    <Button
-                        android:id="@+id/btnTerno"
-                        android:layout_width="75dp"
-                        android:layout_height="75dp"
-                        android:background="@color/colorTrasnparente"
-                        android:textColor="@color/colorFundo"
-                        android:textSize="35dp" />
+                    <FrameLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                        <ImageView
+                            android:id="@+id/riscarTerno"
+                            android:layout_width="75dp"
+                            android:layout_height="75dp"
+                            android:background="@color/colorBlack"
+                            android:visibility="invisible" />
+
+                        <Button
+                            android:id="@+id/btnTerno"
+                            android:layout_width="75dp"
+                            android:layout_height="75dp"
+                            android:background="@color/colorTrasnparente"
+                            android:textColor="@color/colorFundo"
+                            android:textSize="35dp" />
+                    </FrameLayout>
 
                     <TextView
+                        android:id="@+id/indicador_terno"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textAppearance="?android:attr/textAppearanceSmall"
-                        android:textColor="@color/colorFundo"
-                        android:textSize="8dp"
                         android:layout_alignParentBottom="true"
                         android:layout_centerHorizontal="true"
-                        android:id="@+id/indicador_terno" />
+                        android:text="@string/nameTerno"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:textColor="@color/colorFundo"
+                        android:textSize="8dp" />
 
                 </RelativeLayout>
 
@@ -282,23 +371,36 @@
                     android:layout_toRightOf="@+id/relativeLayout5"
                     android:background="@color/colorWhite">
 
-                    <Button
-                        android:id="@+id/btnQuadrada"
-                        android:layout_width="75dp"
-                        android:layout_height="75dp"
-                        android:background="@color/colorTrasnparente"
-                        android:textColor="@color/colorFundo"
-                        android:textSize="35dp" />
+                    <FrameLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                        <ImageView
+                            android:id="@+id/riscarQuadrada"
+                            android:layout_width="75dp"
+                            android:layout_height="75dp"
+                            android:background="@color/colorBlack"
+                            android:visibility="invisible" />
+
+                        <Button
+                            android:id="@+id/btnQuadrada"
+                            android:layout_width="75dp"
+                            android:layout_height="75dp"
+                            android:background="@color/colorTrasnparente"
+                            android:textColor="@color/colorFundo"
+                            android:textSize="35dp" />
+                    </FrameLayout>
 
                     <TextView
+                        android:id="@+id/indicador_quadrada"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textAppearance="?android:attr/textAppearanceSmall"
-                        android:textColor="@color/colorFundo"
-                        android:textSize="8dp"
                         android:layout_alignParentBottom="true"
                         android:layout_centerHorizontal="true"
-                        android:id="@+id/indicador_quadrada" />
+                        android:text="@string/nameQuadrada"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:textColor="@color/colorFundo"
+                        android:textSize="8dp" />
                 </RelativeLayout>
 
                 <RelativeLayout
@@ -310,23 +412,36 @@
                     android:layout_toRightOf="@+id/relativeLayout6"
                     android:background="@color/colorWhite">
 
-                    <Button
-                        android:id="@+id/btnSena"
-                        android:layout_width="75dp"
-                        android:layout_height="75dp"
-                        android:background="@color/colorTrasnparente"
-                        android:textColor="@color/colorFundo"
-                        android:textSize="35dp" />
+                    <FrameLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                        <ImageView
+                            android:id="@+id/riscarSena"
+                            android:layout_width="75dp"
+                            android:layout_height="75dp"
+                            android:background="@color/colorBlack"
+                            android:visibility="invisible" />
+
+                        <Button
+                            android:id="@+id/btnSena"
+                            android:layout_width="75dp"
+                            android:layout_height="75dp"
+                            android:background="@color/colorTrasnparente"
+                            android:textColor="@color/colorFundo"
+                            android:textSize="35dp" />
+                    </FrameLayout>
 
                     <TextView
+                        android:id="@+id/indicador_sena"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textAppearance="?android:attr/textAppearanceSmall"
-                        android:textColor="@color/colorFundo"
-                        android:textSize="8dp"
                         android:layout_alignParentBottom="true"
                         android:layout_centerHorizontal="true"
-                        android:id="@+id/indicador_sena" />
+                        android:text="@string/nameSena"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:textColor="@color/colorFundo"
+                        android:textSize="8dp" />
                 </RelativeLayout>
 
                 <RelativeLayout
@@ -358,23 +473,36 @@
                     android:layout_toRightOf="@+id/relativeLayout7"
                     android:background="@color/colorWhite">
 
-                    <Button
-                        android:id="@+id/btnGeneral"
-                        android:layout_width="75dp"
-                        android:layout_height="75dp"
-                        android:background="@color/colorTrasnparente"
-                        android:textColor="@color/colorFundo"
-                        android:textSize="35dp" />
+                    <FrameLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                        <ImageView
+                            android:id="@+id/riscarGeneral"
+                            android:layout_width="75dp"
+                            android:layout_height="75dp"
+                            android:background="@color/colorBlack"
+                            android:visibility="invisible" />
+
+                        <Button
+                            android:id="@+id/btnGeneral"
+                            android:layout_width="75dp"
+                            android:layout_height="75dp"
+                            android:background="@color/colorTrasnparente"
+                            android:textColor="@color/colorFundo"
+                            android:textSize="35dp" />
+                    </FrameLayout>
 
                     <TextView
+                        android:id="@+id/indicador_general"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textAppearance="?android:attr/textAppearanceSmall"
-                        android:textColor="@color/colorFundo"
-                        android:textSize="8dp"
                         android:layout_alignParentBottom="true"
                         android:layout_centerHorizontal="true"
-                        android:id="@+id/indicador_general" />
+                        android:text="@string/nameGeneral"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:textColor="@color/colorFundo"
+                        android:textSize="8dp" />
                 </RelativeLayout>
 
                 <RelativeLayout
