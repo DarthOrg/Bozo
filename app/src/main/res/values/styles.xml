@@ -23,10 +23,10 @@
 
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
-    <style name="ThemePartidaAberta" parent="Theme.AppCompat.NoActionBar">
+    <style name="ThemePartidaAberta" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="colorPrimary">@color/colorFundo</item>
         <item name="colorPrimaryDark">@color/colorFundo</item>
-        <item name="colorAccent">@color/colorWhite</item>
+        <item name="colorAccent">@color/colorFundo</item>
     </style>
 
     <style name="ThemeDistaque" parent="Theme.AppCompat.Light.NoActionBar">
@@ -35,10 +35,13 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
-    <style name="ThemeNovaPartida" parent="Theme.AppCompat.NoActionBar">
+    <style name="ThemeNovaPartida" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="colorPrimary">@color/colorFundo</item>
         <item name="colorPrimaryDark">@color/colorFundo</item>
-        <item name="colorAccent">@color/colorWhite</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+    <style name="AppTheme.WhiteBotton" parent="Theme.AppCompat">
+        <item name="colorPrimary">@android:color/white</item>
     </style>
 
 

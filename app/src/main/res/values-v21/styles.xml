@@ -14,4 +14,10 @@
         <item name="colorAccent">@color/colorAccent</item>
         <item name="android:navigationBarColor">@color/colorFundo</item>
     </style>
+
+    <style name="ThemePartidaAberta" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">@color/colorFundo</item>
+        <item name="colorPrimaryDark">@color/colorFundo</item>
+        <item name="colorAccent">@color/colorFundo</item>
+    </style>
 </resources>
