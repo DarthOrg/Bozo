@@ -23,7 +23,7 @@
     <item
         android:id="@+id/action_excluir_este_jogador"
         android:title="Excluir este jogador"
-        android:icon="@drawable/ic_excluir"
+        android:icon="@drawable/ic_excluir_jogador_grupo"
         android:visible="true"
         android:orderInCategory="100"
         app:showAsAction="always"/>

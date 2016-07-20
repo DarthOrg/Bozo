@@ -75,13 +75,6 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content">
 
-                        <ImageView
-                            android:id="@+id/riscarAz"
-                            android:layout_width="75dp"
-                            android:layout_height="75dp"
-                            android:background="@color/colorBlack"
-                            android:visibility="invisible" />
-
                         <Button
                             android:id="@+id/btnAz"
                             android:layout_width="75dp"
@@ -89,6 +82,14 @@
                             android:background="@color/colorTrasnparente"
                             android:textColor="@color/colorFundo"
                             android:textSize="35dp" />
+
+                        <ImageView
+                            android:id="@+id/riscarAz"
+                            android:layout_width="75dp"
+                            android:layout_height="75dp"
+                            android:src="@drawable/ic_riscado"
+                            android:background="@color/colorTrasnparente"
+                            android:visibility="invisible" />
                     </FrameLayout>
 
                     <TextView
@@ -123,7 +124,8 @@
                             android:id="@+id/riscarFull"
                             android:layout_width="75dp"
                             android:layout_height="75dp"
-                            android:background="@color/colorBlack"
+                            android:src="@drawable/ic_riscado"
+                            android:background="@color/colorTrasnparente"
                             android:visibility="invisible" />
 
                         <Button
@@ -165,7 +167,8 @@
                             android:id="@+id/riscarQuadra"
                             android:layout_width="75dp"
                             android:layout_height="75dp"
-                            android:background="@color/colorBlack"
+                            android:src="@drawable/ic_riscado"
+                            android:background="@color/colorTrasnparente"
                             android:visibility="invisible" />
 
                         <Button
@@ -207,7 +210,8 @@
                             android:id="@+id/riscarDuque"
                             android:layout_width="75dp"
                             android:layout_height="75dp"
-                            android:background="@color/colorBlack"
+                            android:src="@drawable/ic_riscado"
+                            android:background="@color/colorTrasnparente"
                             android:visibility="invisible" />
 
                         <Button
@@ -251,8 +255,9 @@
                             android:id="@+id/riscarSeguida"
                             android:layout_width="75dp"
                             android:layout_height="75dp"
-                            android:background="@color/colorBlack"
-                            android:visibility="invisible" />
+                            android:src="@drawable/ic_riscado"
+                            android:background="@color/colorTrasnparente"
+                            android:visibility="invisible"/>
 
                         <Button
                             android:id="@+id/btnSeguida"
@@ -292,8 +297,9 @@
                             android:id="@+id/riscarQuina"
                             android:layout_width="75dp"
                             android:layout_height="75dp"
-                            android:background="@color/colorBlack"
-                            android:visibility="invisible" />
+                            android:src="@drawable/ic_riscado"
+                            android:background="@color/colorTrasnparente"
+                            android:visibility="invisible"/>
 
                         <Button
                             android:id="@+id/btnQuina"
@@ -334,7 +340,8 @@
                             android:id="@+id/riscarTerno"
                             android:layout_width="75dp"
                             android:layout_height="75dp"
-                            android:background="@color/colorBlack"
+                            android:src="@drawable/ic_riscado"
+                            android:background="@color/colorTrasnparente"
                             android:visibility="invisible" />
 
                         <Button
@@ -379,8 +386,9 @@
                             android:id="@+id/riscarQuadrada"
                             android:layout_width="75dp"
                             android:layout_height="75dp"
-                            android:background="@color/colorBlack"
-                            android:visibility="invisible" />
+                            android:src="@drawable/ic_riscado"
+                            android:background="@color/colorTrasnparente"
+                            android:visibility="invisible"/>
 
                         <Button
                             android:id="@+id/btnQuadrada"
@@ -420,7 +428,8 @@
                             android:id="@+id/riscarSena"
                             android:layout_width="75dp"
                             android:layout_height="75dp"
-                            android:background="@color/colorBlack"
+                            android:src="@drawable/ic_riscado"
+                            android:background="@color/colorTrasnparente"
                             android:visibility="invisible" />
 
                         <Button
@@ -481,7 +490,8 @@
                             android:id="@+id/riscarGeneral"
                             android:layout_width="75dp"
                             android:layout_height="75dp"
-                            android:background="@color/colorBlack"
+                            android:src="@drawable/ic_riscado"
+                            android:background="@color/colorTrasnparente"
                             android:visibility="invisible" />
 
                         <Button

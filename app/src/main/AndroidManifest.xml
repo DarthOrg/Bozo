@@ -31,8 +31,9 @@
         <activity
             android:name=".view.ListaDePlacar"
             android:theme="@style/ThemeDistaque" />
-        <activity android:name=".view.ListaDePartidas"
-            android:theme="@style/ThemeDistaque"/>
+        <activity
+            android:name=".view.ListaDePartidas"
+            android:theme="@style/ThemeDistaque" />
 
         <!--
      ATTENTION: This was auto-generated to add Google Play services to your project for
