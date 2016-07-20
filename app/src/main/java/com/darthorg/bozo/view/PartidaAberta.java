@@ -90,7 +90,7 @@ public class PartidaAberta extends AppCompatActivity {
         //Configura o Toolbar
         toolbar.setTitle(partida.getNome());
         toolbar.setSubtitle("Marcador do bozó");
-        toolbar.setSubtitleTextColor(Color.WHITE);
+        toolbar.setSubtitleTextColor(Color.BLACK);
         setSupportActionBar(toolbar);
 
         //Configura o Adapter junto com o ViewPager
@@ -101,14 +101,13 @@ public class PartidaAberta extends AppCompatActivity {
         tabLayout.setupWithViewPager(viewPager);
 
         // Configura as Cores no TabLayout
-        int corOn = ContextCompat.getColor(this, R.color.colorAccent);
-        int corOff = ContextCompat.getColor(this, R.color.colorWhiteTransparente);
-        int corBarra = ContextCompat.getColor(this, R.color.colorAccent);
-        int corFundoTabLayoyt = ContextCompat.getColor(this, R.color.colorFundo);
+        int corOn = ContextCompat.getColor(this, R.color.colorBlack);
+        int corOff = ContextCompat.getColor(this, R.color.colorBlackTransparente);
+        int corBarra = ContextCompat.getColor(this, R.color.colorBlack);
+        int corFundoTabLayoyt = ContextCompat.getColor(this, R.color.colorWhite);
         tabLayout.setBackgroundColor(corFundoTabLayoyt);
         tabLayout.setTabTextColors(corOff, corOn);
         tabLayout.setSelectedTabIndicatorColor(corBarra);
-        tabLayout.setSelectedTabIndicatorHeight(7);
 
         //Configura a partida
         configurarPartida();

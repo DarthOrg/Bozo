@@ -2,16 +2,16 @@
 <resources>
     <!--AppTheme-->
     <color name="colorPrimary">#FFFFFF</color>
-    <color name="colorPrimaryDark">#B4B4B4</color>
-    <color name="colorAccent">#80cbc4</color>
+    <color name="colorPrimaryDark">#d9d9d9</color>
+    <color name="colorAccent">#00BCD4</color>
 
     <!--ThemeSplash-->
     <color name="colorPrimary_splash">#FFFFFF</color>
     <color name="colorPrimaryDark_splash">#B4B4B4</color>
 
     <!--ThemeDistaque-->
-    <color name="colorPrimary_distaque">#80cbc4</color>
-    <color name="colorPrimaryDark_distaque">#80cbc4</color>
+    <color name="colorPrimary_distaque">#00BCD4</color>
+    <color name="colorPrimaryDark_distaque">#0097A7</color>
 
     <!--cores-->
     <color name="colorWhite">#ffffff</color>
@@ -22,11 +22,11 @@
     <color name="colorBtnFab">#e9e9e9</color>
     <color name="colorBlack">#000000</color>
     <color name="colorBlackTransparente">#4b000000</color>
-    <color name="colorCinza">#834d4d4d</color>
+    <color name="colorCinza">#c1c1c1</color>
     <color name="colorCinzaEscuro">#686868</color>
     <color name="colorFundo">#363f45</color>
-    <color name="colorFab">#80cbc4</color>
-    <color name="colorFabPressed">#5f9691 </color>
+    <color name="colorFab">#00BCD4</color>
+    <color name="colorFabPressed">#0097A7</color>
 
     <!--Cores texto-->
     <color name="colorTextoHint">#B4B4B4</color>

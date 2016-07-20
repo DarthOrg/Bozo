@@ -20,7 +20,8 @@
         </activity>
         <activity
             android:name=".view.Inicio"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme"/>
         <activity
             android:name=".view.NovaPartida"
             android:theme="@style/ThemeNovaPartida" />

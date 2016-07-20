@@ -7,7 +7,7 @@
     xmlns:fab="http://schemas.android.com/apk/res-auto"
     tools:context=".view.NovaPartida"
     android:orientation="vertical"
-    android:background="@color/colorFundo"
+    android:background="@color/colorFundoPartida"
     android:weightSum="1">
 
     <android.support.design.widget.AppBarLayout
@@ -24,42 +24,47 @@
 
     </android.support.design.widget.AppBarLayout>
 
-    <FrameLayout
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
 
-        <!--Campo de informações dos dados-->
+
         <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="400dp"
-            android:layout_gravity="center">
-
-
-            <android.support.design.widget.FloatingActionButton
-            android:id="@+id/btn_jogar"
-            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_play_white"
-            fab:fab_colorNormal="@color/colorFab"
-            fab:fab_colorPressed="@color/colorFabPressed"
-            android:layout_gravity="center" />
-
-            <!--Dado 1(Áz)-->
-
+            android:elevation="15dp"
+            android:background="@color/colorWhite"
+            android:padding="@dimen/fab_margin"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true">
 
             <ImageView
                 android:layout_width="200dp"
                 android:layout_height="65dp"
                 android:id="@+id/imageView3"
-                android:layout_marginTop="80dp"
-                android:layout_gravity="center_horizontal|top"
-                android:src="@drawable/nome_bozo" />
+                android:layout_gravity="center"
+                android:src="@drawable/nome_bozo_black"
+                android:layout_alignBottom="@+id/btn_jogar"
+                android:layout_alignRight="@+id/btn_jogar"
+                android:layout_alignEnd="@+id/btn_jogar" />
+
+            <android.support.design.widget.FloatingActionButton
+                android:id="@+id/btn_jogar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_play_white"
+                fab:fab_colorNormal="@color/colorFab"
+                fab:fab_colorPressed="@color/colorFabPressed"
+                android:layout_gravity="right|center_vertical" />
 
 
         </FrameLayout>
 
 
-    </FrameLayout>
+
+
+    </RelativeLayout>
 
 </LinearLayout>

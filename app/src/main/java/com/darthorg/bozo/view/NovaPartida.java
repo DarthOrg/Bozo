@@ -80,7 +80,7 @@ public class NovaPartida extends AppCompatActivity {
                             jogadores.add(etNomeJogador.getText().toString());
                             adapter.notifyDataSetChanged();
                             contadorJogador.setText("Jogadores: "+jogadores.size()+"/10");
-                            Snackbar.make(view, "Jogador ( "+etNomeJogador.getText().toString()+" ) adicionado!", Snackbar.LENGTH_LONG).show();
+                            Snackbar.make(view, "Jogador "+etNomeJogador.getText().toString()+" foi adicionado!", Snackbar.LENGTH_LONG).show();
                         } else {
                             Snackbar.make(view, "Numero máximo de jogadores é 10", Snackbar.LENGTH_INDEFINITE)
                                     .setActionTextColor(Color.CYAN)

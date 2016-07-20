@@ -17,13 +17,12 @@
         <android.support.design.widget.AppBarLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:elevation="0dp"
+            app:elevation="5dp"
             android:id="@+id/view">
 
             <!--TOOLBAR TOPO-->
             <android.support.v7.widget.Toolbar
                 android:id="@+id/toolbar"
-                app:theme="@style/AppTheme.WhiteBotton"
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"/>
 
@@ -37,15 +36,15 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="textPersonName"
-                    android:textColor="@color/colorAccent"
+                    android:textColor="@color/colorBlack"
                     android:textSize="25dp"
                     android:textAllCaps="true"
                     android:text="@string/txtNomeGrupoExemplo"
-                    android:textColorLink="@color/colorFundo"
+                    android:textColorLink="@color/colorBlack"
                     android:nestedScrollingEnabled="true"
                     android:linksClickable="false"
                     android:hint="Nome do seu grupo"
-                    android:textColorHint="@color/colorWhiteTransparente"
+                    android:textColorHint="@color/colorBlackTransparente"
                     android:ems="10"
                     android:id="@+id/editText_nomePartida"/>
 
