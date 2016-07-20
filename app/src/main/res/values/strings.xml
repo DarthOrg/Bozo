@@ -1,9 +1,9 @@
 <resources>
     <string name="app_name">Bozó</string>
     <string name="title_activity_inicio">Inicio</string>
-    <string name="txtNovaPartida">Nova Partida</string>
+    <string name="txtNovoGrupo">Novo grupo</string>
     <string name="txtNomePartida">Nome partida</string>
-    <string name="txtSuasPartidas">Suas partidas</string>
+    <string name="txtSeusGrupos">Seus grupos</string>
     <string name="txtNomeGrupoExemplo">Grupo</string>
 
 

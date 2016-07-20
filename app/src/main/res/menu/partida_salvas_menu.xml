@@ -5,7 +5,7 @@
 
     <item
         android:id="@+id/action_nova_partida"
-        android:title="@string/txtNovaPartida"
+        android:title="@string/txtNovoGrupo"
         android:orderInCategory="100"
         app:showAsAction="always"/>
 
