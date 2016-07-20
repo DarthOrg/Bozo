@@ -3,8 +3,10 @@ package com.darthorg.bozo.view;
 import android.annotation.TargetApi;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -62,7 +64,7 @@ public class NovaPartida extends AppCompatActivity {
         com.melnykov.fab.FloatingActionButton fab = (com.melnykov.fab.FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
+            public void onClick(final View view) {
 
                 LayoutInflater inflater = getLayoutInflater();
                 //Recebe a activity para persolnalizar o dialog
@@ -77,10 +79,19 @@ public class NovaPartida extends AppCompatActivity {
                         if (jogadores.size() < 10) {
                             jogadores.add(etNomeJogador.getText().toString());
                             adapter.notifyDataSetChanged();
-                            contadorJogador.setText("Jogadores "+jogadores.size()+"/10");
-                            Toast.makeText(NovaPartida.this, "Jogador ( "+etNomeJogador.getText().toString()+" ) adicionado!", Toast.LENGTH_SHORT).show();
+                            contadorJogador.setText("Jogadores: "+jogadores.size()+"/10");
+                            Snackbar.make(view, "Jogador ( "+etNomeJogador.getText().toString()+" ) adicionado!", Snackbar.LENGTH_LONG).show();
                         } else {
-                            Toast.makeText(NovaPartida.this, "Numero máximo de jogadores é 10", Toast.LENGTH_SHORT).show();
+                            Snackbar.make(view, "Numero máximo de jogadores é 10", Snackbar.LENGTH_INDEFINITE)
+                                    .setActionTextColor(Color.CYAN)
+                                    .setAction("Ok", new View.OnClickListener() {
+                                        @Override
+                                        public void onClick(View view) {
+                                            return;
+
+                                        }
+                                    })
+                                    .show();
                         }
                     }
                 });
