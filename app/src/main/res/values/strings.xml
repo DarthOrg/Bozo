@@ -4,7 +4,7 @@
     <string name="txtNovaPartida">Nova Partida</string>
     <string name="txtNomePartida">Nome partida</string>
     <string name="txtSuasPartidas">Suas partidas</string>
-    <string name="txtNomePartidaExemplo">Partida</string>
+    <string name="txtNomeGrupoExemplo">Grupo</string>
 
 
     <!-- Nomes das peças no bozó  -->
@@ -18,4 +18,5 @@
     <string name="nameSeguida">Seguida</string>
     <string name="nameQuadrada">Quadrada</string>
     <string name="nameGeneral">General</string>
+    <string name="title_activity_teste_teste_teste_teste">TesteTesteTesteTeste</string>
 </resources>

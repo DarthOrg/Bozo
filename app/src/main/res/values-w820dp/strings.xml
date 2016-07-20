@@ -3,5 +3,5 @@
     <string name="txtNovaPartida">Nova Partida</string>
     <string name="txtNomePartida">Nome partida</string>
     <string name="txtSuasPartidas">Suas partidas</string>
-    <string name="txtNomePartidaExemplo">Partida</string>
+    <string name="txtNomeGrupoExemplo">Grupo</string>
 </resources>
