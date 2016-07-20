@@ -67,7 +67,6 @@
         </android.support.design.widget.AppBarLayout>
 
 
-        <!--Todo:Criar contagem da lista de jogadores-->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

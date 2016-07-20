@@ -69,6 +69,10 @@ public class ListaDePartidas extends AppCompatActivity {
         if (id == R.id.action_nova_partida) {
             Intent intent = new Intent(ListaDePartidas.this, NovaPartida.class);
             startActivity(intent);
+        }else if (id == R.id.action_atualizar) {
+            Intent intent = new Intent(ListaDePartidas.this, ListaDePartidas.class);
+            startActivity(intent);
+            finish();
         }
 
         else if (id == android.R.id.home) {

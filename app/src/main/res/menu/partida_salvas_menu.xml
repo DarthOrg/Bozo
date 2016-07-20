@@ -4,6 +4,12 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
+        android:id="@+id/action_atualizar"
+        android:title="@string/txt_atualizar"
+        android:icon="@drawable/ic_atualizar"
+        android:orderInCategory="100"
+        app:showAsAction="always"/>
+    <item
         android:id="@+id/action_nova_partida"
         android:title="@string/txtNovoGrupo"
         android:orderInCategory="100"

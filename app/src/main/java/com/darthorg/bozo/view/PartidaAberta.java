@@ -263,7 +263,7 @@ public class PartidaAberta extends AppCompatActivity {
 
                     adapter.addFrag(fragmentFilho, etNomeJogador.getText().toString());
                     adapter.notifyDataSetChanged();
-                    Snackbar.make(viewPager, "Jogador "+etNomeJogador.getText().toString()+" adicionado!", Snackbar.LENGTH_LONG).show();
+                    Snackbar.make(viewPager, "Jogador "+etNomeJogador.getText().toString()+" foi adicionado!", Snackbar.LENGTH_LONG).show();
 
                     if (adapter.getCount() > 0) {
                         tabLayout.setupWithViewPager(viewPager);
@@ -310,7 +310,7 @@ public class PartidaAberta extends AppCompatActivity {
             builder.show();
         } else if (id == R.id.action_excluir_este_jogador){
 
-                Snackbar.make(viewPager, "Excluir jogador selecionado", Snackbar.LENGTH_INDEFINITE)
+                Snackbar.make(viewPager, "Excluir jogador selecionado", Snackbar.LENGTH_LONG)
                         .setActionTextColor(Color.RED)
                         .setAction("Excluir "+jogadoresRodada.get(viewPager.getCurrentItem()).getNome(), new View.OnClickListener() {
                             @Override

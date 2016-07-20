@@ -2,6 +2,8 @@ package com.darthorg.bozo.adapter;
 
 import android.content.Context;
 import android.content.DialogInterface;
+import android.graphics.Color;
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.AlertDialog;
 import android.view.View;
 import android.view.ViewGroup;
@@ -57,30 +59,25 @@ public class PartidasListaAdapter extends BaseAdapter {
 
 
 
-
-        //Todo:Corrigir erro não está aparecendo AlertDialog
         //Botão de Excluir
         btnDeletar = (Button) v.findViewById(R.id.btnDeletarPartida);
         btnDeletar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                AlertDialog.Builder builder = new AlertDialog.Builder(mContext);
-                builder.setTitle("Excluir");
-                builder.setMessage("Tem certeza que deseja excluir a partida?");
-                builder.setIcon(R.drawable.ic_delete);
-                builder.setNegativeButton("Não",null);
-                builder.setPositiveButton("Sim", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialogInterface, int i) {
+                Snackbar.make(view, "Você tem certeza que deseja apagar \n( "+mPartidasLista.get(position).getNome()+" ) ?", Snackbar.LENGTH_LONG)
+                        .setActionTextColor(Color.YELLOW)
+                        .setAction("Sim", new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                Toast.makeText(mContext, mPartidasLista.get(position).getNome()+" - foi excluido da sua lista", Toast.LENGTH_SHORT).show();
+                                PartidaDAO partidaDAO = new PartidaDAO(mContext);
+                                partidaDAO.deletarPartida(mPartidasLista.get(position));
+                                mPartidasLista.remove(position);
+                                notifyDataSetChanged();
 
-                        Toast.makeText(mContext, "Partida deletada", Toast.LENGTH_SHORT).show();
-                        PartidaDAO partidaDAO = new PartidaDAO(mContext);
-                        partidaDAO.deletarPartida(mPartidasLista.get(position));
-                        mPartidasLista.remove(position);
-                        notifyDataSetChanged();
-                    }
-                });
-                builder.show();
+                            }
+                        })
+                        .show();
             }
         });
 

@@ -223,7 +223,6 @@ public class FragmentFilho extends Fragment {
                                           builder.setNeutralButton("[ X ] Riscar", new DialogInterface.OnClickListener() {
                                               @Override
                                               public void onClick(DialogInterface dialogInterface, int i) {
-                                                  //Todo: Validar para n riscar uma peça que ja foi usada
                                                   switch (posicao) {
                                                       case nomeAz:
                                                           if (getPosicaoAz() == null) {
