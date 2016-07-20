@@ -2,6 +2,8 @@ package com.darthorg.bozo.view;
 
 import android.content.Intent;
 import android.os.Build;
+import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -12,6 +14,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.ImageButton;
 
 import com.darthorg.bozo.R;
 
@@ -36,7 +39,7 @@ public class Inicio extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
 
-        com.melnykov.fab.FloatingActionButton fab = (com.melnykov.fab.FloatingActionButton) findViewById(R.id.btn_jogar);
+        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.btn_jogar);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -52,8 +55,26 @@ public class Inicio extends AppCompatActivity {
                         startActivity(intent);
                     }
                 });
-                //Botão Suas partidas
-                Button btnPartidasSalvas = (Button) dialogLayout.findViewById(R.id.btn_partidas_salvas);
+                //Botão Jogadores
+                ImageButton btnJogadoresSalvos = (ImageButton) dialogLayout.findViewById(R.id.btn_jogadores_salvos);
+                btnJogadoresSalvos.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Snackbar.make(view, "Jogadores clicado.", Snackbar.LENGTH_LONG)
+                                .setAction("Ok", null).show();
+                    }
+                });
+                //Botão Instruções
+                ImageButton btnInstrucoes = (ImageButton) dialogLayout.findViewById(R.id.btn_instrucoes);
+                btnInstrucoes.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Snackbar.make(view, "Instruções clicado.", Snackbar.LENGTH_LONG)
+                                .setAction("Ok", null).show();
+                    }
+                });
+                //Botão grupo salvos
+                ImageButton btnPartidasSalvas = (ImageButton) dialogLayout.findViewById(R.id.btn_partidas_salvas);
                 btnPartidasSalvas.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
@@ -65,10 +86,6 @@ public class Inicio extends AppCompatActivity {
                 //builder.setNegativeButton("Cancelar",null);
                 builder.setView(dialogLayout);
                 builder.show();
-
-
-
-
             }
         });
 
