@@ -2,40 +2,122 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:fab="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorFundo"
+    android:background="@color/colorFundoPartida"
     android:orientation="vertical">
 
-    <Button
-        android:id="@+id/btn_nova_partida"
+    <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center_vertical"
-        android:layout_marginBottom="10dp"
-        android:layout_marginTop="10dp"
-        android:background="@color/colorTrasnparente"
-        android:drawableLeft="@drawable/ic_nova_partida"
-        android:drawablePadding="@dimen/fab_margin"
-        android:paddingLeft="30dp"
-        android:text="Nova partida"
-        android:textColor="@color/colorAccent"
-        android:textSize="13dp"
-        android:textAlignment="textStart" />
+        android:background="@color/colorWhite"
+        android:elevation="5dp"
+        android:paddingBottom="15dp">
 
-    <Button
-        android:id="@+id/btn_partidas_salvas"
+        <ImageButton
+            android:id="@+id/btn_instrucoes"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:src="@drawable/ic_instrucoes"
+            android:background="@drawable/circulo"
+            android:layout_gravity="center"
+            android:layout_marginLeft="100dp" />
+
+        <ImageButton
+            android:id="@+id/btn_jogadores_salvos"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:background="@drawable/circulo"
+            android:src="@drawable/ic_jogadores_salvos"
+            android:layout_gravity="center" />
+
+        <ImageButton
+            android:id="@+id/btn_partidas_salvas"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:src="@drawable/ic_lista"
+            android:background="@drawable/circulo"
+            android:layout_gravity="center"
+            android:layout_marginRight="100dp" />
+
+
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="Jogadores"
+            android:textColor="@color/colorFundo"
+            android:layout_gravity="bottom|center_horizontal"
+            android:layout_marginTop="90dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="Instruções"
+            android:textColor="@color/colorFundo"
+            android:layout_gravity="center_horizontal|bottom"
+            android:layout_marginLeft="100dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="Grupo salvos"
+            android:textColor="@color/colorFundo"
+            android:layout_gravity="center_horizontal|bottom"
+            android:layout_marginRight="100dp" />
+
+
+    </FrameLayout>
+
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="10dp"
-        android:layout_marginTop="10dp"
-        android:background="@color/colorTrasnparente"
-        android:drawableLeft="@drawable/ic_lista"
-        android:drawablePadding="@dimen/fab_margin"
+        android:layout_height="150dp"
+        android:layout_gravity="center_horizontal">
 
-        android:paddingLeft="30dp"
-        android:text="Partidas salvas"
-        android:textSize="13dp"
-        android:textAlignment="textStart" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="Crie um grupo de jogo, para poder acessar depois na opção grupos salvos."
+            android:textColor="@color/colorCinza"
+            android:layout_gravity="left|center_vertical"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Grupo de jogo"
+            android:textColor="@color/colorFundo"
+            android:textStyle="bold"
+            android:layout_gravity="left|center_vertical"
+            android:layout_marginLeft="20dp"
+            android:layout_marginBottom="25dp" />
+    </FrameLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginBottom="20dp">
+
+        <Button
+            android:id="@+id/btn_nova_partida"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Novo grupo de jogo"
+            android:padding="20dp"
+            android:drawableStart="@drawable/ic_nova_partida"
+            android:backgroundTint="@color/colorWhite"
+            android:textColor="@color/colorBlack"/>
+    </FrameLayout>
 
 </LinearLayout>
