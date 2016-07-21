@@ -1,17 +1,13 @@
 package com.darthorg.bozo.view;
 
 import android.annotation.TargetApi;
-import android.content.DialogInterface;
+import android.app.Dialog;
 import android.content.Intent;
-import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
-import android.support.design.widget.Snackbar;
-import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
-import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -25,7 +21,6 @@ import android.widget.Toast;
 
 import com.darthorg.bozo.R;
 import com.darthorg.bozo.controller.PartidaController;
-import com.darthorg.bozo.dao.PartidaDAO;
 import com.darthorg.bozo.model.Partida;
 
 import java.util.ArrayList;
@@ -52,7 +47,7 @@ public class NovaPartida extends AppCompatActivity {
         setContentView(R.layout.activity_nova_partida);
 
         contadorJogador = (TextView) findViewById(R.id.contagemJogadores);
-        contadorJogador.setText("Jogadores "+jogadores.size()+"/10");
+        contadorJogador.setText("Jogadores " + jogadores.size() + "/10");
 
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         toolbar.setTitle(" ");
@@ -64,50 +59,52 @@ public class NovaPartida extends AppCompatActivity {
 
 
         com.melnykov.fab.FloatingActionButton fab = (com.melnykov.fab.FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(final View view) {
+        if (fab != null) {
+            fab.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(final View view) {
 
-                LayoutInflater inflater = getLayoutInflater();
-                //Recebe a activity para persolnalizar o dialog
-                View dialogLayout = inflater.inflate(R.layout.dialog_novo_jogador, null);
-                final EditText etNomeJogador = (EditText) dialogLayout.findViewById(R.id.edit_nome_novo_jogador);
+                    final Dialog dialogNovoJogador = new Dialog(NovaPartida.this);
 
-                AlertDialog.Builder builder = new AlertDialog.Builder(NovaPartida.this);
-                //Botão Adicionar jogador
-                Button btnAdicionarJogador = (Button) dialogLayout.findViewById(R.id.btnAdicionar);
-                btnAdicionarJogador.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        //Todo: ERRO não fecha o AlertDialog quando clica adicionar ou cancelar
-                        if (jogadores.size() < 10) {
-                            jogadores.add(etNomeJogador.getText().toString());
-                            adapter.notifyDataSetChanged();
-                            contadorJogador.setText("Jogadores: "+jogadores.size()+"/10");
-                        } else {
-                            Toast.makeText(NovaPartida.this, "Numero máximo de jogadores é 10", Toast.LENGTH_SHORT).show();
+                    // Configura a view para o layout
+                    dialogNovoJogador.setContentView(R.layout.dialog_novo_jogador);
+
+                    //Recupera os componentes do layout
+                    final EditText etNomeJogador = (EditText) dialogNovoJogador.findViewById(R.id.edit_nome_novo_jogador);
+                    Button btnAdicionarJogador = (Button) dialogNovoJogador.findViewById(R.id.btnAdicionar);
+
+                    //Adicionar novo jogador
+                    btnAdicionarJogador.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            //Todo: ERRO não fecha o AlertDialog quando clica adicionar ou cancelar
+                            if (jogadores.size() < 10) {
+                                jogadores.add(etNomeJogador.getText().toString());
+                                adapter.notifyDataSetChanged();
+                                contadorJogador.setText("Jogadores: " + jogadores.size() + "/10");
+
+                            } else {
+                                Toast.makeText(NovaPartida.this, "Numero máximo de jogadores é 10", Toast.LENGTH_SHORT).show();
+                            }
+                            dialogNovoJogador.dismiss();
                         }
-
-                    }
-                });
-                //Botão Cancelar
-                Button btnCancelar = (Button) dialogLayout.findViewById(R.id.btnCancelar);
-                btnCancelar.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        return;
-                    }
-                });
-                builder.setView(dialogLayout);
-
-                builder.show();
-            }
-        });
-
+                    });
+                    //Botão Cancelar
+                    Button btnCancelar = (Button) dialogNovoJogador.findViewById(R.id.btnCancelar);
+                    btnCancelar.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            dialogNovoJogador.dismiss();
+                            return;
+                        }
+                    });
+                    dialogNovoJogador.show();
+                }
+            });
+        }
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
-
 
 
     @Override
@@ -130,9 +127,9 @@ public class NovaPartida extends AppCompatActivity {
 
                 Toast.makeText(NovaPartida.this, "Para iniciar precisa de 2 Jogadores", Toast.LENGTH_SHORT).show();
 
-            }else if (TextUtils.isEmpty(etNovaPartida.getText().toString())) {
+            } else if (TextUtils.isEmpty(etNovaPartida.getText().toString())) {
                 Toast.makeText(this, "Por favor insira um nome para sua partida!", Toast.LENGTH_SHORT).show();
-            }else {
+            } else {
                 partidaController = new PartidaController(this);
                 if (partidaController.inserirPartida(partida)) {
                     Intent intent = new Intent(this, PartidaAberta.class);
