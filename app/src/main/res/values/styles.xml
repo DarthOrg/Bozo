@@ -42,7 +42,7 @@
     </style>
 
     <style name="AppTheme.WhiteBotton" parent="Theme.AppCompat">
-        <item name="colorPrimary">@android:color/white</item>
+        <item name="colorAccent">@color/colorBlack</item>
     </style>
 
 

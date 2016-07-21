@@ -1,10 +1,13 @@
 package com.darthorg.bozo.adapter;
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.graphics.Color;
+import android.os.Handler;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AlertDialog;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
@@ -15,6 +18,7 @@ import android.widget.Toast;
 import com.darthorg.bozo.R;
 import com.darthorg.bozo.dao.PartidaDAO;
 import com.darthorg.bozo.model.Partida;
+import com.darthorg.bozo.view.ListaDePartidas;
 
 import java.util.List;
 
@@ -62,6 +66,8 @@ public class PartidasListaAdapter extends BaseAdapter {
         //Botão de Excluir
         btnDeletar = (Button) v.findViewById(R.id.btnDeletarPartida);
         btnDeletar.setOnClickListener(new View.OnClickListener() {
+
+
             @Override
             public void onClick(View view) {
                 Snackbar.make(view, "Você tem certeza que deseja apagar \n( "+mPartidasLista.get(position).getNome()+" ) ?", Snackbar.LENGTH_LONG)
@@ -88,4 +94,5 @@ public class PartidasListaAdapter extends BaseAdapter {
 
         return v;
     }
+
 }

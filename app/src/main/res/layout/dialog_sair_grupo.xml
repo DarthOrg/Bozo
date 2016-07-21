@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:fab="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/colorWhite"
     android:orientation="vertical">
 
@@ -21,7 +22,7 @@
             android:layout_height="wrap_content"
             android:textStyle="bold"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="Novo jogador"
+            android:text="Descartar grupo?"
             android:textSize="15dp"
             android:textColor="@color/colorBlack"
             android:layout_gravity="left|center_vertical"
@@ -33,20 +34,17 @@
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:padding="20dp"
         android:layout_gravity="center_horizontal">
 
-        <EditText
-            android:theme="@style/AppTheme.WhiteBotton"
-            android:layout_margin="20dp"
-            android:layout_width="match_parent"
+        <TextView
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:selectAllOnFocus="true"
-            android:inputType="textPersonName"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="Se sair agora, seu grupo e as informações vão ser descartadas."
+            android:textSize="15dp"
             android:textColor="@color/colorBlack"
-            android:hint="Digite o nome do jogador aqui..."
-            android:textColorHint="@color/colorTextoHint"
-            android:ems="10"
-            android:id="@+id/edit_nome_novo_jogador" />
+            android:layout_gravity="left|center_vertical"/>
     </FrameLayout>
 
 
@@ -65,15 +63,15 @@
         android:layout_gravity="center_horizontal">
 
 
-        <!--Adicionar-->
+        <!--Salvar-->
         <Button
             style="?android:attr/absListViewStyle"
             android:textStyle="bold"
             android:layout_width="150dp"
             android:layout_height="wrap_content"
-            android:text="Cancelar"
+            android:text="Descartar"
             android:background="@color/colorTrasnparente"
-            android:id="@+id/btnCancelar"
+            android:id="@+id/btnDescartar"
             android:layout_gravity="left|center_vertical" />
 
 
@@ -85,19 +83,21 @@
             android:layout_gravity="center" />
 
 
-        <!--Cancelar-->
+        <!--Descartar-->
         <Button
             style="?android:attr/absListViewStyle"
             android:textStyle="bold"
             android:layout_width="150dp"
             android:layout_height="wrap_content"
-            android:text="Adicionar"
+            android:text="Salvar"
             android:background="@color/colorTrasnparente"
-            android:id="@+id/btnAdicionar"
+            android:id="@+id/btnSalvar"
             android:layout_gravity="right|center_vertical" />
 
 
     </FrameLayout>
+
+
 
 
 </LinearLayout>

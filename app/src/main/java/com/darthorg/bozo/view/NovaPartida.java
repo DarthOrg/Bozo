@@ -17,6 +17,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -24,6 +25,7 @@ import android.widget.Toast;
 
 import com.darthorg.bozo.R;
 import com.darthorg.bozo.controller.PartidaController;
+import com.darthorg.bozo.dao.PartidaDAO;
 import com.darthorg.bozo.model.Partida;
 
 import java.util.ArrayList;
@@ -56,7 +58,7 @@ public class NovaPartida extends AppCompatActivity {
         toolbar.setTitle(" ");
         setSupportActionBar(toolbar);
 
-        ListView listView = (ListView) findViewById(R.id.list_view_jogadores);
+        final ListView listView = (ListView) findViewById(R.id.list_view_jogadores);
         adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_activated_1, jogadores);
         listView.setAdapter(adapter);
 
@@ -72,32 +74,32 @@ public class NovaPartida extends AppCompatActivity {
                 final EditText etNomeJogador = (EditText) dialogLayout.findViewById(R.id.edit_nome_novo_jogador);
 
                 AlertDialog.Builder builder = new AlertDialog.Builder(NovaPartida.this);
-                builder.setTitle("Novo jogador");
-                builder.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+                //Botão Adicionar jogador
+                Button btnAdicionarJogador = (Button) dialogLayout.findViewById(R.id.btnAdicionar);
+                btnAdicionarJogador.setOnClickListener(new View.OnClickListener() {
                     @Override
-                    public void onClick(DialogInterface dialog, int which) {
+                    public void onClick(View view) {
+                        //Todo: ERRO não fecha o AlertDialog quando clica adicionar ou cancelar
                         if (jogadores.size() < 10) {
                             jogadores.add(etNomeJogador.getText().toString());
                             adapter.notifyDataSetChanged();
                             contadorJogador.setText("Jogadores: "+jogadores.size()+"/10");
-                            Snackbar.make(view, "Jogador "+etNomeJogador.getText().toString()+" foi adicionado!", Snackbar.LENGTH_LONG).show();
                         } else {
-                            Snackbar.make(view, "Numero máximo de jogadores é 10", Snackbar.LENGTH_INDEFINITE)
-                                    .setActionTextColor(Color.CYAN)
-                                    .setAction("Ok", new View.OnClickListener() {
-                                        @Override
-                                        public void onClick(View view) {
-                                            return;
-
-                                        }
-                                    })
-                                    .show();
+                            Toast.makeText(NovaPartida.this, "Numero máximo de jogadores é 10", Toast.LENGTH_SHORT).show();
                         }
+
                     }
                 });
-                builder.setNegativeButton("Cancelar", null);
+                //Botão Cancelar
+                Button btnCancelar = (Button) dialogLayout.findViewById(R.id.btnCancelar);
+                btnCancelar.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        return;
+                    }
+                });
                 builder.setView(dialogLayout);
-                builder.setCancelable(false);
+
                 builder.show();
             }
         });

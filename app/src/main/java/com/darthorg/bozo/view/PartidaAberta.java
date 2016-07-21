@@ -21,6 +21,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.WindowManager;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -36,6 +37,7 @@ import com.darthorg.bozo.fragment.FragmentFilho;
 import com.darthorg.bozo.model.Jogador;
 import com.darthorg.bozo.model.Partida;
 import com.darthorg.bozo.model.Rodada;
+import com.github.clans.fab.FloatingActionMenu;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -68,6 +70,7 @@ public class PartidaAberta extends AppCompatActivity {
     private Bundle bundleParams;
 
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -88,8 +91,8 @@ public class PartidaAberta extends AppCompatActivity {
         getIDs();
 
         //Configura o Toolbar
-        toolbar.setTitle(partida.getNome());
-        toolbar.setSubtitle("Marcador do bozó");
+        toolbar.setTitle("Marcador");
+        toolbar.setSubtitle(partida.getNome());
         toolbar.setSubtitleTextColor(Color.BLACK);
         setSupportActionBar(toolbar);
 
@@ -245,10 +248,12 @@ public class PartidaAberta extends AppCompatActivity {
             final EditText etNomeJogador = (EditText) dialogLayout.findViewById(R.id.edit_nome_novo_jogador);
 
             AlertDialog.Builder builder = new AlertDialog.Builder(PartidaAberta.this);
-            builder.setTitle("Novo jogador");
-            builder.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+            //Botão Adicionar jogador
+            Button btnAdicionarJogador = (Button) dialogLayout.findViewById(R.id.btnAdicionar);
+            btnAdicionarJogador.setOnClickListener(new View.OnClickListener() {
                 @Override
-                public void onClick(DialogInterface dialog, int which) {
+                public void onClick(View view) {
+                    //Todo: ERRO não fecha o AlertDialog quando clica adicionar ou cancelar
                     FragmentFilho fragmentFilho = new FragmentFilho();
 
                     Jogador jogador = new Jogador();
@@ -269,11 +274,18 @@ public class PartidaAberta extends AppCompatActivity {
                         viewPager.setCurrentItem(adapter.getCount() - 1);
 
                     }
+
                 }
             });
-            builder.setNegativeButton("Cancelar", null);
+            //Botão Cancelar
+            Button btnCancelar = (Button) dialogLayout.findViewById(R.id.btnCancelar);
+            btnCancelar.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    return;
+                }
+            });
             builder.setView(dialogLayout);
-            builder.setCancelable(false);
             builder.show();
 
 
@@ -284,29 +296,46 @@ public class PartidaAberta extends AppCompatActivity {
         } else if (id == R.id.action_configuracoes) {
             return true;
         } else if (id == R.id.action_sair) {
+
+            LayoutInflater inflater = getLayoutInflater();
+            View dialogLayout = inflater.inflate(R.layout.dialog_sair_grupo, null);
             AlertDialog.Builder builder = new AlertDialog.Builder(PartidaAberta.this);
-            builder.setMessage("Deseja salvar antes de Sair ?");
-            builder.setCancelable(true);
-            builder.setPositiveButton("Sim ", new DialogInterface.OnClickListener() {
+
+            //Botão Salvar grupo
+            Button btnSalvarGrupo = (Button) dialogLayout.findViewById(R.id.btnSalvar);
+            btnSalvarGrupo.setOnClickListener(new View.OnClickListener() {
                 @Override
-                public void onClick(DialogInterface dialog, int which) {
-                    //TODO: Implementar o metodo para salvar a partida
-                    Toast alertaMenssagem = Toast.makeText(getApplicationContext(), "Partida salva com sucesso", Toast.LENGTH_LONG);
-                    alertaMenssagem.show();
-                    finish();
+                public void onClick(final View view) {
+                    //ProgressDialog Função carregar
+                    final ProgressDialog builder = new ProgressDialog(PartidaAberta.this);
+                    builder.setMessage("Salvando só um momento...");
+                    builder.show();
+
+                    //Tepo que a barra vai demorar para carregar
+                    new Handler().postDelayed(new Runnable() {
+                        public void run() {
+                            //TODO: Implementar o metodo para salvar a partida
+                            finish();
+                        }
+                    }, ProgressSalvar);
                 }
             });
-
-            builder.setNegativeButton("Não", new DialogInterface.OnClickListener() {
+            //Botão Descartar grupo
+            Button btnDescartarGrupo = (Button) dialogLayout.findViewById(R.id.btnDescartar);
+            btnDescartarGrupo.setOnClickListener(new View.OnClickListener() {
                 @Override
-                public void onClick(DialogInterface dialog, int which) {
+                public void onClick(View view) {
                     PartidaDAO partidaDAO = new PartidaDAO(PartidaAberta.this);
                     partidaDAO.deletarPartida(partida);
                     finish();
                 }
             });
 
+            builder.setView(dialogLayout);
             builder.show();
+
+
+
         } else if (id == R.id.action_excluir_este_jogador){
 
                 Snackbar.make(viewPager, "Excluir jogador selecionado", Snackbar.LENGTH_LONG)

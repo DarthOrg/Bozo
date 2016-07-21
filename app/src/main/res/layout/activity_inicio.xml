@@ -55,8 +55,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:src="@drawable/ic_play_white"
-                fab:fab_colorNormal="@color/colorFab"
-                fab:fab_colorPressed="@color/colorFabPressed"
+                fab:fab_colorNormal="@color/colorFAB"
+                fab:fab_colorPressed="@color/colorFABPressed"
                 android:layout_gravity="right|center_vertical" />
 
 

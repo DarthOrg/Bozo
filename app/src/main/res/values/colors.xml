@@ -25,8 +25,8 @@
     <color name="colorCinza">#c1c1c1</color>
     <color name="colorCinzaEscuro">#686868</color>
     <color name="colorFundo">#363f45</color>
-    <color name="colorFab">#00BCD4</color>
-    <color name="colorFabPressed">#0097A7</color>
+    <color name="colorFAB">#00BCD4</color>
+    <color name="colorFABPressed">#0097A7</color>
 
     <!--Cores texto-->
     <color name="colorTextoHint">#B4B4B4</color>
