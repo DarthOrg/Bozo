@@ -4,30 +4,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@color/colorWhite"
+    android:background="@color/colorFundoPartida"
     android:orientation="vertical">
-
-    <!--Titulo-->
-    <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/colorWhite"
-        android:padding="10dp"
-        android:elevation="3dp">
-
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textStyle="bold"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="Novo jogador"
-            android:textSize="15dp"
-            android:textColor="@color/colorBlack"
-            android:layout_gravity="left|center_vertical"
-            android:id="@+id/textView4" />
-    </FrameLayout>
-
 
     <!--Contexto-->
     <FrameLayout

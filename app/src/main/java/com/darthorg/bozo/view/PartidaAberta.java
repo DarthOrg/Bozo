@@ -88,8 +88,8 @@ public class PartidaAberta extends AppCompatActivity {
         getIDs();
 
         //Configura o Toolbar
-        toolbar.setTitle("Marcador");
-        toolbar.setSubtitle(partida.getNome());
+        toolbar.setTitle(partida.getNome());
+        toolbar.setSubtitle("Marcador");
         toolbar.setSubtitleTextColor(Color.BLACK);
         setSupportActionBar(toolbar);
 
@@ -247,7 +247,7 @@ public class PartidaAberta extends AppCompatActivity {
             final EditText etNomeJogador = (EditText) dialogAdicionarJogador.findViewById(R.id.edit_nome_novo_jogador);
             Button btnAdicionarJogador = (Button) dialogAdicionarJogador.findViewById(R.id.btnAdicionar);
             Button btnCancelar = (Button) dialogAdicionarJogador.findViewById(R.id.btnCancelar);
-
+            dialogAdicionarJogador.setTitle("Novo jogador");
             //Adicionar Jogador
             btnAdicionarJogador.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -299,6 +299,7 @@ public class PartidaAberta extends AppCompatActivity {
             View dialogLayout = inflater.inflate(R.layout.dialog_sair_grupo, null);
             AlertDialog.Builder builder = new AlertDialog.Builder(PartidaAberta.this);
 
+            builder.setTitle("Descartar grupo?");
             //Botão Salvar grupo
             Button btnSalvarGrupo = (Button) dialogLayout.findViewById(R.id.btnSalvar);
             btnSalvarGrupo.setOnClickListener(new View.OnClickListener() {
