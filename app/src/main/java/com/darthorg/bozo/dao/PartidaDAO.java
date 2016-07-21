@@ -92,8 +92,36 @@ public class PartidaDAO {
         return partida;
     }
 
+    public Partida buscarPartidaPorId(long idPartida) {
+
+        Partida partida = null;
+
+        try {
+
+            String[] colunas = new String[]{"_id", "nome"};
+            // Idem a: SELECT _id,nome,cpf,idade from pessoa where nome = ?
+            Cursor c = db.query(DataModel.getTabelaPartidas(), colunas, "_id " + "='" + idPartida + "'", null, null, null, null);
+
+            // Se encontrou...
+            if (c.moveToNext()) {
+
+                partida = new Partida();
+                // utiliza os métodos getLong(), getString(), getInt(), etc para recuperar os valores
+                partida.setIdPartida(c.getLong(0));
+                partida.setNome(c.getString(1));
+            }
+        } catch (SQLException e) {
+            Log.e("bugsinistro", "Erro ao buscar a pessoa pelo id: " + e.toString());
+            return null;
+        }
+
+        return partida;
+    }
+
+
     /**
      * Método que busca os Jogadores de acordo com o id da partida
+     *
      * @param idPartida
      * @return lista de objetos Jogadores
      */
