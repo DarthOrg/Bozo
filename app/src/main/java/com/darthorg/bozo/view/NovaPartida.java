@@ -135,6 +135,7 @@ public class NovaPartida extends AppCompatActivity {
                     Intent intent = new Intent(this, PartidaAberta.class);
                     intent.putExtra("nomepartida", etNovaPartida.getText().toString());
                     intent.putStringArrayListExtra("jogadores", jogadores);
+                    intent.putExtra("partidaNova", true);
                     startActivity(intent);
                     finish();
                 } else {

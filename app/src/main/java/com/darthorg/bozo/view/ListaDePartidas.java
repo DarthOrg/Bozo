@@ -55,6 +55,7 @@ public class ListaDePartidas extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent intent = new Intent(ListaDePartidas.this, PartidaAberta.class);
                 intent.putExtra("partidaSalva", partidaList.get(position).getIdPartida());
+                intent.putExtra("partidaNova", false);
                 startActivity(intent);
                 finish();
             }
