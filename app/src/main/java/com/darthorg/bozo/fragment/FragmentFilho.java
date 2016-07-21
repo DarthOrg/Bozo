@@ -15,59 +15,67 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.darthorg.bozo.R;
+import com.darthorg.bozo.model.PecaBozo;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
- * todo:Refatorar essa classe .( ja esta ficando muito grande e dificil manutenção )
  * Created by Gustavo on 11/07/2016.
  * Um fragmentFilho é responsavel por saber quantos pontos o jogador esta
+ * Versao 2
  */
 public class FragmentFilho extends Fragment {
 
     private String nomeFragmentFilho;
+
     private Button btnAz, btnDuque, btnTerno, btnQuadrada, btnSeguida, btnFull, btnQuina, btnSena, btnGeneral, btnQuadra;
     private ImageView riscarAz, riscarDuque, riscarTerno, riscarQuadrada, riscarSeguida, riscarFull, riscarQuina, riscarSena, riscarGeneral, riscarQuadra;
 
-    private final String nomeAz = "Az",
-            nomeDuque = "Duque",
-            nomeTerno = "Terno",
-            nomeQuadra = "Quadra",
-            nomeQuina = "Quina",
-            nomeSena = "Sena",
-            nomeFull = "Full",
-            nomeSeguida = "Seguida",
-            nomeQuadrada = "Quadrada",
-            nomeGeneral = "General";
+    // Nomes das peças
+    private final String
+            nomeAz = "Az", nomeDuque = "Duque",
+            nomeTerno = "Terno", nomeQuadra = "Quadra",
+            nomeQuina = "Quina", nomeSena = "Sena",
+            nomeFull = "Full", nomeSeguida = "Seguida",
+            nomeQuadrada = "Quadrada", nomeGeneral = "General";
 
-    //Valores das posiçoes
-    private String posicaoAz, posicaoDuque, posicaoTerno, posicaoQuadrada, posicaoSeguida, posicaoFull, posicaoQuina, posicaoSena, posicaoGeneral, posicaoQuadra;
+    //Objetos do tipo PecaBozo que seram manipulados durante a partida
+    private PecaBozo pecaBozoAz = new PecaBozo(nomeAz, null, false);
+    private PecaBozo pecaBozoDuque = new PecaBozo(nomeDuque, null, false);
+    private PecaBozo pecaBozoTerno = new PecaBozo(nomeTerno, null, false);
+    private PecaBozo pecaBozoQuadra = new PecaBozo(nomeQuadra, null, false);
+    private PecaBozo pecaBozoQuina = new PecaBozo(nomeQuina, null, false);
+    private PecaBozo pecaBozoSena = new PecaBozo(nomeSena, null, false);
+    private PecaBozo pecaBozoFull = new PecaBozo(nomeFull, null, false);
+    private PecaBozo pecaBozoSeguida = new PecaBozo(nomeSeguida, null, false);
+    private PecaBozo pecaBozoQuadrada = new PecaBozo(nomeQuadrada, null, false);
+    private PecaBozo pecaBozoGeneral = new PecaBozo(nomeGeneral, null, false);
 
+    private List<PecaBozo> pecasBozo = new ArrayList<PecaBozo>();
+    private List<Button> buttons = new ArrayList<Button>();
+    private List<ImageView> riscos = new ArrayList<ImageView>();
 
+    //variaveis que controlam o jogo
     private TextView resultadoFinal;
     private int contador = 0;
 
+    // variavel necessaria para inflar o layout do AlertDialog
     private LayoutInflater dialogInflater;
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_filho, container, false);
         getIDs(view);
+        obterPecasBozo();
         setEvents();
 
         dialogInflater = inflater;
 
-        btnAz.setText(getPosicaoAz());
-        btnDuque.setText(getPosicaoDuque());
-        btnTerno.setText(getPosicaoTerno());
-        btnQuadrada.setText(getPosicaoQuadrada());
-        btnQuadra.setText(getPosicaoQuadra());
-        btnSeguida.setText(getPosicaoSeguida());
-        btnFull.setText(getPosicaoFull());
-        btnQuina.setText(getPosicaoQuina());
-        btnSena.setText(getPosicaoSena());
-        btnGeneral.setText(getPosicaoGeneral());
+        for (int i = 0; i < pecasBozo.size(); i++) {
+            buttons.get(i).setText(pecaBozoAz.getPontuacao());
+        }
 
         resultadoFinal.setText(contador + "");
-
-
         return view;
     }
 
@@ -105,70 +113,19 @@ public class FragmentFilho extends Fragment {
 
     private void setEvents() {
 
-        //Todo: refatorar essa lógica aqui
-        if (getPosicaoAz() != null && getPosicaoAz().equals("riscado")) {
-            btnAz.setVisibility(View.GONE);
-            riscarAz.setVisibility(View.VISIBLE);
-        } else {
-            cliquePeca(btnAz, nomeAz);
+        for (int i = 0; i < pecasBozo.size(); i++) {
+            if (pecasBozo.get(i).isRiscado()) {
+                buttons.get(i).setVisibility(View.GONE);
+                riscos.get(i).setVisibility(View.VISIBLE);
+            } else {
+                cliquePeca(pecasBozo.get(i), buttons.get(i), riscos.get(i));
+            }
         }
-        if (getPosicaoDuque() != null && getPosicaoDuque().equals("riscado")) {
-            btnDuque.setVisibility(View.GONE);
-            riscarDuque.setVisibility(View.VISIBLE);
-        } else {
-            cliquePeca(btnDuque, nomeDuque);
-        }
-        if (getPosicaoTerno() != null && getPosicaoTerno().equals("riscado")) {
-            btnTerno.setVisibility(View.GONE);
-            riscarTerno.setVisibility(View.VISIBLE);
-        } else {
-            cliquePeca(btnTerno, nomeTerno);
-        }
-        if (getPosicaoQuadra() != null && getPosicaoQuadra().equals("riscado")) {
-            btnQuadra.setVisibility(View.GONE);
-            riscarQuadra.setVisibility(View.VISIBLE);
-        } else {
-            cliquePeca(btnQuadra, nomeQuadra);
-        }
-        if (getPosicaoQuina() != null && getPosicaoQuina().equals("riscado")) {
-            btnQuina.setVisibility(View.GONE);
-            riscarQuina.setVisibility(View.VISIBLE);
-        } else {
-            cliquePeca(btnQuina, nomeQuina);
-        }
-        if (getPosicaoSena() != null && getPosicaoSena().equals("riscado")) {
-            btnSena.setVisibility(View.GONE);
-            riscarSena.setVisibility(View.VISIBLE);
-        } else {
-            cliquePeca(btnSena, nomeSena);
-        }
-        if (getPosicaoFull() != null && getPosicaoFull().equals("riscado")) {
-            btnFull.setVisibility(View.GONE);
-            riscarFull.setVisibility(View.VISIBLE);
-        } else {
-            cliquePeca(btnFull, nomeFull);
-        }
-        if (getPosicaoSeguida() != null && getPosicaoSeguida().equals("riscado")) {
-            btnSeguida.setVisibility(View.GONE);
-            riscarSeguida.setVisibility(View.VISIBLE);
-        } else {
-            cliquePeca(btnSeguida, nomeSeguida);
-        }
-        if (getPosicaoQuadrada() != null && getPosicaoQuadrada().equals("riscado")) {
-            btnQuadrada.setVisibility(View.GONE);
-            riscarQuadrada.setVisibility(View.VISIBLE);
-        } else {
-            cliquePeca(btnQuadrada, nomeQuadrada);
-        }
-        if (getPosicaoGeneral() != null && getPosicaoGeneral().equals("riscado")) {
-            btnGeneral.setVisibility(View.GONE);
-            riscarGeneral.setVisibility(View.VISIBLE);
-        } else {
-            cliquePeca(btnGeneral, nomeGeneral);
-        }
+
+
     }
 
-    public void cliquePeca(final Button button, final String posicao) {
+    public void cliquePeca(final PecaBozo pecaBozo, final Button button, final ImageView risco) {
 
         button.setOnClickListener(new View.OnClickListener() {
                                       @Override
@@ -178,7 +135,7 @@ public class FragmentFilho extends Fragment {
                                           final EditText et = (EditText) dialogLayout.findViewById(R.id.etPonto);
 
                                           final AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
-                                          switch (posicao) {
+                                          switch (pecaBozo.getNome()) {
                                               case nomeAz:
                                                   builder.setTitle(getString(R.string.nameAz) + " ( 1 á 5 )");
                                                   et.setFilters(new InputFilter[]{new InputFilter.LengthFilter(1)});
@@ -221,138 +178,26 @@ public class FragmentFilho extends Fragment {
                                                           if (TextUtils.isEmpty(et.getText().toString())) {
                                                               dialog.dismiss();
                                                           } else {
-                                                              switch (posicao) {
-                                                                  case nomeAz:
-                                                                      setPosicaoAz(et.getText().toString());
-                                                                      btnAz.setText(getPosicaoAz());
-                                                                      break;
-                                                                  case nomeDuque:
-                                                                      setPosicaoDuque(et.getText().toString());
-                                                                      btnDuque.setText(getPosicaoDuque());
-                                                                      break;
-                                                                  case nomeTerno:
-                                                                      setPosicaoTerno(et.getText().toString());
-                                                                      btnTerno.setText(getPosicaoTerno());
-                                                                      break;
-                                                                  case nomeQuadra:
-                                                                      setPosicaoQuadra(et.getText().toString());
-                                                                      btnQuadra.setText(getPosicaoQuadra());
-                                                                      break;
-                                                                  case nomeQuina:
-                                                                      setPosicaoQuina(et.getText().toString());
-                                                                      btnQuina.setText(getPosicaoQuina());
-                                                                      break;
-                                                                  case nomeSena:
-                                                                      setPosicaoSena(et.getText().toString());
-                                                                      btnSena.setText(getPosicaoSena());
-                                                                      break;
-                                                                  case nomeFull:
-                                                                      setPosicaoFull(et.getText().toString());
-                                                                      btnFull.setText(getPosicaoFull());
-                                                                      break;
-                                                                  case nomeSeguida:
-                                                                      setPosicaoSeguida(et.getText().toString());
-                                                                      btnSeguida.setText(getPosicaoSeguida());
-                                                                      break;
-                                                                  case nomeQuadrada:
-                                                                      setPosicaoQuadrada(et.getText().toString());
-                                                                      btnQuadrada.setText(getPosicaoQuadrada());
-                                                                      break;
-                                                                  case nomeGeneral:
-                                                                      setPosicaoGeneral(et.getText().toString());
-                                                                      btnGeneral.setText(getPosicaoGeneral());
-                                                                      break;
-                                                                  default:
-                                                                      break;
-                                                              }
-                                                              contador = contarPontos();
-                                                              resultadoFinal.setText(contador + "");
+                                                              pecaBozo.setPontuacao(et.getText().toString());
+                                                              button.setText(et.getText().toString());
                                                           }
+                                                          contador = contarPontos();
+                                                          resultadoFinal.setText(contador + "");
                                                       }
                                                   }
+
                                           );
                                           builder.setNegativeButton("Cancelar", null);
                                           builder.setNeutralButton("[ X ] Riscar", new DialogInterface.OnClickListener() {
                                               @Override
                                               public void onClick(DialogInterface dialogInterface, int i) {
-                                                  switch (posicao) {
-                                                      case nomeAz:
-                                                          if (getPosicaoAz() == null) {
-                                                              setPosicaoAz("riscado");
-                                                              btnAz.setVisibility(View.GONE);
-                                                              riscarAz.setVisibility(View.VISIBLE);
-                                                          }
-                                                          break;
-                                                      case nomeDuque:
-                                                          if (getPosicaoDuque() == null) {
-                                                              setPosicaoDuque("riscado");
-                                                              btnDuque.setVisibility(View.GONE);
-                                                              riscarDuque.setVisibility(View.VISIBLE);
-                                                          }
-                                                          break;
-                                                      case nomeTerno:
-                                                          if (getPosicaoTerno() == null) {
-                                                              setPosicaoTerno("riscado");
-                                                              btnTerno.setVisibility(View.GONE);
-                                                              riscarTerno.setVisibility(View.VISIBLE);
-                                                          }
-                                                          break;
-                                                      case nomeQuadra:
-                                                          if (getPosicaoQuadra() == null) {
-                                                              setPosicaoQuadra("riscado");
-                                                              btnQuadra.setVisibility(View.GONE);
-                                                              riscarQuadra.setVisibility(View.VISIBLE);
-                                                          }
-                                                          break;
-                                                      case nomeQuina:
-                                                          if (getPosicaoQuina() == null) {
-                                                              setPosicaoQuina("riscado");
-                                                              btnQuina.setVisibility(View.GONE);
-                                                              riscarQuina.setVisibility(View.VISIBLE);
-                                                          }
-                                                          break;
-                                                      case nomeSena:
-                                                          if (getPosicaoSena() == null) {
-                                                              setPosicaoSena("riscado");
-                                                              btnSena.setVisibility(View.GONE);
-                                                              riscarSena.setVisibility(View.VISIBLE);
-                                                          }
-                                                          break;
-                                                      case nomeFull:
-                                                          if (getPosicaoFull() == null) {
-                                                              setPosicaoFull("riscado");
-                                                              btnFull.setVisibility(View.GONE);
-                                                              riscarFull.setVisibility(View.VISIBLE);
-                                                          }
-                                                          break;
-                                                      case nomeSeguida:
-                                                          if (getPosicaoSeguida() == null) {
-                                                              setPosicaoSeguida("riscado");
-                                                              btnSeguida.setVisibility(View.GONE);
-                                                              riscarSeguida.setVisibility(View.VISIBLE);
-                                                          }
-                                                          break;
-                                                      case nomeQuadrada:
-                                                          if (getPosicaoQuadrada() == null) {
-                                                              setPosicaoQuadrada("riscado");
-                                                              btnQuadrada.setVisibility(View.GONE);
-                                                              riscarQuadrada.setVisibility(View.VISIBLE);
-                                                          }
-                                                          break;
-                                                      case nomeGeneral:
-                                                          if (getPosicaoGeneral() == null) {
-                                                              setPosicaoGeneral("riscado");
-                                                              btnGeneral.setVisibility(View.GONE);
-                                                              riscarGeneral.setVisibility(View.VISIBLE);
-                                                          }
-                                                          break;
-                                                      default:
-                                                          break;
+                                                  if (pecaBozo.getPontuacao() == null) {
+                                                      pecaBozo.setRiscado(true);
+                                                      button.setVisibility(View.GONE);
+                                                      risco.setVisibility(View.VISIBLE);
                                                   }
                                                   contador = contarPontos();
                                                   resultadoFinal.setText(contador + "");
-
-
                                               }
                                           });
                                           builder.setView(dialogLayout);
@@ -367,118 +212,53 @@ public class FragmentFilho extends Fragment {
 
         int pontuacao = 0;
 
-        if (getPosicaoAz() != null && getPosicaoAz() != "riscado") {
-            pontuacao = pontuacao + Integer.parseInt(getPosicaoAz());
+        for (int i = 0; i < pecasBozo.size(); i++) {
+            if (!pecasBozo.get(i).isRiscado() && pecasBozo.get(i).getPontuacao() != null) {
+                pontuacao = pontuacao + Integer.parseInt(pecasBozo.get(i).getPontuacao());
+            }
         }
-        if (getPosicaoDuque() != null && getPosicaoDuque() != "riscado") {
-            pontuacao = pontuacao + Integer.parseInt(getPosicaoDuque());
-        }
-        if (getPosicaoTerno() != null && getPosicaoTerno() != "riscado") {
-            pontuacao = pontuacao + Integer.parseInt(getPosicaoTerno());
-        }
-        if (getPosicaoQuadra() != null && getPosicaoQuadra() != "riscado") {
-            pontuacao = pontuacao + Integer.parseInt(getPosicaoQuadra());
-        }
-        if (getPosicaoQuina() != null && getPosicaoQuina() != "riscado") {
-            pontuacao = pontuacao + Integer.parseInt(getPosicaoQuina());
-        }
-        if (getPosicaoSena() != null && getPosicaoSena() != "riscado") {
-            pontuacao = pontuacao + Integer.parseInt(getPosicaoSena());
-        }
-        if (getPosicaoFull() != null && getPosicaoFull() != "riscado") {
-            pontuacao = pontuacao + Integer.parseInt(getPosicaoFull());
-        }
-        if (getPosicaoSeguida() != null && getPosicaoSeguida() != "riscado") {
-            pontuacao = pontuacao + Integer.parseInt(getPosicaoSeguida());
-        }
-        if (getPosicaoQuadrada() != null && getPosicaoQuadrada() != "riscado") {
-            pontuacao = pontuacao + Integer.parseInt(getPosicaoQuadrada());
-        }
-        if (getPosicaoGeneral() != null && getPosicaoGeneral() != "riscado") {
-            pontuacao = pontuacao + Integer.parseInt(getPosicaoGeneral());
-        }
+
         return pontuacao;
-
     }
 
-    public String getPosicaoAz() {
-        return posicaoAz;
-    }
+    public void obterPecasBozo() {
 
-    public void setPosicaoAz(String posicaoAz) {
-        this.posicaoAz = posicaoAz;
-    }
+        //Adiciona a lista as peças
+        pecasBozo.add(pecaBozoAz);
+        pecasBozo.add(pecaBozoDuque);
+        pecasBozo.add(pecaBozoTerno);
+        pecasBozo.add(pecaBozoQuadra);
+        pecasBozo.add(pecaBozoQuina);
+        pecasBozo.add(pecaBozoSena);
+        pecasBozo.add(pecaBozoFull);
+        pecasBozo.add(pecaBozoSeguida);
+        pecasBozo.add(pecaBozoQuadrada);
+        pecasBozo.add(pecaBozoGeneral);
 
-    public String getPosicaoDuque() {
-        return posicaoDuque;
-    }
+        // Adiciona a lista os botoes utilizados
+        buttons.add(btnAz);
+        buttons.add(btnDuque);
+        buttons.add(btnTerno);
+        buttons.add(btnQuadra);
+        buttons.add(btnQuina);
+        buttons.add(btnSena);
+        buttons.add(btnFull);
+        buttons.add(btnSeguida);
+        buttons.add(btnQuadrada);
+        buttons.add(btnGeneral);
 
-    public void setPosicaoDuque(String posicaoDuque) {
-        this.posicaoDuque = posicaoDuque;
-    }
+        // Adiciona a lista os ImgViews
+        riscos.add(riscarAz);
+        riscos.add(riscarDuque);
+        riscos.add(riscarTerno);
+        riscos.add(riscarQuadra);
+        riscos.add(riscarQuina);
+        riscos.add(riscarSena);
+        riscos.add(riscarFull);
+        riscos.add(riscarSeguida);
+        riscos.add(riscarQuadrada);
+        riscos.add(riscarGeneral);
 
-    public String getPosicaoTerno() {
-        return posicaoTerno;
-    }
-
-    public void setPosicaoTerno(String posicaoTerno) {
-        this.posicaoTerno = posicaoTerno;
-    }
-
-    public String getPosicaoQuadrada() {
-        return posicaoQuadrada;
-    }
-
-    public void setPosicaoQuadrada(String posicaoQuadrada) {
-        this.posicaoQuadrada = posicaoQuadrada;
-    }
-
-    public String getPosicaoQuadra() {
-        return posicaoQuadra;
-    }
-
-    public void setPosicaoQuadra(String posicaoQuadra) {
-        this.posicaoQuadra = posicaoQuadra;
-    }
-
-    public String getPosicaoSeguida() {
-        return posicaoSeguida;
-    }
-
-    public void setPosicaoSeguida(String posicaoSeguida) {
-        this.posicaoSeguida = posicaoSeguida;
-    }
-
-    public String getPosicaoFull() {
-        return posicaoFull;
-    }
-
-    public void setPosicaoFull(String posicaoFull) {
-        this.posicaoFull = posicaoFull;
-    }
-
-    public String getPosicaoQuina() {
-        return posicaoQuina;
-    }
-
-    public void setPosicaoQuina(String posicaoQuina) {
-        this.posicaoQuina = posicaoQuina;
-    }
-
-    public String getPosicaoSena() {
-        return posicaoSena;
-    }
-
-    public void setPosicaoSena(String posicaoSena) {
-        this.posicaoSena = posicaoSena;
-    }
-
-    public String getPosicaoGeneral() {
-        return posicaoGeneral;
-    }
-
-    public void setPosicaoGeneral(String posicaoGeneral) {
-        this.posicaoGeneral = posicaoGeneral;
     }
 
     public int getContador() {
