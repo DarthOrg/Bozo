@@ -1,10 +1,9 @@
 package com.darthorg.bozo.view;
 
+import android.app.Dialog;
 import android.app.ProgressDialog;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
-import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
@@ -37,7 +36,6 @@ import com.darthorg.bozo.fragment.FragmentFilho;
 import com.darthorg.bozo.model.Jogador;
 import com.darthorg.bozo.model.Partida;
 import com.darthorg.bozo.model.Rodada;
-import com.github.clans.fab.FloatingActionMenu;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -68,7 +66,6 @@ public class PartidaAberta extends AppCompatActivity {
     //Responsaveis por trazer os dados da Activity anterior
     private Intent intent;
     private Bundle bundleParams;
-
 
 
     @Override
@@ -215,7 +212,6 @@ public class PartidaAberta extends AppCompatActivity {
     }
 
 
-
     @Override
     public boolean onOptionsItemSelected(final MenuItem item) {
 
@@ -241,19 +237,22 @@ public class PartidaAberta extends AppCompatActivity {
         } else if (id == R.id.action_add_jogador) {
 
             jogadorController = new JogadorController(this);
-            LayoutInflater inflater = getLayoutInflater();
 
-            //Recebe a activity para persolnalizar o dialog
-            View dialogLayout = inflater.inflate(R.layout.dialog_novo_jogador, null);
-            final EditText etNomeJogador = (EditText) dialogLayout.findViewById(R.id.edit_nome_novo_jogador);
+            //Dialog para Adicionar Jogador
+            final Dialog dialogAdicionarJogador = new Dialog(this);
+            // Configura a view para o Dialog
+            dialogAdicionarJogador.setContentView(R.layout.dialog_novo_jogador);
 
-            AlertDialog.Builder builder = new AlertDialog.Builder(PartidaAberta.this);
-            //Botão Adicionar jogador
-            Button btnAdicionarJogador = (Button) dialogLayout.findViewById(R.id.btnAdicionar);
+            //Recupera os componentes do layout do custondialog
+            final EditText etNomeJogador = (EditText) dialogAdicionarJogador.findViewById(R.id.edit_nome_novo_jogador);
+            Button btnAdicionarJogador = (Button) dialogAdicionarJogador.findViewById(R.id.btnAdicionar);
+            Button btnCancelar = (Button) dialogAdicionarJogador.findViewById(R.id.btnCancelar);
+
+            //Adicionar Jogador
             btnAdicionarJogador.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    //Todo: ERRO não fecha o AlertDialog quando clica adicionar ou cancelar
+
                     FragmentFilho fragmentFilho = new FragmentFilho();
 
                     Jogador jogador = new Jogador();
@@ -264,29 +263,28 @@ public class PartidaAberta extends AppCompatActivity {
                     // Adiciona no banco o jogador
                     jogadorController.inserirJogador(jogador);
 
-
+                    //Adiciona o Fragment nas tabs
                     adapter.addFrag(fragmentFilho, etNomeJogador.getText().toString());
                     adapter.notifyDataSetChanged();
-                    Snackbar.make(viewPager, "Jogador "+etNomeJogador.getText().toString()+" foi adicionado!", Snackbar.LENGTH_LONG).show();
+
+                    Snackbar.make(viewPager, "Jogador " + etNomeJogador.getText().toString() + " foi adicionado!", Snackbar.LENGTH_SHORT).show();
 
                     if (adapter.getCount() > 0) {
                         tabLayout.setupWithViewPager(viewPager);
                         viewPager.setCurrentItem(adapter.getCount() - 1);
-
                     }
-
+                    dialogAdicionarJogador.dismiss();
                 }
             });
             //Botão Cancelar
-            Button btnCancelar = (Button) dialogLayout.findViewById(R.id.btnCancelar);
             btnCancelar.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
+                    dialogAdicionarJogador.dismiss();
                     return;
                 }
             });
-            builder.setView(dialogLayout);
-            builder.show();
+            dialogAdicionarJogador.show();
 
 
         } else if (id == R.id.action_placar) {
@@ -335,33 +333,32 @@ public class PartidaAberta extends AppCompatActivity {
             builder.show();
 
 
+        } else if (id == R.id.action_excluir_este_jogador) {
 
-        } else if (id == R.id.action_excluir_este_jogador){
+            Snackbar.make(viewPager, "Excluir jogador selecionado", Snackbar.LENGTH_LONG)
+                    .setActionTextColor(Color.RED)
+                    .setAction("Excluir " + jogadoresRodada.get(viewPager.getCurrentItem()).getNome(), new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            if (adapter.getCount() > 0) {
+                                jogadorController = new JogadorController(PartidaAberta.this);
+                                String nomeJogadorTabAtual = jogadoresRodada.get(viewPager.getCurrentItem()).getNome();
+                                Jogador jogadorBuscado = buscarJogador(nomeJogadorTabAtual);
+                                jogadorController.deletarJogador(jogadorBuscado);
+                                jogadoresRodada.remove(viewPager.getCurrentItem());
+                                adapter.removeFrag(viewPager.getCurrentItem());
+                                adapter.notifyDataSetChanged();
+                                // vincula denovo o viewpager com o tablayout
+                                tabLayout.setupWithViewPager(viewPager);
 
-                Snackbar.make(viewPager, "Excluir jogador selecionado", Snackbar.LENGTH_LONG)
-                        .setActionTextColor(Color.RED)
-                        .setAction("Excluir "+jogadoresRodada.get(viewPager.getCurrentItem()).getNome(), new View.OnClickListener() {
-                            @Override
-                            public void onClick(View view) {
-                                if (adapter.getCount() > 0) {
-                                    jogadorController = new JogadorController(PartidaAberta.this);
-                                    String nomeJogadorTabAtual = jogadoresRodada.get(viewPager.getCurrentItem()).getNome();
-                                    Jogador jogadorBuscado = buscarJogador(nomeJogadorTabAtual);
-                                    jogadorController.deletarJogador(jogadorBuscado);
-                                    jogadoresRodada.remove(viewPager.getCurrentItem());
-                                    adapter.removeFrag(viewPager.getCurrentItem());
-                                    adapter.notifyDataSetChanged();
-                                    // vincula denovo o viewpager com o tablayout
-                                    tabLayout.setupWithViewPager(viewPager);
-
-                                } else {
-                                    Snackbar.make(view, "Não tem mais jogadores para excluir", Snackbar.LENGTH_LONG).show();
-                                }
-
+                            } else {
+                                Snackbar.make(view, "Não tem mais jogadores para excluir", Snackbar.LENGTH_LONG).show();
                             }
-                        })
-                        .show();
-            }
+
+                        }
+                    })
+                    .show();
+        }
         return super.onOptionsItemSelected(item);
     }
 
