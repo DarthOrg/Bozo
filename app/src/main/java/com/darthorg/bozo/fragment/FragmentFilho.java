@@ -17,6 +17,7 @@ import android.widget.TextView;
 import com.darthorg.bozo.R;
 
 /**
+ * todo:Refatorar essa classe .( ja esta ficando muito grande e dificil manutenção )
  * Created by Gustavo on 11/07/2016.
  * Um fragmentFilho é responsavel por saber quantos pontos o jogador esta
  */
@@ -104,16 +105,67 @@ public class FragmentFilho extends Fragment {
 
     private void setEvents() {
 
-        cliquePeca(btnAz, nomeAz);
-        cliquePeca(btnDuque, nomeDuque);
-        cliquePeca(btnTerno, nomeTerno);
-        cliquePeca(btnQuadra, nomeQuadra);
-        cliquePeca(btnQuina, nomeQuina);
-        cliquePeca(btnSena, nomeSena);
-        cliquePeca(btnFull, nomeFull);
-        cliquePeca(btnSeguida, nomeSeguida);
-        cliquePeca(btnQuadrada, nomeQuadrada);
-        cliquePeca(btnGeneral, nomeGeneral);
+        //Todo: refatorar essa lógica aqui
+        if (getPosicaoAz() != null && getPosicaoAz().equals("riscado")) {
+            btnAz.setVisibility(View.GONE);
+            riscarAz.setVisibility(View.VISIBLE);
+        } else {
+            cliquePeca(btnAz, nomeAz);
+        }
+        if (getPosicaoDuque() != null && getPosicaoDuque().equals("riscado")) {
+            btnDuque.setVisibility(View.GONE);
+            riscarDuque.setVisibility(View.VISIBLE);
+        } else {
+            cliquePeca(btnDuque, nomeDuque);
+        }
+        if (getPosicaoTerno() != null && getPosicaoTerno().equals("riscado")) {
+            btnTerno.setVisibility(View.GONE);
+            riscarTerno.setVisibility(View.VISIBLE);
+        } else {
+            cliquePeca(btnTerno, nomeTerno);
+        }
+        if (getPosicaoQuadra() != null && getPosicaoQuadra().equals("riscado")) {
+            btnQuadra.setVisibility(View.GONE);
+            riscarQuadra.setVisibility(View.VISIBLE);
+        } else {
+            cliquePeca(btnQuadra, nomeQuadra);
+        }
+        if (getPosicaoQuina() != null && getPosicaoQuina().equals("riscado")) {
+            btnQuina.setVisibility(View.GONE);
+            riscarQuina.setVisibility(View.VISIBLE);
+        } else {
+            cliquePeca(btnQuina, nomeQuina);
+        }
+        if (getPosicaoSena() != null && getPosicaoSena().equals("riscado")) {
+            btnSena.setVisibility(View.GONE);
+            riscarSena.setVisibility(View.VISIBLE);
+        } else {
+            cliquePeca(btnSena, nomeSena);
+        }
+        if (getPosicaoFull() != null && getPosicaoFull().equals("riscado")) {
+            btnFull.setVisibility(View.GONE);
+            riscarFull.setVisibility(View.VISIBLE);
+        } else {
+            cliquePeca(btnFull, nomeFull);
+        }
+        if (getPosicaoSeguida() != null && getPosicaoSeguida().equals("riscado")) {
+            btnSeguida.setVisibility(View.GONE);
+            riscarSeguida.setVisibility(View.VISIBLE);
+        } else {
+            cliquePeca(btnSeguida, nomeSeguida);
+        }
+        if (getPosicaoQuadrada() != null && getPosicaoQuadrada().equals("riscado")) {
+            btnQuadrada.setVisibility(View.GONE);
+            riscarQuadrada.setVisibility(View.VISIBLE);
+        } else {
+            cliquePeca(btnQuadrada, nomeQuadrada);
+        }
+        if (getPosicaoGeneral() != null && getPosicaoGeneral().equals("riscado")) {
+            btnGeneral.setVisibility(View.GONE);
+            riscarGeneral.setVisibility(View.VISIBLE);
+        } else {
+            cliquePeca(btnGeneral, nomeGeneral);
+        }
     }
 
     public void cliquePeca(final Button button, final String posicao) {
@@ -226,60 +278,70 @@ public class FragmentFilho extends Fragment {
                                                   switch (posicao) {
                                                       case nomeAz:
                                                           if (getPosicaoAz() == null) {
+                                                              setPosicaoAz("riscado");
                                                               btnAz.setVisibility(View.GONE);
                                                               riscarAz.setVisibility(View.VISIBLE);
                                                           }
                                                           break;
                                                       case nomeDuque:
                                                           if (getPosicaoDuque() == null) {
+                                                              setPosicaoDuque("riscado");
                                                               btnDuque.setVisibility(View.GONE);
                                                               riscarDuque.setVisibility(View.VISIBLE);
                                                           }
                                                           break;
                                                       case nomeTerno:
                                                           if (getPosicaoTerno() == null) {
+                                                              setPosicaoTerno("riscado");
                                                               btnTerno.setVisibility(View.GONE);
                                                               riscarTerno.setVisibility(View.VISIBLE);
                                                           }
                                                           break;
                                                       case nomeQuadra:
                                                           if (getPosicaoQuadra() == null) {
+                                                              setPosicaoQuadra("riscado");
                                                               btnQuadra.setVisibility(View.GONE);
                                                               riscarQuadra.setVisibility(View.VISIBLE);
                                                           }
                                                           break;
                                                       case nomeQuina:
                                                           if (getPosicaoQuina() == null) {
+                                                              setPosicaoQuina("riscado");
                                                               btnQuina.setVisibility(View.GONE);
                                                               riscarQuina.setVisibility(View.VISIBLE);
                                                           }
                                                           break;
                                                       case nomeSena:
                                                           if (getPosicaoSena() == null) {
+                                                              setPosicaoSena("riscado");
                                                               btnSena.setVisibility(View.GONE);
                                                               riscarSena.setVisibility(View.VISIBLE);
                                                           }
                                                           break;
                                                       case nomeFull:
                                                           if (getPosicaoFull() == null) {
+                                                              setPosicaoFull("riscado");
                                                               btnFull.setVisibility(View.GONE);
                                                               riscarFull.setVisibility(View.VISIBLE);
                                                           }
                                                           break;
                                                       case nomeSeguida:
                                                           if (getPosicaoSeguida() == null) {
+                                                              setPosicaoSeguida("riscado");
                                                               btnSeguida.setVisibility(View.GONE);
                                                               riscarSeguida.setVisibility(View.VISIBLE);
                                                           }
                                                           break;
                                                       case nomeQuadrada:
                                                           if (getPosicaoQuadrada() == null) {
+                                                              setPosicaoQuadrada("riscado");
                                                               btnQuadrada.setVisibility(View.GONE);
                                                               riscarQuadrada.setVisibility(View.VISIBLE);
                                                           }
                                                           break;
                                                       case nomeGeneral:
                                                           if (getPosicaoGeneral() == null) {
+                                                              setPosicaoGeneral("riscado");
                                                               btnGeneral.setVisibility(View.GONE);
                                                               riscarGeneral.setVisibility(View.VISIBLE);
                                                           }
@@ -305,37 +367,36 @@ public class FragmentFilho extends Fragment {
 
         int pontuacao = 0;
 
-        if (getPosicaoAz() != null) {
+        if (getPosicaoAz() != null && getPosicaoAz() != "riscado") {
             pontuacao = pontuacao + Integer.parseInt(getPosicaoAz());
         }
-        if (getPosicaoDuque() != null) {
+        if (getPosicaoDuque() != null && getPosicaoDuque() != "riscado") {
             pontuacao = pontuacao + Integer.parseInt(getPosicaoDuque());
         }
-        if (getPosicaoTerno() != null) {
+        if (getPosicaoTerno() != null && getPosicaoTerno() != "riscado") {
             pontuacao = pontuacao + Integer.parseInt(getPosicaoTerno());
         }
-        if (getPosicaoQuadra() != null) {
+        if (getPosicaoQuadra() != null && getPosicaoQuadra() != "riscado") {
             pontuacao = pontuacao + Integer.parseInt(getPosicaoQuadra());
         }
-        if (getPosicaoQuina() != null) {
+        if (getPosicaoQuina() != null && getPosicaoQuina() != "riscado") {
             pontuacao = pontuacao + Integer.parseInt(getPosicaoQuina());
         }
-        if (getPosicaoSena() != null) {
+        if (getPosicaoSena() != null && getPosicaoSena() != "riscado") {
             pontuacao = pontuacao + Integer.parseInt(getPosicaoSena());
         }
-        if (getPosicaoFull() != null) {
+        if (getPosicaoFull() != null && getPosicaoFull() != "riscado") {
             pontuacao = pontuacao + Integer.parseInt(getPosicaoFull());
         }
-        if (getPosicaoSeguida() != null) {
+        if (getPosicaoSeguida() != null && getPosicaoSeguida() != "riscado") {
             pontuacao = pontuacao + Integer.parseInt(getPosicaoSeguida());
         }
-        if (getPosicaoQuadrada() != null) {
+        if (getPosicaoQuadrada() != null && getPosicaoQuadrada() != "riscado") {
             pontuacao = pontuacao + Integer.parseInt(getPosicaoQuadrada());
         }
-        if (getPosicaoGeneral() != null) {
+        if (getPosicaoGeneral() != null && getPosicaoGeneral() != "riscado") {
             pontuacao = pontuacao + Integer.parseInt(getPosicaoGeneral());
         }
-
         return pontuacao;
 
     }
