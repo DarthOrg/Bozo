@@ -52,9 +52,9 @@ public class FragmentFilho extends Fragment {
     private PecaBozo pecaBozoQuadrada = new PecaBozo(nomeQuadrada, null, false);
     private PecaBozo pecaBozoGeneral = new PecaBozo(nomeGeneral, null, false);
 
-    private List<PecaBozo> pecasBozo = new ArrayList<PecaBozo>();
-    private List<Button> buttons = new ArrayList<Button>();
-    private List<ImageView> riscos = new ArrayList<ImageView>();
+    private List<PecaBozo> pecasBozo;
+    private List<Button> buttons;
+    private List<ImageView> riscos;
 
     //variaveis que controlam o jogo
     private TextView resultadoFinal;
@@ -72,7 +72,7 @@ public class FragmentFilho extends Fragment {
         dialogInflater = inflater;
 
         for (int i = 0; i < pecasBozo.size(); i++) {
-            buttons.get(i).setText(pecaBozoAz.getPontuacao());
+            buttons.get(i).setText(pecasBozo.get(i).getPontuacao());
         }
 
         resultadoFinal.setText(contador + "");
@@ -210,19 +210,19 @@ public class FragmentFilho extends Fragment {
 
     public int contarPontos() {
 
-        int pontuacao = 0;
+        int pontos = 0;
 
         for (int i = 0; i < pecasBozo.size(); i++) {
-            if (!pecasBozo.get(i).isRiscado() && pecasBozo.get(i).getPontuacao() != null) {
-                pontuacao = pontuacao + Integer.parseInt(pecasBozo.get(i).getPontuacao());
+            if (pecasBozo.get(i).isRiscado() == false && pecasBozo.get(i).getPontuacao() != null) {
+                pontos = pontos + Integer.parseInt(pecasBozo.get(i).getPontuacao());
             }
         }
-
-        return pontuacao;
+        return pontos;
     }
 
     public void obterPecasBozo() {
 
+        pecasBozo = new ArrayList<>();
         //Adiciona a lista as peças
         pecasBozo.add(pecaBozoAz);
         pecasBozo.add(pecaBozoDuque);
@@ -235,6 +235,8 @@ public class FragmentFilho extends Fragment {
         pecasBozo.add(pecaBozoQuadrada);
         pecasBozo.add(pecaBozoGeneral);
 
+
+        buttons = new ArrayList<>();
         // Adiciona a lista os botoes utilizados
         buttons.add(btnAz);
         buttons.add(btnDuque);
@@ -247,6 +249,7 @@ public class FragmentFilho extends Fragment {
         buttons.add(btnQuadrada);
         buttons.add(btnGeneral);
 
+        riscos = new ArrayList<>();
         // Adiciona a lista os ImgViews
         riscos.add(riscarAz);
         riscos.add(riscarDuque);
