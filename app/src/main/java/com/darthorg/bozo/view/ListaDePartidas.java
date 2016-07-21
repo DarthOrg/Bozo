@@ -1,15 +1,15 @@
 package com.darthorg.bozo.view;
 
 import android.content.Intent;
-import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.Window;
+import android.view.View;
 import android.view.WindowManager;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 import com.darthorg.bozo.R;
@@ -27,7 +27,6 @@ public class ListaDePartidas extends AppCompatActivity {
     private PartidasListaAdapter partidasListAdapter;
     private PartidaDAO partidaDAO;
     private List<Partida> partidaList;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,12 +46,22 @@ public class ListaDePartidas extends AppCompatActivity {
         partidaDAO = new PartidaDAO(this);
         partidaList = partidaDAO.buscarPartidas();
 
+
         partidasListAdapter = new PartidasListaAdapter(getApplicationContext(), partidaList);
         listViewPartidas.setAdapter(partidasListAdapter);
 
+        listViewPartidas.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent intent = new Intent(ListaDePartidas.this, PartidaAberta.class);
+                intent.putExtra("partidaSalva", partidaList.get(position).getIdPartida());
+                startActivity(intent);
+                finish();
+            }
+        });
+
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
-
 
 
     @Override
@@ -69,13 +78,11 @@ public class ListaDePartidas extends AppCompatActivity {
         if (id == R.id.action_nova_partida) {
             Intent intent = new Intent(ListaDePartidas.this, NovaPartida.class);
             startActivity(intent);
-        }else if (id == R.id.action_atualizar) {
+        } else if (id == R.id.action_atualizar) {
             Intent intent = new Intent(ListaDePartidas.this, ListaDePartidas.class);
             startActivity(intent);
             finish();
-        }
-
-        else if (id == android.R.id.home) {
+        } else if (id == android.R.id.home) {
             finish();
         }
 
