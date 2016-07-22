@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -7,7 +7,7 @@
     xmlns:fab="http://schemas.android.com/apk/res-auto"
     tools:context=".view.NovaPartida"
     android:orientation="vertical"
-    android:background="@color/colorFundoPartida"
+    android:background="@drawable/gradiente_dois"
     android:weightSum="1">
 
     <android.support.design.widget.AppBarLayout
@@ -28,43 +28,503 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="@color/colorTrasnparente"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true"
+            android:id="@+id/relativeLayout11">
 
+
+            <RelativeLayout
+                android:id="@+id/relativeLayout"
+                android:layout_width="75dp"
+                android:layout_height="75dp"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginBottom="1dp"
+                android:background="@color/colorTrasnparente">
+
+                <FrameLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <Button
+                        android:layout_width="75dp"
+                        android:layout_height="75dp"
+                        android:text="1"
+                        android:textColor="@color/colorWhiteTransparente"
+                        android:background="@color/colorTrasnparente"
+                        android:textSize="35dp" />
+                </FrameLayout>
+
+                <TextView
+                    android:id="@+id/indicador_az"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_centerHorizontal="true"
+                    android:text="@string/nameAz"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:textColor="@color/colorWhiteTransparente"
+                    android:textSize="8dp" />
+            </RelativeLayout>
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/colorWhiteTransparente"
+                android:layout_below="@+id/relativeLayout"
+                android:layout_alignRight="@+id/relativeLayout10"
+                android:layout_alignEnd="@+id/relativeLayout10"
+                android:id="@+id/frameLayout" />
+
+            <RelativeLayout
+                android:id="@+id/relativeLayout2"
+                android:layout_width="75dp"
+                android:layout_height="75dp"
+                android:layout_alignParentTop="true"
+                android:layout_marginBottom="1dp"
+                android:layout_marginLeft="1dp"
+                android:layout_marginRight="1dp"
+                android:layout_toEndOf="@+id/relativeLayout"
+                android:layout_toRightOf="@+id/relativeLayout"
+                android:background="@color/colorTrasnparente">
+
+                <FrameLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <Button
+                        android:layout_width="75dp"
+                        android:layout_height="75dp"
+                        android:text="10"
+                        android:textColor="@color/colorWhite"
+                        android:background="@color/colorTrasnparente"
+                        android:textSize="35dp" />
+                </FrameLayout>
+
+                <TextView
+                    android:id="@+id/indicador_full"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_centerHorizontal="true"
+                    android:text="@string/nameFull"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:textColor="@color/colorWhiteTransparente"
+                    android:textSize="8dp" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/relativeLayout9"
+                android:layout_width="75dp"
+                android:layout_height="75dp"
+                android:layout_alignParentTop="true"
+                android:layout_marginBottom="1dp"
+                android:layout_toEndOf="@+id/relativeLayout2"
+                android:layout_toRightOf="@+id/relativeLayout2"
+                android:background="@color/colorTrasnparente">
+
+                <FrameLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <Button
+                        android:layout_width="75dp"
+                        android:layout_height="75dp"
+                        android:text="4"
+                        android:textColor="@color/colorWhiteTransparente"
+                        android:background="@color/colorTrasnparente"
+                        android:textSize="35dp" />
+                </FrameLayout>
+
+                <TextView
+                    android:id="@+id/indicador_quadra"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_centerHorizontal="true"
+                    android:text="@string/nameQuadra"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:textColor="@color/colorWhiteTransparente"
+                    android:textSize="8dp" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/relativeLayout3"
+                android:layout_width="75dp"
+                android:layout_height="75dp"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/relativeLayout"
+                android:layout_marginBottom="1dp"
+                android:background="@color/colorTrasnparente">
+
+                <FrameLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+                    <Button
+                        android:layout_width="75dp"
+                        android:layout_height="75dp"
+                        android:text="2"
+                        android:textColor="@color/colorWhiteTransparente"
+                        android:background="@color/colorTrasnparente"
+                        android:textSize="35dp" />
+                </FrameLayout>
+
+                <TextView
+                    android:id="@+id/indicador_duque"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_centerHorizontal="true"
+                    android:text="@string/nameDuque"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:textColor="@color/colorWhiteTransparente"
+                    android:textSize="8dp" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/relativeLayout4"
+                android:layout_width="75dp"
+                android:layout_height="75dp"
+                android:layout_below="@+id/relativeLayout2"
+                android:layout_marginBottom="1dp"
+                android:layout_marginLeft="1dp"
+                android:layout_marginRight="1dp"
+                android:layout_toEndOf="@+id/relativeLayout3"
+                android:layout_toRightOf="@+id/relativeLayout3"
+                android:background="@color/colorTrasnparente">
+
+                <FrameLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <Button
+                        android:layout_width="75dp"
+                        android:layout_height="75dp"
+                        android:text="20"
+                        android:textColor="@color/colorWhiteTransparente"
+                        android:background="@color/colorTrasnparente"
+                        android:textSize="35dp" />
+                </FrameLayout>
+
+                <TextView
+                    android:id="@+id/indicador_seguida"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_centerHorizontal="true"
+                    android:text="@string/nameSeguida"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:textColor="@color/colorWhiteTransparente"
+                    android:textSize="8dp" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="75dp"
+                android:layout_height="75dp"
+                android:layout_below="@+id/relativeLayout2"
+                android:layout_marginBottom="1dp"
+                android:layout_toEndOf="@+id/relativeLayout4"
+                android:layout_toRightOf="@+id/relativeLayout4"
+                android:background="@color/colorTrasnparente"
+                android:id="@+id/relativeLayout10">
+
+                <FrameLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <Button
+                        android:layout_width="75dp"
+                        android:layout_height="75dp"
+                        android:text="5"
+                        android:textColor="@color/colorWhiteTransparente"
+                        android:background="@color/colorTrasnparente"
+                        android:textSize="35dp" />
+                </FrameLayout>
+
+                <TextView
+                    android:id="@+id/indicador_quina"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_centerHorizontal="true"
+                    android:text="@string/nameQuina"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:textColor="@color/colorWhiteTransparente"
+                    android:textSize="8dp" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/relativeLayout5"
+                android:layout_width="75dp"
+                android:layout_height="75dp"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/relativeLayout3"
+                android:layout_marginBottom="1dp"
+                android:background="@color/colorTrasnparente">
+
+                <FrameLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <Button
+                        android:layout_width="75dp"
+                        android:layout_height="75dp"
+                        android:text="3"
+                        android:textColor="@color/colorWhiteTransparente"
+                        android:background="@color/colorTrasnparente"
+                        android:textSize="35dp" />
+                </FrameLayout>
+
+                <TextView
+                    android:id="@+id/indicador_terno"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_centerHorizontal="true"
+                    android:text="@string/nameTerno"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:textColor="@color/colorWhiteTransparente"
+                    android:textSize="8dp" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/relativeLayout6"
+                android:layout_width="75dp"
+                android:layout_height="75dp"
+                android:layout_alignTop="@+id/relativeLayout5"
+                android:layout_marginBottom="1dp"
+                android:layout_marginLeft="1dp"
+                android:layout_marginRight="1dp"
+                android:layout_toEndOf="@+id/relativeLayout5"
+                android:layout_toRightOf="@+id/relativeLayout5"
+                android:background="@color/colorTrasnparente">
+
+                <FrameLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <Button
+                        android:layout_width="75dp"
+                        android:layout_height="75dp"
+                        android:text="30"
+                        android:textColor="@color/colorWhiteTransparente"
+                        android:background="@color/colorTrasnparente"
+                        android:textSize="35dp" />
+                </FrameLayout>
+
+                <TextView
+                    android:id="@+id/indicador_quadrada"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_centerHorizontal="true"
+                    android:text="@string/nameQuadrada"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:textColor="@color/colorWhiteTransparente"
+                    android:textSize="8dp" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="75dp"
+                android:layout_height="75dp"
+                android:layout_alignTop="@+id/relativeLayout6"
+                android:layout_marginBottom="1dp"
+                android:layout_toEndOf="@+id/relativeLayout6"
+                android:layout_toRightOf="@+id/relativeLayout6"
+                android:background="@color/colorTrasnparente">
+
+                <FrameLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <Button
+                        android:layout_width="75dp"
+                        android:layout_height="75dp"
+                        android:text="6"
+                        android:textColor="@color/colorWhiteTransparente"
+                        android:background="@color/colorTrasnparente"
+                        android:textSize="35dp" />
+                </FrameLayout>
+
+                <TextView
+                    android:id="@+id/indicador_sena"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_centerHorizontal="true"
+                    android:text="@string/nameSena"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:textColor="@color/colorWhiteTransparente"
+                    android:textSize="8dp" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/relativeLayout7"
+                android:layout_width="75dp"
+                android:layout_height="75dp"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/relativeLayout5"
+                android:background="@color/colorTrasnparente">
+
+                <Button
+                    android:id="@+id/btnNadaEsquerdo"
+                    android:layout_width="75dp"
+                    android:layout_height="75dp"
+                    android:background="@color/colorTrasnparente"
+                    android:textSize="35dp" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/relativeLayout8"
+                android:layout_width="75dp"
+                android:layout_height="74dp"
+                android:layout_alignTop="@+id/relativeLayout7"
+                android:layout_marginLeft="1dp"
+                android:layout_marginRight="1dp"
+                android:layout_toEndOf="@+id/relativeLayout7"
+                android:layout_toRightOf="@+id/relativeLayout7"
+                android:background="@color/colorTrasnparente">
+
+                <FrameLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <Button
+                        android:layout_width="75dp"
+                        android:layout_height="75dp"
+                        android:text="40"
+                        android:textColor="@color/colorWhiteTransparente"
+                        android:background="@color/colorTrasnparente"
+                        android:textSize="35dp" />
+                </FrameLayout>
+
+                <TextView
+                    android:id="@+id/indicador_general"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_centerHorizontal="true"
+                    android:text="@string/nameGeneral"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:textColor="@color/colorWhiteTransparente"
+                    android:textSize="8dp" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="75dp"
+                android:layout_height="75dp"
+                android:layout_alignTop="@+id/relativeLayout8"
+                android:layout_toEndOf="@+id/relativeLayout8"
+                android:layout_toRightOf="@+id/relativeLayout8"
+                android:background="@color/colorTrasnparente">
+
+                <Button
+                    android:id="@+id/btnNadaDireito"
+                    android:layout_width="75dp"
+                    android:layout_height="75dp"
+                    android:background="@color/colorTrasnparente"
+                    android:textColor="@color/colorFundo"
+                    android:textSize="35dp" />
+            </RelativeLayout>
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/colorWhite"
+                android:layout_below="@+id/relativeLayout3"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_alignRight="@+id/frameLayout"
+                android:layout_alignEnd="@+id/frameLayout"
+                android:id="@+id/frameLayout2" />
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/colorWhite"
+                android:layout_alignTop="@+id/relativeLayout7"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_alignRight="@+id/frameLayout2"
+                android:layout_alignEnd="@+id/frameLayout2" />
+
+            <FrameLayout
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:background="@color/colorWhite"
+                android:layout_alignParentTop="true"
+                android:layout_toRightOf="@+id/relativeLayout"
+                android:layout_toEndOf="@+id/relativeLayout"
+                android:layout_alignBottom="@+id/relativeLayout7"
+                android:id="@+id/frameLayout3" />
+
+            <FrameLayout
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:background="@color/colorWhite"
+                android:layout_toLeftOf="@+id/relativeLayout9"
+                android:layout_toStartOf="@+id/relativeLayout9"
+                android:layout_alignParentTop="true"
+                android:layout_alignBottom="@+id/frameLayout3" />
+
+        </RelativeLayout>
 
         <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:elevation="15dp"
-            android:background="@color/colorWhite"
-            android:padding="@dimen/fab_margin"
+            android:background="@color/colorTrasnparente"
             android:layout_alignParentBottom="true"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true">
 
-            <ImageView
-                android:layout_width="200dp"
-                android:layout_height="65dp"
-                android:id="@+id/imageView3"
-                android:layout_gravity="center"
-                android:src="@drawable/nome_bozo_black"
-                android:layout_alignBottom="@+id/btn_jogar"
-                android:layout_alignRight="@+id/btn_jogar"
-                android:layout_alignEnd="@+id/btn_jogar" />
+
 
             <android.support.design.widget.FloatingActionButton
                 android:id="@+id/btn_jogar"
+                android:layout_margin="16dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:src="@drawable/ic_play_white"
                 fab:fab_colorNormal="@color/colorFAB"
                 fab:fab_colorPressed="@color/colorFABPressed"
-                android:layout_gravity="right|center_vertical" />
+                android:layout_gravity="right|top" />
 
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="Marcador"
+                android:id="@+id/textView4"
+                android:layout_gravity="center"
+                android:textColor="@color/colorWhiteTransparente"
+                android:textSize="35dp"
+                android:textStyle="bold" />
 
         </FrameLayout>
 
-
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+            android:id="@+id/imageView3"
+            android:src="@drawable/nome_bozo_black"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="5dp" />
 
 
     </RelativeLayout>
 
-</LinearLayout>
+</RelativeLayout>
