@@ -1,18 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".view.NovaPartida"
     android:orientation="vertical"
+    android:theme="@style/AppTheme.WhiteBotton"
     android:background="@color/colorWhite"
     android:weightSum="1">
 
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:elevation="0dp">
+        app:elevation="0dp"
+        android:id="@+id/view2">
 
         <!--TOOLBAR TOPO-->
         <android.support.v7.widget.Toolbar
@@ -25,9 +27,14 @@
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/colorFundoPartida">
+        android:background="@color/colorFundoPartida"
+        android:layout_below="@+id/view2"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:id="@+id/frameLayout">
 
         <TextView
+            android:id="@+id/cotagemGrupos"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:text="@string/txtSeusGrupos"
@@ -37,12 +44,80 @@
             android:padding="5dp"/>
     </FrameLayout>
 
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_below="@+id/view2"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:id="@+id/list_vazio">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorAccent"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:id="@+id/frameLayout2">
+
+        <ImageButton
+            android:id="@+id/btn_jogadores_salvos"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@drawable/circulo_white"
+            android:src="@drawable/ic_seta_encima"
+            android:layout_gravity="right|center_vertical"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginRight="30dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Gostaria de criar um novo grupo?"
+            android:layout_marginLeft="15dp"
+            android:textColor="@color/colorWhite"
+            android:textAlignment="textStart"
+            android:layout_gravity="left|center_vertical"
+            android:textSize="13dp"
+            android:padding="5dp"
+            android:textIsSelectable="false" />
+    </FrameLayout>
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorFundoPartida"
+            android:layout_gravity="center_horizontal|bottom"
+            android:layout_below="@+id/frameLayout2"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="Nenhum grupo"
+                android:layout_marginLeft="15dp"
+                android:textColor="@color/colorCinzaEscuro"
+                android:textAlignment="textStart"
+                android:padding="5dp"/>
+        </FrameLayout>
+
+    </RelativeLayout>
+
     <ListView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:divider="@color/colorWhite"
         android:id="@+id/list_view_partidas"
         android:cacheColorHint="@color/colorBlack"
-        android:layout_gravity="center_horizontal" />
+        android:layout_gravity="center_horizontal"
+        android:layout_below="@+id/frameLayout"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
-</LinearLayout>
+
+
+
+
+</RelativeLayout>
