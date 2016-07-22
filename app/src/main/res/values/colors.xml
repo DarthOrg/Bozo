@@ -3,7 +3,7 @@
     <!--AppTheme-->
     <color name="colorPrimary">#FFFFFF</color>
     <color name="colorPrimaryDark">#d9d9d9</color>
-    <color name="colorAccent">#00BCD4</color>
+    <color name="colorAccent">#00bcd4</color>
 
     <!--ThemeSplash-->
     <color name="colorPrimary_splash">#FFFFFF</color>
@@ -30,4 +30,5 @@
 
     <!--Cores texto-->
     <color name="colorTextoHint">#B4B4B4</color>
+    <color name="black">#00000000</color>
 </resources>

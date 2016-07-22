@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <string name="txtNovoGrupo">Novo grupo</string>
-    <string name="txtNomePartida">Nome partida</string>
-    <string name="txtSeusGrupos">Seus grupos</string>
-    <string name="txtNomeGrupoExemplo">Grupo</string>
-    <string name="txt_atualizar">Atualizar</string>
-</resources>
