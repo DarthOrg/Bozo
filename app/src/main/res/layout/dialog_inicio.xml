@@ -5,7 +5,7 @@
     xmlns:fab="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorFundoPartida"
+    android:background="@color/colorAccent"
     android:orientation="vertical">
 
     <FrameLayout
@@ -66,7 +66,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceSmall"
-            android:text="Grupo salvos"
+            android:text="Grupos salvos"
             android:textColor="@color/colorFundo"
             android:layout_gravity="center_horizontal|bottom"
             android:layout_marginRight="100dp" />
@@ -83,8 +83,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="Crie um grupo de jogo, para poder acessar depois na opção grupos salvos."
-            android:textColor="@color/colorCinza"
+            android:text="@string/textoDialogInicioGrupoDeJogo"
+            android:textColor="@color/colorWhiteTransparente"
             android:layout_gravity="left|center_vertical"
             android:layout_marginTop="20dp"
             android:layout_marginLeft="20dp"
@@ -95,11 +95,11 @@
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:text="Grupo de jogo"
-            android:textColor="@color/colorFundo"
+            android:textColor="@color/colorWhite"
             android:textStyle="bold"
             android:layout_gravity="left|center_vertical"
             android:layout_marginLeft="20dp"
-            android:layout_marginBottom="25dp" />
+            android:layout_marginBottom="35dp" />
     </FrameLayout>
 
     <FrameLayout
@@ -118,7 +118,7 @@
             android:drawableStart="@drawable/ic_nova_partida"
             android:drawableEnd="@drawable/ic_nova_partida"
             android:backgroundTint="@color/colorWhite"
-            android:textColor="@color/colorBlack"/>
+            android:textColor="@color/colorAccent"/>
     </FrameLayout>
 
 </LinearLayout>
