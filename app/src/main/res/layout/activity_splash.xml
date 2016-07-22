@@ -8,15 +8,18 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context=".Splash"
-    android:background="@color/colorFundo">
+    android:background="@drawable/gradiente_dois">
 
     <ImageView
-        android:layout_width="600dp"
-        android:layout_height="600dp"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
         android:id="@+id/imageView"
+        android:src="@drawable/logo_bozo"
         android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true"
-        android:src="@drawable/logo_bozo" />
+        android:layout_alignLeft="@+id/imageView2"
+        android:layout_alignStart="@+id/imageView2" />
+
+
 
     <ImageView
         android:layout_width="150dp"
@@ -25,4 +28,5 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:src="@drawable/logo_darth_org" />
+
 </RelativeLayout>
