@@ -5,12 +5,15 @@ import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.ContextMenu;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.darthorg.bozo.R;
 import com.darthorg.bozo.adapter.PartidasListaAdapter;
@@ -27,6 +30,7 @@ public class ListaDePartidas extends AppCompatActivity {
     private PartidasListaAdapter partidasListAdapter;
     private PartidaDAO partidaDAO;
     private List<Partida> partidaList;
+    TextView contadorGrupos;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,14 +45,20 @@ public class ListaDePartidas extends AppCompatActivity {
         toolbar.setTitle(" ");
         setSupportActionBar(toolbar);
 
+
+
         listViewPartidas = (ListView) findViewById(R.id.list_view_partidas);
+        listViewPartidas.setEmptyView(findViewById(R.id.list_vazio));
+        registerForContextMenu(listViewPartidas);
+
 
         partidaDAO = new PartidaDAO(this);
         partidaList = partidaDAO.buscarPartidas();
 
-
         partidasListAdapter = new PartidasListaAdapter(getApplicationContext(), partidaList);
         listViewPartidas.setAdapter(partidasListAdapter);
+
+
 
         listViewPartidas.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -57,19 +67,53 @@ public class ListaDePartidas extends AppCompatActivity {
                 intent.putExtra("partidaSalva", partidaList.get(position).getIdPartida());
                 intent.putExtra("partidaNova", false);
                 startActivity(intent);
+
                 finish();
             }
         });
 
+        contadorGrupos = (TextView) findViewById(R.id.cotagemGrupos);
+        contadorGrupos.setText("Seus " + partidaList.size() + " grupos");
+
+
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 
+    @Override
+    public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
+        getMenuInflater().inflate(R.menu.popup_menu, menu);
+    }
+
+
+
+    @Override
+    public boolean onContextItemSelected(MenuItem item) {
+        AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo) item.getMenuInfo();
+        switch (item.getItemId()){
+            case R.id.action_apagar:
+
+                int position = 0;
+                Toast.makeText(ListaDePartidas.this, partidaList.get(position).getNome()+" - foi excluido da sua lista", Toast.LENGTH_SHORT).show();
+                PartidaDAO partidaDAO = new PartidaDAO(ListaDePartidas.this);
+                partidaDAO.deletarPartida(partidaList.get(position));
+                partidaList.remove(position);
+                partidasListAdapter.notifyDataSetChanged();
+                contadorGrupos.setText("Seus " + partidaList.size() + " grupos");
+                return true;
+            default:
+                return super.onContextItemSelected(item);
+
+        }
+
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.partida_salvas_menu, menu);
         return true;
     }
+
+
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
