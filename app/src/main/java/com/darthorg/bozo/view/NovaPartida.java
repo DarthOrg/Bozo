@@ -69,7 +69,8 @@ public class NovaPartida extends AppCompatActivity {
                     final EditText etNomeJogador = (EditText) dialogNovoJogador.findViewById(R.id.edit_nome_novo_jogador);
                     Button btnAdicionarJogador = (Button) dialogNovoJogador.findViewById(R.id.btnAdicionar);
 
-                    dialogNovoJogador.setTitle("Novo jogador");
+                    //Titulo
+                    dialogNovoJogador.setTitle("Adicionar jogador");
                     //Adicionar novo jogador
                     btnAdicionarJogador.setOnClickListener(new View.OnClickListener() {
                         @Override

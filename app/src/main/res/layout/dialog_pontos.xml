@@ -1,22 +1,100 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="match_parent"
+    android:background="@color/colorFundoPartida"
     android:orientation="vertical">
 
-    <EditText
-        android:id="@+id/etPonto"
+    <!--EditText-->
+    <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:ems="10"
-        android:inputType="number"
-        android:maxLength="2"
-        android:textColor="@color/colorFundo"
-        android:textColorHint="@color/colorTextoHint"
-        android:textColorLink="@color/colorAccent"
-        android:textSize="100dp" />
+        android:layout_gravity="center_horizontal">
+
+        <EditText
+            android:theme="@style/AppTheme.WhiteBotton"
+            android:layout_margin="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="numberSigned"
+            android:textColor="@color/colorBlack"
+            android:textSize="100dp"
+            android:hint="00"
+            android:textColorHint="@color/colorCinza"
+            android:ems="10"
+            android:id="@+id/etPonto" />
+    </FrameLayout>
+
+    <!--Linha-->
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="@color/colorCinza"/>
+
+    <!--Botões-->
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="5dp"
+        android:layout_gravity="center_horizontal">
+
+        <!--Cancelar-->
+        <Button
+            style="?android:attr/absListViewStyle"
+            android:textStyle="bold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Marcar"
+            android:drawableStart="@drawable/ic_confirmado"
+            android:background="@color/colorTrasnparente"
+            android:id="@+id/btnMarcar"
+            android:layout_gravity="right|center_vertical" />
+
+        <!--Linha meio-->
+        <FrameLayout
+            android:layout_width="0.5dp"
+            android:layout_height="50dp"
+            android:background="@color/colorCinza"
+            android:layout_gravity="right|center_vertical"
+            android:layout_marginRight="100dp" />
+
+        <Button
+            style="?android:attr/absListViewStyle"
+            android:textStyle="bold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Riscar"
+            android:textColor="@color/colorRed"
+            android:drawableStart="@drawable/ic_riscar"
+            android:background="@color/colorTrasnparente"
+            android:id="@+id/btnRiscar"
+            android:layout_gravity="center" />
+
+        <!--Linha meio-->
+        <FrameLayout
+            android:layout_width="0.5dp"
+            android:layout_height="50dp"
+            android:background="@color/colorCinza"
+            android:layout_gravity="left|center_vertical"
+            android:layout_marginLeft="90dp" />
+
+        <Button
+            style="?android:attr/absListViewStyle"
+            android:textStyle="bold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Cancelar"
+            android:background="@color/colorTrasnparente"
+            android:id="@+id/btnCancelar"
+            android:layout_gravity="left|center_vertical" />
+
+
+
+
+    </FrameLayout>
+
+
+
 
 </LinearLayout>
 

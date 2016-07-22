@@ -345,11 +345,15 @@ public class PartidaAberta extends AppCompatActivity {
             Button btnAdicionarJogador = (Button) dialogAdicionarJogador.findViewById(R.id.btnAdicionar);
             Button btnCancelar = (Button) dialogAdicionarJogador.findViewById(R.id.btnCancelar);
 
+            //Titulo
+            dialogAdicionarJogador.setTitle("Adicionar jogador");
+
             //Adicionar Jogador
             btnAdicionarJogador.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
 
+                    //Todo: criar If Bloquear quando atingir 10 jogadores
                     FragmentFilho fragmentFilho = new FragmentFilho();
 
                     Jogador jogador = new Jogador();

@@ -1,9 +1,9 @@
 package com.darthorg.bozo.fragment;
 
+import android.app.Dialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v7.app.AlertDialog;
 import android.text.InputFilter;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
@@ -131,66 +131,77 @@ public class FragmentFilho extends Fragment {
                                       @Override
                                       public void onClick(View v) {
 
-                                          View dialogLayout = dialogInflater.inflate(R.layout.dialog_pontos, null);
-                                          final EditText et = (EditText) dialogLayout.findViewById(R.id.etPonto);
+                                          //Dialog para Adicionar Jogador
+                                          final Dialog dialogMarcarBozó = new Dialog(getContext());
+                                          // Configura a view para o Dialog
+                                          dialogMarcarBozó.setContentView(R.layout.dialog_pontos);
 
-                                          final AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
+                                          //Recupera os componentes do layout do custondialog
+                                          final EditText et = (EditText) dialogMarcarBozó.findViewById(R.id.etPonto);
+                                          Button btnMarcar = (Button) dialogMarcarBozó.findViewById(R.id.btnMarcar);
+                                          Button btnRiscar = (Button) dialogMarcarBozó.findViewById(R.id.btnRiscar);
+                                          Button btnCancelar = (Button) dialogMarcarBozó.findViewById(R.id.btnCancelar);
+
+                                          //Titulo
+                                          dialogMarcarBozó.setTitle("Adicionar jogador");
+
                                           switch (pecaBozo.getNome()) {
                                               case nomeAz:
-                                                  builder.setTitle(getString(R.string.nameAz) + " ( 1 á 5 )");
+                                                  dialogMarcarBozó.setTitle(getString(R.string.nameAz) + " ( 1 á 5 )");
                                                   et.setFilters(new InputFilter[]{new InputFilter.LengthFilter(1)});
                                                   break;
                                               case nomeDuque:
-                                                  builder.setTitle(getString(R.string.nameDuque) + " ( 2 á 10 )");
+                                                  dialogMarcarBozó.setTitle(getString(R.string.nameDuque) + " ( 2 á 10 )");
                                                   break;
                                               case nomeTerno:
-                                                  builder.setTitle(getString(R.string.nameTerno) + " ( 3 á 15 )");
+                                                  dialogMarcarBozó.setTitle(getString(R.string.nameTerno) + " ( 3 á 15 )");
                                                   break;
                                               case nomeQuadra:
-                                                  builder.setTitle(getString(R.string.nameQuadra) + " ( 4 á 20 )");
+                                                  dialogMarcarBozó.setTitle(getString(R.string.nameQuadra) + " ( 4 á 20 )");
                                                   break;
                                               case nomeQuina:
-                                                  builder.setTitle(getString(R.string.nameQuina) + " ( 5 á 25 )");
+                                                  dialogMarcarBozó.setTitle(getString(R.string.nameQuina) + " ( 5 á 25 )");
                                                   break;
                                               case nomeSena:
-                                                  builder.setTitle(getString(R.string.nameSena) + " ( 6 á 30 )");
+                                                  dialogMarcarBozó.setTitle(getString(R.string.nameSena) + " ( 6 á 30 )");
                                                   break;
                                               case nomeFull:
-                                                  builder.setTitle(getString(R.string.nameFull) + " ( 10 ou 15 )");
+                                                  dialogMarcarBozó.setTitle(getString(R.string.nameFull) + " ( 10 ou 15 )");
                                                   break;
                                               case nomeSeguida:
-                                                  builder.setTitle(getString(R.string.nameSeguida) + " ( 20 ou 25)");
+                                                  dialogMarcarBozó.setTitle(getString(R.string.nameSeguida) + " ( 20 ou 25)");
                                                   break;
                                               case nomeQuadrada:
-                                                  builder.setTitle(getString(R.string.nameQuadrada) + " ( 30 ou 35 )");
+                                                  dialogMarcarBozó.setTitle(getString(R.string.nameQuadrada) + " ( 30 ou 35 )");
                                                   break;
                                               case nomeGeneral:
-                                                  builder.setTitle(getString(R.string.nameQuadrada) + " ( 40 ou 100)");
+                                                  dialogMarcarBozó.setTitle(getString(R.string.nameQuadrada) + " ( 40 ou 100)");
                                                   et.setFilters(new InputFilter[]{new InputFilter.LengthFilter(3)});
                                                   break;
                                               default:
                                                   break;
                                           }
 
-                                          builder.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
-                                                      @Override
-                                                      public void onClick(DialogInterface dialog, int which) {
-                                                          if (TextUtils.isEmpty(et.getText().toString())) {
-                                                              dialog.dismiss();
-                                                          } else {
-                                                              pecaBozo.setPontuacao(et.getText().toString());
-                                                              button.setText(et.getText().toString());
-                                                          }
-                                                          contador = contarPontos();
-                                                          resultadoFinal.setText(contador + "");
-                                                      }
-                                                  }
-
-                                          );
-                                          builder.setNegativeButton("Cancelar", null);
-                                          builder.setNeutralButton("[ X ] Riscar", new DialogInterface.OnClickListener() {
+                                          //Botão Marcar
+                                          btnMarcar.setOnClickListener(new View.OnClickListener() {
                                               @Override
-                                              public void onClick(DialogInterface dialogInterface, int i) {
+                                              public void onClick(View view) {
+                                                  dialogMarcarBozó.dismiss();
+                                                  if (TextUtils.isEmpty(et.getText().toString())) {
+                                                      dialogMarcarBozó.dismiss();
+                                                  } else {
+                                                      pecaBozo.setPontuacao(et.getText().toString());
+                                                      button.setText(et.getText().toString());
+                                                  }
+                                                  contador = contarPontos();
+                                                  resultadoFinal.setText(contador + "");
+                                              }
+                                          });
+                                          //Botão Riscar
+                                          btnRiscar.setOnClickListener(new View.OnClickListener() {
+                                              @Override
+                                              public void onClick(View view) {
+                                                  dialogMarcarBozó.dismiss();
                                                   if (pecaBozo.getPontuacao() == null) {
                                                       pecaBozo.setRiscado(true);
                                                       button.setVisibility(View.GONE);
@@ -200,9 +211,17 @@ public class FragmentFilho extends Fragment {
                                                   resultadoFinal.setText(contador + "");
                                               }
                                           });
-                                          builder.setView(dialogLayout);
-                                          builder.setCancelable(false);
-                                          builder.show();
+                                          //Botão Cancelar
+                                          btnCancelar.setOnClickListener(new View.OnClickListener() {
+                                              @Override
+                                              public void onClick(View view) {
+                                                  dialogMarcarBozó.dismiss();
+                                                  return;
+                                              }
+                                          });
+
+                                          dialogMarcarBozó.setCancelable(false);
+                                          dialogMarcarBozó.show();
                                       }
                                   }
         );

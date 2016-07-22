@@ -43,6 +43,7 @@
 
     <style name="AppTheme.WhiteBotton" parent="Theme.AppCompat">
         <item name="colorAccent">@color/colorBlack</item>
+        <item name="colorPrimary">@color/colorWhite</item>
     </style>
 
 
