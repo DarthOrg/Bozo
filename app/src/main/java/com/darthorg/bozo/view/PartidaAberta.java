@@ -303,7 +303,7 @@ public class PartidaAberta extends AppCompatActivity {
                                     jogadorController.inserirJogador(jogadoresRodada.get(i));
                                 }
 
-                                Toast alertaMenssagem = Toast.makeText(getApplicationContext(), "Partida " + partidaAux.getNome() + " id: " + partidaAux.getIdPartida() + " com sucesso", Toast.LENGTH_LONG);
+                                Toast alertaMenssagem = Toast.makeText(getApplicationContext(), "Grupo " + partidaAux.getNome() +" salvo com sucesso", Toast.LENGTH_LONG);
                                 alertaMenssagem.show();
                                 builder.dismiss();
                             }
@@ -345,15 +345,11 @@ public class PartidaAberta extends AppCompatActivity {
             Button btnAdicionarJogador = (Button) dialogAdicionarJogador.findViewById(R.id.btnAdicionar);
             Button btnCancelar = (Button) dialogAdicionarJogador.findViewById(R.id.btnCancelar);
 
-            //Titulo
-            dialogAdicionarJogador.setTitle("Adicionar jogador");
-
             //Adicionar Jogador
             btnAdicionarJogador.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
 
-                    //Todo: criar If Bloquear quando atingir 10 jogadores
                     FragmentFilho fragmentFilho = new FragmentFilho();
 
                     Jogador jogador = new Jogador();
