@@ -39,15 +39,15 @@ public class Inicio extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.btn_jogar);
-        fab.setOnClickListener(new View.OnClickListener() {
+        ImageButton btnJogar = (ImageButton) findViewById(R.id.btn_jogar);
+        btnJogar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 LayoutInflater inflater = getLayoutInflater();
                 //Recebe a activity para persolnalizar o dialog
                 View dialogLayout = inflater.inflate(R.layout.dialog_inicio, null);
                 //Botão nova partida
-                Button btnNovaPartida = (Button) dialogLayout.findViewById(R.id.btn_nova_partida);
+                ImageButton btnNovaPartida = (ImageButton) dialogLayout.findViewById(R.id.btn_nova_partida);
                 btnNovaPartida.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
@@ -55,26 +55,8 @@ public class Inicio extends AppCompatActivity {
                         startActivity(intent);
                     }
                 });
-                //Botão Jogadores
-                ImageButton btnJogadoresSalvos = (ImageButton) dialogLayout.findViewById(R.id.btn_jogadores_salvos);
-                btnJogadoresSalvos.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        Snackbar.make(view, "Jogadores clicado.", Snackbar.LENGTH_LONG)
-                                .setAction("Ok", null).show();
-                    }
-                });
-                //Botão Instruções
-                ImageButton btnInstrucoes = (ImageButton) dialogLayout.findViewById(R.id.btn_instrucoes);
-                btnInstrucoes.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        Snackbar.make(view, "Instruções clicado.", Snackbar.LENGTH_LONG)
-                                .setAction("Ok", null).show();
-                    }
-                });
                 //Botão grupo salvos
-                ImageButton btnPartidasSalvas = (ImageButton) dialogLayout.findViewById(R.id.btn_partidas_salvas);
+                Button btnPartidasSalvas = (Button) dialogLayout.findViewById(R.id.btn_partidas_salvas);
                 btnPartidasSalvas.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
@@ -82,6 +64,34 @@ public class Inicio extends AppCompatActivity {
                         startActivity(intent);
                     }
                 });
+                //Botão Configurações
+                Button btnConfiguracoes = (Button) dialogLayout.findViewById(R.id.btn_configuracoes);
+                btnConfiguracoes.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Snackbar.make(view, "Configurações clicado.", Snackbar.LENGTH_LONG)
+                                .setAction("Ok", null).show();
+                    }
+                });
+                //Botão Instruções
+                Button btnInstrucoes = (Button) dialogLayout.findViewById(R.id.btn_instrucoes);
+                btnInstrucoes.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Snackbar.make(view, "Instruções clicado.", Snackbar.LENGTH_LONG)
+                                .setAction("Ok", null).show();
+                    }
+                });
+                //Botão Sobre
+                Button btnSobre = (Button) dialogLayout.findViewById(R.id.btn_sobre);
+                btnSobre.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Snackbar.make(view, "Configurações clicado.", Snackbar.LENGTH_LONG)
+                                .setAction("Ok", null).show();
+                    }
+                });
+
                 AlertDialog.Builder builder = new AlertDialog.Builder(Inicio.this);
                 //builder.setNegativeButton("Cancelar",null);
                 builder.setView(dialogLayout);
@@ -124,15 +134,7 @@ public class Inicio extends AppCompatActivity {
 
         int id = item.getItemId();
 
-        if (id == R.id.action_configuracoes) {
-            //Intent intent = new Intent(this,ListaDePlacar.class);
-            //startActivity(intent);
-            return true;
-        } else if (id == R.id.action_sobre) {
-            //Intent intent = new Intent(this,ListaDePlacar.class);
-            //startActivity(intent);
-            return true;
-        } else if (id == R.id.action_bloquear_som) {
+        if (id == R.id.action_bloquear_som) {
             //Intent intent = new Intent(this,ListaDePlacar.class);
             //startActivity(intent);
             return true;

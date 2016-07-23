@@ -5,79 +5,37 @@
     xmlns:fab="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorAccent"
+    android:background="@color/colorWhite"
     android:orientation="vertical">
 
-    <FrameLayout
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/colorWhite"
-        android:elevation="5dp"
-        android:paddingBottom="15dp">
+        android:padding="10dp"
+        android:background="@color/colorFAB">
+
 
         <ImageButton
-            android:id="@+id/btn_instrucoes"
+            android:id="@+id/btn_nova_partida"
             android:layout_width="60dp"
             android:layout_height="60dp"
-            android:src="@drawable/ic_instrucoes"
-            android:background="@drawable/circulo"
+            android:background="@color/colorTrasnparente"
+            android:src="@drawable/ic_nova_partida"
+            android:layout_gravity="center_horizontal|top"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Novo grupo de jogo"
+            android:textColor="@color/colorWhite"
+            android:textStyle="bold"
             android:layout_gravity="center"
-            android:layout_marginLeft="100dp" />
-
-        <ImageButton
-            android:id="@+id/btn_jogadores_salvos"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:background="@drawable/circulo"
-            android:src="@drawable/ic_jogadores_salvos"
-            android:layout_gravity="center" />
-
-        <ImageButton
-            android:id="@+id/btn_partidas_salvas"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:src="@drawable/ic_lista"
-            android:background="@drawable/circulo"
-            android:layout_gravity="center"
-            android:layout_marginRight="100dp" />
-
-
-
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceSmall"
-            android:text="Jogadores"
-            android:textColor="@color/colorFundo"
-            android:layout_gravity="bottom|center_horizontal"
-            android:layout_marginTop="90dp"/>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceSmall"
-            android:text="Instruções"
-            android:textColor="@color/colorFundo"
-            android:layout_gravity="center_horizontal|bottom"
-            android:layout_marginLeft="100dp" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceSmall"
-            android:text="Grupos salvos"
-            android:textColor="@color/colorFundo"
-            android:layout_gravity="center_horizontal|bottom"
-            android:layout_marginRight="100dp" />
-
-
-    </FrameLayout>
-
-    <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="150dp"
-        android:layout_gravity="center_horizontal">
+            android:layout_below="@+id/btn_nova_partida"
+            android:layout_centerHorizontal="true"
+            android:id="@+id/textView5" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -85,40 +43,70 @@
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:text="@string/textoDialogInicioGrupoDeJogo"
             android:textColor="@color/colorWhiteTransparente"
-            android:layout_gravity="left|center_vertical"
-            android:layout_marginTop="20dp"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp" />
+            android:layout_gravity="center_horizontal|bottom"
+            android:textSize="15dp"
+            android:textAlignment="center"
+            android:layout_below="@+id/textView5"
+            android:layout_centerHorizontal="true"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="Grupo de jogo"
-            android:textColor="@color/colorWhite"
-            android:textStyle="bold"
-            android:layout_gravity="left|center_vertical"
-            android:layout_marginLeft="20dp"
-            android:layout_marginBottom="35dp" />
-    </FrameLayout>
 
-    <FrameLayout
+    </RelativeLayout>
+    <Button
+        style="?android:attr/absListViewStyle"
+        android:id="@+id/btn_partidas_salvas"
         android:layout_width="match_parent"
-        android:layout_height="56dp"
-        android:layout_marginRight="20dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginBottom="20dp">
-
-        <Button
-            android:id="@+id/btn_nova_partida"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Novo grupo de jogo"
-            android:padding="20dp"
-            android:drawableStart="@drawable/ic_nova_partida"
-            android:drawableEnd="@drawable/ic_nova_partida"
-            android:backgroundTint="@color/colorWhite"
-            android:textColor="@color/colorAccent"/>
-    </FrameLayout>
-
+        android:layout_height="wrap_content"
+        android:text="Grupos salvos"
+        android:textSize="15dp"
+        android:textStyle="bold"
+        android:drawablePadding="@dimen/activity_horizontal_margin"
+        android:textColor="@color/colorCinzaEscuro"
+        android:drawableStart="@drawable/ic_lista"
+        android:background="@color/colorWhite"
+        android:textAlignment="textStart"
+        android:padding="20dp"/>
+    <Button
+        style="?android:attr/absListViewStyle"
+        android:id="@+id/btn_configuracoes"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Configurações"
+        android:textSize="15dp"
+        android:drawablePadding="@dimen/activity_horizontal_margin"
+        android:textStyle="bold"
+        android:textColor="@color/colorCinzaEscuro"
+        android:drawableStart="@drawable/ic_configuracoes"
+        android:background="@color/colorWhite"
+        android:textAlignment="viewStart"
+        android:padding="20dp"/>
+    <Button
+        style="?android:attr/absListViewStyle"
+        android:id="@+id/btn_instrucoes"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Instruções"
+        android:textSize="15dp"
+        android:drawablePadding="@dimen/activity_horizontal_margin"
+        android:textStyle="bold"
+        android:textColor="@color/colorCinzaEscuro"
+        android:drawableStart="@drawable/ic_instrucoes"
+        android:background="@color/colorWhite"
+        android:textAlignment="viewStart"
+        android:padding="20dp"/>
+    <Button
+        style="?android:attr/absListViewStyle"
+        android:id="@+id/btn_sobre"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Sobre"
+        android:textSize="15dp"
+        android:drawablePadding="@dimen/activity_horizontal_margin"
+        android:textStyle="bold"
+        android:textColor="@color/colorCinzaEscuro"
+        android:drawableStart="@drawable/ic_sobre"
+        android:background="@color/colorWhite"
+        android:textAlignment="viewStart"
+        android:padding="20dp"/>
 </LinearLayout>

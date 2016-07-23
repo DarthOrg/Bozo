@@ -20,5 +20,5 @@
     <string name="nameGeneral">General</string>
     <string name="title_activity_teste_teste_teste_teste">TesteTesteTesteTeste</string>
     <string name="txt_atualizar">Atualizar</string>
-    <string name="textoDialogInicioGrupoDeJogo">Crie um grupo de jogo, para incluir jogadores e jogar varias partidas. Despois de criar você pode acessar no Grupos salvos.</string>
+    <string name="textoDialogInicioGrupoDeJogo">Crie um grupo de jogo, para incluir jogadores e jogar varias partidas.</string>
 </resources>

@@ -11,20 +11,4 @@
         android:icon="@drawable/ic_bloquear_som"
         app:showAsAction="always"/>
 
-    <item
-        android:id="@+id/action_configuracoes"
-        android:title="Configuraçoes"
-        android:orderInCategory="100"
-        android:icon="@drawable/ic_configuracoes"
-        app:showAsAction="always"/>
-
-    <item
-        android:id="@+id/action_sobre"
-        android:title="Sobre"
-        android:orderInCategory="100"
-        android:icon="@drawable/ic_sobre"
-        app:showAsAction="always"/>
-
-
-
 </menu>
