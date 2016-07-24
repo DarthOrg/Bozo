@@ -72,8 +72,17 @@ public class ListaDePartidas extends AppCompatActivity {
             }
         });
 
+        //Contagem de grupos
         contadorGrupos = (TextView) findViewById(R.id.cotagemGrupos);
-        contadorGrupos.setText("Seus " + partidaList.size() + " grupos");
+        if(partidaList.size() == 0){
+            contadorGrupos.setText("nenhum grupo");
+        }else if (partidaList.size() == 1){
+            contadorGrupos.setText(partidaList.size() + " Grupo");
+        }else if(partidaList.size() >= 2){
+            contadorGrupos.setText(partidaList.size() + " Grupos");
+        }
+
+
 
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -98,7 +107,13 @@ public class ListaDePartidas extends AppCompatActivity {
                 partidaDAO.deletarPartida(partidaList.get(position));
                 partidaList.remove(position);
                 partidasListAdapter.notifyDataSetChanged();
-                contadorGrupos.setText("Seus " + partidaList.size() + " grupos");
+                if(partidaList.size() == 0){
+                    contadorGrupos.setText("nenhum grupo");
+                }else if (partidaList.size() == 1){
+                    contadorGrupos.setText(partidaList.size() + " Grupo");
+                }else if(partidaList.size() >= 2){
+                    contadorGrupos.setText(partidaList.size() + " Grupos");
+                }
                 return true;
             default:
                 return super.onContextItemSelected(item);
