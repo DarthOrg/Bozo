@@ -36,9 +36,9 @@
     </style>
 
     <style name="ThemeNovaPartida" parent="Theme.AppCompat.Light.NoActionBar">
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/colorAccent</item>
+        <item name="colorPrimary">@color/colorAccent</item>
+        <item name="colorPrimaryDark">@color/colorAccent</item>
+        <item name="colorAccent">@color/colorFABPressed</item>
     </style>
 
     <style name="AppTheme.WhiteBotton" parent="Theme.AppCompat">
