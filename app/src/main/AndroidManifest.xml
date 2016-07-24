@@ -24,6 +24,7 @@
             android:theme="@style/AppTheme"/>
         <activity
             android:name=".view.NovaPartida"
+            android:screenOrientation="portrait"
             android:theme="@style/ThemeNovaPartida" />
         <activity
             android:name=".view.PartidaAberta"
@@ -31,9 +32,11 @@
             android:theme="@style/ThemePartidaAberta" />
         <activity
             android:name=".view.ListaDePlacar"
+            android:screenOrientation="portrait"
             android:theme="@style/ThemeDistaque" />
         <activity
             android:name=".view.ListaDePartidas"
+            android:screenOrientation="portrait"
             android:theme="@style/ThemeDistaque" />
 
         <!--
