@@ -345,6 +345,9 @@ public class PartidaAberta extends AppCompatActivity {
             Button btnAdicionarJogador = (Button) dialogAdicionarJogador.findViewById(R.id.btnAdicionar);
             Button btnCancelar = (Button) dialogAdicionarJogador.findViewById(R.id.btnCancelar);
 
+
+            //Titulo
+            dialogAdicionarJogador.setTitle("Adicionar jogador");
             //Adicionar Jogador
             btnAdicionarJogador.setOnClickListener(new View.OnClickListener() {
                 @Override

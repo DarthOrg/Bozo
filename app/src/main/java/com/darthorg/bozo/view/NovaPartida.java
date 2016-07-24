@@ -42,7 +42,7 @@ public class NovaPartida extends AppCompatActivity {
         setContentView(R.layout.activity_nova_partida);
 
         contadorJogador = (TextView) findViewById(R.id.contagemJogadores);
-        contadorJogador.setText("Jogadores " + jogadores.size() + "/10");
+        contadorJogador.setText("Jogadores: " + jogadores.size() + "/10");
 
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         toolbar.setTitle(" ");
