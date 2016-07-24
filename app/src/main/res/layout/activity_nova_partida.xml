@@ -23,6 +23,7 @@
             <!--TOOLBAR TOPO-->
             <android.support.v7.widget.Toolbar
                 android:id="@+id/toolbar"
+                android:theme="@style/AppTheme.WhiteBotton"
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"/>
 
@@ -36,10 +37,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="textPersonName"
-                    android:textColor="@color/colorBlack"
+                    android:textColor="@color/colorWhite"
                     android:textSize="25dp"
                     android:textAllCaps="true"
-                    android:textColorLink="@color/colorBlack"
                     android:nestedScrollingEnabled="true"
                     android:linksClickable="false"
                     android:hint="Nome do seu grupo"
@@ -65,18 +65,26 @@
         </android.support.design.widget.AppBarLayout>
 
 
-        <TextView
-            android:layout_width="wrap_content"
+        <FrameLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceSmall"
-            android:text="Participantes: 2/10"
-            android:id="@+id/contagemJogadores"
-            android:textColor="@color/colorFundo"
-            android:paddingLeft="15dp"
-            android:paddingTop="10dp"
-            android:layout_below="@+id/view"
+            android:background="@color/colorFABPressed"
+            android:layout_below="@+id/view2"
+            android:layout_marginTop="155dp"
             android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true" />
+            android:layout_alignParentStart="true"
+            android:id="@+id/frameLayout">
+
+            <TextView
+                android:id="@+id/contagemJogadores"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="15dp"
+                android:textColor="@color/colorWhite"
+                android:textAlignment="textStart"
+                android:padding="10dp"/>
+        </FrameLayout>
+
 
 
         <ListView
@@ -92,12 +100,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/ic_fab_add_jogador"
-            fab:fab_colorNormal="@color/colorFAB"
-            fab:fab_colorPressed="@color/colorFABPressed"
+            fab:fab_colorNormal="@color/colorWhite"
+            fab:fab_colorPressed="@color/colorCinza"
             android:layout_marginRight="@dimen/fab_margin"
-            android:layout_alignBottom="@+id/contagemJogadores"
+            android:layout_alignBottom="@+id/frameLayout"
             android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true" />
+            android:layout_alignParentEnd="true"
+            android:layout_marginBottom="16dp" />
     </RelativeLayout>
 
 
