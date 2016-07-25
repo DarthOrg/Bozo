@@ -16,6 +16,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.darthorg.bozo.R;
+import com.darthorg.bozo.Update.ListaGrupos;
 import com.darthorg.bozo.adapter.PartidasListaAdapter;
 import com.darthorg.bozo.dao.PartidaDAO;
 import com.darthorg.bozo.model.Partida;
@@ -48,7 +49,11 @@ public class ListaDePartidas extends AppCompatActivity {
 
 
         listViewPartidas = (ListView) findViewById(R.id.list_view_partidas);
+
+        //Aparecer imagem quando a lista estiver vazia
         listViewPartidas.setEmptyView(findViewById(R.id.list_vazio));
+
+        //botão ficar precionado
         registerForContextMenu(listViewPartidas);
 
 
@@ -139,9 +144,8 @@ public class ListaDePartidas extends AppCompatActivity {
             Intent intent = new Intent(ListaDePartidas.this, NovaPartida.class);
             startActivity(intent);
         } else if (id == R.id.action_atualizar) {
-            Intent intent = new Intent(ListaDePartidas.this, ListaDePartidas.class);
-            startActivity(intent);
-            finish();
+            ListaGrupos.atualizar(this,item);
+
         } else if (id == android.R.id.home) {
             finish();
         }
