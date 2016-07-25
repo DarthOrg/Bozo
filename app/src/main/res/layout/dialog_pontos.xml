@@ -19,7 +19,7 @@
             android:inputType="numberSigned"
             android:textColor="@color/colorBlack"
             android:textSize="100dp"
-            android:hint="00"
+            android:hint="0"
             android:textColorHint="@color/colorCinza"
             android:ems="10"
             android:id="@+id/etPonto" />
