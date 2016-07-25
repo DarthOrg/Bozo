@@ -36,6 +36,8 @@ import com.darthorg.bozo.fragment.FragmentFilho;
 import com.darthorg.bozo.model.Jogador;
 import com.darthorg.bozo.model.Partida;
 import com.darthorg.bozo.model.Rodada;
+import com.github.clans.fab.FloatingActionButton;
+import com.github.clans.fab.FloatingActionMenu;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -71,6 +73,10 @@ public class PartidaAberta extends AppCompatActivity {
     private Bundle bundleParams;
 
     List<Jogador> listJogadores;
+
+    FloatingActionMenu fabMenu;
+    FloatingActionButton floatingActionButton1, floatingActionButton2, floatingActionButton3;
+
 
 
     @Override
@@ -113,6 +119,110 @@ public class PartidaAberta extends AppCompatActivity {
 
         configurarPartida();
 
+        //Float action bar
+        fabMenu = (FloatingActionMenu) findViewById(R.id.floating_menu);
+        fabMenu.setClosedOnTouchOutside(true);
+        floatingActionButton1 = (FloatingActionButton) findViewById(R.id.floating_add_jogador);
+        floatingActionButton2 = (FloatingActionButton) findViewById(R.id.floating_excluir_jogador);
+        floatingActionButton3 = (FloatingActionButton) findViewById(R.id.floating_placar);
+
+        floatingActionButton1.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+
+                jogadorController = new JogadorController(PartidaAberta.this);
+
+                //Dialog para Adicionar Jogador
+                final Dialog dialogAdicionarJogador = new Dialog(PartidaAberta.this);
+                // Configura a view para o Dialog
+                dialogAdicionarJogador.setContentView(R.layout.dialog_novo_jogador);
+
+                //Recupera os componentes do layout do custondialog
+                final EditText etNomeJogador = (EditText) dialogAdicionarJogador.findViewById(R.id.edit_nome_novo_jogador);
+                Button btnAdicionarJogador = (Button) dialogAdicionarJogador.findViewById(R.id.btnAdicionar);
+                Button btnCancelar = (Button) dialogAdicionarJogador.findViewById(R.id.btnCancelar);
+
+
+                //Titulo
+                dialogAdicionarJogador.setTitle("Adicionar jogador");
+                //Adicionar Jogador
+                btnAdicionarJogador.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+
+                        FragmentFilho fragmentFilho = new FragmentFilho();
+
+                        Jogador jogador = new Jogador();
+                        jogador.setNome(etNomeJogador.getText().toString());
+
+                        // Adiciona o jogador numa lista local de jogadores
+                        jogadoresRodada.add(jogador);
+
+                        //Adiciona o Fragment nas tabs
+                        adapter.addFrag(fragmentFilho, etNomeJogador.getText().toString());
+                        adapter.notifyDataSetChanged();
+
+                        Snackbar.make(viewPager, "Jogador " + etNomeJogador.getText().toString() + " foi adicionado!", Snackbar.LENGTH_SHORT).show();
+
+                        if (adapter.getCount() > 0) {
+                            tabLayout.setupWithViewPager(viewPager);
+                            viewPager.setCurrentItem(adapter.getCount() - 1);
+                        }
+                        dialogAdicionarJogador.dismiss();
+                    }
+                });
+                //Botão Cancelar
+                btnCancelar.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        dialogAdicionarJogador.dismiss();
+                        return;
+                    }
+                });
+                dialogAdicionarJogador.show();
+                fabMenu.close(true);
+
+            }
+
+
+        });
+        floatingActionButton2.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+
+
+                Snackbar.make(viewPager, "Excluir jogador selecionado", Snackbar.LENGTH_LONG)
+                        .setActionTextColor(Color.RED)
+                        .setAction("Excluir " + jogadoresRodada.get(viewPager.getCurrentItem()).getNome(), new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                if (adapter.getCount() > 0) {
+                                    jogadorController = new JogadorController(PartidaAberta.this);
+                                    String nomeJogadorTabAtual = jogadoresRodada.get(viewPager.getCurrentItem()).getNome();
+                                    Jogador jogadorBuscado = buscarJogador(nomeJogadorTabAtual);
+                                    jogadorController.deletarJogador(jogadorBuscado);
+                                    jogadoresRodada.remove(viewPager.getCurrentItem());
+                                    adapter.removeFrag(viewPager.getCurrentItem());
+                                    adapter.notifyDataSetChanged();
+                                    // vincula denovo o viewpager com o tablayout
+                                    tabLayout.setupWithViewPager(viewPager);
+
+                                } else {
+                                    Snackbar.make(view, "Não tem mais jogadores para excluir", Snackbar.LENGTH_LONG).show();
+                                }
+
+                            }
+                        })
+                        .show();
+                fabMenu.close(true);
+
+            }
+        });
+        floatingActionButton3.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                Intent intent = new Intent(PartidaAberta.this, ListaDePlacar.class);
+                startActivity(intent);
+                fabMenu.close(true);
+            }
+        });
 
     }
 
@@ -262,136 +372,13 @@ public class PartidaAberta extends AppCompatActivity {
         return true;
     }
 
-
+    //Botão voltar
     @Override
-    public boolean onOptionsItemSelected(final MenuItem item) {
+    public void onBackPressed() {
 
-        int id = item.getItemId();
-
-
-        if (id == R.id.action_salvar_partida) {
-
-            partidaController = new PartidaController(this);
-            jogadorController = new JogadorController(this);
-            rodadaController = new RodadaController(this);
-
-            //ProgressDialog Função carregar
-            final ProgressDialog builder = new ProgressDialog(PartidaAberta.this);
-            builder.setMessage("Salvando só um momento...");
-            builder.show();
-
-            if (intent != null) {
-                if (bundleParams != null) {
-                    //Verifica se é uma partida nova ou uma partida salva
-                    if (bundleParams.getBoolean("partidaNova")) {
-
-                        //Insere a partida no banco
-                        partidaController.inserirPartida(partida);
-                        //Tepo que a barra vai demorar para carregar
-                        new Handler().postDelayed(new Runnable() {
-                            public void run() {
-
-                                Partida partidaAux = buscarPartida(partida.getNome());
-
-                                rodada.setIdPartida(partidaAux.getIdPartida());
-                                rodadaController.inserirRodada(rodada);
-
-                                Rodada rodadaAux = buscarRodada(partidaAux.getIdPartida());
-
-                                for (int i = 0; i < jogadoresRodada.size(); i++) {
-                                    jogadoresRodada.get(i).setIdRodada(rodadaAux.getIdRodada());
-                                    jogadorController.inserirJogador(jogadoresRodada.get(i));
-                                }
-
-                                Toast alertaMenssagem = Toast.makeText(getApplicationContext(), "Grupo " + partidaAux.getNome() +" salvo com sucesso", Toast.LENGTH_LONG);
-                                alertaMenssagem.show();
-                                builder.dismiss();
-                            }
-                        }, ProgressSalvar);
-
-                    } else {
-
-                        rodada = buscarRodada(partida.getIdPartida());
-
-                        //Tepo que a barra vai demorar para carregar
-                        new Handler().postDelayed(new Runnable() {
-                            public void run() {
-                                for (int i = 0; i < jogadoresRodada.size(); i++) {
-                                    if (listJogadores.contains(jogadoresRodada.get(i)) == false) {
-                                        jogadoresRodada.get(i).setIdRodada(rodada.getIdRodada());
-                                        jogadorController.inserirJogador(jogadoresRodada.get(i));
-                                    }
-                                }
-                                builder.dismiss();
-
-                            }
-                        }, ProgressSalvar);
-                    }
-                }
-            }
-
-
-        } else if (id == R.id.action_add_jogador) {
-
-            jogadorController = new JogadorController(this);
-
-            //Dialog para Adicionar Jogador
-            final Dialog dialogAdicionarJogador = new Dialog(this);
-            // Configura a view para o Dialog
-            dialogAdicionarJogador.setContentView(R.layout.dialog_novo_jogador);
-
-            //Recupera os componentes do layout do custondialog
-            final EditText etNomeJogador = (EditText) dialogAdicionarJogador.findViewById(R.id.edit_nome_novo_jogador);
-            Button btnAdicionarJogador = (Button) dialogAdicionarJogador.findViewById(R.id.btnAdicionar);
-            Button btnCancelar = (Button) dialogAdicionarJogador.findViewById(R.id.btnCancelar);
-
-
-            //Titulo
-            dialogAdicionarJogador.setTitle("Adicionar jogador");
-            //Adicionar Jogador
-            btnAdicionarJogador.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-
-                    FragmentFilho fragmentFilho = new FragmentFilho();
-
-                    Jogador jogador = new Jogador();
-                    jogador.setNome(etNomeJogador.getText().toString());
-
-                    // Adiciona o jogador numa lista local de jogadores
-                    jogadoresRodada.add(jogador);
-
-                    //Adiciona o Fragment nas tabs
-                    adapter.addFrag(fragmentFilho, etNomeJogador.getText().toString());
-                    adapter.notifyDataSetChanged();
-
-                    Snackbar.make(viewPager, "Jogador " + etNomeJogador.getText().toString() + " foi adicionado!", Snackbar.LENGTH_SHORT).show();
-
-                    if (adapter.getCount() > 0) {
-                        tabLayout.setupWithViewPager(viewPager);
-                        viewPager.setCurrentItem(adapter.getCount() - 1);
-                    }
-                    dialogAdicionarJogador.dismiss();
-                }
-            });
-            //Botão Cancelar
-            btnCancelar.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    dialogAdicionarJogador.dismiss();
-                    return;
-                }
-            });
-            dialogAdicionarJogador.show();
-
-
-        } else if (id == R.id.action_placar) {
-            Intent intent = new Intent(this, ListaDePlacar.class);
-            startActivity(intent);
-        } else if (id == R.id.action_bloquear_som) {
-        } else if (id == R.id.action_configuracoes) {
-            return true;
-        } else if (id == R.id.action_sair) {
+        if (fabMenu.isOpened()){
+            fabMenu.close(true);
+        }else {
 
             LayoutInflater inflater = getLayoutInflater();
             View dialogLayout = inflater.inflate(R.layout.dialog_sair_grupo, null);
@@ -402,18 +389,166 @@ public class PartidaAberta extends AppCompatActivity {
             btnSalvarGrupo.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(final View view) {
+
+                    partidaController = new PartidaController(PartidaAberta.this);
+                    jogadorController = new JogadorController(PartidaAberta.this);
+                    rodadaController = new RodadaController(PartidaAberta.this);
+
                     //ProgressDialog Função carregar
                     final ProgressDialog builder = new ProgressDialog(PartidaAberta.this);
                     builder.setMessage("Salvando só um momento...");
                     builder.show();
 
-                    //Tepo que a barra vai demorar para carregar
-                    new Handler().postDelayed(new Runnable() {
-                        public void run() {
-                            //TODO: Implementar o metodo para salvar a partida
-                            finish();
+                    if (intent != null) {
+                        if (bundleParams != null) {
+                            //Verifica se é uma partida nova ou uma partida salva
+                            if (bundleParams.getBoolean("partidaNova")) {
+
+                                //Insere a partida no banco
+                                partidaController.inserirPartida(partida);
+                                //Tepo que a barra vai demorar para carregar
+                                new Handler().postDelayed(new Runnable() {
+                                    public void run() {
+
+                                        Partida partidaAux = buscarPartida(partida.getNome());
+
+                                        rodada.setIdPartida(partidaAux.getIdPartida());
+                                        rodadaController.inserirRodada(rodada);
+
+                                        Rodada rodadaAux = buscarRodada(partidaAux.getIdPartida());
+
+                                        for (int i = 0; i < jogadoresRodada.size(); i++) {
+                                            jogadoresRodada.get(i).setIdRodada(rodadaAux.getIdRodada());
+                                            jogadorController.inserirJogador(jogadoresRodada.get(i));
+                                        }
+
+                                        Toast alertaMenssagem = Toast.makeText(getApplicationContext(), "Grupo " + partidaAux.getNome() +" salvo com sucesso", Toast.LENGTH_LONG);
+                                        alertaMenssagem.show();
+                                        builder.dismiss();
+                                        finish();
+                                    }
+                                }, ProgressSalvar);
+
+                            } else {
+
+                                rodada = buscarRodada(partida.getIdPartida());
+
+                                //Tepo que a barra vai demorar para carregar
+                                new Handler().postDelayed(new Runnable() {
+                                    public void run() {
+                                        for (int i = 0; i < jogadoresRodada.size(); i++) {
+                                            if (listJogadores.contains(jogadoresRodada.get(i)) == false) {
+                                                jogadoresRodada.get(i).setIdRodada(rodada.getIdRodada());
+                                                jogadorController.inserirJogador(jogadoresRodada.get(i));
+                                            }
+                                        }
+                                        builder.dismiss();
+                                        finish();
+                                    }
+                                }, ProgressSalvar);
+                            }
                         }
-                    }, ProgressSalvar);
+                    }
+                }
+            });
+            //Botão Descartar grupo
+            Button btnDescartarGrupo = (Button) dialogLayout.findViewById(R.id.btnDescartar);
+            btnDescartarGrupo.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    //TODO: Melhorar isso( Não deletar ! descartar alteraçoes :D)
+                    PartidaDAO partidaDAO = new PartidaDAO(PartidaAberta.this);
+                    partidaDAO.deletarPartida(partida);
+                    finish();
+                }
+            });
+            builder.setView(dialogLayout);
+            builder.show();
+
+        }
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(final MenuItem item) {
+
+        int id = item.getItemId();
+
+        if (id == R.id.action_bloquear_som) {
+            return true;
+        } else if (id == R.id.action_configuracoes) {
+            return true;
+        } else if (id == R.id.action_sair) {
+
+
+            LayoutInflater inflater = getLayoutInflater();
+            View dialogLayout = inflater.inflate(R.layout.dialog_sair_grupo, null);
+            AlertDialog.Builder builder = new AlertDialog.Builder(PartidaAberta.this);
+
+            //Botão Salvar grupo
+            Button btnSalvarGrupo = (Button) dialogLayout.findViewById(R.id.btnSalvar);
+            btnSalvarGrupo.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(final View view) {
+
+                    partidaController = new PartidaController(PartidaAberta.this);
+                    jogadorController = new JogadorController(PartidaAberta.this);
+                    rodadaController = new RodadaController(PartidaAberta.this);
+
+                    //ProgressDialog Função carregar
+                    final ProgressDialog builder = new ProgressDialog(PartidaAberta.this);
+                    builder.setMessage("Salvando só um momento...");
+                    builder.show();
+
+                    if (intent != null) {
+                        if (bundleParams != null) {
+                            //Verifica se é uma partida nova ou uma partida salva
+                            if (bundleParams.getBoolean("partidaNova")) {
+
+                                //Insere a partida no banco
+                                partidaController.inserirPartida(partida);
+                                //Tepo que a barra vai demorar para carregar
+                                new Handler().postDelayed(new Runnable() {
+                                    public void run() {
+
+                                        Partida partidaAux = buscarPartida(partida.getNome());
+
+                                        rodada.setIdPartida(partidaAux.getIdPartida());
+                                        rodadaController.inserirRodada(rodada);
+
+                                        Rodada rodadaAux = buscarRodada(partidaAux.getIdPartida());
+
+                                        for (int i = 0; i < jogadoresRodada.size(); i++) {
+                                            jogadoresRodada.get(i).setIdRodada(rodadaAux.getIdRodada());
+                                            jogadorController.inserirJogador(jogadoresRodada.get(i));
+                                        }
+
+                                        Toast alertaMenssagem = Toast.makeText(getApplicationContext(), "Grupo " + partidaAux.getNome() +" salvo com sucesso", Toast.LENGTH_LONG);
+                                        alertaMenssagem.show();
+                                        builder.dismiss();
+                                        finish();
+                                    }
+                                }, ProgressSalvar);
+
+                            } else {
+
+                                rodada = buscarRodada(partida.getIdPartida());
+
+                                //Tepo que a barra vai demorar para carregar
+                                new Handler().postDelayed(new Runnable() {
+                                    public void run() {
+                                        for (int i = 0; i < jogadoresRodada.size(); i++) {
+                                            if (listJogadores.contains(jogadoresRodada.get(i)) == false) {
+                                                jogadoresRodada.get(i).setIdRodada(rodada.getIdRodada());
+                                                jogadorController.inserirJogador(jogadoresRodada.get(i));
+                                            }
+                                        }
+                                        builder.dismiss();
+                                        finish();
+                                    }
+                                }, ProgressSalvar);
+                            }
+                        }
+                    }
                 }
             });
             //Botão Descartar grupo
@@ -431,31 +566,6 @@ public class PartidaAberta extends AppCompatActivity {
             builder.show();
 
 
-        } else if (id == R.id.action_excluir_este_jogador) {
-
-            Snackbar.make(viewPager, "Excluir jogador selecionado", Snackbar.LENGTH_LONG)
-                    .setActionTextColor(Color.RED)
-                    .setAction("Excluir " + jogadoresRodada.get(viewPager.getCurrentItem()).getNome(), new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            if (adapter.getCount() > 0) {
-                                jogadorController = new JogadorController(PartidaAberta.this);
-                                String nomeJogadorTabAtual = jogadoresRodada.get(viewPager.getCurrentItem()).getNome();
-                                Jogador jogadorBuscado = buscarJogador(nomeJogadorTabAtual);
-                                jogadorController.deletarJogador(jogadorBuscado);
-                                jogadoresRodada.remove(viewPager.getCurrentItem());
-                                adapter.removeFrag(viewPager.getCurrentItem());
-                                adapter.notifyDataSetChanged();
-                                // vincula denovo o viewpager com o tablayout
-                                tabLayout.setupWithViewPager(viewPager);
-
-                            } else {
-                                Snackbar.make(view, "Não tem mais jogadores para excluir", Snackbar.LENGTH_LONG).show();
-                            }
-
-                        }
-                    })
-                    .show();
         }
         return super.onOptionsItemSelected(item);
     }

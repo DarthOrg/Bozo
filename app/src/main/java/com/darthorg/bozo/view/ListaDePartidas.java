@@ -1,6 +1,8 @@
 package com.darthorg.bozo.view;
 
+import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -20,6 +22,8 @@ import com.darthorg.bozo.Update.ListaGrupos;
 import com.darthorg.bozo.adapter.PartidasListaAdapter;
 import com.darthorg.bozo.dao.PartidaDAO;
 import com.darthorg.bozo.model.Partida;
+import com.github.clans.fab.FloatingActionButton;
+import com.github.clans.fab.FloatingActionMenu;
 
 import java.util.List;
 
@@ -32,6 +36,7 @@ public class ListaDePartidas extends AppCompatActivity {
     private PartidaDAO partidaDAO;
     private List<Partida> partidaList;
     TextView contadorGrupos;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -88,10 +93,10 @@ public class ListaDePartidas extends AppCompatActivity {
         }
 
 
-
-
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
+
+
 
     @Override
     public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
