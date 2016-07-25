@@ -567,6 +567,7 @@ public class PartidaAberta extends AppCompatActivity {
 
 
         }
+        fabMenu.close(true);
         return super.onOptionsItemSelected(item);
     }
 }

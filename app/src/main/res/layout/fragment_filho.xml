@@ -21,23 +21,13 @@
                 android:id="@+id/txtResultadoJogador"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="right|center_vertical"
-                android:layout_marginRight="20dp"
+                android:layout_gravity="left|center_vertical"
                 android:text="0"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:textColor="@color/colorBlack"
-                android:textSize="100dp" />
+                android:textSize="100dp"
+                android:layout_marginLeft="20dp" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical|bottom|right"
-                android:layout_marginBottom="10dp"
-                android:layout_marginRight="27dp"
-                android:text="Pontos"
-                android:textAppearance="?android:attr/textAppearanceSmall"
-                android:textColor="@color/colorBlackTransparente"
-                android:textSize="20dp" />
 
         </FrameLayout>
 
