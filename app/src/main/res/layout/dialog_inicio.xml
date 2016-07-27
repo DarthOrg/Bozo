@@ -50,19 +50,21 @@
             android:textColor="@color/colorAccent" />
 
         <Button
-            style="?android:attr/absListViewStyle"
             android:id="@+id/btn_partidas_salvas"
+            style="?android:attr/absListViewStyle"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:text="@string/GruposSalvos"
             android:textSize="15dp"
             android:textStyle="normal"
-            android:drawablePadding="@dimen/activity_horizontal_margin"
-            android:textColor="@color/colorCinzaEscuro"
-            android:drawableStart="@drawable/ic_lista"
-            android:background="@color/colorWhite"
             android:textAlignment="textStart"
-            android:padding="20dp"/>
+            android:textColor="@color/colorCinzaEscuro"
+            android:layout_gravity="center_horizontal"
+            android:drawableStart="@drawable/ic_lista"
+            android:drawablePadding="@dimen/activity_horizontal_margin"
+            android:padding="20dp"
+            android:background="@color/colorWhite"/>
+
         <Button
             style="?android:attr/absListViewStyle"
             android:id="@+id/btn_configuracoes"
@@ -126,7 +128,7 @@
         android:src="@drawable/ic_nova_partida_white"
         fab:fab_colorNormal="@color/colorFABAccent"
         fab:fab_colorPressed="@color/colorFABPressedAccent"
-        fab:fab_colorRipple="@color/colorFABPressedAccent"
+        fab:fab_colorRipple="@color/colorFABAccent"
         fab:fab_label="@string/ExcluirJogadorSelecionado"
         fab:fab_size="normal"
         android:layout_alignParentTop="true"
