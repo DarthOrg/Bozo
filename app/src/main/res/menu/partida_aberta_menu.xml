@@ -18,7 +18,6 @@
         android:id="@+id/action_sair"
         android:title="Sair"
         android:orderInCategory="100"
-        android:icon="@drawable/ic_sair"
         app:showAsAction="never"/>
 
 
