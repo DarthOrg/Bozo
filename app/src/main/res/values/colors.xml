@@ -3,19 +3,21 @@
     <!--AppTheme-->
     <color name="colorPrimary">#FFFFFF</color>
     <color name="colorPrimaryDark">#d9d9d9</color>
-    <color name="colorAccent">#00bcd4</color>
+    <color name="colorAccent">#607D8B</color>
+    <color name="colorAccentDark">#455A64</color>
 
     <!--ThemeSplash-->
     <color name="colorPrimary_splash">#FFFFFF</color>
     <color name="colorPrimaryDark_splash">#B4B4B4</color>
 
     <!--ThemeDistaque-->
-    <color name="colorPrimary_distaque">#00BCD4</color>
-    <color name="colorPrimaryDark_distaque">#0097A7</color>
+    <color name="colorPrimary_distaque">#607D8B</color>
+    <color name="colorPrimaryDark_distaque">#455A64</color>
 
     <!--cores-->
     <color name="colorWhite">#ffffff</color>
     <color name="colorWhiteTransparente">#b3ffffff</color>
+    <color name="colorWhiteTransparente2">#5affffff</color>
     <color name="colorBlackTransparente4">#a4000000</color>
     <color name="colorTrasnparente">#00ffffff</color>
     <color name="colorRed">#ff1d25</color>
@@ -23,14 +25,13 @@
     <color name="colorBtnFab">#e9e9e9</color>
     <color name="colorBlack">#000000</color>
     <color name="colorBlackTransparente">#4b000000</color>
-    <color name="colorAccentTransparent">#4b00bcd4</color>
     <color name="colorBlackTransparente2">#a5000000</color>
     <color name="colorBlackTransparente3">#3f000000</color>
     <color name="colorCinza">#c1c1c1</color>
     <color name="colorCinzaEscuro">#686868</color>
     <color name="colorFundo">#363f45</color>
-    <color name="colorFABAccent">#00BCD4</color>
-    <color name="colorFABPressedAccent">#0097A7</color>
+    <color name="colorFABAccent">#607D8B</color>
+    <color name="colorFABPressedAccent">#455A64</color>
 
 
     <!--Cores texto-->

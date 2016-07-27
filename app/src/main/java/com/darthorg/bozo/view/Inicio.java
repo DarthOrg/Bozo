@@ -54,6 +54,9 @@ public class Inicio extends AppCompatActivity {
                 LayoutInflater inflater = getLayoutInflater();
                 //Recebe a activity para persolnalizar o dialog
                 View dialogLayout = inflater.inflate(R.layout.dialog_inicio, null);
+
+                final AlertDialog.Builder builder = new AlertDialog.Builder(Inicio.this);
+
                 //Botão nova partida
                 Button btnNovaPartida = (Button) dialogLayout.findViewById(R.id.btn_nova_partida);
                 btnNovaPartida.setOnClickListener(new View.OnClickListener() {
@@ -96,12 +99,12 @@ public class Inicio extends AppCompatActivity {
                 btnSobre.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-
-                        return;
+                        Intent intent = new Intent(Inicio.this, Sobre.class);
+                        startActivity(intent);
                     }
                 });
 
-                AlertDialog.Builder builder = new AlertDialog.Builder(Inicio.this);
+
                 builder.setView(dialogLayout);
                 builder.show();
             }

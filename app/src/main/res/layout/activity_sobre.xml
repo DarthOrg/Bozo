@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/colorAccent"
+    tools:context=".view.Sobre">
+
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorTrasnparente"
+        app:elevation="0dp"
+        android:id="@+id/view4">
+
+        <!--TOOLBAR TOPO-->
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:theme="@style/AppTheme.WhiteBotton"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"/>
+
+    </android.support.design.widget.AppBarLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/view4">
+
+        <ImageView
+            android:layout_width="200dp"
+            android:layout_height="150dp"
+            android:id="@+id/imageView4"
+            android:layout_gravity="left|top"
+            android:src="@drawable/bozo_android"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="30dp"
+            android:layout_marginLeft="60dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="@string/Versao"
+            android:id="@+id/textView4"
+            android:textColor="@color/colorWhiteTransparente2"
+            android:layout_below="@+id/imageView4"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginLeft="60dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="01.0.0.17.79"
+            android:id="@+id/textView5"
+            android:layout_below="@+id/textView4"
+            android:layout_alignLeft="@+id/textView4"
+            android:layout_alignStart="@+id/textView4"
+            android:textColor="@color/colorWhite"
+            android:textSize="15dp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="Marcador bozó"
+            android:id="@+id/textView6"
+            android:textColor="@color/colorWhite"
+            android:textSize="15dp"
+            android:textStyle="bold"
+            android:layout_marginTop="100dp"
+            android:layout_below="@+id/imageView4"
+            android:layout_alignLeft="@+id/imageView4" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="@string/EMarcaRegistrada"
+            android:id="@+id/textView7"
+            android:textColor="@color/colorWhiteTransparente2"
+            android:textSize="15dp"
+            android:layout_alignTop="@+id/textView6"
+            android:layout_toRightOf="@+id/textView6"
+            android:layout_toEndOf="@+id/textView6"
+            android:layout_marginLeft="5dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="@string/De"
+            android:id="@+id/textView8"
+            android:textColor="@color/colorWhiteTransparente2"
+            android:textSize="15dp"
+            android:layout_below="@+id/textView6"
+            android:layout_alignLeft="@+id/textView6"
+            android:layout_alignStart="@+id/textView6" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="Darth Org"
+            android:id="@+id/textView9"
+            android:textColor="@color/colorWhite"
+            android:textSize="15dp"
+            android:textStyle="bold"
+            android:layout_below="@+id/textView6"
+            android:layout_toRightOf="@+id/textView8"
+            android:layout_toEndOf="@+id/textView8"
+            android:layout_marginLeft="5dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="."
+            android:id="@+id/textView10"
+            android:textColor="@color/colorWhiteTransparente2"
+            android:textSize="15dp"
+            android:layout_below="@+id/textView6"
+            android:layout_toRightOf="@+id/textView9"
+            android:layout_toEndOf="@+id/textView9"
+            android:layout_marginLeft="5dp" />
+
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="40dp"
+            android:id="@+id/imageView5"
+            android:layout_gravity="left|top"
+            android:src="@drawable/logo_darth_org"
+            android:layout_below="@+id/textView8"
+            android:layout_toLeftOf="@+id/textView7"
+            android:layout_toStartOf="@+id/textView7" />
+
+    </RelativeLayout>
+
+</RelativeLayout>
