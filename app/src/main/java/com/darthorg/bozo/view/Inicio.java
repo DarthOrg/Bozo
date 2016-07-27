@@ -43,7 +43,7 @@ public class Inicio extends AppCompatActivity {
         setContentView(R.layout.activity_inicio);
 
         toolbar = (Toolbar) findViewById(R.id.toolbar);
-        toolbar.setTitle(" ");
+        toolbar.setTitle(R.string.TextoVazio);
         setSupportActionBar(toolbar);
 
 
@@ -102,7 +102,6 @@ public class Inicio extends AppCompatActivity {
                 });
 
                 AlertDialog.Builder builder = new AlertDialog.Builder(Inicio.this);
-                //builder.setNegativeButton("Cancelar",null);
                 builder.setView(dialogLayout);
                 builder.show();
             }
@@ -125,8 +124,6 @@ public class Inicio extends AppCompatActivity {
         int id = item.getItemId();
 
         if (id == R.id.action_bloquear_som) {
-            //Intent intent = new Intent(this,ListaDePlacar.class);
-            //startActivity(intent);
             return true;
         }
 

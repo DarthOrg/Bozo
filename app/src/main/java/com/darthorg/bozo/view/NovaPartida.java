@@ -42,10 +42,10 @@ public class NovaPartida extends AppCompatActivity {
         setContentView(R.layout.activity_nova_partida);
 
         contadorJogador = (TextView) findViewById(R.id.contagemJogadores);
-        contadorJogador.setText("Jogadores: " + jogadores.size() + "/10");
+        contadorJogador.setText(getString(R.string.Jogadores) + jogadores.size() + "/10");
 
         toolbar = (Toolbar) findViewById(R.id.toolbar);
-        toolbar.setTitle(" ");
+        toolbar.setTitle(R.string.TextoVazio);
         setSupportActionBar(toolbar);
 
         final ListView listView = (ListView) findViewById(R.id.list_view_jogadores);
@@ -70,7 +70,7 @@ public class NovaPartida extends AppCompatActivity {
                     Button btnAdicionarJogador = (Button) dialogNovoJogador.findViewById(R.id.btnAdicionar);
 
                     //Titulo
-                    dialogNovoJogador.setTitle("Adicionar jogador");
+                    dialogNovoJogador.setTitle(R.string.AdicionarJogador);
                     //Adicionar novo jogador
                     btnAdicionarJogador.setOnClickListener(new View.OnClickListener() {
                         @Override
@@ -78,10 +78,10 @@ public class NovaPartida extends AppCompatActivity {
                             if (jogadores.size() < 10) {
                                 jogadores.add(etNomeJogador.getText().toString());
                                 adapter.notifyDataSetChanged();
-                                contadorJogador.setText("Jogadores: " + jogadores.size() + "/10");
+                                contadorJogador.setText(getString(R.string.Jogadores) + jogadores.size() + "/10");
 
                             } else {
-                                Toast.makeText(NovaPartida.this, "Numero máximo de jogadores é 10", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(NovaPartida.this, getString(R.string.TextoMaximoJogadores), Toast.LENGTH_SHORT).show();
                             }
                             dialogNovoJogador.dismiss();
                         }
@@ -120,9 +120,9 @@ public class NovaPartida extends AppCompatActivity {
             EditText etNovaPartida = (EditText) findViewById(R.id.editText_nomePartida);
 
             if (jogadores.size() < 2) {
-                Toast.makeText(NovaPartida.this, "Para iniciar precisa de 2 Jogadores", Toast.LENGTH_SHORT).show();
+            Toast.makeText(NovaPartida.this, getString(R.string.TextoIniciarPrecisa), Toast.LENGTH_SHORT).show();
             } else if (TextUtils.isEmpty(etNovaPartida.getText().toString())) {
-                Toast.makeText(this, "Por favor insira um nome para sua partida!", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, R.string.NomeParaSuaPartida, Toast.LENGTH_SHORT).show();
             } else {
                 Intent intent = new Intent(this, PartidaAberta.class);
                 intent.putExtra("nomepartida", etNovaPartida.getText().toString());

@@ -5,7 +5,7 @@
 
     <item
         android:id="@+id/action_bloquear_som"
-        android:title="Bloquear Som"
+        android:title="@string/BloquearSom"
         android:orderInCategory="100"
         android:visible="true"
         android:icon="@drawable/ic_bloquear_som"

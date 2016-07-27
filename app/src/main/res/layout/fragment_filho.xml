@@ -95,7 +95,7 @@
                             android:layout_height="wrap_content"
                             android:layout_alignParentBottom="true"
                             android:layout_centerHorizontal="true"
-                            android:text="@string/nameAz"
+                            android:text="@string/Az"
                             android:textAppearance="?android:attr/textAppearanceSmall"
                             android:textColor="@color/colorFundo"
                             android:textSize="8dp" />
@@ -140,7 +140,7 @@
                             android:layout_height="wrap_content"
                             android:layout_alignParentBottom="true"
                             android:layout_centerHorizontal="true"
-                            android:text="@string/nameFull"
+                            android:text="@string/Full"
                             android:textAppearance="?android:attr/textAppearanceSmall"
                             android:textColor="@color/colorFundo"
                             android:textSize="8dp" />
@@ -183,7 +183,7 @@
                             android:layout_height="wrap_content"
                             android:layout_alignParentBottom="true"
                             android:layout_centerHorizontal="true"
-                            android:text="@string/nameQuadra"
+                            android:text="@string/Quadra"
                             android:textAppearance="?android:attr/textAppearanceSmall"
                             android:textColor="@color/colorFundo"
                             android:textSize="8dp" />
@@ -226,7 +226,7 @@
                             android:layout_height="wrap_content"
                             android:layout_alignParentBottom="true"
                             android:layout_centerHorizontal="true"
-                            android:text="@string/nameDuque"
+                            android:text="@string/Duque"
                             android:textAppearance="?android:attr/textAppearanceSmall"
                             android:textColor="@color/colorFundo"
                             android:textSize="8dp" />
@@ -271,7 +271,7 @@
                             android:layout_height="wrap_content"
                             android:layout_alignParentBottom="true"
                             android:layout_centerHorizontal="true"
-                            android:text="@string/nameSeguida"
+                            android:text="@string/Seguida"
                             android:textAppearance="?android:attr/textAppearanceSmall"
                             android:textColor="@color/colorFundo"
                             android:textSize="8dp" />
@@ -313,7 +313,7 @@
                             android:layout_height="wrap_content"
                             android:layout_alignParentBottom="true"
                             android:layout_centerHorizontal="true"
-                            android:text="@string/nameQuina"
+                            android:text="@string/Quina"
                             android:textAppearance="?android:attr/textAppearanceSmall"
                             android:textColor="@color/colorFundo"
                             android:textSize="8dp" />
@@ -356,7 +356,7 @@
                             android:layout_height="wrap_content"
                             android:layout_alignParentBottom="true"
                             android:layout_centerHorizontal="true"
-                            android:text="@string/nameTerno"
+                            android:text="@string/Terno"
                             android:textAppearance="?android:attr/textAppearanceSmall"
                             android:textColor="@color/colorFundo"
                             android:textSize="8dp" />
@@ -402,7 +402,7 @@
                             android:layout_height="wrap_content"
                             android:layout_alignParentBottom="true"
                             android:layout_centerHorizontal="true"
-                            android:text="@string/nameQuadrada"
+                            android:text="@string/Quadrada"
                             android:textAppearance="?android:attr/textAppearanceSmall"
                             android:textColor="@color/colorFundo"
                             android:textSize="8dp" />
@@ -444,7 +444,7 @@
                             android:layout_height="wrap_content"
                             android:layout_alignParentBottom="true"
                             android:layout_centerHorizontal="true"
-                            android:text="@string/nameSena"
+                            android:text="@string/Sena"
                             android:textAppearance="?android:attr/textAppearanceSmall"
                             android:textColor="@color/colorFundo"
                             android:textSize="8dp" />
@@ -506,7 +506,7 @@
                             android:layout_height="wrap_content"
                             android:layout_alignParentBottom="true"
                             android:layout_centerHorizontal="true"
-                            android:text="@string/nameGeneral"
+                            android:text="@string/General"
                             android:textAppearance="?android:attr/textAppearanceSmall"
                             android:textColor="@color/colorFundo"
                             android:textSize="8dp" />

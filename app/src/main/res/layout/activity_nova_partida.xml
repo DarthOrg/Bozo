@@ -42,7 +42,7 @@
                     android:textAllCaps="true"
                     android:nestedScrollingEnabled="true"
                     android:linksClickable="false"
-                    android:hint="Nome do seu grupo"
+                    android:hint="@string/HintNomeGrupo"
                     android:textColorHint="@color/colorBlackTransparente"
                     android:ems="10"
                     android:id="@+id/editText_nomePartida"/>
@@ -51,7 +51,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textAppearance="?android:attr/textAppearanceSmall"
-                    android:text="Dê o nome ao grupo"
+                    android:text="@string/TextoNomeGrupo"
                     android:textColor="@color/colorWhite"
                     android:id="@+id/textView3"
                     android:paddingTop="15dp"

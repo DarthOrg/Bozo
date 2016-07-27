@@ -21,7 +21,7 @@
             android:selectAllOnFocus="true"
             android:inputType="textPersonName"
             android:textColor="@color/colorBlack"
-            android:hint="Digite o nome do jogador aqui..."
+            android:hint="@string/HintNovoJogador"
             android:textColorHint="@color/colorTextoHint"
             android:ems="10"
             android:id="@+id/edit_nome_novo_jogador" />
@@ -49,7 +49,7 @@
             android:textStyle="bold"
             android:layout_width="150dp"
             android:layout_height="wrap_content"
-            android:text="Cancelar"
+            android:text="@string/Cancelar"
             android:background="@color/colorTrasnparente"
             android:id="@+id/btnCancelar"
             android:layout_gravity="left|center_vertical" />
@@ -69,7 +69,7 @@
             android:textStyle="bold"
             android:layout_width="150dp"
             android:layout_height="wrap_content"
-            android:text="Adicionar"
+            android:text="@string/Adicionar"
             android:background="@color/colorTrasnparente"
             android:id="@+id/btnAdicionar"
             android:layout_gravity="right|center_vertical" />

@@ -1,7 +1,6 @@
 package com.darthorg.bozo.fragment;
 
 import android.app.Dialog;
-import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.text.InputFilter;
@@ -143,39 +142,39 @@ public class FragmentFilho extends Fragment {
                                           Button btnCancelar = (Button) dialogMarcarBozó.findViewById(R.id.btnCancelar);
 
                                           //Titulo
-                                          dialogMarcarBozó.setTitle("Adicionar jogador");
+                                          dialogMarcarBozó.setTitle(R.string.AdicionarJogador);
 
                                           switch (pecaBozo.getNome()) {
                                               case nomeAz:
-                                                  dialogMarcarBozó.setTitle(getString(R.string.nameAz) + " ( 1 á 5 )");
+                                                  dialogMarcarBozó.setTitle(getString(R.string.Az) + " ( 1 á 5 )");
                                                   et.setFilters(new InputFilter[]{new InputFilter.LengthFilter(1)});
                                                   break;
                                               case nomeDuque:
-                                                  dialogMarcarBozó.setTitle(getString(R.string.nameDuque) + " ( 2 á 10 )");
+                                                  dialogMarcarBozó.setTitle(getString(R.string.Duque) + " ( 2 á 10 )");
                                                   break;
                                               case nomeTerno:
-                                                  dialogMarcarBozó.setTitle(getString(R.string.nameTerno) + " ( 3 á 15 )");
+                                                  dialogMarcarBozó.setTitle(getString(R.string.Terno) + " ( 3 á 15 )");
                                                   break;
                                               case nomeQuadra:
-                                                  dialogMarcarBozó.setTitle(getString(R.string.nameQuadra) + " ( 4 á 20 )");
+                                                  dialogMarcarBozó.setTitle(getString(R.string.Quadra) + " ( 4 á 20 )");
                                                   break;
                                               case nomeQuina:
-                                                  dialogMarcarBozó.setTitle(getString(R.string.nameQuina) + " ( 5 á 25 )");
+                                                  dialogMarcarBozó.setTitle(getString(R.string.Quina) + " ( 5 á 25 )");
                                                   break;
                                               case nomeSena:
-                                                  dialogMarcarBozó.setTitle(getString(R.string.nameSena) + " ( 6 á 30 )");
+                                                  dialogMarcarBozó.setTitle(getString(R.string.Sena) + " ( 6 á 30 )");
                                                   break;
                                               case nomeFull:
-                                                  dialogMarcarBozó.setTitle(getString(R.string.nameFull) + " ( 10 ou 15 )");
+                                                  dialogMarcarBozó.setTitle(getString(R.string.Full) + " ( 10 ou 15 )");
                                                   break;
                                               case nomeSeguida:
-                                                  dialogMarcarBozó.setTitle(getString(R.string.nameSeguida) + " ( 20 ou 25)");
+                                                  dialogMarcarBozó.setTitle(getString(R.string.Seguida) + " ( 20 ou 25)");
                                                   break;
                                               case nomeQuadrada:
-                                                  dialogMarcarBozó.setTitle(getString(R.string.nameQuadrada) + " ( 30 ou 35 )");
+                                                  dialogMarcarBozó.setTitle(getString(R.string.Quadrada) + " ( 30 ou 35 )");
                                                   break;
                                               case nomeGeneral:
-                                                  dialogMarcarBozó.setTitle(getString(R.string.nameQuadrada) + " ( 40 ou 100)");
+                                                  dialogMarcarBozó.setTitle(getString(R.string.Quadrada) + " ( 40 ou 100)");
                                                   et.setFilters(new InputFilter[]{new InputFilter.LengthFilter(3)});
                                                   break;
                                               default:

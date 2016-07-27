@@ -1,45 +1,97 @@
 <resources>
     <string name="app_name">Bozó</string>
-    <string name="title_activity_inicio">Inicio</string>
-    <string name="txtNovoGrupo">Novo grupo</string>
-    <string name="txtNomePartida">Nome partida</string>
-    <string name="txtSeusGrupos">Seus grupos</string>
-    <string name="txtNomeGrupoExemplo">Grupo</string>
-
 
     <!-- Nomes das peças no bozó  -->
-    <string name="nameAz">Áz</string>
-    <string name="nameDuque">Duque</string>
-    <string name="nameTerno">Terno</string>
-    <string name="nameQuadra">Quadra</string>
-    <string name="nameQuina">Quina</string>
-    <string name="nameSena">Sena</string>
-    <string name="nameFull">Full</string>
-    <string name="nameSeguida">Seguida</string>
-    <string name="nameQuadrada">Quadrada</string>
-    <string name="nameGeneral">General</string>
-    <string name="title_activity_teste_teste_teste_teste">TesteTesteTesteTeste</string>
-    <string name="txt_atualizar">Atualizar</string>
-    <string name="textoDialogInicioGrupoDeJogo">Crie um grupo de jogo, para incluir jogadores e jogar varias rodadas.</string>
-    <string name="texto_dado_um">[ Áz ] é uma pedra de menor valor no Bozó.
+    <string name="Az">Áz</string>
+    <string name="Duque">Duque</string>
+    <string name="Terno">Terno</string>
+    <string name="Quadra">Quadra</string>
+    <string name="Quina">Quina</string>
+    <string name="Sena">Sena</string>
+    <string name="Full">Full</string>
+    <string name="Seguida">Seguida</string>
+    <string name="Quadrada">Quadrada</string>
+    <string name="General">General</string>
+
+    <!--Textos Nova Partida-->
+    <string name="HintNomeGrupo">Nome do seu grupo</string>
+    <string name="TextoNomeGrupo">Dê o nome ao grupo</string>
+    <string name="NomePartida">Nome partida</string>
+
+    <!--Textos Partida aberta - Fab-->
+    <string name="Placar">Placar</string>
+    <string name="AdicionarJogador">Adicionar jogador</string>
+    <string name="ExcluirJogadorSelecionado">Excluir jogador selecionado</string>
+
+    <!--Textos Placar-->
+    <string name="TotalDeRodadas">Total de rodadas</string>
+    <string name="RodadasGanhas">Rodadas ganhas</string>
+    <string name="NomeJogador">Nome jogador</string>
+
+    <!--Texto Dialog Incio-->
+    <string name="NovoGrupoDeJogo">Novo grupo de jogo</string>
+    <string name="GruposSalvos">Grupos salvos</string>
+    <string name="Configuracoes">Configurações</string>
+    <string name="Instrucoes">Instruções</string>
+    <string name="Sobre">Sobre</string>
+    <string name="TextoNovoGrupo">Crie um grupo de jogo, para incluir jogadores e jogar varias rodadas.</string>
+
+    <!--Texto Dialog Novo Jogador e Pontos-->
+    <string name="HintNovoJogador">Digite o nome do jogador aqui...</string>
+    <string name="Cancelar">Cancelar</string>
+    <string name="Adicionar">Adicionar</string>
+    <string name="Riscar">Riscar</string>
+    <string name="Marcar">Marcar</string>
+
+    <!--Texto Dialog Sair-->
+    <string name="TextoSairGrupo">Se sair agora, seu grupo e as informações vão ser descartadas.</string>
+    <string name="Descartar">Descartar</string>
+    <string name="Salvar">Salvar</string>
+
+    <!--Texto Menu-->
+    <string name="BloquearSom">Bloquear Som</string>
+    <string name="Iniciar">Iniciar</string>
+    <string name="Sair">Sair</string>
+    <string name="Zerar">Zerar</string>
+    <string name="Apagar">Apagar</string>
+    <string name="Atualizar">Atualizar</string>
+
+    <!--Textos das jogadas-->
+    <string name="TextoDadoUm">[ Áz ] é uma pedra de menor valor no Bozó.
         Sua pontuação varia de 1 à 5 pontos</string>
-    <string name="texto_dado_dois">[ Duque ] é uma pedra de menor valor no Bozó.
+    <string name="TextoDadoDois">[ Duque ] é uma pedra de menor valor no Bozó.
         Sua pontuação varia de 2 à 10 pontos</string>
-    <string name="texto_dado_tres">[ Terno ] é uma pedra de menor valor no Bozó.
+    <string name="TextoDadoTres">[ Terno ] é uma pedra de menor valor no Bozó.
         Sua pontuação varia de 3 à 15 pontos</string>
-    <string name="texto_dado_quatro">[ Quadra ] é uma pedra de menor valor no Bozó.
+    <string name="TextoDadoQuatro">[ Quadra ] é uma pedra de menor valor no Bozó.
         Sua pontuação varia de 4 à 20 pontos</string>
-    <string name="texto_dado_cinco">[ Quina ] é uma pedra de menor valor no Bozó.
+    <string name="TextoDadoCinco">[ Quina ] é uma pedra de menor valor no Bozó.
         Sua pontuação varia de 5 à 25 pontos</string>
-    <string name="texto_dado_seis">[ Sena ] é uma pedra de menor valor no Bozó.
+    <string name="TextoDadoSeis">[ Sena ] é uma pedra de menor valor no Bozó.
         Sua pontuação varia de 6 à 30 pontos</string>
-    <string name="texto_full">[ Full ] é conjunto 3 pedras iguais e mais 2 pedras iguais.
+    <string name="TextoFull">[ Full ] é conjunto 3 pedras iguais e mais 2 pedras iguais.
         Sua pontuação 10 pontos ou 15 pontos se for de boca.</string>
-    <string name="texto_seguida">[ Seguida ] é sequencia das pedras 1-2-3-4-5 ou das pedras 2-3-4-5-6.
+    <string name="TextoSeguida">[ Seguida ] é sequencia das pedras 1-2-3-4-5 ou das pedras 2-3-4-5-6.
         Sua pontuação 20 pontos ou 25 pontos se for de boca.</string>
-    <string name="texto_quadrada">[ Quadrada ] é conjunto 4 pedras iguais independente o valor.
+    <string name="TextoQuadrada">[ Quadrada ] é conjunto 4 pedras iguais independente o valor.
         Sua pontuação 30 pontos ou 35 pontos se for de boca.</string>
-    <string name="texto_general">[ General ] é o conjunto de 5 pedras iguais e a pedra com maior falor no bozó.
+    <string name="TextoGeneral">[ General ] é o conjunto de 5 pedras iguais e a pedra com maior falor no bozó.
         Sua pontuação varia de 40 pontos à 100 pontos se for de boca(obs:Jah ganha o jogo).</string>
+
+
+    <!--Textos class-->
+    <string name="TextoVazio">" "</string>
+    <string name="NenhumGrupo">nenhum grupo</string>
+    <string name="Grupo">" Grupo"</string>
+    <string name="Grupos">" Grupos"</string>
+    <string name="Jogadores">"Jogadores: "</string>
+    <string name="TextoMaximoJogadores">Numero máximo de jogadores é 2</string>
+    <string name="TextoIniciarPrecisa">Para iniciar precisa de 2 jogadores</string>
+    <string name="NomeParaSuaPartida">Por favor insira um nome para sua partida!</string>
+    <string name="Marcador">Marcador</string>
+    <string name="Jogador">"Jogador "</string>
+    <string name="FoiAdicionado">" foi adicionado!"</string>
+    <string name="Excluir">"Excluir "</string>
+    <string name="TextoSemJogadores">Não tem mais jogadores para excluir</string>
 
 </resources>

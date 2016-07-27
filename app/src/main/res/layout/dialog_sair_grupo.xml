@@ -19,7 +19,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="Se sair agora, seu grupo e as informações vão ser descartadas."
+            android:text="@string/TextoSairGrupo"
             android:textSize="15dp"
             android:textColor="@color/colorBlack"
             android:layout_gravity="left|center_vertical"/>
@@ -47,7 +47,7 @@
             android:textStyle="bold"
             android:layout_width="150dp"
             android:layout_height="wrap_content"
-            android:text="Descartar"
+            android:text="@string/Descartar"
             android:background="@color/colorTrasnparente"
             android:id="@+id/btnDescartar"
             android:layout_gravity="left|center_vertical" />
@@ -67,7 +67,7 @@
             android:textStyle="bold"
             android:layout_width="150dp"
             android:layout_height="wrap_content"
-            android:text="Salvar"
+            android:text="@string/Salvar"
             android:background="@color/colorTrasnparente"
             android:id="@+id/btnSalvar"
             android:layout_gravity="right|center_vertical" />

@@ -32,7 +32,7 @@ public class ListaDePlacar extends AppCompatActivity {
         setContentView(R.layout.activity_placar);
 
         toolbar = (Toolbar) findViewById(R.id.toolbar);
-        toolbar.setTitle(" ");
+        toolbar.setTitle(R.string.TextoVazio);
         setSupportActionBar(toolbar);
 
 
@@ -63,9 +63,7 @@ public class ListaDePlacar extends AppCompatActivity {
         int id = item.getItemId();
 
         if (id == R.id.action_zerar) {
-            //Intent intent = new Intent(this,PartidaAberta.class);
-            //startActivity(intent);
-            //return true;
+            return true;
         }
         else if (id == android.R.id.home) {
             finish();

@@ -30,7 +30,7 @@
             android:layout_gravity="start|center_vertical"
             android:layout_marginLeft="50dp"
             android:focusable="false"
-            android:text="@string/txtNomePartida"
+            android:text="@string/NomePartida"
             android:textColor="@color/colorCinzaEscuro"
             android:textSize="20dp" />
 

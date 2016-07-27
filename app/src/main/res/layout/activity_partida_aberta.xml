@@ -87,7 +87,7 @@
             fab:fab_colorNormal="@color/colorWhite"
             fab:fab_colorPressed="@color/colorCinza"
             fab:fab_colorRipple="@color/colorBlack"
-            fab:fab_label="Excluir jogador selecionado"
+            fab:fab_label="@string/ExcluirJogadorSelecionado"
             fab:fab_size="normal" />
 
         <com.github.clans.fab.FloatingActionButton
@@ -98,7 +98,7 @@
             fab:fab_colorNormal="@color/colorWhite"
             fab:fab_colorPressed="@color/colorCinza"
             fab:fab_colorRipple="@color/colorBlack"
-            fab:fab_label="Adicionar jogador"
+            fab:fab_label="@string/AdicionarJogador"
             fab:fab_size="normal" />
 
         <com.github.clans.fab.FloatingActionButton
@@ -109,15 +109,8 @@
             fab:fab_colorNormal="@color/colorWhite"
             fab:fab_colorPressed="@color/colorCinza"
             fab:fab_colorRipple="@color/colorBlack"
-            fab:fab_label="Placar"
+            fab:fab_label="@string/Placar"
             fab:fab_size="normal" />
-
-
-
-
-
-
-
     </com.github.clans.fab.FloatingActionMenu>
 
 

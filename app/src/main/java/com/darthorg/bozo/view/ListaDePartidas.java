@@ -1,8 +1,6 @@
 package com.darthorg.bozo.view;
 
-import android.content.Context;
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -22,8 +20,6 @@ import com.darthorg.bozo.Update.ListaGrupos;
 import com.darthorg.bozo.adapter.PartidasListaAdapter;
 import com.darthorg.bozo.dao.PartidaDAO;
 import com.darthorg.bozo.model.Partida;
-import com.github.clans.fab.FloatingActionButton;
-import com.github.clans.fab.FloatingActionMenu;
 
 import java.util.List;
 
@@ -118,11 +114,11 @@ public class ListaDePartidas extends AppCompatActivity {
                 partidaList.remove(position);
                 partidasListAdapter.notifyDataSetChanged();
                 if(partidaList.size() == 0){
-                    contadorGrupos.setText("nenhum grupo");
+                    contadorGrupos.setText(R.string.NenhumGrupo);
                 }else if (partidaList.size() == 1){
-                    contadorGrupos.setText(partidaList.size() + " Grupo");
+                    contadorGrupos.setText(partidaList.size() + getString(R.string.Grupo));
                 }else if(partidaList.size() >= 2){
-                    contadorGrupos.setText(partidaList.size() + " Grupos");
+                    contadorGrupos.setText(partidaList.size() + getString(R.string.Grupos));
                 }
                 return true;
             default:

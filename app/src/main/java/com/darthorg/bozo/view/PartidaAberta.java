@@ -92,7 +92,7 @@ public class PartidaAberta extends AppCompatActivity {
         getIDs();
 
         //Configura o Toolbar
-        toolbar.setTitle("Marcador");
+        toolbar.setTitle(R.string.Marcador);
         toolbar.setSubtitleTextColor(Color.BLACK);
 
         setSupportActionBar(toolbar);
@@ -143,7 +143,7 @@ public class PartidaAberta extends AppCompatActivity {
 
 
                 //Titulo
-                dialogAdicionarJogador.setTitle("Adicionar jogador");
+                dialogAdicionarJogador.setTitle(R.string.AdicionarJogador);
                 //Adicionar Jogador
                 btnAdicionarJogador.setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -161,7 +161,7 @@ public class PartidaAberta extends AppCompatActivity {
                         adapter.addFrag(fragmentFilho, etNomeJogador.getText().toString());
                         adapter.notifyDataSetChanged();
 
-                        Snackbar.make(viewPager, "Jogador " + etNomeJogador.getText().toString() + " foi adicionado!", Snackbar.LENGTH_SHORT).show();
+                        Snackbar.make(viewPager, getString(R.string.Jogador) + etNomeJogador.getText().toString() + getString(R.string.FoiAdicionado), Snackbar.LENGTH_SHORT).show();
 
                         if (adapter.getCount() > 0) {
                             tabLayout.setupWithViewPager(viewPager);
@@ -189,9 +189,9 @@ public class PartidaAberta extends AppCompatActivity {
             public void onClick(View v) {
 
 
-                Snackbar.make(viewPager, "Excluir jogador selecionado", Snackbar.LENGTH_LONG)
+                Snackbar.make(viewPager, R.string.ExcluirJogadorSelecionado, Snackbar.LENGTH_LONG)
                         .setActionTextColor(Color.RED)
-                        .setAction("Excluir " + jogadoresRodada.get(viewPager.getCurrentItem()).getNome(), new View.OnClickListener() {
+                        .setAction(getString(R.string.Excluir) + jogadoresRodada.get(viewPager.getCurrentItem()).getNome(), new View.OnClickListener() {
                             @Override
                             public void onClick(View view) {
                                 if (adapter.getCount() > 0) {
@@ -206,7 +206,7 @@ public class PartidaAberta extends AppCompatActivity {
                                     tabLayout.setupWithViewPager(viewPager);
 
                                 } else {
-                                    Snackbar.make(view, "Não tem mais jogadores para excluir", Snackbar.LENGTH_LONG).show();
+                                    Snackbar.make(view, R.string.TextoSemJogadores, Snackbar.LENGTH_LONG).show();
                                 }
 
                             }

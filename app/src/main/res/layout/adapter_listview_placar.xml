@@ -15,7 +15,7 @@
             android:id="@+id/txt_lista_nome_jogador"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Nome jogador"
+            android:text="@string/NomeJogador"
             android:textColor="@color/background_floating_material_dark"
             android:textSize="15dp"
             android:layout_gravity="left|center_vertical" />
