@@ -16,12 +16,14 @@
     <!--cores-->
     <color name="colorWhite">#ffffff</color>
     <color name="colorWhiteTransparente">#b3ffffff</color>
+    <color name="colorBlackTransparente4">#a4000000</color>
     <color name="colorTrasnparente">#00ffffff</color>
     <color name="colorRed">#ff1d25</color>
     <color name="colorFundoPartida">#ededed</color>
     <color name="colorBtnFab">#e9e9e9</color>
     <color name="colorBlack">#000000</color>
     <color name="colorBlackTransparente">#4b000000</color>
+    <color name="colorAccentTransparent">#4b00bcd4</color>
     <color name="colorBlackTransparente2">#a5000000</color>
     <color name="colorBlackTransparente3">#3f000000</color>
     <color name="colorCinza">#c1c1c1</color>

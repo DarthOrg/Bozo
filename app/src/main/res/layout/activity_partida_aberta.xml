@@ -6,47 +6,53 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:fab="http://schemas.android.com/apk/res-auto"
     tools:context=".view.PartidaAberta"
-    android:orientation="vertical"
     android:background="@color/colorFundoPartida">
 
-    <android.support.design.widget.AppBarLayout
+
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:elevation="5dp"
-        android:id="@+id/view3">
+        android:layout_height="match_parent">
 
-        <!--TOOLBAR TOPO-->
-        <android.support.v7.widget.Toolbar
-            android:id="@+id/toolbar"
-            app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+        <android.support.design.widget.AppBarLayout
             android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"/>
+            android:layout_height="wrap_content"
+            app:elevation="5dp"
+            android:id="@+id/view3">
 
-        <!--TAB LAYOUT A BAIXO-->
-        <android.support.design.widget.TabLayout
-            android:id="@+id/tabLayoutJogadores"
+            <!--TOOLBAR TOPO-->
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/toolbar"
+                app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"/>
+
+            <!--TAB LAYOUT A BAIXO-->
+            <android.support.design.widget.TabLayout
+                android:id="@+id/tabLayoutJogadores"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:background="@color/colorFundoPartida"
+                app:tabMode="scrollable"/>
+
+        </android.support.design.widget.AppBarLayout>
+
+        <android.support.v4.view.ViewPager
+            android:id="@+id/viewPagerMarcadorJogador"
             android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:background="@color/colorFundoPartida"
-            app:tabMode="scrollable"/>
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginTop="110dp"/>
 
-    </android.support.design.widget.AppBarLayout>
-
-    <android.support.v4.view.ViewPager
-        android:id="@+id/viewPagerMarcadorJogador"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:layout_marginTop="110dp"/>
+    </RelativeLayout>
 
     <com.github.clans.fab.FloatingActionMenu
-        android:paddingTop="110dp"
+        android:paddingTop="220dp"
         android:paddingRight="5dp"
         android:id="@+id/floating_menu"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         fab:menu_animationDelayPerItem="55"
-        fab:menu_backgroundColor="@color/colorBlackTransparente3"
+        fab:menu_backgroundColor="@color/colorBlackTransparente4"
         fab:menu_buttonSpacing="0dp"
         fab:menu_colorNormal="@color/colorBlack"
         fab:menu_colorPressed="@color/colorBlack"
@@ -78,7 +84,7 @@
             android:id="@+id/floating_excluir_jogador"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_excluir_jogador"
+            android:src="@drawable/ic_deletar_jogador"
             fab:fab_colorNormal="@color/colorWhite"
             fab:fab_colorPressed="@color/colorCinza"
             fab:fab_colorRipple="@color/colorBlack"
@@ -114,4 +120,6 @@
 
 
     </com.github.clans.fab.FloatingActionMenu>
+
+
 </RelativeLayout>

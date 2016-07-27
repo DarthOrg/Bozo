@@ -20,5 +20,26 @@
     <string name="nameGeneral">General</string>
     <string name="title_activity_teste_teste_teste_teste">TesteTesteTesteTeste</string>
     <string name="txt_atualizar">Atualizar</string>
-    <string name="textoDialogInicioGrupoDeJogo">Crie um grupo de jogo, para incluir jogadores e jogar varias partidas.</string>
+    <string name="textoDialogInicioGrupoDeJogo">Crie um grupo de jogo, para incluir jogadores e jogar varias rodadas.</string>
+    <string name="texto_dado_um">[ Áz ] é uma pedra de menor valor no Bozó.
+        Sua pontuação varia de 1 à 5 pontos</string>
+    <string name="texto_dado_dois">[ Duque ] é uma pedra de menor valor no Bozó.
+        Sua pontuação varia de 2 à 10 pontos</string>
+    <string name="texto_dado_tres">[ Terno ] é uma pedra de menor valor no Bozó.
+        Sua pontuação varia de 3 à 15 pontos</string>
+    <string name="texto_dado_quatro">[ Quadra ] é uma pedra de menor valor no Bozó.
+        Sua pontuação varia de 4 à 20 pontos</string>
+    <string name="texto_dado_cinco">[ Quina ] é uma pedra de menor valor no Bozó.
+        Sua pontuação varia de 5 à 25 pontos</string>
+    <string name="texto_dado_seis">[ Sena ] é uma pedra de menor valor no Bozó.
+        Sua pontuação varia de 6 à 30 pontos</string>
+    <string name="texto_full">[ Full ] é conjunto 3 pedras iguais e mais 2 pedras iguais.
+        Sua pontuação 10 pontos ou 15 pontos se for de boca.</string>
+    <string name="texto_seguida">[ Seguida ] é sequencia das pedras 1-2-3-4-5 ou das pedras 2-3-4-5-6.
+        Sua pontuação 20 pontos ou 25 pontos se for de boca.</string>
+    <string name="texto_quadrada">[ Quadrada ] é conjunto 4 pedras iguais independente o valor.
+        Sua pontuação 30 pontos ou 35 pontos se for de boca.</string>
+    <string name="texto_general">[ General ] é o conjunto de 5 pedras iguais e a pedra com maior falor no bozó.
+        Sua pontuação varia de 40 pontos à 100 pontos se for de boca(obs:Jah ganha o jogo).</string>
+
 </resources>
