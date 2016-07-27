@@ -58,7 +58,7 @@
         fab:menu_colorPressed="@color/colorBlack"
         fab:menu_colorRipple="@color/colorWhite"
         fab:menu_fab_size="normal"
-        fab:menu_icon="@drawable/ic_mais_fab"
+        fab:menu_icon="@drawable/ic_mais_fab_white"
         fab:menu_labels_colorNormal="@color/colorWhite"
         fab:menu_labels_colorPressed="@color/colorCinza"
         fab:menu_labels_colorRipple="#66efecec"
@@ -75,7 +75,6 @@
         fab:menu_labels_textColor="@color/colorBlack"
         fab:menu_labels_textSize="15sp"
         fab:menu_openDirection="down"
-        android:layout_below="@+id/view3"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true">
 

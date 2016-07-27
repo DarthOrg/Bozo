@@ -99,7 +99,7 @@
             android:id="@+id/fab"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_fab_add_jogador"
+            android:src="@drawable/ic_add_jogador_accent"
             fab:fab_colorNormal="@color/colorWhite"
             fab:fab_colorPressed="@color/colorCinza"
             android:layout_marginRight="@dimen/fab_margin"

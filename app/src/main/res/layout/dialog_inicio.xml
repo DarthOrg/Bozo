@@ -18,7 +18,7 @@
         android:textStyle="normal"
         android:drawablePadding="@dimen/activity_horizontal_margin"
         android:textColor="@color/colorWhite"
-        android:drawableStart="@drawable/ic_nova_partida"
+        android:drawableStart="@drawable/ic_nova_partida_white"
         android:background="@color/colorAccent"
         android:textAlignment="textStart"
         android:padding="20dp"/>
