@@ -1,33 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:fab="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:background="@color/colorWhite"
-    android:orientation="vertical">
-
-    <Button
-        style="?android:attr/absListViewStyle"
-        android:id="@+id/btn_nova_partida"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/NovoGrupoDeJogo"
-        android:textSize="15dp"
-        android:textStyle="normal"
-        android:drawablePadding="@dimen/activity_horizontal_margin"
-        android:textColor="@color/colorWhite"
-        android:drawableStart="@drawable/ic_nova_partida_white"
-        android:background="@color/colorAccent"
-        android:textAlignment="textStart"
-        android:padding="20dp"/>
+    >
 
     <RelativeLayout
         android:id="@+id/txt_btn_novo_grupo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="10dp"
+        android:padding="25dp"
         android:background="@color/colorFABPressedAccent">
 
         <TextView
@@ -38,66 +23,117 @@
             android:textColor="@color/colorWhite"
             android:layout_gravity="center_horizontal|bottom"
             android:textSize="15dp"
-            android:textAlignment="center"
+            android:textAlignment="viewStart"
             android:layout_centerHorizontal="true"/>
 
 
     </RelativeLayout>
 
-    <Button
-        style="?android:attr/absListViewStyle"
-        android:id="@+id/btn_partidas_salvas"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/GruposSalvos"
-        android:textSize="15dp"
-        android:textStyle="normal"
-        android:drawablePadding="@dimen/activity_horizontal_margin"
-        android:textColor="@color/colorCinzaEscuro"
-        android:drawableStart="@drawable/ic_lista"
-        android:background="@color/colorWhite"
-        android:textAlignment="textStart"
-        android:padding="20dp"/>
-    <Button
-        style="?android:attr/absListViewStyle"
-        android:id="@+id/btn_configuracoes"
-        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:layout_below="@+id/txt_btn_novo_grupo"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="Mais"
+            android:id="@+id/textView11"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:textColor="@color/colorAccent" />
+
+        <Button
+            style="?android:attr/absListViewStyle"
+            android:id="@+id/btn_partidas_salvas"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/GruposSalvos"
+            android:textSize="15dp"
+            android:textStyle="normal"
+            android:drawablePadding="@dimen/activity_horizontal_margin"
+            android:textColor="@color/colorCinzaEscuro"
+            android:drawableStart="@drawable/ic_lista"
+            android:background="@color/colorWhite"
+            android:textAlignment="textStart"
+            android:padding="20dp"/>
+        <Button
+            style="?android:attr/absListViewStyle"
+            android:id="@+id/btn_configuracoes"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/Configuracoes"
+            android:textSize="15dp"
+            android:drawablePadding="@dimen/activity_horizontal_margin"
+            android:textStyle="normal"
+            android:textColor="@color/colorCinzaEscuro"
+            android:drawableStart="@drawable/ic_configuracoes"
+            android:background="@color/colorWhite"
+            android:textAlignment="viewStart"
+            android:padding="20dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="Ajuda"
+            android:id="@+id/textView12"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:textColor="@color/colorAccent" />
+
+        <Button
+            style="?android:attr/absListViewStyle"
+            android:id="@+id/btn_instrucoes"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/Instrucoes"
+            android:textSize="15dp"
+            android:drawablePadding="@dimen/activity_horizontal_margin"
+            android:textStyle="normal"
+            android:textColor="@color/colorCinzaEscuro"
+            android:drawableStart="@drawable/ic_instrucoes"
+            android:background="@color/colorWhite"
+            android:textAlignment="viewStart"
+            android:padding="20dp"/>
+        <Button
+            style="?android:attr/absListViewStyle"
+            android:id="@+id/btn_sobre"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/Sobre"
+            android:textSize="15dp"
+            android:drawablePadding="@dimen/activity_horizontal_margin"
+            android:textStyle="normal"
+            android:textColor="@color/colorCinzaEscuro"
+            android:drawableStart="@drawable/ic_sobre"
+            android:background="@color/colorWhite"
+            android:textAlignment="viewStart"
+            android:padding="20dp"/>
+    </LinearLayout>
+
+    <com.github.clans.fab.FloatingActionButton
+        android:id="@+id/btn_nova_partida"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/Configuracoes"
-        android:textSize="15dp"
-        android:drawablePadding="@dimen/activity_horizontal_margin"
-        android:textStyle="normal"
-        android:textColor="@color/colorCinzaEscuro"
-        android:drawableStart="@drawable/ic_configuracoes"
-        android:background="@color/colorWhite"
-        android:textAlignment="viewStart"
-        android:padding="20dp"/>
-    <Button
-        style="?android:attr/absListViewStyle"
-        android:id="@+id/btn_instrucoes"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/Instrucoes"
-        android:textSize="15dp"
-        android:drawablePadding="@dimen/activity_horizontal_margin"
-        android:textStyle="normal"
-        android:textColor="@color/colorCinzaEscuro"
-        android:drawableStart="@drawable/ic_instrucoes"
-        android:background="@color/colorWhite"
-        android:textAlignment="viewStart"
-        android:padding="20dp"/>
-    <Button
-        style="?android:attr/absListViewStyle"
-        android:id="@+id/btn_sobre"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/Sobre"
-        android:textSize="15dp"
-        android:drawablePadding="@dimen/activity_horizontal_margin"
-        android:textStyle="normal"
-        android:textColor="@color/colorCinzaEscuro"
-        android:drawableStart="@drawable/ic_sobre"
-        android:background="@color/colorWhite"
-        android:textAlignment="viewStart"
-        android:padding="20dp"/>
-</LinearLayout>
+        android:src="@drawable/ic_nova_partida_white"
+        fab:fab_colorNormal="@color/colorFABAccent"
+        fab:fab_colorPressed="@color/colorFABPressedAccent"
+        fab:fab_colorRipple="@color/colorFABPressedAccent"
+        fab:fab_label="@string/ExcluirJogadorSelecionado"
+        fab:fab_size="normal"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="53dp" />
+
+
+</RelativeLayout>

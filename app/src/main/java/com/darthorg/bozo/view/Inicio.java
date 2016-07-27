@@ -58,14 +58,23 @@ public class Inicio extends AppCompatActivity {
                 final AlertDialog.Builder builder = new AlertDialog.Builder(Inicio.this);
 
                 //Botão nova partida
-                Button btnNovaPartida = (Button) dialogLayout.findViewById(R.id.btn_nova_partida);
-                btnNovaPartida.setOnClickListener(new View.OnClickListener() {
+                com.github.clans.fab.FloatingActionButton fabNovaPartida = (com.github.clans.fab.FloatingActionButton) dialogLayout.findViewById(R.id.btn_nova_partida);
+                fabNovaPartida.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
                         Intent intent = new Intent(Inicio.this, NovaPartida.class);
                         startActivity(intent);
                     }
                 });
+//                //Botão nova partida
+//                Button btnNovaPartida = (Button) dialogLayout.findViewById(R.id.btn_nova_partida);
+//                btnNovaPartida.setOnClickListener(new View.OnClickListener() {
+//                    @Override
+//                    public void onClick(View view) {
+//                        Intent intent = new Intent(Inicio.this, NovaPartida.class);
+//                        startActivity(intent);
+//                    }
+//                });
                 //Botão grupo salvos
                 Button btnPartidasSalvas = (Button) dialogLayout.findViewById(R.id.btn_partidas_salvas);
                 btnPartidasSalvas.setOnClickListener(new View.OnClickListener() {
