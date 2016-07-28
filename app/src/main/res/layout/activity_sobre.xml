@@ -142,5 +142,4 @@
             android:layout_toStartOf="@+id/textView7" />
 
     </RelativeLayout>
-
 </RelativeLayout>

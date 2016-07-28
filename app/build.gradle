@@ -43,6 +43,8 @@ dependencies {
     compile 'com.github.clans:fab:1.6.2'
     compile 'me.drakeet.materialdialog:library:1.2.2'
     compile 'com.nispok:snackbar:2.10.10'
+
+    compile 'ca.gcastle:BottomNavigation:1.0.0'
     compile('com.mikepenz.materialdrawer:library:2.8.2@aar') {
         transitive = true
     }
