@@ -3,15 +3,24 @@ package com.darthorg.bozo.view;
 import android.content.Intent;
 import android.os.Build;
 import android.support.design.widget.FloatingActionButton;
+import android.support.v4.app.ActivityOptionsCompat;
+import android.support.v4.util.Pair;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.transition.ChangeBounds;
+import android.transition.Explode;
+import android.transition.Fade;
+import android.transition.Slide;
+import android.transition.Transition;
+import android.transition.TransitionInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.TextView;
 
 import com.darthorg.bozo.R;
 
@@ -21,6 +30,7 @@ public class Inicio extends AppCompatActivity {
     private Toolbar toolbar;
     Button btnGruposSalvos,btnConfiguracoes, btnInstrucoes;
     ImageButton btnNovaPartida;
+    TextView btnSobre;
     private int mId;
 
     @Override
@@ -30,6 +40,7 @@ public class Inicio extends AppCompatActivity {
             getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                     WindowManager.LayoutParams.FLAG_FULLSCREEN);
         }
+
         setContentView(R.layout.activity_inicio);
 
         toolbar = (Toolbar) findViewById(R.id.toolbar);
@@ -42,9 +53,19 @@ public class Inicio extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(Inicio.this, NovaPartida.class);
+                    Inicio.this.startActivity(intent);
+
+
+
+            }
+        });
+
+        btnSobre = (TextView) findViewById(R.id.btnSobre);
+        btnSobre.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(Inicio.this, Sobre.class);
                 startActivity(intent);
-
-
             }
         });
 
