@@ -18,11 +18,42 @@
         android:id="@+id/view">
 
         <!--TOOLBAR TOPO-->
-        <android.support.v7.widget.Toolbar
-            android:id="@+id/toolbar"
-            android:theme="@style/AppTheme.WhiteBotton"
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"/>
+            android:layout_height="wrap_content">
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:theme="@style/AppTheme.WhiteBotton"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"/>
+
+            <Button
+                android:id="@+id/btnIniciar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/Iniciar"
+                android:textColor="@color/colorWhite"
+                android:textSize="15dp"
+                android:background="@color/colorTrasnparente"
+                android:layout_centerVertical="true"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true" />
+
+            <ImageButton
+                android:id="@+id/btnConfirmar"
+                android:visibility="gone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorWhite"
+                android:textSize="15dp"
+                android:src="@drawable/ic_confirmado"
+                android:background="@color/colorTrasnparente"
+                android:layout_marginRight="16dp"
+                android:layout_centerVertical="true"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true" />
+        </RelativeLayout>
+
 
         <!--TextView txt Nome Grupo-->
         <FrameLayout
@@ -45,22 +76,12 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Nome do seu grupo"
+                android:text="Click no texto para editar"
                 android:textColor="@color/colorWhiteTransparente"
                 android:textSize="15dp"
                 android:layout_marginTop="55dp"
                 android:layout_marginLeft="50dp"
                 android:layout_gravity="left|top" />
-
-            <ImageButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/btnEditar"
-                android:src="@drawable/ic_editar"
-                android:background="@color/colorTrasnparente"
-                android:layout_gravity="center|right"
-                android:layout_marginRight="16dp"
-                android:layout_marginBottom="15dp" />
 
         </FrameLayout>
 
@@ -94,15 +115,7 @@
                 android:paddingRight="45dp"
                 android:layout_gravity="left|top" />
 
-            <ImageButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/btnConfirmar"
-                android:src="@drawable/ic_confirmar"
-                android:background="@color/colorTrasnparente"
-                android:layout_gravity="center|right"
-                android:layout_marginRight="16dp"
-                android:layout_marginBottom="15dp" />
+
 
         </FrameLayout>
 

@@ -1,13 +1,10 @@
 package com.darthorg.bozo.view;
 
 import android.annotation.TargetApi;
-import android.app.Dialog;
-import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
-import android.support.annotation.ColorInt;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -29,9 +26,6 @@ import com.darthorg.bozo.R;
 
 import java.util.ArrayList;
 
-import static com.darthorg.bozo.R.color.colorFundo;
-import static com.darthorg.bozo.R.color.colorFundoPartida;
-
 public class NovaPartida extends AppCompatActivity {
 
     private Toolbar toolbar;
@@ -41,7 +35,8 @@ public class NovaPartida extends AppCompatActivity {
     EditText etNovaPartida,editNomePartida,etNomeJogador;
     ImageButton btnConfirmar, btnEditar;
     FrameLayout flEditText, flTextView, flFundoBtn;
-    Button btnAdicionar,btnAddJogador, contadorJogador, contadorJogadorMaximo;
+    Button btnAdicionar,btnAddJogador, contadorJogador, contadorJogadorMaximo, btnIniciar;
+    MenuItem actionInicar;
 
 
     @TargetApi(Build.VERSION_CODES.M)
@@ -77,13 +72,14 @@ public class NovaPartida extends AppCompatActivity {
         listView.setAdapter(adapter);
 
 
+
         etNomeJogador = (EditText) findViewById(R.id.edit_nome_novo_jogador);
 
         tvNomeGrupo = (TextView) findViewById(R.id.tvNomeGrupo);
         editNomePartida = (EditText) findViewById(R.id.editText_nomePartida);
 
-        btnEditar = (ImageButton) findViewById(R.id.btnEditar);
         btnConfirmar = (ImageButton) findViewById(R.id.btnConfirmar);
+        btnIniciar = (Button) findViewById(R.id.btnIniciar);
 
         flTextView = (FrameLayout) findViewById(R.id.frameLayout_TextView);
         flEditText = (FrameLayout) findViewById(R.id.frameLayout_EditText);
@@ -99,6 +95,26 @@ public class NovaPartida extends AppCompatActivity {
                 btnAdicionar.setVisibility(View.VISIBLE);
                 etNomeJogador.setVisibility(View.VISIBLE);
 
+            }
+        });
+
+        btnIniciar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                etNovaPartida = (EditText) findViewById(R.id.editText_nomePartida);
+
+                if (jogadores.size() < 2) {
+                    Toast.makeText(NovaPartida.this, getString(R.string.TextoIniciarPrecisa), Toast.LENGTH_SHORT).show();
+                } else if (TextUtils.isEmpty(etNovaPartida.getText().toString())) {
+                    Toast.makeText(NovaPartida.this, R.string.NomeParaSuaPartida, Toast.LENGTH_SHORT).show();
+                } else {
+                    Intent intent = new Intent(NovaPartida.this, PartidaAberta.class);
+                    intent.putExtra("nomepartida", etNovaPartida.getText().toString());
+                    intent.putStringArrayListExtra("jogadores", jogadores);
+                    intent.putExtra("partidaNova", true);
+                    startActivity(intent);
+                    finish();
+                }
             }
         });
 
@@ -136,15 +152,16 @@ public class NovaPartida extends AppCompatActivity {
         });
 
 
-        btnEditar.setOnClickListener(new View.OnClickListener() {
+        tvNomeGrupo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 flTextView.setVisibility(View.GONE);
                 flEditText.setVisibility(View.VISIBLE);
+                btnIniciar.setVisibility(View.GONE);
+                btnConfirmar.setVisibility(View.VISIBLE);
                 flEditText.setBackgroundColor(ContextCompat.getColor(NovaPartida.this,R.color.colorGreen));
                 flFundoBtn.setBackgroundColor(ContextCompat.getColor(NovaPartida.this,R.color.colorGreenDark));
                 toolbar.setBackgroundColor(ContextCompat.getColor(NovaPartida.this,R.color.colorGreen));
-
             }
         });
 
@@ -155,6 +172,8 @@ public class NovaPartida extends AppCompatActivity {
                 tvNomeGrupo.setText(name);
                 flTextView.setVisibility(View.VISIBLE);
                 flEditText.setVisibility(View.GONE);
+                btnIniciar.setVisibility(View.VISIBLE);
+                btnConfirmar.setVisibility(View.GONE);
                 flTextView.setBackgroundColor(ContextCompat.getColor(NovaPartida.this,R.color.colorAccent));
                 flFundoBtn.setBackgroundColor(ContextCompat.getColor(NovaPartida.this,R.color.colorFABPressedAccent));
                 toolbar.setBackgroundColor(ContextCompat.getColor(NovaPartida.this,R.color.colorAccent));
@@ -165,35 +184,13 @@ public class NovaPartida extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.nova_partida_menu, menu);
-        return true;
-    }
-
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
 
         int id = item.getItemId();
          if (id == android.R.id.home) {
             finish();
-        }else if (id == R.id.action_inciar_partida){
-             etNovaPartida = (EditText) findViewById(R.id.editText_nomePartida);
-
-             if (jogadores.size() < 2) {
-                 Toast.makeText(NovaPartida.this, getString(R.string.TextoIniciarPrecisa), Toast.LENGTH_SHORT).show();
-             } else if (TextUtils.isEmpty(etNovaPartida.getText().toString())) {
-                 Toast.makeText(NovaPartida.this, R.string.NomeParaSuaPartida, Toast.LENGTH_SHORT).show();
-             } else {
-                 Intent intent = new Intent(NovaPartida.this, PartidaAberta.class);
-                 intent.putExtra("nomepartida", etNovaPartida.getText().toString());
-                 intent.putStringArrayListExtra("jogadores", jogadores);
-                 intent.putExtra("partidaNova", true);
-                 startActivity(intent);
-                 finish();
-             }
-         }
+        }
 
         return super.onOptionsItemSelected(item);
     }
