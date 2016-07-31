@@ -21,6 +21,9 @@
     <color name="colorBlackTransparente4">#a4000000</color>
     <color name="colorTrasnparente">#00ffffff</color>
     <color name="colorRed">#ff1d25</color>
+    <color name="colorRedDark">#D32F2F</color>
+    <color name="colorGreen">#8bc34a</color>
+    <color name="colorGreenDark">#689F38</color>
     <color name="colorFundoPartida">#ededed</color>
     <color name="colorBtnFab">#e9e9e9</color>
     <color name="colorBlack">#000000</color>

@@ -7,111 +7,193 @@
     xmlns:fab="http://schemas.android.com/apk/res-auto"
     tools:context=".view.NovaPartida"
     android:orientation="vertical"
-    android:background="@color/colorFundoPartida"
+    android:background="@color/colorWhite"
     android:weightSum="1">
 
-    <RelativeLayout
+
+    <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="180dp"
+        app:elevation="5dp"
+        android:id="@+id/view">
 
-        <android.support.design.widget.AppBarLayout
+        <!--TOOLBAR TOPO-->
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:theme="@style/AppTheme.WhiteBotton"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:elevation="5dp"
-            android:id="@+id/view">
+            android:layout_height="?attr/actionBarSize"/>
 
-            <!--TOOLBAR TOPO-->
-            <android.support.v7.widget.Toolbar
-                android:id="@+id/toolbar"
-                android:theme="@style/AppTheme.WhiteBotton"
-                android:layout_width="match_parent"
-                android:layout_height="?attr/actionBarSize"/>
-
-            <RelativeLayout
-                android:layout_width="wrap_content"
-                android:layout_height="100dp"
-                android:layout_marginRight="20dp"
-                android:layout_marginLeft="20dp">
-
-                <EditText
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:inputType="textPersonName"
-                    android:textColor="@color/colorWhite"
-                    android:textSize="25dp"
-                    android:textAllCaps="true"
-                    android:nestedScrollingEnabled="true"
-                    android:linksClickable="false"
-                    android:hint="@string/HintNomeGrupo"
-                    android:textColorHint="@color/colorBlackTransparente"
-                    android:ems="10"
-                    android:id="@+id/editText_nomePartida"/>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textAppearance="?android:attr/textAppearanceSmall"
-                    android:text="@string/TextoNomeGrupo"
-                    android:textColor="@color/colorWhite"
-                    android:id="@+id/textView3"
-                    android:paddingTop="15dp"
-                    android:paddingLeft="5dp"
-                    android:layout_centerVertical="true"
-                    android:layout_alignParentLeft="true"
-                    android:layout_alignParentStart="true" />
-
-            </RelativeLayout>
-
-        </android.support.design.widget.AppBarLayout>
-
-
+        <!--TextView txt Nome Grupo-->
         <FrameLayout
+            android:id="@+id/frameLayout_TextView"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/colorFABPressedAccent"
-            android:layout_below="@+id/view2"
-            android:layout_marginTop="155dp"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:id="@+id/frameLayout">
+            android:layout_height="match_parent"
+            android:visibility="visible">
 
             <TextView
-                android:id="@+id/contagemJogadores"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginLeft="15dp"
+                android:id="@+id/tvNomeGrupo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/NomedoGrupo"
                 android:textColor="@color/colorWhite"
-                android:textAlignment="textStart"
-                android:padding="10dp"/>
+                android:textSize="30dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="50dp"
+                android:paddingRight="45dp"
+                android:layout_gravity="left|top" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Nome do seu grupo"
+                android:textColor="@color/colorWhiteTransparente"
+                android:textSize="15dp"
+                android:layout_marginTop="55dp"
+                android:layout_marginLeft="50dp"
+                android:layout_gravity="left|top" />
+
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/btnEditar"
+                android:src="@drawable/ic_editar"
+                android:background="@color/colorTrasnparente"
+                android:layout_gravity="center|right"
+                android:layout_marginRight="16dp"
+                android:layout_marginBottom="15dp" />
+
         </FrameLayout>
 
+        <!--Ediat txt Nome Grupo-->
+        <FrameLayout
+            android:id="@+id/frameLayout_EditText"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone">
 
+            <EditText
+                android:id="@+id/editText_nomePartida"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/NomedoGrupo"
+                android:textColor="@color/colorWhite"
+                android:textSize="30dp"
+                android:maxWidth="250dp"
+                android:maxLength="15"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="50dp"
+                android:layout_gravity="left|top" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Digite o nome do seu grupo"
+                android:textColor="@color/colorWhiteTransparente"
+                android:textSize="15dp"
+                android:layout_marginTop="65dp"
+                android:layout_marginLeft="55dp"
+                android:paddingRight="45dp"
+                android:layout_gravity="left|top" />
+
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/btnConfirmar"
+                android:src="@drawable/ic_confirmar"
+                android:background="@color/colorTrasnparente"
+                android:layout_gravity="center|right"
+                android:layout_marginRight="16dp"
+                android:layout_marginBottom="15dp" />
+
+        </FrameLayout>
+
+    </android.support.design.widget.AppBarLayout>
+
+    <FrameLayout
+        android:id="@+id/frameLayout_fundoBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorFABPressedAccent">
+
+        <!--btn texto contagem jogadores-->
+        <Button
+            style="?android:attr/absListViewStyle"
+            android:visibility="visible"
+            android:id="@+id/contagemJogadores"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="12dp"
+            android:textColor="@color/colorCinza"
+            android:background="@color/colorTrasnparente"
+            android:layout_marginLeft="10dp"
+            android:drawablePadding="@dimen/activity_horizontal_margin"
+            android:layout_gravity="left|top" />
+
+        <!--btn texto contagem jogadores maximo-->
+        <Button
+            style="?android:attr/absListViewStyle"
+            android:visibility="gone"
+            android:id="@+id/contagemJogadoresMaximo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="12dp"
+            android:textColor="@color/colorRed"
+            android:background="@color/colorTrasnparente"
+            android:layout_marginLeft="10dp"
+            android:drawablePadding="@dimen/activity_horizontal_margin"
+            android:layout_gravity="left|top" />
+
+
+        <Button
+            android:visibility="gone"
+            android:id="@+id/btnAdicionarJogador"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="12dp"
+            android:textColor="@color/colorWhite"
+            android:background="@color/colorTrasnparente"
+            android:drawableEnd="@drawable/ic_confirmado"
+            android:layout_marginRight="16dp"
+            android:drawablePadding="@dimen/activity_horizontal_margin"
+            android:layout_gravity="right|top" />
+
+        <Button
+            android:visibility="visible"
+            android:id="@+id/novoJogador"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/AdicionarJogador"
+            android:textSize="12dp"
+            android:textColor="@color/colorWhite"
+            android:background="@color/colorTrasnparente"
+            android:layout_marginRight="10dp"
+            android:drawablePadding="@dimen/activity_horizontal_margin"
+            android:layout_gravity="right|top" />
+
+        <EditText
+            android:visibility="gone"
+            android:id="@+id/edit_nome_novo_jogador"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:selectAllOnFocus="true"
+            android:inputType="textPersonName"
+            android:textColor="@color/colorWhite"
+            android:textSize="20dp"
+            android:hint="@string/HintNovoJogador"
+            android:textColorHint="@color/colorTextoHint"
+            android:ems="10"
+            android:layout_gravity="center_horizontal|bottom"
+            android:layout_marginTop="60dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginBottom="20dp" />
+
+    </FrameLayout>
 
         <ListView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/list_view_jogadores"
-            android:layout_marginTop="190dp"
             android:cacheColorHint="@color/colorBlack"
             android:layout_gravity="center_horizontal" />
-
-        <com.melnykov.fab.FloatingActionButton
-            android:id="@+id/fab"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/ic_add_jogador_accent"
-            fab:fab_colorNormal="@color/colorWhite"
-            fab:fab_colorPressed="@color/colorCinza"
-            android:layout_marginRight="@dimen/fab_margin"
-            android:layout_alignBottom="@+id/frameLayout"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true"
-            android:layout_marginBottom="16dp" />
-    </RelativeLayout>
-
-
-
-
-
 
 </LinearLayout>

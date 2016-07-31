@@ -93,11 +93,12 @@
     <string name="FoiAdicionado">" foi adicionado!"</string>
     <string name="Excluir">"Excluir "</string>
     <string name="TextoSemJogadores">Não tem mais jogadores para excluir</string>
-    <string name="NovoGrupo">NovoGrupo</string>
+    <string name="NovoGrupo">Novo Grupo</string>
     <string name="Versao">Versão</string>
     <string name="EMarcaRegistrada">é marca registrada</string>
     <string name="De">de</string>
     <string name="Mais">Mais</string>
     <string name="Ajuda">Ajuda</string>
+    <string name="NomedoGrupo">Nome do grupo</string>
 
 </resources>
