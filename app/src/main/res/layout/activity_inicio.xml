@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:fab="http://schemas.android.com/apk/res-auto"
     tools:context=".view.NovaPartida"
-    android:background="@drawable/gradiente"
     android:weightSum="1">
 
     <android.support.design.widget.AppBarLayout
@@ -23,33 +22,99 @@
 
     </android.support.design.widget.AppBarLayout>
 
-    <RelativeLayout
+
+
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="200dp"
+        android:background="@color/colorAccent"
+        android:layout_gravity="center_horizontal|bottom"
+        android:layout_alignParentBottom="true"
+        android:id="@+id/frameLayout2">
 
-        <ImageButton
-            android:id="@+id/btn_jogar"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:src="@drawable/ic_play_white"
-            android:background="@drawable/circulo_accent"
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="BOZÓ"
+            android:textSize="50dp"
+            android:textColor="@color/colorWhite"
             android:layout_gravity="center"
-            android:elevation="15dp"
-            android:drawablePadding="@dimen/activity_horizontal_margin"
+            android:layout_marginRight="40dp"
+            android:layout_marginBottom="40dp"
+            android:id="@+id/txtBozo" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="@string/Marcador"
+            android:textSize="20dp"
+            android:textColor="@color/colorWhite"
+            android:layout_gravity="center"
+            android:layout_marginRight="60dp"
+            android:layout_marginBottom="5dp" />
+    </FrameLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:background="@color/colorFundoPartida"
+        android:layout_gravity="center_horizontal|bottom"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="false"
+        android:layout_alignParentStart="true"
+        android:layout_alignWithParentIfMissing="false"
+        android:id="@+id/qualquer" >
+
+        <Button
             style="?android:attr/absListViewStyle"
-            android:layout_centerVertical="true"
-            android:layout_centerHorizontal="true" />
+            android:id="@+id/btnGruposSalvos"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/colorTrasnparente"
+            android:drawableTop="@drawable/ic_lista"
+            android:text="@string/GruposSalvos"
+            android:textSize="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_gravity="right|center_vertical" />
 
-        <ImageView
-            android:layout_width="150dp"
-            android:layout_height="150dp"
-            android:id="@+id/imageView"
-            android:src="@drawable/logo_bozo"
-            android:layout_alignParentBottom="true"
-            android:layout_centerHorizontal="true" />
+        <Button
+            style="?android:attr/absListViewStyle"
+            android:id="@+id/btnInstrucoes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/colorTrasnparente"
+            android:drawableTop="@drawable/ic_instrucoes"
+            android:text="@string/Instrucoes"
+            android:textSize="10dp"
+            android:layout_gravity="center" />
+
+        <Button
+            style="?android:attr/absListViewStyle"
+            android:id="@+id/btnConfiguracoes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/colorTrasnparente"
+            android:drawableTop="@drawable/ic_configuracoes"
+            android:text="@string/Configuracoes"
+            android:textSize="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_gravity="left|center_vertical" />
+    </FrameLayout>
 
 
-    </RelativeLayout>
+    <ImageButton
+        android:id="@+id/btnNovaPartida"
+        android:layout_width="65dp"
+        android:layout_height="65dp"
+        android:elevation="5dp"
+        android:background="@drawable/circulo_accent_light"
+        android:src="@drawable/ic_play_white"
+        android:layout_above="@+id/qualquer"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginRight="16dp"
+        android:layout_marginBottom="95dp" />
 
-
-</FrameLayout>
+</RelativeLayout>

@@ -34,7 +34,7 @@
     <string name="Configuracoes">Configurações</string>
     <string name="Instrucoes">Instruções</string>
     <string name="Sobre">Sobre</string>
-    <string name="TextoNovoGrupo">Crie um grupo de jogo, para incluir jogadores e jogar varias rodadas.</string>
+    <string name="TextoNovoGrupo">Clique no + para criar um novo grupo de jogo, para incluir jogadores e jogar varias rodadas ou fique precionado para mais opções.</string>
 
     <!--Texto Dialog Novo Jogador e Pontos-->
     <string name="HintNovoJogador">Digite o nome do jogador aqui...</string>
