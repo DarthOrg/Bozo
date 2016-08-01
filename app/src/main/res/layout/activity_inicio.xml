@@ -6,7 +6,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:fab="http://schemas.android.com/apk/res-auto"
     tools:context=".view.NovaPartida"
+    android:background="@drawable/img_inicio"
     android:weightSum="1">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorAccentTransparent"/>
 
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
@@ -21,6 +27,7 @@
             android:layout_height="?attr/actionBarSize"/>
 
     </android.support.design.widget.AppBarLayout>
+
 
 
 
@@ -65,6 +72,7 @@
         android:layout_alignParentLeft="false"
         android:layout_alignParentStart="true"
         android:layout_alignWithParentIfMissing="false"
+        android:elevation="15dp"
         android:id="@+id/qualquer" >
 
         <Button
@@ -76,6 +84,7 @@
             android:drawableTop="@drawable/ic_lista"
             android:text="@string/GruposSalvos"
             android:textSize="10dp"
+            android:textColor="@color/colorBlack"
             android:layout_marginRight="10dp"
             android:layout_gravity="right|center_vertical" />
 
@@ -88,6 +97,7 @@
             android:drawableTop="@drawable/ic_instrucoes"
             android:text="@string/Instrucoes"
             android:textSize="10dp"
+            android:textColor="@color/colorBlack"
             android:layout_gravity="center" />
 
         <Button
@@ -99,6 +109,7 @@
             android:drawableTop="@drawable/ic_configuracoes"
             android:text="@string/Configuracoes"
             android:textSize="10dp"
+            android:textColor="@color/colorBlack"
             android:layout_marginLeft="10dp"
             android:layout_gravity="left|center_vertical" />
     </FrameLayout>

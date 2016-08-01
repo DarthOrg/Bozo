@@ -4,6 +4,7 @@
     <color name="colorPrimary">#FFFFFF</color>
     <color name="colorPrimaryDark">#d9d9d9</color>
     <color name="colorAccent">#607D8B</color>
+    <color name="colorAccentTransparent">#4b607d8b</color>
     <color name="colorAccentDark">#455A64</color>
 
     <!--ThemeSplash-->

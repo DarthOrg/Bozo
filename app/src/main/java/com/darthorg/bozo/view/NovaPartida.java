@@ -9,6 +9,7 @@ import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
+import android.view.ContextMenu;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -23,8 +24,13 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.darthorg.bozo.R;
+import com.darthorg.bozo.dao.JogadorDAO;
+import com.darthorg.bozo.dao.PartidaDAO;
+import com.darthorg.bozo.model.Jogador;
+import com.darthorg.bozo.model.Partida;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class NovaPartida extends AppCompatActivity {
 
@@ -37,6 +43,7 @@ public class NovaPartida extends AppCompatActivity {
     FrameLayout flEditText, flTextView, flFundoBtn;
     Button btnAdicionar,btnAddJogador, contadorJogador, contadorJogadorMaximo, btnIniciar;
     MenuItem actionInicar;
+    private List<Jogador> jogadorList;
 
 
     @TargetApi(Build.VERSION_CODES.M)
@@ -66,12 +73,14 @@ public class NovaPartida extends AppCompatActivity {
         }
 
 
-        final ListView listView = (ListView) findViewById(R.id.list_view_jogadores);
+        ListView listView = (ListView) findViewById(R.id.list_view_jogadores);
         //todo: Criar um custon adapter com um botão remover os jogadores
         adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_activated_1, jogadores);
         listView.setAdapter(adapter);
 
 
+        //botão ficar precionado
+        registerForContextMenu(listView);
 
         etNomeJogador = (EditText) findViewById(R.id.edit_nome_novo_jogador);
 
@@ -182,6 +191,25 @@ public class NovaPartida extends AppCompatActivity {
         });
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+    }
+
+    @Override
+    public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
+        getMenuInflater().inflate(R.menu.popup_menu, menu);
+    }
+
+    @Override
+    public boolean onContextItemSelected(MenuItem item) {
+        switch (item.getItemId()){
+            case R.id.action_apagar:
+
+                //Todo:Implementar apagar jogadores
+
+                return true;
+            default:
+                return super.onContextItemSelected(item);
+        }
+
     }
 
     @Override
