@@ -57,18 +57,12 @@
     <string name="Atualizar">Atualizar</string>
 
     <!--Textos das jogadas-->
-    <string name="TextoDadoUm">[ Áz ] é uma pedra de menor valor no Bozó.
-        Sua pontuação varia de 1 à 5 pontos</string>
-    <string name="TextoDadoDois">[ Duque ] é uma pedra de menor valor no Bozó.
-        Sua pontuação varia de 2 à 10 pontos</string>
-    <string name="TextoDadoTres">[ Terno ] é uma pedra de menor valor no Bozó.
-        Sua pontuação varia de 3 à 15 pontos</string>
-    <string name="TextoDadoQuatro">[ Quadra ] é uma pedra de menor valor no Bozó.
-        Sua pontuação varia de 4 à 20 pontos</string>
-    <string name="TextoDadoCinco">[ Quina ] é uma pedra de menor valor no Bozó.
-        Sua pontuação varia de 5 à 25 pontos</string>
-    <string name="TextoDadoSeis">[ Sena ] é uma pedra de menor valor no Bozó.
-        Sua pontuação varia de 6 à 30 pontos</string>
+    <string name="TextoDadoUm">Soma dos valores das pedras de áz. A pontuação, pode variar entre 1 e 5 pontos.</string>
+    <string name="TextoDadoDois">Soma dos valores das pedras de duque. A pontuação, pode variar entre 2 e 10 pontos.</string>
+    <string name="TextoDadoTres">Soma dos valores das pedras de terno. A pontuação, pode variar entre 3 e 15 pontos</string>
+    <string name="TextoDadoQuatro">Soma dos valores das pedras de quadra. A pontuação, pode variar entre 4 e 20 pontos</string>
+    <string name="TextoDadoCinco">Soma dos valores das pedras de quina. A pontuação, pode variar entre 5 e 25 pontos</string>
+    <string name="TextoDadoSeis">Soma dos valores das pedras de sena. A pontuação, pode variar entre 6 e 30 pontos</string>
     <string name="TextoFull">[ Full ] é conjunto 3 pedras iguais e mais 2 pedras iguais.
         Sua pontuação 10 pontos ou 15 pontos se for de boca.</string>
     <string name="TextoSeguida">[ Seguida ] é sequencia das pedras 1-2-3-4-5 ou das pedras 2-3-4-5-6.
@@ -100,5 +94,7 @@
     <string name="Mais">Mais</string>
     <string name="Ajuda">Ajuda</string>
     <string name="NomedoGrupo">Nome do grupo</string>
+    <string name="DadosDoGrupo">Dados do grupo</string>
+    <string name="InfoDadosGrupo">Por favor, forneça o nome e add os jogadores no + .</string>
 
 </resources>

@@ -10,8 +10,7 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".Splash"
-            android:screenOrientation="portrait"
-            android:theme="@style/ThemeSplash">
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -20,28 +19,22 @@
         </activity>
         <activity
             android:name=".view.Inicio"
-            android:screenOrientation="portrait"
-            android:theme="@style/AppTheme" />
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".view.NovaPartida"
-            android:screenOrientation="portrait"
-            android:theme="@style/ThemeNovaPartida" />
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".view.PartidaAberta"
-            android:screenOrientation="portrait"
-            android:theme="@style/ThemePartidaAberta" />
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".view.ListaDePlacar"
-            android:screenOrientation="portrait"
-            android:theme="@style/ThemeDistaque" />
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".view.ListaDePartidas"
-            android:screenOrientation="portrait"
-            android:theme="@style/ThemeDistaque" />
+            android:screenOrientation="portrait"/>
 
         <activity android:name=".view.Sobre"
-            android:screenOrientation="portrait"
-            android:theme="@style/ThemeSobre"/>
+            android:screenOrientation="portrait"/>
 
         <!--
      ATTENTION: This was auto-generated to add Google Play services to your project for

@@ -3,6 +3,8 @@ package com.darthorg.bozo.view;
 import android.annotation.TargetApi;
 import android.content.Intent;
 import android.graphics.Color;
+import android.graphics.drawable.Drawable;
+import android.inputmethodservice.KeyboardView;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.content.ContextCompat;
@@ -10,6 +12,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
 import android.view.ContextMenu;
+import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -19,6 +22,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.ImageButton;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -37,23 +41,17 @@ public class NovaPartida extends AppCompatActivity {
     private Toolbar toolbar;
     private ArrayList<String> jogadores = new ArrayList<>();
     private ArrayAdapter<String> adapter;
-    TextView tvNomeGrupo;
-    EditText etNovaPartida,editNomePartida,etNomeJogador;
-    ImageButton btnConfirmar, btnEditar;
-    FrameLayout flEditText, flTextView, flFundoBtn;
-    Button btnAdicionar,btnAddJogador, contadorJogador, contadorJogadorMaximo, btnIniciar;
+    TextView tvNomeGrupo,Titulo,TextoInfo;
+    EditText editTextNomePartida,editNomeNovoJogador;
+    ImageButton novoJogador, btnEditar,btnConfirmar,btnSair,btnAdicionarJogador;
+    Button contagemJogadores,btnIniciar;
     MenuItem actionInicar;
     private List<Jogador> jogadorList;
 
 
-    @TargetApi(Build.VERSION_CODES.M)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (Build.VERSION.SDK_INT > 16) {
-            getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
-                    WindowManager.LayoutParams.FLAG_FULLSCREEN);
-        }
         setContentView(R.layout.activity_nova_partida);
 
 
@@ -61,136 +59,196 @@ public class NovaPartida extends AppCompatActivity {
         toolbar.setTitle(R.string.TextoVazio);
         setSupportActionBar(toolbar);
 
+        novoJogador = (ImageButton) findViewById(R.id.novoJogador);
+        btnEditar = (ImageButton) findViewById(R.id.btnEditar);
+        btnConfirmar = (ImageButton) findViewById(R.id.btnConfirmar);
+        btnSair = (ImageButton) findViewById(R.id.btnSair);
+        btnAdicionarJogador = (ImageButton) findViewById(R.id.btnAdicionarJogador);
+        contagemJogadores = (Button) findViewById(R.id.contagemJogadores);
+        btnIniciar = (Button) findViewById(R.id.btnIniciar);
+        tvNomeGrupo = (TextView) findViewById(R.id.tvNomeGrupo);
+        Titulo = (TextView) findViewById(R.id.Titulo);
+        TextoInfo = (TextView) findViewById(R.id.TextoInfo);
+        editTextNomePartida = (EditText) findViewById(R.id.editText_nomePartida);
+        editTextNomePartida.setText(tvNomeGrupo.getText().toString());
+        editNomeNovoJogador = (EditText) findViewById(R.id.edit_nome_novo_jogador);
         //Contador Jogador
-        contadorJogador = (Button) findViewById(R.id.contagemJogadores);
-        contadorJogadorMaximo = (Button) findViewById(R.id.contagemJogadoresMaximo);
+        contagemJogadores = (Button) findViewById(R.id.contagemJogadores);
         if (jogadores.size() == 0){
-            contadorJogador.setText("Nenhum jogador");
+            contagemJogadores.setText("0");
         }else if (jogadores.size() == 1){
-            contadorJogador.setText(jogadores.size()+" jogador");
+            contagemJogadores.setText(jogadores.size()+"");
         }else if (jogadores.size() >= 2){
-            contadorJogador.setText(jogadores.size()+" jogadores");
+            contagemJogadores.setText(jogadores.size()+"");
         }
-
 
         ListView listView = (ListView) findViewById(R.id.list_view_jogadores);
         //todo: Criar um custon adapter com um botão remover os jogadores
         adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_activated_1, jogadores);
         listView.setAdapter(adapter);
 
-
         //botão ficar precionado
         registerForContextMenu(listView);
 
-        etNomeJogador = (EditText) findViewById(R.id.edit_nome_novo_jogador);
-
-        tvNomeGrupo = (TextView) findViewById(R.id.tvNomeGrupo);
-        editNomePartida = (EditText) findViewById(R.id.editText_nomePartida);
-
-        btnConfirmar = (ImageButton) findViewById(R.id.btnConfirmar);
-        btnIniciar = (Button) findViewById(R.id.btnIniciar);
-
-        flTextView = (FrameLayout) findViewById(R.id.frameLayout_TextView);
-        flEditText = (FrameLayout) findViewById(R.id.frameLayout_EditText);
-        flFundoBtn = (FrameLayout) findViewById(R.id.frameLayout_fundoBtn);
-
-        //Botão add jogador
-        btnAddJogador = (Button) findViewById(R.id.novoJogador);
-        btnAddJogador.setOnClickListener(new View.OnClickListener() {
+        editNomeNovoJogador.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
-            public void onClick(View view) {
-
-                btnAddJogador.setVisibility(View.GONE);
-                btnAdicionar.setVisibility(View.VISIBLE);
-                etNomeJogador.setVisibility(View.VISIBLE);
+            public void onFocusChange(View v, boolean hasFocus) {
 
             }
         });
 
         btnIniciar.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                etNovaPartida = (EditText) findViewById(R.id.editText_nomePartida);
-
+            public void onClick(View v) {
                 if (jogadores.size() < 2) {
                     Toast.makeText(NovaPartida.this, getString(R.string.TextoIniciarPrecisa), Toast.LENGTH_SHORT).show();
-                } else if (TextUtils.isEmpty(etNovaPartida.getText().toString())) {
+                } else if (TextUtils.isEmpty(editTextNomePartida.getText().toString())) {
                     Toast.makeText(NovaPartida.this, R.string.NomeParaSuaPartida, Toast.LENGTH_SHORT).show();
                 } else {
                     Intent intent = new Intent(NovaPartida.this, PartidaAberta.class);
-                    intent.putExtra("nomepartida", etNovaPartida.getText().toString());
+                    intent.putExtra("nomepartida", editTextNomePartida.getText().toString());
                     intent.putStringArrayListExtra("jogadores", jogadores);
                     intent.putExtra("partidaNova", true);
                     startActivity(intent);
                     finish();
                 }
+
             }
         });
 
-        btnAdicionar = (Button) findViewById(R.id.btnAdicionarJogador);
-        btnAdicionar.setOnClickListener(new View.OnClickListener() {
+        btnEditar.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                btnAddJogador.setVisibility(View.VISIBLE);
-                btnAdicionar.setVisibility(View.GONE);
-                etNomeJogador.setVisibility(View.GONE);
-
-                if (jogadores.size() < 10) {
-                    jogadores.add(etNomeJogador.getText().toString());
-                    adapter.notifyDataSetChanged();
-                    if (jogadores.size() == 0){
-                        contadorJogador.setText("Nenhum jogador");
-                    }else if (jogadores.size() == 1){
-                        contadorJogador.setText(jogadores.size()+" jogador");
-                    }else if (jogadores.size() >= 2 ){
-                        contadorJogador.setText(jogadores.size()+" jogadores");
-                    }
-
-                } else {
-                    contadorJogadorMaximo.setText("Maximo "+jogadores.size()+" jogadores");
-                    contadorJogadorMaximo.setTextColor(Color.WHITE);
-                    contadorJogador.setVisibility(View.GONE);
-                    contadorJogadorMaximo.setVisibility(View.VISIBLE);
-                    toolbar.setBackgroundColor(ContextCompat.getColor(NovaPartida.this,R.color.colorRed));
-                    flTextView.setBackgroundColor(ContextCompat.getColor(NovaPartida.this,R.color.colorRed));
-                    flEditText.setBackgroundColor(ContextCompat.getColor(NovaPartida.this,R.color.colorRed));
-                    flFundoBtn.setBackgroundColor(ContextCompat.getColor(NovaPartida.this,R.color.colorRedDark));
-                    btnAddJogador.setVisibility(View.GONE);
-                }
-            }
-        });
-
-
-        tvNomeGrupo.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                flTextView.setVisibility(View.GONE);
-                flEditText.setVisibility(View.VISIBLE);
-                btnIniciar.setVisibility(View.GONE);
+            public void onClick(View v) {
+                btnEditar.setVisibility(View.GONE);
+                tvNomeGrupo.setVisibility(View.GONE);
                 btnConfirmar.setVisibility(View.VISIBLE);
-                flEditText.setBackgroundColor(ContextCompat.getColor(NovaPartida.this,R.color.colorGreen));
-                flFundoBtn.setBackgroundColor(ContextCompat.getColor(NovaPartida.this,R.color.colorGreenDark));
-                toolbar.setBackgroundColor(ContextCompat.getColor(NovaPartida.this,R.color.colorGreen));
+                editTextNomePartida.setVisibility(View.VISIBLE);
+                Titulo.setText("Nome grupo de jogo");
+                TextoInfo.setText("Por favor, preencha um nome curto para seu grupo.");
             }
         });
 
         btnConfirmar.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                String name = editNomePartida.getText().toString();
-                tvNomeGrupo.setText(name);
-                flTextView.setVisibility(View.VISIBLE);
-                flEditText.setVisibility(View.GONE);
-                btnIniciar.setVisibility(View.VISIBLE);
-                btnConfirmar.setVisibility(View.GONE);
-                flTextView.setBackgroundColor(ContextCompat.getColor(NovaPartida.this,R.color.colorAccent));
-                flFundoBtn.setBackgroundColor(ContextCompat.getColor(NovaPartida.this,R.color.colorFABPressedAccent));
-                toolbar.setBackgroundColor(ContextCompat.getColor(NovaPartida.this,R.color.colorAccent));
+            public void onClick(View v) {
+                    btnEditar.setVisibility(View.VISIBLE);
+                    tvNomeGrupo.setVisibility(View.VISIBLE);
+                    btnConfirmar.setVisibility(View.GONE);
+                    editTextNomePartida.setVisibility(View.GONE);
+                    tvNomeGrupo.setText(editTextNomePartida.getText().toString());
+                    Titulo.setText("Dados do grupo");
+                    Titulo.setTextColor(ContextCompat.getColor(NovaPartida.this, R.color.colorAccent800));
+                    TextoInfo.setText(R.string.InfoDadosGrupo);
+                    TextoInfo.setTextColor(ContextCompat.getColor(NovaPartida.this, R.color.colorCinza));
 
             }
         });
 
+        novoJogador.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                btnIniciar.setVisibility(View.GONE);
+                btnEditar.setVisibility(View.GONE);
+                tvNomeGrupo.setVisibility(View.GONE);
+                btnConfirmar.setVisibility(View.GONE);
+                editTextNomePartida.setVisibility(View.GONE);
+                novoJogador.setVisibility(View.GONE);
+                btnSair.setVisibility(View.VISIBLE);
+                editNomeNovoJogador.setVisibility(View.VISIBLE);
+                btnAdicionarJogador.setVisibility(View.VISIBLE);
+                Titulo.setText("Novo jogador");
+                TextoInfo.setText("Minimo 2 jogadores e maxímo 10.");
+            }
+        });
+
+        btnAdicionarJogador.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                if (editNomeNovoJogador.getText().length() == 0){
+                    editNomeNovoJogador.setError("Campo vazio");
+                }else if (jogadores.size() < 10) {
+                    btnIniciar.setVisibility(View.VISIBLE);
+                    btnEditar.setVisibility(View.VISIBLE);
+                    tvNomeGrupo.setVisibility(View.VISIBLE);
+                    btnConfirmar.setVisibility(View.GONE);
+                    editTextNomePartida.setVisibility(View.GONE);
+                    novoJogador.setVisibility(View.VISIBLE);
+                    btnSair.setVisibility(View.GONE);
+                    editNomeNovoJogador.setVisibility(View.GONE);
+                    btnAdicionarJogador.setVisibility(View.GONE);
+                    Titulo.setText("Dados do grupo");
+                    Titulo.setTextColor(ContextCompat.getColor(NovaPartida.this, R.color.colorAccent800));
+                    TextoInfo.setText(R.string.InfoDadosGrupo);
+                    TextoInfo.setTextColor(ContextCompat.getColor(NovaPartida.this, R.color.colorCinza));
+
+                    jogadores.add(editNomeNovoJogador.getText().toString());
+                    adapter.notifyDataSetChanged();
+                    editNomeNovoJogador.setText(null);
+                    if (jogadores.size() == 0){
+                        contagemJogadores.setText("0");
+                    }else if (jogadores.size() == 1){
+                        contagemJogadores.setText(jogadores.size()+"");
+                    }else if (jogadores.size() >= 2){
+                        contagemJogadores.setText(jogadores.size()+"");
+                    }
+
+                } else {
+                    btnSair.setVisibility(View.VISIBLE);
+                    Titulo.setText("MAXÍMO 10 JOGADORES");
+                    Titulo.setTextColor(Color.RED);
+                    TextoInfo.setText("Você adicionou o numero maximo de jogadores.");
+                    TextoInfo.setTextColor(Color.RED);
+
+                }
+
+
+
+            }
+        });
+        btnSair.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                btnIniciar.setVisibility(View.VISIBLE);
+                btnEditar.setVisibility(View.VISIBLE);
+                tvNomeGrupo.setVisibility(View.VISIBLE);
+                btnConfirmar.setVisibility(View.GONE);
+                editTextNomePartida.setVisibility(View.GONE);
+                novoJogador.setVisibility(View.VISIBLE);
+                btnSair.setVisibility(View.GONE);
+                editNomeNovoJogador.setVisibility(View.GONE);
+                btnAdicionarJogador.setVisibility(View.GONE);
+                Titulo.setText("Dados do grupo");
+                Titulo.setTextColor(ContextCompat.getColor(NovaPartida.this, R.color.colorAccent800));
+                TextoInfo.setText(R.string.InfoDadosGrupo);
+                TextoInfo.setTextColor(ContextCompat.getColor(NovaPartida.this, R.color.colorCinza));
+            }
+        });
+
+
+
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+    }
+
+
+
+    //Botão voltar
+    @Override
+    public void onBackPressed() {
+        btnIniciar.setVisibility(View.VISIBLE);
+        btnEditar.setVisibility(View.VISIBLE);
+        tvNomeGrupo.setVisibility(View.VISIBLE);
+        btnConfirmar.setVisibility(View.GONE);
+        editTextNomePartida.setVisibility(View.GONE);
+        novoJogador.setVisibility(View.VISIBLE);
+        btnSair.setVisibility(View.GONE);
+        editNomeNovoJogador.setVisibility(View.GONE);
+        btnAdicionarJogador.setVisibility(View.GONE);
+        Titulo.setText("Dados do grupo");
+        Titulo.setTextColor(ContextCompat.getColor(NovaPartida.this, R.color.colorAccent800));
+        TextoInfo.setText(R.string.InfoDadosGrupo);
+        TextoInfo.setTextColor(ContextCompat.getColor(NovaPartida.this, R.color.colorCinza));
     }
 
     @Override
@@ -216,7 +274,7 @@ public class NovaPartida extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
 
         int id = item.getItemId();
-         if (id == android.R.id.home) {
+        if (id == android.R.id.home) {
             finish();
         }
 

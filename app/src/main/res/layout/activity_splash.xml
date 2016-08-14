@@ -3,13 +3,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Splash"
-    android:background="@drawable/img_inicio">
+    android:background="@color/colorStatusBar"
+    tools:context=".Splash">
 
     <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@color/colorBlackTransparente2"/>
+        android:layout_height="match_parent"/>
 
     <ImageView
         android:layout_width="150dp"
@@ -28,6 +27,7 @@
         android:id="@+id/imageView2"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
+        android:layout_marginBottom="16dp"
         android:src="@drawable/logo_darth_org" />
 
 </RelativeLayout>
