@@ -231,26 +231,6 @@ public class NovaPartida extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 
-
-
-    //Botão voltar
-    @Override
-    public void onBackPressed() {
-        btnIniciar.setVisibility(View.VISIBLE);
-        btnEditar.setVisibility(View.VISIBLE);
-        tvNomeGrupo.setVisibility(View.VISIBLE);
-        btnConfirmar.setVisibility(View.GONE);
-        editTextNomePartida.setVisibility(View.GONE);
-        novoJogador.setVisibility(View.VISIBLE);
-        btnSair.setVisibility(View.GONE);
-        editNomeNovoJogador.setVisibility(View.GONE);
-        btnAdicionarJogador.setVisibility(View.GONE);
-        Titulo.setText("Dados do grupo");
-        Titulo.setTextColor(ContextCompat.getColor(NovaPartida.this, R.color.colorAccent800));
-        TextoInfo.setText(R.string.InfoDadosGrupo);
-        TextoInfo.setTextColor(ContextCompat.getColor(NovaPartida.this, R.color.colorCinza));
-    }
-
     @Override
     public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
         getMenuInflater().inflate(R.menu.popup_menu, menu);
