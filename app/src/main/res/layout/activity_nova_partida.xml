@@ -6,6 +6,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:fab="http://schemas.android.com/apk/res-auto"
     tools:context=".view.NovaPartida"
+    android:id="@+id/paginaDadosGrupo"
     android:background="@color/colorWhite">
 
     <LinearLayout
@@ -18,21 +19,6 @@
         android:layout_height="56dp"
         android:layout_gravity="center_horizontal">
 
-
-        <android.support.design.widget.AppBarLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/colorTrasnparente"
-            app:elevation="0dp">
-
-            <!--TOOLBAR TOPO-->
-            <android.support.v7.widget.Toolbar
-                android:id="@+id/toolbar"
-                android:layout_width="match_parent"
-                android:layout_height="?attr/actionBarSize"/>
-
-        </android.support.design.widget.AppBarLayout>
-
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -42,6 +28,42 @@
             android:layout_gravity="center"
             android:textSize="15dp"
             android:textColor="@color/colorAccent800" />
+
+
+        <ImageButton
+            android:id="@+id/btnSair"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:elevation="2dp"
+            android:tint="@color/colorCinza"
+            android:src="@drawable/ic_sair"
+            android:layout_gravity="left|center_vertical"
+            android:layout_marginLeft="16dp"
+            android:background="@color/colorTrasnparente"
+            android:visibility="gone" />
+
+        <ImageButton
+            android:id="@+id/btnVoltar"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:elevation="2dp"
+            android:tint="@color/colorCinza"
+            android:src="@drawable/ic_voltar"
+            android:layout_gravity="left|center_vertical"
+            android:layout_marginLeft="16dp"
+            android:background="@color/colorTrasnparente" />
+
+        <Button
+            android:id="@+id/btnEditar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/Editar"
+            android:textColor="@color/colorCinza"
+            android:background="@color/colorTrasnparente"
+            android:backgroundTint="@color/colorAccent"
+            android:layout_gravity="right|center_vertical"
+            android:textSize="15dp" />
+
     </FrameLayout>
 
     <TextView
@@ -77,17 +99,7 @@
                 android:layout_margin="16dp"
                 android:src="@drawable/ic_mais_fab_white" />
 
-            <ImageButton
-                android:id="@+id/btnSair"
-                android:layout_width="65dp"
-                android:layout_height="65dp"
-                android:elevation="0dp"
-                android:background="@drawable/circulo_accent_light"
-                android:backgroundTint="@color/colorStatusBar"
-                android:tint="@color/colorWhite"
-                android:layout_margin="16dp"
-                android:src="@drawable/ic_sair"
-                android:visibility="gone" />
+
 
             <Button
                 android:id="@+id/contagemJogadores"
@@ -104,6 +116,20 @@
                 android:layout_marginLeft="57dp"
                 android:layout_marginTop="57dp" />
 
+            <Button
+                android:id="@+id/contagemJogadores2"
+                android:layout_width="65dp"
+                android:layout_height="65dp"
+                android:text="0"
+                android:textColor="@color/colorWhite"
+                android:background="@drawable/circulo_accent_light"
+                android:backgroundTint="@color/colorAccent"
+                android:layout_centerVertical="true"
+                android:layout_centerHorizontal="true"
+                android:textSize="20dp"
+                android:layout_margin="16dp"
+                android:visibility="gone" />
+
         </RelativeLayout>
 
         <TextView
@@ -112,7 +138,7 @@
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:text="@string/NomedoGrupo"
             android:layout_gravity="center_vertical"
-            android:textSize="20dp"
+            android:textSize="25dp"
             android:textColor="@color/colorCinza"
             android:layout_weight="1"
             android:id="@+id/tvNomeGrupo" />
@@ -126,31 +152,11 @@
             android:id="@+id/editText_nomePartida"
             android:layout_weight="1"
             android:layout_gravity="center_vertical"
-            android:visibility="gone" />
-
-        <ImageButton
-            android:id="@+id/btnEditar"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:elevation="0dp"
-            android:background="@color/colorTrasnparente"
-            android:tint="@color/colorBlack"
-            android:src="@drawable/ic_editar"
-            android:layout_gravity="center_vertical"
-            android:layout_margin="16dp" />
-
-        <ImageButton
-            android:id="@+id/btnConfirmar"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:elevation="0dp"
-            android:background="@color/colorTrasnparente"
-            android:tint="@color/colorAccent"
-            android:src="@drawable/ic_confirmar"
-            android:layout_gravity="center_vertical"
-            android:layout_marginRight="16dp"
+            android:layout_marginLeft="16dp"
             android:visibility="gone"
-            android:backgroundTintMode="multiply" />
+            android:layout_marginRight="16dp"
+            android:autoText="true"
+            android:autoLink="all" />
 
         <EditText
             android:layout_width="wrap_content"
@@ -162,7 +168,9 @@
             android:layout_gravity="center_vertical"
             android:layerType="hardware"
             android:hint="Digitar nome do jogador..."
-            android:visibility="gone" />
+            android:visibility="gone"
+            android:autoText="true"
+            android:autoLink="all" />
 
         <ImageButton
             android:id="@+id/btnAdicionarJogador"
@@ -180,7 +188,26 @@
     </LinearLayout>
 
 
-    <ListView
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal">
+
+            <Button
+                android:id="@+id/btnOk"
+                android:layout_width="45dp"
+                android:layout_height="45dp"
+                android:text="Ok"
+                android:textColor="@color/colorWhite"
+                android:background="@drawable/circulo_accent_light"
+                android:backgroundTint="@color/colorRed"
+                android:layout_centerVertical="true"
+                android:layout_centerHorizontal="true"
+                android:layout_gravity="center"
+                android:visibility="gone" />
+        </FrameLayout>
+
+        <ListView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/list_view_jogadores"
@@ -199,6 +226,20 @@
         android:layout_alignWithParentIfMissing="false"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true" />
+
+    <Button
+        android:id="@+id/btnSalvar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/Salvar"
+        android:textColor="@color/colorWhite"
+        android:elevation="5dp"
+        android:layout_marginBottom="16dp"
+        android:backgroundTint="@color/colorAccent"
+        android:layout_alignWithParentIfMissing="false"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:visibility="gone"/>
 
 
 </RelativeLayout>

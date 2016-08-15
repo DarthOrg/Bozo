@@ -23,5 +23,10 @@
         <item name="colorPrimary">@color/colorWhite</item>
     </style>
 
+    <style name="AppTheme.Error" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorAccent">@color/colorRed</item>
+        <item name="colorPrimaryDark">@color/colorRed</item>
+    </style>
+
 
 </resources>

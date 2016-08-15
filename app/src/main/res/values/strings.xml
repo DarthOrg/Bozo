@@ -96,5 +96,6 @@
     <string name="NomedoGrupo">Nome do grupo</string>
     <string name="DadosDoGrupo">Dados do grupo</string>
     <string name="InfoDadosGrupo">Por favor, forneça o nome e add os jogadores no + .</string>
+    <string name="Editar">Editar</string>
 
 </resources>
