@@ -18,21 +18,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="Descartar ?"
-            android:id="@+id/textView13"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:textColor="@color/colorBlack"
-            android:layout_marginBottom="20dp" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="@string/TextoSairGrupo"
+            android:text="Deseja excluir?"
             android:id="@+id/textView14"
-            android:layout_below="@+id/textView13"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true" />
     </RelativeLayout>
@@ -46,8 +33,8 @@
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/Salvar"
-            android:id="@+id/btnExcluir"
+            android:text="@string/Excluir"
+            android:id="@+id/dialogBtnExcluir"
             android:layout_gravity="right|center_vertical"
             android:textColor="@color/colorAccent"
             android:layout_alignParentTop="true"
@@ -58,13 +45,13 @@
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/Descartar"
-            android:id="@+id/btnDescartar"
+            android:text="@string/Cancelar"
+            android:id="@+id/dialogBtnCancelar"
             android:layout_gravity="right|center_vertical"
             android:textColor="@color/colorAccent"
             android:layout_centerVertical="true"
-            android:layout_toLeftOf="@+id/btnExcluir"
-            android:layout_toStartOf="@+id/btnExcluir"
+            android:layout_toLeftOf="@+id/dialogBtnExcluir"
+            android:layout_toStartOf="@+id/dialogBtnExcluir"
             android:background="@color/colorTrasnparente" />
 
     </RelativeLayout>

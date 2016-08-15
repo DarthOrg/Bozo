@@ -7,15 +7,15 @@
     android:background="@color/colorFundoPartida"
     android:orientation="vertical">
 
-    <!--Contexto-->
-    <FrameLayout
+
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal">
+        android:layout_gravity="center_horizontal"
+        android:padding="24dp">
 
         <EditText
             android:theme="@style/AppTheme.WhiteBotton"
-            android:layout_margin="20dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:selectAllOnFocus="true"
@@ -25,57 +25,38 @@
             android:textColorHint="@color/colorTextoHint"
             android:ems="10"
             android:id="@+id/edit_nome_novo_jogador" />
-    </FrameLayout>
+    </RelativeLayout>
 
-
-    <!--Linha-->
-    <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="0.5dp"
-        android:background="@color/colorCinza"/>
-
-
-    <!--Botões-->
-    <FrameLayout
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="5dp"
-        android:layout_gravity="center_horizontal">
+        android:layout_gravity="center_horizontal"
+        android:padding="8dp">
 
-
-        <!--Adicionar-->
         <Button
-            style="?android:attr/absListViewStyle"
-            android:textStyle="bold"
-            android:layout_width="150dp"
-            android:layout_height="wrap_content"
-            android:text="@string/Cancelar"
-            android:background="@color/colorTrasnparente"
-            android:id="@+id/btnCancelar"
-            android:layout_gravity="left|center_vertical" />
-
-
-        <!--Linha meio-->
-        <FrameLayout
-            android:layout_width="0.5dp"
-            android:layout_height="50dp"
-            android:background="@color/colorCinza"
-            android:layout_gravity="center" />
-
-
-        <!--Cancelar-->
-        <Button
-            style="?android:attr/absListViewStyle"
-            android:textStyle="bold"
-            android:layout_width="150dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/Adicionar"
-            android:background="@color/colorTrasnparente"
-            android:id="@+id/btnAdicionar"
-            android:layout_gravity="right|center_vertical" />
+            android:id="@+id/btnExcluir"
+            android:layout_gravity="right|center_vertical"
+            android:textColor="@color/colorAccent"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:background="@color/colorTrasnparente" />
 
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/Cancelar"
+            android:id="@+id/btnCancelar"
+            android:layout_gravity="right|center_vertical"
+            android:textColor="@color/colorAccent"
+            android:layout_centerVertical="true"
+            android:layout_toLeftOf="@+id/btnExcluir"
+            android:layout_toStartOf="@+id/btnExcluir"
+            android:background="@color/colorTrasnparente" />
 
-    </FrameLayout>
-
+    </RelativeLayout>
 
 </LinearLayout>

@@ -31,9 +31,11 @@
             android:screenOrientation="portrait"/>
         <activity
             android:name=".view.ListaDePartidas"
+            android:theme="@style/AppTheme.Accent"
             android:screenOrientation="portrait"/>
 
         <activity android:name=".view.Sobre"
+            android:theme="@style/AppTheme.Accent"
             android:screenOrientation="portrait"/>
 
         <!--

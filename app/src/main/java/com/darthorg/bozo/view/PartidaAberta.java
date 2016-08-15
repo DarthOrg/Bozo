@@ -138,7 +138,7 @@ public class PartidaAberta extends AppCompatActivity {
 
                 //Recupera os componentes do layout do custondialog
                 final EditText etNomeJogador = (EditText) dialogAdicionarJogador.findViewById(R.id.edit_nome_novo_jogador);
-                Button btnAdicionarJogador = (Button) dialogAdicionarJogador.findViewById(R.id.btnAdicionar);
+                Button btnAdicionarJogador = (Button) dialogAdicionarJogador.findViewById(R.id.btnExcluir);
                 Button btnCancelar = (Button) dialogAdicionarJogador.findViewById(R.id.btnCancelar);
 
 
@@ -385,7 +385,7 @@ public class PartidaAberta extends AppCompatActivity {
             AlertDialog.Builder builder = new AlertDialog.Builder(PartidaAberta.this);
 
             //Botão Salvar grupo
-            Button btnSalvarGrupo = (Button) dialogLayout.findViewById(R.id.btnSalvar);
+            Button btnSalvarGrupo = (Button) dialogLayout.findViewById(R.id.btnExcluir);
             btnSalvarGrupo.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(final View view) {
@@ -485,7 +485,7 @@ public class PartidaAberta extends AppCompatActivity {
             AlertDialog.Builder builder = new AlertDialog.Builder(PartidaAberta.this);
 
             //Botão Salvar grupo
-            Button btnSalvarGrupo = (Button) dialogLayout.findViewById(R.id.btnSalvar);
+            Button btnSalvarGrupo = (Button) dialogLayout.findViewById(R.id.btnExcluir);
             btnSalvarGrupo.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(final View view) {

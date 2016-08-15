@@ -47,7 +47,7 @@ public class NovaPartida extends AppCompatActivity {
 
         novoJogador = (ImageButton) findViewById(R.id.novoJogador);
         btnEditar = (Button) findViewById(R.id.btnEditar);
-        btnSalvar = (Button) findViewById(R.id.btnSalvar);
+        btnSalvar = (Button) findViewById(R.id.btnExcluir);
         btnSair = (ImageButton) findViewById(R.id.btnSair);
         btnVoltar = (ImageButton) findViewById(R.id.btnVoltar);
         btnAdicionarJogador = (ImageButton) findViewById(R.id.btnAdicionarJogador);

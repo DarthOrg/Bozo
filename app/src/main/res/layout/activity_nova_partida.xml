@@ -228,7 +228,7 @@
         android:layout_centerHorizontal="true" />
 
     <Button
-        android:id="@+id/btnSalvar"
+        android:id="@+id/btnExcluir"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/Salvar"
