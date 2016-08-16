@@ -17,6 +17,7 @@ import com.darthorg.bozo.R;
 import com.darthorg.bozo.model.PecaBozo;
 
 import java.util.ArrayList;
+import java.util.EmptyStackException;
 import java.util.List;
 
 /**
@@ -141,38 +142,59 @@ public class FragmentFilho extends Fragment {
                                           Button btnRiscar = (Button) dialogMarcarBozó.findViewById(R.id.btnRiscar);
                                           Button btnCancelar = (Button) dialogMarcarBozó.findViewById(R.id.btnCancelar);
 
+                                          //Titulo
+                                          dialogMarcarBozó.setTitle(R.string.AdicionarJogador);
+
                                           switch (pecaBozo.getNome()) {
                                               case nomeAz:
                                                   dialogMarcarBozó.setTitle(getString(R.string.Az) + " ( 1 á 5 )");
                                                   et.setFilters(new InputFilter[]{new InputFilter.LengthFilter(1)});
+                                                  btnRiscar.setText("Riscar Áz");
                                                   break;
                                               case nomeDuque:
                                                   dialogMarcarBozó.setTitle(getString(R.string.Duque) + " ( 2 á 10 )");
+                                                  et.setFilters(new InputFilter[]{new InputFilter.LengthFilter(2)});
+                                                  btnRiscar.setText("Riscar Duque");
                                                   break;
                                               case nomeTerno:
                                                   dialogMarcarBozó.setTitle(getString(R.string.Terno) + " ( 3 á 15 )");
+                                                  et.setFilters(new InputFilter[]{new InputFilter.LengthFilter(2)});
+                                                  btnRiscar.setText("Riscar Terno");
                                                   break;
                                               case nomeQuadra:
                                                   dialogMarcarBozó.setTitle(getString(R.string.Quadra) + " ( 4 á 20 )");
+                                                  et.setFilters(new InputFilter[]{new InputFilter.LengthFilter(2)});
+                                                  btnRiscar.setText("Riscar Quadra");
                                                   break;
                                               case nomeQuina:
                                                   dialogMarcarBozó.setTitle(getString(R.string.Quina) + " ( 5 á 25 )");
+                                                  et.setFilters(new InputFilter[]{new InputFilter.LengthFilter(2)});
+                                                  btnRiscar.setText("Riscar Quina");
                                                   break;
                                               case nomeSena:
                                                   dialogMarcarBozó.setTitle(getString(R.string.Sena) + " ( 6 á 30 )");
+                                                  et.setFilters(new InputFilter[]{new InputFilter.LengthFilter(2)});
+                                                  btnRiscar.setText("Riscar Sena");
                                                   break;
                                               case nomeFull:
                                                   dialogMarcarBozó.setTitle(getString(R.string.Full) + " ( 10 ou 15 )");
+                                                  et.setFilters(new InputFilter[]{new InputFilter.LengthFilter(2)});
+                                                  btnRiscar.setText("Riscar Full");
                                                   break;
                                               case nomeSeguida:
                                                   dialogMarcarBozó.setTitle(getString(R.string.Seguida) + " ( 20 ou 25)");
+                                                  et.setFilters(new InputFilter[]{new InputFilter.LengthFilter(2)});
+                                                  btnRiscar.setText("Riscar Seguida");
                                                   break;
                                               case nomeQuadrada:
                                                   dialogMarcarBozó.setTitle(getString(R.string.Quadrada) + " ( 30 ou 35 )");
+                                                  et.setFilters(new InputFilter[]{new InputFilter.LengthFilter(2)});
+                                                  btnRiscar.setText("Riscar Quadrada");
                                                   break;
                                               case nomeGeneral:
-                                                  dialogMarcarBozó.setTitle(getString(R.string.Quadrada) + " ( 40 ou 100)");
+                                                  dialogMarcarBozó.setTitle(getString(R.string.General) + " ( 40 ou 100)");
                                                   et.setFilters(new InputFilter[]{new InputFilter.LengthFilter(3)});
+                                                  btnRiscar.setText("Riscar General");
                                                   break;
                                               default:
                                                   break;

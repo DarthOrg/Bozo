@@ -5,96 +5,74 @@
     android:background="@color/colorFundoPartida"
     android:orientation="vertical">
 
-    <!--EditText-->
-    <FrameLayout
+
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal">
+        android:layout_gravity="center_horizontal"
+        android:padding="14dp">
+
+
 
         <EditText
-            android:theme="@style/AppTheme.WhiteBotton"
-            android:layout_margin="20dp"
+            android:theme="@style/AppTheme.Accent"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="numberSigned"
+            android:selectAllOnFocus="true"
+            android:inputType="number"
             android:textColor="@color/colorBlack"
-            android:textSize="100dp"
-            android:hint="0"
-            android:textColorHint="@color/colorCinza"
+            android:hint="@string/HintValorDado"
+            android:textColorHint="@color/colorTextoHint"
             android:ems="10"
             android:id="@+id/etPonto" />
-    </FrameLayout>
+    </RelativeLayout>
 
-    <!--Linha-->
-    <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="0.5dp"
-        android:background="@color/colorCinza"/>
-
-    <!--Botões-->
-    <FrameLayout
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="5dp"
         android:layout_gravity="center_horizontal">
 
-        <!--Cancelar-->
         <Button
-            style="?android:attr/absListViewStyle"
-            android:textStyle="bold"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/Marcar"
-            android:drawableStart="@drawable/ic_confirmado"
-            android:background="@color/colorTrasnparente"
-            android:id="@+id/btnMarcar"
-            android:layout_gravity="right|center_vertical" />
-
-        <!--Linha meio-->
-        <FrameLayout
-            android:layout_width="0.5dp"
-            android:layout_height="50dp"
-            android:background="@color/colorCinza"
-            android:layout_gravity="right|center_vertical"
-            android:layout_marginRight="100dp" />
-
-        <Button
-            style="?android:attr/absListViewStyle"
-            android:textStyle="bold"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/Riscar"
-            android:textColor="@color/colorRed"
-            android:drawableStart="@drawable/ic_riscar"
-            android:background="@color/colorTrasnparente"
             android:id="@+id/btnRiscar"
-            android:layout_gravity="center" />
+            android:layout_gravity="right|center_vertical"
+            android:textColor="@color/colorRed"
+            android:layout_alignParentRight="true"
+            android:background="@color/colorTrasnparente" />
 
-        <!--Linha meio-->
-        <FrameLayout
-            android:layout_width="0.5dp"
-            android:layout_height="50dp"
-            android:background="@color/colorCinza"
-            android:layout_gravity="left|center_vertical"
-            android:layout_marginLeft="90dp" />
+
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:paddingLeft="5dp"
+        android:paddingBottom="14dp">
 
         <Button
-            style="?android:attr/absListViewStyle"
-            android:textStyle="bold"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/Cancelar"
-            android:background="@color/colorTrasnparente"
             android:id="@+id/btnCancelar"
-            android:layout_gravity="left|center_vertical" />
+            android:layout_gravity="right|center_vertical"
+            android:textColor="@color/colorCinza"
+            android:background="@color/colorTrasnparente" />
 
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/Marcar"
+            android:id="@+id/btnMarcar"
+            android:layout_gravity="right|center_vertical"
+            android:textColor="@color/colorAccent"
+            android:layout_alignParentRight="true"
+            android:background="@color/colorTrasnparente" />
 
-
-
-    </FrameLayout>
-
-
-
+    </RelativeLayout>
 
 </LinearLayout>
 

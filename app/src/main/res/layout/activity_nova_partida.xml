@@ -133,7 +133,7 @@
         </RelativeLayout>
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="200dp"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:text="@string/NomedoGrupo"
@@ -143,34 +143,42 @@
             android:layout_weight="1"
             android:id="@+id/tvNomeGrupo" />
 
-        <EditText
+        <android.support.design.widget.TextInputLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:inputType="textPersonName"
-            android:text="Nome do grupo"
-            android:ems="10"
-            android:id="@+id/editText_nomePartida"
-            android:layout_weight="1"
-            android:layout_gravity="center_vertical"
-            android:layout_marginLeft="16dp"
-            android:visibility="gone"
-            android:layout_marginRight="16dp"
-            android:autoText="true"
-            android:autoLink="all" />
+            android:layout_gravity="center">
 
-        <EditText
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName"
+                android:hint="Nome do grupo"
+                android:id="@+id/editText_nomePartida"
+                android:layout_marginLeft="16dp"
+                android:ems="300"
+                android:visibility="gone"
+                android:layout_marginRight="16dp"/>
+
+
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:inputType="textPersonName"
-            android:ems="10"
-            android:id="@+id/edit_nome_novo_jogador"
-            android:layout_weight="1"
             android:layout_gravity="center_vertical"
-            android:layerType="hardware"
-            android:hint="Digitar nome do jogador..."
-            android:visibility="gone"
-            android:autoText="true"
-            android:autoLink="all" />
+            android:layout_weight="1">
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName"
+                android:id="@+id/edit_nome_novo_jogador"
+                android:layerType="hardware"
+                android:hint="@string/NomeJogador"
+                android:visibility="gone" />
+
+        </android.support.design.widget.TextInputLayout>
+
 
         <ImageButton
             android:id="@+id/btnAdicionarJogador"
