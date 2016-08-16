@@ -141,9 +141,6 @@ public class FragmentFilho extends Fragment {
                                           Button btnRiscar = (Button) dialogMarcarBozó.findViewById(R.id.btnRiscar);
                                           Button btnCancelar = (Button) dialogMarcarBozó.findViewById(R.id.btnCancelar);
 
-                                          //Titulo
-                                          dialogMarcarBozó.setTitle(R.string.AdicionarJogador);
-
                                           switch (pecaBozo.getNome()) {
                                               case nomeAz:
                                                   dialogMarcarBozó.setTitle(getString(R.string.Az) + " ( 1 á 5 )");

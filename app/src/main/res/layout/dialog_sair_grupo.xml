@@ -18,7 +18,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="Descartar ?"
+            android:text="Salvar grupo de jogo ?"
             android:id="@+id/textView13"
             android:layout_alignParentTop="true"
             android:layout_alignParentLeft="true"
@@ -41,19 +41,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:padding="8dp">
-
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/Salvar"
-            android:id="@+id/btnExcluir"
-            android:layout_gravity="right|center_vertical"
-            android:textColor="@color/colorAccent"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true"
-            android:background="@color/colorTrasnparente" />
+        android:paddingRight="24dp">
 
         <Button
             android:layout_width="wrap_content"
@@ -61,10 +49,29 @@
             android:text="@string/Descartar"
             android:id="@+id/btnDescartar"
             android:layout_gravity="right|center_vertical"
+            android:textColor="@color/colorCinza"
+            android:layout_alignParentRight="true"
+            android:background="@color/colorTrasnparente" />
+
+
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:paddingBottom="14dp"
+        android:paddingRight="24dp">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Salvar grupo"
+            android:id="@+id/btnExcluir"
+            android:layout_gravity="right|center_vertical"
             android:textColor="@color/colorAccent"
-            android:layout_centerVertical="true"
-            android:layout_toLeftOf="@+id/btnExcluir"
-            android:layout_toStartOf="@+id/btnExcluir"
+            android:layout_alignParentRight="true"
             android:background="@color/colorTrasnparente" />
 
     </RelativeLayout>

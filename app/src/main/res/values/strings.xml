@@ -44,8 +44,8 @@
     <string name="Marcar">Marcar</string>
 
     <!--Texto Dialog Sair-->
-    <string name="TextoSairGrupo">Se sair agora, seu grupo e as informações vão ser descartadas.</string>
-    <string name="Descartar">Descartar</string>
+    <string name="TextoSairGrupo">Você pode salvar seu grupo de jogo se quiser jogar mais tarde.</string>
+    <string name="Descartar">Descartar grupo</string>
     <string name="Salvar">Salvar</string>
 
     <!--Texto Menu-->
