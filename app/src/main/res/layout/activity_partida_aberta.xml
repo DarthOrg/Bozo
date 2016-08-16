@@ -16,21 +16,41 @@
         <android.support.design.widget.AppBarLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:elevation="5dp"
+            app:elevation="1dp"
             android:id="@+id/view3">
 
-            <!--TOOLBAR TOPO-->
-            <android.support.v7.widget.Toolbar
-                android:id="@+id/toolbar"
-                app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+            <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="?attr/actionBarSize"/>
+                android:layout_height="56dp"
+                android:layout_gravity="center_horizontal">
+
+
+                <!--TOOLBAR TOPO-->
+                <android.support.v7.widget.Toolbar
+                    android:id="@+id/toolbar"
+                    app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+                    android:layout_width="match_parent"
+                    android:layout_height="?attr/actionBarSize"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:text="@string/DadosDoGrupo"
+                    android:id="@+id/TituloGrupo"
+                    android:textSize="15dp"
+                    android:textColor="@color/colorAccent800"
+                    android:layout_centerVertical="true"
+                    android:layout_centerHorizontal="true" />
+
+
+            </RelativeLayout>
 
             <!--TAB LAYOUT A BAIXO-->
             <android.support.design.widget.TabLayout
                 android:id="@+id/tabLayoutJogadores"
                 android:layout_width="match_parent"
-                android:layout_height="?attr/actionBarSize"
+                android:layout_height="wrap_content"
                 android:background="@color/colorFundoPartida"
                 app:tabMode="scrollable"/>
 
@@ -41,26 +61,26 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:layout_marginTop="110dp"/>
+            android:layout_below="@+id/view3" />
 
     </RelativeLayout>
 
+
     <com.github.clans.fab.FloatingActionMenu
-        android:paddingTop="220dp"
-        android:paddingRight="5dp"
+        android:padding="16dp"
         android:id="@+id/floating_menu"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         fab:menu_animationDelayPerItem="55"
-        fab:menu_backgroundColor="@color/colorBlackTransparente4"
+        fab:menu_backgroundColor="@color/colorBlackTransparente3"
         fab:menu_buttonSpacing="0dp"
-        fab:menu_colorNormal="@color/colorBlack"
-        fab:menu_colorPressed="@color/colorBlack"
+        fab:menu_colorNormal="@color/colorAccent"
+        fab:menu_colorPressed="@color/colorAccent700"
         fab:menu_colorRipple="@color/colorWhite"
         fab:menu_fab_size="normal"
         fab:menu_icon="@drawable/ic_mais_fab_white"
         fab:menu_labels_colorNormal="@color/colorWhite"
-        fab:menu_labels_colorPressed="@color/colorCinza"
+        fab:menu_labels_colorPressed="@color/colorStatusBar"
         fab:menu_labels_colorRipple="#66efecec"
         fab:menu_labels_cornerRadius="3dp"
         fab:menu_labels_ellipsize="none"
@@ -74,7 +94,7 @@
         fab:menu_labels_singleLine="false"
         fab:menu_labels_textColor="@color/colorBlack"
         fab:menu_labels_textSize="15sp"
-        fab:menu_openDirection="down"
+        fab:menu_openDirection="up"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true">
 
@@ -84,11 +104,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/ic_deletar_jogador"
-            fab:fab_colorNormal="@color/colorWhite"
-            fab:fab_colorPressed="@color/colorCinza"
-            fab:fab_colorRipple="@color/colorBlack"
+            fab:fab_colorNormal="@color/colorRed"
+            fab:fab_colorPressed="@color/colorStatusBar"
+            fab:fab_colorRipple="@color/colorStatusBar"
             fab:fab_label="@string/ExcluirJogadorSelecionado"
-            fab:fab_size="normal" />
+            fab:fab_size="mini" />
 
         <com.github.clans.fab.FloatingActionButton
             android:id="@+id/floating_add_jogador"
@@ -96,10 +116,10 @@
             android:layout_height="wrap_content"
             android:src="@drawable/ic_add_jogador"
             fab:fab_colorNormal="@color/colorWhite"
-            fab:fab_colorPressed="@color/colorCinza"
-            fab:fab_colorRipple="@color/colorBlack"
+            fab:fab_colorPressed="@color/colorStatusBar"
+            fab:fab_colorRipple="@color/colorStatusBar"
             fab:fab_label="@string/AdicionarJogador"
-            fab:fab_size="normal" />
+            fab:fab_size="mini" />
 
         <com.github.clans.fab.FloatingActionButton
             android:id="@+id/floating_placar"
@@ -107,10 +127,10 @@
             android:layout_height="wrap_content"
             android:src="@drawable/ic_placar"
             fab:fab_colorNormal="@color/colorWhite"
-            fab:fab_colorPressed="@color/colorCinza"
-            fab:fab_colorRipple="@color/colorBlack"
+            fab:fab_colorPressed="@color/colorStatusBar"
+            fab:fab_colorRipple="@color/colorStatusBar"
             fab:fab_label="@string/Placar"
-            fab:fab_size="normal" />
+            fab:fab_size="mini" />
     </com.github.clans.fab.FloatingActionMenu>
 
 

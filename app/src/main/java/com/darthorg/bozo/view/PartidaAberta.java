@@ -22,6 +22,7 @@ import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.darthorg.bozo.R;
@@ -63,6 +64,8 @@ public class PartidaAberta extends AppCompatActivity {
     private TabLayout tabLayout;
     private Toolbar toolbar;
 
+    private Button btnAz, btnDuque, btnTerno, btnQuadrada, btnSeguida, btnFull, btnQuina, btnSena, btnGeneral, btnQuadra;
+
     private TabsDinamicosAdapter adapter;
 
     private final int Progress = 1000;
@@ -77,6 +80,8 @@ public class PartidaAberta extends AppCompatActivity {
     FloatingActionMenu fabMenu;
     FloatingActionButton floatingActionButton1, floatingActionButton2, floatingActionButton3;
 
+    TextView tituloGrupo;
+
 
 
     @Override
@@ -87,10 +92,7 @@ public class PartidaAberta extends AppCompatActivity {
         //Busca os Ids nos Xml
         getIDs();
 
-        //Configura o Toolbar
-        toolbar.setTitle(R.string.Marcador);
-        toolbar.setSubtitleTextColor(Color.BLACK);
-
+        toolbar.setTitle(R.string.TextoVazio);
         setSupportActionBar(toolbar);
 
         //Configura o Adapter junto com o ViewPager
@@ -99,11 +101,12 @@ public class PartidaAberta extends AppCompatActivity {
 
         //Configura o TabLayout com o ViewPager
         tabLayout.setupWithViewPager(viewPager);
+        tituloGrupo = (TextView) findViewById(R.id.TituloGrupo);
 
         // Configura as Cores no TabLayout
-        int corOn = ContextCompat.getColor(this, R.color.colorBlack);
-        int corOff = ContextCompat.getColor(this, R.color.colorBlackTransparente);
-        int corBarra = ContextCompat.getColor(this, R.color.colorBlack);
+        int corOn = ContextCompat.getColor(this, R.color.colorAccent);
+        int corOff = ContextCompat.getColor(this, R.color.colorAccentTransparent);
+        int corBarra = ContextCompat.getColor(this, R.color.colorAccent);
         int corFundoTabLayoyt = ContextCompat.getColor(this, R.color.colorWhite);
         tabLayout.setBackgroundColor(corFundoTabLayoyt);
         tabLayout.setTabTextColors(corOff, corOn);
@@ -304,7 +307,7 @@ public class PartidaAberta extends AppCompatActivity {
                     jogadoresRodada = new ArrayList<>();
 
                     partida.setNome(bundleParams.getString("nomepartida"));
-                    toolbar.setSubtitle(partida.getNome());
+                    tituloGrupo.setText(partida.getNome());
 
                     ArrayList<String> jogadoresIniciais = bundleParams.getStringArrayList("jogadores");
 
@@ -330,7 +333,7 @@ public class PartidaAberta extends AppCompatActivity {
                 } else {
 
                     partida = buscarPartida(bundleParams.getLong("partidaSalva"));
-                    toolbar.setSubtitle(partida.getNome());
+                    tituloGrupo.setText(partida.getNome());
 
                     Log.i("partidasalva", "id da partida :" + bundleParams.getLong("partidaSalva"));
 
