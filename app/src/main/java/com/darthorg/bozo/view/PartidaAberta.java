@@ -188,31 +188,52 @@ public class PartidaAberta extends AppCompatActivity {
             public void onClick(View v) {
 
 
-                Snackbar.make(viewPager, R.string.ExcluirJogadorSelecionado, Snackbar.LENGTH_LONG)
-                        .setActionTextColor(Color.RED)
-                        .setAction(getString(R.string.Excluir) + jogadoresRodada.get(viewPager.getCurrentItem()).getNome(), new View.OnClickListener() {
-                            @Override
-                            public void onClick(View view) {
-                                if (adapter.getCount() > 0) {
-                                    jogadorController = new JogadorController(PartidaAberta.this);
-                                    String nomeJogadorTabAtual = jogadoresRodada.get(viewPager.getCurrentItem()).getNome();
-                                    Jogador jogadorBuscado = buscarJogador(nomeJogadorTabAtual);
-                                    jogadorController.deletarJogador(jogadorBuscado);
-                                    jogadoresRodada.remove(viewPager.getCurrentItem());
-                                    adapter.removeFrag(viewPager.getCurrentItem());
-                                    adapter.notifyDataSetChanged();
-                                    // vincula denovo o viewpager com o tablayout
-                                    tabLayout.setupWithViewPager(viewPager);
+                //Dialog para Adicionar Jogador
+                final Dialog dialogAdicionarJogador = new Dialog(PartidaAberta.this);
+                // Configura a view para o Dialog
+                dialogAdicionarJogador.setContentView(R.layout.dialog_excluir);
 
-                                } else {
-                                    Snackbar.make(view, R.string.TextoSemJogadores, Snackbar.LENGTH_LONG).show();
-                                }
+                //Recupera os componentes do layout do custondialog
+                Button btnExcluir = (Button) dialogAdicionarJogador.findViewById(R.id.btnExcluir);
+                Button btnCancelar = (Button) dialogAdicionarJogador.findViewById(R.id.btnCancelar);
+                TextView txtNomeJogadorExcluido = (TextView) dialogAdicionarJogador.findViewById(R.id.txtNomeJogadorExcluido);
 
-                            }
-                        })
-                        .show();
+
+                txtNomeJogadorExcluido.setText(jogadoresRodada.get(viewPager.getCurrentItem()).getNome());
+
+                //Botão Excluir
+                btnExcluir.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        if (adapter.getCount() > 0) {
+                            jogadorController = new JogadorController(PartidaAberta.this);
+                            String nomeJogadorTabAtual = jogadoresRodada.get(viewPager.getCurrentItem()).getNome();
+                            Jogador jogadorBuscado = buscarJogador(nomeJogadorTabAtual);
+                            jogadorController.deletarJogador(jogadorBuscado);
+                            jogadoresRodada.remove(viewPager.getCurrentItem());
+                            adapter.removeFrag(viewPager.getCurrentItem());
+                            adapter.notifyDataSetChanged();
+                            // vincula denovo o viewpager com o tablayout
+                            tabLayout.setupWithViewPager(viewPager);
+
+                            dialogAdicionarJogador.dismiss();
+
+                        } else {
+                            Snackbar.make(view, R.string.TextoSemJogadores, Snackbar.LENGTH_LONG).show();
+                        }
+                    }
+                });
+
+                //Botão Cancelar
+                btnCancelar.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        dialogAdicionarJogador.dismiss();
+                        return;
+                    }
+                });
+                dialogAdicionarJogador.show();
                 fabMenu.close(true);
-
             }
         });
         floatingActionButton3.setOnClickListener(new View.OnClickListener() {

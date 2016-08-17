@@ -137,7 +137,7 @@ public class FragmentFilho extends Fragment {
 
     }
 
-    public void cliquePeca(final PecaBozo pecaBozo, final Button button, final ImageView risco) {
+    public void cliquePeca(final PecaBozo pecaBozo, final Button  button, final ImageView risco) {
 
         button.setOnClickListener(new View.OnClickListener() {
                                       @Override
