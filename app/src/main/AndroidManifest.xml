@@ -29,6 +29,7 @@
             android:screenOrientation="portrait"/>
         <activity
             android:name=".view.ListaDePlacar"
+            android:theme="@style/AppTheme.Accent"
             android:screenOrientation="portrait"/>
         <activity
             android:name=".view.ListaDePartidas"

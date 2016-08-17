@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".view.ListaDePlacar"
+    android:theme="@style/AppTheme.WhiteBotton"
     android:background="@color/colorWhite">
 
     <android.support.design.widget.AppBarLayout
@@ -14,28 +15,31 @@
         android:fitsSystemWindows="true"
         app:elevation="0dp">
 
-        <android.support.v7.widget.Toolbar
-            android:id="@+id/toolbar"
-            android:layout_height="?attr/actionBarSize"
+        <RelativeLayout
             android:layout_width="match_parent"
-            app:layout_scrollFlags="scroll|enterAlways"
-            android:fitsSystemWindows="true"/>
+            android:layout_height="56dp"
+            android:layout_gravity="center_horizontal">
 
-        <FrameLayout
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:padding="15dp"
-            android:background="@color/colorAccent">
-
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_height="?attr/actionBarSize"
+                android:layout_width="match_parent"
+                android:background="@color/colorAccent"
+                app:layout_scrollFlags="scroll|enterAlways"
+                android:fitsSystemWindows="true"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:text="@string/TotalDeRodadas"
-                android:id="@+id/textView"
+                android:id="@+id/Titulo"
+                android:layout_gravity="center"
                 android:textSize="15dp"
-                android:layout_gravity="center" />
+                android:textColor="@color/colorWhiteTransparente"
+                android:layout_centerVertical="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginRight="5dp" />
 
             <Button
                 android:layout_width="25dp"
@@ -44,22 +48,28 @@
                 android:textColor="@color/colorAccent"
                 android:textSize="15dp"
                 android:background="@drawable/circulo"
-                android:layout_alignParentBottom="true"
-                android:layout_alignParentRight="true"
-                android:layout_alignParentEnd="true"
                 android:id="@+id/textView2"
                 android:layout_gravity="right|center_vertical"
-                android:layout_marginRight="16dp"
-                android:layout_marginLeft="10dp" />
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@+id/Titulo"
+                android:layout_toEndOf="@+id/Titulo"
+                android:backgroundTint="@color/colorWhite" />
 
-        </FrameLayout>
+        </RelativeLayout>
+
+
+
+
     </android.support.design.widget.AppBarLayout>
 
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="110dp"
-        android:background="@color/colorFundoPartida">
+        android:background="@color/colorFundoPartida"
+        android:layout_below="@+id/appbar"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:id="@+id/frameLayout4">
 
 
         <TextView
@@ -75,11 +85,13 @@
 
     <ListView
         android:background="@color/colorFundoPartida"
-        android:layout_marginTop="135dp"
         android:dividerHeight="1dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/list_view_placar"/>
+        android:id="@+id/list_view_placar"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/frameLayout4" />
 
 
-</android.support.design.widget.CoordinatorLayout>
+</RelativeLayout>
