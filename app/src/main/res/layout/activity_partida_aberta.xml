@@ -51,8 +51,11 @@
                 android:id="@+id/tabLayoutJogadores"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/colorFundoPartida"
-                app:tabMode="scrollable"/>
+                android:background="@color/colorWhite"
+                app:tabMode="scrollable"
+                app:tabTextColor="@color/colorAccentTransparent"
+                app:tabSelectedTextColor="@color/colorAccent"
+                app:tabIndicatorColor="@color/colorAccent"/>
 
         </android.support.design.widget.AppBarLayout>
 

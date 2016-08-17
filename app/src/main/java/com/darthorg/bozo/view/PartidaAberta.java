@@ -3,13 +3,10 @@ package com.darthorg.bozo.view;
 import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.Intent;
-import android.graphics.Color;
-import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.design.widget.Snackbar;
 import android.support.design.widget.TabLayout;
-import android.support.v4.content.ContextCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -48,10 +45,9 @@ import java.util.List;
  */
 public class PartidaAberta extends AppCompatActivity {
 
-    //Partida Atual
-    private Partida partida;
-
     //Objetos que vao ser Manipulados durante a rodada
+
+    private Partida partida;
     private Rodada rodada;
     private List<Jogador> jogadoresRodada;
 
@@ -63,12 +59,8 @@ public class PartidaAberta extends AppCompatActivity {
     private ViewPager viewPager;
     private TabLayout tabLayout;
     private Toolbar toolbar;
-
-    private Button btnAz, btnDuque, btnTerno, btnQuadrada, btnSeguida, btnFull, btnQuina, btnSena, btnGeneral, btnQuadra;
-
     private TabsDinamicosAdapter adapter;
 
-    private final int Progress = 1000;
     private final int ProgressSalvar = 1000;
 
     //Responsaveis por trazer os dados da Activity anterior
@@ -89,6 +81,9 @@ public class PartidaAberta extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_partida_aberta);
 
+        // Evita que a tela bloqueie sozinha
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
+
         //Busca os Ids nos Xml
         getIDs();
 
@@ -103,27 +98,15 @@ public class PartidaAberta extends AppCompatActivity {
         tabLayout.setupWithViewPager(viewPager);
         tituloGrupo = (TextView) findViewById(R.id.TituloGrupo);
 
-        // Configura as Cores no TabLayout
-        int corOn = ContextCompat.getColor(this, R.color.colorAccent);
-        int corOff = ContextCompat.getColor(this, R.color.colorAccentTransparent);
-        int corBarra = ContextCompat.getColor(this, R.color.colorAccent);
-        int corFundoTabLayoyt = ContextCompat.getColor(this, R.color.colorWhite);
-        tabLayout.setBackgroundColor(corFundoTabLayoyt);
-        tabLayout.setTabTextColors(corOff, corOn);
-        tabLayout.setSelectedTabIndicatorColor(corBarra);
-
         //Recupera os valores das intents
         intent = getIntent();
         bundleParams = intent.getExtras();
 
+        //todo:Refatorando este método
         configurarPartida();
 
         //Float action bar
-        fabMenu = (FloatingActionMenu) findViewById(R.id.floating_menu);
         fabMenu.setClosedOnTouchOutside(true);
-        floatingActionButton1 = (FloatingActionButton) findViewById(R.id.floating_add_jogador);
-        floatingActionButton2 = (FloatingActionButton) findViewById(R.id.floating_excluir_jogador);
-        floatingActionButton3 = (FloatingActionButton) findViewById(R.id.floating_placar);
 
         floatingActionButton1.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
@@ -254,6 +237,11 @@ public class PartidaAberta extends AppCompatActivity {
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         viewPager = (ViewPager) findViewById(R.id.viewPagerMarcadorJogador);
         tabLayout = (TabLayout) findViewById(R.id.tabLayoutJogadores);
+
+        fabMenu = (FloatingActionMenu) findViewById(R.id.floating_menu);
+        floatingActionButton1 = (FloatingActionButton) findViewById(R.id.floating_add_jogador);
+        floatingActionButton2 = (FloatingActionButton) findViewById(R.id.floating_excluir_jogador);
+        floatingActionButton3 = (FloatingActionButton) findViewById(R.id.floating_placar);
     }
 
     /**
