@@ -464,9 +464,6 @@ public class PartidaAberta extends AppCompatActivity {
             btnDescartarGrupo.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    //TODO: Melhorar isso( Não deletar ! descartar alteraçoes :D)
-                    PartidaDAO partidaDAO = new PartidaDAO(PartidaAberta.this);
-                    partidaDAO.deletarPartida(partida);
                     finish();
                 }
             });
@@ -564,9 +561,6 @@ public class PartidaAberta extends AppCompatActivity {
             btnDescartarGrupo.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    //TODO: Melhorar isso( Não deletar ! descartar alteraçoes :D)
-                    PartidaDAO partidaDAO = new PartidaDAO(PartidaAberta.this);
-                    partidaDAO.deletarPartida(partida);
                     finish();
                 }
             });
