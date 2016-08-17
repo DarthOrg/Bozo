@@ -132,6 +132,7 @@ public class NovaPartida extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                     btnEditar.setVisibility(View.VISIBLE);
+                    btnIniciar.setVisibility(View.VISIBLE);
                     tvNomeGrupo.setVisibility(View.VISIBLE);
                     btnSalvar.setVisibility(View.GONE);
                     btnSair.setVisibility(View.GONE);
