@@ -27,9 +27,6 @@ import com.darthorg.bozo.adapter.TabsDinamicosAdapter;
 import com.darthorg.bozo.controller.JogadorController;
 import com.darthorg.bozo.controller.PartidaController;
 import com.darthorg.bozo.controller.RodadaController;
-import com.darthorg.bozo.dao.JogadorDAO;
-import com.darthorg.bozo.dao.PartidaDAO;
-import com.darthorg.bozo.dao.RodadaDAO;
 import com.darthorg.bozo.fragment.FragmentFilho;
 import com.darthorg.bozo.model.Jogador;
 import com.darthorg.bozo.model.Partida;
@@ -41,25 +38,30 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * todo: Rever essa classe ( Esta com muita gambiarra )
+ * Partida que Gerencia o Jogo
  */
 public class PartidaAberta extends AppCompatActivity {
 
     //Objetos que vao ser Manipulados durante a rodada
-
     private Partida partida;
     private Rodada rodada;
     private List<Jogador> jogadoresRodada;
+
+    private List<Jogador> listJogadoresBanco;
 
     //Controllers
     private PartidaController partidaController;
     private RodadaController rodadaController;
     private JogadorController jogadorController;
 
+    // Widgets
     private ViewPager viewPager;
     private TabLayout tabLayout;
     private Toolbar toolbar;
     private TabsDinamicosAdapter adapter;
+    // FloatButtons para o Menu
+    private FloatingActionMenu fabMenu;
+    private FloatingActionButton floatingActionButton1, floatingActionButton2, floatingActionButton3;
 
     private final int ProgressSalvar = 1000;
 
@@ -67,20 +69,13 @@ public class PartidaAberta extends AppCompatActivity {
     private Intent intent;
     private Bundle bundleParams;
 
-    List<Jogador> listJogadores;
-
-    FloatingActionMenu fabMenu;
-    FloatingActionButton floatingActionButton1, floatingActionButton2, floatingActionButton3;
-
-    TextView tituloGrupo;
-
+    private TextView tituloGrupo;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_partida_aberta);
-
         // Evita que a tela bloqueie sozinha
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
 
@@ -102,16 +97,15 @@ public class PartidaAberta extends AppCompatActivity {
         intent = getIntent();
         bundleParams = intent.getExtras();
 
-        //todo:Refatorando este método
+        //Método que configura a partida
         configurarPartida();
 
         //Float action bar
         fabMenu.setClosedOnTouchOutside(true);
 
+        //Adicionar jogador
         floatingActionButton1.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-
-                jogadorController = new JogadorController(PartidaAberta.this);
 
                 //Dialog para Adicionar Jogador
                 final Dialog dialogAdicionarJogador = new Dialog(PartidaAberta.this);
@@ -123,32 +117,30 @@ public class PartidaAberta extends AppCompatActivity {
                 Button btnAdicionarJogador = (Button) dialogAdicionarJogador.findViewById(R.id.btnExcluir);
                 Button btnCancelar = (Button) dialogAdicionarJogador.findViewById(R.id.btnCancelar);
 
-
                 //Titulo
                 dialogAdicionarJogador.setTitle(R.string.AdicionarJogador);
-                //Adicionar Jogador
+
+                //Add Jogador
                 btnAdicionarJogador.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
 
                         FragmentFilho fragmentFilho = new FragmentFilho();
-
                         Jogador jogador = new Jogador();
                         jogador.setNome(etNomeJogador.getText().toString());
 
                         // Adiciona o jogador numa lista local de jogadores
                         jogadoresRodada.add(jogador);
-
                         //Adiciona o Fragment nas tabs
                         adapter.addFrag(fragmentFilho, etNomeJogador.getText().toString());
+                        // Notifica o Adapter que um novo fragment foi adicionado
                         adapter.notifyDataSetChanged();
-
-                        Snackbar.make(viewPager, getString(R.string.Jogador) + etNomeJogador.getText().toString() + getString(R.string.FoiAdicionado), Snackbar.LENGTH_SHORT).show();
-
                         if (adapter.getCount() > 0) {
                             tabLayout.setupWithViewPager(viewPager);
                             viewPager.setCurrentItem(adapter.getCount() - 1);
                         }
+
+                        Snackbar.make(viewPager, getString(R.string.Jogador) + etNomeJogador.getText().toString() + getString(R.string.FoiAdicionado), Snackbar.LENGTH_SHORT).show();
                         dialogAdicionarJogador.dismiss();
                     }
                 });
@@ -167,58 +159,57 @@ public class PartidaAberta extends AppCompatActivity {
 
 
         });
+        //Remover jogador
         floatingActionButton2.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
+                //Dialog para Remover Jogador
+                final Dialog dialogRemoveJogador = new Dialog(PartidaAberta.this);
 
-
-                //Dialog para Adicionar Jogador
-                final Dialog dialogAdicionarJogador = new Dialog(PartidaAberta.this);
                 // Configura a view para o Dialog
-                dialogAdicionarJogador.setContentView(R.layout.dialog_excluir);
+                dialogRemoveJogador.setContentView(R.layout.dialog_excluir);
 
                 //Recupera os componentes do layout do custondialog
-                Button btnExcluir = (Button) dialogAdicionarJogador.findViewById(R.id.btnExcluir);
-                Button btnCancelar = (Button) dialogAdicionarJogador.findViewById(R.id.btnCancelar);
-                TextView txtNomeJogadorExcluido = (TextView) dialogAdicionarJogador.findViewById(R.id.txtNomeJogadorExcluido);
-
-
+                Button btnExcluir = (Button) dialogRemoveJogador.findViewById(R.id.btnExcluir);
+                Button btnCancelar = (Button) dialogRemoveJogador.findViewById(R.id.btnCancelar);
+                TextView txtNomeJogadorExcluido = (TextView) dialogRemoveJogador.findViewById(R.id.txtNomeJogadorExcluido);
                 txtNomeJogadorExcluido.setText(jogadoresRodada.get(viewPager.getCurrentItem()).getNome());
 
                 //Botão Excluir
                 btnExcluir.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        if (adapter.getCount() > 0) {
-                            jogadorController = new JogadorController(PartidaAberta.this);
-                            String nomeJogadorTabAtual = jogadoresRodada.get(viewPager.getCurrentItem()).getNome();
-                            Jogador jogadorBuscado = buscarJogador(nomeJogadorTabAtual);
-                            jogadorController.deletarJogador(jogadorBuscado);
+                        if (adapter.getCount() > 2) {
+
+                            // Remove o jogador da rodada
                             jogadoresRodada.remove(viewPager.getCurrentItem());
+                            // Remove o Fragment
                             adapter.removeFrag(viewPager.getCurrentItem());
+                            // Notifica o adapter que um fragment foi removido
                             adapter.notifyDataSetChanged();
                             // vincula denovo o viewpager com o tablayout
                             tabLayout.setupWithViewPager(viewPager);
 
-                            dialogAdicionarJogador.dismiss();
+                            dialogRemoveJogador.dismiss();
 
                         } else {
+                            //todo:Criar um dialog aqui perguntando se deseja abandonar partida
                             Snackbar.make(view, R.string.TextoSemJogadores, Snackbar.LENGTH_LONG).show();
                         }
                     }
                 });
-
                 //Botão Cancelar
                 btnCancelar.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        dialogAdicionarJogador.dismiss();
+                        dialogRemoveJogador.dismiss();
                         return;
                     }
                 });
-                dialogAdicionarJogador.show();
+                dialogRemoveJogador.show();
                 fabMenu.close(true);
             }
         });
+        // Placar
         floatingActionButton3.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 Intent intent = new Intent(PartidaAberta.this, ListaDePlacar.class);
@@ -232,7 +223,6 @@ public class PartidaAberta extends AppCompatActivity {
     /**
      * Captura os Ids via classe R
      */
-
     public void getIDs() {
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         viewPager = (ViewPager) findViewById(R.id.viewPagerMarcadorJogador);
@@ -245,63 +235,6 @@ public class PartidaAberta extends AppCompatActivity {
     }
 
     /**
-     * Busca partida por Nome
-     *
-     * @return Partida Atual
-     */
-    public Partida buscarPartida(String nomePartida) {
-        Partida partidaAtual;
-
-        PartidaDAO partidaDAO = new PartidaDAO(this);
-        partidaAtual = partidaDAO.buscarPartidaPorNome(nomePartida);
-        Log.i("partidaAtual", "nome : " + partidaAtual.getNome() + " " + " id : " + partidaAtual.getIdPartida());
-        return partidaAtual;
-    }
-
-    /**
-     * Busca partida por id
-     *
-     * @param idpartida
-     * @return
-     */
-    public Partida buscarPartida(long idpartida) {
-        Partida partidaAtual;
-
-        PartidaDAO partidaDAO = new PartidaDAO(this);
-        partidaAtual = partidaDAO.buscarPartidaPorId(idpartida);
-        Log.i("partidaAtual", "nome : " + partidaAtual.getNome() + " " + " id : " + partidaAtual.getIdPartida());
-        return partidaAtual;
-    }
-
-    /**
-     * Busca Rodada por Partida
-     *
-     * @param idPartida
-     * @return Objeto Rodada
-     */
-    public Rodada buscarRodada(long idPartida) {
-        Rodada rodada;
-
-        RodadaDAO rodadaDAO = new RodadaDAO(this);
-        rodada = rodadaDAO.buscarRodadaPorPartida(idPartida);
-        return rodada;
-    }
-
-    /**
-     * Busca jogador por nome no banco
-     *
-     * @param nome
-     * @return
-     */
-    public Jogador buscarJogador(String nome) {
-        Jogador jogador;
-        JogadorDAO jogadorDAO = new JogadorDAO(this);
-        jogador = jogadorDAO.buscarJogadorPorNome(nome);
-
-        return jogador;
-    }
-
-    /**
      * Configura a partida de acordo com os jogadores
      */
     public void configurarPartida() {
@@ -309,15 +242,17 @@ public class PartidaAberta extends AppCompatActivity {
         if (intent != null) {
             if (bundleParams != null) {
                 //Verifica se é uma partida nova ou uma partida salva
-                if (bundleParams.getBoolean("partidaNova")) {
+                if (verificaPartidaNova()) {
 
                     partida = new Partida();
                     rodada = new Rodada();
                     jogadoresRodada = new ArrayList<>();
 
+                    //Configura o nome da Partida
                     partida.setNome(bundleParams.getString("nomepartida"));
                     tituloGrupo.setText(partida.getNome());
 
+                    //Adiciona os jogadores
                     ArrayList<String> jogadoresIniciais = bundleParams.getStringArrayList("jogadores");
 
                     for (int i = 0; i < jogadoresIniciais.size(); i++) {
@@ -341,34 +276,51 @@ public class PartidaAberta extends AppCompatActivity {
 
                 } else {
 
-                    partida = buscarPartida(bundleParams.getLong("partidaSalva"));
+                    partidaController = new PartidaController(PartidaAberta.this);
+                    jogadoresRodada = new ArrayList<>();
+
+                    //Esta partida sabe o seu ID , Nome , Rodadas e Jogadores
+                    partida = partidaController.buscarPartida(bundleParams.getLong("partidaSalva"));
                     tituloGrupo.setText(partida.getNome());
 
                     Log.i("partidasalva", "id da partida :" + bundleParams.getLong("partidaSalva"));
 
-                    PartidaDAO partidaDAO = new PartidaDAO(this);
+                    //todo:trocar este método por um que traz jogadores da ultima rodada
+                    // Esta trazendo jogadores que estao naquela partida
+                    listJogadoresBanco = partidaController.buscarJogadoresPartida(partida.getIdPartida());
 
-                    jogadoresRodada = new ArrayList<>();
+                    for (int i = 0; i < listJogadoresBanco.size(); i++) {
 
-
-                    //todo:trocar por uma lista de jogadores da ultima rodada
-                    listJogadores = partidaDAO.buscarJogadoresPartida(partida.getIdPartida());
-
-                    for (int i = 0; i < listJogadores.size(); i++) {
-
+                        // Adiciona um fragment para cada jogador
                         FragmentFilho fragmentFilho = new FragmentFilho();
+                        adapter.addFrag(fragmentFilho, listJogadoresBanco.get(i).getNome());
 
-                        jogadoresRodada.add(listJogadores.get(i));
+                        // Adiciona os jogadores do banco tambem a uma lista local
+                        jogadoresRodada.add(listJogadoresBanco.get(i));
 
-                        adapter.addFrag(fragmentFilho, jogadoresRodada.get(i).getNome());
-
+                        // Notifica o adapter que fragments foram adicionados
                         adapter.notifyDataSetChanged();
 
+                        //Configura o Tab e o ViewPager com os fragments novos
                         tabLayout.setupWithViewPager(viewPager);
 
                     }
                 }
             }
+        }
+
+    }
+
+    /**
+     * Verifica se a partida é Nova ou Salva
+     *
+     * @return true caso a Partida for Nova
+     */
+    public boolean verificaPartidaNova() {
+        if (bundleParams.getBoolean("partidaNova")) {
+            return true;
+        } else {
+            return false;
         }
 
     }
@@ -384,9 +336,9 @@ public class PartidaAberta extends AppCompatActivity {
     @Override
     public void onBackPressed() {
 
-        if (fabMenu.isOpened()){
+        if (fabMenu.isOpened()) {
             fabMenu.close(true);
-        }else {
+        } else {
 
             LayoutInflater inflater = getLayoutInflater();
             View dialogLayout = inflater.inflate(R.layout.dialog_sair_grupo, null);
@@ -398,10 +350,6 @@ public class PartidaAberta extends AppCompatActivity {
                 @Override
                 public void onClick(final View view) {
 
-                    partidaController = new PartidaController(PartidaAberta.this);
-                    jogadorController = new JogadorController(PartidaAberta.this);
-                    rodadaController = new RodadaController(PartidaAberta.this);
-
                     //ProgressDialog Função carregar
                     final ProgressDialog builder = new ProgressDialog(PartidaAberta.this);
                     builder.setMessage("Salvando só um momento...");
@@ -410,48 +358,59 @@ public class PartidaAberta extends AppCompatActivity {
                     if (intent != null) {
                         if (bundleParams != null) {
                             //Verifica se é uma partida nova ou uma partida salva
-                            if (bundleParams.getBoolean("partidaNova")) {
+                            if (verificaPartidaNova()) {
+                                // OK, é nova
 
-                                //Insere a partida no banco
-                                partidaController.inserirPartida(partida);
-                                //Tepo que a barra vai demorar para carregar
                                 new Handler().postDelayed(new Runnable() {
                                     public void run() {
 
-                                        Partida partidaAux = buscarPartida(partida.getNome());
+                                        partidaController = new PartidaController(PartidaAberta.this);
+                                        rodadaController = new RodadaController(PartidaAberta.this);
+                                        jogadorController = new JogadorController(PartidaAberta.this);
 
-                                        rodada.setIdPartida(partidaAux.getIdPartida());
-                                        rodadaController.inserirRodada(rodada);
+                                        //Insere a partida no banco
+                                        long idDaPartida = partidaController.inserirPartida(partida);
 
-                                        Rodada rodadaAux = buscarRodada(partidaAux.getIdPartida());
+                                        rodada.setIdPartida(idDaPartida);
+                                        long idDaRodada = rodadaController.inserirRodada(rodada);
 
                                         for (int i = 0; i < jogadoresRodada.size(); i++) {
-                                            jogadoresRodada.get(i).setIdRodada(rodadaAux.getIdRodada());
+                                            jogadoresRodada.get(i).setIdRodada(idDaRodada);
                                             jogadorController.inserirJogador(jogadoresRodada.get(i));
                                         }
 
-                                        Toast alertaMenssagem = Toast.makeText(getApplicationContext(), "Grupo " + partidaAux.getNome() +" salvo com sucesso", Toast.LENGTH_LONG);
-                                        alertaMenssagem.show();
+                                        Toast.makeText(getApplicationContext(), "Grupo " + partida.getNome() + " salvo com sucesso", Toast.LENGTH_LONG).show();
                                         builder.dismiss();
                                         finish();
                                     }
                                 }, ProgressSalvar);
 
                             } else {
+                                // Hmmm , Partida Salva então ?!
 
-                                rodada = buscarRodada(partida.getIdPartida());
-
-                                //Tepo que a barra vai demorar para carregar
                                 new Handler().postDelayed(new Runnable() {
                                     public void run() {
-                                        for (int i = 0; i < jogadoresRodada.size(); i++) {
-                                            if (listJogadores.contains(jogadoresRodada.get(i)) == false) {
+
+                                        rodadaController = new RodadaController(PartidaAberta.this);
+                                        partidaController = new PartidaController(PartidaAberta.this);
+                                        jogadorController = new JogadorController(PartidaAberta.this);
+
+                                        rodada = rodadaController.buscarRodada(partida.getIdPartida());
+
+                                        if (!jogadoresRodada.equals(listJogadoresBanco)) {
+                                            //Deleta os jogadores do banco
+                                            for (int i = 0; i < listJogadoresBanco.size(); i++) {
+                                                jogadorController.deletarJogador(listJogadoresBanco.get(i));
+                                            }
+
+                                            // Adiciona os Jogadores novamente
+                                            for (int i = 0; i < jogadoresRodada.size(); i++) {
                                                 jogadoresRodada.get(i).setIdRodada(rodada.getIdRodada());
                                                 jogadorController.inserirJogador(jogadoresRodada.get(i));
                                             }
                                         }
-                                        builder.dismiss();
                                         finish();
+                                        builder.dismiss();
                                     }
                                 }, ProgressSalvar);
                             }
@@ -461,6 +420,9 @@ public class PartidaAberta extends AppCompatActivity {
             });
             //Botão Descartar grupo
             Button btnDescartarGrupo = (Button) dialogLayout.findViewById(R.id.btnDescartar);
+            if(!verificaPartidaNova()){
+                btnDescartarGrupo.setText(R.string.DescartarAlteracoes);
+            }
             btnDescartarGrupo.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
@@ -495,10 +457,6 @@ public class PartidaAberta extends AppCompatActivity {
                 @Override
                 public void onClick(final View view) {
 
-                    partidaController = new PartidaController(PartidaAberta.this);
-                    jogadorController = new JogadorController(PartidaAberta.this);
-                    rodadaController = new RodadaController(PartidaAberta.this);
-
                     //ProgressDialog Função carregar
                     final ProgressDialog builder = new ProgressDialog(PartidaAberta.this);
                     builder.setMessage("Salvando só um momento...");
@@ -507,48 +465,59 @@ public class PartidaAberta extends AppCompatActivity {
                     if (intent != null) {
                         if (bundleParams != null) {
                             //Verifica se é uma partida nova ou uma partida salva
-                            if (bundleParams.getBoolean("partidaNova")) {
+                            if (verificaPartidaNova()) {
+                                // OK, é nova
 
-                                //Insere a partida no banco
-                                partidaController.inserirPartida(partida);
-                                //Tepo que a barra vai demorar para carregar
                                 new Handler().postDelayed(new Runnable() {
                                     public void run() {
 
-                                        Partida partidaAux = buscarPartida(partida.getNome());
+                                        partidaController = new PartidaController(PartidaAberta.this);
+                                        rodadaController = new RodadaController(PartidaAberta.this);
+                                        jogadorController = new JogadorController(PartidaAberta.this);
 
-                                        rodada.setIdPartida(partidaAux.getIdPartida());
-                                        rodadaController.inserirRodada(rodada);
+                                        //Insere a partida no banco
+                                        long idDaPartida = partidaController.inserirPartida(partida);
 
-                                        Rodada rodadaAux = buscarRodada(partidaAux.getIdPartida());
+                                        rodada.setIdPartida(idDaPartida);
+                                        long idDaRodada = rodadaController.inserirRodada(rodada);
 
                                         for (int i = 0; i < jogadoresRodada.size(); i++) {
-                                            jogadoresRodada.get(i).setIdRodada(rodadaAux.getIdRodada());
+                                            jogadoresRodada.get(i).setIdRodada(idDaRodada);
                                             jogadorController.inserirJogador(jogadoresRodada.get(i));
                                         }
 
-                                        Toast alertaMenssagem = Toast.makeText(getApplicationContext(), "Grupo " + partidaAux.getNome() +" salvo com sucesso", Toast.LENGTH_LONG);
-                                        alertaMenssagem.show();
+                                        Toast.makeText(getApplicationContext(), "Grupo " + partida.getNome() + " salvo com sucesso", Toast.LENGTH_LONG).show();
                                         builder.dismiss();
                                         finish();
                                     }
                                 }, ProgressSalvar);
 
                             } else {
+                                // Hmmm , Partida Salva então ?!
 
-                                rodada = buscarRodada(partida.getIdPartida());
-
-                                //Tepo que a barra vai demorar para carregar
                                 new Handler().postDelayed(new Runnable() {
                                     public void run() {
-                                        for (int i = 0; i < jogadoresRodada.size(); i++) {
-                                            if (listJogadores.contains(jogadoresRodada.get(i)) == false) {
+
+                                        rodadaController = new RodadaController(PartidaAberta.this);
+                                        partidaController = new PartidaController(PartidaAberta.this);
+                                        jogadorController = new JogadorController(PartidaAberta.this);
+
+                                        rodada = rodadaController.buscarRodada(partida.getIdPartida());
+
+                                        if (!jogadoresRodada.equals(listJogadoresBanco)) {
+                                            //Deleta os jogadores do banco
+                                            for (int i = 0; i < listJogadoresBanco.size(); i++) {
+                                                jogadorController.deletarJogador(listJogadoresBanco.get(i));
+                                            }
+
+                                            // Adiciona os Jogadores novamente
+                                            for (int i = 0; i < jogadoresRodada.size(); i++) {
                                                 jogadoresRodada.get(i).setIdRodada(rodada.getIdRodada());
                                                 jogadorController.inserirJogador(jogadoresRodada.get(i));
                                             }
                                         }
-                                        builder.dismiss();
                                         finish();
+                                        builder.dismiss();
                                     }
                                 }, ProgressSalvar);
                             }
@@ -558,6 +527,9 @@ public class PartidaAberta extends AppCompatActivity {
             });
             //Botão Descartar grupo
             Button btnDescartarGrupo = (Button) dialogLayout.findViewById(R.id.btnDescartar);
+            if(!verificaPartidaNova()){
+                btnDescartarGrupo.setText(R.string.DescartarAlteracoes);
+            }
             btnDescartarGrupo.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
@@ -566,10 +538,11 @@ public class PartidaAberta extends AppCompatActivity {
             });
             builder.setView(dialogLayout);
             builder.show();
-
-
         }
+
         fabMenu.close(true);
-        return super.onOptionsItemSelected(item);
+        return super.
+
+                onOptionsItemSelected(item);
     }
 }
