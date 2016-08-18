@@ -46,6 +46,7 @@
     <!--Texto Dialog Sair-->
     <string name="TextoSairGrupo">Você pode salvar seu grupo de jogo se quiser jogar mais tarde.</string>
     <string name="Descartar">Descartar grupo</string>
+    <string name="DescartarAlteracoes">Descartar Alterações</string>
     <string name="Salvar">Salvar</string>
 
     <!--Texto Menu-->
