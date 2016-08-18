@@ -20,12 +20,19 @@ public class RodadaController {
     }
 
     //TODO: Nao deixar inserir rodadas que não tenham partida
-    public boolean inserirRodada(Rodada rodada) {
+    public long inserirRodada(Rodada rodada) {
         if (rodada.getIdPartida() != 0) {
-            rodadaDAO.novaRodada(rodada);
-            return true;
+            return rodadaDAO.novaRodada(rodada);
         } else {
-            return false;
+            return -1;
         }
+    }
+
+    public Rodada buscarRodada(long idPartida) {
+
+        Rodada rodada;
+
+        rodada = rodadaDAO.buscarRodadaPorPartida(idPartida);
+        return rodada;
     }
 }

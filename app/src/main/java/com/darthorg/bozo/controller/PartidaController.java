@@ -1,9 +1,13 @@
 package com.darthorg.bozo.controller;
 
 import android.content.Context;
+import android.util.Log;
 
 import com.darthorg.bozo.dao.PartidaDAO;
+import com.darthorg.bozo.model.Jogador;
 import com.darthorg.bozo.model.Partida;
+
+import java.util.List;
 
 /**
  * Created by Gustavo on 11/07/2016.
@@ -20,13 +24,26 @@ public class PartidaController {
     }
 
     //TODO: Nao deixar inserir partidas com nomes iguais
-    public boolean inserirPartida(Partida partida) {
+    public long inserirPartida(Partida partida) {
         if (partida.getNome() != null) {
-            partidaDAO.novaPartida(partida);
-            return true;
+            return partidaDAO.novaPartida(partida);
         } else {
-            return false;
+            return -1;
         }
+    }
+
+    public Partida buscarPartida(long idPartida) {
+
+        Partida partidaAtual;
+        partidaAtual = partidaDAO.buscarPartidaPorId(idPartida);
+
+        Log.i("partidaAtual", "nome : " + partidaAtual.getNome() + " " + " id : " + partidaAtual.getIdPartida());
+
+        return partidaAtual;
+    }
+
+    public List<Jogador> buscarJogadoresPartida(long idPartida){
+        return partidaDAO.buscarJogadoresPartida(idPartida);
     }
 
 }
