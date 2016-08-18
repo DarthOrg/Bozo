@@ -33,11 +33,13 @@ public class RodadaDAO {
      *
      * @param rodada Objeto do tipo rodada.
      */
-    public void novaRodada(Rodada rodada) {
+    public long novaRodada(Rodada rodada) {
         values = new ContentValues();
         values.put("fk_partida", rodada.getIdPartida());
 
-        db.insert(DataModel.getTabelaRodadas(), null, values);
+        long idRodadaInserida = db.insert(DataModel.getTabelaRodadas(), null, values);
+
+        return idRodadaInserida;
     }
 
     public void inserirVencedorRodada(Rodada rodada) {

@@ -29,11 +29,13 @@ public class PartidaDAO {
         db = dataSource.getWritableDatabase();
     }
 
-    public void novaPartida(Partida partida) {
+    public long novaPartida(Partida partida) {
         values = new ContentValues();
         values.put("nome", partida.getNome());
 
-        db.insert(DataModel.getTabelaPartidas(), null, values);
+        long idPartidaInserida = db.insert(DataModel.getTabelaPartidas(), null, values);
+
+        return idPartidaInserida;
     }
 
     public void atualizarNomePartida(Partida partida) {
