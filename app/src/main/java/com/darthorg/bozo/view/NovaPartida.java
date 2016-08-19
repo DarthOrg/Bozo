@@ -142,7 +142,6 @@ public class NovaPartida extends AppCompatActivity {
                     }
 
                 } else {
-                    btnAdicionarJogador.setVisibility(View.GONE);
                     contagemJogadores2.setVisibility(View.GONE);
                     tilJogador.setVisibility(View.GONE);
                     Snackbar snackbar = Snackbar
@@ -150,14 +149,14 @@ public class NovaPartida extends AppCompatActivity {
                     snackbar.setAction("Entendi", new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
-                            btnAdicionarJogador.setVisibility(View.GONE);
-                            contagemJogadores2.setVisibility(View.VISIBLE);
-                            contagemJogadores2.setTextColor(Color.CYAN);
+                            btnAdicionarJogador.setVisibility(View.VISIBLE);
+                            contagemJogadores2.setVisibility(View.GONE);
+                            contagemJogadores2.setTextColor(Color.RED);
                             tilJogador.setVisibility(View.VISIBLE);
                             campoJogador.setText(null);
                         }
                     });
-                    snackbar.setActionTextColor(Color.RED);
+                    snackbar.setActionTextColor(Color.CYAN);
                     snackbar.show();
 
                 }

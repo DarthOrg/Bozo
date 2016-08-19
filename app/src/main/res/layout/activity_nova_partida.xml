@@ -67,7 +67,7 @@
                     android:layout_height="wrap_content"
                     android:ems="10"
                     android:hint="@string/NomedoGrupo"
-                    android:inputType="text"
+                    android:inputType="textCapCharacters|text"
                     android:singleLine="true" />
             </android.support.design.widget.TextInputLayout>
 
@@ -97,7 +97,7 @@
                             android:layout_height="wrap_content"
                             android:ems="10"
                             android:hint="@string/AdicionarJogador"
-                            android:inputType="text"
+                            android:inputType="textCapCharacters|text"
                             android:singleLine="true" />
                     </android.support.design.widget.TextInputLayout>
 
