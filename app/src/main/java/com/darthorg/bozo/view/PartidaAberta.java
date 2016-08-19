@@ -49,6 +49,9 @@ public class PartidaAberta extends AppCompatActivity {
 
     private List<Jogador> listJogadoresBanco;
 
+    private List<FragmentFilho> listaFragments = new ArrayList<>();
+
+
     //Controllers
     private PartidaController partidaController;
     private RodadaController rodadaController;
@@ -131,6 +134,9 @@ public class PartidaAberta extends AppCompatActivity {
 
                         // Adiciona o jogador numa lista local de jogadores
                         jogadoresRodada.add(jogador);
+
+                        listaFragments.add(fragmentFilho);
+
                         //Adiciona o Fragment nas tabs
                         adapter.addFrag(fragmentFilho, etNomeJogador.getText().toString());
                         // Notifica o Adapter que um novo fragment foi adicionado
@@ -154,10 +160,7 @@ public class PartidaAberta extends AppCompatActivity {
                 });
                 dialogAdicionarJogador.show();
                 fabMenu.close(true);
-
             }
-
-
         });
         //Remover jogador
         floatingActionButton2.setOnClickListener(new View.OnClickListener() {
@@ -218,6 +221,45 @@ public class PartidaAberta extends AppCompatActivity {
             }
         });
 
+        viewPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            @Override
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+
+            }
+
+            @Override
+            public void onPageSelected(int position) {
+                compararPontos();
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int state) {
+
+            }
+        });
+
+    }
+
+    public void compararPontos() {
+
+        FragmentFilho ganhando = listaFragments.get(0);
+
+
+        for (int i = 0; i < listaFragments.size(); i++) {
+            listaFragments.get(i).setGanhando(false);
+            if (ganhando.getContador() != 0) {
+                if (ganhando.getContador() > listaFragments.get(i).getContador()) {
+                    ganhando.setGanhando(true);
+                } else {
+                    ganhando.setGanhando(false);
+                    ganhando = listaFragments.get(i);
+                    ganhando.setGanhando(true);
+                }
+            }
+        }
+
+
+        Log.i("teste3", ganhando.getContador() + " esta GANHANDO");
     }
 
     /**
@@ -264,6 +306,8 @@ public class PartidaAberta extends AppCompatActivity {
                         // Adiciona o jogador numa lista local de jogadores
                         jogadoresRodada.add(jogador);
 
+                        listaFragments.add(fragmentFilho);
+
                         // Cria uma nova tab para aquele jogador
                         adapter.addFrag(fragmentFilho, jogadoresIniciais.get(i));
 
@@ -297,6 +341,8 @@ public class PartidaAberta extends AppCompatActivity {
 
                         // Adiciona os jogadores do banco tambem a uma lista local
                         jogadoresRodada.add(listJogadoresBanco.get(i));
+
+                        listaFragments.add(fragmentFilho);
 
                         // Notifica o adapter que fragments foram adicionados
                         adapter.notifyDataSetChanged();
@@ -420,7 +466,7 @@ public class PartidaAberta extends AppCompatActivity {
             });
             //Botão Descartar grupo
             Button btnDescartarGrupo = (Button) dialogLayout.findViewById(R.id.btnDescartar);
-            if(!verificaPartidaNova()){
+            if (!verificaPartidaNova()) {
                 btnDescartarGrupo.setText(R.string.DescartarAlteracoes);
             }
             btnDescartarGrupo.setOnClickListener(new View.OnClickListener() {
@@ -527,7 +573,7 @@ public class PartidaAberta extends AppCompatActivity {
             });
             //Botão Descartar grupo
             Button btnDescartarGrupo = (Button) dialogLayout.findViewById(R.id.btnDescartar);
-            if(!verificaPartidaNova()){
+            if (!verificaPartidaNova()) {
                 btnDescartarGrupo.setText(R.string.DescartarAlteracoes);
             }
             btnDescartarGrupo.setOnClickListener(new View.OnClickListener() {
