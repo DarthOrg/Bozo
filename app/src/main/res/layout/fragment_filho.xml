@@ -9,9 +9,9 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:background="@color/colorWhite"
-        android:layout_weight="1"
         android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:background="@color/colorWhite"
         android:paddingBottom="24dp"
         android:paddingTop="24dp">
 
@@ -19,9 +19,9 @@
         <RelativeLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@color/colorStatusBar"
             android:layout_alignParentBottom="true"
-            android:layout_centerHorizontal="true">
+            android:layout_centerHorizontal="true"
+            android:background="@color/colorStatusBar">
 
 
             <RelativeLayout
@@ -50,8 +50,8 @@
                         android:id="@+id/riscarAz"
                         android:layout_width="75dp"
                         android:layout_height="75dp"
-                        android:src="@drawable/ic_riscado"
                         android:background="@color/colorTrasnparente"
+                        android:src="@drawable/ic_riscado"
                         android:visibility="invisible" />
                 </FrameLayout>
 
@@ -61,11 +61,11 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentBottom="true"
                     android:layout_centerHorizontal="true"
+                    android:autoText="false"
                     android:text="@string/Az"
                     android:textAppearance="?android:attr/textAppearanceSmall"
                     android:textColor="@color/colorStatusBar"
-                    android:textSize="8dp"
-                    android:autoText="false" />
+                    android:textSize="8dp" />
             </RelativeLayout>
 
             <RelativeLayout
@@ -88,8 +88,8 @@
                         android:id="@+id/riscarFull"
                         android:layout_width="75dp"
                         android:layout_height="75dp"
-                        android:src="@drawable/ic_riscado"
                         android:background="@color/colorTrasnparente"
+                        android:src="@drawable/ic_riscado"
                         android:visibility="invisible" />
 
                     <Button
@@ -107,11 +107,11 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentBottom="true"
                     android:layout_centerHorizontal="true"
+                    android:autoText="false"
                     android:text="@string/Full"
                     android:textAppearance="?android:attr/textAppearanceSmall"
                     android:textColor="@color/colorStatusBar"
-                    android:textSize="8dp"
-                    android:autoText="false" />
+                    android:textSize="8dp" />
             </RelativeLayout>
 
             <RelativeLayout
@@ -132,8 +132,8 @@
                         android:id="@+id/riscarQuadra"
                         android:layout_width="75dp"
                         android:layout_height="75dp"
-                        android:src="@drawable/ic_riscado"
                         android:background="@color/colorTrasnparente"
+                        android:src="@drawable/ic_riscado"
                         android:visibility="invisible" />
 
                     <Button
@@ -151,11 +151,11 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentBottom="true"
                     android:layout_centerHorizontal="true"
+                    android:autoText="false"
                     android:text="@string/Quadra"
                     android:textAppearance="?android:attr/textAppearanceSmall"
                     android:textColor="@color/colorStatusBar"
-                    android:textSize="8dp"
-                    android:autoText="false" />
+                    android:textSize="8dp" />
             </RelativeLayout>
 
             <RelativeLayout
@@ -176,8 +176,8 @@
                         android:id="@+id/riscarDuque"
                         android:layout_width="75dp"
                         android:layout_height="75dp"
-                        android:src="@drawable/ic_riscado"
                         android:background="@color/colorTrasnparente"
+                        android:src="@drawable/ic_riscado"
                         android:visibility="invisible" />
 
                     <Button
@@ -195,11 +195,11 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentBottom="true"
                     android:layout_centerHorizontal="true"
+                    android:autoText="false"
                     android:text="@string/Duque"
                     android:textAppearance="?android:attr/textAppearanceSmall"
                     android:textColor="@color/colorStatusBar"
-                    android:textSize="8dp"
-                    android:autoText="false" />
+                    android:textSize="8dp" />
             </RelativeLayout>
 
             <RelativeLayout
@@ -222,9 +222,9 @@
                         android:id="@+id/riscarSeguida"
                         android:layout_width="75dp"
                         android:layout_height="75dp"
-                        android:src="@drawable/ic_riscado"
                         android:background="@color/colorTrasnparente"
-                        android:visibility="invisible"/>
+                        android:src="@drawable/ic_riscado"
+                        android:visibility="invisible" />
 
                     <Button
                         android:id="@+id/btnSeguida"
@@ -241,11 +241,11 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentBottom="true"
                     android:layout_centerHorizontal="true"
+                    android:autoText="false"
                     android:text="@string/Seguida"
                     android:textAppearance="?android:attr/textAppearanceSmall"
                     android:textColor="@color/colorStatusBar"
-                    android:textSize="8dp"
-                    android:autoText="false" />
+                    android:textSize="8dp" />
             </RelativeLayout>
 
             <RelativeLayout
@@ -265,9 +265,9 @@
                         android:id="@+id/riscarQuina"
                         android:layout_width="75dp"
                         android:layout_height="75dp"
-                        android:src="@drawable/ic_riscado"
                         android:background="@color/colorTrasnparente"
-                        android:visibility="invisible"/>
+                        android:src="@drawable/ic_riscado"
+                        android:visibility="invisible" />
 
                     <Button
                         android:id="@+id/btnQuina"
@@ -284,11 +284,11 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentBottom="true"
                     android:layout_centerHorizontal="true"
+                    android:autoText="false"
                     android:text="@string/Quina"
                     android:textAppearance="?android:attr/textAppearanceSmall"
                     android:textColor="@color/colorStatusBar"
-                    android:textSize="8dp"
-                    android:autoText="false" />
+                    android:textSize="8dp" />
             </RelativeLayout>
 
             <RelativeLayout
@@ -309,8 +309,8 @@
                         android:id="@+id/riscarTerno"
                         android:layout_width="75dp"
                         android:layout_height="75dp"
-                        android:src="@drawable/ic_riscado"
                         android:background="@color/colorTrasnparente"
+                        android:src="@drawable/ic_riscado"
                         android:visibility="invisible" />
 
                     <Button
@@ -328,11 +328,11 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentBottom="true"
                     android:layout_centerHorizontal="true"
+                    android:autoText="false"
                     android:text="@string/Terno"
                     android:textAppearance="?android:attr/textAppearanceSmall"
                     android:textColor="@color/colorStatusBar"
-                    android:textSize="8dp"
-                    android:autoText="false" />
+                    android:textSize="8dp" />
 
             </RelativeLayout>
 
@@ -356,9 +356,9 @@
                         android:id="@+id/riscarQuadrada"
                         android:layout_width="75dp"
                         android:layout_height="75dp"
-                        android:src="@drawable/ic_riscado"
                         android:background="@color/colorTrasnparente"
-                        android:visibility="invisible"/>
+                        android:src="@drawable/ic_riscado"
+                        android:visibility="invisible" />
 
                     <Button
                         android:id="@+id/btnQuadrada"
@@ -375,11 +375,11 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentBottom="true"
                     android:layout_centerHorizontal="true"
+                    android:autoText="false"
                     android:text="@string/Quadrada"
                     android:textAppearance="?android:attr/textAppearanceSmall"
                     android:textColor="@color/colorStatusBar"
-                    android:textSize="8dp"
-                    android:autoText="false" />
+                    android:textSize="8dp" />
             </RelativeLayout>
 
             <RelativeLayout
@@ -399,8 +399,8 @@
                         android:id="@+id/riscarSena"
                         android:layout_width="75dp"
                         android:layout_height="75dp"
-                        android:src="@drawable/ic_riscado"
                         android:background="@color/colorTrasnparente"
+                        android:src="@drawable/ic_riscado"
                         android:visibility="invisible" />
 
                     <Button
@@ -418,11 +418,11 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentBottom="true"
                     android:layout_centerHorizontal="true"
+                    android:autoText="false"
                     android:text="@string/Sena"
                     android:textAppearance="?android:attr/textAppearanceSmall"
                     android:textColor="@color/colorStatusBar"
-                    android:textSize="8dp"
-                    android:autoText="false" />
+                    android:textSize="8dp" />
             </RelativeLayout>
 
             <RelativeLayout
@@ -462,8 +462,8 @@
                         android:id="@+id/riscarGeneral"
                         android:layout_width="75dp"
                         android:layout_height="75dp"
-                        android:src="@drawable/ic_riscado"
                         android:background="@color/colorTrasnparente"
+                        android:src="@drawable/ic_riscado"
                         android:visibility="invisible" />
 
                     <Button
@@ -481,11 +481,11 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentBottom="true"
                     android:layout_centerHorizontal="true"
+                    android:autoText="false"
                     android:text="@string/General"
                     android:textAppearance="?android:attr/textAppearanceSmall"
                     android:textColor="@color/colorStatusBar"
-                    android:textSize="8dp"
-                    android:autoText="false" />
+                    android:textSize="8dp" />
             </RelativeLayout>
 
             <RelativeLayout
@@ -508,39 +508,45 @@
         </RelativeLayout>
 
         <FrameLayout
+            android:id="@+id/frameLayout3"
             android:layout_width="100dp"
             android:layout_height="2dp"
-            android:background="@color/colorAccent700"
-            android:id="@+id/frameLayout3"
             android:layout_below="@+id/textView15"
-            android:layout_centerHorizontal="true"></FrameLayout>
+            android:layout_centerHorizontal="true"
+            android:background="@color/colorAccent700"></FrameLayout>
 
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="Medium Text"
             android:id="@+id/txtResultadoJogador"
-            android:textAlignment="center"
-            android:textColor="@color/colorCinza"
-            android:textSize="50dp"
-            android:layout_below="@+id/frameLayout3"
-            android:layout_centerHorizontal="true" />
-
-        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceSmall"
-            android:text="Pontos"
+            android:layout_below="@+id/frameLayout3"
+            android:layout_centerHorizontal="true"
+            android:text="Medium Text"
+            android:textAlignment="center"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="@color/colorCinza"
+            android:textSize="50dp" />
+
+        <TextView
             android:id="@+id/textView15"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
+            android:text="Pontos"
+            android:textAppearance="?android:attr/textAppearanceSmall"
             android:textColor="@color/colorAccent700" />
 
+        <TextView
+            android:id="@+id/txtGanhando"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/txtResultadoJogador"
+            android:layout_centerHorizontal="true"
+            android:text="Ganhando"
+            android:visibility="invisible" />
+
     </RelativeLayout>
-
-
-
 
 
 </LinearLayout>

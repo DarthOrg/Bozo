@@ -1,11 +1,8 @@
 package com.darthorg.bozo.fragment;
 
 import android.app.Dialog;
-import android.content.Context;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v4.content.ContextCompat;
 import android.text.InputFilter;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
@@ -20,10 +17,7 @@ import com.darthorg.bozo.R;
 import com.darthorg.bozo.model.PecaBozo;
 
 import java.util.ArrayList;
-import java.util.EmptyStackException;
 import java.util.List;
-
-import static android.support.v4.content.ContextCompat.getColor;
 
 /**
  * Created by Gustavo on 11/07/2016.
@@ -63,10 +57,13 @@ public class FragmentFilho extends Fragment {
 
     //variaveis que controlam o jogo
     private TextView resultadoFinal;
+    private TextView txtGanhando;
     private int contador = 0;
+    private boolean ganhando;
 
     // variavel necessaria para inflar o layout do AlertDialog
     private LayoutInflater dialogInflater;
+
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_filho, container, false);
@@ -81,12 +78,9 @@ public class FragmentFilho extends Fragment {
         }
 
         resultadoFinal.setText(contador + "");
+
         return view;
-
-
     }
-
-
 
 
     private void getIDs(View view) {
@@ -118,9 +112,9 @@ public class FragmentFilho extends Fragment {
         riscarQuadrada = (ImageView) view.findViewById(R.id.riscarQuadrada);
         riscarGeneral = (ImageView) view.findViewById(R.id.riscarGeneral);
 
+        txtGanhando = (TextView) view.findViewById(R.id.txtGanhando);
+
     }
-
-
 
 
     private void setEvents() {
@@ -137,7 +131,7 @@ public class FragmentFilho extends Fragment {
 
     }
 
-    public void cliquePeca(final PecaBozo pecaBozo, final Button  button, final ImageView risco) {
+    public void cliquePeca(final PecaBozo pecaBozo, final Button button, final ImageView risco) {
 
         button.setOnClickListener(new View.OnClickListener() {
                                       @Override
@@ -321,5 +315,19 @@ public class FragmentFilho extends Fragment {
 
     public void setContador(int contador) {
         this.contador = contador;
+    }
+
+    public boolean isGanhando() {
+        return ganhando;
+    }
+
+    public void setGanhando(boolean ganhando) {
+        this.ganhando = ganhando;
+        if (ganhando) {
+            txtGanhando.setText("Ganhando");
+            txtGanhando.setVisibility(View.VISIBLE);
+        } else {
+            txtGanhando.setVisibility(View.INVISIBLE);
+        }
     }
 }
