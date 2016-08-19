@@ -3,41 +3,45 @@ package com.darthorg.bozo.view;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.support.v4.content.ContextCompat;
+import android.support.design.widget.Snackbar;
+import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.text.Editable;
 import android.text.TextUtils;
+import android.text.TextWatcher;
 import android.view.ContextMenu;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.EditText;
+import android.widget.FrameLayout;
 import android.widget.ImageButton;
 import android.widget.ListView;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.darthorg.bozo.R;
-import com.darthorg.bozo.model.Jogador;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class NovaPartida extends AppCompatActivity {
 
     private Toolbar toolbar;
     private ArrayList<String> jogadores = new ArrayList<>();
     private ArrayAdapter<String> adapter;
-    TextView tvNomeGrupo,Titulo,TextoInfo;
-    EditText editTextNomePartida,editNomeNovoJogador;
-    ImageButton novoJogador,btnSair,btnVoltar,btnAdicionarJogador;
-    Button contagemJogadores,contagemJogadores2,btnIniciar,btnOk, btnSalvar,btnEditar;
-    RelativeLayout paginaDadosGrupo;
+    TextView Titulo,contagemJogadores,contagemJogadores2;
+    EditText editNomeNovoJogador;
+    ImageButton btnAdicionarJogador;
+    FrameLayout viewcontadorjogadores;
     ListView listView;
-    MenuItem actionInicar;
-    private List<Jogador> jogadorList;
+
+
+    private TextInputLayout tilJogador;
+    private TextInputLayout tilNomeGrupo;
+    private EditText campoJogador;
+    private EditText campoNomeGrupo;
 
 
     @Override
@@ -45,35 +49,23 @@ public class NovaPartida extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_nova_partida);
 
-        novoJogador = (ImageButton) findViewById(R.id.novoJogador);
-        btnEditar = (Button) findViewById(R.id.btnEditar);
-        btnSalvar = (Button) findViewById(R.id.btnExcluir);
-        btnSair = (ImageButton) findViewById(R.id.btnSair);
-        btnVoltar = (ImageButton) findViewById(R.id.btnVoltar);
-        btnAdicionarJogador = (ImageButton) findViewById(R.id.btnAdicionarJogador);
-        contagemJogadores = (Button) findViewById(R.id.contagemJogadores);
-        contagemJogadores2 = (Button) findViewById(R.id.contagemJogadores2);
-        btnIniciar = (Button) findViewById(R.id.btnIniciar);
-        tvNomeGrupo = (TextView) findViewById(R.id.tvNomeGrupo);
-        Titulo = (TextView) findViewById(R.id.Titulo);
-        TextoInfo = (TextView) findViewById(R.id.TextoInfo);
-        editTextNomePartida = (EditText) findViewById(R.id.editText_nomePartida);
-        editTextNomePartida.setText(tvNomeGrupo.getText().toString());
-        editNomeNovoJogador = (EditText) findViewById(R.id.edit_nome_novo_jogador);
-        btnOk = (Button) findViewById(R.id.btnOk);
-        paginaDadosGrupo = (RelativeLayout) findViewById(R.id.paginaDadosGrupo);
+
+        toolbar = (Toolbar) findViewById(R.id.toolbar);
+        toolbar.setTitle(R.string.TextoVazio);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+
 
 
         //Contador Jogador
-        contagemJogadores = (Button) findViewById(R.id.contagemJogadores);
+        contagemJogadores = (TextView) findViewById(R.id.contagemJogadores);
+        contagemJogadores2 = (TextView) findViewById(R.id.contagemJogadores2);
         if (jogadores.size() == 0){
-            contagemJogadores.setText("0");
             contagemJogadores2.setText("0");
         }else if (jogadores.size() == 1){
-            contagemJogadores.setText(jogadores.size()+"");
             contagemJogadores2.setText(jogadores.size()+"");
         }else if (jogadores.size() >= 2){
-            contagemJogadores.setText(jogadores.size()+"");
             contagemJogadores2.setText(jogadores.size()+"");
         }
 
@@ -85,175 +77,93 @@ public class NovaPartida extends AppCompatActivity {
         //botão ficar precionado
         registerForContextMenu(listView);
 
-        btnIniciar.setOnClickListener(new View.OnClickListener() {
+        btnAdicionarJogador = (ImageButton) findViewById(R.id.btnAddJogador);
+        viewcontadorjogadores = (FrameLayout) findViewById(R.id.viewcontadorjogadores);
+        Titulo = (TextView) findViewById(R.id.Titulo);
+
+        tilNomeGrupo = (TextInputLayout) findViewById(R.id.til_nome_grupo);
+        campoNomeGrupo = (EditText) findViewById(R.id.campo_nome_grupo);
+
+        tilJogador = (TextInputLayout) findViewById(R.id.til_jogador);
+        campoJogador = (EditText) findViewById(R.id.campo_jogador);
+
+        campoNomeGrupo.addTextChangedListener(new TextWatcher() {
             @Override
-            public void onClick(View v) {
-                if (jogadores.size() < 2) {
-                    Toast.makeText(NovaPartida.this, getString(R.string.TextoIniciarPrecisa), Toast.LENGTH_SHORT).show();
-                } else if (TextUtils.isEmpty(editTextNomePartida.getText().toString())) {
-                    Toast.makeText(NovaPartida.this, R.string.NomeParaSuaPartida, Toast.LENGTH_SHORT).show();
-                } else {
-                    Intent intent = new Intent(NovaPartida.this, PartidaAberta.class);
-                    intent.putExtra("nomepartida", editTextNomePartida.getText().toString());
-                    intent.putStringArrayListExtra("jogadores", jogadores);
-                    intent.putExtra("partidaNova", true);
-                    startActivity(intent);
-                    finish();
-                }
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                tilNomeGrupo.setError(null);
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
 
             }
         });
 
-        btnEditar.setOnClickListener(new View.OnClickListener() {
+        campoJogador.addTextChangedListener(new TextWatcher() {
             @Override
-            public void onClick(View v) {
-                btnEditar.setVisibility(View.GONE);
-                btnVoltar.setVisibility(View.GONE);
-                btnSair.setVisibility(View.VISIBLE);
-                novoJogador.setVisibility(View.GONE);
-                btnIniciar.setVisibility(View.GONE);
-                contagemJogadores.setVisibility(View.GONE);
-                tvNomeGrupo.setVisibility(View.GONE);
-                btnSalvar.setVisibility(View.VISIBLE);
-                editTextNomePartida.setVisibility(View.VISIBLE);
-                Titulo.setText("Nome grupo de jogo");
-                TextoInfo.setText("Por favor, preencha um nome curto para seu grupo.");
-            }
-        });
-
-        btnVoltar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                finish();
-            }
-        });
-
-        btnSalvar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                    btnEditar.setVisibility(View.VISIBLE);
-                    btnIniciar.setVisibility(View.VISIBLE);
-                    tvNomeGrupo.setVisibility(View.VISIBLE);
-                    btnSalvar.setVisibility(View.GONE);
-                    btnSair.setVisibility(View.GONE);
-                    btnVoltar.setVisibility(View.VISIBLE);
-                    listView.setVisibility(View.VISIBLE);
-                    novoJogador.setVisibility(View.VISIBLE);
-                    contagemJogadores.setVisibility(View.VISIBLE);
-                    editTextNomePartida.setVisibility(View.GONE);
-                    tvNomeGrupo.setText(editTextNomePartida.getText().toString());
-                    Titulo.setText("Dados do grupo");
-                    Titulo.setTextColor(ContextCompat.getColor(NovaPartida.this, R.color.colorAccent800));
-                    TextoInfo.setText(R.string.InfoDadosGrupo);
-                    TextoInfo.setTextColor(ContextCompat.getColor(NovaPartida.this, R.color.colorCinza));
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 
             }
-        });
 
-        novoJogador.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                btnVoltar.setVisibility(View.GONE);
-                btnSair.setVisibility(View.VISIBLE);
-                btnIniciar.setVisibility(View.GONE);
-                btnEditar.setVisibility(View.GONE);
-                tvNomeGrupo.setVisibility(View.GONE);
-                btnSalvar.setVisibility(View.GONE);
-                contagemJogadores.setVisibility(View.GONE);
-                contagemJogadores2.setVisibility(View.VISIBLE);
-                editTextNomePartida.setVisibility(View.GONE);
-                novoJogador.setVisibility(View.GONE);
-                editNomeNovoJogador.setVisibility(View.VISIBLE);
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
                 btnAdicionarJogador.setVisibility(View.VISIBLE);
-                Titulo.setText("Novo jogador");
-                TextoInfo.setText("Minimo 2 jogadores e maxímo 10.");
-            }
-        });
+                viewcontadorjogadores.setVisibility(View.GONE);
+                tilJogador.setError(null);
 
-        btnOk.setOnClickListener(new View.OnClickListener() {
+            }
+
             @Override
-            public void onClick(View v) {
-                setTheme(R.style.AppTheme);
-                btnIniciar.setVisibility(View.VISIBLE);
-                btnEditar.setVisibility(View.VISIBLE);
-                tvNomeGrupo.setVisibility(View.VISIBLE);
-                btnSalvar.setVisibility(View.GONE);
-                btnOk.setVisibility(View.GONE);
-                editTextNomePartida.setVisibility(View.GONE);
-                contagemJogadores.setVisibility(View.VISIBLE);
-                contagemJogadores2.setVisibility(View.GONE);
-                novoJogador.setVisibility(View.VISIBLE);
-                btnSair.setVisibility(View.GONE);
-                btnVoltar.setVisibility(View.VISIBLE);
-                editNomeNovoJogador.setVisibility(View.GONE);
-                btnAdicionarJogador.setVisibility(View.GONE);
-                Titulo.setText("Dados do grupo");
-                Titulo.setTextColor(ContextCompat.getColor(NovaPartida.this, R.color.colorAccent800));
-                TextoInfo.setText(R.string.InfoDadosGrupo);
-                TextoInfo.setTextColor(ContextCompat.getColor(NovaPartida.this, R.color.colorCinza));
+            public void afterTextChanged(Editable s) {
+
+
             }
         });
 
         btnAdicionarJogador.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                if (editNomeNovoJogador.getText().length() == 0){
-                    editNomeNovoJogador.setError("Campo vazio");
-                }else if (jogadores.size() < 10) {
-                    jogadores.add(editNomeNovoJogador.getText().toString());
+                if (jogadores.size() < 10) {
+                    jogadores.add(campoJogador.getText().toString());
                     adapter.notifyDataSetChanged();
-                    editNomeNovoJogador.setText(null);
+                    campoJogador.setText(null);
+                    btnAdicionarJogador.setVisibility(View.GONE);
                     if (jogadores.size() == 0){
-                        contagemJogadores.setText("0");
                         contagemJogadores2.setText("0");
                     }else if (jogadores.size() == 1){
-                        contagemJogadores.setText(jogadores.size()+"");
                         contagemJogadores2.setText(jogadores.size()+"");
                     }else if (jogadores.size() >= 2){
-                        contagemJogadores.setText(jogadores.size()+"");
                         contagemJogadores2.setText(jogadores.size()+"");
                     }
 
                 } else {
-                    btnOk.setVisibility(View.VISIBLE);
-                    btnSair.setVisibility(View.GONE);
-                    editNomeNovoJogador.setVisibility(View.GONE);
                     btnAdicionarJogador.setVisibility(View.GONE);
                     contagemJogadores2.setVisibility(View.GONE);
-                    Titulo.setText("MAXÍMO 10 JOGADORES");
-                    Titulo.setTextColor(Color.RED);
-                    TextoInfo.setText("Você adicionou o numero maximo de jogadores.");
-                    TextoInfo.setTextColor(Color.RED);
+                    tilJogador.setVisibility(View.GONE);
+                    Snackbar snackbar = Snackbar
+                            .make(v, "Você atingiu o numero maximo de jogadores em um total de 10.", Snackbar.LENGTH_INDEFINITE);
+                    snackbar.setAction("Entendi", new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            btnAdicionarJogador.setVisibility(View.GONE);
+                            contagemJogadores2.setVisibility(View.VISIBLE);
+                            contagemJogadores2.setTextColor(Color.CYAN);
+                            tilJogador.setVisibility(View.VISIBLE);
+                            campoJogador.setText(null);
+                        }
+                    });
+                    snackbar.setActionTextColor(Color.RED);
+                    snackbar.show();
 
                 }
 
-
-
             }
         });
-        btnSair.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                btnIniciar.setVisibility(View.VISIBLE);
-                btnEditar.setVisibility(View.VISIBLE);
-                tvNomeGrupo.setVisibility(View.VISIBLE);
-                btnSalvar.setVisibility(View.GONE);
-                editTextNomePartida.setVisibility(View.GONE);
-                contagemJogadores.setVisibility(View.VISIBLE);
-                contagemJogadores2.setVisibility(View.GONE);
-                novoJogador.setVisibility(View.VISIBLE);
-                btnSair.setVisibility(View.GONE);
-                btnVoltar.setVisibility(View.VISIBLE);
-                editNomeNovoJogador.setVisibility(View.GONE);
-                btnAdicionarJogador.setVisibility(View.GONE);
-                Titulo.setText("Dados do grupo");
-                Titulo.setTextColor(ContextCompat.getColor(NovaPartida.this, R.color.colorAccent800));
-                TextoInfo.setText(R.string.InfoDadosGrupo);
-                TextoInfo.setTextColor(ContextCompat.getColor(NovaPartida.this, R.color.colorCinza));
-            }
-        });
-
 
 
     }
@@ -278,15 +188,45 @@ public class NovaPartida extends AppCompatActivity {
     }
 
     @Override
+    public boolean onCreateOptionsMenu (Menu menu){
+        getMenuInflater().inflate(R.menu.nova_partida_menu, menu);
+        return true;
+    }
+
+
+
+    @Override
     public boolean onOptionsItemSelected(MenuItem item) {
 
         int id = item.getItemId();
         if (id == android.R.id.home) {
             finish();
+        }else if (id == R.id.action_btn_criar) {
+
+            if (TextUtils.isEmpty(campoNomeGrupo.getText().toString())) {
+                tilNomeGrupo.setError(getString(R.string.NomeParaSuaPartida));
+            }
+
+            if (jogadores.size() == 0) {
+                tilJogador.setError("Adicione 2 jogadores para criar o grupo");
+                btnAdicionarJogador.setVisibility(View.GONE);
+            }else if (jogadores.size() == 1) {
+                tilJogador.setError("Adicione mais 1 jogador para criar o grupo");
+                btnAdicionarJogador.setVisibility(View.GONE);
+            }else {
+                Intent intent = new Intent(NovaPartida.this, PartidaAberta.class);
+                intent.putExtra("nomepartida", campoNomeGrupo.getText().toString());
+                intent.putStringArrayListExtra("jogadores", jogadores);
+                intent.putExtra("partidaNova", true);
+                startActivity(intent);
+                finish();
+            }
+
         }
 
         return super.onOptionsItemSelected(item);
     }
+
 
 
 }

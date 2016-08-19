@@ -36,7 +36,7 @@
     <color name="colorBlackTransparente3">#3f000000</color>
     <color name="colorCinza">#686868</color>
     <color name="colorCinzaEscuro">#686868</color>
-    <color name="colorFundo">#363f45</color>
+    <color name="colorFundo">#f9f9f9</color>
     <color name="colorFABAccent">#607D8B</color>
     <color name="colorFABPressedAccent">#455A64</color>
 

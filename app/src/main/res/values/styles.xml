@@ -26,6 +26,7 @@
     <style name="AppTheme.Error" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="colorAccent">@color/colorRed</item>
         <item name="colorPrimaryDark">@color/colorRed</item>
+        <item name="android:editTextColor">@color/colorRed</item>
     </style>
 
 

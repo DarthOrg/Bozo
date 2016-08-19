@@ -99,5 +99,6 @@
     <string name="InfoDadosGrupo">Por favor, forneça o nome e add os jogadores no + .</string>
     <string name="Editar">Editar</string>
     <string name="HintValorDado">Digite o valor do dado jogado...</string>
+    <string name="CriarGrupo">Criar Grupo</string>
 
 </resources>
