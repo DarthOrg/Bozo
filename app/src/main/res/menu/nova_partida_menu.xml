@@ -4,10 +4,9 @@
 
     <item
         android:id="@+id/action_btn_criar"
-        android:title="@string/CriarGrupo"
+        android:title="@string/Criar"
         android:orderInCategory="100"
         android:visible="true"
-        android:icon="@drawable/ic_confirmado"
         app:showAsAction="always"/>
 
 </menu>

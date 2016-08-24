@@ -1,6 +1,7 @@
 package com.darthorg.bozo.view;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.os.SystemClock;
 import android.support.design.widget.FloatingActionButton;
@@ -44,9 +45,7 @@ public class Inicio extends AppCompatActivity
 
         toolbar = (Toolbar) findViewById(R.id.toolbar);
 
-        toolbar.setTitle(R.string.GruposDeJogo);
-
-
+        toolbar.setTitle(R.string.TextoVazio);
         setSupportActionBar(toolbar);
 
         listViewPartidas = (ListView) findViewById(R.id.list_view_partidas);
@@ -191,6 +190,8 @@ public class Inicio extends AppCompatActivity
         } else if (id == R.id.nav_instrucoes) {
 
         } else if (id == R.id.nav_cor_destaque) {
+
+
 
         } else if (id == R.id.nav_sobre) {
             Intent intent = new Intent(Inicio.this, Sobre.class);
