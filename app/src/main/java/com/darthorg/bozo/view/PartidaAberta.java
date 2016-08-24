@@ -259,6 +259,8 @@ public class PartidaAberta extends AppCompatActivity {
 
                     ganhador = jogadoresRodada.get(i);
                 }
+            } else {
+                ganhador = null;
             }
         }
 
@@ -371,6 +373,14 @@ public class PartidaAberta extends AppCompatActivity {
                 }
             }
         }
+
+    }
+
+    public void configurarNovaRodada() {
+        for (int i = 0; i < listaFragments.size(); i++) {
+            adapter.removeFrag(viewPager.getCurrentItem());
+        }
+        configurarPartida();
 
     }
 
@@ -610,20 +620,44 @@ public class PartidaAberta extends AppCompatActivity {
             if (verificaSeRodadaAcabou()) {
 
                 alertDialogBuilder.setTitle("Nova Rodada");
-                alertDialogBuilder.setMessage(compararPontos().getNome() + " Ganhou !!\nDeseja jogar uma nova rodada?");
-                alertDialogBuilder.setPositiveButton(" Sim ", new DialogInterface.OnClickListener() {
 
-                    public void onClick(DialogInterface dialog, int which) {
-                        dialog.dismiss();
-                    }
-                });
+                if (compararPontos() != null) {
 
-                alertDialogBuilder.setNegativeButton(" Não ", new DialogInterface.OnClickListener() {
 
-                    public void onClick(DialogInterface dialog, int which) {
-                        dialog.dismiss();
-                    }
-                });
+                    alertDialogBuilder.setMessage(compararPontos().getNome() + " Ganhou !!\nDeseja jogar uma nova rodada?");
+                    alertDialogBuilder.setPositiveButton(" Sim ", new DialogInterface.OnClickListener() {
+
+                        public void onClick(DialogInterface dialog, int which) {
+                            configurarNovaRodada();
+                            dialog.dismiss();
+                        }
+                    });
+
+                    alertDialogBuilder.setNegativeButton(" Não ", new DialogInterface.OnClickListener() {
+
+                        public void onClick(DialogInterface dialog, int which) {
+                            dialog.dismiss();
+                        }
+                    });
+
+                } else {
+                    alertDialogBuilder.setMessage(" Alguns jogadores ainda nem jogaram , Deseja jogar uma nova assim mesmo ?");
+                    alertDialogBuilder.setPositiveButton(" Sim ", new DialogInterface.OnClickListener() {
+
+                        public void onClick(DialogInterface dialog, int which) {
+                            configurarNovaRodada();
+                            dialog.dismiss();
+                        }
+                    });
+
+                    alertDialogBuilder.setNegativeButton(" Não ", new DialogInterface.OnClickListener() {
+
+                        public void onClick(DialogInterface dialog, int which) {
+                            dialog.dismiss();
+                        }
+                    });
+                }
+
             } else {
 
                 alertDialogBuilder.setTitle(" ;(");
