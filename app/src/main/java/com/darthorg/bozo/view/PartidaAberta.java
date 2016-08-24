@@ -2,6 +2,7 @@ package com.darthorg.bozo.view;
 
 import android.app.Dialog;
 import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
@@ -45,10 +46,8 @@ public class PartidaAberta extends AppCompatActivity {
     //Objetos que vao ser Manipulados durante a rodada
     private Partida partida;
     private Rodada rodada;
-    private List<Jogador> jogadoresRodada;
-
     private List<Jogador> listJogadoresBanco;
-
+    private List<Jogador> jogadoresRodada;
     private List<FragmentFilho> listaFragments = new ArrayList<>();
 
 
@@ -131,6 +130,7 @@ public class PartidaAberta extends AppCompatActivity {
                         FragmentFilho fragmentFilho = new FragmentFilho();
                         Jogador jogador = new Jogador();
                         jogador.setNome(etNomeJogador.getText().toString());
+                        fragmentFilho.setNome(etNomeJogador.getText().toString());
 
                         // Adiciona o jogador numa lista local de jogadores
                         jogadoresRodada.add(jogador);
@@ -234,15 +234,15 @@ public class PartidaAberta extends AppCompatActivity {
 
             @Override
             public void onPageScrollStateChanged(int state) {
-
             }
         });
 
     }
 
-    public void compararPontos() {
+    public Jogador compararPontos() {
 
         FragmentFilho ganhando = listaFragments.get(0);
+        Jogador ganhador = jogadoresRodada.get(0);
 
 
         for (int i = 0; i < listaFragments.size(); i++) {
@@ -250,16 +250,31 @@ public class PartidaAberta extends AppCompatActivity {
             if (ganhando.getContador() != 0) {
                 if (ganhando.getContador() > listaFragments.get(i).getContador()) {
                     ganhando.setGanhando(true);
+
+
                 } else {
                     ganhando.setGanhando(false);
                     ganhando = listaFragments.get(i);
                     ganhando.setGanhando(true);
+
+                    ganhador = jogadoresRodada.get(i);
                 }
             }
         }
 
+        return ganhador;
+    }
 
-        Log.i("teste3", ganhando.getContador() + " esta GANHANDO");
+    public boolean verificaSeRodadaAcabou() {
+
+        FragmentFilho ultimoJogador = listaFragments.get(listaFragments.size() - 1);
+
+        if (ultimoJogador.isAcabouRodada()) {
+            return true;
+        } else {
+            return false;
+        }
+
     }
 
     /**
@@ -302,6 +317,7 @@ public class PartidaAberta extends AppCompatActivity {
                         FragmentFilho fragmentFilho = new FragmentFilho();
                         Jogador jogador = new Jogador();
                         jogador.setNome(jogadoresIniciais.get(i));
+                        fragmentFilho.setNome(jogadoresIniciais.get(i));
 
                         // Adiciona o jogador numa lista local de jogadores
                         jogadoresRodada.add(jogador);
@@ -341,6 +357,7 @@ public class PartidaAberta extends AppCompatActivity {
 
                         // Adiciona os jogadores do banco tambem a uma lista local
                         jogadoresRodada.add(listJogadoresBanco.get(i));
+                        fragmentFilho.setNome(listJogadoresBanco.get(i).getNome());
 
                         listaFragments.add(fragmentFilho);
 
@@ -492,7 +509,6 @@ public class PartidaAberta extends AppCompatActivity {
             return true;
         } else if (id == R.id.action_sair) {
 
-
             LayoutInflater inflater = getLayoutInflater();
             View dialogLayout = inflater.inflate(R.layout.dialog_sair_grupo, null);
             AlertDialog.Builder builder = new AlertDialog.Builder(PartidaAberta.this);
@@ -584,11 +600,52 @@ public class PartidaAberta extends AppCompatActivity {
             });
             builder.setView(dialogLayout);
             builder.show();
+            return true;
+
+        } else if (id == R.id.action_finalizar) {
+
+            AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
+            alertDialogBuilder.setCancelable(true);
+
+            if (verificaSeRodadaAcabou()) {
+
+                alertDialogBuilder.setTitle("Nova Rodada");
+                alertDialogBuilder.setMessage(compararPontos().getNome() + " Ganhou !!\nDeseja jogar uma nova rodada?");
+                alertDialogBuilder.setPositiveButton(" Sim ", new DialogInterface.OnClickListener() {
+
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
+                    }
+                });
+
+                alertDialogBuilder.setNegativeButton(" Não ", new DialogInterface.OnClickListener() {
+
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
+                    }
+                });
+            } else {
+
+                alertDialogBuilder.setTitle(" ;(");
+                alertDialogBuilder.setMessage("Esta rodada ainda n terminou , Deseja sair assim mesmo ?");
+                alertDialogBuilder.setPositiveButton(" Abandonar  ", new DialogInterface.OnClickListener() {
+
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
+                    }
+                });
+
+                alertDialogBuilder.setNegativeButton(" Cancelar ", new DialogInterface.OnClickListener() {
+
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
+                    }
+                });
+            }
+            alertDialogBuilder.show();
         }
 
         fabMenu.close(true);
-        return super.
-
-                onOptionsItemSelected(item);
+        return super.onOptionsItemSelected(item);
     }
 }

@@ -20,5 +20,11 @@
         android:orderInCategory="100"
         app:showAsAction="never"/>
 
+    <item
+        android:id="@+id/action_finalizar"
+        android:title="@string/Finalizar"
+        android:orderInCategory="100"
+        app:showAsAction="always"/>
+
 
 </menu>

@@ -51,6 +51,7 @@
 
     <!--Texto Menu-->
     <string name="BloquearSom">Bloquear Som</string>
+    <string name="Finalizar">Finalizar Rodada</string>
     <string name="Iniciar">Iniciar</string>
     <string name="Sair">Sair</string>
     <string name="Zerar">Zerar</string>

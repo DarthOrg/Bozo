@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.text.InputFilter;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -26,7 +27,7 @@ import java.util.List;
  */
 public class FragmentFilho extends Fragment {
 
-    private String nomeFragmentFilho;
+    private String nome;
 
     private Button btnAz, btnDuque, btnTerno, btnQuadrada, btnSeguida, btnFull, btnQuina, btnSena, btnGeneral, btnQuadra;
     private ImageView riscarAz, riscarDuque, riscarTerno, riscarQuadrada, riscarSeguida, riscarFull, riscarQuina, riscarSena, riscarGeneral, riscarQuadra;
@@ -51,7 +52,7 @@ public class FragmentFilho extends Fragment {
     private PecaBozo pecaBozoQuadrada = new PecaBozo(nomeQuadrada, null, false);
     private PecaBozo pecaBozoGeneral = new PecaBozo(nomeGeneral, null, false);
 
-    private List<PecaBozo> pecasBozo;
+    public List<PecaBozo> pecasBozo;
     private List<Button> buttons;
     private List<ImageView> riscos;
 
@@ -60,6 +61,7 @@ public class FragmentFilho extends Fragment {
     private TextView txtGanhando;
     private int contador = 0;
     private boolean ganhando;
+    private boolean acabouRodada;
 
     // variavel necessaria para inflar o layout do AlertDialog
     private LayoutInflater dialogInflater;
@@ -115,7 +117,6 @@ public class FragmentFilho extends Fragment {
         txtGanhando = (TextView) view.findViewById(R.id.txtGanhando);
 
     }
-
 
     private void setEvents() {
 
@@ -220,6 +221,8 @@ public class FragmentFilho extends Fragment {
                                                   contador = contarPontos();
                                                   resultadoFinal.setText(contador + "");
 
+                                                  contarPecasUsadas();
+
                                               }
                                           });
                                           //Botão Riscar
@@ -227,13 +230,16 @@ public class FragmentFilho extends Fragment {
                                               @Override
                                               public void onClick(View view) {
                                                   dialogMarcarBozó.dismiss();
-                                                  if (pecaBozo.getPontuacao() == null) {
-                                                      pecaBozo.setRiscado(true);
-                                                      button.setVisibility(View.GONE);
-                                                      risco.setVisibility(View.VISIBLE);
-                                                  }
+
+                                                  pecaBozo.setRiscado(true);
+                                                  button.setVisibility(View.GONE);
+                                                  risco.setVisibility(View.VISIBLE);
+                                                  pecaBozo.setPontuacao("x");
+
                                                   contador = contarPontos();
                                                   resultadoFinal.setText(contador + "");
+
+                                                  contarPecasUsadas();
                                               }
                                           });
                                           //Botão Cancelar
@@ -244,8 +250,7 @@ public class FragmentFilho extends Fragment {
                                                   return;
                                               }
                                           });
-
-                                          dialogMarcarBozó.setCancelable(false);
+                                          dialogMarcarBozó.setCancelable(true);
                                           dialogMarcarBozó.show();
                                       }
                                   }
@@ -313,10 +318,6 @@ public class FragmentFilho extends Fragment {
         return contador;
     }
 
-    public void setContador(int contador) {
-        this.contador = contador;
-    }
-
     public boolean isGanhando() {
         return ganhando;
     }
@@ -329,5 +330,36 @@ public class FragmentFilho extends Fragment {
         } else {
             txtGanhando.setVisibility(View.INVISIBLE);
         }
+    }
+
+    public void contarPecasUsadas() {
+
+        int contadorPecas = 0;
+
+        for (int i = 0; i < pecasBozo.size(); i++) {
+            if (pecasBozo.get(i).getPontuacao() != null) {
+                contadorPecas++;
+            }
+        }
+
+        if (contadorPecas >= 10) {
+            Log.i("pecasUsadas", "ACABOUUUUU");
+            acabouRodada = true;
+        } else {
+            Log.i("pecasUsadas", "A PARTIDA AINDA ESTA ROLANDO");
+            acabouRodada = false;
+        }
+    }
+
+    public boolean isAcabouRodada() {
+        return acabouRodada;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public String getNome() {
+        return nome;
     }
 }
