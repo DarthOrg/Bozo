@@ -1,166 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.v4.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/drawer_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:fab="http://schemas.android.com/apk/res-auto"
-    tools:context=".view.NovaPartida"
-    android:background="@color/colorWhite"
-    android:weightSum="1">
+    android:fitsSystemWindows="true"
+    tools:openDrawer="start">
 
-
-    <android.support.design.widget.AppBarLayout
+    <include
+        layout="@layout/app_bar_inicio"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/colorTrasnparente"
-        app:elevation="0dp">
+        android:layout_height="match_parent" />
 
-        <!--TOOLBAR TOPO-->
-        <android.support.v7.widget.Toolbar
-            android:id="@+id/toolbar"
-            android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"/>
-
-    </android.support.design.widget.AppBarLayout>
-
-
-    <RelativeLayout
-    android:layout_width="match_parent"
-    android:layout_height="150dp"
-    android:paddingLeft="50dp"
-    android:paddingTop="20dp"
-    android:background="@color/colorAccent"
-    android:layout_above="@+id/qualquer"
-    android:id="@+id/textoBozo">
-
-
-    <TextView
-        android:id="@+id/btnSobre"
+    <android.support.design.widget.NavigationView
+        android:id="@+id/nav_view"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="BOZÓ"
-        android:textSize="60dp"
-        android:textColor="@color/colorCinza"/>
-
-    <TextView
-        android:id="@+id/textView11"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="@string/Marcador"
-        android:textSize="30dp"
-        android:textColor="@color/colorCinza"
-        android:layout_marginTop="-15dp"
-        android:layout_below="@+id/btnSobre"
-        android:layout_alignLeft="@+id/btnSobre"
-        android:layout_alignStart="@+id/btnSobre"
-        android:layout_marginLeft="3dp" />
-
-</RelativeLayout>
-
-
-
-    <LinearLayout
-        android:orientation="horizontal"
-        android:id="@+id/qualquer"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:elevation="5dp"
-        android:background="@color/colorWhite"
-        android:layout_alignParentBottom="true">
-
-        <Button
-            android:id="@+id/btnConfiguracoes"
-            style="@style/AlertDialog.AppCompat"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingTop="6dp"
-            android:paddingBottom="10dp"
-            android:layout_weight="1"
-            android:text="@string/Configuracoes"
-            android:textSize="10dp"
-            android:drawableTop="@drawable/ic_configuracoes"
-            android:drawablePadding="6dp"
-            android:background="@color/colorWhite"/>
-
-        <Button
-            android:id="@+id/btnInstrucoes"
-            style="@style/AlertDialog.AppCompat"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingTop="6dp"
-            android:paddingBottom="10dp"
-            android:layout_weight="1"
-            android:text="@string/Instrucoes"
-            android:textSize="10dp"
-            android:drawableTop="@drawable/ic_instrucoes"
-            android:drawablePadding="6dp"
-            android:background="@color/colorWhite"/>
-
-        <Button
-            android:id="@+id/btnGruposSalvos"
-            style="@style/AlertDialog.AppCompat"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingTop="6dp"
-            android:paddingBottom="10dp"
-            android:layout_weight="1"
-            android:text="@string/GruposSalvos"
-            android:textSize="10dp"
-            android:drawableTop="@drawable/ic_lista"
-            android:drawablePadding="6dp"
-            android:background="@color/colorWhite"/>
-
-
-
-    </LinearLayout>
-
-
-    <ImageButton
-        android:id="@+id/btnNovaPartida"
-        android:layout_width="65dp"
-        android:layout_height="65dp"
-        android:elevation="5dp"
-        android:background="@drawable/circulo_accent_light"
-        android:backgroundTint="@color/colorWhite"
-        android:tint="@color/colorCinza"
-        android:src="@drawable/ic_play_white"
-        android:layout_above="@+id/qualquer"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginRight="16dp"
-        android:layout_marginBottom="120dp" />
-
-    <RelativeLayout
-        android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_above="@+id/textoBozo">
-
-
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="350dp"
-            android:src="@drawable/img_inicio_dois"
-            android:id="@+id/imgTopo"
-            android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true" />
-
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="350dp"
-            android:src="@drawable/img_inicio_cyan"
-            android:id="@+id/imgBottom"
-            android:layout_alignParentBottom="true"
-            android:layout_centerHorizontal="true" />
-
-
-    </RelativeLayout>
+        android:layout_gravity="start"
+        android:fitsSystemWindows="true"
+        app:headerLayout="@layout/nav_header_inicio"
+        app:menu="@menu/activity_inicio_drawer"
+        app:itemIconTint="@color/colorCinza"
+        app:itemTextColor="@color/colorCinza"/>
 
 
 
-
-</RelativeLayout>
+</android.support.v4.widget.DrawerLayout>

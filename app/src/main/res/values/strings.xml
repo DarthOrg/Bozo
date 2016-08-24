@@ -101,5 +101,12 @@
     <string name="Editar">Editar</string>
     <string name="HintValorDado">Digite o valor do dado jogado...</string>
     <string name="CriarGrupo">Criar Grupo</string>
+    <string name="title_activity_comeco">Comeco</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
+    <string name="GruposDeJogo">Grupos de jogo</string>
 
 </resources>

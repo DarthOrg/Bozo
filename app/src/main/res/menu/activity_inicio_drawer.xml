@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_novo_grupo"
+            android:icon="@drawable/ic_nova_partida_white"
+            android:title="@string/NovoGrupo" />
+        <item
+            android:id="@+id/nav_instrucoes"
+            android:icon="@drawable/ic_instrucoes"
+            android:title="@string/Instrucoes" />
+        <item
+            android:id="@+id/nav_cor_destaque"
+            android:icon="@drawable/ic_cor_destaque"
+            android:title="Cor de destaque" />
+        <item
+            android:id="@+id/nav_sobre"
+            android:icon="@drawable/ic_sobre"
+            android:title="@string/Sobre" />
+
+    </group>
+
+    <item android:title="Comunicar">
+        <menu>
+            <item
+                android:id="@+id/nav_compartilhar"
+                android:icon="@drawable/ic_menu_share"
+                android:title="Compartilhar" />
+            <item
+                android:id="@+id/nav_configuracoes"
+                android:icon="@drawable/ic_configuracoes"
+                android:title="@string/Configuracoes" />
+        </menu>
+    </item>
+
+</menu>
