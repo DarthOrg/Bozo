@@ -145,7 +145,7 @@ public class NovaPartida extends AppCompatActivity {
                     contagemJogadores2.setVisibility(View.GONE);
                     tilJogador.setVisibility(View.GONE);
                     Snackbar snackbar = Snackbar
-                            .make(v, "Você atingiu o numero maximo de jogadores em um total de 10.", Snackbar.LENGTH_INDEFINITE);
+                            .make(v, "Máximo 10 jogadores", Snackbar.LENGTH_INDEFINITE);
                     snackbar.setAction("Entendi", new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
@@ -156,7 +156,7 @@ public class NovaPartida extends AppCompatActivity {
                             campoJogador.setText(null);
                         }
                     });
-                    snackbar.setActionTextColor(Color.CYAN);
+                    snackbar.setActionTextColor(Color.RED);
                     snackbar.show();
 
                 }

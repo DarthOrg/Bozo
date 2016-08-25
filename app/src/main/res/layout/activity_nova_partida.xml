@@ -161,7 +161,7 @@
         android:background="@drawable/circulo_accent_light"
         android:backgroundTint="@color/colorWhite"
         android:tint="@color/colorCinza"
-        android:src="@drawable/ic_nova_partida_white"
+        android:src="@drawable/ic_plus_white"
         android:visibility="gone"
         android:layout_below="@+id/view"
         android:layout_alignParentRight="true"

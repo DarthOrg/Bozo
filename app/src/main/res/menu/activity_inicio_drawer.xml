@@ -4,7 +4,7 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/nav_novo_grupo"
-            android:icon="@drawable/ic_nova_partida_white"
+            android:icon="@drawable/ic_plus_white"
             android:title="@string/NovoGrupo" />
         <item
             android:id="@+id/nav_instrucoes"
