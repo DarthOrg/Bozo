@@ -46,9 +46,11 @@ public class PartidaAberta extends AppCompatActivity {
     //Objetos que vao ser Manipulados durante a rodada
     private Partida partida;
     private Rodada rodada;
+
     private List<Jogador> listJogadoresBanco;
-    private List<Jogador> jogadoresRodada;
-    private List<FragmentFilho> listaFragments = new ArrayList<>();
+    private List<Rodada> listRodadas = new ArrayList<>();
+    private List<Jogador> jogadoresRodada = new ArrayList<>();
+    private List<FragmentFilho> listaFragments;
 
 
     //Controllers
@@ -87,13 +89,8 @@ public class PartidaAberta extends AppCompatActivity {
         toolbar.setTitle(R.string.TextoVazio);
         setSupportActionBar(toolbar);
 
-        //Configura o Adapter junto com o ViewPager
-        adapter = new TabsDinamicosAdapter(getSupportFragmentManager(), PartidaAberta.this, viewPager, tabLayout);
-        viewPager.setAdapter(adapter);
-
-        //Configura o TabLayout com o ViewPager
-        tabLayout.setupWithViewPager(viewPager);
         tituloGrupo = (TextView) findViewById(R.id.TituloGrupo);
+
 
         //Recupera os valores das intents
         intent = getIntent();
@@ -229,7 +226,7 @@ public class PartidaAberta extends AppCompatActivity {
 
             @Override
             public void onPageSelected(int position) {
-                compararPontos();
+                //compararPontos();
             }
 
             @Override
@@ -240,6 +237,8 @@ public class PartidaAberta extends AppCompatActivity {
     }
 
     public Jogador compararPontos() {
+
+        jogadoresRodada.size();
 
         FragmentFilho ganhando = listaFragments.get(0);
         Jogador ganhador = jogadoresRodada.get(0);
@@ -301,6 +300,13 @@ public class PartidaAberta extends AppCompatActivity {
      */
     public void configurarPartida() {
 
+        //Configura o Adapter junto com o ViewPager
+        adapter = new TabsDinamicosAdapter(getSupportFragmentManager(), PartidaAberta.this, viewPager, tabLayout);
+        viewPager.setAdapter(adapter);
+
+        //Configura o TabLayout com o ViewPager
+        tabLayout.setupWithViewPager(viewPager);
+
         if (intent != null) {
             if (bundleParams != null) {
                 //Verifica se é uma partida nova ou uma partida salva
@@ -308,47 +314,73 @@ public class PartidaAberta extends AppCompatActivity {
 
                     partida = new Partida();
                     rodada = new Rodada();
-                    jogadoresRodada = new ArrayList<>();
+                    listaFragments = new ArrayList<>();
 
                     //Configura o nome da Partida
                     partida.setNome(bundleParams.getString("nomepartida"));
                     tituloGrupo.setText(partida.getNome());
 
-                    //Adiciona os jogadores
-                    ArrayList<String> jogadoresIniciais = bundleParams.getStringArrayList("jogadores");
+                    //Verifica se é a primeira rodada
+                    if (listRodadas.size() == 0) {
+                        //Adiciona os jogadores
+                        ArrayList<String> jogadoresIniciais = bundleParams.getStringArrayList("jogadores");
 
-                    for (int i = 0; i < jogadoresIniciais.size(); i++) {
+                        for (int i = 0; i < jogadoresIniciais.size(); i++) {
 
-                        FragmentFilho fragmentFilho = new FragmentFilho();
-                        Jogador jogador = new Jogador();
-                        jogador.setNome(jogadoresIniciais.get(i));
-                        fragmentFilho.setNome(jogadoresIniciais.get(i));
+                            FragmentFilho fragmentFilho = new FragmentFilho();
+                            Jogador jogador = new Jogador();
+                            jogador.setNome(jogadoresIniciais.get(i));
+                            fragmentFilho.setNome(jogadoresIniciais.get(i));
 
-                        // Adiciona o jogador numa lista local de jogadores
-                        jogadoresRodada.add(jogador);
+                            // Adiciona o jogador numa lista local de jogadores
+                            jogadoresRodada.add(jogador);
+                            listaFragments.add(fragmentFilho);
 
-                        listaFragments.add(fragmentFilho);
+                            jogadoresRodada.size();
+                            listaFragments.size();
 
-                        // Cria uma nova tab para aquele jogador
-                        adapter.addFrag(fragmentFilho, jogadoresIniciais.get(i));
+                            // Cria uma nova tab para aquele jogador
+                            adapter.addFrag(fragmentFilho, jogadoresIniciais.get(i));
+                            // Notifica o adapter que os dados foram alterados
+                            adapter.notifyDataSetChanged();
+                            // Configura o tablayout novamente com as tabs novas
+                            tabLayout.setupWithViewPager(viewPager);
+                        }
 
-                        // Notifica o adapter que os dados foram alterados
-                        adapter.notifyDataSetChanged();
+                    } else {
+                        //Não é a primeira rodada , entao pega os jogadores da rodada anterior
 
-                        // Configura o tablayout novamente com as tabs novas
-                        tabLayout.setupWithViewPager(viewPager);
+                        for (int i = 0; i < jogadoresRodada.size(); i++) {
+
+                            FragmentFilho fragmentFilho = new FragmentFilho();
+                            fragmentFilho.setNome(jogadoresRodada.get(i).getNome());
+                            listaFragments.add(fragmentFilho);
+
+                            jogadoresRodada.size();
+                            listaFragments.size();
+
+                            // Cria uma nova tab para aquele jogador
+                            adapter.addFrag(fragmentFilho, jogadoresRodada.get(i).getNome());
+                            // Notifica o adapter que os dados foram alterados
+                            adapter.notifyDataSetChanged();
+                            // Configura o tablayout novamente com as tabs novas
+                            tabLayout.setupWithViewPager(viewPager);
+                        }
                     }
 
                 } else {
 
                     partidaController = new PartidaController(PartidaAberta.this);
                     jogadoresRodada = new ArrayList<>();
+                    listaFragments = new ArrayList<>();
 
                     //Esta partida sabe o seu ID , Nome , Rodadas e Jogadores
                     partida = partidaController.buscarPartida(bundleParams.getLong("partidaSalva"));
                     tituloGrupo.setText(partida.getNome());
 
                     Log.i("partidasalva", "id da partida :" + bundleParams.getLong("partidaSalva"));
+
+                    rodada = new Rodada();
 
                     //todo:trocar este método por um que traz jogadores da ultima rodada
                     // Esta trazendo jogadores que estao naquela partida
@@ -379,11 +411,19 @@ public class PartidaAberta extends AppCompatActivity {
 
     }
 
-    public void configurarNovaRodada() {
+    public List<Rodada> configurarNovaRodada() {
+
         for (int i = 0; i < listaFragments.size(); i++) {
             adapter.removeFrag(viewPager.getCurrentItem());
         }
+
+        rodada.setNomeVencedor(compararPontos().getNome());
+        listRodadas.add(rodada);
+
         configurarPartida();
+
+
+        return listRodadas;
 
     }
 
@@ -392,6 +432,7 @@ public class PartidaAberta extends AppCompatActivity {
      *
      * @return true caso a Partida for Nova
      */
+
     public boolean verificaPartidaNova() {
         if (bundleParams.getBoolean("partidaNova")) {
             return true;
