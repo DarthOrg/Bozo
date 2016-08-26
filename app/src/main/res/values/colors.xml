@@ -6,6 +6,7 @@
     <color name="colorAccent">#00bcd4</color>
     <color name="colorAccent700">#0097a7</color>
     <color name="colorAccent800">#00838f</color>
+    <color name="colorAccentA200">#18ffff</color>
     <color name="colorAccentTransparent">#4b607d8b</color>
     <color name="colorAccentDark">#455A64</color>
 
