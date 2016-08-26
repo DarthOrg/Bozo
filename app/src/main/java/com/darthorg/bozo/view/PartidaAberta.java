@@ -180,10 +180,15 @@ public class PartidaAberta extends AppCompatActivity {
                     public void onClick(View view) {
                         if (adapter.getCount() > 2) {
 
+                            //remove o fragment da lista
+                            listaFragments.remove(viewPager.getCurrentItem());
+
                             // Remove o jogador da rodada
                             jogadoresRodada.remove(viewPager.getCurrentItem());
+
                             // Remove o Fragment
                             adapter.removeFrag(viewPager.getCurrentItem());
+
                             // Notifica o adapter que um fragment foi removido
                             adapter.notifyDataSetChanged();
                             // vincula denovo o viewpager com o tablayout
@@ -226,7 +231,7 @@ public class PartidaAberta extends AppCompatActivity {
 
             @Override
             public void onPageSelected(int position) {
-                //compararPontos();
+                compararPontos();
             }
 
             @Override
