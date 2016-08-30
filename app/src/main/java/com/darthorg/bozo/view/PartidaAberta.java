@@ -48,7 +48,9 @@ public class PartidaAberta extends AppCompatActivity {
     private Rodada rodada;
 
     private List<Jogador> listJogadoresBanco;
-    private List<Rodada> listRodadas = new ArrayList<>();
+    private List<Rodada> rodadasBD;
+    private ArrayList<Rodada> listRodadas = new ArrayList<>();
+
     private List<Jogador> jogadoresRodada = new ArrayList<>();
     private List<FragmentFilho> listaFragments;
 
@@ -218,11 +220,13 @@ public class PartidaAberta extends AppCompatActivity {
         floatingActionButton3.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 Intent intent = new Intent(PartidaAberta.this, ListaDePlacar.class);
+                intent.putParcelableArrayListExtra("rodadasfinalizadas", listRodadas);
                 startActivity(intent);
                 fabMenu.close(true);
             }
         });
 
+        //Compara os pontos e mostra quem esta ganhando
         viewPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
             public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
@@ -241,6 +245,11 @@ public class PartidaAberta extends AppCompatActivity {
 
     }
 
+    /**
+     * Compara a pontuação dos fragments
+     *
+     * @return retorna um ganhador
+     */
     public Jogador compararPontos() {
 
         jogadoresRodada.size();
@@ -268,6 +277,12 @@ public class PartidaAberta extends AppCompatActivity {
         return ganhador;
     }
 
+    /**
+     * Verifica se todas as peças foram preenchidas
+     * todo: Corrigir o bug de riscar a posição para sempre
+     *
+     * @return
+     */
     public boolean verificaSeRodadaAcabou() {
 
         int fragmentsCompletos = 0;
@@ -351,18 +366,14 @@ public class PartidaAberta extends AppCompatActivity {
                             // Configura o tablayout novamente com as tabs novas
                             tabLayout.setupWithViewPager(viewPager);
                         }
-
                     } else {
                         //Não é a primeira rodada , entao pega os jogadores da rodada anterior
-
+                        //todo:Gerar aqui de acordo com quem ganhou
                         for (int i = 0; i < jogadoresRodada.size(); i++) {
 
                             FragmentFilho fragmentFilho = new FragmentFilho();
                             fragmentFilho.setNome(jogadoresRodada.get(i).getNome());
                             listaFragments.add(fragmentFilho);
-
-                            jogadoresRodada.size();
-                            listaFragments.size();
 
                             // Cria uma nova tab para aquele jogador
                             adapter.addFrag(fragmentFilho, jogadoresRodada.get(i).getNome());
@@ -371,25 +382,28 @@ public class PartidaAberta extends AppCompatActivity {
                             // Configura o tablayout novamente com as tabs novas
                             tabLayout.setupWithViewPager(viewPager);
                         }
-                    }
+                    }// Fim Nova partida (trabalhando com dados locais)
 
                 } else {
 
                     partidaController = new PartidaController(PartidaAberta.this);
+                    rodadaController = new RodadaController(PartidaAberta.this);
                     jogadoresRodada = new ArrayList<>();
                     listaFragments = new ArrayList<>();
 
                     //Esta partida sabe o seu ID , Nome , Rodadas e Jogadores
                     partida = partidaController.buscarPartida(bundleParams.getLong("partidaSalva"));
                     tituloGrupo.setText(partida.getNome());
-
                     Log.i("partidasalva", "id da partida :" + bundleParams.getLong("partidaSalva"));
 
-                    rodada = new Rodada();
+                    rodadasBD = partidaController.buscarRodadasPartida(partida.getIdPartida());
 
-                    //todo:trocar este método por um que traz jogadores da ultima rodada
-                    // Esta trazendo jogadores que estao naquela partida
-                    listJogadoresBanco = partidaController.buscarJogadoresPartida(partida.getIdPartida());
+                    if (rodadasBD.size() != 0) {
+                        // Se der tudo certo ate aqui esta rodada é a ultima e ela tem um id .
+                        rodada = rodadasBD.get(rodadasBD.size() - 1);
+                    }
+
+                    listJogadoresBanco = rodadaController.buscarJogadoresRodada(rodada.getIdRodada());
 
                     for (int i = 0; i < listJogadoresBanco.size(); i++) {
 
@@ -410,26 +424,34 @@ public class PartidaAberta extends AppCompatActivity {
                         tabLayout.setupWithViewPager(viewPager);
 
                     }
+
+
                 }
             }
         }
 
     }
 
-    public List<Rodada> configurarNovaRodada() {
+    public void configurarNovaRodada() {
 
-        for (int i = 0; i < listaFragments.size(); i++) {
-            adapter.removeFrag(viewPager.getCurrentItem());
+        List<Jogador> auxJogadoresRodadas = new ArrayList<>();
+
+        for (int i = 0; i < jogadoresRodada.size(); i++) {
+            Jogador j = new Jogador();
+            j.setNome(jogadoresRodada.get(i).getNome());
+            j.setPontuacao(listaFragments.get(i).getContador());
+            auxJogadoresRodadas.add(j);
         }
 
         rodada.setNomeVencedor(compararPontos().getNome());
+        rodada.setJogadores(auxJogadoresRodadas);
         listRodadas.add(rodada);
 
+        //Remove os fragments
+        for (int i = 0; i < listaFragments.size(); i++) {
+            adapter.removeFrag(viewPager.getCurrentItem());
+        }
         configurarPartida();
-
-
-        return listRodadas;
-
     }
 
     /**
@@ -471,24 +493,15 @@ public class PartidaAberta extends AppCompatActivity {
                         //Verifica se é uma partida nova ou uma partida salva
                         if (verificaPartidaNova()) {
                             // OK, é nova
+                            partidaController = new PartidaController(PartidaAberta.this);
+
 
                             new Handler().postDelayed(new Runnable() {
                                 public void run() {
 
-                                    partidaController = new PartidaController(PartidaAberta.this);
-                                    rodadaController = new RodadaController(PartidaAberta.this);
-                                    jogadorController = new JogadorController(PartidaAberta.this);
-
+                                    partida.setRodadas(listRodadas);
                                     //Insere a partida no banco
-                                    long idDaPartida = partidaController.inserirPartida(partida);
-
-                                    rodada.setIdPartida(idDaPartida);
-                                    long idDaRodada = rodadaController.inserirRodada(rodada);
-
-                                    for (int i = 0; i < jogadoresRodada.size(); i++) {
-                                        jogadoresRodada.get(i).setIdRodada(idDaRodada);
-                                        jogadorController.inserirJogador(jogadoresRodada.get(i));
-                                    }
+                                    partidaController.inserirPartida(partida);
 
                                     Toast.makeText(getApplicationContext(), "Grupo " + partida.getNome() + " salvo com sucesso", Toast.LENGTH_LONG).show();
                                     builder.dismiss();
@@ -501,7 +514,7 @@ public class PartidaAberta extends AppCompatActivity {
 
                             new Handler().postDelayed(new Runnable() {
                                 public void run() {
-
+                                    //todo: Adaptar este método
                                     rodadaController = new RodadaController(PartidaAberta.this);
                                     partidaController = new PartidaController(PartidaAberta.this);
                                     jogadorController = new JogadorController(PartidaAberta.this);
