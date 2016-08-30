@@ -36,6 +36,7 @@ public class JogadorDAO {
     public void novoJogador(Jogador jogador) {
         values = new ContentValues();
         values.put("nome", jogador.getNome());
+        values.put("pontuacao", jogador.getPontuacao());
         values.put("fk_rodada", jogador.getIdRodada());
 
         db.insert(DataModel.getTabelaJogadores(), null, values);

@@ -11,6 +11,7 @@ import com.darthorg.bozo.datamodel.DataModel;
 import com.darthorg.bozo.datasource.DataSource;
 import com.darthorg.bozo.model.Jogador;
 import com.darthorg.bozo.model.Partida;
+import com.darthorg.bozo.model.Rodada;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -152,6 +153,33 @@ public class PartidaDAO {
         }
 
         return jogadorList;
+    }
+
+    public List<Rodada> buscarRodadasPartida(long idPartida) {
+
+        List<Rodada> rodadaList = new ArrayList<Rodada>();
+
+        String sql = "SELECT " + DataModel.getTabelaRodadas() + "._id ," + DataModel.getTabelaRodadas() + ".vencedor ," + DataModel.getTabelaRodadas() + ".fk_partida ";
+        sql += " FROM " + DataModel.getTabelaPartidas() + " JOIN " + DataModel.getTabelaRodadas() + " ON " + DataModel.getTabelaRodadas() + ".fk_partida = " + DataModel.getTabelaPartidas() + "._id ";
+        sql += " JOIN " + DataModel.getTabelaJogadores() + " ON " + DataModel.getTabelaJogadores() + ".fk_rodada = " + DataModel.getTabelaRodadas() + "._id ";
+        sql += " WHERE " + DataModel.getTabelaPartidas() + "._id = " + idPartida + " ;";
+
+        Cursor cursor = db.rawQuery(sql, null);
+
+        if (cursor.getCount() > 0) {
+            cursor.moveToFirst();
+            do {
+
+                Rodada r = new Rodada();
+                r.setIdRodada(cursor.getLong(0));
+                r.setNomeVencedor(cursor.getString(1));
+                r.setIdPartida(cursor.getLong(2));
+
+                rodadaList.add(r);
+            } while (cursor.moveToNext());
+        }
+
+        return rodadaList;
     }
 
 }
