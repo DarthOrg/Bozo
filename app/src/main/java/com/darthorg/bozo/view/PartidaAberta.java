@@ -6,6 +6,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.support.design.widget.BottomSheetBehavior;
 import android.support.design.widget.Snackbar;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
@@ -20,6 +21,8 @@ import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -37,6 +40,9 @@ import com.github.clans.fab.FloatingActionMenu;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import static android.support.design.widget.BottomSheetBehavior.from;
+
 
 /**
  * Partida que Gerencia o Jogo
@@ -67,7 +73,9 @@ public class PartidaAberta extends AppCompatActivity {
     private TabsDinamicosAdapter adapter;
     // FloatButtons para o Menu
     private FloatingActionMenu fabMenu;
-    private FloatingActionButton floatingActionButton1, floatingActionButton2, floatingActionButton3;
+    private ImageButton BSplacar, BSaddJogador, BSremoverJogador;
+    LinearLayout sairBS;
+    ImageButton fabMais;
 
     private final int ProgressSalvar = 1000;
 
@@ -76,7 +84,7 @@ public class PartidaAberta extends AppCompatActivity {
     private Bundle bundleParams;
 
     private TextView tituloGrupo;
-
+    private BottomSheetBehavior mBottomSheetBehavior;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -101,11 +109,20 @@ public class PartidaAberta extends AppCompatActivity {
         //Método que configura a partida
         configurarPartida();
 
-        //Float action bar
-        fabMenu.setClosedOnTouchOutside(true);
+        //FabBottomSheet
+        View bottomSheetView = findViewById(R.id.bottomSheet);
+        mBottomSheetBehavior = from(bottomSheetView);
+        fabMais.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mBottomSheetBehavior.setState(BottomSheetBehavior.STATE_EXPANDED);
+            }
+        });
+
 
         //Adicionar jogador
-        floatingActionButton1.setOnClickListener(new View.OnClickListener() {
+        BSaddJogador.setOnClickListener(new View.OnClickListener() {
+            @Override
             public void onClick(View v) {
 
                 //Dialog para Adicionar Jogador
@@ -115,11 +132,8 @@ public class PartidaAberta extends AppCompatActivity {
 
                 //Recupera os componentes do layout do custondialog
                 final EditText etNomeJogador = (EditText) dialogAdicionarJogador.findViewById(R.id.edit_nome_novo_jogador);
-                Button btnAdicionarJogador = (Button) dialogAdicionarJogador.findViewById(R.id.btnExcluir);
+                Button btnAdicionarJogador = (Button) dialogAdicionarJogador.findViewById(R.id.btnAdicionarJogador);
                 Button btnCancelar = (Button) dialogAdicionarJogador.findViewById(R.id.btnCancelar);
-
-                //Titulo
-                dialogAdicionarJogador.setTitle(R.string.AdicionarJogador);
 
                 //Add Jogador
                 btnAdicionarJogador.setOnClickListener(new View.OnClickListener() {
@@ -158,13 +172,15 @@ public class PartidaAberta extends AppCompatActivity {
                     }
                 });
                 dialogAdicionarJogador.show();
-                fabMenu.close(true);
+                mBottomSheetBehavior.setState(BottomSheetBehavior.STATE_COLLAPSED);
             }
         });
+
         //Remover jogador
-        floatingActionButton2.setOnClickListener(new View.OnClickListener() {
+        BSremoverJogador.setOnClickListener(new View.OnClickListener() {
+            @Override
             public void onClick(View v) {
-                //Dialog para Remover Jogador
+            //Dialog para Remover Jogador
                 final Dialog dialogRemoveJogador = new Dialog(PartidaAberta.this);
 
                 // Configura a view para o Dialog
@@ -213,18 +229,30 @@ public class PartidaAberta extends AppCompatActivity {
                     }
                 });
                 dialogRemoveJogador.show();
-                fabMenu.close(true);
+                mBottomSheetBehavior.setState(BottomSheetBehavior.STATE_COLLAPSED);
             }
         });
+
         // Placar
-        floatingActionButton3.setOnClickListener(new View.OnClickListener() {
+        BSplacar.setOnClickListener(new View.OnClickListener() {
+            @Override
             public void onClick(View v) {
                 Intent intent = new Intent(PartidaAberta.this, ListaDePlacar.class);
                 intent.putParcelableArrayListExtra("rodadasfinalizadas", listRodadas);
                 startActivity(intent);
-                fabMenu.close(true);
+                mBottomSheetBehavior.setState(BottomSheetBehavior.STATE_COLLAPSED);
             }
         });
+
+        // Sair do BottomSheet
+        sairBS.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mBottomSheetBehavior.setState(BottomSheetBehavior.STATE_COLLAPSED);
+            }
+        });
+
+
 
         //Compara os pontos e mostra quem esta ganhando
         viewPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
@@ -309,10 +337,16 @@ public class PartidaAberta extends AppCompatActivity {
         viewPager = (ViewPager) findViewById(R.id.viewPagerMarcadorJogador);
         tabLayout = (TabLayout) findViewById(R.id.tabLayoutJogadores);
 
-        fabMenu = (FloatingActionMenu) findViewById(R.id.floating_menu);
-        floatingActionButton1 = (FloatingActionButton) findViewById(R.id.floating_add_jogador);
-        floatingActionButton2 = (FloatingActionButton) findViewById(R.id.floating_excluir_jogador);
-        floatingActionButton3 = (FloatingActionButton) findViewById(R.id.floating_placar);
+        fabMais = (ImageButton) findViewById(R.id.mais);
+
+        BSaddJogador = (ImageButton) findViewById(R.id.bottomSheet_add_jogador);
+        BSremoverJogador = (ImageButton) findViewById(R.id.bottomSheet_remover_jogador);
+        BSplacar = (ImageButton) findViewById(R.id.bottomSheet_placar);
+
+        sairBS = (LinearLayout) findViewById(R.id.sairBottomSheet);
+
+
+
     }
 
     /**
@@ -567,12 +601,11 @@ public class PartidaAberta extends AppCompatActivity {
     @Override
     public void onBackPressed() {
 
-        if (fabMenu.isOpened()) {
-            fabMenu.close(true);
-        } else {
+        if (mBottomSheetBehavior == mBottomSheetBehavior){
+            mBottomSheetBehavior.setState(BottomSheetBehavior.STATE_COLLAPSED);
+        }
 
             saveAndQuit();
-        }
     }
 
     @Override
@@ -580,16 +613,7 @@ public class PartidaAberta extends AppCompatActivity {
 
         int id = item.getItemId();
 
-        if (id == R.id.action_bloquear_som) {
-            return true;
-        } else if (id == R.id.action_configuracoes) {
-            return true;
-        } else if (id == R.id.action_sair) {
-
-            saveAndQuit();
-            return true;
-
-        } else if (id == R.id.action_finalizar) {
+        if (id == R.id.action_finalizar) {
 
             AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
             alertDialogBuilder.setCancelable(true);
@@ -628,7 +652,6 @@ public class PartidaAberta extends AppCompatActivity {
             alertDialogBuilder.show();
         }
 
-        fabMenu.close(true);
         return super.
 
                 onOptionsItemSelected(item);

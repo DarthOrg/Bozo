@@ -24,8 +24,8 @@
     </style>
 
     <style name="AppTheme.Dark" parent="Theme.AppCompat.Light.NoActionBar">
-        <item name="colorAccent">@color/colorBlack</item>
-        <item name="colorPrimary">@color/colorBlack</item>
+        <item name="colorAccent">@color/colorCinza</item>
+        <item name="colorPrimary">@color/colorCinza</item>
     </style>
 
     <style name="AppTheme.Error" parent="Theme.AppCompat.Light.NoActionBar">
