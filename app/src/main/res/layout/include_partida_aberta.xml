@@ -16,7 +16,7 @@
         <android.support.design.widget.AppBarLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:elevation="5dp"
+            app:elevation="0dp"
             android:id="@+id/view3">
 
             <RelativeLayout
@@ -53,11 +53,11 @@
                 android:id="@+id/tabLayoutJogadores"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/colorAccent"
+                android:background="@color/colorWhite"
                 app:tabMode="scrollable"
-                app:tabTextColor="@color/colorWhiteTransparente2"
-                app:tabSelectedTextColor="@color/colorWhite"
-                app:tabIndicatorColor="@color/colorWhite"/>
+                app:tabTextColor="@color/colorBlackTransparente"
+                app:tabSelectedTextColor="@color/colorCinza"
+                app:tabIndicatorColor="@color/colorCinza"/>
 
         </android.support.design.widget.AppBarLayout>
 

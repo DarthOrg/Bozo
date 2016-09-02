@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.design.widget.BottomSheetBehavior;
+import android.support.design.widget.BottomSheetDialog;
 import android.support.design.widget.Snackbar;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
@@ -41,6 +42,7 @@ import com.github.clans.fab.FloatingActionMenu;
 import java.util.ArrayList;
 import java.util.List;
 
+import static android.support.design.widget.BottomSheetBehavior.STATE_EXPANDED;
 import static android.support.design.widget.BottomSheetBehavior.from;
 
 
@@ -181,7 +183,7 @@ public class PartidaAberta extends AppCompatActivity {
         BSremoverJogador.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-            //Dialog para Remover Jogador
+                //Dialog para Remover Jogador
                 final Dialog dialogRemoveJogador = new Dialog(PartidaAberta.this);
 
                 // Configura a view para o Dialog
@@ -602,11 +604,9 @@ public class PartidaAberta extends AppCompatActivity {
     @Override
     public void onBackPressed() {
 
-        if (mBottomSheetBehavior == mBottomSheetBehavior){
-            mBottomSheetBehavior.setState(BottomSheetBehavior.STATE_COLLAPSED);
-        }
+        mBottomSheetBehavior.setState(BottomSheetBehavior.STATE_COLLAPSED);
 
-            saveAndQuit();
+
     }
 
     @Override
@@ -621,36 +621,79 @@ public class PartidaAberta extends AppCompatActivity {
 
             if (verificaSeRodadaAcabou()) {
 
-                alertDialogBuilder.setTitle("Nova Rodada");
-                alertDialogBuilder.setMessage(compararPontos().getNome() + " Ganhou !!\nDeseja jogar uma nova rodada?");
-                alertDialogBuilder.setPositiveButton("Jogar Novamente", new DialogInterface.OnClickListener() {
+                // Dialog Finalizar grupo de jogo
+                final Dialog dialogFinalizar = new Dialog(PartidaAberta.this);
 
-                    public void onClick(DialogInterface dialog, int which) {
+                // Configura a view para o Dialog
+                dialogFinalizar.setContentView(R.layout.dialog_ganhou);
+
+                Button btnFinalizar = (Button) dialogFinalizar.findViewById(R.id.btnFinalizar);
+                Button btnCancelar = (Button) dialogFinalizar.findViewById(R.id.btnCancelar);
+                Button btnJogar = (Button) dialogFinalizar.findViewById(R.id.btnJogar);
+                TextView txtNomeJogadorExcluido = (TextView) dialogFinalizar.findViewById(R.id.txtGanhou);
+                txtNomeJogadorExcluido.setText(compararPontos().getNome()+" Ganhou");
+
+                // btn Jogar nova rodada
+                btnJogar.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
                         configurarNovaRodada();
-                        dialog.dismiss();
+                        dialogFinalizar.dismiss();
                     }
                 });
 
-                alertDialogBuilder.setNegativeButton("Sair", new DialogInterface.OnClickListener() {
-
-                    public void onClick(DialogInterface dialog, int which) {
-                        dialog.dismiss();
+                // btn Cancelar
+                btnCancelar.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        dialogFinalizar.dismiss();
+                        return;
                     }
                 });
+
+                // btn Finalizar Grupo
+                btnFinalizar.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        dialogFinalizar.dismiss();
+                        saveAndQuit();
+                    }
+                });
+                dialogFinalizar.show();
 
             } else {
 
-                alertDialogBuilder.setTitle(" Ops");
-                alertDialogBuilder.setMessage(" Alguns jogadores ainda não completaram todos os espaços");
-                alertDialogBuilder.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+                // Dialog Finalizar grupo de jogo
+                final Dialog dialogFinalizar = new Dialog(PartidaAberta.this);
 
-                    public void onClick(DialogInterface dialog, int which) {
-                        dialog.dismiss();
+                // Configura a view para o Dialog
+                dialogFinalizar.setContentView(R.layout.dialog_finalizar_grupo);
+
+                Button btnCancelar = (Button) dialogFinalizar.findViewById(R.id.btnCancelar);
+                Button btnFinalizar = (Button) dialogFinalizar.findViewById(R.id.btnFinalizar);
+                TextView txtNomeJogadorExcluido = (TextView) dialogFinalizar.findViewById(R.id.txtNomeJogadorExcluido);
+                txtNomeJogadorExcluido.setText(partida.getNome());
+
+                // btn Finalizar Grupo
+                btnFinalizar.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        dialogFinalizar.dismiss();
+                        saveAndQuit();
                     }
                 });
 
+                // btn Cancelar
+                btnCancelar.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        dialogFinalizar.dismiss();
+                        return;
+                    }
+                });
+                dialogFinalizar.show();
+
             }
-            alertDialogBuilder.show();
         }
 
         return super.

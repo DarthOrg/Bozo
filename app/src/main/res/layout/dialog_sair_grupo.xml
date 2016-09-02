@@ -18,7 +18,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="Salvar grupo de jogo ?"
+            android:text="Finalizar grupo de jogo ?"
             android:id="@+id/textView13"
             android:layout_alignParentTop="true"
             android:layout_alignParentLeft="true"

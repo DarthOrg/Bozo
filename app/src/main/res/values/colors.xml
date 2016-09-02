@@ -27,7 +27,8 @@
     <color name="colorRed">#f44336</color>
     <color name="colorRedDark">#D32F2F</color>
     <color name="colorGreen">#009688</color>
-    <color name="colorGreen400">#00E676</color>
+    <color name="colorGreenA400">#00E676</color>
+    <color name="colorGreenA700">#00C853</color>
     <color name="colorGreenDark">#00796B</color>
     <color name="colorGreenLight">#8eb8cc</color>
     <color name="colorFundoPartida">#ededed</color>
