@@ -1,8 +1,12 @@
 package com.darthorg.bozo.fragment;
 
 import android.app.Dialog;
+import android.graphics.Color;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
+import android.support.design.widget.AppBarLayout;
 import android.support.v4.app.Fragment;
+import android.support.v4.content.ContextCompat;
 import android.text.InputFilter;
 import android.text.TextUtils;
 import android.util.Log;
@@ -11,14 +15,21 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.darthorg.bozo.R;
 import com.darthorg.bozo.model.PecaBozo;
+import com.nispok.snackbar.SnackbarManager;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import static android.support.v4.content.ContextCompat.getColor;
+import static com.darthorg.bozo.R.color.colorAccent700;
+import static com.darthorg.bozo.R.color.colorGreen;
 
 /**
  * Created by Gustavo on 11/07/2016.
@@ -58,13 +69,15 @@ public class FragmentFilho extends Fragment {
 
     //variaveis que controlam o jogo
     private TextView resultadoFinal;
-    private TextView txtGanhando;
+    private Button txtGanhando;
     private int contador = 0;
     private boolean ganhando;
     private boolean acabouRodada;
 
     // variavel necessaria para inflar o layout do AlertDialog
     private LayoutInflater dialogInflater;
+
+    RelativeLayout fundoResultado;
 
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -90,6 +103,7 @@ public class FragmentFilho extends Fragment {
         // TextView textview = (TextView) view.findViewById(R.id.meuTextView);
 
         resultadoFinal = (TextView) view.findViewById(R.id.txtResultadoJogador);
+        fundoResultado = (RelativeLayout) view.findViewById(R.id.fundoresultado);
 
         btnAz = (Button) view.findViewById(R.id.btnAz);
         btnDuque = (Button) view.findViewById(R.id.btnDuque);
@@ -103,18 +117,7 @@ public class FragmentFilho extends Fragment {
         btnGeneral = (Button) view.findViewById(R.id.btnGeneral);
 
 
-        riscarAz = (ImageView) view.findViewById(R.id.riscarAz);
-        riscarDuque = (ImageView) view.findViewById(R.id.riscarDuque);
-        riscarTerno = (ImageView) view.findViewById(R.id.riscarTerno);
-        riscarQuadra = (ImageView) view.findViewById(R.id.riscarQuadra);
-        riscarQuina = (ImageView) view.findViewById(R.id.riscarQuina);
-        riscarSena = (ImageView) view.findViewById(R.id.riscarSena);
-        riscarFull = (ImageView) view.findViewById(R.id.riscarFull);
-        riscarSeguida = (ImageView) view.findViewById(R.id.riscarSeguida);
-        riscarQuadrada = (ImageView) view.findViewById(R.id.riscarQuadrada);
-        riscarGeneral = (ImageView) view.findViewById(R.id.riscarGeneral);
-
-        txtGanhando = (TextView) view.findViewById(R.id.txtGanhando);
+        txtGanhando = (Button) view.findViewById(R.id.txtGanhando);
 
     }
 
@@ -138,120 +141,135 @@ public class FragmentFilho extends Fragment {
                                       @Override
                                       public void onClick(View v) {
 
-                                          //Dialog para Adicionar Jogador
-                                          final Dialog dialogMarcarBozó = new Dialog(getContext());
-                                          // Configura a view para o Dialog
-                                          dialogMarcarBozó.setContentView(R.layout.dialog_pontos);
+                                          if (button.getText().toString() == "X") {
+                                              SnackbarManager.show(
+                                                      com.nispok.snackbar.Snackbar.with(getActivity())
+                                                              .text("Peça já RISCADA (X), não pode ser usada novamente.")
+                                                              .textColor(Color.WHITE)
+                                                              .color(Color.RED)
 
-                                          //Recupera os componentes do layout do custondialog
-                                          final EditText et = (EditText) dialogMarcarBozó.findViewById(R.id.etPonto);
-                                          Button btnMarcar = (Button) dialogMarcarBozó.findViewById(R.id.btnMarcar);
-                                          Button btnRiscar = (Button) dialogMarcarBozó.findViewById(R.id.btnRiscar);
-                                          Button btnCancelar = (Button) dialogMarcarBozó.findViewById(R.id.btnCancelar);
+                                              );
+                                          } else {
 
-                                          //Titulo
-                                          dialogMarcarBozó.setTitle(R.string.AdicionarJogador);
+                                              //Dialog para Adicionar Jogador
+                                              final Dialog dialogMarcarBozó = new Dialog(getContext());
+                                              // Configura a view para o Dialog
+                                              dialogMarcarBozó.setContentView(R.layout.dialog_pontos);
 
-                                          switch (pecaBozo.getNome()) {
-                                              case nomeAz:
-                                                  dialogMarcarBozó.setTitle(getString(R.string.Az) + " ( 1 á 5 )");
-                                                  et.setFilters(new InputFilter[]{new InputFilter.LengthFilter(1)});
-                                                  btnRiscar.setText("Riscar Áz");
-                                                  break;
-                                              case nomeDuque:
-                                                  dialogMarcarBozó.setTitle(getString(R.string.Duque) + " ( 2 á 10 )");
-                                                  et.setFilters(new InputFilter[]{new InputFilter.LengthFilter(2)});
-                                                  btnRiscar.setText("Riscar Duque");
-                                                  break;
-                                              case nomeTerno:
-                                                  dialogMarcarBozó.setTitle(getString(R.string.Terno) + " ( 3 á 15 )");
-                                                  et.setFilters(new InputFilter[]{new InputFilter.LengthFilter(2)});
-                                                  btnRiscar.setText("Riscar Terno");
-                                                  break;
-                                              case nomeQuadra:
-                                                  dialogMarcarBozó.setTitle(getString(R.string.Quadra) + " ( 4 á 20 )");
-                                                  et.setFilters(new InputFilter[]{new InputFilter.LengthFilter(2)});
-                                                  btnRiscar.setText("Riscar Quadra");
-                                                  break;
-                                              case nomeQuina:
-                                                  dialogMarcarBozó.setTitle(getString(R.string.Quina) + " ( 5 á 25 )");
-                                                  et.setFilters(new InputFilter[]{new InputFilter.LengthFilter(2)});
-                                                  btnRiscar.setText("Riscar Quina");
-                                                  break;
-                                              case nomeSena:
-                                                  dialogMarcarBozó.setTitle(getString(R.string.Sena) + " ( 6 á 30 )");
-                                                  et.setFilters(new InputFilter[]{new InputFilter.LengthFilter(2)});
-                                                  btnRiscar.setText("Riscar Sena");
-                                                  break;
-                                              case nomeFull:
-                                                  dialogMarcarBozó.setTitle(getString(R.string.Full) + " ( 10 ou 15 )");
-                                                  et.setFilters(new InputFilter[]{new InputFilter.LengthFilter(2)});
-                                                  btnRiscar.setText("Riscar Full");
-                                                  break;
-                                              case nomeSeguida:
-                                                  dialogMarcarBozó.setTitle(getString(R.string.Seguida) + " ( 20 ou 25)");
-                                                  et.setFilters(new InputFilter[]{new InputFilter.LengthFilter(2)});
-                                                  btnRiscar.setText("Riscar Seguida");
-                                                  break;
-                                              case nomeQuadrada:
-                                                  dialogMarcarBozó.setTitle(getString(R.string.Quadrada) + " ( 30 ou 35 )");
-                                                  et.setFilters(new InputFilter[]{new InputFilter.LengthFilter(2)});
-                                                  btnRiscar.setText("Riscar Quadrada");
-                                                  break;
-                                              case nomeGeneral:
-                                                  dialogMarcarBozó.setTitle(getString(R.string.General) + " ( 40 ou 100)");
-                                                  et.setFilters(new InputFilter[]{new InputFilter.LengthFilter(3)});
-                                                  btnRiscar.setText("Riscar General");
-                                                  break;
-                                              default:
-                                                  break;
-                                          }
+                                              //Recupera os componentes do layout do custondialog
+                                              final EditText et = (EditText) dialogMarcarBozó.findViewById(R.id.etPonto);
+                                              TextView tituloPonto = (TextView) dialogMarcarBozó.findViewById(R.id.tituloPonto);
+                                              Button btnMarcar = (Button) dialogMarcarBozó.findViewById(R.id.btnMarcar);
+                                              Button btnRiscar = (Button) dialogMarcarBozó.findViewById(R.id.btnRiscar);
+                                              ImageButton btnCancelar = (ImageButton) dialogMarcarBozó.findViewById(R.id.btnCancelar);
 
-                                          //Botão Marcar
-                                          btnMarcar.setOnClickListener(new View.OnClickListener() {
-                                              @Override
-                                              public void onClick(View view) {
-                                                  dialogMarcarBozó.dismiss();
-                                                  if (TextUtils.isEmpty(et.getText().toString())) {
+
+                                              switch (pecaBozo.getNome()) {
+                                                  case nomeAz:
+                                                      tituloPonto.setText(getString(R.string.Az) + " ( 1 á 5 )");
+                                                      et.setFilters(new InputFilter[]{new InputFilter.LengthFilter(1)});
+                                                      btnRiscar.setText("Riscar Áz");
+                                                      break;
+                                                  case nomeDuque:
+                                                      tituloPonto.setText(getString(R.string.Duque) + " ( 2 á 10 )");
+                                                      et.setFilters(new InputFilter[]{new InputFilter.LengthFilter(2)});
+                                                      btnRiscar.setText("Riscar Duque");
+                                                      break;
+                                                  case nomeTerno:
+                                                      tituloPonto.setText(getString(R.string.Terno) + " ( 3 á 15 )");
+                                                      et.setFilters(new InputFilter[]{new InputFilter.LengthFilter(2)});
+                                                      btnRiscar.setText("Riscar Terno");
+                                                      break;
+                                                  case nomeQuadra:
+                                                      tituloPonto.setText(getString(R.string.Quadra) + " ( 4 á 20 )");
+                                                      et.setFilters(new InputFilter[]{new InputFilter.LengthFilter(2)});
+                                                      btnRiscar.setText("Riscar Quadra");
+                                                      break;
+                                                  case nomeQuina:
+                                                      tituloPonto.setText(getString(R.string.Quina) + " ( 5 á 25 )");
+                                                      et.setFilters(new InputFilter[]{new InputFilter.LengthFilter(2)});
+                                                      btnRiscar.setText("Riscar Quina");
+                                                      break;
+                                                  case nomeSena:
+                                                      tituloPonto.setText(getString(R.string.Sena) + " ( 6 á 30 )");
+                                                      et.setFilters(new InputFilter[]{new InputFilter.LengthFilter(2)});
+                                                      btnRiscar.setText("Riscar Sena");
+                                                      break;
+                                                  case nomeFull:
+                                                      tituloPonto.setText(getString(R.string.Full) + " ( 10 ou 15 )");
+                                                      et.setFilters(new InputFilter[]{new InputFilter.LengthFilter(2)});
+                                                      btnRiscar.setText("Riscar Full");
+                                                      break;
+                                                  case nomeSeguida:
+                                                      tituloPonto.setText(getString(R.string.Seguida) + " ( 20 ou 25)");
+                                                      et.setFilters(new InputFilter[]{new InputFilter.LengthFilter(2)});
+                                                      btnRiscar.setText("Riscar Seguida");
+                                                      break;
+                                                  case nomeQuadrada:
+                                                      tituloPonto.setText(getString(R.string.Quadrada) + " ( 30 ou 35 )");
+                                                      et.setFilters(new InputFilter[]{new InputFilter.LengthFilter(2)});
+                                                      btnRiscar.setText("Riscar Quadrada");
+                                                      break;
+                                                  case nomeGeneral:
+                                                      tituloPonto.setText(getString(R.string.General) + " ( 40 ou 100)");
+                                                      et.setFilters(new InputFilter[]{new InputFilter.LengthFilter(3)});
+                                                      btnRiscar.setText("Riscar General");
+                                                      break;
+                                                  default:
+                                                      break;
+                                              }
+
+                                              //Botão Marcar
+                                              btnMarcar.setOnClickListener(new View.OnClickListener() {
+                                                  @Override
+                                                  public void onClick(View view) {
                                                       dialogMarcarBozó.dismiss();
-                                                  } else {
-                                                      pecaBozo.setPontuacao(et.getText().toString());
-                                                      button.setText(et.getText().toString());
+                                                      if (TextUtils.isEmpty(et.getText().toString())) {
+                                                          dialogMarcarBozó.dismiss();
+                                                      } else {
+                                                          pecaBozo.setPontuacao(et.getText().toString());
+                                                          button.setText(et.getText().toString());
+                                                      }
+                                                      contador = contarPontos();
+                                                      resultadoFinal.setText(contador + "");
+
+                                                      contarPecasUsadas();
+
                                                   }
-                                                  contador = contarPontos();
-                                                  resultadoFinal.setText(contador + "");
+                                              });
+                                              //Botão Riscar
+                                              btnRiscar.setOnClickListener(new View.OnClickListener() {
+                                                  @Override
+                                                  public void onClick(View view) {
 
-                                                  contarPecasUsadas();
+                                                      if (button.getText().toString().isEmpty()) {
+                                                          button.setText("X");
+                                                          button.setTextColor(Color.RED);
+                                                          dialogMarcarBozó.dismiss();
+                                                      } else {
+                                                          dialogMarcarBozó.dismiss();
+                                                          SnackbarManager.show(
+                                                                  com.nispok.snackbar.Snackbar.with(getActivity())
+                                                                          .text("Peça já usada, não pode ser riscada.")
+                                                                          .textColor(Color.WHITE)
+                                                                          .color(Color.BLACK)
 
-                                              }
-                                          });
-                                          //Botão Riscar
-                                          btnRiscar.setOnClickListener(new View.OnClickListener() {
-                                              @Override
-                                              public void onClick(View view) {
-                                                  dialogMarcarBozó.dismiss();
+                                                          );
+                                                      }
 
-                                                  pecaBozo.setRiscado(true);
-                                                  button.setVisibility(View.GONE);
-                                                  risco.setVisibility(View.VISIBLE);
-                                                  pecaBozo.setPontuacao("x");
-
-                                                  contador = contarPontos();
-                                                  resultadoFinal.setText(contador + "");
-
-                                                  contarPecasUsadas();
-                                              }
-                                          });
-                                          //Botão Cancelar
-                                          btnCancelar.setOnClickListener(new View.OnClickListener() {
-                                              @Override
-                                              public void onClick(View view) {
-                                                  dialogMarcarBozó.dismiss();
-                                                  return;
-                                              }
-                                          });
-                                          dialogMarcarBozó.setCancelable(true);
-                                          dialogMarcarBozó.show();
+                                                  }
+                                              });
+                                              //Botão Cancelar
+                                              btnCancelar.setOnClickListener(new View.OnClickListener() {
+                                                  @Override
+                                                  public void onClick(View view) {
+                                                      dialogMarcarBozó.dismiss();
+                                                      return;
+                                                  }
+                                              });
+                                              dialogMarcarBozó.setCancelable(true);
+                                              dialogMarcarBozó.show();
+                                          }
                                       }
                                   }
         );
@@ -326,9 +344,9 @@ public class FragmentFilho extends Fragment {
         this.ganhando = ganhando;
         if (ganhando) {
             txtGanhando.setText("Ganhando");
-            txtGanhando.setVisibility(View.VISIBLE);
+            fundoResultado.setVisibility(View.VISIBLE);
         } else {
-            txtGanhando.setVisibility(View.INVISIBLE);
+            fundoResultado.setVisibility(View.INVISIBLE);
         }
     }
 

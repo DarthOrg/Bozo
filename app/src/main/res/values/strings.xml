@@ -109,5 +109,7 @@
     <string name="action_settings">Settings</string>
     <string name="GruposDeJogo">Grupos de jogo</string>
     <string name="Criar">Criar</string>
+    <string name="AdicionarPonto">Adicionar ponto</string>
+    <string name="Ganhando">Ganhando</string>
 
 </resources>

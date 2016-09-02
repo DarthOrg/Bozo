@@ -24,7 +24,8 @@
             android:screenOrientation="portrait" />
         <activity
             android:name=".view.PartidaAberta"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.Accent" />
         <activity
             android:name=".view.ListaDePlacar"
             android:screenOrientation="portrait" />

@@ -16,12 +16,13 @@
         <android.support.design.widget.AppBarLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:elevation="1dp"
+            app:elevation="5dp"
             android:id="@+id/view3">
 
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="56dp"
+                android:background="@color/colorAccent"
                 android:layout_gravity="center_horizontal">
 
 
@@ -39,9 +40,10 @@
                     android:text="@string/DadosDoGrupo"
                     android:id="@+id/TituloGrupo"
                     android:textSize="15dp"
-                    android:textColor="@color/colorAccent800"
-                    android:layout_centerVertical="true"
-                    android:layout_centerHorizontal="true" />
+                    android:textColor="@color/colorWhite"
+                    android:textStyle="bold"
+                    android:layout_marginLeft="16dp"
+                    android:layout_centerVertical="true" />
 
 
             </RelativeLayout>
@@ -51,11 +53,11 @@
                 android:id="@+id/tabLayoutJogadores"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/colorWhite"
+                android:background="@color/colorAccent"
                 app:tabMode="scrollable"
-                app:tabTextColor="@color/colorAccentTransparent"
-                app:tabSelectedTextColor="@color/colorAccent"
-                app:tabIndicatorColor="@color/colorAccent"/>
+                app:tabTextColor="@color/colorWhiteTransparente2"
+                app:tabSelectedTextColor="@color/colorWhite"
+                app:tabIndicatorColor="@color/colorWhite"/>
 
         </android.support.design.widget.AppBarLayout>
 

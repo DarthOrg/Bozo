@@ -120,6 +120,7 @@ public class PartidaAberta extends AppCompatActivity {
         });
 
 
+
         //Adicionar jogador
         BSaddJogador.setOnClickListener(new View.OnClickListener() {
             @Override

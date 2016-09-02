@@ -13,7 +13,7 @@
 
 
     <!-- Bottom Sheet -->
-    <include layout="@layout/include_bottom_sheet" />
+    <include layout="@layout/include_bottom_sheet_partida_aberta" />
 
 
 
