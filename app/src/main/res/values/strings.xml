@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Bozó</string>
+    <string name="app_name">Marcador Bozó</string>
 
     <!-- Nomes das peças no bozó  -->
     <string name="Az">Áz</string>
