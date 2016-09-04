@@ -59,21 +59,42 @@
     <string name="Atualizar">Atualizar</string>
 
     <!--Textos das jogadas-->
-    <string name="TextoDadoUm">Soma dos valores das pedras de áz. A pontuação, pode variar entre 1 e 5 pontos.</string>
-    <string name="TextoDadoDois">Soma dos valores das pedras de duque. A pontuação, pode variar entre 2 e 10 pontos.</string>
-    <string name="TextoDadoTres">Soma dos valores das pedras de terno. A pontuação, pode variar entre 3 e 15 pontos</string>
-    <string name="TextoDadoQuatro">Soma dos valores das pedras de quadra. A pontuação, pode variar entre 4 e 20 pontos</string>
-    <string name="TextoDadoCinco">Soma dos valores das pedras de quina. A pontuação, pode variar entre 5 e 25 pontos</string>
-    <string name="TextoDadoSeis">Soma dos valores das pedras de sena. A pontuação, pode variar entre 6 e 30 pontos</string>
-    <string name="TextoFull">[ Full ] é conjunto 3 pedras iguais e mais 2 pedras iguais.
-        Sua pontuação 10 pontos ou 15 pontos se for de boca.</string>
-    <string name="TextoSeguida">[ Seguida ] é sequencia das pedras 1-2-3-4-5 ou das pedras 2-3-4-5-6.
-        Sua pontuação 20 pontos ou 25 pontos se for de boca.</string>
-    <string name="TextoQuadrada">[ Quadrada ] é conjunto 4 pedras iguais independente o valor.
-        Sua pontuação 30 pontos ou 35 pontos se for de boca.</string>
-    <string name="TextoGeneral">[ General ] é o conjunto de 5 pedras iguais e a pedra com maior falor no bozó.
-        Sua pontuação varia de 40 pontos à 100 pontos se for de boca(obs:Jah ganha o jogo).</string>
 
+    <string name="TextoDadoAz">Pedra Áz ou numero 1. A soma dos valores adiquiridos podem variar de 1 á 5 pontos.</string>
+
+    <string name="TextoDadoDuque">Pedra Duque ou numero 2. A soma dos valores adiquiridos podem variar de 2 á 10 pontos na sequência de numeros pares.</string>
+
+    <string name="TextoDadoTerno">Pedra Terno ou numero 3. A soma dos valores adiquiridos podem variar de 3 á 15 pontos na sequência de numeros impares.</string>
+
+    <string name="TextoDadoQuadra">Pedra Quadra ou numero 4. A soma dos valores adiquiridos podem variar de 4 á 20 pontos na sequência de numeros pares.</string>
+
+    <string name="TextoDadoQuina">Pedra Quina ou numero 5. A soma dos valores adiquiridos podem variar de 5 á 25 pontos na sequência de numeros impares.</string>
+
+    <string name="TextoDadoSena">Pedra Sena ou numero 6. A soma dos valores adiquiridos podem variar de 6 á 30 pontos na sequência de numeros pares.</string>
+
+    <string name="TextoDadosFull">Para poder formar a jogada FULL
+        deve conter 5 dados com 2 dados do mesmo valor,
+        exemplo 6-6 e mais 3 dados com o mesmo valor, exemplo 4-4-4.
+        O grupo de 2 dados e o grupo de 3 dados devem ser diferentes um do outro como na ilustração.
+        O valor a ser marcado da jogada FULL é de 10 pontos ou 15 pontos se for o tipo de jogada com o termo FULL DE BOCA
+        ( é quando a jogada é realizada em uma primeira batida).
+    </string>
+
+    <string name="TextoDadosSeguida">Para poder formar a jogada SEGUIDA
+        deve ser uma sequencia de numeros 1 á 5 ou 2 á 6, exemplo 1-2-3-4-5 ou 2-3-4-5-6.
+        O valor a ser marcado da jogada SEGUIDA é de 20 pontos ou 25 pontos se for o tipo de jogada com o termo SEGUIDA DE BOCA
+        ( é quando a jogada é realizada em uma primeira batida).</string>
+
+    <string name="TextoDadosQuadrada">Para poder formar a jogada QUADRADA
+        deve ser um grupo de 4 dados iguais, exemplo 2-2-2-2 esses dados podem ser de qualquer valor.
+        O valor a ser marcado da jogada QUADRADA é de 30 pontos ou 35 pontos se for o tipo de jogada com o termo QUADRADA DE BOCA
+        ( é quando a jogada é realizada em uma primeira batida).</string>
+
+    <string name="TextoDadosGeneral">Para poder formar a jogada GENERAL
+        deve ser um grupo de 5 dados iguais, exemplo 5-5-5-5-5 esses dados podem ser de qualquer valor.
+        O valor a ser marcado da jogada GENERAL é de 40 pontos. Se o jogada GENERAL for de boca, o valor passa
+        a ser 100 pontos e a jogada é finaliza. O jogador que fez essa jogada já ganha a partida com ponto soberano, independente
+        se outro jogador estiver ganhando.</string>
 
     <!--Textos class-->
     <string name="TextoVazio">" "</string>
@@ -112,5 +133,15 @@
     <string name="AdicionarPonto">Adicionar ponto</string>
     <string name="Ganhando">Ganhando</string>
     <string name="Ok">OK</string>
+    <string name="WelcomeTitulo">Aqui vai o titulo</string>
+    <string name="WelcomeTexto">Aqui vai estar o texto para o conteudo</string>
+    <string name="comoJogar">Como jogar?</string>
+    <string name="Texto1">Primeiro deve-se ter um copo de Bozó fisico e 5 dados.</string>
+    <string name="Texto2">Então começa-se o jogo com o primeiro jogador. O participante coloca os 5 dados dentro do copo e chacoalha até misturar bem e depois os lança na mesa, removendo o copo com cuidado para não desvirar os dados. Lembrando que na hora de misturar os dados no copo, a boca do mesmo deve permanecer fechada para que ninguém possa ver os dados e também para não cair para fora. Feito então o primeiro lance, o jogador ainda terá mais duas vezes para lançar os dados. Então, depois da primeira jogada, ele escolherá qual jogo quer.</string>
+    <string name="Texto3">Tipos de jogadas na seta á direita</string>
+    <string name="Texto4">No bozó você pode escolher qualquer um entre, ÁZ, DUQUE, TERNO, QUADRA, QUINA, SENA, FULL, SEGUIDA, QUADRADA OU GENERAL, que são todos os jogos possíveis. Só que a marcação que você fará, depende das pedras que vier. Pois lógicamente você pode marcar o que quiser, mas um bom jogador segue a estratégia.</string>
+    <string name="Marcacao">Marcação</string>
+    <string name="Texto5">Quando jogar os dados, ele te dará 5 valores. Então usando-se a estratégia básica, você escolherá os valores que mais se repetem e/ou os que valem mais pontos. Para você poder entender o que deve marcar, é só você lembrar-se de que deve marcar a soma dos valores obtidos por determinado jogo que escolheu, com exceção de FULL-SEGUIDA-QUADRADA E GENERAL. Pois estes jogos ja tem pontuações definidas.</string>
+    <string name="Texto6">Na marcação de pontos você não pode somar todos os valores, você tem que escolher um jogo, para depois poder somar. por exemplo: Se eu tiver 2 duques e 3 quinas, na primeira jogada das três possíveis. Primeiro eu tenho que escolher qual jogo eu quero marcar. vamos supor que eu queira a quina, pois vale mais pontos e é a que mais se repete. Então eu somo tudo, o que totalizará 15 pontos, e marco na tabela em quina. Mas se observarem tem um FULL de boca também. Então eu posso marcar 15 pontos na tabela, em FULL.</string>
 
 </resources>

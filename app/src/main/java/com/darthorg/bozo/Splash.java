@@ -5,8 +5,6 @@ import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-import com.darthorg.bozo.view.Inicio;
-
 public class Splash extends AppCompatActivity {
 
     private final int SPLASH = 2000;
@@ -20,7 +18,7 @@ public class Splash extends AppCompatActivity {
 
     new Handler().postDelayed(new Runnable() {
         public void run() {
-            startActivity(new Intent(Splash.this,Inicio.class));
+            startActivity(new Intent(Splash.this,Welcome.class));
             finish();
         }
     }, SPLASH);

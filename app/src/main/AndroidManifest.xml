@@ -10,13 +10,18 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".Splash"
-            android:theme="@style/AppTheme.Accent"
             android:screenOrientation="portrait">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+            <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
+
+        </activity>
+
+        <activity android:name=".Welcome"
+            android:screenOrientation="portrait">
+
         </activity>
         <activity
             android:name=".view.NovaPartida"
@@ -24,20 +29,21 @@
             android:screenOrientation="portrait" />
         <activity
             android:name=".view.PartidaAberta"
-            android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.Accent" />
+            android:screenOrientation="portrait" />
         <activity
             android:name=".view.ListaDePlacar"
             android:screenOrientation="portrait" />
         <activity
             android:name=".view.Sobre"
-            android:theme="@style/AppTheme.Accent"
             android:screenOrientation="portrait" />
         <activity
         android:name=".view.Inicio"
-            android:theme="@style/AppTheme.Accent"
         android:screenOrientation="portrait"/>
 
+        <activity android:name=".Instrucoes"
+            android:screenOrientation="portrait">
+
+        </activity>
         <!--
      ATTENTION: This was auto-generated to add Google Play services to your project for
      App Indexing.  See https://g.co/AppIndexing/AndroidStudio for more information.

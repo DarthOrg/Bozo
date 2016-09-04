@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorInstrucoesSlide11">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:layout_above="@+id/tituloI"
+        android:layout_centerHorizontal="true">
+
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="5dp">
+
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/ic_dado_quina"
+                android:tint="@color/colorWhite"
+                android:layout_gravity="left|center_vertical"
+                android:id="@+id/imageView8"
+                android:layout_marginRight="55dp" />
+
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/ic_dado_quina"
+                android:tint="@color/colorWhite"
+                android:layout_gravity="right|center_vertical" />
+
+        </FrameLayout>
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/ic_dado_quina"
+                android:tint="@color/colorWhite"
+                android:layout_gravity="center" />
+
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/ic_dado_quina"
+                android:tint="@color/colorWhite"
+                android:layout_gravity="center"
+                android:id="@+id/imageView6"
+                android:layout_marginRight="55dp" />
+
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/ic_dado_quina"
+                android:tint="@color/colorWhite"
+                android:layout_gravity="center"
+                android:id="@+id/imageView7"
+                android:layout_marginLeft="55dp" />
+
+        </FrameLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/tituloI"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:gravity="center_horizontal|center_vertical"
+        android:orientation="vertical">
+
+
+        <TextView
+            android:id="@+id/tituloInstrucoes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Como jogar?"
+            android:textColor="@color/colorTrasnparente"
+            android:textSize="@dimen/slide_title"
+            android:textStyle="bold"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp" />
+
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingLeft="@dimen/desc_padding"
+        android:paddingRight="@dimen/desc_padding"
+        android:text="@string/TextoDadosGeneral"
+        android:textAlignment="center"
+        android:textColor="@android:color/white"
+        android:textSize="13dp"
+        android:layout_below="@+id/tituloI"
+        android:layout_centerHorizontal="true" />
+</RelativeLayout>

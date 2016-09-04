@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorInstrucoesSlide9">
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:layout_above="@+id/tituloI"
+        android:layout_centerHorizontal="true">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true">
+
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@drawable/ic_dado_terno"
+                android:tint="@color/colorWhite"
+                android:layout_gravity="center"
+                android:id="@+id/imageView9" />
+
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@drawable/ic_dado_quadra"
+                android:tint="@color/colorWhite"
+                android:layout_gravity="center"
+                android:layout_marginLeft="45dp" />
+
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@drawable/ic_dado_duque"
+                android:tint="@color/colorWhite"
+                android:layout_gravity="center"
+                android:id="@+id/imageView8"
+                android:layout_marginRight="45dp" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_proximo"
+                android:tint="@color/colorWhite"
+                android:layout_gravity="center"
+                android:id="@+id/imageView10"
+                android:layout_marginRight="120dp" />
+
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@drawable/ic_dado_az"
+                android:tint="@color/colorWhite"
+                android:layout_gravity="center"
+                android:id="@+id/imageView12"
+                android:layout_marginRight="90dp" />
+
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@drawable/ic_dado_quina"
+                android:tint="@color/colorWhite"
+                android:layout_gravity="center"
+                android:layout_marginLeft="90dp"
+                android:id="@+id/imageView13" />
+
+        </FrameLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="ou"
+            android:layout_centerHorizontal="true"
+            android:textColor="@color/colorWhite"
+            android:textSize="15dp" />
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@drawable/ic_dado_quadra"
+                android:tint="@color/colorWhite"
+                android:layout_gravity="center"
+                android:id="@+id/imageView14" />
+
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@drawable/ic_dado_terno"
+                android:tint="@color/colorWhite"
+                android:layout_gravity="center"
+                android:id="@+id/imageView11"
+                android:layout_marginRight="45dp" />
+
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@drawable/ic_dado_duque"
+                android:tint="@color/colorWhite"
+                android:layout_gravity="center"
+                android:id="@+id/imageView15"
+                android:layout_marginRight="90dp" />
+
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@drawable/ic_dado_quina"
+                android:tint="@color/colorWhite"
+                android:layout_gravity="center"
+                android:layout_marginLeft="45dp"
+                android:id="@+id/imageView16" />
+
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@drawable/ic_dado_sena"
+                android:tint="@color/colorWhite"
+                android:layout_gravity="center"
+                android:layout_marginLeft="90dp"
+                android:id="@+id/imageView17" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_proximo"
+                android:tint="@color/colorWhite"
+                android:layout_gravity="center"
+                android:id="@+id/imageView19"
+                android:layout_marginRight="120dp" />
+
+        </FrameLayout>
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/tituloI"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:gravity="center_horizontal|center_vertical"
+        android:orientation="vertical">
+
+
+        <TextView
+            android:id="@+id/tituloInstrucoes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Como jogar?"
+            android:textColor="@color/colorTrasnparente"
+            android:textSize="@dimen/slide_title"
+            android:textStyle="bold"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp" />
+
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingLeft="@dimen/desc_padding"
+        android:paddingRight="@dimen/desc_padding"
+        android:text="@string/TextoDadosSeguida"
+        android:textAlignment="center"
+        android:textColor="@android:color/white"
+        android:textSize="13dp"
+        android:layout_below="@+id/tituloI"
+        android:layout_centerHorizontal="true" />
+
+
+</RelativeLayout>

@@ -8,7 +8,7 @@
     <color name="colorAccent800">#00838f</color>
     <color name="colorAccentA200">#18ffff</color>
     <color name="colorAccentTransparent">#4b607d8b</color>
-    <color name="colorAccentDark">#455A64</color>
+    <color name="colorAccentDark">#455a64</color>
 
     <!--ThemeSplash-->
     <color name="colorPrimary_splash">#FFFFFF</color>
@@ -22,7 +22,6 @@
     <color name="colorWhite">#ffffff</color>
     <color name="colorWhiteTransparente">#b3ffffff</color>
     <color name="colorWhiteTransparente2">#5affffff</color>
-    <color name="colorBlackTransparente4">#a4000000</color>
     <color name="colorTrasnparente">#00ffffff</color>
     <color name="colorRed">#f44336</color>
     <color name="colorRedDark">#D32F2F</color>
@@ -37,6 +36,8 @@
     <color name="colorBlackTransparente">#4b000000</color>
     <color name="colorBlackTransparente2">#a5000000</color>
     <color name="colorBlackTransparente3">#3f000000</color>
+    <color name="colorBlackTransparente4">#a4000000</color>
+    <color name="colorBlackTransparente5">#1e000000</color>
     <color name="colorCinza">#686868</color>
     <color name="colorCinzaEscuro">#686868</color>
     <color name="colorFundo">#f9f9f9</color>
@@ -47,4 +48,66 @@
     <!--Cores texto-->
     <color name="colorTextoHint">#B4B4B4</color>
     <color name="black">#00000000</color>
+
+    <!--Cores Instrucoes slide-->
+    <color name="colorInstrucoesSlide1">#00bcd4</color>
+    <color name="colorInstrucoesSlide2">#9E9E9E</color>
+    <color name="colorInstrucoesSlide3">#607D8B</color>
+    <color name="colorInstrucoesSlide4">#9E9E9E</color>
+    <color name="colorInstrucoesSlide5">#607D8B</color>
+    <color name="colorInstrucoesSlide6">#9E9E9E</color>
+    <color name="colorInstrucoesSlide7">#607D8B</color>
+    <color name="colorInstrucoesSlide8">#9E9E9E</color>
+    <color name="colorInstrucoesSlide9">#607D8B</color>
+    <color name="colorInstrucoesSlide10">#9E9E9E</color>
+    <color name="colorInstrucoesSlide11">#607D8B</color>
+
+    <array name="array_instrucoes_dot_ativo">
+        <item>@color/colorWhite</item>
+        <item>@color/colorWhite</item>
+        <item>@color/colorWhite</item>
+        <item>@color/colorWhite</item>
+        <item>@color/colorWhite</item>
+        <item>@color/colorWhite</item>
+        <item>@color/colorWhite</item>
+        <item>@color/colorWhite</item>
+        <item>@color/colorWhite</item>
+        <item>@color/colorWhite</item>
+        <item>@color/colorWhite</item>
+
+    </array>
+
+    <array name="array_instrucoes_dot_inativo">
+        <item>@color/colorBlackTransparente3</item>
+        <item>@color/colorBlackTransparente3</item>
+        <item>@color/colorBlackTransparente3</item>
+        <item>@color/colorBlackTransparente3</item>
+        <item>@color/colorBlackTransparente3</item>
+        <item>@color/colorBlackTransparente3</item>
+        <item>@color/colorBlackTransparente3</item>
+        <item>@color/colorBlackTransparente3</item>
+        <item>@color/colorBlackTransparente3</item>
+        <item>@color/colorBlackTransparente3</item>
+        <item>@color/colorBlackTransparente3</item>
+    </array>
+
+    <!--Cores Welcome slide-->
+    <color name="colorWelcomeSlide1">#607D8B</color>
+    <color name="colorWelcomeSlide2">#0097a7</color>
+    <color name="colorWelcomeSlide3">#00bcd4</color>
+    <color name="colorWelcomeSlide4">#9E9E9E</color>
+
+    <array name="array_welcome_dot_ativo">
+        <item>@color/colorWhite</item>
+        <item>@color/colorWhite</item>
+        <item>@color/colorWhite</item>
+        <item>@color/colorWhite</item>
+    </array>
+
+    <array name="array_welcome_dot_inativo">
+        <item>@color/colorBlackTransparente3</item>
+        <item>@color/colorBlackTransparente3</item>
+        <item>@color/colorBlackTransparente3</item>
+        <item>@color/colorBlackTransparente3</item>
+    </array>
 </resources>

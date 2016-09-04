@@ -11,21 +11,130 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/list_vazio">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/list_vazio">
 
 
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="400dp"
-            android:id="@+id/imageView3"
-            android:src="@drawable/img_vazio"
-            android:layout_centerHorizontal="true"
-            android:layout_centerVertical="true"/>
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="250dp"
+                android:id="@+id/imageView3"
+                android:src="@drawable/img_vazio"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:layout_gravity="center" />
 
-        </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="55dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:text="Para criar um grupo de jogo"
+                    android:id="@+id/textView21"
+                    android:layout_centerVertical="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_gravity="center"
+                    android:textSize="15dp"
+                    android:textColor="@color/colorBlackTransparente" />
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/textView21"
+                    android:layout_centerHorizontal="true"
+                    android:id="@+id/relativeLayout">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:text="clique no botão"
+                        android:id="@+id/textView22"
+                        android:layout_gravity="center"
+                        android:textSize="15dp"
+                        android:textAlignment="textStart"
+                        android:layout_below="@+id/textView21"
+                        android:layout_alignLeft="@+id/textView21"
+                        android:layout_alignStart="@+id/textView21"
+                        android:layout_marginTop="1dp"
+                        android:textColor="@color/colorBlackTransparente" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:text="+"
+                        android:id="@+id/textView23"
+                        android:layout_gravity="center"
+                        android:textSize="15dp"
+                        android:layout_below="@+id/textView21"
+                        android:layout_toRightOf="@+id/textView22"
+                        android:layout_toEndOf="@+id/textView22"
+                        android:textColor="@color/colorAccent"
+                        android:textStyle="bold"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginRight="5dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:text="ou no"
+                        android:id="@+id/textView24"
+                        android:layout_gravity="center"
+                        android:textSize="15dp"
+                        android:textAlignment="textStart"
+                        android:layout_alignTop="@+id/textView22"
+                        android:layout_toRightOf="@+id/textView23"
+                        android:layout_toEndOf="@+id/textView23"
+                        android:textColor="@color/colorBlackTransparente" />
+                </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/relativeLayout"
+                android:layout_centerHorizontal="true">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:text="menu"
+                    android:id="@+id/textView25"
+                    android:layout_gravity="center"
+                    android:textSize="15dp"
+                    android:textAlignment="textStart"
+                    android:textColor="@color/colorBlackTransparente"
+                    android:layout_marginRight="5dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:text="Novo grupo"
+                    android:id="@+id/textView26"
+                    android:layout_gravity="center"
+                    android:textSize="15dp"
+                    android:textColor="@color/colorAccent"
+                    android:textStyle="bold"
+                    android:layout_alignParentTop="true"
+                    android:layout_toRightOf="@+id/textView25"
+                    android:layout_toEndOf="@+id/textView25" />
+            </RelativeLayout>
+
+
+            </RelativeLayout>
+
+
+        </FrameLayout>
 
         <android.support.design.widget.AppBarLayout
             android:layout_width="match_parent"

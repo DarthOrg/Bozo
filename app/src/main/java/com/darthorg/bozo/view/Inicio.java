@@ -20,6 +20,7 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.darthorg.bozo.Instrucoes;
 import com.darthorg.bozo.R;
 import com.darthorg.bozo.adapter.PartidasListaAdapter;
 import com.darthorg.bozo.dao.PartidaDAO;
@@ -188,6 +189,9 @@ public class Inicio extends AppCompatActivity
             startActivity(intent);
 
         } else if (id == R.id.nav_instrucoes) {
+
+            Intent intent = new Intent(Inicio.this, Instrucoes.class);
+            startActivity(intent);
 
         } else if (id == R.id.nav_cor_destaque) {
 

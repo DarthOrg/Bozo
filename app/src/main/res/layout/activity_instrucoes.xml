@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorAccent"
+    tools:showIn="@layout/activity_instrucoes">
+
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/view_pager_intrucoes"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp">
+
+
+        <ImageButton
+            android:id="@+id/btn_sair"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/ic_circulo_instrucoes"
+            android:src="@drawable/ic_sair"
+            android:backgroundTint="@color/colorTrasnparente"
+            android:tint="@color/colorWhite"
+            />
+
+        <LinearLayout
+            android:id="@+id/layoutDots_instrucoes"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:layout_marginRight="16dp"
+            android:gravity="end|center_vertical"
+            android:orientation="horizontal"></LinearLayout>
+
+    </RelativeLayout>
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:gravity="center_horizontal|center_vertical"
+        android:orientation="vertical">
+
+
+        <TextView
+            android:id="@+id/tituloInstrucoes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=" "
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/slide_title"
+            android:textStyle="bold" />
+
+
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/fab_margin"
+        android:layout_alignParentBottom="true">
+
+        <ImageButton
+            android:id="@+id/btn_anterior"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:src="@drawable/ic_voltar"
+            android:tint="@color/colorWhite"
+            android:visibility="invisible"
+            android:background="@drawable/ic_circulo_instrucoes"/>
+
+        <ImageButton
+            android:id="@+id/btn_proximo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:src="@drawable/ic_proximo"
+            android:tint="@color/colorWhite"
+            android:background="@drawable/ic_circulo_instrucoes"/>
+
+    </RelativeLayout>
+
+
+</RelativeLayout>
