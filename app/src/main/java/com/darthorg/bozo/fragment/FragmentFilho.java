@@ -10,6 +10,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
@@ -129,16 +130,17 @@ public class FragmentFilho extends Fragment {
                                       public void onClick(View v) {
 
                                           //Dialog para Adicionar Jogador
-                                          final Dialog dialogMarcarBozó = new Dialog(getContext());
+                                          final Dialog dialogMarcarBozo = new Dialog(getContext());
                                           // Configura a view para o Dialog
-                                          dialogMarcarBozó.setContentView(R.layout.dialog_pontos);
+                                          dialogMarcarBozo.getWindow().requestFeature(Window.FEATURE_NO_TITLE);
+                                          dialogMarcarBozo.setContentView(R.layout.dialog_pontos);
 
                                           //Recupera os componentes do layout do custondialog
-                                          final EditText et = (EditText) dialogMarcarBozó.findViewById(R.id.etPonto);
-                                          TextView tituloPonto = (TextView) dialogMarcarBozó.findViewById(R.id.tituloPonto);
-                                          Button btnMarcar = (Button) dialogMarcarBozó.findViewById(R.id.btnMarcar);
-                                          Button btnRiscar = (Button) dialogMarcarBozó.findViewById(R.id.btnRiscar);
-                                          ImageButton btnCancelar = (ImageButton) dialogMarcarBozó.findViewById(R.id.btnCancelar);
+                                          final EditText et = (EditText) dialogMarcarBozo.findViewById(R.id.etPonto);
+                                          TextView tituloPonto = (TextView) dialogMarcarBozo.findViewById(R.id.tituloPonto);
+                                          Button btnMarcar = (Button) dialogMarcarBozo.findViewById(R.id.btnMarcar);
+                                          Button btnRiscar = (Button) dialogMarcarBozo.findViewById(R.id.btnRiscar);
+                                          ImageButton btnCancelar = (ImageButton) dialogMarcarBozo.findViewById(R.id.btnCancelar);
 
 
                                           switch (pecaBozo.getNome()) {
@@ -202,7 +204,7 @@ public class FragmentFilho extends Fragment {
                                               public void onClick(View view) {
 
                                                   if (TextUtils.isEmpty(et.getText().toString())) {
-                                                      dialogMarcarBozó.dismiss();
+                                                      dialogMarcarBozo.dismiss();
                                                   } else {
                                                       pecaBozo.setPontuacao(et.getText().toString());
                                                       button.setText(et.getText().toString());
@@ -213,7 +215,7 @@ public class FragmentFilho extends Fragment {
                                                   resultadoFinal.setText(contador + "");
 
                                                   contarPecasUsadas();
-                                                  dialogMarcarBozó.dismiss();
+                                                  dialogMarcarBozo.dismiss();
 
                                               }
                                           });
@@ -234,9 +236,9 @@ public class FragmentFilho extends Fragment {
                                                       resultadoFinal.setText(contador + "");
 
                                                       contarPecasUsadas();
-                                                      dialogMarcarBozó.dismiss();
+                                                      dialogMarcarBozo.dismiss();
                                                   } else {
-                                                      dialogMarcarBozó.dismiss();
+                                                      dialogMarcarBozo.dismiss();
                                                       Toast.makeText(getActivity(), "Peça já usada, não pode ser riscada.", Toast.LENGTH_LONG).show();
                                                   }
 
@@ -246,12 +248,12 @@ public class FragmentFilho extends Fragment {
                                           btnCancelar.setOnClickListener(new View.OnClickListener() {
                                               @Override
                                               public void onClick(View view) {
-                                                  dialogMarcarBozó.dismiss();
+                                                  dialogMarcarBozo.dismiss();
                                                   return;
                                               }
                                           });
-                                          dialogMarcarBozó.setCancelable(true);
-                                          dialogMarcarBozó.show();
+                                          dialogMarcarBozo.setCancelable(true);
+                                          dialogMarcarBozo.show();
 
                                       }
                                   }
