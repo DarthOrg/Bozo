@@ -45,6 +45,7 @@
         </LinearLayout>
 
         <TextView
+            android:id="@+id/txtAz"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:paddingLeft="@dimen/desc_padding"
@@ -56,5 +57,6 @@
             android:layout_below="@+id/tituloI"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true" />
+
 
 </RelativeLayout>

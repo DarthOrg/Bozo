@@ -74,27 +74,51 @@
 
     <string name="TextoDadosFull">Para poder formar a jogada FULL
         deve conter 5 dados com 2 dados do mesmo valor,
-        exemplo 6-6 e mais 3 dados com o mesmo valor, exemplo 4-4-4.
+        exemplo 6 e 6 e mais 3 dados com o mesmo valor, exemplo 4,4 e 4.
         O grupo de 2 dados e o grupo de 3 dados devem ser diferentes um do outro como na ilustração.
         O valor a ser marcado da jogada FULL é de 10 pontos ou 15 pontos se for o tipo de jogada com o termo FULL DE BOCA
         ( é quando a jogada é realizada em uma primeira batida).
     </string>
 
+    <string name="lerFull">Para poder formar a jogada full deve conter um grupo de cinco dados. Dois dados devem ter o mesmo valor.
+        e os outros três dados também com valores iguais. Só que diferente dos dois dados anteriores. como na ilustração.
+        O valor a ser marcado da jogada full é de dez pontos. ou 15 pontos se for do tipo de jogada com o termo full de bôca.
+         Full de bôca é quando a jogada é realizada em uma primera batida.
+
+
+    </string>
+
     <string name="TextoDadosSeguida">Para poder formar a jogada SEGUIDA
-        deve ser uma sequencia de numeros 1 á 5 ou 2 á 6, exemplo 1-2-3-4-5 ou 2-3-4-5-6.
+        deve ser uma sequencia de numeros 1 á 5 ou 2 á 6, exemplo 1, 2, 3, 4 e 5 ou 2, 3, 4, 5 e 6.
         O valor a ser marcado da jogada SEGUIDA é de 20 pontos ou 25 pontos se for o tipo de jogada com o termo SEGUIDA DE BOCA
         ( é quando a jogada é realizada em uma primeira batida).</string>
 
+    <string name="lerSeguida">Para poder formar a jogada seguida. Deve ser uma sequência de números. Um á cinco, ou, Dois á seis.
+     Por exemplo. Primeiro o número um. depois o dois. ai depois o três. e depois o quatro. e por ultimo o cinco. Ou começando pelo dado dois. depois o tres.
+        ai vem o quatro. e o próximo o  cinco. e por ultimo o número seis. O valor a ser marcado da jogada seguida é de vinte pontos. Ou vinte cinco pontos.
+         Se for o tipo de jogada com o termo quadrada de bôca. Seguida de bôca é quando a jogada é realizada em uma primeira batida.
+    </string>
+
     <string name="TextoDadosQuadrada">Para poder formar a jogada QUADRADA
-        deve ser um grupo de 4 dados iguais, exemplo 2-2-2-2 esses dados podem ser de qualquer valor.
+        deve ser um grupo de 4 dados iguais, exemplo 2, 2, 2 e 2, esses dados podem ser de qualquer valor.
         O valor a ser marcado da jogada QUADRADA é de 30 pontos ou 35 pontos se for o tipo de jogada com o termo QUADRADA DE BOCA
         ( é quando a jogada é realizada em uma primeira batida).</string>
 
+    <string name="lerQuadrada">Para poder formar a jogada quadrada deve ser um grupo de quatro dados iguais. Por exemplo. Dois, Dois, Dois, Dois.
+     Esses dados podem ser de qualquer valor. O valor a ser marcado da jogada quadrada é de trinta pontos ou trinta e cinco pontos. Se
+        for o tipo de jogada com o termo quadrada de bôca. Quadrada de bôca é quando a jogada é realizada em uma primeira batida.
+    </string>
+
     <string name="TextoDadosGeneral">Para poder formar a jogada GENERAL
-        deve ser um grupo de 5 dados iguais, exemplo 5-5-5-5-5 esses dados podem ser de qualquer valor.
+        deve ser um grupo de 5 dados iguais, exemplo 5, 5, 5, 5 e 5 esses dados podem ser de qualquer valor.
         O valor a ser marcado da jogada GENERAL é de 40 pontos. Se o jogada GENERAL for de boca, o valor passa
         a ser 100 pontos e a jogada é finaliza. O jogador que fez essa jogada já ganha a partida com ponto soberano, independente
         se outro jogador estiver ganhando.</string>
+
+    <string name="lerGeneral">Para poder formar a jogada general deve ser um grupo de cinco dados iguais. Por exemplo Cinco, Cinco, Cinco, Cinco, Cinco. Esses
+    dados podem ser de qualquer valor. O valor a ser marcado da jogada general é de quarenta pontos. Se a jogada general for de bôca.O valor passa
+    a ser cem pontos. E a jogada é finalizada. O jogador que fez essa jogada ganha a partida com o ponto soberano independente se outro
+    jogador estiver ganhando.</string>
 
     <!--Textos class-->
     <string name="TextoVazio">" "</string>
@@ -136,12 +160,65 @@
     <string name="WelcomeTitulo">Aqui vai o titulo</string>
     <string name="WelcomeTexto">Aqui vai estar o texto para o conteudo</string>
     <string name="comoJogar">Como jogar?</string>
-    <string name="Texto1">Primeiro deve-se ter um copo de Bozó fisico e 5 dados.</string>
-    <string name="Texto2">Então começa-se o jogo com o primeiro jogador. O participante coloca os 5 dados dentro do copo e chacoalha até misturar bem e depois os lança na mesa, removendo o copo com cuidado para não desvirar os dados. Lembrando que na hora de misturar os dados no copo, a boca do mesmo deve permanecer fechada para que ninguém possa ver os dados e também para não cair para fora. Feito então o primeiro lance, o jogador ainda terá mais duas vezes para lançar os dados. Então, depois da primeira jogada, ele escolherá qual jogo quer.</string>
+    <string name="Texto1">Primeiro deve-se ter um copo de Bozó e 5 dados.</string>
+    <string name="Texto2">Então começa-se o jogo com o primeiro jogador.
+        O participante coloca os 5 dados dentro do copo e chacoalha até misturar bem e depois os lança na mesa,
+        removendo o copo com cuidado para não desvirar os dados.
+        Lembrando que na hora de misturar os dados no copo,
+        a boca do mesmo deve permanecer fechada para que ninguém possa ver os dados e também para não cair para fora.
+        Feito então o primeiro lance, o jogador ainda terá mais duas vezes para lançar os dados. Então, depois da primeira jogada,
+        ele escolherá qual jogo quer.</string>
     <string name="Texto3">Tipos de jogadas na seta á direita</string>
-    <string name="Texto4">No bozó você pode escolher qualquer um entre, ÁZ, DUQUE, TERNO, QUADRA, QUINA, SENA, FULL, SEGUIDA, QUADRADA OU GENERAL, que são todos os jogos possíveis. Só que a marcação que você fará, depende das pedras que vier. Pois lógicamente você pode marcar o que quiser, mas um bom jogador segue a estratégia.</string>
+    <string name="Texto4">No bozó você pode escolher qualquer um entre,
+        ÁZ, DUQUE, TERNO, QUADRA, QUINA, SENA, FULL, SEGUIDA, QUADRADA OU GENERAL,
+        que são todos os jogos possíveis. Só que a marcação que você fará, depende das pedras que vier.
+        Pois lógicamente você pode marcar o que quiser, mas um bom jogador segue a estratégia.</string>
     <string name="Marcacao">Marcação</string>
-    <string name="Texto5">Quando jogar os dados, ele te dará 5 valores. Então usando-se a estratégia básica, você escolherá os valores que mais se repetem e/ou os que valem mais pontos. Para você poder entender o que deve marcar, é só você lembrar-se de que deve marcar a soma dos valores obtidos por determinado jogo que escolheu, com exceção de FULL-SEGUIDA-QUADRADA E GENERAL. Pois estes jogos ja tem pontuações definidas.</string>
-    <string name="Texto6">Na marcação de pontos você não pode somar todos os valores, você tem que escolher um jogo, para depois poder somar. por exemplo: Se eu tiver 2 duques e 3 quinas, na primeira jogada das três possíveis. Primeiro eu tenho que escolher qual jogo eu quero marcar. vamos supor que eu queira a quina, pois vale mais pontos e é a que mais se repete. Então eu somo tudo, o que totalizará 15 pontos, e marco na tabela em quina. Mas se observarem tem um FULL de boca também. Então eu posso marcar 15 pontos na tabela, em FULL.</string>
+    <string name="Texto5">Quando jogar os dados, ele te dará 5 valores.
+        Então usando-se a estratégia básica, você escolherá os valores que mais se repetem e/ou os que valem mais pontos.
+        Para você poder entender o que deve marcar,
+        é só você lembrar-se de que deve marcar a soma dos valores obtidos por determinado jogo que escolheu,
+        com exceção de FULL-SEGUIDA-QUADRADA E GENERAL. Pois estes jogos ja tem pontuações definidas.</string>
+    <string name="Texto6">Na marcação de pontos você não pode somar todos os valores,
+        você tem que escolher um jogo, para depois poder somar.
+        por exemplo: Se eu tiver 2 duques e 3 quinas, na primeira jogada das três possíveis.
+        Primeiro eu tenho que escolher qual jogo eu quero marcar. vamos supor que eu queira a quina,
+        pois vale mais pontos e é a que mais se repete. Então eu somo tudo, o que totalizará 15 pontos,
+        e marco na tabela em quina. Mas se observarem tem um FULL de boca também. Então eu posso marcar 15 pontos na tabela, em FULL.</string>
 
+    <string name="txtComojogarLer">Como jogar?
+        Primeiro deve-se ter um copo de Bozó e um grupo de 5 dados.
+
+        Então começa-se o jogo com o primeiro jogador.
+        O participante coloca os 5 dados dentro do copo e chacoalha até misturar bem e depois os lança na mesa,
+        removendo o copo com cuidado para não desvirar os dados.
+        Lembrando que na hora de misturar os dados no copo,
+        a boca do mesmo deve permanecer fechada para que ninguém possa ver os dados e também para não cair para fora.
+        Feito então o primeiro lance, o jogador ainda terá mais duas vezes para lançar os dados. Então, depois da primeira jogada,
+        ele escolherá qual jogo quer.
+
+        Tipos de jogadas na seta á direita.
+
+        No bozó você pode escolher qualquer um entre,
+        ÁZ, DUQUE, TERNO, QUADRA, QUINA, SENA, FULL, SEGUIDA, QUADRADA OU GENERAL,
+        que são todos os jogos possíveis. Só que a marcação que você fará, depende das pedras que vier.
+        Pois lógicamente você pode marcar o que quiser, mas um bom jogador segue a estratégia.
+
+        Marcação
+
+        Quando jogar os dados, ele te dará 5 valores.
+        Então usando-se a estratégia básica, você escolherá os valores que mais se repetem e/ou os que valem mais pontos.
+        Para você poder entender o que deve marcar,
+        é só você lembrar-se de que deve marcar a soma dos valores obtidos por determinado jogo que escolheu,
+        com exceção de FULL-SEGUIDA-QUADRADA E GENERAL. Pois estes jogos ja tem pontuações definidas.
+
+
+        Na marcação de pontos você não pode somar todos os valores,
+        você tem que escolher um jogo, para depois poder somar.
+        por exemplo: Se eu tiver 2 duques e 3 quinas, na primeira jogada das três possíveis.
+        Primeiro eu tenho que escolher qual jogo eu quero marcar. vamos supor que eu queira a quina,
+        pois vale mais pontos e é a que mais se repete. Então eu somo tudo, o que totalizará 15 pontos,
+        e marco na tabela em quina. Mas se observarem tem um FULL de boca também.
+        Então eu posso marcar 15 pontos na tabela, em FULL.
+    </string>
 </resources>

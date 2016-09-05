@@ -60,6 +60,17 @@
 
     </LinearLayout>
 
+
+    <TextView
+        android:id="@+id/txtAudio"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:textSize="15dp"
+        android:textColor="@color/colorWhite"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="80dp"/>
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -77,6 +88,31 @@
             android:background="@drawable/circulo_black_transparente"/>
 
         <ImageButton
+            android:id="@+id/audio"
+            android:layout_width="55dp"
+            android:layout_height="55dp"
+            android:src="@drawable/ic_audio_on"
+            android:tint="@color/colorWhite"
+            android:onClick="doSomething"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/circulo_black_transparente"/>
+
+
+
+        <ImageButton
+            android:id="@+id/audio_off"
+            android:layout_width="55dp"
+            android:layout_height="55dp"
+            android:visibility="gone"
+            android:src="@drawable/ic_audio_off"
+            android:tint="@color/colorCinza"
+            android:onClick="doSomething"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/circulo_white"/>
+
+
+
+        <ImageButton
             android:id="@+id/btn_proximo"
             android:layout_width="55dp"
             android:layout_height="55dp"
@@ -86,6 +122,8 @@
             android:background="@drawable/circulo_black_transparente"/>
 
     </RelativeLayout>
+
+
 
 
 </RelativeLayout>
