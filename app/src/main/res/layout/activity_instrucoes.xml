@@ -85,7 +85,7 @@
             android:src="@drawable/ic_voltar"
             android:tint="@color/colorWhite"
             android:visibility="invisible"
-            android:background="@drawable/circulo_black_transparente"/>
+            android:background="@drawable/circulo_transparente"/>
 
         <ImageButton
             android:id="@+id/audio"
@@ -95,7 +95,7 @@
             android:tint="@color/colorWhite"
             android:onClick="doSomething"
             android:layout_centerHorizontal="true"
-            android:background="@drawable/circulo_black_transparente"/>
+            android:background="@drawable/circulo_transparente"/>
 
 
 
@@ -119,7 +119,7 @@
             android:layout_alignParentRight="true"
             android:src="@drawable/ic_proximo"
             android:tint="@color/colorWhite"
-            android:background="@drawable/circulo_black_transparente"/>
+            android:background="@drawable/circulo_transparente"/>
 
     </RelativeLayout>
 
