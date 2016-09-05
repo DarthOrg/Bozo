@@ -14,17 +14,6 @@
         <item name="colorPrimary">@color/colorBlack</item>
     </style>
 
-    <style name="AppTheme.Error" parent="Theme.AppCompat.Light.NoActionBar">
-        <item name="colorAccent">@color/colorRed</item>
-        <item name="colorPrimaryDark">@color/colorRed</item>
-    </style>
-
-    <style name="AppTheme.Accent" parent="Theme.AppCompat.Light.NoActionBar">
-        <item name="colorPrimary">@color/colorWhite</item>
-        <item name="colorPrimaryDark">@color/colorAccent700</item>
-        <item name="colorAccent">@color/colorAccent</item>
-    </style>
-
     <style name="AppTheme.AccentLight" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="colorPrimary">@color/colorAccent</item>
         <item name="colorPrimaryDark">@color/colorAccent700</item>

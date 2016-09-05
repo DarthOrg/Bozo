@@ -162,7 +162,7 @@ public class PartidaAberta extends AppCompatActivity {
                             viewPager.setCurrentItem(adapter.getCount() - 1);
                         }
 
-                        Snackbar.make(viewPager, getString(R.string.Jogador) + etNomeJogador.getText().toString() + getString(R.string.FoiAdicionado), Snackbar.LENGTH_SHORT).show();
+                        Toast.makeText(getApplicationContext(), getString(R.string.Jogador) + etNomeJogador.getText().toString() + getString(R.string.FoiAdicionado), Toast.LENGTH_LONG).show();
                         dialogAdicionarJogador.dismiss();
                     }
                 });
@@ -218,8 +218,8 @@ public class PartidaAberta extends AppCompatActivity {
                             dialogRemoveJogador.dismiss();
 
                         } else {
-                            //todo:Criar um dialog aqui perguntando se deseja abandonar partida
-                            Snackbar.make(view, R.string.TextoSemJogadores, Snackbar.LENGTH_LONG).show();
+                            dialogRemoveJogador.dismiss();
+                            Toast.makeText(getApplicationContext(), "Não pode excluir mais jogadores", Toast.LENGTH_LONG).show();
                         }
                     }
                 });

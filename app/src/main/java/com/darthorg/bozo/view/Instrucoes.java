@@ -1,4 +1,4 @@
-package com.darthorg.bozo;
+package com.darthorg.bozo.view;
 
 import android.annotation.TargetApi;
 import android.content.Context;
@@ -20,6 +20,7 @@ import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.darthorg.bozo.R;
 import com.darthorg.bozo.manager.IntrucoesManager;
 import com.darthorg.bozo.view.Inicio;
 
@@ -150,16 +151,14 @@ public class Instrucoes extends AppCompatActivity {
         finish();
     }
 
-    @TargetApi(Build.VERSION_CODES.LOLLIPOP)
     private void btnProximo() {
-        btnNext.setImageDrawable(getDrawable(R.drawable.ic_proximo));
+        btnNext.setImageDrawable(getResources().getDrawable(R.drawable.ic_proximo));
         btnSkip.setVisibility(View.VISIBLE);
     }
 
     //  viewpager change listener
     ViewPager.OnPageChangeListener viewPagerPageChangeListener = new ViewPager.OnPageChangeListener() {
 
-        @TargetApi(Build.VERSION_CODES.LOLLIPOP)
         @Override
         public void onPageSelected(int position) {
             addBottomDots(position);
@@ -169,7 +168,7 @@ public class Instrucoes extends AppCompatActivity {
             // changing the next button text 'NEXT' / 'GOT IT'
             if (position == layouts.length - 1) {
                 titulo.setText("General");
-                btnNext.setImageDrawable(getDrawable(R.drawable.ic_sair));
+                btnNext.setImageDrawable(getResources().getDrawable(R.drawable.ic_sair));
                 btnSkip.setVisibility(View.GONE);
                 btnAnterior.setVisibility(View.VISIBLE);
             }else if (position == layouts.length - 2) {
@@ -234,7 +233,8 @@ public class Instrucoes extends AppCompatActivity {
 
             }else {
                 // still pages are left
-                btnNext.setImageDrawable(getDrawable(R.drawable.ic_proximo));
+
+                btnNext.setImageDrawable(getResources().getDrawable(R.drawable.ic_proximo));
                 btnSkip.setVisibility(View.VISIBLE);
             }
         }

@@ -139,9 +139,9 @@
         <android.support.design.widget.AppBarLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:theme="@style/AppTheme.WhiteBotton"
             android:layout_alignParentTop="true"
             android:layout_alignParentLeft="true"
+            android:theme="@style/AppTheme.WhiteBotton"
             android:layout_alignParentStart="false"
             android:id="@+id/view5">
             <RelativeLayout
@@ -153,6 +153,7 @@
                 android:id="@+id/toolbar"
                 android:background="@color/colorAccent"
                 android:layout_width="match_parent"
+                android:theme="@style/AppTheme.WhiteBotton"
                 android:layout_height="?attr/actionBarSize"/>
 
             <TextView
@@ -199,6 +200,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"
         android:layout_margin="@dimen/fab_margin"
-        android:src="@drawable/ic_plus_white" />
+        android:src="@drawable/ic_plus_white"
+        android:tint="@color/colorWhite"/>
 
 </android.support.design.widget.CoordinatorLayout>

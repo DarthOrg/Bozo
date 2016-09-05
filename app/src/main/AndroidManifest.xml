@@ -40,7 +40,7 @@
         android:name=".view.Inicio"
         android:screenOrientation="portrait"/>
 
-        <activity android:name=".Instrucoes"
+        <activity android:name=".view.Instrucoes"
             android:screenOrientation="portrait">
 
         </activity>

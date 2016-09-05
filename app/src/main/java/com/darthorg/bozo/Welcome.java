@@ -1,6 +1,5 @@
 package com.darthorg.bozo;
 
-import android.annotation.TargetApi;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
@@ -129,7 +128,7 @@ public class Welcome extends AppCompatActivity {
     //  viewpager change listener
     ViewPager.OnPageChangeListener viewPagerPageChangeListener = new ViewPager.OnPageChangeListener() {
 
-        @TargetApi(Build.VERSION_CODES.LOLLIPOP)
+
         @Override
         public void onPageSelected(int position) {
             addBottomDots(position);
@@ -137,11 +136,11 @@ public class Welcome extends AppCompatActivity {
             // changing the next button text 'NEXT' / 'GOT IT'
             if (position == layouts.length - 1) {
                 // last page. make button text to GOT IT
-                btnNext.setImageDrawable(getDrawable(R.drawable.ic_confirmar_welcome));
+                btnNext.setImageDrawable(getResources().getDrawable(R.drawable.ic_confirmar_welcome));
                 btnSkip.setVisibility(View.GONE);
             } else {
-                // still pages are left
-                btnNext.setImageDrawable(getDrawable(R.drawable.ic_proximo));
+//                // still pages are left
+                btnNext.setImageDrawable(getResources().getDrawable(R.drawable.ic_proximo));
                 btnSkip.setVisibility(View.VISIBLE);
             }
         }

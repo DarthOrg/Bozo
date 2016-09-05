@@ -19,6 +19,7 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.darthorg.bozo.R;
 import com.darthorg.bozo.model.PecaBozo;
@@ -142,13 +143,9 @@ public class FragmentFilho extends Fragment {
                                       public void onClick(View v) {
 
                                           if (button.getText().toString() == "X") {
-                                              SnackbarManager.show(
-                                                      com.nispok.snackbar.Snackbar.with(getActivity())
-                                                              .text("Peça já RISCADA (X), não pode ser usada novamente.")
-                                                              .textColor(Color.WHITE)
-                                                              .color(Color.RED)
 
-                                              );
+                                              Toast.makeText(getActivity(), "Peça já RISCADA (X), não pode ser usada novamente.", Toast.LENGTH_LONG).show();
+
                                           } else {
 
                                               //Dialog para Adicionar Jogador
@@ -248,13 +245,7 @@ public class FragmentFilho extends Fragment {
                                                           dialogMarcarBozó.dismiss();
                                                       } else {
                                                           dialogMarcarBozó.dismiss();
-                                                          SnackbarManager.show(
-                                                                  com.nispok.snackbar.Snackbar.with(getActivity())
-                                                                          .text("Peça já usada, não pode ser riscada.")
-                                                                          .textColor(Color.WHITE)
-                                                                          .color(Color.BLACK)
-
-                                                          );
+                                                          Toast.makeText(getActivity(), "Peça já usada, não pode ser riscada.", Toast.LENGTH_LONG).show();
                                                       }
 
                                                   }

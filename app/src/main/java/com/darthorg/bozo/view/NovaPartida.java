@@ -3,6 +3,7 @@ package com.darthorg.bozo.view;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.AppCompatActivity;
@@ -33,7 +34,7 @@ public class NovaPartida extends AppCompatActivity {
     private ArrayAdapter<String> adapter;
     TextView Titulo,contagemJogadores,contagemJogadores2;
     EditText editNomeNovoJogador;
-    ImageButton btnAdicionarJogador;
+    FloatingActionButton btnAdicionarJogador;
     FrameLayout viewcontadorjogadores;
     ListView listView;
 
@@ -59,7 +60,6 @@ public class NovaPartida extends AppCompatActivity {
 
 
         //Contador Jogador
-        contagemJogadores = (TextView) findViewById(R.id.contagemJogadores);
         contagemJogadores2 = (TextView) findViewById(R.id.contagemJogadores2);
         if (jogadores.size() == 0){
             contagemJogadores2.setText("0");
@@ -77,8 +77,7 @@ public class NovaPartida extends AppCompatActivity {
         //botão ficar precionado
         registerForContextMenu(listView);
 
-        btnAdicionarJogador = (ImageButton) findViewById(R.id.btnAddJogador);
-        viewcontadorjogadores = (FrameLayout) findViewById(R.id.viewcontadorjogadores);
+        btnAdicionarJogador = (FloatingActionButton) findViewById(R.id.btnAddJogador);
         Titulo = (TextView) findViewById(R.id.Titulo);
 
         tilNomeGrupo = (TextInputLayout) findViewById(R.id.til_nome_grupo);
@@ -113,7 +112,6 @@ public class NovaPartida extends AppCompatActivity {
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 btnAdicionarJogador.setVisibility(View.VISIBLE);
-                viewcontadorjogadores.setVisibility(View.GONE);
                 tilJogador.setError(null);
 
             }
@@ -144,6 +142,7 @@ public class NovaPartida extends AppCompatActivity {
                 } else {
                     contagemJogadores2.setVisibility(View.GONE);
                     tilJogador.setVisibility(View.GONE);
+                    btnAdicionarJogador.setVisibility(View.GONE);
                     Snackbar snackbar = Snackbar
                             .make(v, "Máximo 10 jogadores", Snackbar.LENGTH_INDEFINITE);
                     snackbar.setAction("Entendi", new View.OnClickListener() {

@@ -45,10 +45,9 @@
                 android:id="@+id/configuracoes"
                 android:layout_width="45dp"
                 android:layout_height="45dp"
-                android:background="@drawable/circulo_accent"
+                android:background="@drawable/circulo_white"
                 android:src="@drawable/ic_configuracoes"
                 android:tint="@color/colorCinza"
-                android:backgroundTint="@color/colorWhite"
                 android:layout_gravity="center_horizontal" />
 
         </LinearLayout>
@@ -69,10 +68,9 @@
                     android:layout_width="45dp"
                     android:layout_height="45dp"
                     android:layout_margin="@dimen/fab_margin"
-                    android:background="@drawable/circulo_accent"
+                    android:background="@drawable/circulo_verde"
                     android:src="@drawable/ic_add_jogador"
                     android:tint="@color/colorWhite"
-                    android:backgroundTint="@color/colorGreen"
                     android:layout_gravity="center_horizontal" />
 
                 <TextView
@@ -99,9 +97,8 @@
                     android:layout_width="45dp"
                     android:layout_height="45dp"
                     android:layout_margin="@dimen/fab_margin"
-                    android:background="@drawable/circulo_accent"
+                    android:background="@drawable/circulo_red"
                     android:src="@drawable/ic_deletar_jogador"
-                    android:backgroundTint="@color/colorRed"
                     android:tint="@color/colorWhite"
                     android:layout_gravity="center_horizontal" />
 

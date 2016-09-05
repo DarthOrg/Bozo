@@ -1,0 +1,432 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="5dp"
+            android:layout_marginLeft="5dp"
+            android:orientation="horizontal">
+
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/Az"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:textColor="@color/colorCinza"
+                    android:textSize="8dp"
+                    android:layout_marginBottom="10dp"
+                    android:layout_gravity="center_horizontal|bottom" />
+
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:text="0"
+                    android:textSize="35dp"
+                    android:textColor="@color/colorCinza"
+                    android:background="@color/colorTrasnparente"
+                    android:id="@+id/btnAz" />
+
+
+            </FrameLayout>
+
+            <RelativeLayout
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:background="@color/colorStatusBar"/>
+
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:text="0"
+                    android:textSize="35dp"
+                    android:textColor="@color/colorCinza"
+                    android:background="@color/colorTrasnparente"
+                    android:id="@+id/btnFull" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/Full"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:textColor="@color/colorCinza"
+                    android:textSize="8dp"
+                    android:layout_marginBottom="10dp"
+                    android:layout_gravity="center_horizontal|bottom" />
+
+
+            </FrameLayout>
+
+            <RelativeLayout
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:background="@color/colorStatusBar"/>
+
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:text="0"
+                    android:textSize="35dp"
+                    android:textColor="@color/colorCinza"
+                    android:background="@color/colorTrasnparente"
+                    android:id="@+id/btnQuadra" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/Quadra"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:textColor="@color/colorCinza"
+                    android:textSize="8dp"
+                    android:layout_marginBottom="10dp"
+                    android:layout_gravity="center_horizontal|bottom" />
+
+
+            </FrameLayout>
+
+        </LinearLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/colorStatusBar"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="5dp"
+            android:layout_marginLeft="5dp"
+            android:orientation="horizontal">
+
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:text="0"
+                    android:textSize="35dp"
+                    android:textColor="@color/colorCinza"
+                    android:background="@color/colorTrasnparente"
+                    android:id="@+id/btnDuque" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/Duque"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:textColor="@color/colorCinza"
+                    android:textSize="8dp"
+                    android:layout_marginBottom="10dp"
+                    android:layout_gravity="center_horizontal|bottom" />
+
+
+            </FrameLayout>
+
+            <RelativeLayout
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:background="@color/colorStatusBar"/>
+
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:text="0"
+                    android:textSize="35dp"
+                    android:textColor="@color/colorCinza"
+                    android:background="@color/colorTrasnparente"
+                    android:id="@+id/btnSeguida" />
+
+                <TextView
+                    android:id="@+id/indicador_general"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/Seguida"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:textColor="@color/colorCinza"
+                    android:textSize="8dp"
+                    android:layout_marginBottom="10dp"
+                    android:layout_gravity="center_horizontal|bottom" />
+
+
+            </FrameLayout>
+
+            <RelativeLayout
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:background="@color/colorStatusBar"/>
+
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+
+                <Button
+                    android:id="@+id/btnQuina"
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:text="0"
+                    android:textSize="35dp"
+                    android:textColor="@color/colorCinza"
+                    android:background="@color/colorTrasnparente"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/Quina"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:textColor="@color/colorCinza"
+                    android:textSize="8dp"
+                    android:layout_marginBottom="10dp"
+                    android:layout_gravity="center_horizontal|bottom" />
+
+
+            </FrameLayout>
+
+        </LinearLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/colorStatusBar"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="5dp"
+            android:layout_marginLeft="5dp"
+            android:orientation="horizontal">
+
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:text="0"
+                    android:textSize="35dp"
+                    android:textColor="@color/colorCinza"
+                    android:background="@color/colorTrasnparente"
+                    android:id="@+id/btnTerno" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/Terno"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:textColor="@color/colorCinza"
+                    android:textSize="8dp"
+                    android:layout_marginBottom="10dp"
+                    android:layout_gravity="center_horizontal|bottom" />
+
+
+            </FrameLayout>
+
+            <RelativeLayout
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:background="@color/colorStatusBar"/>
+
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:text="0"
+                    android:textSize="35dp"
+                    android:textColor="@color/colorCinza"
+                    android:background="@color/colorTrasnparente"
+                    android:id="@+id/btnQuadrada" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/Quadrada"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:textColor="@color/colorCinza"
+                    android:textSize="8dp"
+                    android:layout_marginBottom="10dp"
+                    android:layout_gravity="center_horizontal|bottom" />
+
+
+            </FrameLayout>
+
+            <RelativeLayout
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:background="@color/colorStatusBar"/>
+
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:text="0"
+                    android:textSize="35dp"
+                    android:textColor="@color/colorCinza"
+                    android:background="@color/colorTrasnparente"
+                    android:id="@+id/btnSena" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/Sena"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:textColor="@color/colorCinza"
+                    android:textSize="8dp"
+                    android:layout_marginBottom="10dp"
+                    android:layout_gravity="center_horizontal|bottom" />
+
+
+            </FrameLayout>
+
+        </LinearLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/colorStatusBar"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="5dp"
+            android:layout_marginLeft="5dp"
+            android:orientation="horizontal">
+
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:background="@color/colorTrasnparente"/>
+
+
+
+            </FrameLayout>
+
+            <RelativeLayout
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:background="@color/colorStatusBar"/>
+
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:text="0"
+                    android:textSize="35dp"
+                    android:textColor="@color/colorCinza"
+                    android:background="@color/colorTrasnparente"
+                    android:id="@+id/btnGeneral" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/General"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:textColor="@color/colorCinza"
+                    android:textSize="8dp"
+                    android:layout_marginBottom="10dp"
+                    android:layout_gravity="center_horizontal|bottom" />
+
+
+            </FrameLayout>
+
+            <RelativeLayout
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:background="@color/colorStatusBar"/>
+
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:background="@color/colorTrasnparente"/>
+
+
+
+            </FrameLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="5dp"
+            android:layout_marginLeft="5dp"
+            android:orientation="horizontal">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_gravity="center_horizontal"
+                android:background="@color/colorTrasnparente"
+                android:layout_weight="1"/>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_gravity="center_horizontal"
+                android:background="@color/colorStatusBar"
+                android:layout_weight="1"/>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_gravity="center_horizontal"
+                android:background="@color/colorTrasnparente"
+                android:layout_weight="1"/>
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+</ScrollView>

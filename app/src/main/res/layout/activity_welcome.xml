@@ -4,8 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorPrimaryDark"
-    tools:showIn="@layout/activity_welcome">
+    android:background="@color/colorPrimaryDark">
 
 
     <android.support.v4.view.ViewPager
@@ -27,12 +26,13 @@
         android:layout_alignParentBottom="true">
         <ImageButton
             android:id="@+id/btn_next"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="55dp"
+            android:layout_height="55dp"
             android:layout_alignParentRight="true"
             android:src="@drawable/ic_proximo"
             android:tint="@color/colorWhite"
-            android:background="@drawable/ic_circulo"/>
+            android:background="@drawable/circulo_black_transparente"/>
+
         <LinearLayout
             android:id="@+id/layoutDots"
             android:layout_width="match_parent"

@@ -21,9 +21,9 @@
 
         <ImageButton
             android:id="@+id/btn_sair"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@drawable/ic_circulo_instrucoes"
+            android:layout_width="55dp"
+            android:layout_height="55dp"
+            android:background="@drawable/circulo_transparente"
             android:src="@drawable/ic_sair"
             android:backgroundTint="@color/colorTrasnparente"
             android:tint="@color/colorWhite"
@@ -68,22 +68,22 @@
 
         <ImageButton
             android:id="@+id/btn_anterior"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="55dp"
+            android:layout_height="55dp"
             android:layout_alignParentLeft="true"
             android:src="@drawable/ic_voltar"
             android:tint="@color/colorWhite"
             android:visibility="invisible"
-            android:background="@drawable/ic_circulo_instrucoes"/>
+            android:background="@drawable/circulo_black_transparente"/>
 
         <ImageButton
             android:id="@+id/btn_proximo"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="55dp"
+            android:layout_height="55dp"
             android:layout_alignParentRight="true"
             android:src="@drawable/ic_proximo"
             android:tint="@color/colorWhite"
-            android:background="@drawable/ic_circulo_instrucoes"/>
+            android:background="@drawable/circulo_black_transparente"/>
 
     </RelativeLayout>
 

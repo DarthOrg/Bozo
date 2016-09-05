@@ -1,7 +1,6 @@
 package com.darthorg.bozo.view;
 
 import android.content.Intent;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.os.SystemClock;
 import android.support.design.widget.FloatingActionButton;
@@ -20,7 +19,6 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Toast;
 
-import com.darthorg.bozo.Instrucoes;
 import com.darthorg.bozo.R;
 import com.darthorg.bozo.adapter.PartidasListaAdapter;
 import com.darthorg.bozo.dao.PartidaDAO;
@@ -152,6 +150,12 @@ public class Inicio extends AppCompatActivity
 
     }
 
+    public void instrucoesActivity(){
+
+        Intent intent = new Intent(Inicio.this, Instrucoes.class);
+        startActivity(intent);
+    }
+
     @Override
     public void onBackPressed() {
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -172,8 +176,8 @@ public class Inicio extends AppCompatActivity
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
 
-        if (id == R.id.action_bloquear_som) {
-            return true;
+        if (id == R.id.action_instrucoes) {
+            instrucoesActivity();
         }
 
         return super.onOptionsItemSelected(item);
@@ -189,10 +193,7 @@ public class Inicio extends AppCompatActivity
             startActivity(intent);
 
         } else if (id == R.id.nav_instrucoes) {
-
-            Intent intent = new Intent(Inicio.this, Instrucoes.class);
-            startActivity(intent);
-
+            instrucoesActivity();
         } else if (id == R.id.nav_cor_destaque) {
 
 

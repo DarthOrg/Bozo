@@ -12,11 +12,12 @@
 
 
 
+
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/colorAccent"
-        app:elevation="5dp"
+        app:elevation="0dp"
         app:counterEnabled="true"
         android:paddingBottom="25dp"
         android:id="@+id/view">
@@ -122,6 +123,18 @@
                         android:paddingTop="16dp"
                         android:layout_marginRight="35dp" />
 
+                    <android.support.design.widget.FloatingActionButton
+                        android:id="@+id/btnAddJogador"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_plus_white"
+                        android:tint="@color/colorCinza"
+                        android:visibility="gone"
+                        android:layout_centerVertical="true"
+                        android:layout_alignParentRight="true"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginRight="15dp" />
+
 
                 </RelativeLayout>
 
@@ -135,45 +148,12 @@
 
 
 
-    <FrameLayout
-        android:id="@+id/viewcontadorjogadores"
-        android:layout_width="match_parent"
-        android:layout_height="56dp"
-        android:layout_below="@+id/view"
-        android:background="@color/colorAccent"
-        android:layout_centerHorizontal="true"
-        android:visibility="gone">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="10 Jogadores adicionados"
-            android:textColor="@color/colorWhiteTransparente"
-            android:layout_gravity="center"
-            android:id="@+id/contagemJogadores" />
-    </FrameLayout>
-    <ImageButton
-        android:id="@+id/btnAddJogador"
-        android:layout_width="45dp"
-        android:layout_height="45dp"
-        android:elevation="6dp"
-        android:background="@drawable/circulo_accent_light"
-        android:backgroundTint="@color/colorWhite"
-        android:tint="@color/colorCinza"
-        android:src="@drawable/ic_plus_white"
-        android:visibility="gone"
-        android:layout_below="@+id/view"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginRight="16dp"
-        android:layout_marginTop="-25dp" />
-
     <ListView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/list_view_jogadores"
         android:cacheColorHint="@color/colorBlack"
-        android:layout_below="@+id/viewcontadorjogadores" />
+        android:layout_below="@+id/view" />
+
 
 </RelativeLayout>
