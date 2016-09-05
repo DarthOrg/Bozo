@@ -342,7 +342,7 @@ public class Instrucoes extends AppCompatActivity {
                         if (result == TextToSpeech.LANG_NOT_SUPPORTED || result == TextToSpeech.LANG_MISSING_DATA){
                             Toast.makeText(getApplicationContext(),"Recurso não suportado no seu dispositivo",Toast.LENGTH_SHORT).show();
                         }else {
-                            ttsobject.speak(getString(R.string.TextoDadoSena), TextToSpeech.QUEUE_FLUSH,null);
+                            ttsobject.speak(getString(R.string.lerSena), TextToSpeech.QUEUE_FLUSH,null);
                             audioOff.setVisibility(View.VISIBLE);
                             audio.setVisibility(View.GONE);
                             txtAudio.setText("Parar");
@@ -367,7 +367,7 @@ public class Instrucoes extends AppCompatActivity {
                         if (result == TextToSpeech.LANG_NOT_SUPPORTED || result == TextToSpeech.LANG_MISSING_DATA){
                             Toast.makeText(getApplicationContext(),"Recurso não suportado no seu dispositivo",Toast.LENGTH_SHORT).show();
                         }else {
-                            ttsobject.speak(getString(R.string.TextoDadoQuina), TextToSpeech.QUEUE_FLUSH,null);
+                            ttsobject.speak(getString(R.string.lerQuina), TextToSpeech.QUEUE_FLUSH,null);
                             audioOff.setVisibility(View.VISIBLE);
                             audio.setVisibility(View.GONE);
                             txtAudio.setText("Parar");
@@ -392,7 +392,7 @@ public class Instrucoes extends AppCompatActivity {
                         if (result == TextToSpeech.LANG_NOT_SUPPORTED || result == TextToSpeech.LANG_MISSING_DATA){
                             Toast.makeText(getApplicationContext(),"Recurso não suportado no seu dispositivo",Toast.LENGTH_SHORT).show();
                         }else {
-                            ttsobject.speak(getString(R.string.TextoDadoQuadra), TextToSpeech.QUEUE_FLUSH,null);
+                            ttsobject.speak(getString(R.string.lerQuadra), TextToSpeech.QUEUE_FLUSH,null);
                             audioOff.setVisibility(View.VISIBLE);
                             audio.setVisibility(View.GONE);
                             txtAudio.setText("Parar");
@@ -417,7 +417,7 @@ public class Instrucoes extends AppCompatActivity {
                         if (result == TextToSpeech.LANG_NOT_SUPPORTED || result == TextToSpeech.LANG_MISSING_DATA){
                             Toast.makeText(getApplicationContext(),"Recurso não suportado no seu dispositivo",Toast.LENGTH_SHORT).show();
                         }else {
-                            ttsobject.speak(getString(R.string.TextoDadoTerno), TextToSpeech.QUEUE_FLUSH,null);
+                            ttsobject.speak(getString(R.string.lerTerno), TextToSpeech.QUEUE_FLUSH,null);
                             audioOff.setVisibility(View.VISIBLE);
                             audio.setVisibility(View.GONE);
                             txtAudio.setText("Parar");
@@ -442,7 +442,7 @@ public class Instrucoes extends AppCompatActivity {
                         if (result == TextToSpeech.LANG_NOT_SUPPORTED || result == TextToSpeech.LANG_MISSING_DATA){
                             Toast.makeText(getApplicationContext(),"Recurso não suportado no seu dispositivo",Toast.LENGTH_SHORT).show();
                         }else {
-                            ttsobject.speak(getString(R.string.TextoDadoDuque), TextToSpeech.QUEUE_FLUSH,null);
+                            ttsobject.speak(getString(R.string.lerDuque), TextToSpeech.QUEUE_FLUSH,null);
                             audioOff.setVisibility(View.VISIBLE);
                             audio.setVisibility(View.GONE);
                             txtAudio.setText("Parar");
@@ -467,7 +467,7 @@ public class Instrucoes extends AppCompatActivity {
                         if (result == TextToSpeech.LANG_NOT_SUPPORTED || result == TextToSpeech.LANG_MISSING_DATA){
                             Toast.makeText(getApplicationContext(),"Recurso não suportado no seu dispositivo",Toast.LENGTH_SHORT).show();
                         }else {
-                            ttsobject.speak(getString(R.string.TextoDadoAz), TextToSpeech.QUEUE_FLUSH,null);
+                            ttsobject.speak(getString(R.string.lerAz), TextToSpeech.QUEUE_FLUSH,null);
                             audioOff.setVisibility(View.VISIBLE);
                             audio.setVisibility(View.GONE);
                             txtAudio.setText("Parar");

@@ -60,65 +60,86 @@
 
     <!--Textos das jogadas-->
 
-    <string name="TextoDadoAz">Pedra Áz ou numero 1. A soma dos valores adiquiridos podem variar de 1 á 5 pontos.</string>
+    <string name="TextoDadoAz">Ou jogada Áz ou também chamado de número 1.
+        O dado Áz tem a soma de seus valores que podem variar de 1 a 5 pontos.</string>
+    <string name="lerAz">O, Dado, As. Ou, jogada As. Também pode ser chamado de número Um.
+        O, Dado, As tem a soma de seus valores que podem variar de Um, a Cinco pontos.</string>
 
-    <string name="TextoDadoDuque">Pedra Duque ou numero 2. A soma dos valores adiquiridos podem variar de 2 á 10 pontos na sequência de numeros pares.</string>
+    <string name="TextoDadoDuque">Ou jogada Duque ou também chamado de número 2.
+        O dado Duque tem a soma de seus valores que podem variar de 2 a 10 pontos.</string>
+    <string name="lerDuque">Dado Duque. Ou jogada Duque. Também pode ser chamado de número Dois.
+        O dado Duque tem a soma de seus valores que podem variar de Dois, a Dez pontos.</string>
 
-    <string name="TextoDadoTerno">Pedra Terno ou numero 3. A soma dos valores adiquiridos podem variar de 3 á 15 pontos na sequência de numeros impares.</string>
+    <string name="TextoDadoTerno">Ou jogada Terno ou também chamado de número 3.
+        O dado Terno tem a soma de seus valores que podem variar de 3 a 15 pontos.</string>
+    <string name="lerTerno">O Dado Terno. Ou jogada Terno. Também pode ser chamado de número Três.
+        O dado Terno tem a soma de seus valores que podem variar de Três, a Quinze pontos.</string>
 
-    <string name="TextoDadoQuadra">Pedra Quadra ou numero 4. A soma dos valores adiquiridos podem variar de 4 á 20 pontos na sequência de numeros pares.</string>
+    <string name="TextoDadoQuadra">Ou jogada Quadra ou também chamado de número 4.
+        O dado Quadra tem a soma de seus valores que podem variar de 4 a 20 pontos.</string>
+    <string name="lerQuadra">O Dado Quadra. Ou jogada Quadra. Também pode ser chamado de número Quatro.
+        O dado Quadra tem a soma de seus valores que podem variar de Quatro, a Vinte pontos.</string>
 
-    <string name="TextoDadoQuina">Pedra Quina ou numero 5. A soma dos valores adiquiridos podem variar de 5 á 25 pontos na sequência de numeros impares.</string>
+    <string name="TextoDadoQuina">Ou jogada Quina ou também chamado de número 5.
+        O dado Quina tem a soma de seus valores que podem variar de 5 a 25 pontos.</string>
+    <string name="lerQuina">O Dado Quina. Ou jogada Quina. Também pode ser chamado de número Cinco.
+        O dado Quina tem a soma de seus valores que podem variar de Cinco, a Vinte e cinco pontos.</string>
 
-    <string name="TextoDadoSena">Pedra Sena ou numero 6. A soma dos valores adiquiridos podem variar de 6 á 30 pontos na sequência de numeros pares.</string>
+    <string name="TextoDadoSena">Ou jogada Sena ou também chamado de número 6.
+        O dado Sena tem a soma de seus valores que podem variar de 6 a 30 pontos.</string>
+    <string name="lerSena">O Dado Sena. Ou jogada Sena. Também pode ser chamado de número Seis.
+        O dado Sena tem a soma de seus valores que podem variar de Seis, a Trinta pontos.</string>
 
-    <string name="TextoDadosFull">Para poder formar a jogada FULL
-        deve conter 5 dados com 2 dados do mesmo valor,
-        exemplo 6 e 6 e mais 3 dados com o mesmo valor, exemplo 4,4 e 4.
-        O grupo de 2 dados e o grupo de 3 dados devem ser diferentes um do outro como na ilustração.
-        O valor a ser marcado da jogada FULL é de 10 pontos ou 15 pontos se for o tipo de jogada com o termo FULL DE BOCA
-        ( é quando a jogada é realizada em uma primeira batida).
+    <string name="TextoDadosFull">Para poder formar a jogada full, você precisa dos cinco dados. Dois dados devem ser do um valor,
+        já os outros três dados de outro valor.Por exemplo, os primeiros dois dados os valores são 6-6 os outros três dados seria
+        4-4-4 como na ilustração encima. O valor da jogada full é de 10 pontos mas se a jogada for de bôca o valor passa a ser 15 pontos.
     </string>
 
-    <string name="lerFull">Para poder formar a jogada full deve conter um grupo de cinco dados. Dois dados devem ter o mesmo valor.
-        e os outros três dados também com valores iguais. Só que diferente dos dois dados anteriores. como na ilustração.
-        O valor a ser marcado da jogada full é de dez pontos. ou 15 pontos se for do tipo de jogada com o termo full de bôca.
-         Full de bôca é quando a jogada é realizada em uma primera batida.
+    <string name="lerFull">Fúl. Para poder formar a jogada Fúl.
+         Você precisa dos cinco dados.
+         Dois dados devem ser do um valor. já os outros três dados de outro valor.
+         Por exemplo. Os primeiros dois dados. Os valores são. Seis, e Seis. Os outros três dados seria Quatro, Quatro, Quatro.
+         Como na ilustração encima. O valor da jogada Fúl é de dez pontos.
+         Mas se a jogada for de bôca o valor passa a ser quinze pontos.
+      Mais o que é Fúl de bôca? Fúl de bôca é quando a jogada é realizada de uma só vez.</string>
 
+    <string name="TextoDadosSeguida">Para formar a jogada seguida.
+        Existe dois tipos de sequência dos dados. A primeira sequência é de 1 a 5
+         e a outra sequência é de 2 a 6, por exemplo 1-2-3-4-5 e a outra sequência seria 2-3-4-5-6.
+        Como na ilustração encima. O valor a ser marcado da jogada seguida é de 20 pontos, mas se a jogada for de bôca o ponto passa a ser 25.
+     </string>
 
+    <string name="lerSeguida">Seguida. Para formar a jogada seguida.
+        existe dois tipos de sequência dos dados. A primeira sequência é de 1 a Cinco. E a outra sequência é de 2 a Seis.
+        Por exemplo. Um, Dois, Três, Quatro, e Cinco. E a outra sequência seria. dois, três, quatro, cinco, e seis.
+        Como na ilustração encima. O valor a ser marcado da jogada seguida é de vinte pontos. Mas se a jogada for de bôca o ponto passa a ser vite e cinco.
+     Mais o que é seguida de bôca? Seguida de bôca é quando a jogada é realizada de uma só vez.
     </string>
 
-    <string name="TextoDadosSeguida">Para poder formar a jogada SEGUIDA
-        deve ser uma sequencia de numeros 1 á 5 ou 2 á 6, exemplo 1, 2, 3, 4 e 5 ou 2, 3, 4, 5 e 6.
-        O valor a ser marcado da jogada SEGUIDA é de 20 pontos ou 25 pontos se for o tipo de jogada com o termo SEGUIDA DE BOCA
-        ( é quando a jogada é realizada em uma primeira batida).</string>
+    <string name="TextoDadosQuadrada">Para poder fazer uma jogada quadrada deve ter 4 números iguais.
+        Por exemplo, 2-2-2-2 como na ilustração encima.
+        Esses quatros dados iguais podem ser de qualquer valor, e o valor que deve ser marcado na jogada quadrada é de 30 pontos.
+        Mas se a quadrada for de boca o valor passa a ser de 35 pontos.</string>
 
-    <string name="lerSeguida">Para poder formar a jogada seguida. Deve ser uma sequência de números. Um á cinco, ou, Dois á seis.
-     Por exemplo. Primeiro o número um. depois o dois. ai depois o três. e depois o quatro. e por ultimo o cinco. Ou começando pelo dado dois. depois o tres.
-        ai vem o quatro. e o próximo o  cinco. e por ultimo o número seis. O valor a ser marcado da jogada seguida é de vinte pontos. Ou vinte cinco pontos.
-         Se for o tipo de jogada com o termo quadrada de bôca. Seguida de bôca é quando a jogada é realizada em uma primeira batida.
-    </string>
+    <string name="lerQuadrada">Quadrada. Para poder fazer uma jogada quadrada deve ter quatro números iguais.
+        Por exemplo. Dois, Dois, Dois,  e Dois. Como na ilustração encima.
+        esses quatros dados iguais podem ser de qualquer valor. e o valor que deve ser marcado na jogada Quadrada é de trinta pontos.
+        Mas se a quadrada for de boca o valor passa a ser de trinta e cinco pontos. Mais o que é quadrada de bôca?
+         Quadrada de bôca é quando a jogada é realizada de uma só vez.</string>
 
-    <string name="TextoDadosQuadrada">Para poder formar a jogada QUADRADA
-        deve ser um grupo de 4 dados iguais, exemplo 2, 2, 2 e 2, esses dados podem ser de qualquer valor.
-        O valor a ser marcado da jogada QUADRADA é de 30 pontos ou 35 pontos se for o tipo de jogada com o termo QUADRADA DE BOCA
-        ( é quando a jogada é realizada em uma primeira batida).</string>
+    <string name="TextoDadosGeneral">Para formar a jogada General você vai precisar que todos os cincos dados sejam do mesmo valor.
+        Por exemplo, 5-5-5-5-5 esses dados podem ser de qualquer valor, desde que sejam iguais.
+        O valor a ser marcado na jogada General é de quarenta pontos. Mas se a jogada General for de bôca.
+         Ai o valor passa a ser de 100 pontos e a jogada é finalizada imediatamente porque o jogador que fez o general de bôca,
+        ganha a partida com o ponto soberano, independente se outro jogador estiver ganhando.</string>
 
-    <string name="lerQuadrada">Para poder formar a jogada quadrada deve ser um grupo de quatro dados iguais. Por exemplo. Dois, Dois, Dois, Dois.
-     Esses dados podem ser de qualquer valor. O valor a ser marcado da jogada quadrada é de trinta pontos ou trinta e cinco pontos. Se
-        for o tipo de jogada com o termo quadrada de bôca. Quadrada de bôca é quando a jogada é realizada em uma primeira batida.
-    </string>
-
-    <string name="TextoDadosGeneral">Para poder formar a jogada GENERAL
-        deve ser um grupo de 5 dados iguais, exemplo 5, 5, 5, 5 e 5 esses dados podem ser de qualquer valor.
-        O valor a ser marcado da jogada GENERAL é de 40 pontos. Se o jogada GENERAL for de boca, o valor passa
-        a ser 100 pontos e a jogada é finaliza. O jogador que fez essa jogada já ganha a partida com ponto soberano, independente
-        se outro jogador estiver ganhando.</string>
-
-    <string name="lerGeneral">Para poder formar a jogada general deve ser um grupo de cinco dados iguais. Por exemplo Cinco, Cinco, Cinco, Cinco, Cinco. Esses
-    dados podem ser de qualquer valor. O valor a ser marcado da jogada general é de quarenta pontos. Se a jogada general for de bôca.O valor passa
-    a ser cem pontos. E a jogada é finalizada. O jogador que fez essa jogada ganha a partida com o ponto soberano independente se outro
-    jogador estiver ganhando.</string>
+    <string name="lerGeneral">General. Para formar a jogada General. Você vai precisar que todos os cincos dados sejam do mesmo valor. Por exemplo.
+        Cinco, Cinco, Cinco, Cinco, e Cinco. Esses dados podem ser de qualquer valor. Desde que sejam iguais.
+        O valor a ser marcado na jogada General é de quarenta pontos. Mas se a jogada General for de bôca.
+         Ai o valor passa a ser de cem pontos. E a jogada é finalizada imediatamente.
+         Porque o jogador que fez o general de bôca. Ganha a partida com o ponto soberano.
+         Independente se outro jogador estiver ganhando. Mais o que é general de bôca?
+         General de bôca é quando a jogada é realizada de uma só vez. E á rodada termina.</string>
 
     <!--Textos class-->
     <string name="TextoVazio">" "</string>
