@@ -231,7 +231,7 @@ public class PartidaAberta extends AppCompatActivity {
         BSplacar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(PartidaAberta.this, ListaDePlacar.class);
+                Intent intent = new Intent(PartidaAberta.this, Placar.class);
                 intent.putParcelableArrayListExtra("rodadasfinalizadas", listRodadas);
                 startActivity(intent);
                 mBottomSheetBehavior.setState(BottomSheetBehavior.STATE_COLLAPSED);

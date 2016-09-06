@@ -1,17 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".view.ListaDePlacar"
+    android:background="@color/colorWhite"
+    android:orientation="vertical"
     android:theme="@style/AppTheme.WhiteBotton"
-    android:background="@color/colorWhite">
+    tools:context=".view.Placar">
 
     <android.support.design.widget.AppBarLayout
         android:id="@+id/appbar"
-        android:layout_height="wrap_content"
         android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:fitsSystemWindows="true"
         app:elevation="0dp">
 
@@ -22,76 +23,85 @@
 
             <android.support.v7.widget.Toolbar
                 android:id="@+id/toolbar"
-                android:layout_height="?attr/actionBarSize"
                 android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
                 android:background="@color/colorAccent"
-                app:layout_scrollFlags="scroll|enterAlways"
-                android:fitsSystemWindows="true"/>
+                android:fitsSystemWindows="true"
+                app:layout_scrollFlags="scroll|enterAlways" />
 
             <TextView
+                android:id="@+id/Titulo"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceMedium"
-                android:text="@string/TotalDeRodadas"
-                android:id="@+id/Titulo"
-                android:layout_gravity="center"
-                android:textSize="15dp"
-                android:textColor="@color/colorWhiteTransparente"
-                android:layout_centerVertical="true"
                 android:layout_centerHorizontal="true"
-                android:layout_marginRight="5dp" />
+                android:layout_centerVertical="true"
+                android:layout_gravity="center"
+                android:layout_marginRight="5dp"
+                android:text="@string/TotalDeRodadas"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="@color/colorWhiteTransparente"
+                android:textSize="15dp" />
 
             <Button
+                android:id="@+id/btnQuantRodadas"
                 android:layout_width="25dp"
                 android:layout_height="25dp"
+                android:layout_centerVertical="true"
+                android:layout_gravity="right|center_vertical"
+                android:layout_toEndOf="@+id/Titulo"
+                android:layout_toRightOf="@+id/Titulo"
+                android:background="@drawable/circulo"
+                android:backgroundTint="@color/colorWhite"
                 android:text="38"
                 android:textColor="@color/colorAccent"
-                android:textSize="15dp"
-                android:background="@drawable/circulo"
-                android:id="@+id/textView2"
-                android:layout_gravity="right|center_vertical"
-                android:layout_centerVertical="true"
-                android:layout_toRightOf="@+id/Titulo"
-                android:layout_toEndOf="@+id/Titulo"
-                android:backgroundTint="@color/colorWhite" />
+                android:textSize="15dp" />
 
         </RelativeLayout>
 
 
-
-
     </android.support.design.widget.AppBarLayout>
 
-    <FrameLayout
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/colorFundoPartida"
-        android:layout_below="@+id/appbar"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:id="@+id/frameLayout4">
-
+        android:layout_height="wrap_content">
 
         <TextView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="@string/RodadasGanhas"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start"
             android:layout_marginRight="8dp"
-            android:textColor="@color/colorCinzaEscuro"
-            android:textAlignment="textEnd"
-            android:padding="5dp"/>
-    </FrameLayout>
+            android:padding="5dp"
+            android:text="Rodadas"
+            android:textColor="@color/colorCinzaEscuro" />
 
+        <TextView
+            android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginRight="8dp"
+            android:padding="5dp"
+            android:textAlignment="center"
+            android:text="Vencedor"
+            android:textColor="@color/colorCinzaEscuro" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="8dp"
+            android:padding="5dp"
+            android:text="Pontuação"
+            android:textColor="@color/colorCinzaEscuro" />
+    </LinearLayout>
 
     <ListView
-        android:background="@color/colorFundoPartida"
-        android:dividerHeight="1dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
         android:id="@+id/list_view_placar"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_below="@+id/frameLayout4" />
+        android:background="@color/colorFundoPartida"
+        android:dividerHeight="1dp" />
 
 
-</RelativeLayout>
+</LinearLayout>
