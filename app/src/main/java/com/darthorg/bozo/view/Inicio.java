@@ -84,7 +84,7 @@ public class Inicio extends AppCompatActivity
             @Override
             public void onRefresh() {
 
-               new Thread(new Runnable() {
+                new Thread(new Runnable() {
                     @Override
                     public void run() {
                         SystemClock.sleep(2000);
@@ -102,7 +102,6 @@ public class Inicio extends AppCompatActivity
                 }).start();
             }
         });
-
 
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
@@ -150,7 +149,7 @@ public class Inicio extends AppCompatActivity
 
     }
 
-    public void instrucoesActivity(){
+    public void instrucoesActivity() {
 
         Intent intent = new Intent(Inicio.this, Instrucoes.class);
         startActivity(intent);
@@ -197,12 +196,19 @@ public class Inicio extends AppCompatActivity
         } else if (id == R.id.nav_cor_destaque) {
 
 
-
         } else if (id == R.id.nav_sobre) {
             Intent intent = new Intent(Inicio.this, Sobre.class);
             startActivity(intent);
 
         } else if (id == R.id.nav_compartilhar) {
+            // Compartilhar app
+            // Algumas aplicações ainda bugam
+            // Whatsapp, Email, Mensagem, OK
+            // todo:  rever "facebook","messeger" , trocar url do app
+            Intent share = new Intent(Intent.ACTION_SEND);
+            share.setType("text/plain");
+            share.putExtra(Intent.EXTRA_TEXT, "Baixe marcador de Bozó na GooglePlay " + "https://play.google.com/store/apps/details?id=com.adobe.psmobile");
+            startActivity(Intent.createChooser(share, "Compartilhar App"));
 
         } else if (id == R.id.nav_configuracoes) {
 
