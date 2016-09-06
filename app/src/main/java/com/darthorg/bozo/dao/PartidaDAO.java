@@ -138,8 +138,7 @@ public class PartidaDAO {
 
         Cursor cursor = db.rawQuery(sql, null);
 
-        if (cursor.getCount() > 0) {
-            cursor.moveToFirst();
+        if (cursor.moveToFirst()) {
             do {
 
                 Jogador j = new Jogador();
@@ -159,9 +158,9 @@ public class PartidaDAO {
 
         List<Rodada> rodadaList = new ArrayList<Rodada>();
 
-        String sql = "SELECT " + DataModel.getTabelaRodadas() + "._id ," + DataModel.getTabelaRodadas() + ".vencedor ," + DataModel.getTabelaRodadas() + ".fk_partida ";
-        sql += " FROM " + DataModel.getTabelaPartidas() + " JOIN " + DataModel.getTabelaRodadas() + " ON " + DataModel.getTabelaRodadas() + ".fk_partida = " + DataModel.getTabelaPartidas() + "._id ";
-        sql += " JOIN " + DataModel.getTabelaJogadores() + " ON " + DataModel.getTabelaJogadores() + ".fk_rodada = " + DataModel.getTabelaRodadas() + "._id ";
+
+        String sql = "SELECT * ";
+        sql += " FROM " + DataModel.getTabelaRodadas() + " JOIN " + DataModel.getTabelaPartidas() + " ON " + DataModel.getTabelaRodadas() + ".fk_partida = " + DataModel.getTabelaPartidas() + "._id ";
         sql += " WHERE " + DataModel.getTabelaPartidas() + "._id = " + idPartida + " ;";
 
         Cursor cursor = db.rawQuery(sql, null);
