@@ -41,6 +41,10 @@ public class RodadaController {
         }
     }
 
+    public boolean deletarRodada(Rodada rodada) {
+        return rodadaDAO.deletarRodada(rodada);
+    }
+
     public Rodada buscarRodada(long idPartida) {
 
         Rodada rodada;
