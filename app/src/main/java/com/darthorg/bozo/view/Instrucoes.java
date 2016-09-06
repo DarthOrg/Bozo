@@ -100,6 +100,25 @@ public class Instrucoes extends AppCompatActivity {
             }
         });
 
+        audio.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (result == TextToSpeech.LANG_NOT_SUPPORTED || result == TextToSpeech.LANG_MISSING_DATA){
+                    Toast.makeText(getApplicationContext(),"Recurso não suportado no seu dispositivo",Toast.LENGTH_SHORT).show();
+                }else {
+                    ttsobject.speak(getString(R.string.txtComojogarLer), TextToSpeech.QUEUE_FLUSH,null);
+                    audioOff.setVisibility(View.VISIBLE);
+                    audio.setVisibility(View.GONE);
+                    txtAudio.setText("Parar");
+                }
+            }
+        });
+
+        audioOff.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {btnStop();}
+        });
+
 
         // layouts of all welcome sliders
         // add few more layouts if you want
@@ -509,7 +528,7 @@ public class Instrucoes extends AppCompatActivity {
                 // still pages are left
 
                 btnNext.setImageDrawable(getResources().getDrawable(R.drawable.ic_proximo));
-                btnSkip.setVisibility(View.VISIBLE);
+                btnSkip.setVisibility(View.GONE);
             }
         }
 
