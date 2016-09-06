@@ -2,6 +2,7 @@ package com.darthorg.bozo.view;
 
 import android.app.Dialog;
 import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
@@ -515,9 +516,8 @@ public class PartidaAberta extends AppCompatActivity {
      */
     private void saveAndQuit() {
 
-        // Salva apenas se tiver alteraçao
-        if (!partida.getRodadas().equals(listRodadas)) {
-
+        if (listRodadas.size() != 0) {
+            // Salva apenas se tiver alteraçao
             LayoutInflater inflater = getLayoutInflater();
             View dialogLayout = inflater.inflate(R.layout.dialog_sair_grupo, null);
             AlertDialog.Builder builder = new AlertDialog.Builder(PartidaAberta.this);
@@ -593,7 +593,25 @@ public class PartidaAberta extends AppCompatActivity {
             builder.setView(dialogLayout);
             builder.show();
         } else {
-            finish();
+
+            final AlertDialog.Builder alertDialog = new AlertDialog.Builder(this, android.R.style.Theme_DeviceDefault_Light_Dialog_NoActionBar);
+
+            alertDialog.setCancelable(true);
+            alertDialog.setTitle("Nenhuma Rodada");
+            alertDialog.setMessage("Você não jogou nenhuma rodada .\n Deseja sair assim mesmo ?");
+            alertDialog.setPositiveButton(" Sim ", new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dialog, int which) {
+                    dialog.dismiss();
+                    finish();
+                }
+            });
+
+            alertDialog.setNegativeButton(" Cancelar ", new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dialog, int which) {
+                    dialog.dismiss();
+                }
+            });
+            alertDialog.show();
         }
 
     }
@@ -626,7 +644,7 @@ public class PartidaAberta extends AppCompatActivity {
             if (verificaSeRodadaAcabou()) {
 
                 // Dialog Finalizar grupo de jogo
-                final Dialog dialogFinalizar = new Dialog(PartidaAberta.this, android.R.style.Theme_DeviceDefault_Dialog_Alert);
+                final Dialog dialogFinalizar = new Dialog(PartidaAberta.this, android.R.style.Theme_DeviceDefault_Dialog);
                 dialogFinalizar.setTitle("Rodada finalizada");
 
                 // Configura a view para o Dialog
