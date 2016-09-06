@@ -1,57 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    xmlns:fab="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorFundoPartida"
     android:orientation="vertical">
 
-    <RelativeLayout
-        android:layout_width="match_parent"
+    <LinearLayout
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:paddingLeft="24dp"
-        android:paddingRight="24dp"
-        android:paddingBottom="24dp">
+        android:padding="20dp">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginRight="5dp"
+            android:text="Excluir o jogador"
             android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="Jogador"
-            android:textColor="@color/colorRed"
+            android:textColor="@color/colorCinza" />
+
+        <TextView
             android:id="@+id/txtNomeJogadorExcluido"
-            android:layout_alignParentTop="true"
-            android:layout_toRightOf="@+id/textView16"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_toEndOf="@+id/textView16"
+            android:layout_toRightOf="@+id/textView16"
+            android:text="Jogador"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="@color/colorRed"
             android:textStyle="bold" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="Excluir o jogador"
-            android:textColor="@color/colorCinza"
-            android:id="@+id/textView16"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_marginRight="5dp" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text=" ?"
-            android:textColor="@color/colorCinza"
-            android:id="@+id/textView17"
-            android:layout_alignParentTop="true"
+            android:layout_toEndOf="@+id/txtNomeJogadorExcluido"
             android:layout_toRightOf="@+id/txtNomeJogadorExcluido"
-            android:layout_toEndOf="@+id/txtNomeJogadorExcluido" />
+            android:text=" ?"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="@color/colorCinza" />
 
-    </RelativeLayout>
+    </LinearLayout>
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -60,28 +48,28 @@
         android:padding="8dp">
 
         <Button
+            android:id="@+id/btnExcluir"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/Excluir"
-            android:id="@+id/btnExcluir"
-            android:layout_gravity="right|center_vertical"
-            android:textColor="@color/colorRed"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentRight="true"
             android:layout_alignParentEnd="true"
-            android:background="@color/colorTrasnparente" />
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:layout_gravity="right|center_vertical"
+            android:background="@color/colorTrasnparente"
+            android:text="@string/Excluir"
+            android:textColor="@color/colorRed" />
 
         <Button
+            android:id="@+id/btnCancelar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/Cancelar"
-            android:id="@+id/btnCancelar"
-            android:layout_gravity="right|center_vertical"
-            android:textColor="@color/colorCinza"
-            android:background="@color/colorTrasnparente"
             android:layout_alignParentTop="true"
+            android:layout_gravity="right|center_vertical"
             android:layout_toLeftOf="@+id/btnExcluir"
-            android:layout_toStartOf="@+id/btnExcluir" />
+            android:layout_toStartOf="@+id/btnExcluir"
+            android:background="@color/colorTrasnparente"
+            android:text="@string/Cancelar"
+            android:textColor="@color/colorCinza" />
 
 
     </RelativeLayout>
