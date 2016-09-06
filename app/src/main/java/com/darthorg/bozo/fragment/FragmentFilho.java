@@ -16,7 +16,6 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.darthorg.bozo.R;
 import com.darthorg.bozo.model.PecaBozo;
@@ -224,24 +223,18 @@ public class FragmentFilho extends Fragment {
                                               @Override
                                               public void onClick(View view) {
 
-                                                  if (button.getText().toString().isEmpty()) {
-                                                      button.setText("X");
-                                                      button.setTextColor(Color.RED);
+                                                  button.setText("X");
+                                                  button.setTextColor(Color.RED);
 
-                                                      // Necessario para fazer a verificação
-                                                      pecaBozo.setRiscado(true);
-                                                      pecaBozo.setPontuacao("x");
+                                                  // Necessario para fazer a verificação
+                                                  pecaBozo.setRiscado(true);
+                                                  pecaBozo.setPontuacao("x");
 
-                                                      contador = contarPontos();
-                                                      resultadoFinal.setText(contador + "");
+                                                  contador = contarPontos();
+                                                  resultadoFinal.setText(contador + "");
 
-                                                      contarPecasUsadas();
-                                                      dialogMarcarBozo.dismiss();
-                                                  } else {
-                                                      dialogMarcarBozo.dismiss();
-                                                      Toast.makeText(getActivity(), "Peça já usada, não pode ser riscada.", Toast.LENGTH_LONG).show();
-                                                  }
-
+                                                  contarPecasUsadas();
+                                                  dialogMarcarBozo.dismiss();
                                               }
                                           });
                                           //Botão Cancelar
