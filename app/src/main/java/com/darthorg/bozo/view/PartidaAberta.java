@@ -26,7 +26,6 @@ import android.widget.Toast;
 
 import com.darthorg.bozo.R;
 import com.darthorg.bozo.adapter.TabsDinamicosAdapter;
-import com.darthorg.bozo.controller.JogadorController;
 import com.darthorg.bozo.controller.PartidaController;
 import com.darthorg.bozo.controller.RodadaController;
 import com.darthorg.bozo.fragment.FragmentFilho;
@@ -50,18 +49,14 @@ public class PartidaAberta extends AppCompatActivity {
     private Partida partida;
     private Rodada rodada;
 
-    private List<Jogador> listJogadoresBanco;
-    private List<Rodada> rodadasBD;
+    //Listas usadas no decorrer do jogo
     private ArrayList<Rodada> listRodadas = new ArrayList<>();
-
     private List<Jogador> jogadoresRodada = new ArrayList<>();
     private List<FragmentFilho> listaFragments;
-
 
     //Controllers
     private PartidaController partidaController;
     private RodadaController rodadaController;
-    private JogadorController jogadorController;
 
     // Widgets
     private ViewPager viewPager;
@@ -388,15 +383,14 @@ public class PartidaAberta extends AppCompatActivity {
                     if (listRodadas.size() == 0) {
 
                         // Recupera os dados das rodadas salvas
-                        rodadasBD = partidaController.buscarRodadasPartida(partida.getIdPartida());
-                        for (int i = 0; i < rodadasBD.size(); i++) {
+                        for (int i = 0; i < partida.getRodadas().size(); i++) {
                             // Adiciona as Rodadas do Banco na lista de RodadasLocal ja com os jogadores
-                            rodadasBD.get(i).setJogadores(rodadaController.buscarJogadoresRodada(rodadasBD.get(i).getIdRodada()));
-                            listRodadas.add(rodadasBD.get(i));
+                            partida.getRodadas().get(i).setJogadores(rodadaController.buscarJogadoresRodada(partida.getRodadas().get(i).getIdRodada()));
+                            listRodadas.add(partida.getRodadas().get(i));
                         }
 
                         //Configura o jogo a partir da ultima rodada
-                        Rodada ultimaRodada = rodadasBD.get(rodadasBD.size() - 1);
+                        Rodada ultimaRodada = partida.getRodadas().get(partida.getRodadas().size() - 1);
                         for (int i = 0; i < ultimaRodada.getJogadores().size(); i++) {
                             // Adiciona um fragment para cada jogador
                             FragmentFilho fragmentFilho = new FragmentFilho();
@@ -520,80 +514,88 @@ public class PartidaAberta extends AppCompatActivity {
      * Salva ou não as partidas
      */
     private void saveAndQuit() {
-        LayoutInflater inflater = getLayoutInflater();
-        View dialogLayout = inflater.inflate(R.layout.dialog_sair_grupo, null);
-        AlertDialog.Builder builder = new AlertDialog.Builder(PartidaAberta.this);
 
-        //Botão Salvar grupo
-        Button btnSalvarGrupo = (Button) dialogLayout.findViewById(R.id.btnExcluir);
-        btnSalvarGrupo.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(final View view) {
+        // Salva apenas se tiver alteraçao
+        if (!partida.getRodadas().equals(listRodadas)) {
 
-                //ProgressDialog Função carregar
-                final ProgressDialog builder = new ProgressDialog(PartidaAberta.this);
-                builder.setMessage("Salvando só um momento...");
-                builder.show();
+            LayoutInflater inflater = getLayoutInflater();
+            View dialogLayout = inflater.inflate(R.layout.dialog_sair_grupo, null);
+            AlertDialog.Builder builder = new AlertDialog.Builder(PartidaAberta.this);
 
-                if (intent != null) {
-                    if (bundleParams != null) {
-                        //Verifica se é uma partida nova ou uma partida salva
-                        if (verificaPartidaNova()) {
-                            // OK, é nova
-                            partidaController = new PartidaController(PartidaAberta.this);
+            //Botão Salvar grupo
+            Button btnSalvarGrupo = (Button) dialogLayout.findViewById(R.id.btnExcluir);
+            btnSalvarGrupo.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(final View view) {
+
+                    //ProgressDialog Função carregar
+                    final ProgressDialog builder = new ProgressDialog(PartidaAberta.this);
+                    builder.setMessage("Salvando só um momento...");
+                    builder.show();
+
+                    if (intent != null) {
+                        if (bundleParams != null) {
+                            //Verifica se é uma partida nova ou uma partida salva
+                            if (verificaPartidaNova()) {
+                                // OK, é nova
+                                partidaController = new PartidaController(PartidaAberta.this);
 
 
-                            new Handler().postDelayed(new Runnable() {
-                                public void run() {
+                                new Handler().postDelayed(new Runnable() {
+                                    public void run() {
 
-                                    partida.setRodadas(listRodadas);
-                                    //Insere a partida no banco
-                                    partidaController.inserirPartida(partida);
+                                        partida.setRodadas(listRodadas);
+                                        //Insere a partida no banco
+                                        partidaController.inserirPartida(partida);
 
-                                    Toast.makeText(getApplicationContext(), "Grupo " + partida.getNome() + " salvo com sucesso", Toast.LENGTH_LONG).show();
-                                    builder.dismiss();
-                                    finish();
-                                }
-                            }, ProgressSalvar);
+                                        Toast.makeText(getApplicationContext(), "Grupo " + partida.getNome() + " salvo com sucesso", Toast.LENGTH_LONG).show();
+                                        builder.dismiss();
+                                        finish();
+                                    }
+                                }, ProgressSalvar);
 
-                        } else {
-                            // Hmmm , Partida Salva então ?! entao ferro mané kkk
+                            } else {
+                                // Hmmm , Partida Salva então ?! entao ferro mané kkk
 
-                            new Handler().postDelayed(new Runnable() {
-                                public void run() {
-                                    rodadaController = new RodadaController(PartidaAberta.this);
+                                new Handler().postDelayed(new Runnable() {
+                                    public void run() {
+                                        rodadaController = new RodadaController(PartidaAberta.this);
 
-                                    if (!listRodadas.equals(rodadasBD)) {
-                                        // Adiciona as Novas Rodadas
-                                        for (int i = 0; i < listRodadas.size(); i++) {
-                                            if (i >= rodadasBD.size()) {
-                                                listRodadas.get(i).setIdPartida(partida.getIdPartida());
-                                                rodadaController.inserirRodada(listRodadas.get(i));
+                                        if (!listRodadas.equals(partida.getRodadas())) {
+                                            // Adiciona as Novas Rodadas
+                                            for (int i = 0; i < listRodadas.size(); i++) {
+                                                if (i >= partida.getRodadas().size()) {
+                                                    listRodadas.get(i).setIdPartida(partida.getIdPartida());
+                                                    rodadaController.inserirRodada(listRodadas.get(i));
+                                                }
                                             }
                                         }
+                                        finish();
+                                        builder.dismiss();
                                     }
-                                    finish();
-                                    builder.dismiss();
-                                }
-                            }, ProgressSalvar);
+                                }, ProgressSalvar);
+                            }
                         }
                     }
                 }
+            });
+            //Botão Descartar grupo
+            Button btnDescartarGrupo = (Button) dialogLayout.findViewById(R.id.btnDescartar);
+            if (!verificaPartidaNova()) {
+                btnDescartarGrupo.setText(R.string.DescartarAlteracoes);
             }
-        });
-        //Botão Descartar grupo
-        Button btnDescartarGrupo = (Button) dialogLayout.findViewById(R.id.btnDescartar);
-        if (!verificaPartidaNova()) {
-            btnDescartarGrupo.setText(R.string.DescartarAlteracoes);
+            btnDescartarGrupo.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    finish();
+                }
+            });
+            builder.setView(dialogLayout);
+            builder.show();
+        } else {
+            finish();
         }
-        btnDescartarGrupo.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                finish();
-            }
-        });
-        builder.setView(dialogLayout);
-        builder.show();
+
     }
 
     @Override
@@ -605,7 +607,7 @@ public class PartidaAberta extends AppCompatActivity {
     //Botão voltar
     @Override
     public void onBackPressed() {
-
+        saveAndQuit();
         mBottomSheetBehavior.setState(BottomSheetBehavior.STATE_COLLAPSED);
 
 
