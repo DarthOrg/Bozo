@@ -1,41 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:padding="10dp">
 
+    <TextView
+        android:id="@+id/tvNumRodada"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:background="@color/colorPrimary_distaque"
+        android:padding="10dp"
+        android:text="1"
+        android:textColor="@color/colorWhite" />
 
-    <FrameLayout
-        android:layout_width="match_parent"
+    <TextView
+        android:id="@+id/tvVencedorRodada"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:padding="15dp"
-        android:background="@color/colorWhite">
+        android:layout_gravity="left|center_vertical"
+        android:layout_weight="1"
+        android:text="Vencedor"
+        android:textAlignment="center"
+        android:textColor="@color/background_floating_material_dark"
+        android:textSize="15dp" />
+
+    <Button
+        android:id="@+id/btnPontuacao"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:background="@color/colorAccent"
+        android:text="1"
+        android:textColor="@color/colorWhite"
+        android:textSize="15dp" />
 
 
-        <TextView
-            android:id="@+id/txt_lista_nome_jogador"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/NomeJogador"
-            android:textColor="@color/background_floating_material_dark"
-            android:textSize="15dp"
-            android:layout_gravity="left|center_vertical" />
-
-        <Button
-            android:layout_width="25dp"
-            android:layout_height="25dp"
-            android:text="1"
-            android:textColor="@color/colorWhite"
-            android:textSize="15dp"
-            android:background="@drawable/circulo_accent"
-            android:layout_alignParentBottom="true"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true"
-            android:id="@+id/btn_lista_numero_rodada"
-            android:layout_gravity="right|center_vertical"
-            android:layout_marginRight="16dp"
-            android:layout_marginLeft="10dp" />
-
-    </FrameLayout>
-
-
-</RelativeLayout>
+</LinearLayout>

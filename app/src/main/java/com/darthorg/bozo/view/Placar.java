@@ -3,24 +3,22 @@ package com.darthorg.bozo.view;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import com.darthorg.bozo.R;
-import com.darthorg.bozo.adapter.JogadoresPlacarListaAdapter;
+import com.darthorg.bozo.adapter.PlacarAdapter;
 import com.darthorg.bozo.model.Rodada;
 
 import java.util.ArrayList;
-import java.util.List;
 
-public class ListaDePlacar extends AppCompatActivity {
+public class Placar extends AppCompatActivity {
 
     private Toolbar toolbar;
     private ListView listViewPlacar;
-    private JogadoresPlacarListaAdapter adapter;
-    private List<JogadoresPlacar> mPlacarLista;
+    private PlacarAdapter adapter;
     private ArrayList<Rodada> rodadas;
 
     @Override
@@ -32,25 +30,19 @@ public class ListaDePlacar extends AppCompatActivity {
         toolbar.setTitle(R.string.TextoVazio);
         setSupportActionBar(toolbar);
 
+        // Recupera as rodadas vindas por intent
+        rodadas = getIntent().getParcelableArrayListExtra("rodadasfinalizadas");
 
+        // Configura o txt com a quantidade de rodadas
+        TextView tvQuantRodadas = (TextView) findViewById(R.id.btnQuantRodadas);
+        tvQuantRodadas.setText(String.valueOf(rodadas.size()));
+
+        // Recupera o listView e configura com a lista de rodadas
         listViewPlacar = (ListView) findViewById(R.id.list_view_placar);
-
-        mPlacarLista = new ArrayList<>();
-
-        mPlacarLista.add(new JogadoresPlacar(1, "Wendell Ugalds", "11"));
-        mPlacarLista.add(new JogadoresPlacar(2, "Selma", "9"));
-        mPlacarLista.add(new JogadoresPlacar(3, "Gustavo candido", "7"));
-        mPlacarLista.add(new JogadoresPlacar(6, "Aryane", "2"));
-
-        adapter = new JogadoresPlacarListaAdapter(getApplicationContext(), mPlacarLista);
+        adapter = new PlacarAdapter(getApplicationContext(), rodadas);
         listViewPlacar.setAdapter(adapter);
 
-        //Funcionando haush
-        rodadas = getIntent().getParcelableArrayListExtra("rodadasfinalizadas");
-        for (int i = 0; i < rodadas.size(); i++) {
-            Log.i("vencedoresrodada", rodadas.get(i).getNomeVencedor());
-            Log.i("vencedoresrodada", rodadas.get(i).getJogadores().size() + "");
-        }
+
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 

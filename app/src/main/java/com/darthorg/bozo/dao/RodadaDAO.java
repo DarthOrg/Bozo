@@ -45,6 +45,14 @@ public class RodadaDAO {
         return idRodadaInserida;
     }
 
+    public boolean deletarRodada(Rodada rodada) {
+        if (db.delete(DataModel.getTabelaRodadas(), DataModel.getID() + " = " + rodada.getIdRodada(), null) != 0) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
     public void inserirVencedorRodada(Rodada rodada) {
         values = new ContentValues();
         values.put("vencedor", rodada.getNomeVencedor());

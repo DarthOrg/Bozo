@@ -45,12 +45,14 @@ public class PartidaController {
 
     public Partida buscarPartida(long idPartida) {
 
-        Partida partidaAtual;
-        partidaAtual = partidaDAO.buscarPartidaPorId(idPartida);
+        Partida partida;
+        partida = partidaDAO.buscarPartidaPorId(idPartida);
+        partida.setRodadas(buscarRodadasPartida(partida.getIdPartida()));
 
-        Log.i("partidaAtual", "nome : " + partidaAtual.getNome() + " " + " id : " + partidaAtual.getIdPartida());
 
-        return partidaAtual;
+        Log.i("partida", "nome : " + partida.getNome() + " " + " id : " + partida.getIdPartida());
+
+        return partida;
     }
 
     public List<Jogador> buscarJogadoresPartida(long idPartida) {

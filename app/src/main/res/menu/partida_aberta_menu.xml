@@ -6,7 +6,7 @@
     <item
         android:id="@+id/action_finalizar"
         android:title="@string/Finalizar"
-        android:icon="@drawable/ic_sair"
+
         android:orderInCategory="100"
         app:showAsAction="always"/>
 

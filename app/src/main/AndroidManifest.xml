@@ -31,7 +31,7 @@
             android:name=".view.PartidaAberta"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".view.ListaDePlacar"
+            android:name=".view.Placar"
             android:screenOrientation="portrait" />
         <activity
             android:name=".view.Sobre"
