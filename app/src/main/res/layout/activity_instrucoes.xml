@@ -4,8 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorAccent"
-    tools:showIn="@layout/activity_instrucoes">
+    android:background="@color/colorAccent">
 
 
     <android.support.v4.view.ViewPager
@@ -26,7 +25,7 @@
             android:background="@drawable/circulo_transparente"
             android:src="@drawable/ic_sair"
             android:backgroundTint="@color/colorTrasnparente"
-            android:tint="@color/colorWhite"
+            android:tint="@color/colorCinza"
             />
 
         <LinearLayout
@@ -53,7 +52,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text=" "
-            android:textColor="@android:color/white"
+            android:textColor="@color/colorStatusBar"
             android:textSize="@dimen/slide_title"
             android:textStyle="bold" />
 
@@ -61,29 +60,33 @@
     </LinearLayout>
 
 
-    <TextView
-        android:id="@+id/txtAudio"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text=""
-        android:textSize="15dp"
-        android:textColor="@color/colorWhite"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="80dp"/>
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/fab_margin"
         android:layout_alignParentBottom="true">
+
+        <TextView
+            android:id="@+id/txtAudio"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=" "
+            android:textSize="15dp"
+            android:textColor="@color/colorCinza"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@+id/audio_off"
+            android:layout_toEndOf="@id/audio_off"
+            android:layout_marginLeft="5dp" />
 
         <ImageButton
             android:id="@+id/btn_anterior"
             android:layout_width="55dp"
             android:layout_height="55dp"
             android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
             android:src="@drawable/ic_voltar"
-            android:tint="@color/colorWhite"
+            android:tint="@color/colorCinza"
+            android:layout_marginLeft="16dp"
             android:visibility="invisible"
             android:background="@drawable/circulo_transparente"/>
 
@@ -92,7 +95,9 @@
             android:layout_width="55dp"
             android:layout_height="55dp"
             android:src="@drawable/ic_audio_on"
-            android:tint="@color/colorWhite"
+            android:layout_margin="5dp"
+            android:tint="@color/colorCinza"
+            android:layout_centerVertical="true"
             android:onClick="doSomething"
             android:layout_centerHorizontal="true"
             android:background="@drawable/circulo_transparente"/>
@@ -104,8 +109,11 @@
             android:layout_width="55dp"
             android:layout_height="55dp"
             android:visibility="gone"
+            android:elevation="3dp"
+            android:layout_margin="5dp"
             android:src="@drawable/ic_audio_off"
             android:tint="@color/colorCinza"
+            android:layout_centerVertical="true"
             android:onClick="doSomething"
             android:layout_centerHorizontal="true"
             android:background="@drawable/circulo_white"/>
@@ -118,7 +126,9 @@
             android:layout_height="55dp"
             android:layout_alignParentRight="true"
             android:src="@drawable/ic_proximo"
-            android:tint="@color/colorWhite"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="16dp"
+            android:tint="@color/colorCinza"
             android:background="@drawable/circulo_transparente"/>
 
     </RelativeLayout>

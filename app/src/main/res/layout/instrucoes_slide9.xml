@@ -2,7 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorInstrucoesSlide9">
+    android:background="@color/colorFundoInstruções">
 
 
 
@@ -23,7 +23,7 @@
                 android:layout_width="40dp"
                 android:layout_height="40dp"
                 android:src="@drawable/ic_dado_terno"
-                android:tint="@color/colorWhite"
+                android:tint="@color/colorCinza"
                 android:layout_gravity="center"
                 android:id="@+id/imageView9" />
 
@@ -31,7 +31,7 @@
                 android:layout_width="40dp"
                 android:layout_height="40dp"
                 android:src="@drawable/ic_dado_quadra"
-                android:tint="@color/colorWhite"
+                android:tint="@color/colorCinza"
                 android:layout_gravity="center"
                 android:layout_marginLeft="45dp" />
 
@@ -39,7 +39,7 @@
                 android:layout_width="40dp"
                 android:layout_height="40dp"
                 android:src="@drawable/ic_dado_duque"
-                android:tint="@color/colorWhite"
+                android:tint="@color/colorCinza"
                 android:layout_gravity="center"
                 android:id="@+id/imageView8"
                 android:layout_marginRight="45dp" />
@@ -48,7 +48,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:src="@drawable/ic_proximo"
-                android:tint="@color/colorWhite"
+                android:tint="@color/colorStatusBar"
                 android:layout_gravity="center"
                 android:id="@+id/imageView10"
                 android:layout_marginRight="120dp" />
@@ -57,7 +57,7 @@
                 android:layout_width="40dp"
                 android:layout_height="40dp"
                 android:src="@drawable/ic_dado_az"
-                android:tint="@color/colorWhite"
+                android:tint="@color/colorCinza"
                 android:layout_gravity="center"
                 android:id="@+id/imageView12"
                 android:layout_marginRight="90dp" />
@@ -66,7 +66,7 @@
                 android:layout_width="40dp"
                 android:layout_height="40dp"
                 android:src="@drawable/ic_dado_quina"
-                android:tint="@color/colorWhite"
+                android:tint="@color/colorCinza"
                 android:layout_gravity="center"
                 android:layout_marginLeft="90dp"
                 android:id="@+id/imageView13" />
@@ -79,7 +79,7 @@
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:text="ou"
             android:layout_centerHorizontal="true"
-            android:textColor="@color/colorWhite"
+            android:textColor="@color/colorStatusBar"
             android:textSize="15dp" />
 
         <FrameLayout
@@ -90,7 +90,7 @@
                 android:layout_width="40dp"
                 android:layout_height="40dp"
                 android:src="@drawable/ic_dado_quadra"
-                android:tint="@color/colorWhite"
+                android:tint="@color/colorCinza"
                 android:layout_gravity="center"
                 android:id="@+id/imageView14" />
 
@@ -98,7 +98,7 @@
                 android:layout_width="40dp"
                 android:layout_height="40dp"
                 android:src="@drawable/ic_dado_terno"
-                android:tint="@color/colorWhite"
+                android:tint="@color/colorCinza"
                 android:layout_gravity="center"
                 android:id="@+id/imageView11"
                 android:layout_marginRight="45dp" />
@@ -107,7 +107,7 @@
                 android:layout_width="40dp"
                 android:layout_height="40dp"
                 android:src="@drawable/ic_dado_duque"
-                android:tint="@color/colorWhite"
+                android:tint="@color/colorCinza"
                 android:layout_gravity="center"
                 android:id="@+id/imageView15"
                 android:layout_marginRight="90dp" />
@@ -116,7 +116,7 @@
                 android:layout_width="40dp"
                 android:layout_height="40dp"
                 android:src="@drawable/ic_dado_quina"
-                android:tint="@color/colorWhite"
+                android:tint="@color/colorCinza"
                 android:layout_gravity="center"
                 android:layout_marginLeft="45dp"
                 android:id="@+id/imageView16" />
@@ -125,7 +125,7 @@
                 android:layout_width="40dp"
                 android:layout_height="40dp"
                 android:src="@drawable/ic_dado_sena"
-                android:tint="@color/colorWhite"
+                android:tint="@color/colorCinza"
                 android:layout_gravity="center"
                 android:layout_marginLeft="90dp"
                 android:id="@+id/imageView17" />
@@ -134,7 +134,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:src="@drawable/ic_proximo"
-                android:tint="@color/colorWhite"
+                android:tint="@color/colorStatusBar"
                 android:layout_gravity="center"
                 android:id="@+id/imageView19"
                 android:layout_marginRight="120dp" />
@@ -167,17 +167,26 @@
 
     </LinearLayout>
 
-    <TextView
+    <android.support.v7.widget.CardView
+
+        android:id="@+id/textView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:paddingLeft="16dp"
-        android:paddingRight="16dp"
-        android:text="@string/TextoDadosSeguida"
-        android:textAlignment="center"
-        android:textColor="@android:color/white"
-        android:textSize="16dp"
         android:layout_below="@+id/tituloI"
-        android:layout_centerHorizontal="true" />
+        android:layout_margin="10dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="@string/TextoDadosSeguida"
+            android:textAlignment="center"
+            android:textSize="13dp"
+            android:layout_margin="10dp"
+            android:textColor="@color/colorCinza" />
+
+
+    </android.support.v7.widget.CardView>
 
 
 </RelativeLayout>
