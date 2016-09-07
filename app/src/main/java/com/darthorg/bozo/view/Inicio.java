@@ -202,12 +202,9 @@ public class Inicio extends AppCompatActivity
 
         } else if (id == R.id.nav_compartilhar) {
             // Compartilhar app
-            // Algumas aplicações ainda bugam
-            // Whatsapp, Email, Mensagem, OK
-            // todo:  rever "facebook","messeger" , trocar url do app
             Intent share = new Intent(Intent.ACTION_SEND);
             share.setType("text/plain");
-            share.putExtra(Intent.EXTRA_TEXT, "Baixe marcador de Bozó na GooglePlay " + "https://play.google.com/store/apps/details?id=com.adobe.psmobile");
+            share.putExtra(Intent.EXTRA_TEXT, "Baixe Marcador de Bozó na GooglePlay " + "https://play.google.com/store/apps/details?id=com.adobe.psmobile");
             startActivity(Intent.createChooser(share, "Compartilhar App"));
 
         } else if (id == R.id.nav_configuracoes) {
