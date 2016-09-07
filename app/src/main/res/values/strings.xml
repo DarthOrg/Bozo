@@ -181,65 +181,70 @@
     <string name="WelcomeTitulo">Aqui vai o titulo</string>
     <string name="WelcomeTexto">Aqui vai estar o texto para o conteudo</string>
     <string name="comoJogar">Como jogar?</string>
-    <string name="Texto1">Primeiro deve-se ter um copo de Bozó e 5 dados.</string>
-    <string name="Texto2">Então começa-se o jogo com o primeiro jogador.
-        O participante coloca os 5 dados dentro do copo e chacoalha até misturar bem e depois os lança na mesa,
-        removendo o copo com cuidado para não desvirar os dados.
-        Lembrando que na hora de misturar os dados no copo,
-        a boca do mesmo deve permanecer fechada para que ninguém possa ver os dados e também para não cair para fora.
-        Feito então o primeiro lance, o jogador ainda terá mais duas vezes para lançar os dados. Então, depois da primeira jogada,
-        ele escolherá qual jogo quer.</string>
+    <string name="Texto1">Primeiro você vai precisar, de um copo de Bozó e 5 dados.</string>
+    <string name="Texto2">Depois  os participantes, vão ter que decidir quem vai começar.
+        Á varias maneiras, mais vamos a explicação. O jogador que for começar vai colocar os 5 dados dentro do copo e chacoalhar
+        até misturar bem e depois lança na mesa, ai remove o copo com cuidado para não desvirar os dados.
+        Caso o dado depois que o copo for desvirado, estiverem um encima do outro esse erro de jogada não é contada e o jogador
+        pode jogar outra vez. Lembrando que na hora de misturar os dados no copo, a boca do mesmo deve estar fechado para não
+        cair nenhum dado para fora.
+        Feito então o primeiro lance, o jogador ainda terá mais duas chances para lançar os dados. Então só para confirmar
+        depois da primeira jogada ele escolhera qual tipo de jogada vai querer.
+        </string>
     <string name="Texto3">Tipos de jogadas na seta á direita</string>
-    <string name="Texto4">No bozó você pode escolher qualquer um entre,
-        ÁZ, DUQUE, TERNO, QUADRA, QUINA, SENA, FULL, SEGUIDA, QUADRADA OU GENERAL,
-        que são todos os jogos possíveis. Só que a marcação que você fará, depende das pedras que vier.
-        Pois lógicamente você pode marcar o que quiser, mas um bom jogador segue a estratégia.</string>
+    <string name="Texto4">Os tipos de jogadas possiveis dentro do Bozó são essas: Áz, Duque, Terno, Quadra, Quina, Sena,
+        Full, Seguida, Quadrada, General, como na ilustração abaixo. A marcação que você fizer vai depender das pedras que vier, depois das três tacadas.
+         Mas vôce pode marcar o que quiser, mais um bom jogador segue um estrategia.
+    </string>
     <string name="Marcacao">Marcação</string>
     <string name="Texto5">Quando jogar os dados, ele te dará 5 valores.
-        Então usando-se a estratégia básica, você escolherá os valores que mais se repetem e/ou os que valem mais pontos.
-        Para você poder entender o que deve marcar,
-        é só você lembrar-se de que deve marcar a soma dos valores obtidos por determinado jogo que escolheu,
-        com exceção de FULL-SEGUIDA-QUADRADA E GENERAL. Pois estes jogos ja tem pontuações definidas.</string>
-    <string name="Texto6">Na marcação de pontos você não pode somar todos os valores,
-        você tem que escolher um jogo, para depois poder somar.
-        por exemplo: Se eu tiver 2 duques e 3 quinas, na primeira jogada das três possíveis.
-        Primeiro eu tenho que escolher qual jogo eu quero marcar. vamos supor que eu queira a quina,
-        pois vale mais pontos e é a que mais se repete. Então eu somo tudo, o que totalizará 15 pontos,
-        e marco na tabela em quina. Mas se observarem tem um FULL de boca também. Então eu posso marcar 15 pontos na tabela, em FULL.</string>
+        Usando a estratégia básica, você vai escolher os valores que mais se repetem ou os que valem amis pontos.
+        É so você lembrar que para marcar deve-se somar os valores obtidos por determinado jogo que você escolheu.
+        com as exceções de Full, Seguida, Quadrada e General, por que essas jogadas já possui uma pontuação definida.
+        </string>
+    <string name="Texto6">Na hora de marcar os pontos você não pode somar todos os pontos e sim escolher um tipo de jogo,
+         para depois poder somar. Por exemplo, se eu tiver 2 duques e 3 quinas, na primeira jogada das três possiveis.
+         Mas supondo que eu queira a quina, pois vale mais pontos e é a que mais se repete, então eu somo tudo, totalizando 15 pontos de quina.
+        e na tabela no nosso app você vai marcar em quina. Eu lhe faço uma observação, 2 duques e 3 quinas tbm é uma jogada Full e ainda é de boca. Então eu posso marcar 15
+        pontos na tabela, na jogada Full. Mas se a jogada General for de bôca.Ai o valor passa a ser de 100 pontos e a jogada é finalizada
+        imediatamente porque o jogador que fez o general de bôca,ganha a partida com o ponto soberano, independente se outro jogador
+        estiver ganhando.</string>
 
-    <string name="txtComojogarLer">Como jogar?
-        Primeiro deve-se ter um copo de Bozó e um grupo de 5 dados.
+    <string name="txtComojogarLer">
+        Vamos aprender como jogar Bozó.
+        Primeiro de tudo você vai precisar. de um copo de Bozó e Cinco dados. Depois  Os participantes vão ter que decidir quem vai começar.
+        Á várias maneiras de se desidir isso, mais vamos a explicação. O jogador que for começar vai colocar os Cinco dados dentro do copo e chacoalhar
+        até misturar bem. E depois lança na mesa. Ai remove o copo com cuidado. para não desvirar os dados.
+        Caso o dado depois que o copo for desvirado. Estiverem um encima do outro. Esse erro de jogada não é contada, e o jogador
+        pode jogar outra vez. Lembrando! Que na hora de misturar os dados no copo, a bôca do mesmo deve estar fechado para não
+        cair nenhum dado para fora do copo.
+        Feito então o primeiro lance. O jogador ainda terá mais duas chances para lançar os dados. Só para confirmar.
+        Depois da primeira jogáda ele escolherá qual tipo de jogada vai querer fazer.
 
-        Então começa-se o jogo com o primeiro jogador.
-        O participante coloca os 5 dados dentro do copo e chacoalha até misturar bem e depois os lança na mesa,
-        removendo o copo com cuidado para não desvirar os dados.
-        Lembrando que na hora de misturar os dados no copo,
-        a boca do mesmo deve permanecer fechada para que ninguém possa ver os dados e também para não cair para fora.
-        Feito então o primeiro lance, o jogador ainda terá mais duas vezes para lançar os dados. Então, depois da primeira jogada,
-        ele escolherá qual jogo quer.
+        Se você quiser mais detalhes das jogadas empurre a tela para esquerda ou clique na seta para a direita, para mais informções.
 
-        Tipos de jogadas na seta á direita.
+        Os tipos de jogadas possiveis dentro do Bozó. São essas. As. Duque. Terno. Quadra. Quina. Sena.
+        Fúl. Seguida. Quadrada. General. Como na ilustração abaixo. A marcação que você fizer. Vai depender
+        das pedras que vier, epois das três tacadas.
+         Mas vôce pode marcar o que quiser. Pois um bom jogador segue um estratégia.
+        Já que estamos falando de estratégia, usando a estratégia básica. Você vai escolher os valores que mais se repetem ou os que valem mais pontos.
+        Lembrando que para marcar deve-se somar os valores obtidos pelo jogo que você escolheu. Mais tem umas exceções como
+        a jogada. Fúl. Seguida. Quadrada. General. Por que essas jogadas já tem pontuações definidas.
 
-        No bozó você pode escolher qualquer um entre,
-        ÁZ, DUQUE, TERNO, QUADRA, QUINA, SENA, FULL, SEGUIDA, QUADRADA OU GENERAL,
-        que são todos os jogos possíveis. Só que a marcação que você fará, depende das pedras que vier.
-        Pois lógicamente você pode marcar o que quiser, mas um bom jogador segue a estratégia.
+        Na hora de marcar os pontos você não pode somar todos os pontos e sim escolher um tipo de jogo
+         para depois poder somar. Vou dar um exemplo aqui para você. Se eu tiver Dois duques.E três quinas.
+        Neste exemplo vou falar dois tipos de jogadas possíveis. Bom a primeira vamos supor que eu queira a quina. Por que vale mais e também é
+        a que mais se repete. Ai eu vou somar essas Tês quinas, totalizando Quinze pontos. Êntão eu marco na tabela no nosso aplicativo. Quinze pontos em quina.
+        Já o outro tipo de jogada. Como você pode observar. Quando você tem Dois dados  que é do valor duque. E Tês dados do valor de quina. É formada
+        também a jogada Fúl.
 
-        Marcação
+        Que por ventura foi feita na primeira tacada. E quando esse tipo de jogada é realizada em uma tacada só. Usa-se o termo jogada de bôca.
+        então a jogada ganha 5 pontos a mais e o Fúl. Passa a valer 15 pontos. Ai eu posso marcar na tabela. na Joagada Fúl.
 
-        Quando jogar os dados, ele te dará 5 valores.
-        Então usando-se a estratégia básica, você escolherá os valores que mais se repetem e/ou os que valem mais pontos.
-        Para você poder entender o que deve marcar,
-        é só você lembrar-se de que deve marcar a soma dos valores obtidos por determinado jogo que escolheu,
-        com exceção de FULL-SEGUIDA-QUADRADA E GENERAL. Pois estes jogos ja tem pontuações definidas.
+        Um exemplo importante. É o general de bôca. Quando o jogador faz uma jogada de general de bôca ou seja se vier cinco pedras de qualqer
+         valor todas iguais. O general de quarenta pontos. Passa a ser cem pontos. Ai não tem jeito. O jogador que fez esse tipo de jogada.
+         Ganha imediatamente com ponto soberano. E a partida é finalizada independente se outro jogador já estivesse ganhando.
 
-
-        Na marcação de pontos você não pode somar todos os valores,
-        você tem que escolher um jogo, para depois poder somar.
-        por exemplo: Se eu tiver 2 duques e 3 quinas, na primeira jogada das três possíveis.
-        Primeiro eu tenho que escolher qual jogo eu quero marcar. vamos supor que eu queira a quina,
-        pois vale mais pontos e é a que mais se repete. Então eu somo tudo, o que totalizará 15 pontos,
-        e marco na tabela em quina. Mas se observarem tem um FULL de boca também.
-        Então eu posso marcar 15 pontos na tabela, em FULL.
+        Basicamente é assim que se joga um Bozó.
     </string>
 </resources>

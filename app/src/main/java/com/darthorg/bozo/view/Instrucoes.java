@@ -45,7 +45,7 @@ public class Instrucoes extends AppCompatActivity {
     String texto;
 
     TextView txtAz, txtAudio;
-    ImageButton audio, audioOff;
+    ImageButton audio, audioOff,audiotxt1_on,audiotxt1_off;
 
 
 
@@ -119,7 +119,6 @@ public class Instrucoes extends AppCompatActivity {
             public void onClick(View v) {btnStop();}
         });
 
-
         // layouts of all welcome sliders
         // add few more layouts if you want
         layouts = new int[]{
@@ -188,7 +187,9 @@ public class Instrucoes extends AppCompatActivity {
         super.onDestroy();
         if (ttsobject != null){
 
-
+            audioOff.setVisibility(View.GONE);
+            audio.setVisibility(View.VISIBLE);
+            txtAudio.setText(" ");
             ttsobject.stop();
             ttsobject.shutdown();
 

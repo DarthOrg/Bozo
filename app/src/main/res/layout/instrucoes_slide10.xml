@@ -2,7 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorInstrucoesSlide10">
+    android:background="@color/colorFundoInstruções">
 
 
     <FrameLayout
@@ -16,7 +16,7 @@
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:src="@drawable/ic_dado_duque"
-            android:tint="@color/colorWhite"
+            android:tint="@color/colorCinza"
             android:layout_gravity="center"
             android:id="@+id/imageView6"
             android:layout_marginRight="27dp"
@@ -26,7 +26,7 @@
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:src="@drawable/ic_dado_duque"
-            android:tint="@color/colorWhite"
+            android:tint="@color/colorCinza"
             android:layout_gravity="center"
             android:id="@+id/imageView7"
             android:layout_marginLeft="27dp"
@@ -36,7 +36,7 @@
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:src="@drawable/ic_dado_duque"
-            android:tint="@color/colorWhite"
+            android:tint="@color/colorCinza"
             android:layout_gravity="center"
             android:id="@+id/imageView18"
             android:layout_marginRight="27dp"
@@ -46,7 +46,7 @@
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:src="@drawable/ic_dado_duque"
-            android:tint="@color/colorWhite"
+            android:tint="@color/colorCinza"
             android:layout_gravity="center"
             android:id="@+id/imageView20"
             android:layout_marginLeft="27dp"
@@ -77,15 +77,24 @@
 
     </LinearLayout>
 
-    <TextView
+    <android.support.v7.widget.CardView
+
+        android:id="@+id/textView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:paddingLeft="16dp"
-        android:paddingRight="16dp"
-        android:text="@string/TextoDadosQuadrada"
-        android:textAlignment="center"
-        android:textColor="@android:color/white"
-        android:textSize="16dp"
         android:layout_below="@+id/tituloI"
-        android:layout_centerHorizontal="true" />
+        android:layout_margin="10dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="@string/TextoDadosQuadrada"
+            android:textAlignment="center"
+            android:textSize="13dp"
+            android:layout_margin="10dp"
+            android:textColor="@color/colorCinza" />
+
+
+    </android.support.v7.widget.CardView>
 </RelativeLayout>

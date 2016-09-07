@@ -2,7 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorInstrucoesSlide4">
+    android:background="@color/colorFundoInstruções">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -14,7 +14,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/ic_dado_terno"
-            android:tint="@color/colorWhite"
+            android:tint="@color/colorCinza"
             android:layout_gravity="center"
             android:id="@+id/imageView6"/>
     </LinearLayout>
@@ -42,16 +42,24 @@
 
     </LinearLayout>
 
-    <TextView
+    <android.support.v7.widget.CardView
+
+        android:id="@+id/textView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:paddingLeft="@dimen/desc_padding"
-        android:paddingRight="@dimen/desc_padding"
-        android:text="@string/TextoDadoTerno"
-        android:textAlignment="center"
-        android:textColor="@android:color/white"
-        android:textSize="@dimen/slide_desc"
         android:layout_below="@+id/tituloI"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_margin="10dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="@string/TextoDadoTerno"
+            android:textAlignment="center"
+            android:textSize="13dp"
+            android:layout_margin="10dp"
+            android:textColor="@color/colorCinza" />
+
+
+    </android.support.v7.widget.CardView>
 </RelativeLayout>
