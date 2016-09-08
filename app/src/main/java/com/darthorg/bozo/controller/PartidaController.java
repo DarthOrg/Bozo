@@ -63,4 +63,7 @@ public class PartidaController {
         return partidaDAO.buscarRodadasPartida(idPartida);
     }
 
+    public boolean deletarPartida(Partida partida) {
+        return partidaDAO.deletarPartida(partida);
+    }
 }

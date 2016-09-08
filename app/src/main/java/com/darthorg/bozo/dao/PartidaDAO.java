@@ -46,8 +46,12 @@ public class PartidaDAO {
         db.update(DataModel.getTabelaPartidas(), values, DataModel.getID() + " = " + partida.getIdPartida(), null);
     }
 
-    public void deletarPartida(Partida partida) {
-        db.delete(DataModel.getTabelaPartidas(), DataModel.getID() + " = " + partida.getIdPartida(), null);
+    public boolean deletarPartida(Partida partida) {
+        if (db.delete(DataModel.getTabelaPartidas(), DataModel.getID() + " = " + partida.getIdPartida(), null) != 0) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
     public List<Partida> buscarPartidas() {
