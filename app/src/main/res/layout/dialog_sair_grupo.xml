@@ -32,32 +32,32 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="10dp"
-        android:orientation="horizontal">
+        android:layout_marginTop="10dp">
 
         <Button
 
             android:id="@+id/btnDescartar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:layout_gravity="right|center_vertical"
+            android:layout_gravity="right"
             android:background="@color/colorTrasnparente"
             android:text="@string/Descartar"
-            android:textColor="@color/colorCinza" />
+            android:textColor="@color/colorCinza"
+            android:layout_alignParentTop="true"
+            android:layout_toLeftOf="@+id/btnExcluir"
+            android:layout_toStartOf="@+id/btnExcluir" />
 
         <Button
             android:id="@+id/btnExcluir"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentRight="true"
             android:layout_gravity="right"
             android:background="@color/colorTrasnparente"
             android:text="@string/Salvar"
-            android:textColor="@color/colorAccent" />
+            android:textColor="@color/colorAccent"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true" />
 
     </RelativeLayout>
 
