@@ -60,8 +60,6 @@ public class Inicio extends AppCompatActivity
                 intent.putExtra("partidaSalva", partidaList.get(position).getIdPartida());
                 intent.putExtra("partidaNova", false);
                 startActivity(intent);
-
-                finish();
             }
         });
 
