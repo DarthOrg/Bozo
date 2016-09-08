@@ -178,4 +178,10 @@ public class Inicio extends AppCompatActivity
         listViewPartidas.setAdapter(partidasListAdapter);
 
     }
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        atualizarLista();
+    }
 }
