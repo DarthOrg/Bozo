@@ -1,159 +1,99 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/paginaDadosGrupo"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:fab="http://schemas.android.com/apk/res-auto"
-    tools:context=".view.NovaPartida"
+    android:background="@color/colorWhite"
+    android:orientation="vertical"
     android:theme="@style/AppTheme.WhiteBotton"
-    android:id="@+id/paginaDadosGrupo"
-    android:background="@color/colorWhite">
-
-
-
+    tools:context=".view.NovaPartida">
 
     <android.support.design.widget.AppBarLayout
+        android:id="@+id/view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/colorAccent"
-        app:elevation="0dp"
-        app:counterEnabled="true"
-        android:paddingBottom="25dp"
-        android:id="@+id/view">
+        android:background="@color/colorAccent">
 
+
+        <!--TOOLBAR TOPO-->
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            app:title="@string/NovoGrupo" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <!--TOOLBAR TOPO-->
-                <android.support.v7.widget.Toolbar
-                    android:id="@+id/toolbar"
-                    android:layout_width="match_parent"
-                    android:layout_height="?attr/actionBarSize"/>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textAppearance="?android:attr/textAppearanceMedium"
-                    android:text="@string/NovoGrupoDeJogo"
-                    android:id="@+id/Titulo"
-                    android:layout_gravity="center"
-                    android:textSize="15dp"
-                    android:textColor="@color/colorWhite"
-                    android:layout_centerVertical="true"
-                    android:layout_centerHorizontal="true" />
-
-
-
-            </RelativeLayout>
+            android:orientation="vertical"
+            android:paddingLeft="24dp"
+            android:paddingRight="24dp">
 
             <android.support.design.widget.TextInputLayout
                 android:id="@+id/til_nome_grupo"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="32dp"
-                android:layout_marginRight="32dp"
                 android:textColorHint="@color/colorWhite"
-                app:counterEnabled="true"
                 app:errorEnabled="true">
 
                 <EditText
-                    android:id="@+id/campo_nome_grupo"
+                    android:id="@+id/editNomeGrupo"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:ems="10"
                     android:hint="@string/NomedoGrupo"
+                    android:inputType="text|textPersonName"
+                    android:singleLine="true"
                     android:textColor="@color/colorWhite"
-                    android:textColorHint="@color/colorWhiteTransparente2"
-                    android:inputType="textCapCharacters|text"
-                    android:singleLine="true" />
+                    android:textColorHint="@color/colorWhiteTransparente2" />
             </android.support.design.widget.TextInputLayout>
 
-
-            <LinearLayout
+            <FrameLayout
                 android:layout_width="match_parent"
-                android:orientation="horizontal"
                 android:layout_height="wrap_content">
 
-                <RelativeLayout
-                    android:layout_width="wrap_content"
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/til_jogador"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1">
+                    android:layout_marginRight="6dp"
+                    android:textColorHint="@color/colorWhite"
+                    app:errorEnabled="true">
 
-                    <android.support.design.widget.TextInputLayout
-                        android:id="@+id/til_jogador"
+                    <EditText
+                        android:id="@+id/editJogador"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="32dp"
-                        app:counterEnabled="true"
-                        app:errorEnabled="true"
-                        android:layout_marginRight="32dp"
-                        android:textColorHint="@color/colorWhite">
-
-                        <EditText
-                            android:id="@+id/campo_jogador"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:ems="10"
-                            android:hint="@string/AdicionarJogador"
-                            android:textColor="@color/colorWhite"
-                            android:textColorHint="@color/colorWhiteTransparente2"
-                            android:inputType="textCapCharacters|text"
-                            android:singleLine="true" />
-                    </android.support.design.widget.TextInputLayout>
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textAppearance="?android:attr/textAppearanceMedium"
-                        android:text="0"
-                        android:id="@+id/contagemJogadores2"
+                        android:ems="10"
+                        android:hint="@string/AdicionarJogador"
+                        android:inputType="text|textPersonName"
+                        android:singleLine="true"
                         android:textColor="@color/colorWhite"
-                        android:layout_alignWithParentIfMissing="false"
-                        android:layout_alignParentTop="true"
-                        android:layout_alignParentRight="true"
-                        android:layout_alignParentEnd="true"
-                        android:paddingTop="16dp"
-                        android:layout_marginRight="35dp" />
+                        android:textColorHint="@color/colorWhiteTransparente2" />
+                </android.support.design.widget.TextInputLayout>
 
-                    <android.support.design.widget.FloatingActionButton
-                        android:id="@+id/btnAddJogador"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:src="@drawable/ic_plus_white"
-                        android:tint="@color/colorCinza"
-                        android:visibility="gone"
-                        android:layout_centerVertical="true"
-                        android:layout_alignParentRight="true"
-                        android:layout_alignParentEnd="true"
-                        android:layout_marginRight="15dp" />
+                <android.support.design.widget.FloatingActionButton
+                    android:id="@+id/btnAddJogador"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right|center_vertical"
+                    android:layout_marginRight="5dp"
+                    android:src="@drawable/ic_plus_white"
+                    android:tint="@color/colorCinza" />
 
-
-                </RelativeLayout>
-
-
-            </LinearLayout>
-
-
+            </FrameLayout>
         </LinearLayout>
 
     </android.support.design.widget.AppBarLayout>
 
-
-
     <ListView
+        android:id="@+id/list_view_jogadores"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/list_view_jogadores"
-        android:cacheColorHint="@color/colorBlack"
-        android:layout_below="@+id/view" />
+        android:layout_below="@+id/view"
+        android:cacheColorHint="@color/colorBlack" />
 
 
-</RelativeLayout>
+</LinearLayout>

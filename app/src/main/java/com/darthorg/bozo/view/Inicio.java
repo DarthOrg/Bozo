@@ -20,7 +20,7 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import com.darthorg.bozo.R;
-import com.darthorg.bozo.adapter.PartidasListaAdapter;
+import com.darthorg.bozo.adapter.PartidasListAdapter;
 import com.darthorg.bozo.dao.PartidaDAO;
 import com.darthorg.bozo.model.Partida;
 
@@ -31,7 +31,7 @@ public class Inicio extends AppCompatActivity
 
 
     private ListView listViewPartidas;
-    private PartidasListaAdapter partidasListAdapter;
+    private PartidasListAdapter partidasListAdapter;
     private PartidaDAO partidaDAO;
     private List<Partida> partidaList;
     Toolbar toolbar;
@@ -60,7 +60,7 @@ public class Inicio extends AppCompatActivity
         partidaList = partidaDAO.buscarPartidas();
 
 
-        partidasListAdapter = new PartidasListaAdapter(getApplicationContext(), partidaList);
+        partidasListAdapter = new PartidasListAdapter(getApplicationContext(), partidaList, this);
         listViewPartidas.setAdapter(partidasListAdapter);
 
 //botão ficar precionado
@@ -93,7 +93,7 @@ public class Inicio extends AppCompatActivity
                             public void run() {
                                 partidaDAO = new PartidaDAO(Inicio.this);
                                 partidaList = partidaDAO.buscarPartidas();
-                                partidasListAdapter = new PartidasListaAdapter(getApplicationContext(), partidaList);
+                                partidasListAdapter = new PartidasListAdapter(getApplicationContext(), partidaList, Inicio.this);
                                 listViewPartidas.setAdapter(partidasListAdapter);
                                 mSwipeRefreshLayout.setRefreshing(false);
                             }

@@ -2,8 +2,8 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:gravity="center"
-    android:orientation="horizontal">
+    android:orientation="horizontal"
+    android:padding="15dp">
 
     <Button
         android:id="@+id/txt_lista_numero"
@@ -13,18 +13,26 @@
         android:focusable="false"
         android:text="1"
         android:textColor="@color/colorWhite"
-        android:textSize="15dp"
-        android:layout_margin="16dp" />
+        android:textSize="15dp" />
 
     <TextView
         android:id="@+id/txt_lista_nome_partida"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="start|center_vertical"
+        android:layout_gravity="center_vertical"
+        android:layout_marginLeft="10dp"
+        android:layout_weight="1"
         android:focusable="false"
         android:text="@string/NomePartida"
         android:textColor="@color/colorCinza"
-        android:textSize="15dp"
-        android:layout_weight="1" />
+        android:textSize="15dp" />
+
+    <Button
+        android:id="@+id/btnDelPartida"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:background="@drawable/ic_delete_black_24dp"
+        android:backgroundTint="@color/colorCinzaEscuro"
+        android:focusable="false" />
 
 </LinearLayout>
