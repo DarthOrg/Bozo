@@ -66,4 +66,8 @@ public class PartidaController {
     public boolean deletarPartida(Partida partida) {
         return partidaDAO.deletarPartida(partida);
     }
+
+    public List<Partida> buscarPartidas() {
+        return partidaDAO.buscarPartidas();
+    }
 }

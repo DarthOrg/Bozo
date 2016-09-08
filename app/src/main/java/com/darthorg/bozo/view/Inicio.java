@@ -4,24 +4,22 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.SystemClock;
 import android.support.design.widget.FloatingActionButton;
-import android.support.v4.widget.SwipeRefreshLayout;
-import android.view.ContextMenu;
-import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
-import android.widget.Toast;
 
 import com.darthorg.bozo.R;
 import com.darthorg.bozo.adapter.PartidasListAdapter;
-import com.darthorg.bozo.dao.PartidaDAO;
+import com.darthorg.bozo.controller.PartidaController;
 import com.darthorg.bozo.model.Partida;
 
 import java.util.List;
@@ -32,9 +30,8 @@ public class Inicio extends AppCompatActivity
 
     private ListView listViewPartidas;
     private PartidasListAdapter partidasListAdapter;
-    private PartidaDAO partidaDAO;
     private List<Partida> partidaList;
-    Toolbar toolbar;
+    private Toolbar toolbar;
     protected SwipeRefreshLayout mSwipeRefreshLayout;
 
     @Override
@@ -43,7 +40,6 @@ public class Inicio extends AppCompatActivity
         setContentView(R.layout.activity_inicio);
 
         toolbar = (Toolbar) findViewById(R.id.toolbar);
-
         toolbar.setTitle(R.string.TextoVazio);
         setSupportActionBar(toolbar);
 
@@ -52,19 +48,10 @@ public class Inicio extends AppCompatActivity
         //Aparecer imagem quando a lista estiver vazia
         listViewPartidas.setEmptyView(findViewById(R.id.list_vazio));
 
-        //botão ficar precionado
-        registerForContextMenu(listViewPartidas);
-
-
-        partidaDAO = new PartidaDAO(this);
-        partidaList = partidaDAO.buscarPartidas();
-
-
+        PartidaController partidaController = new PartidaController(Inicio.this);
+        partidaList = partidaController.buscarPartidas();
         partidasListAdapter = new PartidasListAdapter(getApplicationContext(), partidaList, this);
         listViewPartidas.setAdapter(partidasListAdapter);
-
-//botão ficar precionado
-        registerForContextMenu(listViewPartidas);
 
         listViewPartidas.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -91,10 +78,7 @@ public class Inicio extends AppCompatActivity
                         runOnUiThread(new Runnable() {
                             @Override
                             public void run() {
-                                partidaDAO = new PartidaDAO(Inicio.this);
-                                partidaList = partidaDAO.buscarPartidas();
-                                partidasListAdapter = new PartidasListAdapter(getApplicationContext(), partidaList, Inicio.this);
-                                listViewPartidas.setAdapter(partidasListAdapter);
+                                atualizarLista();
                                 mSwipeRefreshLayout.setRefreshing(false);
                             }
                         });
@@ -123,34 +107,7 @@ public class Inicio extends AppCompatActivity
         navigationView.setNavigationItemSelectedListener(this);
     }
 
-    @Override
-    public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
-        getMenuInflater().inflate(R.menu.popup_menu, menu);
-    }
-
-
-    @Override
-    public boolean onContextItemSelected(MenuItem item) {
-        AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo) item.getMenuInfo();
-        switch (item.getItemId()) {
-            case R.id.action_apagar:
-
-                int position = 0;
-                Toast.makeText(Inicio.this, partidaList.get(position).getNome() + " - foi excluido da sua lista", Toast.LENGTH_SHORT).show();
-                PartidaDAO partidaDAO = new PartidaDAO(Inicio.this);
-                partidaDAO.deletarPartida(partidaList.get(position));
-                partidaList.remove(position);
-                partidasListAdapter.notifyDataSetChanged();
-                return true;
-            default:
-                return super.onContextItemSelected(item);
-
-        }
-
-    }
-
     public void instrucoesActivity() {
-
         Intent intent = new Intent(Inicio.this, Instrucoes.class);
         startActivity(intent);
     }
@@ -214,5 +171,13 @@ public class Inicio extends AppCompatActivity
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    public void atualizarLista() {
+        PartidaController partidaController = new PartidaController(Inicio.this);
+        partidaList = partidaController.buscarPartidas();
+        partidasListAdapter = new PartidasListAdapter(getApplicationContext(), partidaList, this);
+        listViewPartidas.setAdapter(partidasListAdapter);
+
     }
 }

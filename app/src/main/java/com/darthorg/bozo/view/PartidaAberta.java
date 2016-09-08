@@ -678,6 +678,7 @@ public class PartidaAberta extends AppCompatActivity {
                 btnSair.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
+                        configurarNovaRodada();
                         dialogFinalizar.dismiss();
                         saveAndQuit();
                     }

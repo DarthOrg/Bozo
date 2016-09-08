@@ -71,6 +71,7 @@ public class PartidasListAdapter extends BaseAdapter {
                     public void onClick(DialogInterface dialog, int which) {
                         PartidaController partidaController = new PartidaController(mContext);
                         if (partidaController.deletarPartida(mPartidaList.get(position))) {
+                            mPartidaList.remove(mPartidaList.get(position));
                             notifyDataSetChanged();
                             Toast.makeText(mContext, "Partida deletada!", Toast.LENGTH_SHORT);
                         } else {
