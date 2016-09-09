@@ -2,37 +2,111 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="horizontal"
-    android:padding="10dp">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/colorFundoPartida"
+    android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/tvNumRodada"
-        android:layout_width="wrap_content"
-        android:layout_height="40dp"
-        android:background="@color/colorPrimary_distaque"
-        android:padding="10dp"
-        android:text="1"
-        android:textColor="@color/colorWhite" />
-
-    <TextView
-        android:id="@+id/tvVencedorRodada"
-        android:layout_width="wrap_content"
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="left|center_vertical"
-        android:layout_weight="1"
-        android:text="Vencedor"
-        android:textAlignment="center"
-        android:textColor="@color/background_floating_material_dark"
-        android:textSize="15dp" />
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginBottom="1dp">
 
-    <Button
-        android:id="@+id/btnPontuacao"
-        android:layout_width="wrap_content"
-        android:layout_height="40dp"
-        android:background="@color/colorAccent"
-        android:text="1"
-        android:textColor="@color/colorWhite"
-        android:textSize="15dp" />
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp">
+
+
+
+
+            <Button
+                android:id="@+id/tvNumRodada"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:background="@drawable/circulo_accent"
+                android:text="1"
+                android:textColor="@color/colorWhite"
+                android:layout_centerVertical="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:textSize="15dp" />
+
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_alignTop="@+id/tvNumRodada"
+                android:layout_toRightOf="@+id/tvNumRodada"
+                android:layout_toEndOf="@+id/tvNumRodada"
+                android:layout_marginLeft="26dp"
+                android:id="@+id/linearLayout3">
+
+
+                <TextView
+                    android:id="@+id/tvVencedorRodada"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignTop="@+id/tvNumRodada"
+                    android:layout_toEndOf="@+id/tvNumRodada"
+                    android:layout_toRightOf="@+id/tvNumRodada"
+                    android:text="Medium Text"
+                    android:textColor="@color/colorBlack"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textSize="16dp" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignLeft="@+id/tvVencedorRodada"
+                        android:layout_alignStart="@+id/tvVencedorRodada"
+                        android:layout_below="@+id/tvVencedorRodada"
+                        android:text="Ganhou com "
+                        android:textColor="@color/colorCinza"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:textSize="13dp" />
+
+                    <TextView
+                        android:id="@+id/btnPontuacao"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/tvVencedorRodada"
+                        android:layout_toEndOf="@+id/btnPontuacao"
+                        android:layout_toRightOf="@+id/btnPontuacao"
+                        android:text="3213213"
+                        android:textColor="@color/colorCinza"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:textSize="13dp" />
+
+                    <TextView
+                        android:id="@+id/textView17"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/tvVencedorRodada"
+                        android:layout_toEndOf="@+id/btnPontuacao"
+                        android:layout_toRightOf="@+id/btnPontuacao"
+                        android:text=" pontos"
+                        android:textColor="@color/colorCinza"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:textSize="13dp" />
+                </LinearLayout>
+
+
+
+            </LinearLayout>
+
+
+        </RelativeLayout>
+
+    </android.support.v7.widget.CardView>
 
 
 </LinearLayout>
