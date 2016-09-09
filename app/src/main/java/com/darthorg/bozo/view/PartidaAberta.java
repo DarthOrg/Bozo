@@ -22,6 +22,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -33,7 +35,6 @@ import com.darthorg.bozo.fragment.FragmentFilho;
 import com.darthorg.bozo.model.Jogador;
 import com.darthorg.bozo.model.Partida;
 import com.darthorg.bozo.model.Rodada;
-import com.github.clans.fab.FloatingActionMenu;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -54,6 +55,7 @@ public class PartidaAberta extends AppCompatActivity {
     private ArrayList<Rodada> listRodadas = new ArrayList<>();
     private List<Jogador> jogadoresRodada = new ArrayList<>();
     private List<FragmentFilho> listaFragments;
+    private List<FragmentFilho> listEmpatados;
 
     //Controllers
     private PartidaController partidaController;
@@ -65,7 +67,6 @@ public class PartidaAberta extends AppCompatActivity {
     private Toolbar toolbar;
     private TabsDinamicosAdapter adapter;
     // FloatButtons para o Menu
-    private FloatingActionMenu fabMenu;
     private ImageButton BSplacar, BSaddJogador, BSremoverJogador;
     LinearLayout sairBS;
     ImageButton fabMais;
@@ -162,7 +163,6 @@ public class PartidaAberta extends AppCompatActivity {
                     @Override
                     public void onClick(View view) {
                         dialogAdicionarJogador.dismiss();
-                        return;
                     }
                 });
                 dialogAdicionarJogador.show();
@@ -220,7 +220,6 @@ public class PartidaAberta extends AppCompatActivity {
                     @Override
                     public void onClick(View view) {
                         dialogRemoveJogador.dismiss();
-                        return;
                     }
                 });
                 dialogRemoveJogador.show();
@@ -292,12 +291,7 @@ public class PartidaAberta extends AppCompatActivity {
      * @return true caso a Partida for Nova
      */
     public boolean verificaPartidaNova() {
-        if (bundleParams.getBoolean("partidaNova")) {
-            return true;
-        } else {
-            return false;
-        }
-
+        return bundleParams.getBoolean("partidaNova");
     }
 
     /**
@@ -441,25 +435,42 @@ public class PartidaAberta extends AppCompatActivity {
      */
     public Jogador compararPontos() {
 
-        jogadoresRodada.size();
-
         FragmentFilho ganhando = listaFragments.get(0);
-        Jogador ganhador = jogadoresRodada.get(0);
+        Jogador ganhador = null;
+        listEmpatados = new ArrayList<>();
 
         for (int i = 0; i < listaFragments.size(); i++) {
+            // Ninguem ganha ou empata ate verificar
             listaFragments.get(i).setGanhando(false);
-            if (ganhando.getContador() != 0) {
-                if (ganhando.getContador() > listaFragments.get(i).getContador()) {
-                    ganhando.setGanhando(true);
-                } else {
+            listaFragments.get(i).setEmpatado(false);
+            // Não compara ninguem igual e com pontuacao igual a zero
+            if (!ganhando.equals(listaFragments.get(i)) && listaFragments.get(i).getContador() != 0) {
+                if (ganhando.getContador() < listaFragments.get(i).getContador()) {
+                    //Outra pessoa esta ganhando
                     ganhando.setGanhando(false);
                     ganhando = listaFragments.get(i);
                     ganhando.setGanhando(true);
+                    ganhando.setEmpatado(false);
+                    ganhador = jogadoresRodada.get(i);
+                } else if (ganhando.getContador() == listaFragments.get(i).getContador()) {
+                    //Empate
+                    ganhando.setGanhando(false);
+                    ganhando.setEmpatado(true);
+                    listaFragments.get(i).setGanhando(false);
+                    listaFragments.get(i).setEmpatado(true);
 
+                    // Adiciona a uma lista os listEmpatados que estao com maior pontuacao
+                    if (!listEmpatados.contains(ganhando)) {
+                        listEmpatados.add(ganhando);
+                    }
+                    listEmpatados.add(listaFragments.get(i));
+
+                    ganhador = null;
+                } else if (!ganhando.isEmpatado()) {
+                    // permanece o vencedor
+                    ganhando.setGanhando(true);
                     ganhador = jogadoresRodada.get(i);
                 }
-            } else {
-                ganhador = null;
             }
         }
 
@@ -481,15 +492,11 @@ public class PartidaAberta extends AppCompatActivity {
             }
         }
 
-        if (fragmentsCompletos == listaFragments.size()) {
-            return true;
-        } else {
-            return false;
-        }
+        return fragmentsCompletos == listaFragments.size();
 
     }
 
-    public void configurarNovaRodada() {
+    public void configurarNovaRodada(String nomeGanhador) {
 
         List<Jogador> auxJogadoresRodadas = new ArrayList<>();
 
@@ -500,7 +507,7 @@ public class PartidaAberta extends AppCompatActivity {
             auxJogadoresRodadas.add(j);
         }
 
-        rodada.setNomeVencedor(compararPontos().getNome());
+        rodada.setNomeVencedor(nomeGanhador);
         rodada.setJogadores(auxJogadoresRodadas);
         listRodadas.add(rodada);
 
@@ -643,47 +650,79 @@ public class PartidaAberta extends AppCompatActivity {
 
             if (verificaSeRodadaAcabou()) {
 
-                // Dialog Finalizar grupo de jogo
-                final Dialog dialogFinalizar = new Dialog(PartidaAberta.this, android.R.style.Theme_DeviceDefault_Dialog);
-                dialogFinalizar.setTitle("Rodada finalizada");
+                if (compararPontos() != null) {
 
-                // Configura a view para o Dialog
-                dialogFinalizar.setContentView(R.layout.dialog_ganhou);
+                    // Dialog Finalizar grupo de jogo
+                    final Dialog dialogFinalizar = new Dialog(PartidaAberta.this, android.R.style.Theme_DeviceDefault_Dialog);
+                    dialogFinalizar.setTitle("Rodada finalizada");
 
-                Button btnSair = (Button) dialogFinalizar.findViewById(R.id.btnSair);
-                Button btnCancelar = (Button) dialogFinalizar.findViewById(R.id.btnCancelar);
-                Button btnJogar = (Button) dialogFinalizar.findViewById(R.id.btnJogar);
-                TextView txtNomeJogadorExcluido = (TextView) dialogFinalizar.findViewById(R.id.txtGanhou);
-                txtNomeJogadorExcluido.setText(compararPontos().getNome() + " Ganhou");
+                    // Configura a view para o Dialog
+                    dialogFinalizar.setContentView(R.layout.dialog_ganhou);
 
-                // btn Jogar nova rodada
-                btnJogar.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        configurarNovaRodada();
-                        dialogFinalizar.dismiss();
+                    Button btnSair = (Button) dialogFinalizar.findViewById(R.id.btnSair);
+                    Button btnCancelar = (Button) dialogFinalizar.findViewById(R.id.btnCancelar);
+                    Button btnJogar = (Button) dialogFinalizar.findViewById(R.id.btnJogar);
+                    TextView txtNomeJogadorExcluido = (TextView) dialogFinalizar.findViewById(R.id.txtGanhou);
+                    txtNomeJogadorExcluido.setText(compararPontos().getNome() + " Ganhou");
+
+                    // btn Jogar nova rodada
+                    btnJogar.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            configurarNovaRodada(compararPontos().getNome());
+                            dialogFinalizar.dismiss();
+                        }
+                    });
+
+                    // btn Cancelar
+                    btnCancelar.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            dialogFinalizar.dismiss();
+                        }
+                    });
+
+                    // btn Sair
+                    btnSair.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            //todo: uma hr isso vai dar bug nervoso
+                            configurarNovaRodada(compararPontos().getNome());
+                            dialogFinalizar.dismiss();
+                            saveAndQuit();
+                        }
+                    });
+                    dialogFinalizar.show();
+                } else {
+                    // EMPATE
+                    final Dialog dialogEmpate = new Dialog(this, android.R.style.Theme_DeviceDefault_Dialog);
+                    dialogEmpate.setContentView(R.layout.dialog_empate);
+                    dialogEmpate.setTitle("Empate");
+                    dialogEmpate.setCancelable(true);
+
+                    final RadioGroup rgEmpate = (RadioGroup) dialogEmpate.findViewById(R.id.rgDialogEmpate);
+
+                    // Gera radiobuttons e os adiciona ao RadioGroup
+                    for (int i = 0; i < listEmpatados.size(); i++) {
+                        RadioButton rdbtn = new RadioButton(this);
+                        rdbtn.setId(i);
+                        rdbtn.setText(listEmpatados.get(i).getNome());
+                        rgEmpate.addView(rdbtn);
                     }
-                });
 
-                // btn Cancelar
-                btnCancelar.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        dialogFinalizar.dismiss();
-                        return;
-                    }
-                });
+                    // Finaliza a partida configurando o vencedor de acordo com o radioButton selecionado
+                    Button btnFinalizar = (Button) dialogEmpate.findViewById(R.id.btnFinlizarEmpate);
+                    btnFinalizar.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            // captura o id do radiobutton e procura na lista e configura o vencedor
+                            configurarNovaRodada(listEmpatados.get(rgEmpate.getCheckedRadioButtonId()).getNome());
+                            dialogEmpate.dismiss();
+                        }
+                    });
 
-                // btn Sair
-                btnSair.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        configurarNovaRodada();
-                        dialogFinalizar.dismiss();
-                        saveAndQuit();
-                    }
-                });
-                dialogFinalizar.show();
+                    dialogEmpate.show();
+                }
 
             } else {
 
@@ -711,7 +750,6 @@ public class PartidaAberta extends AppCompatActivity {
                     @Override
                     public void onClick(View v) {
                         dialogFinalizar.dismiss();
-                        return;
                     }
                 });
                 dialogFinalizar.show();

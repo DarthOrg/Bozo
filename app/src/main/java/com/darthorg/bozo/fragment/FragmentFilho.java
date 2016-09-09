@@ -62,6 +62,7 @@ public class FragmentFilho extends Fragment {
     private Button txtGanhando;
     private int contador = 0;
     private boolean ganhando;
+    private boolean empatado;
     private boolean acabouRodada;
 
     // variavel necessaria para inflar o layout do AlertDialog
@@ -114,9 +115,10 @@ public class FragmentFilho extends Fragment {
     private void setEvents() {
 
         for (int i = 0; i < pecasBozo.size(); i++) {
-            if (!pecasBozo.get(i).isRiscado()) {
-                cliquePeca(pecasBozo.get(i), buttons.get(i));
+            if (pecasBozo.get(i).isRiscado()) {
+                buttons.get(i).setTextColor(Color.RED);
             }
+            cliquePeca(pecasBozo.get(i), buttons.get(i));
         }
 
 
@@ -253,18 +255,6 @@ public class FragmentFilho extends Fragment {
         );
     }
 
-    public int contarPontos() {
-
-        int pontos = 0;
-
-        for (int i = 0; i < pecasBozo.size(); i++) {
-            if (pecasBozo.get(i).isRiscado() == false && pecasBozo.get(i).getPontuacao() != null) {
-                pontos = pontos + Integer.parseInt(pecasBozo.get(i).getPontuacao());
-            }
-        }
-        return pontos;
-    }
-
     public void obterPecasBozo() {
 
         pecasBozo = new ArrayList<>();
@@ -296,13 +286,16 @@ public class FragmentFilho extends Fragment {
 
     }
 
+    public int contarPontos() {
 
-    public int getContador() {
-        return contador;
-    }
+        int pontos = 0;
 
-    public boolean isGanhando() {
-        return ganhando;
+        for (int i = 0; i < pecasBozo.size(); i++) {
+            if (pecasBozo.get(i).isRiscado() == false && pecasBozo.get(i).getPontuacao() != null) {
+                pontos = pontos + Integer.parseInt(pecasBozo.get(i).getPontuacao());
+            }
+        }
+        return pontos;
     }
 
     public void setGanhando(boolean ganhando) {
@@ -332,6 +325,22 @@ public class FragmentFilho extends Fragment {
             Log.i("pecasUsadas", "A PARTIDA AINDA ESTA ROLANDO");
             acabouRodada = false;
         }
+    }
+
+    public int getContador() {
+        return contador;
+    }
+
+    public boolean isGanhando() {
+        return ganhando;
+    }
+
+    public boolean isEmpatado() {
+        return empatado;
+    }
+
+    public void setEmpatado(boolean empatado) {
+        this.empatado = empatado;
     }
 
     public boolean isAcabouRodada() {
