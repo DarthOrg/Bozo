@@ -47,9 +47,9 @@ public class PlacarAdapter extends BaseAdapter {
     public View getView(int position, View view, ViewGroup viewGroup) {
         View v = View.inflate(mContext, R.layout.adapter_listview_placar, null);
 
-        TextView tvNumRodada = (TextView) v.findViewById(R.id.tvNumRodada);
+        Button tvNumRodada = (Button) v.findViewById(R.id.tvNumRodada);
         TextView tvVencedorRodada = (TextView) v.findViewById(R.id.tvVencedorRodada);
-        Button btnPontuacao = (Button) v.findViewById(R.id.btnPontuacao);
+        TextView btnPontuacao = (TextView) v.findViewById(R.id.btnPontuacao);
 
         tvNumRodada.setText(String.valueOf(position + 1));
         tvVencedorRodada.setText(mRodadas.get(position).getNomeVencedor());

@@ -5,10 +5,28 @@
     android:id="@+id/paginaDadosGrupo"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorWhite"
+    android:background="@color/colorFundoInstruções"
     android:orientation="vertical"
     android:theme="@style/AppTheme.WhiteBotton"
     tools:context=".view.NovaPartida">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorRed">
+
+        <TextView
+            android:id="@+id/txtErro"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="5dp"
+            android:text="Aqui vai o texto erro"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:textColor="@color/colorWhite"
+            android:textSize="12dp"
+            android:visibility="gone" />
+    </FrameLayout>
 
     <android.support.design.widget.AppBarLayout
         android:id="@+id/view"
@@ -24,69 +42,218 @@
             android:layout_height="?attr/actionBarSize"
             app:title="@string/NovoGrupo" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:paddingLeft="24dp"
-            android:paddingRight="24dp">
-
-            <android.support.design.widget.TextInputLayout
-                android:id="@+id/til_nome_grupo"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textColorHint="@color/colorWhite"
-                app:errorEnabled="true">
-
-                <EditText
-                    android:id="@+id/editNomeGrupo"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:ems="10"
-                    android:hint="@string/NomedoGrupo"
-                    android:inputType="text|textPersonName"
-                    android:singleLine="true"
-                    android:textColor="@color/colorWhite"
-                    android:textColorHint="@color/colorWhiteTransparente2" />
-            </android.support.design.widget.TextInputLayout>
-
-            <FrameLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <android.support.design.widget.TextInputLayout
-                    android:id="@+id/til_jogador"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginRight="6dp"
-                    android:textColorHint="@color/colorWhite"
-                    app:errorEnabled="true">
-
-                    <EditText
-                        android:id="@+id/editJogador"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:ems="10"
-                        android:hint="@string/AdicionarJogador"
-                        android:inputType="text|textPersonName"
-                        android:singleLine="true"
-                        android:textColor="@color/colorWhite"
-                        android:textColorHint="@color/colorWhiteTransparente2" />
-                </android.support.design.widget.TextInputLayout>
-
-                <android.support.design.widget.FloatingActionButton
-                    android:id="@+id/btnAddJogador"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="right|center_vertical"
-                    android:layout_marginRight="5dp"
-                    android:src="@drawable/ic_plus_white"
-                    android:tint="@color/colorCinza" />
-
-            </FrameLayout>
-        </LinearLayout>
 
     </android.support.design.widget.AppBarLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp">
+
+        <ImageButton
+            android:id="@+id/imageButton2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:background="@color/colorTrasnparente"
+            android:src="@drawable/ic_groupo"
+            android:tint="@color/colorAccent" />
+
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/til_jogador"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toEndOf="@+id/imageButton2"
+            android:layout_toRightOf="@+id/imageButton2"
+            android:layout_marginRight="16dp"
+            android:textColorHint="@color/colorCinza"
+            app:counterEnabled="false">
+
+            <EditText
+                android:id="@+id/edit_nome_grupo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:layout_marginBottom="8dp"
+                android:hint="@string/NomedoGrupo"
+                android:visibility="gone"
+                android:inputType="textCapCharacters|text"
+                android:singleLine="true"
+                android:textColor="@color/colorBlack"
+                android:textColorHint="@color/colorStatusBar" />
+        </android.support.design.widget.TextInputLayout>
+
+        <TextView
+            android:id="@+id/txtNomeGrupo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toEndOf="@+id/imageButton2"
+            android:layout_toRightOf="@+id/imageButton2"
+            android:text="Nome Grupo"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="@color/colorBlack"
+            android:textSize="20dp" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingBottom="16dp"
+        android:paddingLeft="60dp">
+
+        <Button
+            android:id="@+id/btnEditarNomeGrupo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:backgroundTint="@color/colorWhite"
+            android:text="@string/Editar"
+            android:textColor="@color/colorBlack" />
+
+        <Button
+            android:id="@+id/btnCriarGrupo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="5dp"
+            android:backgroundTint="@color/colorGreenA700"
+            android:text="@string/CriarGrupo" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="@color/colorStatusBar" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="@color/colorFundoInstruções">
+
+        <FrameLayout
+            android:id="@+id/J1"
+            android:layout_width="match_parent"
+            android:layout_height="5dp"
+            android:layout_weight="1"
+            android:visibility="invisible"
+            android:background="@color/colorAccent700"/>
+
+        <FrameLayout
+            android:id="@+id/J2"
+            android:layout_width="match_parent"
+            android:layout_height="5dp"
+            android:layout_weight="1"
+            android:visibility="invisible"
+            android:background="@color/colorAccent700"/>
+
+        <FrameLayout
+            android:id="@+id/J3"
+            android:layout_width="match_parent"
+            android:layout_height="5dp"
+            android:layout_weight="1"
+            android:visibility="invisible"
+            android:background="@color/colorAccent700"/>
+
+        <FrameLayout
+            android:id="@+id/J4"
+            android:layout_width="match_parent"
+            android:layout_height="5dp"
+            android:layout_weight="1"
+            android:visibility="invisible"
+            android:background="@color/colorAccent700"/>
+
+        <FrameLayout
+            android:id="@+id/J5"
+            android:layout_width="match_parent"
+            android:layout_height="5dp"
+            android:layout_weight="1"
+            android:visibility="invisible"
+            android:background="@color/colorAccent700"/>
+
+        <FrameLayout
+            android:id="@+id/J6"
+            android:layout_width="match_parent"
+            android:layout_height="5dp"
+            android:layout_weight="1"
+            android:visibility="invisible"
+            android:background="@color/colorAccent700"/>
+
+        <FrameLayout
+            android:id="@+id/J7"
+            android:layout_width="match_parent"
+            android:layout_height="5dp"
+            android:layout_weight="1"
+            android:visibility="invisible"
+            android:background="@color/colorAccent700"/>
+
+        <FrameLayout
+            android:id="@+id/J8"
+            android:layout_width="match_parent"
+            android:layout_height="5dp"
+            android:layout_weight="1"
+            android:visibility="invisible"
+            android:background="@color/colorAccent700"/>
+
+        <FrameLayout
+            android:id="@+id/J9"
+            android:layout_width="match_parent"
+            android:layout_height="5dp"
+            android:layout_weight="1"
+            android:visibility="invisible"
+            android:background="@color/colorAccent700"/>
+
+        <FrameLayout
+            android:id="@+id/J10"
+            android:layout_width="match_parent"
+            android:layout_height="5dp"
+            android:layout_weight="1"
+            android:visibility="invisible"
+            android:background="@color/colorAccent700"/>
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageButton
+            android:id="@+id/imageButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:background="@color/colorTrasnparente"
+            android:src="@drawable/ic_jogador"
+            android:tint="@color/colorCinza" />
+
+        <TextView
+            android:id="@+id/contagemJogadores"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toEndOf="@+id/imageButton"
+            android:layout_toRightOf="@+id/imageButton"
+            android:text="Jogadores"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="@color/colorCinza"
+            android:textSize="15dp" />
+
+        <Button
+            android:id="@+id/btnAddJogador"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_gravity="center_vertical"
+            android:layout_marginRight="16dp"
+            android:backgroundTint="@color/colorWhite"
+            android:text="@string/AdicionarJogador"
+            android:textColor="@color/colorBlack" />
+    </RelativeLayout>
 
     <ListView
         android:id="@+id/list_view_jogadores"

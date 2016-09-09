@@ -40,7 +40,7 @@ public class Inicio extends AppCompatActivity
         setContentView(R.layout.activity_inicio);
 
         toolbar = (Toolbar) findViewById(R.id.toolbar);
-        toolbar.setTitle(R.string.TextoVazio);
+        toolbar.setTitle("Grupos de jogo");
         setSupportActionBar(toolbar);
 
         listViewPartidas = (ListView) findViewById(R.id.list_view_partidas);
@@ -118,23 +118,6 @@ public class Inicio extends AppCompatActivity
         } else {
             super.onBackPressed();
         }
-    }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.inicio_menu, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        int id = item.getItemId();
-
-        if (id == R.id.action_instrucoes) {
-            instrucoesActivity();
-        }
-
-        return super.onOptionsItemSelected(item);
     }
 
     @SuppressWarnings("StatementWithEmptyBody")

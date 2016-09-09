@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorWhite"
+    android:background="@color/colorFundoInstruções"
     android:orientation="vertical"
     android:theme="@style/AppTheme.WhiteBotton"
     tools:context=".view.Placar">
@@ -14,7 +14,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:fitsSystemWindows="true"
-        app:elevation="0dp">
+        app:elevation="5dp">
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -33,66 +33,50 @@
                 android:id="@+id/Titulo"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
-                android:layout_centerVertical="true"
                 android:layout_gravity="center"
-                android:layout_marginRight="5dp"
-                android:text="@string/TotalDeRodadas"
+                android:text="Total"
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:textColor="@color/colorWhiteTransparente"
-                android:textSize="15dp" />
+                android:textSize="15dp"
+                android:layout_centerVertical="true"
+                android:layout_alignRight="@+id/btnQuantRodadas"
+                android:layout_alignEnd="@+id/btnQuantRodadas"
+                android:layout_margin="32dp" />
 
             <Button
                 android:id="@+id/btnQuantRodadas"
                 android:layout_width="25dp"
                 android:layout_height="25dp"
-                android:layout_centerVertical="true"
                 android:layout_gravity="right|center_vertical"
-                android:layout_toEndOf="@+id/Titulo"
-                android:layout_toRightOf="@+id/Titulo"
                 android:background="@drawable/circulo"
                 android:backgroundTint="@color/colorWhite"
                 android:text="38"
                 android:textColor="@color/colorAccent"
-                android:textSize="15dp" />
+                android:textSize="15dp"
+                android:layout_centerVertical="true"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
+                android:layout_margin="16dp" />
 
         </RelativeLayout>
 
 
     </android.support.design.widget.AppBarLayout>
 
-    <LinearLayout
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:padding="10dp">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="start"
-            android:layout_marginRight="8dp"
-            android:padding="5dp"
             android:text="Rodadas"
-            android:textColor="@color/colorCinzaEscuro" />
+            android:textColor="@color/colorCinzaEscuro"
+            android:layout_gravity="left|bottom"
+            android:textSize="15dp" />
 
-        <TextView
-            android:layout_weight="1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginRight="8dp"
-            android:padding="5dp"
-            android:textAlignment="center"
-            android:text="Vencedor"
-            android:textColor="@color/colorCinzaEscuro" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginRight="8dp"
-            android:padding="5dp"
-            android:text="Pontuação"
-            android:textColor="@color/colorCinzaEscuro" />
-    </LinearLayout>
+    </FrameLayout>
 
     <ListView
         android:id="@+id/list_view_placar"

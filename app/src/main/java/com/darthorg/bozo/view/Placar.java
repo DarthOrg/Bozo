@@ -27,7 +27,7 @@ public class Placar extends AppCompatActivity {
         setContentView(R.layout.activity_placar);
 
         toolbar = (Toolbar) findViewById(R.id.toolbar);
-        toolbar.setTitle(R.string.TextoVazio);
+        toolbar.setTitle(R.string.Placar);
         setSupportActionBar(toolbar);
 
         // Recupera as rodadas vindas por intent
@@ -47,19 +47,10 @@ public class Placar extends AppCompatActivity {
     }
 
     @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.placar_menu, menu);
-        return true;
-    }
-
-    @Override
     public boolean onOptionsItemSelected(MenuItem item) {
 
         int id = item.getItemId();
-
-        if (id == R.id.action_zerar) {
-            return true;
-        } else if (id == android.R.id.home) {
+        if (id == android.R.id.home) {
             finish();
         }
 

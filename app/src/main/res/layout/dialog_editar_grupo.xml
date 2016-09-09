@@ -21,7 +21,7 @@
         app:errorEnabled="true">
 
         <EditText
-            android:id="@+id/edit_nome_novo_jogador"
+            android:id="@+id/edit_nome_grupo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
@@ -51,7 +51,7 @@
             android:textColor="@color/colorCinza" />
 
         <Button
-            android:id="@+id/btnAdicionarJogador"
+            android:id="@+id/btnSalvar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
@@ -59,7 +59,7 @@
             android:layout_alignParentTop="true"
             android:layout_gravity="right|center_vertical"
             android:background="@color/colorTrasnparente"
-            android:text="@string/Adicionar"
+            android:text="@string/Salvar"
             android:textColor="@color/colorAccent" />
 
 

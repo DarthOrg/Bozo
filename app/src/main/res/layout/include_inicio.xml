@@ -13,19 +13,19 @@
 
 
         <FrameLayout
+            android:id="@+id/list_vazio"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:id="@+id/list_vazio">
+            android:layout_height="match_parent">
 
 
             <ImageView
+                android:id="@+id/imageView3"
                 android:layout_width="wrap_content"
                 android:layout_height="250dp"
-                android:id="@+id/imageView3"
-                android:src="@drawable/img_vazio"
                 android:layout_centerHorizontal="true"
                 android:layout_centerVertical="true"
-                android:layout_gravity="center" />
+                android:layout_gravity="center"
+                android:src="@drawable/img_vazio" />
 
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -34,101 +34,102 @@
                 android:layout_marginTop="60dp">
 
                 <TextView
+                    android:id="@+id/textView21"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textAppearance="?android:attr/textAppearanceLarge"
-                    android:text="Para criar um grupo de jogo"
-                    android:id="@+id/textView21"
-                    android:layout_centerVertical="true"
                     android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true"
                     android:layout_gravity="center"
-                    android:textSize="15dp"
-                    android:textColor="@color/colorBlackTransparente" />
+                    android:text="Para criar um grupo de jogo"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:textColor="@color/colorBlackTransparente"
+                    android:textSize="15dp" />
 
                 <RelativeLayout
+                    android:id="@+id/relativeLayout"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/textView21"
-                    android:layout_centerHorizontal="true"
-                    android:id="@+id/relativeLayout">
+                    android:layout_centerHorizontal="true">
+
                     <TextView
+                        android:id="@+id/textView22"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textAppearance="?android:attr/textAppearanceLarge"
-                        android:text="clique no botão"
-                        android:id="@+id/textView22"
-                        android:layout_gravity="center"
-                        android:textSize="15dp"
-                        android:textAlignment="textStart"
-                        android:layout_below="@+id/textView21"
                         android:layout_alignLeft="@+id/textView21"
                         android:layout_alignStart="@+id/textView21"
-                        android:layout_marginTop="1dp"
-                        android:textColor="@color/colorBlackTransparente" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textAppearance="?android:attr/textAppearanceLarge"
-                        android:text="+"
-                        android:id="@+id/textView23"
-                        android:layout_gravity="center"
-                        android:textSize="15dp"
                         android:layout_below="@+id/textView21"
-                        android:layout_toRightOf="@+id/textView22"
-                        android:layout_toEndOf="@+id/textView22"
-                        android:textColor="@color/colorAccent"
-                        android:textStyle="bold"
-                        android:layout_marginLeft="5dp"
-                        android:layout_marginRight="5dp" />
+                        android:layout_gravity="center"
+                        android:layout_marginTop="1dp"
+                        android:text="clique no botão"
+                        android:textAlignment="textStart"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:textColor="@color/colorBlackTransparente"
+                        android:textSize="15dp" />
 
                     <TextView
+                        android:id="@+id/textView23"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textAppearance="?android:attr/textAppearanceLarge"
-                        android:text="ou no"
-                        android:id="@+id/textView24"
+                        android:layout_below="@+id/textView21"
                         android:layout_gravity="center"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginRight="5dp"
+                        android:layout_toEndOf="@+id/textView22"
+                        android:layout_toRightOf="@+id/textView22"
+                        android:text="+"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:textColor="@color/colorAccent"
                         android:textSize="15dp"
-                        android:textAlignment="textStart"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/textView24"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
                         android:layout_alignTop="@+id/textView22"
-                        android:layout_toRightOf="@+id/textView23"
+                        android:layout_gravity="center"
                         android:layout_toEndOf="@+id/textView23"
-                        android:textColor="@color/colorBlackTransparente" />
+                        android:layout_toRightOf="@+id/textView23"
+                        android:text="ou no"
+                        android:textAlignment="textStart"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:textColor="@color/colorBlackTransparente"
+                        android:textSize="15dp" />
                 </RelativeLayout>
 
-            <RelativeLayout
-                android:layout_width="wrap_content"
-                android:layout_height="40dp"
-                android:layout_below="@+id/relativeLayout"
-                android:layout_centerHorizontal="true">
-
-                <TextView
+                <RelativeLayout
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textAppearance="?android:attr/textAppearanceLarge"
-                    android:text="menu"
-                    android:id="@+id/textView25"
-                    android:layout_gravity="center"
-                    android:textSize="15dp"
-                    android:textAlignment="textStart"
-                    android:textColor="@color/colorBlackTransparente"
-                    android:layout_marginRight="5dp" />
+                    android:layout_height="40dp"
+                    android:layout_below="@+id/relativeLayout"
+                    android:layout_centerHorizontal="true">
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textAppearance="?android:attr/textAppearanceLarge"
-                    android:text="Novo grupo"
-                    android:id="@+id/textView26"
-                    android:layout_gravity="center"
-                    android:textSize="15dp"
-                    android:textColor="@color/colorAccent"
-                    android:textStyle="bold"
-                    android:layout_alignParentTop="true"
-                    android:layout_toRightOf="@+id/textView25"
-                    android:layout_toEndOf="@+id/textView25" />
-            </RelativeLayout>
+                    <TextView
+                        android:id="@+id/textView25"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginRight="5dp"
+                        android:text="menu"
+                        android:textAlignment="textStart"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:textColor="@color/colorBlackTransparente"
+                        android:textSize="15dp" />
+
+                    <TextView
+                        android:id="@+id/textView26"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentTop="true"
+                        android:layout_gravity="center"
+                        android:layout_toEndOf="@+id/textView25"
+                        android:layout_toRightOf="@+id/textView25"
+                        android:text="Novo grupo"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:textColor="@color/colorAccent"
+                        android:textSize="15dp"
+                        android:textStyle="bold" />
+                </RelativeLayout>
 
 
             </RelativeLayout>
@@ -137,59 +138,40 @@
         </FrameLayout>
 
         <android.support.design.widget.AppBarLayout
+            android:id="@+id/view5"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
             android:layout_alignParentLeft="true"
-            android:theme="@style/AppTheme.WhiteBotton"
             android:layout_alignParentStart="false"
-            android:id="@+id/view5">
-            <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_alignParentTop="true"
+            android:theme="@style/AppTheme.WhiteBotton">
 
             <!--TOOLBAR TOPO-->
             <android.support.v7.widget.Toolbar
                 android:id="@+id/toolbar"
-                android:background="@color/colorAccent"
                 android:layout_width="match_parent"
-                android:theme="@style/AppTheme.WhiteBotton"
-                android:layout_height="?attr/actionBarSize"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceMedium"
-                android:text="@string/GruposDeJogo"
-                android:id="@+id/Titulo"
-                android:layout_gravity="center"
-                android:textSize="15dp"
-                android:textColor="@color/colorWhite"
-                android:layout_centerVertical="true"
-                android:layout_centerHorizontal="true" />
-
-
-
-        </RelativeLayout>
+                android:layout_height="?attr/actionBarSize"
+                android:background="@color/colorAccent"
+                android:theme="@style/AppTheme.WhiteBotton" />
 
         </android.support.design.widget.AppBarLayout>
 
         <android.support.v4.widget.SwipeRefreshLayout
-        android:id="@+id/stl_swipe"
-            android:backgroundTint="@color/colorAccent"
+            android:id="@+id/stl_swipe"
             android:layout_width="match_parent"
-        android:layout_height="match_parent"
-            android:layout_below="@+id/view5">
+            android:layout_height="match_parent"
+            android:layout_below="@+id/view5"
+            android:backgroundTint="@color/colorAccent">
 
-    <ListView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:divider="@color/colorStatusBar"
-        android:id="@+id/list_view_partidas"
-        android:cacheColorHint="@color/colorBlack" />
+            <ListView
+                android:id="@+id/list_view_partidas"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:cacheColorHint="@color/colorBlack"
+                android:divider="@color/colorStatusBar" />
 
 
-    </android.support.v4.widget.SwipeRefreshLayout>
+        </android.support.v4.widget.SwipeRefreshLayout>
 
     </RelativeLayout>
 
@@ -201,6 +183,6 @@
         android:layout_gravity="bottom|end"
         android:layout_margin="@dimen/fab_margin"
         android:src="@drawable/ic_plus_white"
-        android:tint="@color/colorWhite"/>
+        android:tint="@color/colorWhite" />
 
 </android.support.design.widget.CoordinatorLayout>
