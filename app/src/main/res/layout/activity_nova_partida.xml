@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/paginaDadosGrupo"
@@ -7,67 +7,58 @@
     android:layout_height="match_parent"
     android:background="@color/colorFundoInstruções"
     android:orientation="vertical"
-    android:theme="@style/AppTheme.WhiteBotton"
     tools:context=".view.NovaPartida">
-
-    <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/colorRed">
-
-        <TextView
-            android:id="@+id/txtErro"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_margin="5dp"
-            android:text="Aqui vai o texto erro"
-            android:textAppearance="?android:attr/textAppearanceSmall"
-            android:textColor="@color/colorWhite"
-            android:textSize="12dp"
-            android:visibility="gone" />
-    </FrameLayout>
 
     <android.support.design.widget.AppBarLayout
         android:id="@+id/view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:theme="@style/AppTheme.WhiteBotton"
         android:background="@color/colorAccent">
 
-
-        <!--TOOLBAR TOPO-->
-        <android.support.v7.widget.Toolbar
-            android:id="@+id/toolbar"
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            app:title="@string/NovoGrupo" />
+            android:layout_height="wrap_content">
 
+            <!--TOOLBAR TOPO-->
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                app:title="@string/NomedoGrupo"
+                app:subtitle="Clique aqui para editar"/>
+
+
+            <FrameLayout
+                android:id="@+id/btnEditarNomeGrupo"
+                android:layout_width="200dp"
+                android:layout_marginLeft="52dp"
+                android:layout_height="56dp">
+
+            </FrameLayout>
+
+        </RelativeLayout>
 
     </android.support.design.widget.AppBarLayout>
 
-    <RelativeLayout
+    <!--Editar nome grupo-->
+    <LinearLayout
+        android:id="@+id/campoEditarNomegrupo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp">
-
-        <ImageButton
-            android:id="@+id/imageButton2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="16dp"
-            android:background="@color/colorTrasnparente"
-            android:src="@drawable/ic_groupo"
-            android:tint="@color/colorAccent" />
-
+        android:layout_below="@+id/view"
+        android:visibility="gone"
+        android:orientation="vertical">
 
         <android.support.design.widget.TextInputLayout
             android:id="@+id/til_jogador"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
-            android:layout_toEndOf="@+id/imageButton2"
-            android:layout_toRightOf="@+id/imageButton2"
+            android:layout_marginTop="10dp"
             android:layout_marginRight="16dp"
+            android:layout_marginLeft="16dp"
+            android:theme="@style/AppTheme.Dark"
             android:textColorHint="@color/colorCinza"
             app:counterEnabled="false">
 
@@ -78,189 +69,82 @@
                 android:ems="10"
                 android:layout_marginBottom="8dp"
                 android:hint="@string/NomedoGrupo"
-                android:visibility="gone"
+                android:theme="@style/AppTheme.Dark"
                 android:inputType="textCapCharacters|text"
                 android:singleLine="true"
                 android:textColor="@color/colorBlack"
                 android:textColorHint="@color/colorStatusBar" />
         </android.support.design.widget.TextInputLayout>
 
-        <TextView
-            android:id="@+id/txtNomeGrupo"
-            android:layout_width="wrap_content"
+        <RelativeLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:layout_toEndOf="@+id/imageButton2"
-            android:layout_toRightOf="@+id/imageButton2"
-            android:text="Nome Grupo"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:textColor="@color/colorBlack"
-            android:textSize="20dp" />
-    </RelativeLayout>
+            android:padding="10dp">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:paddingBottom="16dp"
-        android:paddingLeft="60dp">
+            <Button
+                android:id="@+id/btnEdtCancelar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:background="@color/colorTrasnparente"
+                android:text="@string/Cancelar"
+                android:textColor="@color/colorAccent"
+                android:textSize="15dp"
+                android:layout_alignParentTop="true"
+                android:layout_toLeftOf="@+id/btnEdtSalvar"
+                android:layout_toStartOf="@+id/btnEdtSalvar" />
 
-        <Button
-            android:id="@+id/btnEditarNomeGrupo"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:backgroundTint="@color/colorWhite"
-            android:text="@string/Editar"
-            android:textColor="@color/colorBlack" />
+            <Button
+                android:id="@+id/btnEdtSalvar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@color/colorTrasnparente"
+                android:text="@string/Salvar"
+                android:textColor="@color/colorAccent"
+                android:textSize="15dp"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true" />
+        </RelativeLayout>
 
-        <Button
-            android:id="@+id/btnCriarGrupo"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:layout_marginLeft="5dp"
-            android:backgroundTint="@color/colorGreenA700"
-            android:text="@string/CriarGrupo" />
     </LinearLayout>
 
-    <View
+    <android.support.v7.widget.CardView
         android:layout_width="match_parent"
-        android:layout_height="0.5dp"
-        android:background="@color/colorStatusBar" />
+        android:layout_below="@+id/campoEditarNomegrupo"
+        android:layout_margin="10dp"
+        app:cardBackgroundColor="@color/colorWhite"
+        android:layout_height="match_parent">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:background="@color/colorFundoInstruções">
 
-        <FrameLayout
-            android:id="@+id/J1"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="5dp"
-            android:layout_weight="1"
-            android:visibility="invisible"
-            android:background="@color/colorAccent700"/>
-
-        <FrameLayout
-            android:id="@+id/J2"
-            android:layout_width="match_parent"
-            android:layout_height="5dp"
-            android:layout_weight="1"
-            android:visibility="invisible"
-            android:background="@color/colorAccent700"/>
-
-        <FrameLayout
-            android:id="@+id/J3"
-            android:layout_width="match_parent"
-            android:layout_height="5dp"
-            android:layout_weight="1"
-            android:visibility="invisible"
-            android:background="@color/colorAccent700"/>
-
-        <FrameLayout
-            android:id="@+id/J4"
-            android:layout_width="match_parent"
-            android:layout_height="5dp"
-            android:layout_weight="1"
-            android:visibility="invisible"
-            android:background="@color/colorAccent700"/>
-
-        <FrameLayout
-            android:id="@+id/J5"
-            android:layout_width="match_parent"
-            android:layout_height="5dp"
-            android:layout_weight="1"
-            android:visibility="invisible"
-            android:background="@color/colorAccent700"/>
-
-        <FrameLayout
-            android:id="@+id/J6"
-            android:layout_width="match_parent"
-            android:layout_height="5dp"
-            android:layout_weight="1"
-            android:visibility="invisible"
-            android:background="@color/colorAccent700"/>
-
-        <FrameLayout
-            android:id="@+id/J7"
-            android:layout_width="match_parent"
-            android:layout_height="5dp"
-            android:layout_weight="1"
-            android:visibility="invisible"
-            android:background="@color/colorAccent700"/>
-
-        <FrameLayout
-            android:id="@+id/J8"
-            android:layout_width="match_parent"
-            android:layout_height="5dp"
-            android:layout_weight="1"
-            android:visibility="invisible"
-            android:background="@color/colorAccent700"/>
-
-        <FrameLayout
-            android:id="@+id/J9"
-            android:layout_width="match_parent"
-            android:layout_height="5dp"
-            android:layout_weight="1"
-            android:visibility="invisible"
-            android:background="@color/colorAccent700"/>
-
-        <FrameLayout
-            android:id="@+id/J10"
-            android:layout_width="match_parent"
-            android:layout_height="5dp"
-            android:layout_weight="1"
-            android:visibility="invisible"
-            android:background="@color/colorAccent700"/>
-    </LinearLayout>
-
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <ImageButton
-            android:id="@+id/imageButton"
-            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="16dp"
-            android:background="@color/colorTrasnparente"
-            android:src="@drawable/ic_jogador"
-            android:tint="@color/colorCinza" />
+            android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/contagemJogadores"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:layout_toEndOf="@+id/imageButton"
-            android:layout_toRightOf="@+id/imageButton"
-            android:text="Jogadores"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:textColor="@color/colorCinza"
-            android:textSize="15dp" />
+            <Button
+                android:id="@+id/btnAddJogador"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="16dp"
+                android:text="@string/AdicionarJogador"
+                android:textColor="@color/colorCinza"
+                android:background="@color/colorWhite"
+                android:layout_gravity="center_horizontal" />
 
-        <Button
-            android:id="@+id/btnAddJogador"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentRight="true"
-            android:layout_centerVertical="true"
-            android:layout_gravity="center_vertical"
-            android:layout_marginRight="16dp"
-            android:backgroundTint="@color/colorWhite"
-            android:text="@string/AdicionarJogador"
-            android:textColor="@color/colorBlack" />
-    </RelativeLayout>
+            <ListView
+                android:id="@+id/list_view_jogadores"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:cacheColorHint="@color/colorBlack" />
 
-    <ListView
-        android:id="@+id/list_view_jogadores"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/view"
-        android:cacheColorHint="@color/colorBlack" />
+        </LinearLayout>
+
+    </android.support.v7.widget.CardView>
 
 
-</LinearLayout>
+
+
+
+
+</RelativeLayout>

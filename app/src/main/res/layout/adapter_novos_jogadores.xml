@@ -5,21 +5,44 @@
     android:orientation="horizontal"
     android:padding="10dp">
 
-    <TextView
-        android:id="@+id/txtNovoJogador"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_vertical"
-        android:layout_weight="1"
-        android:text="Novo Jogador"
-        android:textAppearance="?android:attr/textAppearanceMedium" />
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
-    <ImageButton
-        android:id="@+id/btnDelNovoJogador"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_vertical"
-        android:background="@drawable/ic_deletar_24dp"
-        android:backgroundTint="@color/colorCinza" />
+        <ImageButton
+            android:id="@+id/imageButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="16dp"
+            android:background="@color/colorTrasnparente"
+            android:src="@drawable/ic_jogador"
+            android:tint="@color/colorCinza" />
+
+        <TextView
+            android:id="@+id/txtNovoJogador"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toEndOf="@+id/imageButton"
+            android:layout_toRightOf="@+id/imageButton"
+            android:text="@string/NomeJogador"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="@color/colorCinza"
+            android:textSize="15dp" />
+
+        <ImageButton
+            android:id="@+id/btnDelNovoJogador"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:background="@drawable/ic_deletar_24dp"
+            android:backgroundTint="@color/colorCinza"
+            android:longClickable="false" />
+
+    </RelativeLayout>
+
+
 
 </LinearLayout>

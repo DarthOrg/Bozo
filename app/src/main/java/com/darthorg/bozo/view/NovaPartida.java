@@ -2,31 +2,25 @@ package com.darthorg.bozo.view;
 
 import android.app.Dialog;
 import android.content.Intent;
-import android.os.Build;
 import android.os.Bundle;
 import android.os.SystemClock;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.text.Editable;
 import android.text.TextUtils;
-import android.text.TextWatcher;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.FrameLayout;
+import android.widget.ImageButton;
+import android.widget.LinearLayout;
 import android.widget.ListView;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.darthorg.bozo.R;
 import com.darthorg.bozo.adapter.NovosJogadoresListAdapter;
-import com.darthorg.bozo.fragment.FragmentFilho;
-import com.darthorg.bozo.model.Jogador;
 
 import java.util.ArrayList;
 
@@ -37,12 +31,15 @@ public class NovaPartida extends AppCompatActivity {
     private NovosJogadoresListAdapter adapter;
     ListView listView;
 
-    Button btnCriarGrupo, btnAddJogador,btnEditarNomeGrupo;
+    Button btnAddJogador;
 
-    TextView txtErro, txtNomeGrupo, contagemJogadores;
+    FrameLayout btnEditarNomeGrupo;
 
-    FrameLayout J1, J2, J3, J4, J5, J6, J7, J8, J9, J10;
+    LinearLayout campoEditarGrupo;
 
+    EditText edit_nome_grupo;
+
+    Button btnEdtSalvar, btnEdtCancelar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,97 +53,35 @@ public class NovaPartida extends AppCompatActivity {
 //Contador Jogadors
         contarJogadores();
 
-        //Cor dos botões para versões anteriores da api 21
-        corBotoes();
-
         listView = (ListView) findViewById(R.id.list_view_jogadores);
         adapter = new NovosJogadoresListAdapter(jogadores, this);
         listView.setAdapter(adapter);
 
-        btnCriarGrupo.setOnClickListener(new View.OnClickListener() {
+        btnEditarNomeGrupo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                if(jogadores.size() == 0) {
-                    txtErro.setVisibility(View.VISIBLE);
-                    txtErro.setText("Adicione pelo menos 2 jogadores para criar o grupo");
-                    new Thread(new Runnable() {
-                        @Override
-                        public void run() {
-                            SystemClock.sleep(5000);
-                            runOnUiThread(new Runnable() {
-                                @Override
-                                public void run() {
-                                    txtErro.setVisibility(View.GONE);
-                                }
-                            });
-                        }
-                    }).start();
-
-                } else if (jogadores.size() == 1) {
-                    txtErro.setVisibility(View.VISIBLE);
-                    txtErro.setText("Adicione mais 1 ou mais jogadores para criar o grupo");
-                    new Thread(new Runnable() {
-                        @Override
-                        public void run() {
-                            SystemClock.sleep(5000);
-                            runOnUiThread(new Runnable() {
-                                @Override
-                                public void run() {
-                                    txtErro.setVisibility(View.GONE);
-                                }
-                            });
-                        }
-                    }).start();
-
-                } else {
-                    Intent intent = new Intent(NovaPartida.this, PartidaAberta.class);
-                    intent.putExtra("nomepartida", txtNomeGrupo.getText().toString());
-                    intent.putStringArrayListExtra("jogadores", jogadores);
-                    intent.putExtra("partidaNova", true);
-                    startActivity(intent);
-                    finish();
-                }
+                campoEditarGrupo.setVisibility(View.VISIBLE);
 
             }
         });
 
-
-        btnEditarNomeGrupo.setOnClickListener(new View.OnClickListener() {
+        btnEdtSalvar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                //Dialog para Adicionar Jogador
-                final Dialog dialogEditarGrupo = new Dialog(NovaPartida.this);
-                // Configura a view para o Dialog
-                dialogEditarGrupo.setContentView(R.layout.dialog_editar_grupo);
-                dialogEditarGrupo.setTitle("Editar nome grupo");
+                if (!TextUtils.isEmpty(edit_nome_grupo.getText().toString())) {
+                    campoEditarGrupo.setVisibility(View.GONE);
+                    toolbar.setTitle(edit_nome_grupo.getText().toString());
+                    edit_nome_grupo.setText(null);
+                }
 
-                //Recupera os componentes do layout do custondialog
-                final EditText etNomeGrupo = (EditText) dialogEditarGrupo.findViewById(R.id.edit_nome_grupo);
-                Button btnSalvar = (Button) dialogEditarGrupo.findViewById(R.id.btnSalvar);
-                Button btnCancelar = (Button) dialogEditarGrupo.findViewById(R.id.btnCancelar);
-
-                etNomeGrupo.setText(txtNomeGrupo.getText().toString());
-                //Add Jogador
-                btnSalvar.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-
-                        txtNomeGrupo.setText(etNomeGrupo.getText().toString());
-                        dialogEditarGrupo.dismiss();
-                    }
-                });
-                //Botão Cancelar
-                btnCancelar.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        dialogEditarGrupo.dismiss();
-                        return;
-                    }
-                });
-                dialogEditarGrupo.show();
-
+            }
+        });
+        btnEdtCancelar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                campoEditarGrupo.setVisibility(View.GONE);
+                edit_nome_grupo.setText(null);
             }
         });
 
@@ -199,12 +134,10 @@ public class NovaPartida extends AppCompatActivity {
         });
     }
 
-    private void corBotoes() {
-        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP) {
-            btnCriarGrupo.setBackgroundColor(getResources().getColor(R.color.colorGreenA700));
-            btnEditarNomeGrupo.setBackgroundColor(getResources().getColor(R.color.colorWhite));
-            btnAddJogador.setBackgroundColor(getResources().getColor(R.color.colorWhite));
-        }
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.nova_partida_menu, menu);
+        return true;
     }
 
 
@@ -214,6 +147,21 @@ public class NovaPartida extends AppCompatActivity {
         int id = item.getItemId();
         if (id == android.R.id.home) {
             finish();
+        } else if (id == R.id.action_criar_grupo) {
+
+            if (jogadores.size() == 0) {
+                Toast.makeText(getApplicationContext(), "Adicione pelo menos 2 jogadores para criar o grupo", Toast.LENGTH_LONG).show();
+            } else if (jogadores.size() == 1) {
+                Toast.makeText(getApplicationContext(), "Adicione mais 1 ou mais jogadores para criar o grupo", Toast.LENGTH_LONG).show();
+            }else {
+                Intent intent = new Intent(NovaPartida.this, PartidaAberta.class);
+                intent.putExtra("nomepartida", toolbar.getTitle().toString());
+                intent.putStringArrayListExtra("jogadores", jogadores);
+                intent.putExtra("partidaNova", true);
+                startActivity(intent);
+                finish();
+            }
+
         }
 
         return super.onOptionsItemSelected(item);
@@ -223,33 +171,27 @@ public class NovaPartida extends AppCompatActivity {
         toolbar = (Toolbar) findViewById(R.id.toolbar);
 
         btnAddJogador = (Button) findViewById(R.id.btnAddJogador);
-        btnEditarNomeGrupo = (Button) findViewById(R.id.btnEditarNomeGrupo);
-        btnCriarGrupo = (Button) findViewById(R.id.btnCriarGrupo);
-        txtErro = (TextView) findViewById(R.id.txtErro);
-        txtNomeGrupo = (TextView) findViewById(R.id.txtNomeGrupo);
 
-        contagemJogadores = (TextView) findViewById(R.id.contagemJogadores);
+        btnEditarNomeGrupo = (FrameLayout) findViewById(R.id.btnEditarNomeGrupo);
 
-        J1 = (FrameLayout) findViewById(R.id.J1);
-        J2 = (FrameLayout) findViewById(R.id.J2);
-        J3 = (FrameLayout) findViewById(R.id.J3);
-        J4 = (FrameLayout) findViewById(R.id.J4);
-        J5 = (FrameLayout) findViewById(R.id.J5);
-        J6 = (FrameLayout) findViewById(R.id.J6);
-        J7 = (FrameLayout) findViewById(R.id.J7);
-        J8 = (FrameLayout) findViewById(R.id.J8);
-        J9 = (FrameLayout) findViewById(R.id.J9);
-        J10 = (FrameLayout) findViewById(R.id.J10);
+        campoEditarGrupo = (LinearLayout) findViewById(R.id.campoEditarNomegrupo);
+
+        edit_nome_grupo = (EditText) findViewById(R.id.edit_nome_grupo);
+
+        btnEdtSalvar = (Button) findViewById(R.id.btnEdtSalvar);
+        btnEdtCancelar = (Button) findViewById(R.id.btnEdtCancelar);
+
+
     }
 
     private void contarJogadores() {
 
         if (jogadores.size() == 0) {
-                      contagemJogadores.setText("Jogadores");
+//                      contagemJogadores.setText("Jogadores");
         } else if (jogadores.size() == 1) {
-            contagemJogadores.setText(jogadores.size() + " Jogador");
+//            contagemJogadores.setText(jogadores.size() + " Jogador");
         } else if (jogadores.size() >= 2) {
-                    contagemJogadores.setText(jogadores.size() + " Jogadores");
+//                    contagemJogadores.setText(jogadores.size() + " Jogadores");
         }
     }
 
