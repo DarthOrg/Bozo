@@ -75,19 +75,19 @@ public class PecaBozo {
                 break;
             case "Full":
                 valoresPossiveis = new ArrayList<Integer>() {{
-                    add(0);add(20);add(25);}};
+                    add(0);add(10);add(15);}};
                 break;
             case "Seguida":
                 valoresPossiveis = new ArrayList<Integer>() {{
-                    add(0);add(30);add(35);}};
+                    add(0);add(20);add(25);}};
                 break;
             case "Quadrada":
                 valoresPossiveis = new ArrayList<Integer>() {{
-                    add(0);add(40);add(45);}};
+                    add(0);add(30);add(35);}};
                 break;
             case "General":
                 valoresPossiveis = new ArrayList<Integer>() {{
-                    add(0);add(50);add(100);}};
+                    add(0);add(40);add(100);}};
                 break;
         }
     }
