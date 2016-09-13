@@ -47,9 +47,13 @@ public class ValoresPecasGridAdapter extends BaseAdapter {
             txtValores = new TextView(mContext);
             txtValores.setLayoutParams(new GridView.LayoutParams(60, 60));
             txtValores.setPadding(6, 6, 6, 6);
-            txtValores.setBackgroundColor(mContext.getResources().getColor(R.color.colorFundoPartida));
+            txtValores.setBackground(mContext.getResources().getDrawable(R.drawable.circulo_accent));
+            txtValores.setTextColor(mContext.getResources().getColor(R.color.colorWhite));
             txtValores.setGravity(Gravity.CENTER);
             txtValores.setTextSize(20);
+            if (position == 0) {
+                txtValores.setBackground(mContext.getResources().getDrawable(R.drawable.circulo_black_transparente));
+            }
         } else {
             txtValores = (TextView) convertView;
         }
