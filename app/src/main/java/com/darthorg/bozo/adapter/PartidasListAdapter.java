@@ -14,6 +14,7 @@ import android.widget.Toast;
 import com.darthorg.bozo.R;
 import com.darthorg.bozo.controller.PartidaController;
 import com.darthorg.bozo.model.Partida;
+import com.darthorg.bozo.model.Rodada;
 
 import java.util.List;
 
@@ -57,6 +58,23 @@ public class PartidasListAdapter extends BaseAdapter {
         TextView tvNumero = (TextView) v.findViewById(R.id.txt_lista_numero);
         TextView tvNomePartida = (TextView) v.findViewById(R.id.txt_lista_nome_partida);
         Button btnDelPartida = (Button) v.findViewById(R.id.btnDelPartida);
+        TextView tvJogadoresUltimaRodada = (TextView) v.findViewById(R.id.tvJogadoresUltimaRodada);
+
+        //Busca a ultima rodada
+        Rodada ultimaRodada = mPartidaList.get(position).getRodadas().get(mPartidaList.get(position).getRodadas().size() - 1);
+
+        // String com onde ficaram os nomes dos jogadoress
+        String nomesJogadores = "";
+
+        for (int i = 0; i < ultimaRodada.getJogadores().size(); i++) {
+            if (i != ultimaRodada.getJogadores().size() - 1) {
+                nomesJogadores += ultimaRodada.getJogadores().get(i).getNome() + ", ";
+            } else {
+                nomesJogadores += ultimaRodada.getJogadores().get(i).getNome();
+            }
+        }
+        tvJogadoresUltimaRodada.setText(nomesJogadores);
+
 
         btnDelPartida.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -70,7 +88,9 @@ public class PartidasListAdapter extends BaseAdapter {
                 alertDialog.setPositiveButton(" Deletar ", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
                         PartidaController partidaController = new PartidaController(mContext);
+
                         if (partidaController.deletarPartida(mPartidaList.get(position))) {
+
                             mPartidaList.remove(mPartidaList.get(position));
                             notifyDataSetChanged();
                             Toast.makeText(mContext, "Partida deletada!", Toast.LENGTH_SHORT);
