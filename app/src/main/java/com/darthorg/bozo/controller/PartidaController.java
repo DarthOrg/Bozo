@@ -68,6 +68,16 @@ public class PartidaController {
     }
 
     public List<Partida> buscarPartidas() {
-        return partidaDAO.buscarPartidas();
+
+        List<Partida> partidasBD = partidaDAO.buscarPartidas();
+
+        for (int i = 0; i < partidasBD.size(); i++) {
+            partidasBD.get(i).setRodadas(buscarRodadasPartida(partidasBD.get(i).getIdPartida()));
+            for (int j = 0; j < partidasBD.get(i).getRodadas().size(); j++) {
+                partidasBD.get(i).getRodadas().get(j).setJogadores(rodadaController.buscarJogadoresRodada(partidasBD.get(i).getRodadas().get(j).getIdRodada()));
+            }
+        }
+
+        return partidasBD;
     }
 }
