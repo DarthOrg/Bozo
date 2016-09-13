@@ -12,6 +12,7 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -121,22 +122,20 @@ public class PartidaAberta extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                //Dialog para Adicionar Jogador
-                final Dialog dialogAdicionarJogador = new Dialog(PartidaAberta.this, android.R.style.Theme_DeviceDefault_Dialog);
-                // Configura a view para o Dialog
-                dialogAdicionarJogador.setContentView(R.layout.dialog_novo_jogador);
-                dialogAdicionarJogador.setTitle("Novo Jogador");
 
-                //Recupera os componentes do layout do custondialog
-                final EditText etNomeJogador = (EditText) dialogAdicionarJogador.findViewById(R.id.edit_nome_novo_jogador);
-                Button btnAdicionarJogador = (Button) dialogAdicionarJogador.findViewById(R.id.btnAdicionarJogador);
-                Button btnCancelar = (Button) dialogAdicionarJogador.findViewById(R.id.btnCancelar);
+                LayoutInflater inflater = getLayoutInflater();
 
-                //Add Jogador
-                btnAdicionarJogador.setOnClickListener(new View.OnClickListener() {
+                View dialoglayout = inflater.inflate(R.layout.dialog_novo_jogador, null);
+
+                final EditText etNomeJogador = (EditText) dialoglayout.findViewById(R.id.edit_nome_novo_jogador);
+
+                AlertDialog.Builder builder = new AlertDialog.Builder(PartidaAberta.this);
+                builder.setTitle("Adicionar jogador");
+                builder.setIcon(R.drawable.ic_add_jogador);
+
+                builder.setPositiveButton("Adicionar", new DialogInterface.OnClickListener() {
                     @Override
-                    public void onClick(View view) {
-
+                    public void onClick(DialogInterface dialog, int which) {
                         FragmentFilho fragmentFilho = new FragmentFilho();
                         Jogador jogador = new Jogador();
                         jogador.setNome(etNomeJogador.getText().toString());
@@ -157,17 +156,20 @@ public class PartidaAberta extends AppCompatActivity {
                         }
 
                         Toast.makeText(getApplicationContext(), getString(R.string.Jogador) + etNomeJogador.getText().toString() + getString(R.string.FoiAdicionado), Toast.LENGTH_LONG).show();
-                        dialogAdicionarJogador.dismiss();
+                        dialog.dismiss();
+
                     }
                 });
-                //Botão Cancelar
-                btnCancelar.setOnClickListener(new View.OnClickListener() {
+
+                builder.setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
                     @Override
-                    public void onClick(View view) {
-                        dialogAdicionarJogador.dismiss();
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
                     }
                 });
-                dialogAdicionarJogador.show();
+
+                builder.setView(dialoglayout);
+                builder.show();
                 mBottomSheetBehavior.setState(BottomSheetBehavior.STATE_COLLAPSED);
             }
         });
@@ -176,55 +178,46 @@ public class PartidaAberta extends AppCompatActivity {
         BSremoverJogador.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //Dialog para Remover Jogador
-                final Dialog dialogRemoveJogador = new Dialog(PartidaAberta.this, android.R.style.Theme_DeviceDefault_Dialog);
 
-                // Configura a view para o Dialog
-                dialogRemoveJogador.setContentView(R.layout.dialog_excluir);
-                dialogRemoveJogador.setTitle("Remover Jogador");
+                AlertDialog.Builder builder = new AlertDialog.Builder(PartidaAberta.this);
+                builder.setTitle("Remover Jogador");
+                builder.setIcon(R.drawable.ic_deletar_jogador);
+                builder.setMessage("Excluir o jogador "+jogadoresRodada.get(viewPager.getCurrentItem()).getNome()+" ?")
+                        .setPositiveButton("Excluir", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                dialog.dismiss();
+                                if (adapter.getCount() > 2) {
 
-                //Recupera os componentes do layout do custondialog
-                Button btnExcluir = (Button) dialogRemoveJogador.findViewById(R.id.btnExcluir);
-                Button btnCancelar = (Button) dialogRemoveJogador.findViewById(R.id.btnCancelar);
-                TextView txtNomeJogadorExcluido = (TextView) dialogRemoveJogador.findViewById(R.id.txtNomeJogadorExcluido);
-                txtNomeJogadorExcluido.setText(jogadoresRodada.get(viewPager.getCurrentItem()).getNome());
+                                    //remove o fragment da lista
+                                    listaFragments.remove(viewPager.getCurrentItem());
 
-                //Botão Excluir
-                btnExcluir.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        if (adapter.getCount() > 2) {
+                                    // Remove o jogador da rodada
+                                    jogadoresRodada.remove(viewPager.getCurrentItem());
 
-                            //remove o fragment da lista
-                            listaFragments.remove(viewPager.getCurrentItem());
+                                    // Remove o Fragment
+                                    adapter.removeFrag(viewPager.getCurrentItem());
 
-                            // Remove o jogador da rodada
-                            jogadoresRodada.remove(viewPager.getCurrentItem());
+                                    // Notifica o adapter que um fragment foi removido
+                                    adapter.notifyDataSetChanged();
+                                    // vincula denovo o viewpager com o tablayout
+                                    tabLayout.setupWithViewPager(viewPager);
 
-                            // Remove o Fragment
-                            adapter.removeFrag(viewPager.getCurrentItem());
+                                    dialog.dismiss();
 
-                            // Notifica o adapter que um fragment foi removido
-                            adapter.notifyDataSetChanged();
-                            // vincula denovo o viewpager com o tablayout
-                            tabLayout.setupWithViewPager(viewPager);
+                                } else {
+                                    dialog.dismiss();
+                                    Toast.makeText(getApplicationContext(), "Não pode excluir mais jogadores", Toast.LENGTH_LONG).show();
+                                }
+                            }
+                        })
+                        .setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                dialog.dismiss();
+                            }
+                        });
 
-                            dialogRemoveJogador.dismiss();
-
-                        } else {
-                            dialogRemoveJogador.dismiss();
-                            Toast.makeText(getApplicationContext(), "Não pode excluir mais jogadores", Toast.LENGTH_LONG).show();
-                        }
-                    }
-                });
-                //Botão Cancelar
-                btnCancelar.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        dialogRemoveJogador.dismiss();
-                    }
-                });
-                dialogRemoveJogador.show();
+                builder.show();
                 mBottomSheetBehavior.setState(BottomSheetBehavior.STATE_COLLAPSED);
             }
         });
@@ -680,7 +673,7 @@ public class PartidaAberta extends AppCompatActivity {
 
                     LayoutInflater inflater = getLayoutInflater();
 
-                    View dialoglayout = inflater.inflate(R.layout.dialog_empate,null);
+                    View dialoglayout = inflater.inflate(R.layout.dialog_empate, null);
 
                     final RadioGroup rgEmpate = (RadioGroup) dialoglayout.findViewById(R.id.rgDialogEmpate);
 

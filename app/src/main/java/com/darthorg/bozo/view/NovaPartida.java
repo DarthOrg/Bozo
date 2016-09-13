@@ -1,13 +1,16 @@
 package com.darthorg.bozo.view;
 
 import android.app.Dialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.SystemClock;
 import android.support.design.widget.FloatingActionButton;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -17,6 +20,8 @@ import android.widget.FrameLayout;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.Toast;
 
 import com.darthorg.bozo.R;
@@ -33,13 +38,7 @@ public class NovaPartida extends AppCompatActivity {
 
     Button btnAddJogador;
 
-    FrameLayout btnEditarNomeGrupo;
-
-    LinearLayout campoEditarGrupo;
-
     EditText edit_nome_grupo;
-
-    Button btnEdtSalvar, btnEdtCancelar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,78 +56,49 @@ public class NovaPartida extends AppCompatActivity {
         adapter = new NovosJogadoresListAdapter(jogadores, this);
         listView.setAdapter(adapter);
 
-        btnEditarNomeGrupo.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                campoEditarGrupo.setVisibility(View.VISIBLE);
-
-            }
-        });
-
-        btnEdtSalvar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                if (!TextUtils.isEmpty(edit_nome_grupo.getText().toString())) {
-                    campoEditarGrupo.setVisibility(View.GONE);
-                    toolbar.setTitle(edit_nome_grupo.getText().toString());
-                    edit_nome_grupo.setText(null);
-                }
-
-            }
-        });
-        btnEdtCancelar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                campoEditarGrupo.setVisibility(View.GONE);
-                edit_nome_grupo.setText(null);
-            }
-        });
-
         btnAddJogador.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                //Dialog para Adicionar Jogador
-                final Dialog dialogAdicionarJogador = new Dialog(NovaPartida.this);
-                // Configura a view para o Dialog
-                dialogAdicionarJogador.setContentView(R.layout.dialog_novo_jogador);
-                dialogAdicionarJogador.setTitle("Adicionar Jogador");
+                LayoutInflater inflater = getLayoutInflater();
 
-                //Recupera os componentes do layout do custondialog
-                final EditText etNomeJogador = (EditText) dialogAdicionarJogador.findViewById(R.id.edit_nome_novo_jogador);
-                Button btnAdicionarJogador = (Button) dialogAdicionarJogador.findViewById(R.id.btnAdicionarJogador);
-                Button btnCancelar = (Button) dialogAdicionarJogador.findViewById(R.id.btnCancelar);
+                View dialoglayout = inflater.inflate(R.layout.dialog_novo_jogador,null);
 
-                //Add Jogador
-                btnAdicionarJogador.setOnClickListener(new View.OnClickListener() {
+                final EditText etNomeJogador = (EditText) dialoglayout.findViewById(R.id.edit_nome_novo_jogador);
+
+                AlertDialog.Builder builder = new AlertDialog.Builder(NovaPartida.this);
+                builder.setTitle("Adicionar jogador");
+                builder.setIcon(R.drawable.ic_add_jogador);
+
+                builder.setPositiveButton("Adicionar", new DialogInterface.OnClickListener() {
                     @Override
-                    public void onClick(View view) {
-
+                    public void onClick(DialogInterface dialog, int which) {
                         if (jogadores.size() < 10) {
                             if (!TextUtils.isEmpty(etNomeJogador.getText().toString())) {
                                 jogadores.add(etNomeJogador.getText().toString());
                                 adapter.notifyDataSetChanged();
                                 etNomeJogador.setText(null);
                                 contarJogadores();
-                                dialogAdicionarJogador.dismiss();
+                                dialog.dismiss();
                             }
 
 
                         } else {
                             Toast.makeText(getApplicationContext(), "Máximo 10 jogadores, você pode adicionar.", Toast.LENGTH_LONG).show();
                         }
+
                     }
                 });
-                //Botão Cancelar
-                btnCancelar.setOnClickListener(new View.OnClickListener() {
+
+                builder.setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
                     @Override
-                    public void onClick(View view) {
-                        dialogAdicionarJogador.dismiss();
-                        return;
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
                     }
                 });
-                dialogAdicionarJogador.show();
+
+                builder.setView(dialoglayout);
+                builder.show();
 
             }
         });
@@ -148,14 +118,13 @@ public class NovaPartida extends AppCompatActivity {
         if (id == android.R.id.home) {
             finish();
         } else if (id == R.id.action_criar_grupo) {
-
             if (jogadores.size() == 0) {
                 Toast.makeText(getApplicationContext(), "Adicione pelo menos 2 jogadores para criar o grupo", Toast.LENGTH_LONG).show();
             } else if (jogadores.size() == 1) {
                 Toast.makeText(getApplicationContext(), "Adicione mais 1 ou mais jogadores para criar o grupo", Toast.LENGTH_LONG).show();
             }else {
                 Intent intent = new Intent(NovaPartida.this, PartidaAberta.class);
-                intent.putExtra("nomepartida", toolbar.getTitle().toString());
+                intent.putExtra("nomepartida", edit_nome_grupo.getText().toString());
                 intent.putStringArrayListExtra("jogadores", jogadores);
                 intent.putExtra("partidaNova", true);
                 startActivity(intent);
@@ -172,14 +141,7 @@ public class NovaPartida extends AppCompatActivity {
 
         btnAddJogador = (Button) findViewById(R.id.btnAddJogador);
 
-        btnEditarNomeGrupo = (FrameLayout) findViewById(R.id.btnEditarNomeGrupo);
-
-        campoEditarGrupo = (LinearLayout) findViewById(R.id.campoEditarNomegrupo);
-
         edit_nome_grupo = (EditText) findViewById(R.id.edit_nome_grupo);
-
-        btnEdtSalvar = (Button) findViewById(R.id.btnEdtSalvar);
-        btnEdtCancelar = (Button) findViewById(R.id.btnEdtCancelar);
 
 
     }
