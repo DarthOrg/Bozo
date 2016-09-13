@@ -80,6 +80,8 @@ public class PartidaAberta extends AppCompatActivity {
     private TextView tituloGrupo;
     private BottomSheetBehavior mBottomSheetBehavior;
 
+    RadioGroup rgEmpate;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -524,101 +526,95 @@ public class PartidaAberta extends AppCompatActivity {
     private void saveAndQuit() {
 
         if (listRodadas.size() != 0) {
-            // Salva apenas se tiver alteraçao
-            LayoutInflater inflater = getLayoutInflater();
-            View dialogLayout = inflater.inflate(R.layout.dialog_sair_grupo, null);
-            AlertDialog.Builder builder = new AlertDialog.Builder(PartidaAberta.this);
-
-            //Botão Salvar grupo
-            Button btnSalvarGrupo = (Button) dialogLayout.findViewById(R.id.btnExcluir);
-            btnSalvarGrupo.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(final View view) {
-
-                    //ProgressDialog Função carregar
-                    final ProgressDialog builder = new ProgressDialog(PartidaAberta.this);
-                    builder.setMessage("Salvando só um momento...");
-                    builder.show();
-
-                    if (intent != null) {
-                        if (bundleParams != null) {
-                            //Verifica se é uma partida nova ou uma partida salva
-                            if (verificaPartidaNova()) {
-                                // OK, é nova
-                                partidaController = new PartidaController(PartidaAberta.this);
 
 
-                                new Handler().postDelayed(new Runnable() {
-                                    public void run() {
+            final AlertDialog.Builder builder = new AlertDialog.Builder(this);
 
-                                        partida.setRodadas(listRodadas);
-                                        //Insere a partida no banco
-                                        partidaController.inserirPartida(partida);
+            builder.setTitle("Deseja salvar antes de sair?");
+            builder.setIcon(R.drawable.ic_salvar);
+            builder.setMessage(getString(R.string.TextoSairGrupo))
+                    .setPositiveButton("Salvar", new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int id) {
+                            //ProgressDialog Função carregar
+                            final ProgressDialog builder = new ProgressDialog(PartidaAberta.this);
+                            builder.setMessage("Salvando só um momento...");
+                            builder.show();
 
-                                        Toast.makeText(getApplicationContext(), "Grupo " + partida.getNome() + " salvo com sucesso", Toast.LENGTH_LONG).show();
-                                        builder.dismiss();
-                                        finish();
-                                    }
-                                }, ProgressSalvar);
+                            if (intent != null) {
+                                if (bundleParams != null) {
+                                    //Verifica se é uma partida nova ou uma partida salva
+                                    if (verificaPartidaNova()) {
+                                        // OK, é nova
+                                        partidaController = new PartidaController(PartidaAberta.this);
 
-                            } else {
-                                // Hmmm , Partida Salva então ?! entao ferro mané kkk
 
-                                new Handler().postDelayed(new Runnable() {
-                                    public void run() {
-                                        rodadaController = new RodadaController(PartidaAberta.this);
+                                        new Handler().postDelayed(new Runnable() {
+                                            public void run() {
 
-                                        if (!listRodadas.equals(partida.getRodadas())) {
-                                            // Adiciona as Novas Rodadas
-                                            for (int i = 0; i < listRodadas.size(); i++) {
-                                                if (i >= partida.getRodadas().size()) {
-                                                    listRodadas.get(i).setIdPartida(partida.getIdPartida());
-                                                    rodadaController.inserirRodada(listRodadas.get(i));
-                                                }
+                                                partida.setRodadas(listRodadas);
+                                                //Insere a partida no banco
+                                                partidaController.inserirPartida(partida);
+
+                                                Toast.makeText(getApplicationContext(), "Grupo " + partida.getNome() + " salvo com sucesso", Toast.LENGTH_LONG).show();
+                                                builder.dismiss();
+                                                finish();
                                             }
-                                        }
-                                        finish();
-                                        builder.dismiss();
+                                        }, ProgressSalvar);
+
+                                    } else {
+                                        // Hmmm , Partida Salva então ?! entao ferro mané kkk
+
+                                        new Handler().postDelayed(new Runnable() {
+                                            public void run() {
+                                                rodadaController = new RodadaController(PartidaAberta.this);
+
+                                                if (!listRodadas.equals(partida.getRodadas())) {
+                                                    // Adiciona as Novas Rodadas
+                                                    for (int i = 0; i < listRodadas.size(); i++) {
+                                                        if (i >= partida.getRodadas().size()) {
+                                                            listRodadas.get(i).setIdPartida(partida.getIdPartida());
+                                                            rodadaController.inserirRodada(listRodadas.get(i));
+                                                        }
+                                                    }
+                                                }
+                                                finish();
+                                                builder.dismiss();
+                                            }
+                                        }, ProgressSalvar);
                                     }
-                                }, ProgressSalvar);
+                                }
                             }
                         }
-                    }
-                }
-            });
-            //Botão Descartar grupo
-            Button btnDescartarGrupo = (Button) dialogLayout.findViewById(R.id.btnDescartar);
-            if (!verificaPartidaNova()) {
-                btnDescartarGrupo.setText(R.string.DescartarAlteracoes);
-            }
-            btnDescartarGrupo.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    finish();
-                }
-            });
-            builder.setView(dialogLayout);
+                    })
+                    .setNegativeButton("Descartar", new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int id) {
+
+                            if (!verificaPartidaNova()) {
+                                builder.setNegativeButton(getString(R.string.DescartarAlteracoes), null);
+                            }
+                            finish();
+                            dialog.dismiss();
+                        }
+                    });
             builder.show();
+
         } else {
 
-            final AlertDialog.Builder alertDialog = new AlertDialog.Builder(this, android.R.style.Theme_DeviceDefault_Light_Dialog_NoActionBar);
-
-            alertDialog.setCancelable(true);
-            alertDialog.setTitle("Nenhuma Rodada");
-            alertDialog.setMessage("Você não jogou nenhuma rodada .\n Deseja sair assim mesmo ?");
-            alertDialog.setPositiveButton(" Sim ", new DialogInterface.OnClickListener() {
-                public void onClick(DialogInterface dialog, int which) {
-                    dialog.dismiss();
-                    finish();
-                }
-            });
-
-            alertDialog.setNegativeButton(" Cancelar ", new DialogInterface.OnClickListener() {
-                public void onClick(DialogInterface dialog, int which) {
-                    dialog.dismiss();
-                }
-            });
-            alertDialog.show();
+            AlertDialog.Builder builder = new AlertDialog.Builder(this);
+            builder.setTitle("Sair");
+            builder.setMessage("Você não jogou nenhuma rodada.\nDeseja sair assim mesmo?")
+                    .setPositiveButton("Sim", new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int id) {
+                            dialog.dismiss();
+                            finish();
+                        }
+                    })
+                    .setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int id) {
+                            dialog.dismiss();
+                        }
+                    });
+            builder.show();
         }
 
     }
@@ -652,57 +648,42 @@ public class PartidaAberta extends AppCompatActivity {
 
                 if (compararPontos() != null) {
 
-                    // Dialog Finalizar grupo de jogo
-                    final Dialog dialogFinalizar = new Dialog(PartidaAberta.this, android.R.style.Theme_DeviceDefault_Dialog);
-                    dialogFinalizar.setTitle("Rodada finalizada");
 
-                    // Configura a view para o Dialog
-                    dialogFinalizar.setContentView(R.layout.dialog_ganhou);
+                    AlertDialog.Builder builder = new AlertDialog.Builder(this);
+                    builder.setTitle(compararPontos().getNome() + " Ganhou");
+                    builder.setIcon(R.drawable.ic_jogador);
+                    builder.setMessage("Quer jogar uma nova rodada?")
+                            .setPositiveButton("Jogar", new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int id) {
+                                    dialog.dismiss();
+                                    configurarNovaRodada(compararPontos().getNome());
+                                }
+                            })
+                            .setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    dialog.dismiss();
+                                }
+                            })
+                            .setNeutralButton("Sair", new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int id) {
+                                    //todo: uma hr isso vai dar bug nervoso
+                                    dialog.dismiss();
+                                    configurarNovaRodada(compararPontos().getNome());
+                                    saveAndQuit();
+                                }
+                            });
 
-                    Button btnSair = (Button) dialogFinalizar.findViewById(R.id.btnSair);
-                    Button btnCancelar = (Button) dialogFinalizar.findViewById(R.id.btnCancelar);
-                    Button btnJogar = (Button) dialogFinalizar.findViewById(R.id.btnJogar);
-                    TextView txtNomeJogadorExcluido = (TextView) dialogFinalizar.findViewById(R.id.txtGanhou);
-                    txtNomeJogadorExcluido.setText(compararPontos().getNome() + " Ganhou");
+                    builder.show();
 
-                    // btn Jogar nova rodada
-                    btnJogar.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            configurarNovaRodada(compararPontos().getNome());
-                            dialogFinalizar.dismiss();
-                        }
-                    });
-
-                    // btn Cancelar
-                    btnCancelar.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            dialogFinalizar.dismiss();
-                        }
-                    });
-
-                    // btn Sair
-                    btnSair.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            //todo: uma hr isso vai dar bug nervoso
-                            configurarNovaRodada(compararPontos().getNome());
-                            dialogFinalizar.dismiss();
-                            saveAndQuit();
-                        }
-                    });
-                    dialogFinalizar.show();
                 } else {
-                    // EMPATE
-                    final Dialog dialogEmpate = new Dialog(this, android.R.style.Theme_DeviceDefault_Dialog);
-                    dialogEmpate.setContentView(R.layout.dialog_empate);
-                    dialogEmpate.setTitle("Empate");
-                    dialogEmpate.setCancelable(true);
 
-                    final RadioGroup rgEmpate = (RadioGroup) dialogEmpate.findViewById(R.id.rgDialogEmpate);
+                    LayoutInflater inflater = getLayoutInflater();
 
-                    // Gera radiobuttons e os adiciona ao RadioGroup
+                    View dialoglayout = inflater.inflate(R.layout.dialog_empate,null);
+
+                    final RadioGroup rgEmpate = (RadioGroup) dialoglayout.findViewById(R.id.rgDialogEmpate);
+
                     for (int i = 0; i < listEmpatados.size(); i++) {
                         RadioButton rdbtn = new RadioButton(this);
                         rdbtn.setId(i);
@@ -710,49 +691,49 @@ public class PartidaAberta extends AppCompatActivity {
                         rgEmpate.addView(rdbtn);
                     }
 
-                    // Finaliza a partida configurando o vencedor de acordo com o radioButton selecionado
-                    Button btnFinalizar = (Button) dialogEmpate.findViewById(R.id.btnFinlizarEmpate);
-                    btnFinalizar.setOnClickListener(new View.OnClickListener() {
+                    AlertDialog.Builder builder = new AlertDialog.Builder(PartidaAberta.this);
+                    builder.setTitle("Empate");
+                    builder.setIcon(R.drawable.ic_groupo);
+                    builder.setMessage("Os jogadores devem decidir nos dados.\nSelecione o jogador que ganhou :");
+
+                    builder.setPositiveButton("Finalizar rodada", new DialogInterface.OnClickListener() {
                         @Override
-                        public void onClick(View v) {
-                            // captura o id do radiobutton e procura na lista e configura o vencedor
+                        public void onClick(DialogInterface dialog, int which) {
+                            dialog.dismiss();
                             configurarNovaRodada(listEmpatados.get(rgEmpate.getCheckedRadioButtonId()).getNome());
-                            dialogEmpate.dismiss();
                         }
                     });
 
-                    dialogEmpate.show();
+                    builder.setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            dialog.dismiss();
+                        }
+                    });
+
+                    builder.setView(dialoglayout);
+                    builder.show();
+
                 }
 
             } else {
 
-                // Dialog Finalizar grupo de jogo
-                final Dialog dialogFinalizar = new Dialog(PartidaAberta.this, android.R.style.Theme_DeviceDefault_Dialog);
-
-                // Configura a view para o Dialog
-                dialogFinalizar.setContentView(R.layout.dialog_finalizar_grupo);
-                dialogFinalizar.setTitle("Aviso!");
-
-                Button btnCancelar = (Button) dialogFinalizar.findViewById(R.id.btnCancelar);
-                Button btnSair = (Button) dialogFinalizar.findViewById(R.id.btnSair);
-
-                // btn Finalizar Grupo
-                btnSair.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        dialogFinalizar.dismiss();
-                        saveAndQuit();
-                    }
-                });
-
-                // btn Cancelar
-                btnCancelar.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        dialogFinalizar.dismiss();
-                    }
-                });
-                dialogFinalizar.show();
+                AlertDialog.Builder builder = new AlertDialog.Builder(this);
+                builder.setTitle("Aviso");
+                builder.setIcon(R.drawable.ic_aviso);
+                builder.setMessage("Alguns jogadores ainda não completaram todos os espaços. Deseja sair?")
+                        .setPositiveButton("Sair", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                dialog.dismiss();
+                                saveAndQuit();
+                            }
+                        })
+                        .setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                dialog.dismiss();
+                            }
+                        });
+                builder.show();
 
             }
         }
