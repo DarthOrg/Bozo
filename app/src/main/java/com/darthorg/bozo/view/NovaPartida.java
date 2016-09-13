@@ -1,11 +1,8 @@
 package com.darthorg.bozo.view;
 
-import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.SystemClock;
-import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -16,12 +13,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.FrameLayout;
-import android.widget.ImageButton;
-import android.widget.LinearLayout;
 import android.widget.ListView;
-import android.widget.RadioButton;
-import android.widget.RadioGroup;
 import android.widget.Toast;
 
 import com.darthorg.bozo.R;
@@ -62,7 +54,7 @@ public class NovaPartida extends AppCompatActivity {
 
                 LayoutInflater inflater = getLayoutInflater();
 
-                View dialoglayout = inflater.inflate(R.layout.dialog_novo_jogador,null);
+                View dialoglayout = inflater.inflate(R.layout.dialog_novo_jogador, null);
 
                 final EditText etNomeJogador = (EditText) dialoglayout.findViewById(R.id.edit_nome_novo_jogador);
 
@@ -122,7 +114,7 @@ public class NovaPartida extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(), "Adicione pelo menos 2 jogadores para criar o grupo", Toast.LENGTH_LONG).show();
             } else if (jogadores.size() == 1) {
                 Toast.makeText(getApplicationContext(), "Adicione mais 1 ou mais jogadores para criar o grupo", Toast.LENGTH_LONG).show();
-            }else {
+            } else if (!TextUtils.isEmpty(edit_nome_grupo.getText())) {
                 Intent intent = new Intent(NovaPartida.this, PartidaAberta.class);
                 intent.putExtra("nomepartida", edit_nome_grupo.getText().toString());
                 intent.putStringArrayListExtra("jogadores", jogadores);
