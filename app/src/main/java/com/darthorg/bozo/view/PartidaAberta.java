@@ -68,7 +68,7 @@ public class PartidaAberta extends AppCompatActivity {
     private Toolbar toolbar;
     private TabsDinamicosAdapter adapter;
     // FloatButtons para o Menu
-    private ImageButton BSplacar, BSaddJogador, BSremoverJogador;
+    private ImageButton BSplacar, BSaddJogador, BSremoverJogador, BsInstrucoes;
     LinearLayout sairBS;
     ImageButton fabMais;
 
@@ -241,6 +241,16 @@ public class PartidaAberta extends AppCompatActivity {
             }
         });
 
+        //Instrucoes do BottomSheet
+        BsInstrucoes.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(PartidaAberta.this, Instrucoes.class);
+                startActivity(intent);
+                mBottomSheetBehavior.setState(BottomSheetBehavior.STATE_COLLAPSED);
+            }
+        });
+
 
         //Compara os pontos e mostra quem esta ganhando
         viewPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
@@ -274,6 +284,7 @@ public class PartidaAberta extends AppCompatActivity {
         BSaddJogador = (ImageButton) findViewById(R.id.bottomSheet_add_jogador);
         BSremoverJogador = (ImageButton) findViewById(R.id.bottomSheet_remover_jogador);
         BSplacar = (ImageButton) findViewById(R.id.bottomSheet_placar);
+        BsInstrucoes = (ImageButton) findViewById(R.id.bottomSheet_instrucoes);
 
         sairBS = (LinearLayout) findViewById(R.id.sairBottomSheet);
 
