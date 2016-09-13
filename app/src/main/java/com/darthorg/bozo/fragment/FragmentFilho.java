@@ -4,20 +4,20 @@ import android.app.Dialog;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.text.InputFilter;
-import android.text.TextUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
+import android.widget.AdapterView;
 import android.widget.Button;
-import android.widget.EditText;
+import android.widget.GridView;
 import android.widget.ImageButton;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.darthorg.bozo.R;
+import com.darthorg.bozo.adapter.ValoresPecasGridAdapter;
 import com.darthorg.bozo.model.PecaBozo;
 
 import java.util.ArrayList;
@@ -31,7 +31,6 @@ import java.util.List;
 public class FragmentFilho extends Fragment {
 
     private String nome;
-
     private Button btnAz, btnDuque, btnTerno, btnQuadrada, btnSeguida, btnFull, btnQuina, btnSena, btnGeneral, btnQuadra;
 
     // Nomes das peças
@@ -107,9 +106,7 @@ public class FragmentFilho extends Fragment {
         btnSena = (Button) view.findViewById(R.id.btnSena);
         btnGeneral = (Button) view.findViewById(R.id.btnGeneral);
 
-
         txtGanhando = (Button) view.findViewById(R.id.txtGanhando);
-
     }
 
     private void setEvents() {
@@ -124,7 +121,14 @@ public class FragmentFilho extends Fragment {
 
     }
 
+    /**
+     * Evento de clique na peça do Bozó
+     *
+     * @param pecaBozo
+     * @param button
+     */
     public void cliquePeca(final PecaBozo pecaBozo, final Button button) {
+
 
         button.setOnClickListener(new View.OnClickListener() {
                                       @Override
@@ -132,94 +136,134 @@ public class FragmentFilho extends Fragment {
 
                                           //Dialog para Adicionar Jogador
                                           final Dialog dialogMarcarBozo = new Dialog(getContext());
+
                                           // Configura a view para o Dialog
                                           dialogMarcarBozo.getWindow().requestFeature(Window.FEATURE_NO_TITLE);
                                           dialogMarcarBozo.setContentView(R.layout.dialog_pontos);
 
                                           //Recupera os componentes do layout do custondialog
-                                          final EditText et = (EditText) dialogMarcarBozo.findViewById(R.id.etPonto);
+                                          //   final EditText et = (EditText) dialogMarcarBozo.findViewById(R.id.etPonto);
                                           TextView tituloPonto = (TextView) dialogMarcarBozo.findViewById(R.id.tituloPonto);
-                                          Button btnMarcar = (Button) dialogMarcarBozo.findViewById(R.id.btnMarcar);
                                           Button btnRiscar = (Button) dialogMarcarBozo.findViewById(R.id.btnRiscar);
+                                          GridView gridValoresPecas = (GridView) dialogMarcarBozo.findViewById(R.id.gvValoresPecas);
+                                          ValoresPecasGridAdapter valores;
                                           ImageButton btnCancelar = (ImageButton) dialogMarcarBozo.findViewById(R.id.btnCancelar);
 
 
                                           switch (pecaBozo.getNome()) {
                                               case nomeAz:
-                                                  tituloPonto.setText(getString(R.string.Az) + " ( 1 á 5 )");
-                                                  et.setFilters(new InputFilter[]{new InputFilter.LengthFilter(1)});
+                                                  tituloPonto.setText(getString(R.string.Az));
+
+                                                  //Configura os valores possiveis em cada posição
+                                                  valores = new ValoresPecasGridAdapter(getContext(), pecaBozoAz.getValoresPossiveis());
+                                                  gridValoresPecas.setAdapter(valores);
+
+                                                  cliqueValor(gridValoresPecas, pecaBozoAz, button, dialogMarcarBozo);
+
                                                   btnRiscar.setText("Riscar Áz");
                                                   break;
                                               case nomeDuque:
-                                                  tituloPonto.setText(getString(R.string.Duque) + " ( 2 á 10 )");
-                                                  et.setFilters(new InputFilter[]{new InputFilter.LengthFilter(2)});
+                                                  tituloPonto.setText(getString(R.string.Duque));
+
+                                                  //Configura os valores possiveis em cada posição
+                                                  valores = new ValoresPecasGridAdapter(getContext(), pecaBozoDuque.getValoresPossiveis());
+                                                  gridValoresPecas.setAdapter(valores);
+
+                                                  cliqueValor(gridValoresPecas, pecaBozoDuque, button, dialogMarcarBozo);
+
                                                   btnRiscar.setText("Riscar Duque");
                                                   break;
                                               case nomeTerno:
-                                                  tituloPonto.setText(getString(R.string.Terno) + " ( 3 á 15 )");
-                                                  et.setFilters(new InputFilter[]{new InputFilter.LengthFilter(2)});
+                                                  tituloPonto.setText(getString(R.string.Terno));
+
+                                                  //Configura os valores possiveis em cada posição
+                                                  valores = new ValoresPecasGridAdapter(getContext(), pecaBozoTerno.getValoresPossiveis());
+                                                  gridValoresPecas.setAdapter(valores);
+
+                                                  cliqueValor(gridValoresPecas, pecaBozoTerno, button, dialogMarcarBozo);
+
                                                   btnRiscar.setText("Riscar Terno");
                                                   break;
                                               case nomeQuadra:
-                                                  tituloPonto.setText(getString(R.string.Quadra) + " ( 4 á 20 )");
-                                                  et.setFilters(new InputFilter[]{new InputFilter.LengthFilter(2)});
+                                                  tituloPonto.setText(getString(R.string.Quadra));
+
+                                                  //Configura os valores possiveis em cada posição
+                                                  valores = new ValoresPecasGridAdapter(getContext(), pecaBozoQuadra.getValoresPossiveis());
+                                                  gridValoresPecas.setAdapter(valores);
+
+                                                  cliqueValor(gridValoresPecas, pecaBozoQuadra, button, dialogMarcarBozo);
+
                                                   btnRiscar.setText("Riscar Quadra");
                                                   break;
                                               case nomeQuina:
-                                                  tituloPonto.setText(getString(R.string.Quina) + " ( 5 á 25 )");
-                                                  et.setFilters(new InputFilter[]{new InputFilter.LengthFilter(2)});
+                                                  tituloPonto.setText(getString(R.string.Quina));
+
+                                                  //Configura os valores possiveis em cada posição
+                                                  valores = new ValoresPecasGridAdapter(getContext(), pecaBozoQuina.getValoresPossiveis());
+                                                  gridValoresPecas.setAdapter(valores);
+
+                                                  cliqueValor(gridValoresPecas, pecaBozoQuina, button, dialogMarcarBozo);
+
                                                   btnRiscar.setText("Riscar Quina");
                                                   break;
                                               case nomeSena:
-                                                  tituloPonto.setText(getString(R.string.Sena) + " ( 6 á 30 )");
-                                                  et.setFilters(new InputFilter[]{new InputFilter.LengthFilter(2)});
+                                                  tituloPonto.setText(getString(R.string.Sena));
+
+                                                  //Configura os valores possiveis em cada posição
+                                                  valores = new ValoresPecasGridAdapter(getContext(), pecaBozoSena.getValoresPossiveis());
+                                                  gridValoresPecas.setAdapter(valores);
+
+                                                  cliqueValor(gridValoresPecas, pecaBozoSena, button, dialogMarcarBozo);
+
                                                   btnRiscar.setText("Riscar Sena");
                                                   break;
                                               case nomeFull:
-                                                  tituloPonto.setText(getString(R.string.Full) + " ( 10 ou 15 )");
-                                                  et.setFilters(new InputFilter[]{new InputFilter.LengthFilter(2)});
+                                                  tituloPonto.setText(getString(R.string.Full));
+
+                                                  //Configura os valores possiveis em cada posição
+                                                  valores = new ValoresPecasGridAdapter(getContext(), pecaBozoFull.getValoresPossiveis());
+                                                  gridValoresPecas.setAdapter(valores);
+
+                                                  cliqueValor(gridValoresPecas, pecaBozoFull, button, dialogMarcarBozo);
+
                                                   btnRiscar.setText("Riscar Full");
                                                   break;
                                               case nomeSeguida:
-                                                  tituloPonto.setText(getString(R.string.Seguida) + " ( 20 ou 25)");
-                                                  et.setFilters(new InputFilter[]{new InputFilter.LengthFilter(2)});
+                                                  tituloPonto.setText(getString(R.string.Seguida));
+
+                                                  valores = new ValoresPecasGridAdapter(getContext(), pecaBozoSeguida.getValoresPossiveis());
+                                                  gridValoresPecas.setAdapter(valores);
+
+                                                  cliqueValor(gridValoresPecas, pecaBozoSeguida, button, dialogMarcarBozo);
+
                                                   btnRiscar.setText("Riscar Seguida");
                                                   break;
                                               case nomeQuadrada:
-                                                  tituloPonto.setText(getString(R.string.Quadrada) + " ( 30 ou 35 )");
-                                                  et.setFilters(new InputFilter[]{new InputFilter.LengthFilter(2)});
+                                                  tituloPonto.setText(getString(R.string.Quadrada));
+
+                                                  //Configura os valores possiveis em cada posição
+                                                  valores = new ValoresPecasGridAdapter(getContext(), pecaBozoQuadrada.getValoresPossiveis());
+                                                  gridValoresPecas.setAdapter(valores);
+
+                                                  cliqueValor(gridValoresPecas, pecaBozoQuadrada, button, dialogMarcarBozo);
+
                                                   btnRiscar.setText("Riscar Quadrada");
                                                   break;
                                               case nomeGeneral:
-                                                  tituloPonto.setText(getString(R.string.General) + " ( 40 ou 100)");
-                                                  et.setFilters(new InputFilter[]{new InputFilter.LengthFilter(3)});
+                                                  tituloPonto.setText(getString(R.string.General));
+
+                                                  //Configura os valores possiveis em cada posição
+                                                  valores = new ValoresPecasGridAdapter(getContext(), pecaBozoGeneral.getValoresPossiveis());
+                                                  gridValoresPecas.setAdapter(valores);
+
+                                                  cliqueValor(gridValoresPecas, pecaBozoGeneral, button, dialogMarcarBozo);
+
                                                   btnRiscar.setText("Riscar General");
                                                   break;
                                               default:
                                                   break;
                                           }
 
-                                          //Botão Marcar
-                                          btnMarcar.setOnClickListener(new View.OnClickListener() {
-                                              @Override
-                                              public void onClick(View view) {
-
-                                                  if (TextUtils.isEmpty(et.getText().toString())) {
-                                                      dialogMarcarBozo.dismiss();
-                                                  } else {
-                                                      pecaBozo.setPontuacao(et.getText().toString());
-                                                      button.setText(et.getText().toString());
-                                                      button.setTextColor(getResources().getColor(R.color.colorCinza));
-                                                      pecaBozo.setRiscado(false);
-                                                  }
-                                                  contador = contarPontos();
-                                                  resultadoFinal.setText(contador + "");
-
-                                                  contarPecasUsadas();
-                                                  dialogMarcarBozo.dismiss();
-
-                                              }
-                                          });
                                           //Botão Riscar
                                           btnRiscar.setOnClickListener(new View.OnClickListener() {
                                               @Override
@@ -252,12 +296,43 @@ public class FragmentFilho extends Fragment {
 
                                       }
                                   }
+
+
         );
+    }
+
+    /**
+     * Evento de clique no valor escolhido para a peça do Bozó
+     *
+     * @param gridView gridview onde o evento sera chamado
+     * @param peca     A peça que foi clicada
+     * @param btn      O Botao que representa a peça
+     * @param dialog   Dialog em que o gridview esta
+     */
+    private void cliqueValor(GridView gridView, final PecaBozo peca, final Button btn, final Dialog dialog) {
+        gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+                peca.setPontuacao(peca.getValoresPossiveis().get(position).toString());
+                btn.setText(peca.getValoresPossiveis().get(position).toString());
+                btn.setTextColor(getResources().getColor(R.color.colorCinza));
+                peca.setRiscado(false);
+
+                contador = contarPontos();
+                resultadoFinal.setText(contador + "");
+
+                contarPecasUsadas();
+
+                dialog.dismiss();
+            }
+        });
     }
 
     public void obterPecasBozo() {
 
         pecasBozo = new ArrayList<>();
+
         //Adiciona a lista as peças
         pecasBozo.add(pecaBozoAz);
         pecasBozo.add(pecaBozoDuque);
