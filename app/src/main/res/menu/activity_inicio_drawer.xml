@@ -12,6 +12,7 @@
             android:title="@string/Instrucoes" />
         <item
             android:id="@+id/nav_cor_destaque"
+            android:visible="false"
             android:icon="@drawable/ic_cor_destaque"
             android:title="Cor de destaque" />
         <item
@@ -30,6 +31,7 @@
             <item
                 android:id="@+id/nav_configuracoes"
                 android:icon="@drawable/ic_configuracoes"
+                android:visible="false"
                 android:title="@string/Configuracoes" />
         </menu>
     </item>
