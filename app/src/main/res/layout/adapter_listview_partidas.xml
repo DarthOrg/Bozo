@@ -15,17 +15,34 @@
         android:textColor="@color/colorWhite"
         android:textSize="15dp" />
 
-    <TextView
-        android:id="@+id/txt_lista_nome_partida"
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center_vertical"
         android:layout_marginLeft="10dp"
         android:layout_weight="1"
         android:focusable="false"
-        android:text="@string/NomePartida"
-        android:textColor="@color/colorCinza"
-        android:textSize="15dp" />
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/txt_lista_nome_partida"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:focusable="false"
+            android:text="@string/NomePartida"
+            android:textColor="@color/colorBlack"
+            android:textSize="16dp" />
+
+        <TextView
+            android:id="@+id/tvJogadoresUltimaRodada"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Jogadores ultima rodada "
+            android:textAllCaps="true"
+            android:textColor="@color/colorCinza"
+            android:textSize="13dp" />
+
+    </LinearLayout>
 
     <Button
         android:id="@+id/btnDelPartida"
