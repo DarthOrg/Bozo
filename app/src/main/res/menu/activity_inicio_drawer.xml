@@ -8,7 +8,7 @@
             android:title="@string/NovoGrupo" />
         <item
             android:id="@+id/nav_instrucoes"
-            android:icon="@drawable/ic_dado"
+            android:icon="@drawable/ic_info"
             android:title="@string/Instrucoes" />
         <item
             android:id="@+id/nav_cor_destaque"
