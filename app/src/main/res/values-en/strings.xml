@@ -12,7 +12,7 @@
     <string name="configuracoes">Settings</string>
     <string name="adicionar">Add</string>
     <string name="cancelar">Cancel</string>
-    <string name="nome_do_grupo">Group's name</string>
+    <string name="nome_do_grupo">Group is name</string>
     <string name="jogador">" Player "</string>
     <string name="remover_jogador">Remove Player</string>
     <string name="remover">Remove</string>
@@ -37,7 +37,7 @@
     <string name="ganhando">Earning</string>
     <string name="total">Total</string>
     <string name="nenhum_grupo">No group</string>
-    <string name="nome_jogador">Player's name</string>
+    <string name="nome_jogador">Player is name</string>
     <string name="versao_app">Version</string>
     <string name="finalizar_rodada">Finish round</string>
 
@@ -49,7 +49,7 @@
     <string name="salvo_com_sucesso">" saved successfully"</string>
     <string name="sair_sem_jogar">You have not played any round.\nYou want to leave anyway?</string>
     <string name="pergunta_nova_rodada">You want to play another round?</string>
-    <string name="decisao_empate">Players must decide the dice.\nSelect the player who won:</string>
+    <string name="decisao_empate">Players must decide the dice.\n Select the player who won:</string>
     <string name="rodada_incompleta">Some players have not yet completed all spaces. You want to leave?</string>
     <string name="rodadas">Spins</string>
     <string name="todos_os_direitos_reservados">All rights reserved.</string>
@@ -84,7 +84,7 @@
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
     <!-- Compartilhar app-->
-    <string name="compartilhar_app">"Download ´MArcador Bozó on Google Play "</string>
+    <string name="compartilhar_app">"Download Marcador Bozó on Google Play "</string>
     <string name="url_googleplay">https://play.google.com/store/apps/details?id=com.adobe.psmobile</string>
     <string name="titulo_compartilhar_app">Share APP</string>
 
@@ -102,155 +102,52 @@
 
     <!-- INTRUÇÕES -->
     <string name="comoJogar">How to play?</string>
-    <string name="Texto1">First you will need, a cup of Bozo and 5 dice.</string>
-    <string name="Texto2">Then the participants will have to decide who will start.
-         Á many ways, the more we explanation. The player who is starting will put the 5 dice inside the cup and shake
-         until blended and then throws on the table, there removes the glass being careful not to untap the data.
-         If given after the cup is untapped, are one on top of another error that move is not counted and the player
-         You can play again. Recalling that the time to mix the data in the cup, the mouth of it must be not to close
-         drop any given out.
-         then made the first move, the player will still have two more chances to throw the dice. So just to confirm
-         after the first play he chose what kind of play will want.
-        </string>
+    <string name="Texto1">First you will need a cup of Bozo and five dice.</string>
+    <string name="Texto2">After the participants will have to decide who will start. To the many ways we more explanation. The player who is starting will put the 5 dice inside the cup and shake until blended and then throws on the table, there removes the glass being careful not to untap the data. If given after the cup is untapped are one on top of another error that move is not counted and the player can play again. Recalling that the time to mix the data in the cup\'s mouth it must be closed to not drop any data out. then made the first move the player will still have two more chances to throw the dice. So just to confirm after the first play he chose what kind of play will want.</string>
     <string name="Texto3">Types of moves the arrow to the right</string>
-    <string name="Texto4">The types of possible moves within the Bozo are these: AZ, Duque, Terno, Quadra, Quina, Sena,
-         Full, Seguida, Quadrada, General, as illustrated below. The mark you make will depend on the stones that come after the three shots.
-          But you can mark what you want, another good player follows a strategy.
-    </string>
+    <string name="Texto4">The types of possible moves within the Bozo are these: AZ, Duke, Suit, Court, Quina, Sena, Full, Then Square, General, as illustrated below. The but you can mark what you want, another good player follows a strategy.</string>
     <string name="Marcacao">Marking</string>
-    <string name="Texto5">When playing the data, it will give you 5 points.
-         Using the basic strategy, you will choose the values that are repeated more or worth amis points.
-         It's just you remember that to mark should add the values obtained by particular game you have chosen.
-         with Full exceptions, Seguida, Quadrada and General, why these plays already have a set score.
-        </string>
-    <string name="Texto6">Time to score points you can not add all the points but choose a type of game,
-          and then you can add. For example, if I have two duques and 3 quinas, the first move of the three possible.
-          But assuming I want the quina as worth more points and is the one most repeated, then I add all totaling 15 points of quina.
-         and on the table in our app you will score in quina. I make him a note, two duques and 3 quinas it is also a full play and is still mouth. So I can score 15
-         points in the table, in full play. But if the move is the General bôca.Ai the value becomes 100 points and the move is completed
-         immediately because the player who made the general's mouth, wins the match with the sovereign point, regardless of whether another player
-         is winning.</string>
+    <string name="Texto5">When the dice he will give you 5 valores.Usando the basic strategy you will choose the values that are repeated more or worth amis points. It\'s just you remember that to mark should add the values obtained by particular game you choose with Full exceptions, Then Square and General, why these plays already have a set score.</string>
+    <string name="Texto6">Time to score points you can not add all the points but choose a type of game and then you can add. For example if I have two deuces and 3 corners in the first move of the three possible. But assuming I want to corner as worth more points and is the one that is repeated so we add all totaling 15 points and corner table in our app you will score in corner. I make you a note dukes 2 and 3 machines TBM is a full play and is still mouth. So I can score 15 points in the table on Full move. But if the move is General of mouth. Ai the value becomes 100 points and the move is completed immediately because the player who made the general\'s mouth wins the match with the independent sovereign point if another player is winning.</string>
 
-    <string name="txtComojogarLer">
-        Let's learn how to play Bozo.
-        First of all you will need. a cup of Bozo and Five data. After Participants will have to decide who will start.
-        Á several ways to desidir it, the more we explanation. The player who is starting will put the five data in the cup and shake
-        until blended. And then throws on the table. Ai remove the glass carefully. not to untap the data.
-        If given after the glass is untapped. Are one on top of another. This move error is not counted, and the player
-        You can play again. Remembering! It's time to mix the data in the cup, the mouth of it must be not to close
-        drop any data out of the cup.
-        then made the first move. The player will still have two more chances to throw the dice. Just to confirm.
-        After the first move he will choose what kind of play will want to do.
-
-        If you want more details of the moves push the screen to the left or click the right arrow to more informções.
-
-        The types of possible moves within the Bozó. Áz. Duque. Terno. Quadra. Quina. Sena.
-        Fúll. Seguida. Quadrada. General. As in the illustration below. The mark you make. will depend
-        the stones that come, fter the three shots.
-         But you can mark what you want. For a good player follows a strategy.
-        Since we're talking strategy, using the basic strategy. You will choose the values that are repeated more or worth more points.
-        Remember that to mark should add the values obtained by the game you have chosen. More has some exceptions like
-        the move. Full. Seguida. Quadrada. General. Why these moves have already set scores.
-
-        Time to score points you can not add all the points but choose a type of game
-         and then you can add. I will give an example here for you. If I have two duques.E three quinas.
-        In this example I will talk about two kinds of possible moves. Well first let's assume that I want the quina. Why it is worth more and is also
-        the more repeats. Then I'll add these 3 quinas, totaling fifteen points. Then I mark on the table in our application. Fifteen points in quina.
-        But the other kind of play. As you can see. When you have two dice which is Duke's value. And 3 dice from the quina value. It is formed
-        full also move.
-
-        That perhaps it was made the first shot. And when such a move is carried out in one fell swoop. It uses the term play of mouth.
-        then the play gets 5 points more and ful. Becomes worth 15 points. Then I can score table. in Joagada full.
-
-        An important example. It is the general's mouth. When the player makes a move the mouth of General ie if coming five stones of qualqer
-         value all the same. General forty points. Becomes one hundred points. Oh no way. The player who made that kind of move.
-         Win instantly with sovereign point. And the game is finished regardless of whether another player was already winning.
-
-        Basically this is how you play a Bozo.
-    </string>
+    <string name="txtComojogarLer">Let\'s learn how to play Bozo First of all you will need. a cup of Bozo and Five data. After Participants will have to decide who will start Á several ways to desidir that more will the explanation. The player who is starting will put the five data in the cup and shake until blended. And then throws on the table. Ai remove the glass carefully. not to untap the data. If given after the glass is untapped. Are one on top of another. This move error is not counted and the player can play again. Remembering! It\'s time to mix the data in the cup the mouth of it must be closed to not drop any data out of the cup. then made the first move. The player will still have two more chances to throw the dice. Just to confirm. After the first move he will choose what kind of play will want to do. If you want more details of the moves push the screen to the left or click the right arrow to more informções. The types of possible moves within the Bozo. Are these. The. Duke. Suit. Block. Quina. Seine. FUL. Then. Square. General. As in the illustration below. The mark you make. It will depend on the stones that come, fter the three shots. But you can mark what you want. For a good player follows a strategy. Since we\'re talking strategy, using the basic strategy. You will choose the values ​​that are repeated more or worth more points. Remember that to mark should add the values ​​obtained by the game you have chosen. More has some exceptions like the move. FUL. Then. Square. General. Why these moves have already set scores. Time to score points you can not add all the points but choose a type of game and then you can add. I will give an example here for you. If I have two duques.E three cornered. In this example I will talk about two kinds of possible moves. Well first let\'s assume that I want the corner. Why it is worth more and is also the most repeated. Then I\'ll add these TES machines, totaling fifteen points. Then I mark on the table in our application. Fifteen points in corner. But the other kind of play. As you can see. When you have two data which is Duke\'s value. And TES data from the edge value. It is also formed FUL move. That perhaps it was made the first shot. And when such a move is carried out in one fell swoop. It uses the term play of mouth. then the play gets 5 points more and FUL. Becomes worth 15 points. Then I can score table. in Joagada FUL. An important example. It is the general\'s mouth. When the player makes a move the mouth of General ie if coming five stones of qualqer value all the same. General forty points. Becomes one hundred points. Oh no way. The player who made that kind of move. Win instantly with sovereign point. And the game is finished regardless of whether another player was already winning. Basically this is how you play a Bozo.</string>
 
     <!--Informaçoes de cada Dado-->
-    <string name="TextoDadoAz">Or Áz or move also called number 1.
-         The data Áz is the sum of its values which can vary from 1 to 5 points.</string>
-    <string name="lerAz">The die. Áz. Or play them. It can also be called a number.
-         The Dice Áz has the sum of its values can range from A to five points.</string>
+    <string name="TextoDadoAz">Or AZ play or also called the data number 1 Az is the sum of its values which can vary from 1 to 5 points.</string>
+    <string name="lerAz">The data AZ or peace move. It can also be called the number one given AZ has the sum of its values that can range from one to five points.</string>
 
-    <string name="TextoDadoDuque">Or play Duque or also called number 2.
-         The data Duque is the sum of its values which can vary from 2 to 10 points.</string>
-    <string name="lerDuque">Given Duque. Or play Duke. It may also be called Two number.
-         The data Duque is the sum of its values which can range from two to ten points.</string>
+    <string name="TextoDadoDuque">Or Duke play or also called the data number 2 Duke is the sum of its values which can vary from 2 to 10 points.</string>
+    <string name="lerDuque">Given Duke or Duke play can also be called the number two given Duke has the sum of its values can range from two to ten points.</string>
 
-    <string name="TextoDadoTerno">Terno or move or also called the number 3.
-         The terno has given the sum of their values may vary from 3 to 15 points.</string>
-    <string name="lerTerno">The terno dice. Or play terno. It can also be called Number Three.
-         The terno has given the sum of its values that can vary from three to fifteen points.</string>
+    <string name="TextoDadoTerno">Or play suit or also called the data number 3 has suit the sum of their values may vary from 3 to 15 points.</string>
+    <string name="lerTerno">Dado suit or move Suit can also be called the number Three has given suit the sum of its values that can vary from three to fifteen points.</string>
 
-    <string name="TextoDadoQuadra">Or move quadra or also called the number 4.
-         The quadra has given the sum of their values can range from 4 to 20 points.</string>
-    <string name="lerQuadra">The quadra data. Or move quadra. It can also be called Four number.
-         The quadra has given the sum of its values which may vary from four to twenty points.</string>
+    <string name="TextoDadoQuadra">Or block or move also called number 4 since the court is the sum of its values which may vary from 4 to 20 points.</string>
+    <string name="lerQuadra">Given the court or move court. It may also be called the number four is given Court the sum of its values which may vary from four to twenty points.</string>
 
-    <string name="TextoDadoQuina">Quina or move or also called the number 5.
-         The data quina is the sum of its values which may vary from 5 to 25 points.</string>
-    <string name="lerQuina">The Quina dice. Or move quina. It can also be called Five number.
-         The quina has given the sum of its values can range from five to twenty-five points.</string>
+    <string name="TextoDadoQuina">Cinchona or play or also called the data number 5 has Cinchona the sum of its values which may vary from 5 to 25 points.</string>
+    <string name="lerQuina">Dado Quina Quina or move. It can also be called Five number. The Quina has given the sum of its values can range from five to twenty-five points.</string>
 
-    <string name="TextoDadoSena">Sena or move or also called the number 6.
-         The data sena is the sum of its values which can vary from 6 to 30 points.</string>
-    <string name="lerSena">Given the Sena. Seine or move. It can also be called Six number.
-         The data sena is the sum of its values which may vary from six to thirty points.</string>
+    <string name="TextoDadoSena">Seine or move or also called the number 6 on the Sena has given the sum of its values that can vary from 6 to 30 points.</string>
+    <string name="lerSena">Data Sena or Sena move can also be called the number given six Sena has the sum of its values can range from six to thirty points.</string>
 
-    <string name="TextoDadosFull">In order to form the full play, you need the five dice. Two data must be of a value,
-         since the other three data valor.Por another example, the first two data values 6-6 are the other three data would
-         4-4-4 as the encima illustration. The value of the play is full of 10 points but the move is of mouth value becomes 15 points.
-    </string>
+    <string name="TextoDadosFull">In order to form the full play you need the five dice. Two data must be of a value since the other three data valor.Por another example the first two data values are 6-6 the other three data would be 4-4-4 and in encima illustration. The value of the play is full of 10 points but the move is of mouth value becomes 15 points.</string>
 
-    <string name="lerFull">FUL. In order to form the FUL move.
-          You need the five dice.
-          Two data must be of a value. since the other three data other value.
-          For example. The first two data. The values are. Six and six. The other three data would be four, four, four.
-          As in encima illustration. The value of Ful move is ten points.
-          But if the move is the value of mouth becomes fifteen points.
-       More what is Ful mouth? Ful mouth is when the play is performed once.</string>
+    <string name="lerFull">Ful order to form FUL play you need the five dice data must be of a value since the other three data other value for example. The first two data values are six Six and the other three data would Four Four Four as in the illustration on top. The value of Ful move is ten points but if the move is the value of mouth becomes fifteen points. More what is Ful mouth? Ful mouth is when the play is performed once.</string>
 
-    <string name="TextoDadosSeguida">To form the seguida move.
-         There are two types of sequence data. The first sequence is from 1 to 5
-          and the other sequence is 2 to 6, for example 1-2-3-4-5 and 2-3-4-5-6 would be another sequence.
-         As in encima illustration. The value to be marked seguida  the play is 20 points, but if the move is to mouth the point becomes 25.
-     </string>
+    <string name="TextoDadosSeguida">To form the next move. There are two types of sequence data. The first sequence is from 1 to 5 and the other sequence is from 2 to 6 e.g. 1-2-3-4-5 and 2-3-4-5-6 would be another sequence. As in encima illustration. The value to be marked then the play is 20 points but if the move is to mouth the point becomes 25.</string>
 
-    <string name="lerSeguida">Seguida. To form the seguida  move.
-         there are two types of sequence data. The first sequence is from 1 to five. And the other sequence is from 2 to six.
-         For example. One, Two, Three, Four, and Five. And the other would result. two, three, four, five and six.
-         As in encima illustration. The value to be marked seguida  the move is twenty points. But if the move is to mouth the point becomes vite-five.
-      More which is seguida mouth? Seguida mouth is when the move is performed once.
-    </string>
+    <string name="lerSeguida">Then. To form the next move there two types of sequence data. The first sequence is from 1 to five, and the other sequence is from 2 to six. For example. One Two Three Four and Five and the other sequence would be. two three four five six. As in encima illustration. The value to be marked then the move is twenty points. But if the move is to mouth the point becomes vite-five. More which is followed by mouth? Then mouth is when the move is performed once.</string>
 
-    <string name="TextoDadosQuadrada">To be able to play a quadrada must have four equal numbers.
-         For example, 2-2-2-2 as in the illustration on top.
-         These four equal data can be of any value, and the value that should be marked in the quadrada pass is 30 points.
-         But if the quadrada is the mouth of the value becomes 35 points.</string>
+    <string name="TextoDadosQuadrada">To be able to play a square must have four equal numbers. For example 2-2-2-2 as in the illustration on top. These four equal data can be of any value and the value that should be marked in the square pass is 30 points. But if the square is the mouth of the value becomes 35 points.</string>
 
-    <string name="lerQuadrada">Quadrada. To be able to play a quadrada must have four equal numbers.
-         For example. Two, two, two and two. As in encima illustration.
-         these four equal data can be any value. and the value that should be marked on the quadrada move is thirty points.
-         But if the quadrada is the mouth of the value becomes thirty-five points. More what it is quadrada of mouth?
-          mouth is quadrada when play is performed once.</string>
+    <string name="lerQuadrada">Square to be able to make a square move must have four equal numbers For example Two Two Two and Two As in encima illustration these four data equal can be of any value and the value that should be marked on the play square is thirty points but if the square for the mouth of the value becomes thirty-five points. More what it is square of mouth? mouth is square when play is performed once.</string>
 
-    <string name="TextoDadosGeneral">To form the General move you will need all five data are of the same value.
-         For example, 5-5-5-5-5 data can be of any value, provided that they are equal.
-         The value to be marked on the move General is forty points. But if the move is General of mouth.
-          Ai the value becomes 100 points and the move is completed immediately because the player who made the general's mouth,
-         wins the game with the sovereign point, regardless of whether another player is winning.</string>
+    <string name="TextoDadosGeneral">To form the General move you will need all five data are of the same value For example 5-5-5-5-5 data can be of any value if they are equal. The value to be marked on the move General is forty points. But if the move is General of mouth. Ai the value becomes 100 points and the move is completed immediately because the player who made the general\'s mouth wins the match with the sovereign point, regardless of whether another player is winning.</string>
 
-    <string name="lerGeneral">General. To form the play General. You will need all five data are of the same value. For example.
-         Five, five, five, five, and five. Such data may be any value. Since they are equal.
-         The value to be marked on the move General is forty points. But if the move is General of mouth.
-          Ai the value becomes a hundred points. And the move is terminated immediately.
-          Because the player who made the general's mouth. Wins the game with the sovereign point.
-          Regardless if another player is winning. More what is general of mouth?
-          General's mouth when the move is performed once. And will round ends.</string>
+    <string name="lerGeneral">General to form the general move you will need all five data are of the same value for example. Five, five, five, five, and five. Such data may be any value. Since they are equal. The value to be marked on the move General is forty points. But if the move is General of mouth. Ai the value becomes a hundred points. And the move is terminated immediately. Because the player who made the general\'s mouth. Wins the game with the sovereign point. Regardless if another player is winning. More what is general of mouth? General\'s mouth when the move is performed once. And will round ends.</string>
     <string name="menssagem_salvar_grupo">You can save your game group if you want to play later.</string>
     <string name="descartar_alteracoes">Discard changes</string>
+    <string name="tabela">Table</string>
 
 </resources>

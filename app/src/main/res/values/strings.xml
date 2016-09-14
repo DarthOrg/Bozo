@@ -49,7 +49,7 @@
     <string name="salvo_com_sucesso">salvo com sucesso"</string>
     <string name="sair_sem_jogar">Você não jogou nenhuma rodada.\nDeseja sair assim mesmo?</string>
     <string name="pergunta_nova_rodada">Quer jogar uma nova rodada?</string>
-    <string name="decisao_empate">Os jogadores devem decidir nos dados.\nSelecione o jogador que ganhou</string>
+    <string name="decisao_empate">Os jogadores devem decidir nos dados.\n Selecione o jogador que ganhou</string>
     <string name="rodada_incompleta">Alguns jogadores ainda não completaram todos os espaços. Deseja sair ?</string>
     <string name="rodadas">Rodadas</string>
     <string name="todos_os_direitos_reservados">Todos os direitos reservados.</string>
@@ -89,16 +89,16 @@
     <string name="titulo_compartilhar_app">Compartilhar App</string>
 
     <!-- NOMES DAS PEÇAS DO BOZÓ -->
-    <string name="az">Áz</string>
-    <string name="duque">Duque</string>
-    <string name="terno">Terno</string>
-    <string name="quadra">Quadra</string>
-    <string name="quina">Quina</string>
-    <string name="sena">Sena</string>
-    <string name="full">Full</string>
-    <string name="seguida">Seguida</string>
-    <string name="quadrada">Quadrada</string>
-    <string name="general">General</string>
+    <string name="az" translatable="false">Áz</string>
+    <string name="duque" translatable="false">Duque</string>
+    <string name="terno" translatable="false">Terno</string>
+    <string name="quadra" translatable="false">Quadra</string>
+    <string name="quina" translatable="false">Quina</string>
+    <string name="sena" translatable="false">Sena</string>
+    <string name="full" translatable="false">Full</string>
+    <string name="seguida" translatable="false">Seguida</string>
+    <string name="quadrada" translatable="false">Quadrada</string>
+    <string name="general" translatable="false">General</string>
 
     <!-- INTRUÇÕES -->
     <string name="comoJogar">Como jogar?</string>
@@ -252,5 +252,6 @@
          General de bôca é quando a jogada é realizada de uma só vez. E á rodada termina.</string>
     <string name="menssagem_salvar_grupo">Você pode salvar o seu grupo de jogo se quizer jogar mais tarde.</string>
     <string name="descartar_alteracoes">Descartar Alterações</string>
+    <string name="tabela">Tabela</string>
 
 </resources>
