@@ -60,7 +60,7 @@
     <string name="ganhou_com">Ganó con</string>
     <string name="pontos">puntos</string>
     <string name="info_nenhum_grupo">Para crear un grupo de juego, haga clic en el botón + o en el menú lateral en nuevo grupo.</string>
-    <string name="max_jogadores_permitidos">Máximo 10 jogadores, você pode adicionar.</string>
+    <string name="max_jogadores_permitidos">Un máximo de 10 jugadores, se puede añadir.</string>
     <string name="requer_jogadores"> Añadir al menos 2 jugadores para crear el grupo</string>
     <string name="requer_jogador">Añadir más 1 o más jugadores para crear el grupo</string>
 
@@ -201,7 +201,7 @@ Más lo que es "Full de boca"? "Full de boca" es cuando el jugada se lleva una v
 
     <string name="lerGeneral">Para formar el Juego General necesitas los cinco dados sean del mismo valor. Por ejemplo : cinco,cinco,cinco,cinco,cinco.
 Los  dados pueden ser de cualquier valor, siempre que sean iguales. El valor que se marcó en el movimiento General es de cuarenta puntos. Pero si el movimiento es el general de la boca. Ai el valor se convierte en 100 puntos y se completa el movimiento de inmediato, porque el jugador que hizo el "General de boca", gana el juego con el punto soberana, independientemente de si otro jugador está ganando.</string>
-    <string name="menssagem_salvar_grupo">Un máximo de 10 jugadores, se puede añadir.</string>
+    <string name="menssagem_salvar_grupo">Puede guardar su grupo de juego si quiere jugar más tarde.</string>
     <string name="descartar_alteracoes">Descartar Alteraciones</string>
     <string name="tabela">Tabla</string>
 
