@@ -86,7 +86,7 @@
     <!-- Compartilhar app-->
     <string name="compartilhar_app">"Baixe Marcador de Bozó na GooglePlay "</string>
     <string name="url_googleplay">https://play.google.com/store/apps/details?id=com.adobe.psmobile</string>
-    <string name="titulo_compartilhar_app">Compartilhar App</string>
+    <string name="titulo_compartilhar_app">Compartilhar APP</string>
 
     <!-- NOMES DAS PEÇAS DO BOZÓ -->
     <string name="az" translatable="false">Áz</string>

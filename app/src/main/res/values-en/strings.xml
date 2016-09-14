@@ -4,7 +4,7 @@
     <!-- String Comuns -->
     <string name="adicionar_jogador">Add player</string>
     <string name="criar">Create</string>
-    <string name="grupos_de_jogo">Game Groups</string>
+    <string name="grupos_de_jogo">Game groups</string>
     <string name="novo_grupo">New group</string>
     <string name="intrucoes">Instructions</string>
     <string name="cor_de_destaque">Highlight color</string>
@@ -12,7 +12,7 @@
     <string name="configuracoes">Settings</string>
     <string name="adicionar">Add</string>
     <string name="cancelar">Cancel</string>
-    <string name="nome_do_grupo">Group is name</string>
+    <string name="nome_do_grupo">Group name</string>
     <string name="jogador">" Player "</string>
     <string name="remover_jogador">Remove Player</string>
     <string name="remover">Remove</string>
@@ -37,7 +37,7 @@
     <string name="ganhando">Earning</string>
     <string name="total">Total</string>
     <string name="nenhum_grupo">No group</string>
-    <string name="nome_jogador">Player is name</string>
+    <string name="nome_jogador">Player name</string>
     <string name="versao_app">Version</string>
     <string name="finalizar_rodada">Finish round</string>
 
