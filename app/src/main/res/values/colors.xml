@@ -93,10 +93,10 @@
     </array>
 
     <!--Cores Welcome slide-->
-    <color name="colorWelcomeSlide1">#607D8B</color>
-    <color name="colorWelcomeSlide2">#0097a7</color>
-    <color name="colorWelcomeSlide3">#00bcd4</color>
-    <color name="colorWelcomeSlide4">#9E9E9E</color>
+    <color name="colorWelcomeSlide1">#00838F</color>
+    <color name="colorWelcomeSlide2">#0097A7</color>
+    <color name="colorWelcomeSlide3">#00ACC1</color>
+    <color name="colorWelcomeSlide4">#00BCD4</color>
 
     <array name="array_welcome_dot_ativo">
         <item>@color/colorWhite</item>

@@ -35,18 +35,41 @@
         android:textSize="12dp"
         android:textColor="@color/colorWhite" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="@string/adicionar_jogador"
-        android:id="@+id/textView20"
-        android:textColor="@color/button_material_dark"
+    <LinearLayout
+        android:layout_width="150dp"
+        android:layout_height="250dp"
         android:layout_centerVertical="true"
-        android:layout_alignRight="@+id/textView18"
-        android:layout_alignEnd="@+id/textView18"
-        android:textAlignment="center"
-        android:singleLine="false"
-        android:textSize="15dp" />
+        android:layout_centerHorizontal="true"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/textView5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/criar"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="@color/colorFundoPartida"
+            android:layout_alignTop="@+id/imageView22"
+            android:layout_centerHorizontal="true"
+            android:layout_gravity="right"
+            android:layout_marginRight="10dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="@string/adicionar_jogador"
+            android:id="@+id/textView20"
+            android:textColor="@color/button_material_dark"
+            android:textAlignment="center"
+            android:singleLine="false"
+            android:textSize="15dp"
+            android:layout_alignTop="@+id/imageView22"
+            android:layout_centerHorizontal="true"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="38dp" />
+    </LinearLayout>
+
+
 
 </RelativeLayout>
