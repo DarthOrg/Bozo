@@ -45,7 +45,7 @@ public class Inicio extends AppCompatActivity
         listViewPartidas = (ListView) findViewById(R.id.list_view_partidas);
 
         //Aparecer imagem quando a lista estiver vazia
-        listViewPartidas.setEmptyView(findViewById(R.id.list_vazio));
+        listViewPartidas.setEmptyView(findViewById(R.id.listVazio));
 
         PartidaController partidaController = new PartidaController(Inicio.this);
         partidaList = partidaController.buscarPartidas();

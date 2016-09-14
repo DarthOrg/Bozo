@@ -15,14 +15,14 @@
     <string name="nome_do_grupo">Nome do Grupo</string>
     <string name="jogador">" Jogador "</string>
     <string name="remover_jogador">Remover Jogador</string>
-    <string name="excluir">Excluir</string>
-    <string name="pergunta_excluir_jogador">"Excluir o jogador "</string>
+    <string name="remover">Remover</string>
+    <string name="pergunta_remover_jogador">"Remover o jogador "</string>
     <string name="salvar">Salvar</string>
     <string name="descartar">Descartar</string>
     <string name="sair">Sair</string>
     <string name="sim">Sim</string>
     <string name="jogar">Jogar</string>
-    <string name="riscar"> Riscar </string>
+    <string name="riscar">"Riscar "</string>
     <string name="placar">Placar</string>
     <string name="parar">Parar</string>
     <string name="deletar">Deletar</string>
@@ -46,19 +46,19 @@
     <string name="limite_exclusao_jogadores">Não pode excluir mais jogadores</string>
     <string name="titulo_salvar_e_sair">Deseja salvar antes de sair?</string>
     <string name="salvando">Salvando só um momento...</string>
-    <string name="salvo_com_sucesso">" salvo com sucesso"</string>
+    <string name="salvo_com_sucesso">salvo com sucesso"</string>
     <string name="sair_sem_jogar">Você não jogou nenhuma rodada.\nDeseja sair assim mesmo?</string>
     <string name="pergunta_nova_rodada">Quer jogar uma nova rodada?</string>
-    <string name="decisao_empate">Os jogadores devem decidir nos dados.\nSelecione o jogador que ganhou :</string>
-    <string name="rodada_incompleta">Alguns jogadores ainda não completaram todos os espaços. Deseja sair?</string>
+    <string name="decisao_empate">Os jogadores devem decidir nos dados.\nSelecione o jogador que ganhou</string>
+    <string name="rodada_incompleta">Alguns jogadores ainda não completaram todos os espaços. Deseja sair ?</string>
     <string name="rodadas">Rodadas</string>
     <string name="todos_os_direitos_reservados">Todos os direitos reservados.</string>
     <string name="recurso_nao_suportado">Recurso não suportado no seu dispositivo</string>
-    <string name="pergunta_deletar_partida">"Você deseja realmente deletar partida "</string>
+    <string name="pergunta_deletar_partida">"Você deseja realmente deletar grupo "</string>
     <string name="grupo_deletado">Grupo deletado</string>
     <string name="erro_grupo_deletado">Ocorreu um erro ao deletar o grupo</string>
-    <string name="ganhou_com">Ganhou com</string>
-    <string name="pontos">pontos</string>
+    <string name="ganhou_com">Ganhou com </string>
+    <string name="pontos"> pontos</string>
     <string name="info_nenhum_grupo">Para criar um grupo de jogo clique no botão + ou no menu lateral e a opção Novo Grupo</string>
     <string name="max_jogadores_permitidos">Máximo 10 jogadores, você pode adicionar.</string>
     <string name="requer_jogadores">Adicione pelo menos 2 jogadores para criar o grupo</string>
@@ -250,5 +250,7 @@
          Porque o jogador que fez o general de bôca. Ganha a partida com o ponto soberano.
          Independente se outro jogador estiver ganhando. Mais o que é general de bôca?
          General de bôca é quando a jogada é realizada de uma só vez. E á rodada termina.</string>
+    <string name="menssagem_salvar_grupo">Você pode salvar o seu grupo de jogo se quizer jogar mais tarde.</string>
+    <string name="descartar_alteracoes">Descartar Alterações</string>
 
 </resources>

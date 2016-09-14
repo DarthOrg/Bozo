@@ -88,7 +88,7 @@ public class PartidaAberta extends AppCompatActivity {
         //Busca os Ids nos Xml
         getIDs();
 
-        toolbar.setTitle(R.string.TextoVazio);
+        toolbar.setTitle("");
         setSupportActionBar(toolbar);
 
         tituloGrupo = (TextView) findViewById(R.id.TituloGrupo);
@@ -177,8 +177,8 @@ public class PartidaAberta extends AppCompatActivity {
                 AlertDialog.Builder builder = new AlertDialog.Builder(PartidaAberta.this);
                 builder.setTitle(getString(R.string.remover_jogador));
                 builder.setIcon(R.drawable.ic_deletar_jogador);
-                builder.setMessage(getString(R.string.pergunta_excluir_jogador) + jogadoresRodada.get(viewPager.getCurrentItem()).getNome() + " ?")
-                        .setPositiveButton(getString(R.string.excluir), new DialogInterface.OnClickListener() {
+                builder.setMessage(getString(R.string.pergunta_remover_jogador) + jogadoresRodada.get(viewPager.getCurrentItem()).getNome() + " ?")
+                        .setPositiveButton(getString(R.string.remover), new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int id) {
                                 dialog.dismiss();
                                 if (adapter.getCount() > 2) {
@@ -531,7 +531,7 @@ public class PartidaAberta extends AppCompatActivity {
 
             builder.setTitle(getString(R.string.titulo_salvar_e_sair));
             builder.setIcon(R.drawable.ic_salvar);
-            builder.setMessage(getString(R.string.TextoSairGrupo))
+            builder.setMessage(getString(R.string.menssagem_salvar_grupo))
                     .setPositiveButton(getString(R.string.salvar), new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int id) {
                             //ProgressDialog Função carregar
@@ -589,7 +589,7 @@ public class PartidaAberta extends AppCompatActivity {
                         public void onClick(DialogInterface dialog, int id) {
 
                             if (!verificaPartidaNova()) {
-                                builder.setNegativeButton(getString(R.string.DescartarAlteracoes), null);
+                                builder.setNegativeButton(getString(R.string.descartar_alteracoes), null);
                             }
                             finish();
                             dialog.dismiss();
