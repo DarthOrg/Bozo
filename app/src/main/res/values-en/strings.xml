@@ -2,91 +2,91 @@
     <string name="app_name">Marcador Bozó</string>
 
     <!-- String Comuns -->
-    <string name="adicionar_jogador">Adicionar jogador</string>
-    <string name="criar">Criar</string>
-    <string name="grupos_de_jogo">Grupos de Jogo</string>
-    <string name="novo_grupo">Novo Grupo</string>
-    <string name="intrucoes">Intruções</string>
-    <string name="cor_de_destaque">Cor de destaque</string>
-    <string name="sobre">Sobre</string>
-    <string name="configuracoes">Configurações</string>
-    <string name="adicionar">Adicionar</string>
-    <string name="cancelar">Cancelar</string>
-    <string name="nome_do_grupo">Nome do Grupo</string>
-    <string name="jogador">" Jogador "</string>
-    <string name="remover_jogador">Remover Jogador</string>
-    <string name="remover">Remover</string>
-    <string name="pergunta_remover_jogador">"Remover o jogador "</string>
-    <string name="salvar">Salvar</string>
-    <string name="descartar">Descartar</string>
-    <string name="sair">Sair</string>
-    <string name="sim">Sim</string>
-    <string name="jogar">Jogar</string>
-    <string name="riscar">"Riscar "</string>
-    <string name="placar">Placar</string>
-    <string name="parar">Parar</string>
-    <string name="deletar">Deletar</string>
-    <string name="deletar_grupo">Deletar Grupo</string>
+    <string name="adicionar_jogador">Add player</string>
+    <string name="criar">Create</string>
+    <string name="grupos_de_jogo">Game Groups</string>
+    <string name="novo_grupo">New group</string>
+    <string name="intrucoes">Instructions</string>
+    <string name="cor_de_destaque">Highlight color</string>
+    <string name="sobre">About</string>
+    <string name="configuracoes">Settings</string>
+    <string name="adicionar">Add</string>
+    <string name="cancelar">Cancel</string>
+    <string name="nome_do_grupo">Group's name</string>
+    <string name="jogador">" Player "</string>
+    <string name="remover_jogador">Remove Player</string>
+    <string name="remover">Remove</string>
+    <string name="pergunta_remover_jogador">"Remove the player "</string>
+    <string name="salvar">Save</string>
+    <string name="descartar">Discard</string>
+    <string name="sair">Get out</string>
+    <string name="sim">Yes</string>
+    <string name="jogar">Play</string>
+    <string name="riscar">"Scratch "</string>
+    <string name="placar">Scoreboard</string>
+    <string name="parar">Stop</string>
+    <string name="deletar">Delete</string>
+    <string name="deletar_grupo">Delete group</string>
 
     <!-- TITULOS -->
-    <string name="grupo">"Grupo "</string>
-    <string name="ganhou">" Ganhou"</string>
-    <string name="empate">Empate</string>
-    <string name="aviso">Aviso</string>
-    <string name="mais">MAIS</string>
-    <string name="ganhando">Ganhando</string>
+    <string name="grupo">"Group "</string>
+    <string name="ganhou">" Has won"</string>
+    <string name="empate">A tie</string>
+    <string name="aviso">Notice</string>
+    <string name="mais">MORE</string>
+    <string name="ganhando">Earning</string>
     <string name="total">Total</string>
-    <string name="nenhum_grupo">Nenhum grupo</string>
-    <string name="nome_jogador">Nome do Jogador</string>
-    <string name="versao_app">Versão</string>
-    <string name="finalizar_rodada">Finalizar rodada</string>
+    <string name="nenhum_grupo">No group</string>
+    <string name="nome_jogador">Player's name</string>
+    <string name="versao_app">Version</string>
+    <string name="finalizar_rodada">Finish round</string>
 
     <!-- INFOS -->
-    <string name="toast_foi_adicionado">" foi adicionado "</string>
-    <string name="limite_exclusao_jogadores">Não pode excluir mais jogadores</string>
-    <string name="titulo_salvar_e_sair">Deseja salvar antes de sair?</string>
-    <string name="salvando">Salvando só um momento...</string>
-    <string name="salvo_com_sucesso">salvo com sucesso"</string>
-    <string name="sair_sem_jogar">Você não jogou nenhuma rodada.\nDeseja sair assim mesmo?</string>
-    <string name="pergunta_nova_rodada">Quer jogar uma nova rodada?</string>
-    <string name="decisao_empate">Os jogadores devem decidir nos dados.\nSelecione o jogador que ganhou</string>
-    <string name="rodada_incompleta">Alguns jogadores ainda não completaram todos os espaços. Deseja sair ?</string>
-    <string name="rodadas">Rodadas</string>
-    <string name="todos_os_direitos_reservados">Todos os direitos reservados.</string>
-    <string name="recurso_nao_suportado">Recurso não suportado no seu dispositivo</string>
-    <string name="pergunta_deletar_partida">"Você deseja realmente deletar grupo "</string>
-    <string name="grupo_deletado">Grupo deletado</string>
-    <string name="erro_grupo_deletado">Ocorreu um erro ao deletar o grupo</string>
-    <string name="ganhou_com">Ganhou com </string>
-    <string name="pontos"> pontos</string>
-    <string name="info_nenhum_grupo">Para criar um grupo de jogo clique no botão + ou no menu lateral e a opção Novo Grupo</string>
-    <string name="max_jogadores_permitidos">Máximo 10 jogadores, você pode adicionar.</string>
-    <string name="requer_jogadores">Adicione pelo menos 2 jogadores para criar o grupo</string>
-    <string name="requer_jogador">Adicione mais 1 ou mais jogadores para criar o grupo</string>
+    <string name="toast_foi_adicionado">" was added "</string>
+    <string name="limite_exclusao_jogadores">You can not delete more players</string>
+    <string name="titulo_salvar_e_sair">Do you want to save before exiting?</string>
+    <string name="salvando">Saving just a moment ...</string>
+    <string name="salvo_com_sucesso">" saved successfully"</string>
+    <string name="sair_sem_jogar">You have not played any round.\nYou want to leave anyway?</string>
+    <string name="pergunta_nova_rodada">You want to play another round?</string>
+    <string name="decisao_empate">Players must decide the dice.\nSelect the player who won:</string>
+    <string name="rodada_incompleta">Some players have not yet completed all spaces. You want to leave?</string>
+    <string name="rodadas">Spins</string>
+    <string name="todos_os_direitos_reservados">All rights reserved.</string>
+    <string name="recurso_nao_suportado">Unsupported feature on your device</string>
+    <string name="pergunta_deletar_partida">"Do you really want to delete group "</string>
+    <string name="grupo_deletado">Deleted group</string>
+    <string name="erro_grupo_deletado">An error occurred when deleting the group</string>
+    <string name="ganhou_com">He won with </string>
+    <string name="pontos"> points</string>
+    <string name="info_nenhum_grupo">To create a game group click the + button on the side menu and the New Group option</string>
+    <string name="max_jogadores_permitidos">Maximum 10 players, you can add.</string>
+    <string name="requer_jogadores">Add at least 2 players to create the group</string>
+    <string name="requer_jogador">Add more 1 or more players to create the group</string>
 
 
     <!-- WELCOME -->
     <!-- slide1 -->
-    <string name="titulo_slide1_welcome">Primeiro</string>
-    <string name="subtitulo_slide1_welcome">Você deve ter um copo de bozó com 5 dados</string>
+    <string name="titulo_slide1_welcome">First</string>
+    <string name="subtitulo_slide1_welcome">You must have a glass of bozo with 5 dice</string>
     <!-- slide2 -->
-    <string name="titulo_slide2_welcome">Criar novo grupo</string>
-    <string name="subtitulo_slide2_welcome">Para criar um novo grupo clique no botão +</string>
+    <string name="titulo_slide2_welcome">Create new group</string>
+    <string name="subtitulo_slide2_welcome">To create a new group click the +</string>
     <!-- slide3 -->
-    <string name="titulo_slide3_welcome">Dados do grupo</string>
-    <string name="subtitulo_slide3_welcome">Aqui você adiciona nome do grupo e os jogadores</string>
+    <string name="titulo_slide3_welcome">Group data</string>
+    <string name="subtitulo_slide3_welcome">Here you add the group name and players</string>
     <!-- slide4 -->
-    <string name="titulo_slide4_welcome">Marcador do bozó</string>
-    <string name="subtitulo_slide4_welcome">Nesta tela você vai marcar os valores que conseguir jogando com o copo de bozó</string>
+    <string name="titulo_slide4_welcome">Marker bozó</string>
+    <string name="subtitulo_slide4_welcome">On this screen you will score the values you get playing with the glass of bozó</string>
 
     <!-- INICIO -->
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
     <!-- Compartilhar app-->
-    <string name="compartilhar_app">"Baixe Marcador de Bozó na GooglePlay "</string>
+    <string name="compartilhar_app">"Download ´MArcador Bozó on Google Play "</string>
     <string name="url_googleplay">https://play.google.com/store/apps/details?id=com.adobe.psmobile</string>
-    <string name="titulo_compartilhar_app">Compartilhar App</string>
+    <string name="titulo_compartilhar_app">Share APP</string>
 
     <!-- NOMES DAS PEÇAS DO BOZÓ -->
     <string name="az">Áz</string>
@@ -101,156 +101,156 @@
     <string name="general">General</string>
 
     <!-- INTRUÇÕES -->
-    <string name="comoJogar">Como jogar?</string>
-    <string name="Texto1">Primeiro você vai precisar, de um copo de Bozó e 5 dados.</string>
-    <string name="Texto2">Depois  os participantes, vão ter que decidir quem vai começar.
-        Á varias maneiras, mais vamos a explicação. O jogador que for começar vai colocar os 5 dados dentro do copo e chacoalhar
-        até misturar bem e depois lança na mesa, ai remove o copo com cuidado para não desvirar os dados.
-        Caso o dado depois que o copo for desvirado, estiverem um encima do outro esse erro de jogada não é contada e o jogador
-        pode jogar outra vez. Lembrando que na hora de misturar os dados no copo, a boca do mesmo deve estar fechado para não
-        cair nenhum dado para fora.
-        Feito então o primeiro lance, o jogador ainda terá mais duas chances para lançar os dados. Então só para confirmar
-        depois da primeira jogada ele escolhera qual tipo de jogada vai querer.
+    <string name="comoJogar">How to play?</string>
+    <string name="Texto1">First you will need, a cup of Bozo and 5 dice.</string>
+    <string name="Texto2">Then the participants will have to decide who will start.
+         Á many ways, the more we explanation. The player who is starting will put the 5 dice inside the cup and shake
+         until blended and then throws on the table, there removes the glass being careful not to untap the data.
+         If given after the cup is untapped, are one on top of another error that move is not counted and the player
+         You can play again. Recalling that the time to mix the data in the cup, the mouth of it must be not to close
+         drop any given out.
+         then made the first move, the player will still have two more chances to throw the dice. So just to confirm
+         after the first play he chose what kind of play will want.
         </string>
-    <string name="Texto3">Tipos de jogadas na seta á direita</string>
-    <string name="Texto4">Os tipos de jogadas possiveis dentro do Bozó são essas: Áz, Duque, Terno, Quadra, Quina, Sena,
-        Full, Seguida, Quadrada, General, como na ilustração abaixo. A marcação que você fizer vai depender das pedras que vier, depois das três tacadas.
-         Mas vôce pode marcar o que quiser, mais um bom jogador segue um estrategia.
+    <string name="Texto3">Types of moves the arrow to the right</string>
+    <string name="Texto4">The types of possible moves within the Bozo are these: AZ, Duque, Terno, Quadra, Quina, Sena,
+         Full, Seguida, Quadrada, General, as illustrated below. The mark you make will depend on the stones that come after the three shots.
+          But you can mark what you want, another good player follows a strategy.
     </string>
-    <string name="Marcacao">Marcação</string>
-    <string name="Texto5">Quando jogar os dados, ele te dará 5 valores.
-        Usando a estratégia básica, você vai escolher os valores que mais se repetem ou os que valem amis pontos.
-        É so você lembrar que para marcar deve-se somar os valores obtidos por determinado jogo que você escolheu.
-        com as exceções de Full, Seguida, Quadrada e General, por que essas jogadas já possui uma pontuação definida.
+    <string name="Marcacao">Marking</string>
+    <string name="Texto5">When playing the data, it will give you 5 points.
+         Using the basic strategy, you will choose the values that are repeated more or worth amis points.
+         It's just you remember that to mark should add the values obtained by particular game you have chosen.
+         with Full exceptions, Seguida, Quadrada and General, why these plays already have a set score.
         </string>
-    <string name="Texto6">Na hora de marcar os pontos você não pode somar todos os pontos e sim escolher um tipo de jogo,
-         para depois poder somar. Por exemplo, se eu tiver 2 duques e 3 quinas, na primeira jogada das três possiveis.
-         Mas supondo que eu queira a quina, pois vale mais pontos e é a que mais se repete, então eu somo tudo, totalizando 15 pontos de quina.
-        e na tabela no nosso app você vai marcar em quina. Eu lhe faço uma observação, 2 duques e 3 quinas tbm é uma jogada Full e ainda é de boca. Então eu posso marcar 15
-        pontos na tabela, na jogada Full. Mas se a jogada General for de bôca.Ai o valor passa a ser de 100 pontos e a jogada é finalizada
-        imediatamente porque o jogador que fez o general de bôca,ganha a partida com o ponto soberano, independente se outro jogador
-        estiver ganhando.</string>
+    <string name="Texto6">Time to score points you can not add all the points but choose a type of game,
+          and then you can add. For example, if I have two duques and 3 quinas, the first move of the three possible.
+          But assuming I want the quina as worth more points and is the one most repeated, then I add all totaling 15 points of quina.
+         and on the table in our app you will score in quina. I make him a note, two duques and 3 quinas it is also a full play and is still mouth. So I can score 15
+         points in the table, in full play. But if the move is the General bôca.Ai the value becomes 100 points and the move is completed
+         immediately because the player who made the general's mouth, wins the match with the sovereign point, regardless of whether another player
+         is winning.</string>
 
     <string name="txtComojogarLer">
-        Vamos aprender como jogar Bozó.
-        Primeiro de tudo você vai precisar. de um copo de Bozó e Cinco dados. Depois  Os participantes vão ter que decidir quem vai começar.
-        Á várias maneiras de se desidir isso, mais vamos a explicação. O jogador que for começar vai colocar os Cinco dados dentro do copo e chacoalhar
-        até misturar bem. E depois lança na mesa. Ai remove o copo com cuidado. para não desvirar os dados.
-        Caso o dado depois que o copo for desvirado. Estiverem um encima do outro. Esse erro de jogada não é contada, e o jogador
-        pode jogar outra vez. Lembrando! Que na hora de misturar os dados no copo, a bôca do mesmo deve estar fechado para não
-        cair nenhum dado para fora do copo.
-        Feito então o primeiro lance. O jogador ainda terá mais duas chances para lançar os dados. Só para confirmar.
-        Depois da primeira jogáda ele escolherá qual tipo de jogada vai querer fazer.
+        Let's learn how to play Bozo.
+        First of all you will need. a cup of Bozo and Five data. After Participants will have to decide who will start.
+        Á several ways to desidir it, the more we explanation. The player who is starting will put the five data in the cup and shake
+        until blended. And then throws on the table. Ai remove the glass carefully. not to untap the data.
+        If given after the glass is untapped. Are one on top of another. This move error is not counted, and the player
+        You can play again. Remembering! It's time to mix the data in the cup, the mouth of it must be not to close
+        drop any data out of the cup.
+        then made the first move. The player will still have two more chances to throw the dice. Just to confirm.
+        After the first move he will choose what kind of play will want to do.
 
-        Se você quiser mais detalhes das jogadas empurre a tela para esquerda ou clique na seta para a direita, para mais informções.
+        If you want more details of the moves push the screen to the left or click the right arrow to more informções.
 
-        Os tipos de jogadas possiveis dentro do Bozó. São essas. As. Duque. Terno. Quadra. Quina. Sena.
-        Fúl. Seguida. Quadrada. General. Como na ilustração abaixo. A marcação que você fizer. Vai depender
-        das pedras que vier, epois das três tacadas.
-         Mas vôce pode marcar o que quiser. Pois um bom jogador segue um estratégia.
-        Já que estamos falando de estratégia, usando a estratégia básica. Você vai escolher os valores que mais se repetem ou os que valem mais pontos.
-        Lembrando que para marcar deve-se somar os valores obtidos pelo jogo que você escolheu. Mais tem umas exceções como
-        a jogada. Fúl. Seguida. Quadrada. General. Por que essas jogadas já tem pontuações definidas.
+        The types of possible moves within the Bozó. Áz. Duque. Terno. Quadra. Quina. Sena.
+        Fúll. Seguida. Quadrada. General. As in the illustration below. The mark you make. will depend
+        the stones that come, fter the three shots.
+         But you can mark what you want. For a good player follows a strategy.
+        Since we're talking strategy, using the basic strategy. You will choose the values that are repeated more or worth more points.
+        Remember that to mark should add the values obtained by the game you have chosen. More has some exceptions like
+        the move. Full. Seguida. Quadrada. General. Why these moves have already set scores.
 
-        Na hora de marcar os pontos você não pode somar todos os pontos e sim escolher um tipo de jogo
-         para depois poder somar. Vou dar um exemplo aqui para você. Se eu tiver Dois duques.E três quinas.
-        Neste exemplo vou falar dois tipos de jogadas possíveis. Bom a primeira vamos supor que eu queira a quina. Por que vale mais e também é
-        a que mais se repete. Ai eu vou somar essas Tês quinas, totalizando Quinze pontos. Êntão eu marco na tabela no nosso aplicativo. Quinze pontos em quina.
-        Já o outro tipo de jogada. Como você pode observar. Quando você tem Dois dados  que é do valor duque. E Tês dados do valor de quina. É formada
-        também a jogada Fúl.
+        Time to score points you can not add all the points but choose a type of game
+         and then you can add. I will give an example here for you. If I have two duques.E three quinas.
+        In this example I will talk about two kinds of possible moves. Well first let's assume that I want the quina. Why it is worth more and is also
+        the more repeats. Then I'll add these 3 quinas, totaling fifteen points. Then I mark on the table in our application. Fifteen points in quina.
+        But the other kind of play. As you can see. When you have two dice which is Duke's value. And 3 dice from the quina value. It is formed
+        full also move.
 
-        Que por ventura foi feita na primeira tacada. E quando esse tipo de jogada é realizada em uma tacada só. Usa-se o termo jogada de bôca.
-        então a jogada ganha 5 pontos a mais e o Fúl. Passa a valer 15 pontos. Ai eu posso marcar na tabela. na Joagada Fúl.
+        That perhaps it was made the first shot. And when such a move is carried out in one fell swoop. It uses the term play of mouth.
+        then the play gets 5 points more and ful. Becomes worth 15 points. Then I can score table. in Joagada full.
 
-        Um exemplo importante. É o general de bôca. Quando o jogador faz uma jogada de general de bôca ou seja se vier cinco pedras de qualqer
-         valor todas iguais. O general de quarenta pontos. Passa a ser cem pontos. Ai não tem jeito. O jogador que fez esse tipo de jogada.
-         Ganha imediatamente com ponto soberano. E a partida é finalizada independente se outro jogador já estivesse ganhando.
+        An important example. It is the general's mouth. When the player makes a move the mouth of General ie if coming five stones of qualqer
+         value all the same. General forty points. Becomes one hundred points. Oh no way. The player who made that kind of move.
+         Win instantly with sovereign point. And the game is finished regardless of whether another player was already winning.
 
-        Basicamente é assim que se joga um Bozó.
+        Basically this is how you play a Bozo.
     </string>
 
     <!--Informaçoes de cada Dado-->
-    <string name="TextoDadoAz">Ou jogada Áz ou também chamado de número 1.
-        O dado Áz tem a soma de seus valores que podem variar de 1 a 5 pontos.</string>
-    <string name="lerAz">O, Dado, As. Ou, jogada As. Também pode ser chamado de número Um.
-        O, Dado, As tem a soma de seus valores que podem variar de Um, a Cinco pontos.</string>
+    <string name="TextoDadoAz">Or Áz or move also called number 1.
+         The data Áz is the sum of its values which can vary from 1 to 5 points.</string>
+    <string name="lerAz">The die. Áz. Or play them. It can also be called a number.
+         The Dice Áz has the sum of its values can range from A to five points.</string>
 
-    <string name="TextoDadoDuque">Ou jogada Duque ou também chamado de número 2.
-        O dado Duque tem a soma de seus valores que podem variar de 2 a 10 pontos.</string>
-    <string name="lerDuque">Dado Duque. Ou jogada Duque. Também pode ser chamado de número Dois.
-        O dado Duque tem a soma de seus valores que podem variar de Dois, a Dez pontos.</string>
+    <string name="TextoDadoDuque">Or play Duque or also called number 2.
+         The data Duque is the sum of its values which can vary from 2 to 10 points.</string>
+    <string name="lerDuque">Given Duque. Or play Duke. It may also be called Two number.
+         The data Duque is the sum of its values which can range from two to ten points.</string>
 
-    <string name="TextoDadoTerno">Ou jogada Terno ou também chamado de número 3.
-        O dado Terno tem a soma de seus valores que podem variar de 3 a 15 pontos.</string>
-    <string name="lerTerno">O Dado Terno. Ou jogada Terno. Também pode ser chamado de número Três.
-        O dado Terno tem a soma de seus valores que podem variar de Três, a Quinze pontos.</string>
+    <string name="TextoDadoTerno">Terno or move or also called the number 3.
+         The terno has given the sum of their values may vary from 3 to 15 points.</string>
+    <string name="lerTerno">The terno dice. Or play terno. It can also be called Number Three.
+         The terno has given the sum of its values that can vary from three to fifteen points.</string>
 
-    <string name="TextoDadoQuadra">Ou jogada Quadra ou também chamado de número 4.
-        O dado Quadra tem a soma de seus valores que podem variar de 4 a 20 pontos.</string>
-    <string name="lerQuadra">O Dado Quadra. Ou jogada Quadra. Também pode ser chamado de número Quatro.
-        O dado Quadra tem a soma de seus valores que podem variar de Quatro, a Vinte pontos.</string>
+    <string name="TextoDadoQuadra">Or move quadra or also called the number 4.
+         The quadra has given the sum of their values can range from 4 to 20 points.</string>
+    <string name="lerQuadra">The quadra data. Or move quadra. It can also be called Four number.
+         The quadra has given the sum of its values which may vary from four to twenty points.</string>
 
-    <string name="TextoDadoQuina">Ou jogada Quina ou também chamado de número 5.
-        O dado Quina tem a soma de seus valores que podem variar de 5 a 25 pontos.</string>
-    <string name="lerQuina">O Dado Quina. Ou jogada Quina. Também pode ser chamado de número Cinco.
-        O dado Quina tem a soma de seus valores que podem variar de Cinco, a Vinte e cinco pontos.</string>
+    <string name="TextoDadoQuina">Quina or move or also called the number 5.
+         The data quina is the sum of its values which may vary from 5 to 25 points.</string>
+    <string name="lerQuina">The Quina dice. Or move quina. It can also be called Five number.
+         The quina has given the sum of its values can range from five to twenty-five points.</string>
 
-    <string name="TextoDadoSena">Ou jogada Sena ou também chamado de número 6.
-        O dado Sena tem a soma de seus valores que podem variar de 6 a 30 pontos.</string>
-    <string name="lerSena">O Dado Sena. Ou jogada Sena. Também pode ser chamado de número Seis.
-        O dado Sena tem a soma de seus valores que podem variar de Seis, a Trinta pontos.</string>
+    <string name="TextoDadoSena">Sena or move or also called the number 6.
+         The data sena is the sum of its values which can vary from 6 to 30 points.</string>
+    <string name="lerSena">Given the Sena. Seine or move. It can also be called Six number.
+         The data sena is the sum of its values which may vary from six to thirty points.</string>
 
-    <string name="TextoDadosFull">Para poder formar a jogada full, você precisa dos cinco dados. Dois dados devem ser do um valor,
-        já os outros três dados de outro valor.Por exemplo, os primeiros dois dados os valores são 6-6 os outros três dados seria
-        4-4-4 como na ilustração encima. O valor da jogada full é de 10 pontos mas se a jogada for de bôca o valor passa a ser 15 pontos.
+    <string name="TextoDadosFull">In order to form the full play, you need the five dice. Two data must be of a value,
+         since the other three data valor.Por another example, the first two data values 6-6 are the other three data would
+         4-4-4 as the encima illustration. The value of the play is full of 10 points but the move is of mouth value becomes 15 points.
     </string>
 
-    <string name="lerFull">Fúl. Para poder formar a jogada Fúl.
-         Você precisa dos cinco dados.
-         Dois dados devem ser do um valor. já os outros três dados de outro valor.
-         Por exemplo. Os primeiros dois dados. Os valores são. Seis, e Seis. Os outros três dados seria Quatro, Quatro, Quatro.
-         Como na ilustração encima. O valor da jogada Fúl é de dez pontos.
-         Mas se a jogada for de bôca o valor passa a ser quinze pontos.
-      Mais o que é Fúl de bôca? Fúl de bôca é quando a jogada é realizada de uma só vez.</string>
+    <string name="lerFull">FUL. In order to form the FUL move.
+          You need the five dice.
+          Two data must be of a value. since the other three data other value.
+          For example. The first two data. The values are. Six and six. The other three data would be four, four, four.
+          As in encima illustration. The value of Ful move is ten points.
+          But if the move is the value of mouth becomes fifteen points.
+       More what is Ful mouth? Ful mouth is when the play is performed once.</string>
 
-    <string name="TextoDadosSeguida">Para formar a jogada seguida.
-        Existe dois tipos de sequência dos dados. A primeira sequência é de 1 a 5
-         e a outra sequência é de 2 a 6, por exemplo 1-2-3-4-5 e a outra sequência seria 2-3-4-5-6.
-        Como na ilustração encima. O valor a ser marcado da jogada seguida é de 20 pontos, mas se a jogada for de bôca o ponto passa a ser 25.
+    <string name="TextoDadosSeguida">To form the seguida move.
+         There are two types of sequence data. The first sequence is from 1 to 5
+          and the other sequence is 2 to 6, for example 1-2-3-4-5 and 2-3-4-5-6 would be another sequence.
+         As in encima illustration. The value to be marked seguida  the play is 20 points, but if the move is to mouth the point becomes 25.
      </string>
 
-    <string name="lerSeguida">Seguida. Para formar a jogada seguida.
-        existe dois tipos de sequência dos dados. A primeira sequência é de 1 a Cinco. E a outra sequência é de 2 a Seis.
-        Por exemplo. Um, Dois, Três, Quatro, e Cinco. E a outra sequência seria. dois, três, quatro, cinco, e seis.
-        Como na ilustração encima. O valor a ser marcado da jogada seguida é de vinte pontos. Mas se a jogada for de bôca o ponto passa a ser vite e cinco.
-     Mais o que é seguida de bôca? Seguida de bôca é quando a jogada é realizada de uma só vez.
+    <string name="lerSeguida">Seguida. To form the seguida  move.
+         there are two types of sequence data. The first sequence is from 1 to five. And the other sequence is from 2 to six.
+         For example. One, Two, Three, Four, and Five. And the other would result. two, three, four, five and six.
+         As in encima illustration. The value to be marked seguida  the move is twenty points. But if the move is to mouth the point becomes vite-five.
+      More which is seguida mouth? Seguida mouth is when the move is performed once.
     </string>
 
-    <string name="TextoDadosQuadrada">Para poder fazer uma jogada quadrada deve ter 4 números iguais.
-        Por exemplo, 2-2-2-2 como na ilustração encima.
-        Esses quatros dados iguais podem ser de qualquer valor, e o valor que deve ser marcado na jogada quadrada é de 30 pontos.
-        Mas se a quadrada for de boca o valor passa a ser de 35 pontos.</string>
+    <string name="TextoDadosQuadrada">To be able to play a quadrada must have four equal numbers.
+         For example, 2-2-2-2 as in the illustration on top.
+         These four equal data can be of any value, and the value that should be marked in the quadrada pass is 30 points.
+         But if the quadrada is the mouth of the value becomes 35 points.</string>
 
-    <string name="lerQuadrada">Quadrada. Para poder fazer uma jogada quadrada deve ter quatro números iguais.
-        Por exemplo. Dois, Dois, Dois,  e Dois. Como na ilustração encima.
-        esses quatros dados iguais podem ser de qualquer valor. e o valor que deve ser marcado na jogada Quadrada é de trinta pontos.
-        Mas se a quadrada for de boca o valor passa a ser de trinta e cinco pontos. Mais o que é quadrada de bôca?
-         Quadrada de bôca é quando a jogada é realizada de uma só vez.</string>
+    <string name="lerQuadrada">Quadrada. To be able to play a quadrada must have four equal numbers.
+         For example. Two, two, two and two. As in encima illustration.
+         these four equal data can be any value. and the value that should be marked on the quadrada move is thirty points.
+         But if the quadrada is the mouth of the value becomes thirty-five points. More what it is quadrada of mouth?
+          mouth is quadrada when play is performed once.</string>
 
-    <string name="TextoDadosGeneral">Para formar a jogada General você vai precisar que todos os cincos dados sejam do mesmo valor.
-        Por exemplo, 5-5-5-5-5 esses dados podem ser de qualquer valor, desde que sejam iguais.
-        O valor a ser marcado na jogada General é de quarenta pontos. Mas se a jogada General for de bôca.
-         Ai o valor passa a ser de 100 pontos e a jogada é finalizada imediatamente porque o jogador que fez o general de bôca,
-        ganha a partida com o ponto soberano, independente se outro jogador estiver ganhando.</string>
+    <string name="TextoDadosGeneral">To form the General move you will need all five data are of the same value.
+         For example, 5-5-5-5-5 data can be of any value, provided that they are equal.
+         The value to be marked on the move General is forty points. But if the move is General of mouth.
+          Ai the value becomes 100 points and the move is completed immediately because the player who made the general's mouth,
+         wins the game with the sovereign point, regardless of whether another player is winning.</string>
 
-    <string name="lerGeneral">General. Para formar a jogada General. Você vai precisar que todos os cincos dados sejam do mesmo valor. Por exemplo.
-        Cinco, Cinco, Cinco, Cinco, e Cinco. Esses dados podem ser de qualquer valor. Desde que sejam iguais.
-        O valor a ser marcado na jogada General é de quarenta pontos. Mas se a jogada General for de bôca.
-         Ai o valor passa a ser de cem pontos. E a jogada é finalizada imediatamente.
-         Porque o jogador que fez o general de bôca. Ganha a partida com o ponto soberano.
-         Independente se outro jogador estiver ganhando. Mais o que é general de bôca?
-         General de bôca é quando a jogada é realizada de uma só vez. E á rodada termina.</string>
-    <string name="menssagem_salvar_grupo">Você pode salvar o seu grupo de jogo se quizer jogar mais tarde.</string>
-    <string name="descartar_alteracoes">Descartar Alterações</string>
+    <string name="lerGeneral">General. To form the play General. You will need all five data are of the same value. For example.
+         Five, five, five, five, and five. Such data may be any value. Since they are equal.
+         The value to be marked on the move General is forty points. But if the move is General of mouth.
+          Ai the value becomes a hundred points. And the move is terminated immediately.
+          Because the player who made the general's mouth. Wins the game with the sovereign point.
+          Regardless if another player is winning. More what is general of mouth?
+          General's mouth when the move is performed once. And will round ends.</string>
+    <string name="menssagem_salvar_grupo">You can save your game group if you want to play later.</string>
+    <string name="descartar_alteracoes">Discard changes</string>
 
 </resources>
