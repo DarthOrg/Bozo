@@ -375,11 +375,14 @@ public class FragmentFilho extends Fragment {
 
     public void setGanhando(boolean ganhando) {
         this.ganhando = ganhando;
-        if (ganhando) {
-            txtGanhando.setText("Ganhando");
-            fundoResultado.setVisibility(View.VISIBLE);
-        } else {
-            fundoResultado.setVisibility(View.INVISIBLE);
+
+        if (fundoResultado != null) {
+            if (ganhando) {
+                txtGanhando.setText("Ganhando");
+                fundoResultado.setVisibility(View.VISIBLE);
+            } else {
+                fundoResultado.setVisibility(View.INVISIBLE);
+            }
         }
     }
 
