@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Marcador Bozó</string>
+    <string name="app_name" translatable="false">Marcador Bozó</string>
 
     <!-- String Comuns -->
     <string name="adicionar_jogador">Adicionar jogador</string>
@@ -80,8 +80,8 @@
     <string name="subtitulo_slide4_welcome">Nesta tela você vai marcar os valores que conseguir jogando com o copo de bozó</string>
 
     <!-- INICIO -->
-    <string name="navigation_drawer_open">Open navigation drawer</string>
-    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="navigation_drawer_open" translatable="false">Open navigation drawer</string>
+    <string name="navigation_drawer_close" translatable="false">Close navigation drawer</string>
 
     <!-- Compartilhar app-->
     <string name="compartilhar_app">"Baixe Marcador de Bozó na GooglePlay "</string>
@@ -119,17 +119,12 @@
     </string>
     <string name="Marcacao">Marcação</string>
     <string name="Texto5">Quando jogar os dados, ele te dará 5 valores.
-        Usando a estratégia básica, você vai escolher os valores que mais se repetem ou os que valem amis pontos.
+        Usando a estratégia básica, você vai escolher os valores que mais se repetem ou os que valem mais pontos.
         É so você lembrar que para marcar deve-se somar os valores obtidos por determinado jogo que você escolheu.
-        com as exceções de Full, Seguida, Quadrada e General, por que essas jogadas já possui uma pontuação definida.
-        </string>
-    <string name="Texto6">Na hora de marcar os pontos você não pode somar todos os pontos e sim escolher um tipo de jogo,
-         para depois poder somar. Por exemplo, se eu tiver 2 duques e 3 quinas, na primeira jogada das três possiveis.
-         Mas supondo que eu queira a quina, pois vale mais pontos e é a que mais se repete, então eu somo tudo, totalizando 15 pontos de quina.
-        e na tabela no nosso app você vai marcar em quina. Eu lhe faço uma observação, 2 duques e 3 quinas tbm é uma jogada Full e ainda é de boca. Então eu posso marcar 15
-        pontos na tabela, na jogada Full. Mas se a jogada General for de bôca.Ai o valor passa a ser de 100 pontos e a jogada é finalizada
-        imediatamente porque o jogador que fez o general de bôca,ganha a partida com o ponto soberano, independente se outro jogador
-        estiver ganhando.</string>
+        com as exceções de Full, Seguida, Quadrada e General, porque essas jogadas já possui uma pontuação definida.</string>
+    <string name="Texto6">No momento de marcar os pontos você não pode somar todos os pontos e sim escolher um tipo de jogo,para depois poder somar. Por exemplo, se eu tiver 2 Duques e 3 quinas, na primeira jogada das três possiveis.
+Mas supondo que eu queira a Quina, pois vale mais pontos e é a que mais se repete, então eu somo tudo, totalizando 15 pontos de Quina.
+Na tabela no nosso app você vai marcar em Quina. Mas,observando bem, 2 duques e 3 quinas também é uma jogada Full e ainda é de boca. Então eu posso marcar 15 pontos na tabela, na jogada Full. Mas se a jogada General for de bôca.Ai o valor passa a ser de 100 pontos e a jogada é finalizada imediatamente porque o jogador que fez o general de bôca,ganha a partida com o ponto soberano, independente se outro jogador estiver ganhando.</string>
 
     <string name="txtComojogarLer">
         Vamos aprender como jogar Bozó.
