@@ -2,6 +2,7 @@ package com.darthorg.bozo.fragment;
 
 import android.app.Dialog;
 import android.graphics.Color;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.util.Log;
@@ -361,6 +362,12 @@ public class FragmentFilho extends Fragment {
 
     }
 
+    private void buttomColor() {
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP) {
+            txtGanhando.setBackgroundColor(getResources().getColor(R.color.colorGreenA400));
+        }
+    }
+
     public int contarPontos() {
 
         int pontos = 0;
@@ -378,13 +385,16 @@ public class FragmentFilho extends Fragment {
 
         if (fundoResultado != null) {
             if (ganhando) {
-                txtGanhando.setText("Ganhando");
+                txtGanhando.setText(getString(R.string.ganhando));
                 fundoResultado.setVisibility(View.VISIBLE);
+                buttomColor();
             } else {
                 fundoResultado.setVisibility(View.INVISIBLE);
             }
         }
     }
+
+
 
     public void contarPecasUsadas() {
 
