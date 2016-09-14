@@ -7,22 +7,6 @@
     android:background="@color/colorAccent800"
     tools:context=".view.Sobre">
 
-    <android.support.design.widget.AppBarLayout
-        android:id="@+id/view4"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/colorTrasnparente"
-        app:elevation="0dp">
-
-        <!--TOOLBAR TOPO-->
-        <android.support.v7.widget.Toolbar
-            android:id="@+id/toolbar"
-            android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:theme="@style/AppTheme.WhiteBotton" />
-
-    </android.support.design.widget.AppBarLayout>
-
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -60,10 +44,10 @@
 
             <ImageView
                 android:id="@+id/imageView4"
-                android:layout_width="200dp"
+                android:layout_width="130dp"
                 android:layout_height="150dp"
                 android:layout_gravity="center_horizontal"
-                android:src="@mipmap/ic_launcher" />
+                android:src="@drawable/icone" />
 
             <TextView
                 android:layout_width="wrap_content"
