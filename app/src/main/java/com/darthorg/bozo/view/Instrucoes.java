@@ -1,19 +1,14 @@
 package com.darthorg.bozo.view;
 
-import android.annotation.TargetApi;
 import android.content.Context;
-import android.content.Intent;
-import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
 import android.speech.tts.TextToSpeech;
-import android.support.v4.content.ContextCompat;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.text.Html;
 import android.view.LayoutInflater;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
@@ -25,7 +20,6 @@ import android.widget.Toast;
 
 import com.darthorg.bozo.R;
 import com.darthorg.bozo.manager.IntrucoesManager;
-import com.darthorg.bozo.view.Inicio;
 
 import java.util.Locale;
 
@@ -42,12 +36,9 @@ public class Instrucoes extends AppCompatActivity {
 
     TextToSpeech ttsobject;
     int result;
-    String texto;
 
-    TextView txtAz, txtAudio;
-    ImageButton audio, audioOff,audiotxt1_on,audiotxt1_off;
-
-
+    TextView txtAudio;
+    ImageButton audio, audioOff;
 
 
     @Override
@@ -86,14 +77,14 @@ public class Instrucoes extends AppCompatActivity {
             @Override
             public void onInit(int status) {
 
-                if (status == TextToSpeech.SUCCESS){
+                if (status == TextToSpeech.SUCCESS) {
 
 
                     result = ttsobject.isLanguageAvailable(new Locale("spa"));
 
-                }else {
+                } else {
                     Toast.makeText(getApplicationContext(),
-                            "Recurso não suportado no seu dispositivo",
+                            R.string.recurso_nao_suportado,
                             Toast.LENGTH_SHORT)
                             .show();
                 }
@@ -103,20 +94,22 @@ public class Instrucoes extends AppCompatActivity {
         audio.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (result == TextToSpeech.LANG_NOT_SUPPORTED || result == TextToSpeech.LANG_MISSING_DATA){
-                    Toast.makeText(getApplicationContext(),"Recurso não suportado no seu dispositivo",Toast.LENGTH_SHORT).show();
-                }else {
-                    ttsobject.speak(getString(R.string.txtComojogarLer), TextToSpeech.QUEUE_FLUSH,null);
+                if (result == TextToSpeech.LANG_NOT_SUPPORTED || result == TextToSpeech.LANG_MISSING_DATA) {
+                    Toast.makeText(getApplicationContext(), R.string.recurso_nao_suportado, Toast.LENGTH_SHORT).show();
+                } else {
+                    ttsobject.speak(getString(R.string.txtComojogarLer), TextToSpeech.QUEUE_FLUSH, null);
                     audioOff.setVisibility(View.VISIBLE);
                     audio.setVisibility(View.GONE);
-                    txtAudio.setText("Parar");
+                    txtAudio.setText(R.string.parar);
                 }
             }
         });
 
         audioOff.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {btnStop();}
+            public void onClick(View v) {
+                btnStop();
+            }
         });
 
         // layouts of all welcome sliders
@@ -181,11 +174,10 @@ public class Instrucoes extends AppCompatActivity {
     }
 
 
-
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        if (ttsobject != null){
+        if (ttsobject != null) {
 
             audioOff.setVisibility(View.GONE);
             audio.setVisibility(View.VISIBLE);
@@ -229,8 +221,8 @@ public class Instrucoes extends AppCompatActivity {
         btnSkip.setVisibility(View.VISIBLE);
     }
 
-    private void btnStop(){
-        if (ttsobject != null){
+    private void btnStop() {
+        if (ttsobject != null) {
 
             audioOff.setVisibility(View.GONE);
             audio.setVisibility(View.VISIBLE);
@@ -248,10 +240,9 @@ public class Instrucoes extends AppCompatActivity {
             addBottomDots(position);
 
 
-
             // changing the next button text 'NEXT' / 'GOT IT'
             if (position == layouts.length - 1) {
-                titulo.setText("General");
+                titulo.setText(getString(R.string.general));
                 btnNext.setImageDrawable(getResources().getDrawable(R.drawable.ic_sair));
                 btnSkip.setVisibility(View.GONE);
                 btnAnterior.setVisibility(View.VISIBLE);
@@ -259,248 +250,268 @@ public class Instrucoes extends AppCompatActivity {
                 audio.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        if (result == TextToSpeech.LANG_NOT_SUPPORTED || result == TextToSpeech.LANG_MISSING_DATA){
-                            Toast.makeText(getApplicationContext(),"Recurso não suportado no seu dispositivo",Toast.LENGTH_SHORT).show();
-                        }else {
-                            ttsobject.speak(getString(R.string.lerGeneral), TextToSpeech.QUEUE_FLUSH,null);
+                        if (result == TextToSpeech.LANG_NOT_SUPPORTED || result == TextToSpeech.LANG_MISSING_DATA) {
+                            Toast.makeText(getApplicationContext(), R.string.recurso_nao_suportado, Toast.LENGTH_SHORT).show();
+                        } else {
+                            ttsobject.speak(getString(R.string.lerGeneral), TextToSpeech.QUEUE_FLUSH, null);
                             audioOff.setVisibility(View.VISIBLE);
                             audio.setVisibility(View.GONE);
-                            txtAudio.setText("Parar");
+                            txtAudio.setText(R.string.parar);
                         }
                     }
                 });
 
                 audioOff.setOnClickListener(new View.OnClickListener() {
                     @Override
-                    public void onClick(View v) {btnStop();}
+                    public void onClick(View v) {
+                        btnStop();
+                    }
                 });
 
-            }else if (position == layouts.length - 2) {
+            } else if (position == layouts.length - 2) {
 
-                titulo.setText("Quadrada");
+                titulo.setText(getString(R.string.quadrada));
                 btnProximo();
                 btnAnterior.setVisibility(View.VISIBLE);
 
                 audio.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        if (result == TextToSpeech.LANG_NOT_SUPPORTED || result == TextToSpeech.LANG_MISSING_DATA){
-                            Toast.makeText(getApplicationContext(),"Recurso não suportado no seu dispositivo",Toast.LENGTH_SHORT).show();
-                        }else {
-                            ttsobject.speak(getString(R.string.lerQuadrada), TextToSpeech.QUEUE_FLUSH,null);
+                        if (result == TextToSpeech.LANG_NOT_SUPPORTED || result == TextToSpeech.LANG_MISSING_DATA) {
+                            Toast.makeText(getApplicationContext(), R.string.recurso_nao_suportado, Toast.LENGTH_SHORT).show();
+                        } else {
+                            ttsobject.speak(getString(R.string.lerQuadrada), TextToSpeech.QUEUE_FLUSH, null);
                             audioOff.setVisibility(View.VISIBLE);
                             audio.setVisibility(View.GONE);
-                            txtAudio.setText("Parar");
+                            txtAudio.setText(R.string.parar);
                         }
                     }
                 });
 
                 audioOff.setOnClickListener(new View.OnClickListener() {
                     @Override
-                    public void onClick(View v) {btnStop();}
+                    public void onClick(View v) {
+                        btnStop();
+                    }
                 });
 
             } else if (position == layouts.length - 3) {
 
-                titulo.setText("Seguida");
+                titulo.setText(getString(R.string.seguida));
                 btnProximo();
                 btnAnterior.setVisibility(View.VISIBLE);
 
                 audio.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        if (result == TextToSpeech.LANG_NOT_SUPPORTED || result == TextToSpeech.LANG_MISSING_DATA){
-                            Toast.makeText(getApplicationContext(),"Recurso não suportado no seu dispositivo",Toast.LENGTH_SHORT).show();
-                        }else {
-                            ttsobject.speak(getString(R.string.lerSeguida), TextToSpeech.QUEUE_FLUSH,null);
+                        if (result == TextToSpeech.LANG_NOT_SUPPORTED || result == TextToSpeech.LANG_MISSING_DATA) {
+                            Toast.makeText(getApplicationContext(), R.string.recurso_nao_suportado, Toast.LENGTH_SHORT).show();
+                        } else {
+                            ttsobject.speak(getString(R.string.lerSeguida), TextToSpeech.QUEUE_FLUSH, null);
                             audioOff.setVisibility(View.VISIBLE);
                             audio.setVisibility(View.GONE);
-                            txtAudio.setText("Parar");
+                            txtAudio.setText(R.string.parar);
                         }
                     }
                 });
 
                 audioOff.setOnClickListener(new View.OnClickListener() {
                     @Override
-                    public void onClick(View v) {btnStop();}
+                    public void onClick(View v) {
+                        btnStop();
+                    }
                 });
 
-            }else if (position == layouts.length - 4) {
+            } else if (position == layouts.length - 4) {
 
-                titulo.setText("Full");
+                titulo.setText(getString(R.string.full));
                 btnProximo();
                 btnAnterior.setVisibility(View.VISIBLE);
 
                 audio.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        if (result == TextToSpeech.LANG_NOT_SUPPORTED || result == TextToSpeech.LANG_MISSING_DATA){
-                            Toast.makeText(getApplicationContext(),"Recurso não suportado no seu dispositivo",Toast.LENGTH_SHORT).show();
-                        }else {
-                            ttsobject.speak(getString(R.string.lerFull), TextToSpeech.QUEUE_FLUSH,null);
+                        if (result == TextToSpeech.LANG_NOT_SUPPORTED || result == TextToSpeech.LANG_MISSING_DATA) {
+                            Toast.makeText(getApplicationContext(), R.string.recurso_nao_suportado, Toast.LENGTH_SHORT).show();
+                        } else {
+                            ttsobject.speak(getString(R.string.lerFull), TextToSpeech.QUEUE_FLUSH, null);
                             audioOff.setVisibility(View.VISIBLE);
                             audio.setVisibility(View.GONE);
-                            txtAudio.setText("Parar");
+                            txtAudio.setText(R.string.parar);
                         }
                     }
                 });
 
                 audioOff.setOnClickListener(new View.OnClickListener() {
                     @Override
-                    public void onClick(View v) {btnStop();}
+                    public void onClick(View v) {
+                        btnStop();
+                    }
                 });
 
-            }else if (position == layouts.length - 5) {
+            } else if (position == layouts.length - 5) {
 
-                titulo.setText("Sena");
+                titulo.setText(getString(R.string.sena));
                 btnProximo();
                 btnAnterior.setVisibility(View.VISIBLE);
 
                 audio.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        if (result == TextToSpeech.LANG_NOT_SUPPORTED || result == TextToSpeech.LANG_MISSING_DATA){
-                            Toast.makeText(getApplicationContext(),"Recurso não suportado no seu dispositivo",Toast.LENGTH_SHORT).show();
-                        }else {
-                            ttsobject.speak(getString(R.string.lerSena), TextToSpeech.QUEUE_FLUSH,null);
+                        if (result == TextToSpeech.LANG_NOT_SUPPORTED || result == TextToSpeech.LANG_MISSING_DATA) {
+                            Toast.makeText(getApplicationContext(), R.string.recurso_nao_suportado, Toast.LENGTH_SHORT).show();
+                        } else {
+                            ttsobject.speak(getString(R.string.lerSena), TextToSpeech.QUEUE_FLUSH, null);
                             audioOff.setVisibility(View.VISIBLE);
                             audio.setVisibility(View.GONE);
-                            txtAudio.setText("Parar");
+                            txtAudio.setText(R.string.parar);
                         }
                     }
                 });
 
                 audioOff.setOnClickListener(new View.OnClickListener() {
                     @Override
-                    public void onClick(View v) {btnStop();}
+                    public void onClick(View v) {
+                        btnStop();
+                    }
                 });
 
-            }else if (position == layouts.length - 6) {
+            } else if (position == layouts.length - 6) {
 
-                titulo.setText("Quina");
+                titulo.setText(getString(R.string.quina));
                 btnProximo();
                 btnAnterior.setVisibility(View.VISIBLE);
 
                 audio.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        if (result == TextToSpeech.LANG_NOT_SUPPORTED || result == TextToSpeech.LANG_MISSING_DATA){
-                            Toast.makeText(getApplicationContext(),"Recurso não suportado no seu dispositivo",Toast.LENGTH_SHORT).show();
-                        }else {
-                            ttsobject.speak(getString(R.string.lerQuina), TextToSpeech.QUEUE_FLUSH,null);
+                        if (result == TextToSpeech.LANG_NOT_SUPPORTED || result == TextToSpeech.LANG_MISSING_DATA) {
+                            Toast.makeText(getApplicationContext(), R.string.recurso_nao_suportado, Toast.LENGTH_SHORT).show();
+                        } else {
+                            ttsobject.speak(getString(R.string.lerQuina), TextToSpeech.QUEUE_FLUSH, null);
                             audioOff.setVisibility(View.VISIBLE);
                             audio.setVisibility(View.GONE);
-                            txtAudio.setText("Parar");
+                            txtAudio.setText(R.string.parar);
                         }
                     }
                 });
 
                 audioOff.setOnClickListener(new View.OnClickListener() {
                     @Override
-                    public void onClick(View v) {btnStop();}
+                    public void onClick(View v) {
+                        btnStop();
+                    }
                 });
 
-            }else if (position == layouts.length - 7) {
+            } else if (position == layouts.length - 7) {
 
-                titulo.setText("Quadra");
+                titulo.setText(getString(R.string.quadra));
                 btnProximo();
                 btnAnterior.setVisibility(View.VISIBLE);
 
                 audio.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        if (result == TextToSpeech.LANG_NOT_SUPPORTED || result == TextToSpeech.LANG_MISSING_DATA){
-                            Toast.makeText(getApplicationContext(),"Recurso não suportado no seu dispositivo",Toast.LENGTH_SHORT).show();
-                        }else {
-                            ttsobject.speak(getString(R.string.lerQuadra), TextToSpeech.QUEUE_FLUSH,null);
+                        if (result == TextToSpeech.LANG_NOT_SUPPORTED || result == TextToSpeech.LANG_MISSING_DATA) {
+                            Toast.makeText(getApplicationContext(), R.string.recurso_nao_suportado, Toast.LENGTH_SHORT).show();
+                        } else {
+                            ttsobject.speak(getString(R.string.lerQuadra), TextToSpeech.QUEUE_FLUSH, null);
                             audioOff.setVisibility(View.VISIBLE);
                             audio.setVisibility(View.GONE);
-                            txtAudio.setText("Parar");
+                            txtAudio.setText(R.string.parar);
                         }
                     }
                 });
 
                 audioOff.setOnClickListener(new View.OnClickListener() {
                     @Override
-                    public void onClick(View v) {btnStop();}
+                    public void onClick(View v) {
+                        btnStop();
+                    }
                 });
 
-            }else if (position == layouts.length - 8) {
+            } else if (position == layouts.length - 8) {
 
-                titulo.setText("Terno");
+                titulo.setText(getString(R.string.terno));
                 btnProximo();
                 btnAnterior.setVisibility(View.VISIBLE);
 
                 audio.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        if (result == TextToSpeech.LANG_NOT_SUPPORTED || result == TextToSpeech.LANG_MISSING_DATA){
-                            Toast.makeText(getApplicationContext(),"Recurso não suportado no seu dispositivo",Toast.LENGTH_SHORT).show();
-                        }else {
-                            ttsobject.speak(getString(R.string.lerTerno), TextToSpeech.QUEUE_FLUSH,null);
+                        if (result == TextToSpeech.LANG_NOT_SUPPORTED || result == TextToSpeech.LANG_MISSING_DATA) {
+                            Toast.makeText(getApplicationContext(), R.string.recurso_nao_suportado, Toast.LENGTH_SHORT).show();
+                        } else {
+                            ttsobject.speak(getString(R.string.lerTerno), TextToSpeech.QUEUE_FLUSH, null);
                             audioOff.setVisibility(View.VISIBLE);
                             audio.setVisibility(View.GONE);
-                            txtAudio.setText("Parar");
+                            txtAudio.setText(R.string.parar);
                         }
                     }
                 });
 
                 audioOff.setOnClickListener(new View.OnClickListener() {
                     @Override
-                    public void onClick(View v) {btnStop();}
+                    public void onClick(View v) {
+                        btnStop();
+                    }
                 });
 
-            }else if (position == layouts.length - 9) {
+            } else if (position == layouts.length - 9) {
 
-                titulo.setText("Duque");
+                titulo.setText(getString(R.string.duque));
                 btnProximo();
                 btnAnterior.setVisibility(View.VISIBLE);
 
                 audio.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        if (result == TextToSpeech.LANG_NOT_SUPPORTED || result == TextToSpeech.LANG_MISSING_DATA){
-                            Toast.makeText(getApplicationContext(),"Recurso não suportado no seu dispositivo",Toast.LENGTH_SHORT).show();
-                        }else {
-                            ttsobject.speak(getString(R.string.lerDuque), TextToSpeech.QUEUE_FLUSH,null);
+                        if (result == TextToSpeech.LANG_NOT_SUPPORTED || result == TextToSpeech.LANG_MISSING_DATA) {
+                            Toast.makeText(getApplicationContext(), R.string.recurso_nao_suportado, Toast.LENGTH_SHORT).show();
+                        } else {
+                            ttsobject.speak(getString(R.string.lerDuque), TextToSpeech.QUEUE_FLUSH, null);
                             audioOff.setVisibility(View.VISIBLE);
                             audio.setVisibility(View.GONE);
-                            txtAudio.setText("Parar");
+                            txtAudio.setText(R.string.parar);
                         }
                     }
                 });
 
                 audioOff.setOnClickListener(new View.OnClickListener() {
                     @Override
-                    public void onClick(View v) {btnStop();}
+                    public void onClick(View v) {
+                        btnStop();
+                    }
                 });
 
-            }else if (position == layouts.length - 10) {
+            } else if (position == layouts.length - 10) {
 
-                titulo.setText("Áz");
+                titulo.setText(getString(R.string.az));
                 btnProximo();
                 btnAnterior.setVisibility(View.VISIBLE);
 
                 audio.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        if (result == TextToSpeech.LANG_NOT_SUPPORTED || result == TextToSpeech.LANG_MISSING_DATA){
-                            Toast.makeText(getApplicationContext(),"Recurso não suportado no seu dispositivo",Toast.LENGTH_SHORT).show();
-                        }else {
-                            ttsobject.speak(getString(R.string.lerAz), TextToSpeech.QUEUE_FLUSH,null);
+                        if (result == TextToSpeech.LANG_NOT_SUPPORTED || result == TextToSpeech.LANG_MISSING_DATA) {
+                            Toast.makeText(getApplicationContext(), R.string.recurso_nao_suportado, Toast.LENGTH_SHORT).show();
+                        } else {
+                            ttsobject.speak(getString(R.string.lerAz), TextToSpeech.QUEUE_FLUSH, null);
                             audioOff.setVisibility(View.VISIBLE);
                             audio.setVisibility(View.GONE);
-                            txtAudio.setText("Parar");
+                            txtAudio.setText(R.string.parar);
                         }
                     }
                 });
 
                 audioOff.setOnClickListener(new View.OnClickListener() {
                     @Override
-                    public void onClick(View v) {btnStop();}
+                    public void onClick(View v) {
+                        btnStop();
+                    }
                 });
 
-            }else if (position == layouts.length - 11) {
+            } else if (position == layouts.length - 11) {
 
                 titulo.setText("");
                 btnAnterior.setVisibility(View.GONE);
@@ -509,23 +520,25 @@ public class Instrucoes extends AppCompatActivity {
                 audio.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        if (result == TextToSpeech.LANG_NOT_SUPPORTED || result == TextToSpeech.LANG_MISSING_DATA){
-                            Toast.makeText(getApplicationContext(),"Recurso não suportado no seu dispositivo",Toast.LENGTH_SHORT).show();
-                        }else {
-                            ttsobject.speak(getString(R.string.txtComojogarLer), TextToSpeech.QUEUE_FLUSH,null);
+                        if (result == TextToSpeech.LANG_NOT_SUPPORTED || result == TextToSpeech.LANG_MISSING_DATA) {
+                            Toast.makeText(getApplicationContext(), R.string.recurso_nao_suportado, Toast.LENGTH_SHORT).show();
+                        } else {
+                            ttsobject.speak(getString(R.string.txtComojogarLer), TextToSpeech.QUEUE_FLUSH, null);
                             audioOff.setVisibility(View.VISIBLE);
                             audio.setVisibility(View.GONE);
-                            txtAudio.setText("Parar");
+                            txtAudio.setText(R.string.parar);
                         }
                     }
                 });
 
                 audioOff.setOnClickListener(new View.OnClickListener() {
                     @Override
-                    public void onClick(View v) {btnStop();}
+                    public void onClick(View v) {
+                        btnStop();
+                    }
                 });
 
-            }else {
+            } else {
                 // still pages are left
 
                 btnNext.setImageDrawable(getResources().getDrawable(R.drawable.ic_proximo));

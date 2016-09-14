@@ -1,145 +1,88 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@color/colorAccent700"
+    android:background="@color/colorAccent800"
     tools:context=".view.Sobre">
 
     <android.support.design.widget.AppBarLayout
+        android:id="@+id/view4"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/colorTrasnparente"
-        app:elevation="0dp"
-        android:id="@+id/view4">
+        app:elevation="0dp">
 
         <!--TOOLBAR TOPO-->
         <android.support.v7.widget.Toolbar
             android:id="@+id/toolbar"
-            android:theme="@style/AppTheme.WhiteBotton"
             android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"/>
+            android:layout_height="?attr/actionBarSize"
+            android:theme="@style/AppTheme.WhiteBotton" />
 
     </android.support.design.widget.AppBarLayout>
 
-    <RelativeLayout
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_centerHorizontal="true"
-        android:layout_below="@+id/view4">
+        android:layout_height="match_parent">
 
-        <ImageView
-            android:layout_width="200dp"
-            android:layout_height="150dp"
-            android:id="@+id/imageView4"
-            android:layout_gravity="left|top"
-            android:src="@drawable/bozo_android"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_marginTop="30dp"
-            android:layout_marginLeft="60dp" />
-
-        <TextView
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceSmall"
-            android:text="@string/Versao"
-            android:id="@+id/txtTerno"
-            android:textColor="@color/colorWhiteTransparente2"
-            android:layout_below="@+id/imageView4"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_marginLeft="60dp" />
+            android:layout_gravity="center_horizontal|center_vertical"
+            android:orientation="vertical">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="01.0.0.17.79"
-            android:id="@+id/textView5"
-            android:layout_below="@+id/txtTerno"
-            android:layout_alignLeft="@+id/txtTerno"
-            android:layout_alignStart="@+id/txtTerno"
-            android:textColor="@color/colorWhite"
-            android:textSize="15dp"
-            android:textStyle="bold" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:text="Marcador Bozó"
+                android:textColor="@color/colorWhite"
+                android:textSize="20dp" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="Marcador bozó"
-            android:id="@+id/txtQuina"
-            android:textColor="@color/colorWhite"
-            android:textSize="15dp"
-            android:textStyle="bold"
-            android:layout_marginTop="100dp"
-            android:layout_below="@+id/imageView4"
-            android:layout_alignLeft="@+id/imageView4" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:text="@string/versao_app"
+                android:textColor="@color/colorWhiteTransparente"
+                android:textSize="13dp" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="@string/EMarcaRegistrada"
-            android:id="@+id/txtSena"
-            android:textColor="@color/colorWhiteTransparente2"
-            android:textSize="15dp"
-            android:layout_alignTop="@+id/txtQuina"
-            android:layout_toRightOf="@+id/txtQuina"
-            android:layout_toEndOf="@+id/txtQuina"
-            android:layout_marginLeft="5dp" />
+            <TextView
+                android:id="@+id/txtNumVersao"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:text="1.0"
+                android:textColor="@color/colorWhiteTransparente"
+                android:textSize="13dp" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="@string/De"
-            android:id="@+id/textView8"
-            android:textColor="@color/colorWhiteTransparente2"
-            android:textSize="15dp"
-            android:layout_below="@+id/txtQuina"
-            android:layout_alignLeft="@+id/txtQuina"
-            android:layout_alignStart="@+id/txtQuina" />
+            <ImageView
+                android:id="@+id/imageView4"
+                android:layout_width="200dp"
+                android:layout_height="150dp"
+                android:layout_gravity="center_horizontal"
+                android:src="@mipmap/ic_launcher" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="Darth Org"
-            android:id="@+id/textView9"
-            android:textColor="@color/colorWhite"
-            android:textSize="15dp"
-            android:textStyle="bold"
-            android:layout_below="@+id/txtQuina"
-            android:layout_toRightOf="@+id/textView8"
-            android:layout_toEndOf="@+id/textView8"
-            android:layout_marginLeft="5dp" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:text="© 2016 DarthOrg Inc."
+                android:textColor="@color/colorWhiteTransparente"
+                android:textSize="13dp" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="."
-            android:id="@+id/textView10"
-            android:textColor="@color/colorWhiteTransparente2"
-            android:textSize="15dp"
-            android:layout_below="@+id/txtQuina"
-            android:layout_toRightOf="@+id/textView9"
-            android:layout_toEndOf="@+id/textView9"
-            android:layout_marginLeft="5dp" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:text="@string/todos_os_direitos_reservados"
+                android:textColor="@color/colorWhiteTransparente"
+                android:textSize="13dp" />
 
-        <ImageView
-            android:layout_width="100dp"
-            android:layout_height="40dp"
-            android:id="@+id/imageView5"
-            android:layout_gravity="left|top"
-            android:src="@drawable/logo_darth_org"
-            android:layout_below="@+id/textView8"
-            android:layout_toLeftOf="@+id/txtSena"
-            android:layout_toStartOf="@+id/txtSena" />
 
-    </RelativeLayout>
+        </LinearLayout>
+
+    </FrameLayout>
 </RelativeLayout>

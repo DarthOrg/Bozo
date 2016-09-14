@@ -23,7 +23,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/Az"
+                    android:text="@string/az"
                     android:textAppearance="?android:attr/textAppearanceSmall"
                     android:textColor="@color/colorCinza"
                     android:textSize="8dp"
@@ -64,7 +64,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/Full"
+                    android:text="@string/full"
                     android:textAppearance="?android:attr/textAppearanceSmall"
                     android:textColor="@color/colorCinza"
                     android:textSize="8dp"
@@ -96,7 +96,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/Quadra"
+                    android:text="@string/quadra"
                     android:textAppearance="?android:attr/textAppearanceSmall"
                     android:textColor="@color/colorCinza"
                     android:textSize="8dp"
@@ -137,7 +137,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/Duque"
+                    android:text="@string/duque"
                     android:textAppearance="?android:attr/textAppearanceSmall"
                     android:textColor="@color/colorCinza"
                     android:textSize="8dp"
@@ -170,7 +170,7 @@
                     android:id="@+id/indicador_general"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/Seguida"
+                    android:text="@string/seguida"
                     android:textAppearance="?android:attr/textAppearanceSmall"
                     android:textColor="@color/colorCinza"
                     android:textSize="8dp"
@@ -202,7 +202,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/Quina"
+                    android:text="@string/quina"
                     android:textAppearance="?android:attr/textAppearanceSmall"
                     android:textColor="@color/colorCinza"
                     android:textSize="8dp"
@@ -243,7 +243,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/Terno"
+                    android:text="@string/terno"
                     android:textAppearance="?android:attr/textAppearanceSmall"
                     android:textColor="@color/colorCinza"
                     android:textSize="8dp"
@@ -275,7 +275,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/Quadrada"
+                    android:text="@string/quadrada"
                     android:textAppearance="?android:attr/textAppearanceSmall"
                     android:textColor="@color/colorCinza"
                     android:textSize="8dp"
@@ -307,7 +307,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/Sena"
+                    android:text="@string/sena"
                     android:textAppearance="?android:attr/textAppearanceSmall"
                     android:textColor="@color/colorCinza"
                     android:textSize="8dp"
@@ -367,7 +367,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/General"
+                    android:text="@string/general"
                     android:textAppearance="?android:attr/textAppearanceSmall"
                     android:textColor="@color/colorCinza"
                     android:textSize="8dp"

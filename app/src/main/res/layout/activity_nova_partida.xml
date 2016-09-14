@@ -25,7 +25,7 @@
                 android:id="@+id/toolbar"
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
-                app:title="@string/NovoGrupo"/>
+                app:title="@string/novo_grupo"/>
 
         </RelativeLayout>
 
@@ -54,7 +54,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
-                android:hint="@string/NomedoGrupo"
+                android:hint="@string/nome_do_grupo"
                 android:theme="@style/AppTheme.Dark"
                 android:inputType="textCapCharacters|text"
                 android:singleLine="true"
@@ -82,7 +82,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:padding="16dp"
-                android:text="@string/AdicionarJogador"
+                android:text="@string/adicionar_jogador"
                 android:textColor="@color/colorCinza"
                 android:background="@color/colorWhite"
                 android:layout_gravity="center_horizontal" />

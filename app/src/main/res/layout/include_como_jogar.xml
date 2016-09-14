@@ -243,7 +243,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textAppearance="?android:attr/textAppearanceMedium"
-                        android:text="@string/Az"
+                        android:text="@string/az"
                         android:layout_gravity="center"
                         android:textSize="10dp" />
                 </android.support.v7.widget.CardView>
@@ -263,7 +263,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textAppearance="?android:attr/textAppearanceMedium"
-                        android:text="@string/Full"
+                        android:text="@string/full"
                         android:layout_gravity="center"
                         android:textSize="10dp" />
                 </android.support.v7.widget.CardView>
@@ -280,7 +280,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textAppearance="?android:attr/textAppearanceMedium"
-                        android:text="@string/Quadra"
+                        android:text="@string/quadra"
                         android:layout_gravity="center"
                         android:textSize="10dp" />
                 </android.support.v7.widget.CardView>
@@ -306,7 +306,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:textAppearance="?android:attr/textAppearanceMedium"
-                            android:text="@string/Duque"
+                            android:text="@string/duque"
                             android:layout_gravity="center"
                             android:textSize="10dp" />
                     </android.support.v7.widget.CardView>
@@ -326,7 +326,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:textAppearance="?android:attr/textAppearanceMedium"
-                            android:text="@string/Seguida"
+                            android:text="@string/seguida"
                             android:layout_gravity="center"
                             android:textSize="10dp" />
                     </android.support.v7.widget.CardView>
@@ -343,7 +343,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:textAppearance="?android:attr/textAppearanceMedium"
-                            android:text="@string/Quina"
+                            android:text="@string/quina"
                             android:layout_gravity="center"
                             android:textSize="10dp" />
                     </android.support.v7.widget.CardView>
@@ -368,7 +368,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:textAppearance="?android:attr/textAppearanceMedium"
-                            android:text="@string/Terno"
+                            android:text="@string/terno"
                             android:layout_gravity="center"
                             android:textSize="10dp" />
                     </android.support.v7.widget.CardView>
@@ -388,7 +388,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:textAppearance="?android:attr/textAppearanceMedium"
-                            android:text="@string/Quadrada"
+                            android:text="@string/quadrada"
                             android:layout_gravity="center"
                             android:textSize="10dp" />
                     </android.support.v7.widget.CardView>
@@ -405,7 +405,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:textAppearance="?android:attr/textAppearanceMedium"
-                            android:text="@string/Sena"
+                            android:text="@string/sena"
                             android:layout_gravity="center"
                             android:textSize="10dp" />
                     </android.support.v7.widget.CardView>
@@ -426,7 +426,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textAppearance="?android:attr/textAppearanceMedium"
-                        android:text="@string/General"
+                        android:text="@string/general"
                         android:layout_gravity="center"
                         android:textSize="10dp" />
                 </android.support.v7.widget.CardView>

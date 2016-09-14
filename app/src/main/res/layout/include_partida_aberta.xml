@@ -38,7 +38,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textAppearance="?android:attr/textAppearanceMedium"
-                    android:text="@string/DadosDoGrupo"
+                    android:text="NomeGrupo"
                     android:id="@+id/TituloGrupo"
                     android:textSize="15dp"
                     android:textColor="@color/colorWhite"

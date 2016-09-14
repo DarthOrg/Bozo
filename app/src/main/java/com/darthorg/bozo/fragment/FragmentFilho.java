@@ -152,7 +152,7 @@ public class FragmentFilho extends Fragment {
 
                                           switch (pecaBozo.getNome()) {
                                               case nomeAz:
-                                                  tituloPonto.setText(getString(R.string.Az));
+                                                  tituloPonto.setText(getString(R.string.az));
 
                                                   //Configura os valores possiveis em cada posição
                                                   valores = new ValoresPecasGridAdapter(getContext(), pecaBozoAz.getValoresPossiveis());
@@ -160,10 +160,10 @@ public class FragmentFilho extends Fragment {
 
                                                   cliqueValor(gridValoresPecas, pecaBozoAz, button, dialogMarcarBozo);
 
-                                                  btnRiscar.setText("Riscar Áz");
+                                                  btnRiscar.setText(getString(R.string.riscar) + getString(R.string.az));
                                                   break;
                                               case nomeDuque:
-                                                  tituloPonto.setText(getString(R.string.Duque));
+                                                  tituloPonto.setText(getString(R.string.duque));
 
                                                   //Configura os valores possiveis em cada posição
                                                   valores = new ValoresPecasGridAdapter(getContext(), pecaBozoDuque.getValoresPossiveis());
@@ -171,10 +171,10 @@ public class FragmentFilho extends Fragment {
 
                                                   cliqueValor(gridValoresPecas, pecaBozoDuque, button, dialogMarcarBozo);
 
-                                                  btnRiscar.setText("Riscar Duque");
+                                                  btnRiscar.setText(getString(R.string.riscar) + getString(R.string.duque));
                                                   break;
                                               case nomeTerno:
-                                                  tituloPonto.setText(getString(R.string.Terno));
+                                                  tituloPonto.setText(getString(R.string.terno));
 
                                                   //Configura os valores possiveis em cada posição
                                                   valores = new ValoresPecasGridAdapter(getContext(), pecaBozoTerno.getValoresPossiveis());
@@ -182,10 +182,10 @@ public class FragmentFilho extends Fragment {
 
                                                   cliqueValor(gridValoresPecas, pecaBozoTerno, button, dialogMarcarBozo);
 
-                                                  btnRiscar.setText("Riscar Terno");
+                                                  btnRiscar.setText(getString(R.string.riscar) + getString(R.string.terno));
                                                   break;
                                               case nomeQuadra:
-                                                  tituloPonto.setText(getString(R.string.Quadra));
+                                                  tituloPonto.setText(getString(R.string.quadra));
 
                                                   //Configura os valores possiveis em cada posição
                                                   valores = new ValoresPecasGridAdapter(getContext(), pecaBozoQuadra.getValoresPossiveis());
@@ -193,10 +193,10 @@ public class FragmentFilho extends Fragment {
 
                                                   cliqueValor(gridValoresPecas, pecaBozoQuadra, button, dialogMarcarBozo);
 
-                                                  btnRiscar.setText("Riscar Quadra");
+                                                  btnRiscar.setText(getString(R.string.riscar) + getString(R.string.quadra));
                                                   break;
                                               case nomeQuina:
-                                                  tituloPonto.setText(getString(R.string.Quina));
+                                                  tituloPonto.setText(getString(R.string.quina));
 
                                                   //Configura os valores possiveis em cada posição
                                                   valores = new ValoresPecasGridAdapter(getContext(), pecaBozoQuina.getValoresPossiveis());
@@ -204,10 +204,10 @@ public class FragmentFilho extends Fragment {
 
                                                   cliqueValor(gridValoresPecas, pecaBozoQuina, button, dialogMarcarBozo);
 
-                                                  btnRiscar.setText("Riscar Quina");
+                                                  btnRiscar.setText(getString(R.string.riscar) + getString(R.string.quina));
                                                   break;
                                               case nomeSena:
-                                                  tituloPonto.setText(getString(R.string.Sena));
+                                                  tituloPonto.setText(getString(R.string.sena));
 
                                                   //Configura os valores possiveis em cada posição
                                                   valores = new ValoresPecasGridAdapter(getContext(), pecaBozoSena.getValoresPossiveis());
@@ -215,10 +215,10 @@ public class FragmentFilho extends Fragment {
 
                                                   cliqueValor(gridValoresPecas, pecaBozoSena, button, dialogMarcarBozo);
 
-                                                  btnRiscar.setText("Riscar Sena");
+                                                  btnRiscar.setText(getString(R.string.riscar) + getString(R.string.sena));
                                                   break;
                                               case nomeFull:
-                                                  tituloPonto.setText(getString(R.string.Full));
+                                                  tituloPonto.setText(getString(R.string.full));
 
                                                   //Configura os valores possiveis em cada posição
                                                   valores = new ValoresPecasGridAdapter(getContext(), pecaBozoFull.getValoresPossiveis());
@@ -226,20 +226,20 @@ public class FragmentFilho extends Fragment {
 
                                                   cliqueValor(gridValoresPecas, pecaBozoFull, button, dialogMarcarBozo);
 
-                                                  btnRiscar.setText("Riscar Full");
+                                                  btnRiscar.setText(getString(R.string.riscar) + getString(R.string.full));
                                                   break;
                                               case nomeSeguida:
-                                                  tituloPonto.setText(getString(R.string.Seguida));
+                                                  tituloPonto.setText(getString(R.string.seguida));
 
                                                   valores = new ValoresPecasGridAdapter(getContext(), pecaBozoSeguida.getValoresPossiveis());
                                                   gridValoresPecas.setAdapter(valores);
 
                                                   cliqueValor(gridValoresPecas, pecaBozoSeguida, button, dialogMarcarBozo);
 
-                                                  btnRiscar.setText("Riscar Seguida");
+                                                  btnRiscar.setText(getString(R.string.riscar) + getString(R.string.seguida));
                                                   break;
                                               case nomeQuadrada:
-                                                  tituloPonto.setText(getString(R.string.Quadrada));
+                                                  tituloPonto.setText(getString(R.string.quadrada));
 
                                                   //Configura os valores possiveis em cada posição
                                                   valores = new ValoresPecasGridAdapter(getContext(), pecaBozoQuadrada.getValoresPossiveis());
@@ -247,10 +247,10 @@ public class FragmentFilho extends Fragment {
 
                                                   cliqueValor(gridValoresPecas, pecaBozoQuadrada, button, dialogMarcarBozo);
 
-                                                  btnRiscar.setText("Riscar Quadrada");
+                                                  btnRiscar.setText(getString(R.string.riscar) + getString(R.string.quadrada));
                                                   break;
                                               case nomeGeneral:
-                                                  tituloPonto.setText(getString(R.string.General));
+                                                  tituloPonto.setText(getString(R.string.general));
 
                                                   //Configura os valores possiveis em cada posição
                                                   valores = new ValoresPecasGridAdapter(getContext(), pecaBozoGeneral.getValoresPossiveis());
@@ -258,7 +258,7 @@ public class FragmentFilho extends Fragment {
 
                                                   cliqueValor(gridValoresPecas, pecaBozoGeneral, button, dialogMarcarBozo);
 
-                                                  btnRiscar.setText("Riscar General");
+                                                  btnRiscar.setText(getString(R.string.riscar) + getString(R.string.general));
                                                   break;
                                               default:
                                                   break;

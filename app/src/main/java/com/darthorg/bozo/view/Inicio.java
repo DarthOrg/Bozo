@@ -11,7 +11,6 @@ import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
@@ -40,7 +39,7 @@ public class Inicio extends AppCompatActivity
         setContentView(R.layout.activity_inicio);
 
         toolbar = (Toolbar) findViewById(R.id.toolbar);
-        toolbar.setTitle("Grupos de jogo");
+        toolbar.setTitle(getString(R.string.grupos_de_jogo));
         setSupportActionBar(toolbar);
 
         listViewPartidas = (ListView) findViewById(R.id.list_view_partidas);
@@ -142,8 +141,8 @@ public class Inicio extends AppCompatActivity
             // Compartilhar app
             Intent share = new Intent(Intent.ACTION_SEND);
             share.setType("text/plain");
-            share.putExtra(Intent.EXTRA_TEXT, "Baixe Marcador de Bozó na GooglePlay " + "https://play.google.com/store/apps/details?id=com.adobe.psmobile");
-            startActivity(Intent.createChooser(share, "Compartilhar App"));
+            share.putExtra(Intent.EXTRA_TEXT, getString(R.string.compartilhar_app) + getString(R.string.url_googleplay));
+            startActivity(Intent.createChooser(share, getString(R.string.titulo_compartilhar_app)));
 
         } else if (id == R.id.nav_configuracoes) {
 

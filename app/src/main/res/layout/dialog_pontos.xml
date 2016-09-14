@@ -60,7 +60,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:background="@color/colorTrasnparente"
-        android:text="@string/Riscar"
+        android:text="@string/riscar"
         android:textColor="@color/colorRed"
         android:textStyle="bold" />
 

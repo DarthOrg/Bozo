@@ -3,7 +3,6 @@ package com.darthorg.bozo.view;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -27,7 +26,7 @@ public class Placar extends AppCompatActivity {
         setContentView(R.layout.activity_placar);
 
         toolbar = (Toolbar) findViewById(R.id.toolbar);
-        toolbar.setTitle(R.string.Placar);
+        toolbar.setTitle(R.string.placar);
         setSupportActionBar(toolbar);
 
         // Recupera as rodadas vindas por intent

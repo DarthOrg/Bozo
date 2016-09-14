@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
+
     <android.support.design.widget.TextInputLayout
         android:id="@+id/til_jogador"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="20dp"
-        android:theme="@style/AppTheme.Dark"
-        android:layout_marginTop="10dp"
         android:layout_marginRight="20dp"
+        android:layout_marginTop="10dp"
         android:textColorHint="@color/colorCinza"
+        android:theme="@style/AppTheme.Dark"
         app:counterEnabled="false">
 
         <EditText
@@ -21,12 +21,12 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:theme="@style/AppTheme.Dark"
-            android:hint="@string/AdicionarJogador"
+            android:hint="@string/adicionar_jogador"
             android:inputType="textCapCharacters|text"
             android:singleLine="true"
             android:textColor="@color/colorAccent"
-            android:textColorHint="@color/colorCinza" />
+            android:textColorHint="@color/colorCinza"
+            android:theme="@style/AppTheme.Dark" />
     </android.support.design.widget.TextInputLayout>
 
 </LinearLayout>

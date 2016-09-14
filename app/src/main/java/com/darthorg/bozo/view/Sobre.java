@@ -17,7 +17,7 @@ public class Sobre extends AppCompatActivity {
         setContentView(R.layout.activity_sobre);
 
         toolbar = (Toolbar) findViewById(R.id.toolbar);
-        toolbar.setTitle(R.string.Sobre);
+        toolbar.setTitle(R.string.sobre);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }

@@ -29,7 +29,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
             android:focusable="false"
-            android:text="@string/NomePartida"
+            android:text="Nome Grupo"
             android:textColor="@color/colorBlack"
             android:textSize="16dp" />
 

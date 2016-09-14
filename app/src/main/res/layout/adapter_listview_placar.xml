@@ -69,7 +69,7 @@
                         android:layout_alignLeft="@+id/tvVencedorRodada"
                         android:layout_alignStart="@+id/tvVencedorRodada"
                         android:layout_below="@+id/tvVencedorRodada"
-                        android:text="Ganhou com "
+                        android:text="@string/ganhou_com"
                         android:textColor="@color/colorCinza"
                         android:textAppearance="?android:attr/textAppearanceSmall"
                         android:textSize="13dp" />
@@ -93,7 +93,7 @@
                         android:layout_below="@+id/tvVencedorRodada"
                         android:layout_toEndOf="@+id/btnPontuacao"
                         android:layout_toRightOf="@+id/btnPontuacao"
-                        android:text=" pontos"
+                        android:text="@string/pontos"
                         android:textColor="@color/colorCinza"
                         android:textAppearance="?android:attr/textAppearanceSmall"
                         android:textSize="13dp" />

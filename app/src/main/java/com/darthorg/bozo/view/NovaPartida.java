@@ -41,9 +41,6 @@ public class NovaPartida extends AppCompatActivity {
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-//Contador Jogadors
-        contarJogadores();
-
         listView = (ListView) findViewById(R.id.list_view_jogadores);
         adapter = new NovosJogadoresListAdapter(jogadores, this);
         listView.setAdapter(adapter);
@@ -59,10 +56,10 @@ public class NovaPartida extends AppCompatActivity {
                 final EditText etNomeJogador = (EditText) dialoglayout.findViewById(R.id.edit_nome_novo_jogador);
 
                 AlertDialog.Builder builder = new AlertDialog.Builder(NovaPartida.this);
-                builder.setTitle("Adicionar jogador");
+                builder.setTitle(getString(R.string.adicionar_jogador));
                 builder.setIcon(R.drawable.ic_add_jogador);
 
-                builder.setPositiveButton("Adicionar", new DialogInterface.OnClickListener() {
+                builder.setPositiveButton(getString(R.string.adicionar), new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         if (jogadores.size() < 10) {
@@ -70,19 +67,18 @@ public class NovaPartida extends AppCompatActivity {
                                 jogadores.add(etNomeJogador.getText().toString());
                                 adapter.notifyDataSetChanged();
                                 etNomeJogador.setText(null);
-                                contarJogadores();
                                 dialog.dismiss();
                             }
 
 
                         } else {
-                            Toast.makeText(getApplicationContext(), "Máximo 10 jogadores, você pode adicionar.", Toast.LENGTH_LONG).show();
+                            Toast.makeText(getApplicationContext(), R.string.max_jogadores_permitidos, Toast.LENGTH_LONG).show();
                         }
 
                     }
                 });
 
-                builder.setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
+                builder.setNegativeButton(getString(R.string.cancelar), new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         dialog.dismiss();
@@ -111,9 +107,9 @@ public class NovaPartida extends AppCompatActivity {
             finish();
         } else if (id == R.id.action_criar_grupo) {
             if (jogadores.size() == 0) {
-                Toast.makeText(getApplicationContext(), "Adicione pelo menos 2 jogadores para criar o grupo", Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), R.string.requer_jogadores, Toast.LENGTH_LONG).show();
             } else if (jogadores.size() == 1) {
-                Toast.makeText(getApplicationContext(), "Adicione mais 1 ou mais jogadores para criar o grupo", Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), R.string.requer_jogador, Toast.LENGTH_LONG).show();
             } else if (!TextUtils.isEmpty(edit_nome_grupo.getText())) {
                 Intent intent = new Intent(NovaPartida.this, PartidaAberta.class);
                 intent.putExtra("nomepartida", edit_nome_grupo.getText().toString());
@@ -137,16 +133,4 @@ public class NovaPartida extends AppCompatActivity {
 
 
     }
-
-    private void contarJogadores() {
-
-        if (jogadores.size() == 0) {
-//                      contagemJogadores.setText("Jogadores");
-        } else if (jogadores.size() == 1) {
-//            contagemJogadores.setText(jogadores.size() + " Jogador");
-        } else if (jogadores.size() >= 2) {
-//                    contagemJogadores.setText(jogadores.size() + " Jogadores");
-        }
-    }
-
 }

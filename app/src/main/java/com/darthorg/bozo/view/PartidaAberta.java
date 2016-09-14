@@ -1,6 +1,5 @@
 package com.darthorg.bozo.view;
 
-import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -12,14 +11,12 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.text.TextUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.WindowManager;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
@@ -81,8 +78,6 @@ public class PartidaAberta extends AppCompatActivity {
     private TextView tituloGrupo;
     private BottomSheetBehavior mBottomSheetBehavior;
 
-    RadioGroup rgEmpate;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -130,10 +125,10 @@ public class PartidaAberta extends AppCompatActivity {
                 final EditText etNomeJogador = (EditText) dialoglayout.findViewById(R.id.edit_nome_novo_jogador);
 
                 AlertDialog.Builder builder = new AlertDialog.Builder(PartidaAberta.this);
-                builder.setTitle("Adicionar jogador");
+                builder.setTitle(getString(R.string.adicionar_jogador));
                 builder.setIcon(R.drawable.ic_add_jogador);
 
-                builder.setPositiveButton("Adicionar", new DialogInterface.OnClickListener() {
+                builder.setPositiveButton(getString(R.string.adicionar), new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         FragmentFilho fragmentFilho = new FragmentFilho();
@@ -155,13 +150,13 @@ public class PartidaAberta extends AppCompatActivity {
                             viewPager.setCurrentItem(adapter.getCount() - 1);
                         }
 
-                        Toast.makeText(getApplicationContext(), getString(R.string.Jogador) + etNomeJogador.getText().toString() + getString(R.string.FoiAdicionado), Toast.LENGTH_LONG).show();
+                        Toast.makeText(getApplicationContext(), getString(R.string.jogador) + etNomeJogador.getText().toString() + getString(R.string.toast_foi_adicionado), Toast.LENGTH_LONG).show();
                         dialog.dismiss();
 
                     }
                 });
 
-                builder.setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
+                builder.setNegativeButton(getString(R.string.cancelar), new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         dialog.dismiss();
@@ -180,10 +175,10 @@ public class PartidaAberta extends AppCompatActivity {
             public void onClick(View v) {
 
                 AlertDialog.Builder builder = new AlertDialog.Builder(PartidaAberta.this);
-                builder.setTitle("Remover Jogador");
+                builder.setTitle(getString(R.string.remover_jogador));
                 builder.setIcon(R.drawable.ic_deletar_jogador);
-                builder.setMessage("Excluir o jogador "+jogadoresRodada.get(viewPager.getCurrentItem()).getNome()+" ?")
-                        .setPositiveButton("Excluir", new DialogInterface.OnClickListener() {
+                builder.setMessage(getString(R.string.pergunta_excluir_jogador) + jogadoresRodada.get(viewPager.getCurrentItem()).getNome() + " ?")
+                        .setPositiveButton(getString(R.string.excluir), new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int id) {
                                 dialog.dismiss();
                                 if (adapter.getCount() > 2) {
@@ -206,11 +201,11 @@ public class PartidaAberta extends AppCompatActivity {
 
                                 } else {
                                     dialog.dismiss();
-                                    Toast.makeText(getApplicationContext(), "Não pode excluir mais jogadores", Toast.LENGTH_LONG).show();
+                                    Toast.makeText(getApplicationContext(), R.string.limite_exclusao_jogadores, Toast.LENGTH_LONG).show();
                                 }
                             }
                         })
-                        .setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
+                        .setNegativeButton(getString(R.string.cancelar), new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
                                 dialog.dismiss();
@@ -534,14 +529,14 @@ public class PartidaAberta extends AppCompatActivity {
 
             final AlertDialog.Builder builder = new AlertDialog.Builder(this);
 
-            builder.setTitle("Deseja salvar antes de sair?");
+            builder.setTitle(getString(R.string.titulo_salvar_e_sair));
             builder.setIcon(R.drawable.ic_salvar);
             builder.setMessage(getString(R.string.TextoSairGrupo))
-                    .setPositiveButton("Salvar", new DialogInterface.OnClickListener() {
+                    .setPositiveButton(getString(R.string.salvar), new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int id) {
                             //ProgressDialog Função carregar
                             final ProgressDialog builder = new ProgressDialog(PartidaAberta.this);
-                            builder.setMessage("Salvando só um momento...");
+                            builder.setMessage(getString(R.string.salvando));
                             builder.show();
 
                             if (intent != null) {
@@ -559,7 +554,7 @@ public class PartidaAberta extends AppCompatActivity {
                                                 //Insere a partida no banco
                                                 partidaController.inserirPartida(partida);
 
-                                                Toast.makeText(getApplicationContext(), "Grupo " + partida.getNome() + " salvo com sucesso", Toast.LENGTH_LONG).show();
+                                                Toast.makeText(getApplicationContext(), getString(R.string.grupo) + partida.getNome() + getString(R.string.salvo_com_sucesso), Toast.LENGTH_LONG).show();
                                                 builder.dismiss();
                                                 finish();
                                             }
@@ -590,7 +585,7 @@ public class PartidaAberta extends AppCompatActivity {
                             }
                         }
                     })
-                    .setNegativeButton("Descartar", new DialogInterface.OnClickListener() {
+                    .setNegativeButton(getString(R.string.descartar), new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int id) {
 
                             if (!verificaPartidaNova()) {
@@ -605,15 +600,15 @@ public class PartidaAberta extends AppCompatActivity {
         } else {
 
             AlertDialog.Builder builder = new AlertDialog.Builder(this);
-            builder.setTitle("Sair");
-            builder.setMessage("Você não jogou nenhuma rodada.\nDeseja sair assim mesmo?")
-                    .setPositiveButton("Sim", new DialogInterface.OnClickListener() {
+            builder.setTitle(getString(R.string.sair));
+            builder.setMessage(getString(R.string.sair_sem_jogar))
+                    .setPositiveButton(getString(R.string.sim), new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int id) {
                             dialog.dismiss();
                             finish();
                         }
                     })
-                    .setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
+                    .setNegativeButton(getString(R.string.cancelar), new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int id) {
                             dialog.dismiss();
                         }
@@ -654,22 +649,22 @@ public class PartidaAberta extends AppCompatActivity {
 
 
                     AlertDialog.Builder builder = new AlertDialog.Builder(this);
-                    builder.setTitle(compararPontos().getNome() + " Ganhou");
+                    builder.setTitle(compararPontos().getNome() + getString(R.string.ganhou));
                     builder.setIcon(R.drawable.ic_jogador);
-                    builder.setMessage("Quer jogar uma nova rodada?")
-                            .setPositiveButton("Jogar", new DialogInterface.OnClickListener() {
+                    builder.setMessage(getString(R.string.pergunta_nova_rodada))
+                            .setPositiveButton(getString(R.string.jogar), new DialogInterface.OnClickListener() {
                                 public void onClick(DialogInterface dialog, int id) {
                                     dialog.dismiss();
                                     configurarNovaRodada(compararPontos().getNome());
                                 }
                             })
-                            .setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
+                            .setNegativeButton(getString(R.string.cancelar), new DialogInterface.OnClickListener() {
                                 @Override
                                 public void onClick(DialogInterface dialog, int which) {
                                     dialog.dismiss();
                                 }
                             })
-                            .setNeutralButton("Sair", new DialogInterface.OnClickListener() {
+                            .setNeutralButton(getString(R.string.sair), new DialogInterface.OnClickListener() {
                                 public void onClick(DialogInterface dialog, int id) {
                                     //todo: uma hr isso vai dar bug nervoso
                                     dialog.dismiss();
@@ -696,11 +691,11 @@ public class PartidaAberta extends AppCompatActivity {
                     }
 
                     AlertDialog.Builder builder = new AlertDialog.Builder(PartidaAberta.this);
-                    builder.setTitle("Empate");
+                    builder.setTitle(getString(R.string.empate));
                     builder.setIcon(R.drawable.ic_groupo);
-                    builder.setMessage("Os jogadores devem decidir nos dados.\nSelecione o jogador que ganhou :");
+                    builder.setMessage(getString(R.string.decisao_empate));
 
-                    builder.setPositiveButton("Finalizar rodada", new DialogInterface.OnClickListener() {
+                    builder.setPositiveButton(getString(R.string.finalizar_rodada), new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
                             dialog.dismiss();
@@ -708,7 +703,7 @@ public class PartidaAberta extends AppCompatActivity {
                         }
                     });
 
-                    builder.setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
+                    builder.setNegativeButton(getString(R.string.cancelar), new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
                             dialog.dismiss();
@@ -723,16 +718,16 @@ public class PartidaAberta extends AppCompatActivity {
             } else {
 
                 AlertDialog.Builder builder = new AlertDialog.Builder(this);
-                builder.setTitle("Aviso");
+                builder.setTitle(getString(R.string.aviso));
                 builder.setIcon(R.drawable.ic_aviso);
-                builder.setMessage("Alguns jogadores ainda não completaram todos os espaços. Deseja sair?")
-                        .setPositiveButton("Sair", new DialogInterface.OnClickListener() {
+                builder.setMessage(getString(R.string.rodada_incompleta))
+                        .setPositiveButton(getString(R.string.sair), new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int id) {
                                 dialog.dismiss();
                                 saveAndQuit();
                             }
                         })
-                        .setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
+                        .setNegativeButton(R.string.cancelar, new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int id) {
                                 dialog.dismiss();
                             }

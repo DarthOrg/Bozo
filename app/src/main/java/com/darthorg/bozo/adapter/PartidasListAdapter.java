@@ -83,26 +83,25 @@ public class PartidasListAdapter extends BaseAdapter {
                 AlertDialog.Builder alertDialog = new AlertDialog.Builder(parentActivity);
 
                 alertDialog.setCancelable(true);
-                alertDialog.setTitle("Deletar Partida");
-                alertDialog.setMessage("Você deseja realmente deletar partida " + mPartidaList.get(position).getNome() + " ? ");
-                alertDialog.setPositiveButton(" Deletar ", new DialogInterface.OnClickListener() {
+                alertDialog.setTitle(mContext.getString(R.string.deletar_grupo));
+                alertDialog.setMessage(mContext.getString(R.string.pergunta_deletar_partida) + mPartidaList.get(position).getNome() + " ? ");
+                alertDialog.setPositiveButton(mContext.getString(R.string.deletar), new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
                         PartidaController partidaController = new PartidaController(mContext);
 
                         if (partidaController.deletarPartida(mPartidaList.get(position))) {
-
                             mPartidaList.remove(mPartidaList.get(position));
                             notifyDataSetChanged();
-                            Toast.makeText(mContext, "Partida deletada!", Toast.LENGTH_SHORT);
+                            Toast.makeText(mContext, mContext.getString(R.string.grupo_deletado), Toast.LENGTH_SHORT).show();
                         } else {
-                            Toast.makeText(mContext, "Ocorreu um erro ao deletar a partida", Toast.LENGTH_SHORT);
+                            Toast.makeText(mContext, mContext.getString(R.string.erro_grupo_deletado), Toast.LENGTH_SHORT).show();
                         }
                         dialog.dismiss();
 
                     }
                 });
 
-                alertDialog.setNegativeButton(" Cancelar ", new DialogInterface.OnClickListener() {
+                alertDialog.setNegativeButton(mContext.getString(R.string.cancelar), new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
                         dialog.dismiss();
                     }

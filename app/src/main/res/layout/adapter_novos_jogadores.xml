@@ -25,7 +25,7 @@
             android:layout_centerVertical="true"
             android:layout_toEndOf="@+id/imageButton"
             android:layout_toRightOf="@+id/imageButton"
-            android:text="@string/NomeJogador"
+            android:text="@string/nome_jogador"
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:textColor="@color/colorCinza"
             android:textSize="15dp" />
