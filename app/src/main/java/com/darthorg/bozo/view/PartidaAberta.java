@@ -131,27 +131,33 @@ public class PartidaAberta extends AppCompatActivity {
                 builder.setPositiveButton(getString(R.string.adicionar), new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        FragmentFilho fragmentFilho = new FragmentFilho();
-                        Jogador jogador = new Jogador();
-                        jogador.setNome(etNomeJogador.getText().toString());
-                        fragmentFilho.setNome(etNomeJogador.getText().toString());
+                        if (jogadoresRodada.size() < 10) {
 
-                        // Adiciona o jogador numa lista local de jogadores
-                        jogadoresRodada.add(jogador);
+                            FragmentFilho fragmentFilho = new FragmentFilho();
+                            Jogador jogador = new Jogador();
+                            jogador.setNome(etNomeJogador.getText().toString());
+                            fragmentFilho.setNome(etNomeJogador.getText().toString());
 
-                        listaFragments.add(fragmentFilho);
+                            // Adiciona o jogador numa lista local de jogadores
+                            jogadoresRodada.add(jogador);
 
-                        //Adiciona o Fragment nas tabs
-                        adapter.addFrag(fragmentFilho, etNomeJogador.getText().toString());
-                        // Notifica o Adapter que um novo fragment foi adicionado
-                        adapter.notifyDataSetChanged();
-                        if (adapter.getCount() > 0) {
-                            tabLayout.setupWithViewPager(viewPager);
-                            viewPager.setCurrentItem(adapter.getCount() - 1);
+                            listaFragments.add(fragmentFilho);
+
+                            //Adiciona o Fragment nas tabs
+                            adapter.addFrag(fragmentFilho, etNomeJogador.getText().toString());
+                            // Notifica o Adapter que um novo fragment foi adicionado
+                            adapter.notifyDataSetChanged();
+                            if (adapter.getCount() > 0) {
+                                tabLayout.setupWithViewPager(viewPager);
+                                viewPager.setCurrentItem(adapter.getCount() - 1);
+                            }
+
+                            Toast.makeText(getApplicationContext(), getString(R.string.jogador) + etNomeJogador.getText().toString() + getString(R.string.toast_foi_adicionado), Toast.LENGTH_LONG).show();
+                            dialog.dismiss();
+                        } else {
+                            dialog.dismiss();
+                            Toast.makeText(getApplicationContext(), getString(R.string.max_jogadores_permitidos), Toast.LENGTH_LONG).show();
                         }
-
-                        Toast.makeText(getApplicationContext(), getString(R.string.jogador) + etNomeJogador.getText().toString() + getString(R.string.toast_foi_adicionado), Toast.LENGTH_LONG).show();
-                        dialog.dismiss();
 
                     }
                 });
@@ -452,7 +458,6 @@ public class PartidaAberta extends AppCompatActivity {
                     ganhando = listaFragments.get(i);
                     ganhando.setGanhando(true);
                     ganhando.setEmpatado(false);
-                    ganhador = jogadoresRodada.get(i);
                 } else if (ganhando.getContador() == listaFragments.get(i).getContador()) {
                     //Empate
                     ganhando.setGanhando(false);
@@ -466,12 +471,17 @@ public class PartidaAberta extends AppCompatActivity {
                     }
                     listEmpatados.add(listaFragments.get(i));
 
-                    ganhador = null;
                 } else if (!ganhando.isEmpatado()) {
                     // permanece o vencedor
                     ganhando.setGanhando(true);
-                    ganhador = jogadoresRodada.get(i);
                 }
+            }
+        }
+
+
+        for (int i = 0; i < listaFragments.size(); i++) {
+            if (listaFragments.get(i).isGanhando()) {
+                ganhador = jogadoresRodada.get(i);
             }
         }
 
