@@ -84,7 +84,7 @@ public class FragmentFilho extends Fragment {
         }
 
         resultadoFinal.setText(contador + "");
-
+        fundoResultado.setVisibility(View.INVISIBLE);
         return view;
     }
 
@@ -383,18 +383,18 @@ public class FragmentFilho extends Fragment {
     public void setGanhando(boolean ganhando) {
         this.ganhando = ganhando;
 
-        if (fundoResultado != null) {
-            if (ganhando) {
-                txtGanhando.setText(getString(R.string.ganhando));
-                fundoResultado.setVisibility(View.VISIBLE);
-                buttomColor();
-            } else {
-                fundoResultado.setVisibility(View.INVISIBLE);
+        if (getView() != null && isAdded()) {
+            if (fundoResultado != null) {
+                if (ganhando) {
+                    txtGanhando.setText(getString(R.string.ganhando));
+                    fundoResultado.setVisibility(View.VISIBLE);
+                    buttomColor();
+                } else {
+                    fundoResultado.setVisibility(View.INVISIBLE);
+                }
             }
         }
     }
-
-
 
     public void contarPecasUsadas() {
 
