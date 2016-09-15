@@ -4,6 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
+    android:background="@color/colorWhite"
     tools:context=".view.Inicio">
 
     <RelativeLayout
@@ -75,8 +76,9 @@
                 android:id="@+id/list_view_partidas"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:dividerHeight="1dp"
                 android:cacheColorHint="@color/colorBlack"
-                android:divider="@color/colorStatusBar" />
+                android:divider="@color/colorFundoInstruções" />
 
 
         </android.support.v4.widget.SwipeRefreshLayout>

@@ -3,17 +3,9 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="horizontal"
-    android:padding="15dp">
-
-    <Button
-        android:id="@+id/txt_lista_numero"
-        android:layout_width="25dp"
-        android:layout_height="25dp"
-        android:background="@drawable/circulo_accent"
-        android:focusable="false"
-        android:text="1"
-        android:textColor="@color/colorWhite"
-        android:textSize="15dp" />
+    android:paddingTop="10dp"
+    android:paddingBottom="10dp"
+    android:paddingLeft="16dp">
 
     <LinearLayout
         android:layout_width="wrap_content"
@@ -24,32 +16,72 @@
         android:orientation="vertical">
 
         <TextView
+            android:id="@+id/txt_lista_numero"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/textView8"
+            android:layout_toEndOf="@+id/textView8"
+            android:layout_toRightOf="@+id/textView8"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:textColor="@color/colorAccent"
+            android:textSize="10dp"
+            android:text="123" />
+
+        <TextView
             android:id="@+id/txt_lista_nome_partida"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:focusable="false"
-            android:text="Nome Grupo"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/textView8"
+            android:text="@string/nome_do_grupo"
+            android:textAppearance="?android:attr/textAppearanceMedium"
             android:textColor="@color/colorBlack"
-            android:textSize="16dp" />
+            android:textSize="20dp" />
 
-        <TextView
-            android:id="@+id/tvJogadoresUltimaRodada"
+        <LinearLayout
+            android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Jogadores ultima rodada "
-            android:textAllCaps="true"
-            android:textColor="@color/colorCinza"
-            android:textSize="13dp" />
+            android:layout_height="wrap_content">
+
+            <Button
+                android:layout_width="15dp"
+                android:layout_height="15dp"
+                android:id="@+id/imageButton3"
+                android:tint="@color/colorStatusBar"
+                android:layout_marginRight="5dp"
+                android:focusable="false"
+                android:drawableStart="@drawable/ic_groupo_mini"
+                android:layout_gravity="center_vertical"
+                android:background="@color/colorTrasnparente"/>
+
+            <TextView
+                android:id="@+id/tvJogadoresUltimaRodada"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/txt_lista_nome_partida"
+                android:layout_toEndOf="@+id/imageButton2"
+                android:layout_toRightOf="@+id/imageButton2"
+                android:text="@string/nome_jogador"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textColor="@color/colorStatusBar"
+                android:textSize="10dp"
+                android:layout_gravity="center_vertical" />
+        </LinearLayout>
 
     </LinearLayout>
 
     <Button
         android:id="@+id/btnDelPartida"
-        android:layout_width="24dp"
-        android:layout_height="24dp"
-        android:background="@drawable/ic_delete_black_24dp"
-        android:backgroundTint="@color/colorCinzaEscuro"
-        android:focusable="false" />
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="10dp"
+        android:background="@color/colorTrasnparente"
+        android:drawableEnd="@drawable/ic_deletar"
+        android:focusable="false"
+        android:paddingRight="12dp" />
 
 </LinearLayout>

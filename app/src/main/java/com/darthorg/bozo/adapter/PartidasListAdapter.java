@@ -68,7 +68,7 @@ public class PartidasListAdapter extends BaseAdapter {
 
         for (int i = 0; i < ultimaRodada.getJogadores().size(); i++) {
             if (i != ultimaRodada.getJogadores().size() - 1) {
-                nomesJogadores += ultimaRodada.getJogadores().get(i).getNome() + ", ";
+                nomesJogadores += ultimaRodada.getJogadores().get(i).getNome() + " / ";
             } else {
                 nomesJogadores += ultimaRodada.getJogadores().get(i).getNome();
             }
@@ -111,7 +111,7 @@ public class PartidasListAdapter extends BaseAdapter {
         });
 
 
-        tvNumero.setText(String.valueOf(position + 1));
+        tvNumero.setText(mContext.getString(R.string.grupo) + String.valueOf(position + 1));
         tvNomePartida.setText(mPartidaList.get(position).getNome());
 
         v.setTag(mPartidaList.get(position).getIdPartida());
