@@ -60,7 +60,7 @@
     <string name="ganhou_com">Ganhou com </string>
     <string name="pontos"> pontos</string>
     <string name="info_nenhum_grupo">Para criar um grupo de jogo clique no botão + ou no menu lateral e a opção Novo Grupo</string>
-    <string name="max_jogadores_permitidos">Máximo 10 jogadores, você pode adicionar.</string>
+    <string name="max_jogadores_permitidos">Máximo 10 jogadores.</string>
     <string name="requer_jogadores">Adicione pelo menos 2 jogadores para criar o grupo</string>
     <string name="requer_jogador">Adicione mais 1 ou mais jogadores para criar o grupo</string>
 

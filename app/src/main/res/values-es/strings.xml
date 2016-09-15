@@ -60,7 +60,7 @@
     <string name="ganhou_com">Ganó con</string>
     <string name="pontos">puntos</string>
     <string name="info_nenhum_grupo">Para crear un grupo de juego, haga clic en el botón + o en el menú lateral en nuevo grupo.</string>
-    <string name="max_jogadores_permitidos">Un máximo de 10 jugadores, se puede añadir.</string>
+    <string name="max_jogadores_permitidos">10 jugadores como máximo.</string>
     <string name="requer_jogadores"> Añadir al menos 2 jugadores para crear el grupo</string>
     <string name="requer_jogador">Añadir más 1 o más jugadores para crear el grupo</string>
 
@@ -84,7 +84,7 @@
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
     <!-- Compartilhar app-->
-    <string name="compartilhar_app">"Descarga Marcador de Bozó en Google Play"</string>
+    <string name="compartilhar_app">"Descarga Marcador de Bozó en Google Play  "</string>
     <string name="url_googleplay">https://play.google.com/store/apps/details?id=com.adobe.psmobile</string>
     <string name="titulo_compartilhar_app">Compartir App</string>
 

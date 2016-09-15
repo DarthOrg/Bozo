@@ -60,7 +60,7 @@
     <string name="ganhou_com">He won with </string>
     <string name="pontos"> points</string>
     <string name="info_nenhum_grupo">To create a game group click the + button on the side menu and the New Group option</string>
-    <string name="max_jogadores_permitidos">Maximum 10 players, you can add.</string>
+    <string name="max_jogadores_permitidos">Maximum 10 players.</string>
     <string name="requer_jogadores">Add at least 2 players to create the group</string>
     <string name="requer_jogador">Add more 1 or more players to create the group</string>
 
