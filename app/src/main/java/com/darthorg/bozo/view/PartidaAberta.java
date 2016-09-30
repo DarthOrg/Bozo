@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.design.widget.BottomSheetBehavior;
+import android.support.design.widget.BottomSheetDialog;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AlertDialog;
@@ -78,12 +79,21 @@ public class PartidaAberta extends AppCompatActivity {
     private TextView tituloGrupo;
     private BottomSheetBehavior mBottomSheetBehavior;
 
+    BottomSheetDialog bottomSheetDialog;
+    View bottomSheetDialogView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_partida_aberta);
         // Evita que a tela bloqueie sozinha
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
+
+        //Bottom Sheet Dialog btn MAIS
+        bottomSheetDialog = new BottomSheetDialog(this);
+        bottomSheetDialogView = getLayoutInflater().inflate(R.layout.bottom_sheet, null);
+        bottomSheetDialog.setContentView(bottomSheetDialogView);
+
 
         //Busca os Ids nos Xml
         getIDs();
@@ -101,15 +111,17 @@ public class PartidaAberta extends AppCompatActivity {
         //Método que configura a partida
         configurarPartida();
 
-        //FabBottomSheet
-        View bottomSheetView = findViewById(R.id.bottomSheet);
-        mBottomSheetBehavior = from(bottomSheetView);
+
+
+
         fabMais.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mBottomSheetBehavior.setState(BottomSheetBehavior.STATE_EXPANDED);
+                bottomSheetDialog.show();
+                return;
             }
         });
+
 
 
         //Adicionar jogador
@@ -171,7 +183,7 @@ public class PartidaAberta extends AppCompatActivity {
 
                 builder.setView(dialoglayout);
                 builder.show();
-                mBottomSheetBehavior.setState(BottomSheetBehavior.STATE_COLLAPSED);
+                bottomSheetDialog.dismiss();
             }
         });
 
@@ -219,7 +231,7 @@ public class PartidaAberta extends AppCompatActivity {
                         });
 
                 builder.show();
-                mBottomSheetBehavior.setState(BottomSheetBehavior.STATE_COLLAPSED);
+                bottomSheetDialog.dismiss();
             }
         });
 
@@ -230,28 +242,9 @@ public class PartidaAberta extends AppCompatActivity {
                 Intent intent = new Intent(PartidaAberta.this, Placar.class);
                 intent.putParcelableArrayListExtra("rodadasfinalizadas", listRodadas);
                 startActivity(intent);
-                mBottomSheetBehavior.setState(BottomSheetBehavior.STATE_COLLAPSED);
+                bottomSheetDialog.dismiss();
             }
         });
-
-        // Sair do BottomSheet
-        sairBS.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                mBottomSheetBehavior.setState(BottomSheetBehavior.STATE_COLLAPSED);
-            }
-        });
-
-        //Instrucoes do BottomSheet
-        BsInstrucoes.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(PartidaAberta.this, Instrucoes.class);
-                startActivity(intent);
-                mBottomSheetBehavior.setState(BottomSheetBehavior.STATE_COLLAPSED);
-            }
-        });
-
 
         //Compara os pontos e mostra quem esta ganhando
         viewPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
@@ -282,13 +275,9 @@ public class PartidaAberta extends AppCompatActivity {
 
         fabMais = (ImageButton) findViewById(R.id.mais);
 
-        BSaddJogador = (ImageButton) findViewById(R.id.bottomSheet_add_jogador);
-        BSremoverJogador = (ImageButton) findViewById(R.id.bottomSheet_remover_jogador);
-        BSplacar = (ImageButton) findViewById(R.id.bottomSheet_placar);
-        BsInstrucoes = (ImageButton) findViewById(R.id.bottomSheet_instrucoes);
-
-        sairBS = (LinearLayout) findViewById(R.id.sairBottomSheet);
-
+        BSaddJogador = (ImageButton) bottomSheetDialog.findViewById(R.id.bottomSheet_add_jogador);
+        BSremoverJogador = (ImageButton) bottomSheetDialog.findViewById(R.id.bottomSheet_remover_jogador);
+        BSplacar = (ImageButton) bottomSheetDialog.findViewById(R.id.bottomSheet_placar);
 
     }
 
@@ -632,15 +621,6 @@ public class PartidaAberta extends AppCompatActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.partida_aberta_menu, menu);
         return true;
-    }
-
-    //Botão voltar
-    @Override
-    public void onBackPressed() {
-        saveAndQuit();
-        mBottomSheetBehavior.setState(BottomSheetBehavior.STATE_COLLAPSED);
-
-
     }
 
     @Override
