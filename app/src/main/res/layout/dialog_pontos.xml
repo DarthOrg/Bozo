@@ -38,30 +38,32 @@
             android:tint="@color/colorBlack" />
     </LinearLayout>
 
+
     <GridView
         android:id="@+id/gvValoresPecas"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
         android:layout_gravity="center_horizontal"
+        android:layout_weight="1"
+        android:columnWidth="20dp"
         android:gravity="center"
+        android:horizontalSpacing="10dp"
         android:numColumns="3"
-        android:paddingBottom="20dp"
-        android:paddingLeft="70dp"
-        android:paddingRight="70dp"
-        android:paddingTop="20dp"
-        android:verticalSpacing="20dp">
+        android:padding="10dp"
+        android:verticalSpacing="10dp">
 
     </GridView>
+
 
     <Button
         android:id="@+id/btnRiscar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:text="@string/riscar"
-        android:textColor="@color/colorWhite"
+        android:layout_marginTop="25dp"
         android:background="@color/colorRedDark"
-        android:layout_marginTop="25dp" />
+        android:text="@string/riscar"
+        android:textColor="@color/colorWhite" />
 
 
 </LinearLayout>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/bgValorPeca"
+    android:layout_width="50dp"
+    android:layout_height="50dp"
+    android:layout_gravity="center"
+    android:background="@color/colorAccent"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/tvValorPeca"
+        android:layout_width="50dp"
+        android:layout_height="40dp"
+        android:layout_gravity="center"
+        android:padding="12dp"
+        android:text="430"
+        android:textAlignment="center"
+        android:textColor="@color/colorWhite"
+        android:textStyle="bold" />
+
+</FrameLayout>

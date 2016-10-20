@@ -1,11 +1,10 @@
 package com.darthorg.bozo.adapter;
 
 import android.content.Context;
-import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.GridView;
+import android.widget.FrameLayout;
 import android.widget.TextView;
 
 import com.darthorg.bozo.R;
@@ -41,25 +40,18 @@ public class ValoresPecasGridAdapter extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        TextView txtValores;
 
-        if (convertView == null) {
-            txtValores = new TextView(mContext);
-            txtValores.setLayoutParams(new GridView.LayoutParams(60, 60));
-            txtValores.setPadding(6, 6, 6, 6);
-            txtValores.setBackground(mContext.getResources().getDrawable(R.drawable.circulo_accent));
-            txtValores.setTextColor(mContext.getResources().getColor(R.color.colorWhite));
-            txtValores.setGravity(Gravity.CENTER);
-            txtValores.setTextSize(20);
-            if (position == 0) {
-                txtValores.setBackground(mContext.getResources().getDrawable(R.drawable.circulo_black_transparente));
-            }
-        } else {
-            txtValores = (TextView) convertView;
-        }
+        View view = View.inflate(mContext, R.layout.adapter_valores_pecas, null);
+
+        FrameLayout frameLayout = (FrameLayout) view.findViewById(R.id.bgValorPeca);
+        TextView txtValores = (TextView) view.findViewById(R.id.tvValorPeca);
 
         txtValores.setText(String.valueOf(valoresPossiveis.get(position)));
 
-        return txtValores;
+        if (position == 0) {
+            frameLayout.setBackground(mContext.getResources().getDrawable(R.color.colorBlackTransparente));
+        }
+
+        return view;
     }
 }
