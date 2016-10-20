@@ -5,7 +5,6 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
-import android.support.design.widget.BottomSheetBehavior;
 import android.support.design.widget.BottomSheetDialog;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
@@ -20,7 +19,6 @@ import android.view.View;
 import android.view.WindowManager;
 import android.widget.EditText;
 import android.widget.ImageButton;
-import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
@@ -37,8 +35,6 @@ import com.darthorg.bozo.model.Rodada;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import static android.support.design.widget.BottomSheetBehavior.from;
 
 
 /**
@@ -65,22 +61,23 @@ public class PartidaAberta extends AppCompatActivity {
     private TabLayout tabLayout;
     private Toolbar toolbar;
     private TabsDinamicosAdapter adapter;
+
+    // BottonSheetDialog
+    private BottomSheetDialog bottomSheetDialog;
+    private View bottomSheetDialogView;
+
     // FloatButtons para o Menu
-    private ImageButton BSplacar, BSaddJogador, BSremoverJogador, BsInstrucoes;
-    LinearLayout sairBS;
+    private ImageButton BSplacar, BSaddJogador, BSremoverJogador;
     ImageButton fabMais;
 
-    private final int ProgressSalvar = 1000;
 
     //Responsaveis por trazer os dados da Activity anterior
     private Intent intent;
     private Bundle bundleParams;
 
     private TextView tituloGrupo;
-    private BottomSheetBehavior mBottomSheetBehavior;
+    private final int PROGRESS_SAVE_TIME = 1000;
 
-    BottomSheetDialog bottomSheetDialog;
-    View bottomSheetDialogView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -112,8 +109,6 @@ public class PartidaAberta extends AppCompatActivity {
         configurarPartida();
 
 
-
-
         fabMais.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -121,7 +116,6 @@ public class PartidaAberta extends AppCompatActivity {
                 return;
             }
         });
-
 
 
         //Adicionar jogador
@@ -557,7 +551,7 @@ public class PartidaAberta extends AppCompatActivity {
                                                 builder.dismiss();
                                                 finish();
                                             }
-                                        }, ProgressSalvar);
+                                        }, PROGRESS_SAVE_TIME);
 
                                     } else {
                                         // Hmmm , Partida Salva então ?! entao ferro mané kkk
@@ -578,7 +572,7 @@ public class PartidaAberta extends AppCompatActivity {
                                                 finish();
                                                 builder.dismiss();
                                             }
-                                        }, ProgressSalvar);
+                                        }, PROGRESS_SAVE_TIME);
                                     }
                                 }
                             }
@@ -730,5 +724,10 @@ public class PartidaAberta extends AppCompatActivity {
         return super.
 
                 onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onBackPressed() {
+        saveAndQuit();
     }
 }
