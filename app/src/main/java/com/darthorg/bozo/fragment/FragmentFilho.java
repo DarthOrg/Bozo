@@ -5,6 +5,7 @@ import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.view.ViewPager;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -30,6 +31,7 @@ import java.util.List;
  * Versao 2
  */
 public class FragmentFilho extends Fragment {
+
 
     private String nome;
     private Button btnAz, btnDuque, btnTerno, btnQuadrada, btnSeguida, btnFull, btnQuina, btnSena, btnGeneral, btnQuadra;
@@ -70,6 +72,12 @@ public class FragmentFilho extends Fragment {
 
     RelativeLayout fundoResultado;
 
+    //Comandos externos
+    private ViewPager viewPager;
+
+    public FragmentFilho(ViewPager viewPager) {
+        this.viewPager = viewPager;
+    }
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_filho, container, false);
@@ -280,6 +288,15 @@ public class FragmentFilho extends Fragment {
                                                   contador = contarPontos();
                                                   resultadoFinal.setText(contador + "");
 
+
+                                                  if (viewPager.getCurrentItem() == viewPager.getAdapter().getCount() - 1) {
+                                                      viewPager.setCurrentItem(0);
+
+                                                  } else {
+                                                      viewPager.setCurrentItem(viewPager.getCurrentItem() + 1);
+
+                                                  }
+
                                                   contarPecasUsadas();
                                                   dialogMarcarBozo.dismiss();
                                               }
@@ -322,6 +339,15 @@ public class FragmentFilho extends Fragment {
 
                 contador = contarPontos();
                 resultadoFinal.setText(contador + "");
+
+                if (viewPager.getCurrentItem() == viewPager.getAdapter().getCount() - 1) {
+                    viewPager.setCurrentItem(0);
+
+                } else {
+                    viewPager.setCurrentItem(viewPager.getCurrentItem() + 1);
+
+                }
+
 
                 contarPecasUsadas();
 

@@ -139,7 +139,7 @@ public class PartidaAberta extends AppCompatActivity {
                     public void onClick(DialogInterface dialog, int which) {
                         if (jogadoresRodada.size() < 10) {
 
-                            FragmentFilho fragmentFilho = new FragmentFilho();
+                            FragmentFilho fragmentFilho = new FragmentFilho(viewPager);
                             Jogador jogador = new Jogador();
                             jogador.setNome(etNomeJogador.getText().toString());
                             fragmentFilho.setNome(etNomeJogador.getText().toString());
@@ -316,7 +316,7 @@ public class PartidaAberta extends AppCompatActivity {
 
                         for (int i = 0; i < jogadoresIniciais.size(); i++) {
 
-                            FragmentFilho fragmentFilho = new FragmentFilho();
+                            FragmentFilho fragmentFilho = new FragmentFilho(viewPager);
                             Jogador jogador = new Jogador();
                             jogador.setNome(jogadoresIniciais.get(i));
                             fragmentFilho.setNome(jogadoresIniciais.get(i));
@@ -340,7 +340,7 @@ public class PartidaAberta extends AppCompatActivity {
                         //todo:Gerar aqui de acordo com quem ganhou
                         for (int i = 0; i < jogadoresRodada.size(); i++) {
 
-                            FragmentFilho fragmentFilho = new FragmentFilho();
+                            FragmentFilho fragmentFilho = new FragmentFilho(viewPager);
                             fragmentFilho.setNome(jogadoresRodada.get(i).getNome());
                             listaFragments.add(fragmentFilho);
 
@@ -378,7 +378,7 @@ public class PartidaAberta extends AppCompatActivity {
                         Rodada ultimaRodada = partida.getRodadas().get(partida.getRodadas().size() - 1);
                         for (int i = 0; i < ultimaRodada.getJogadores().size(); i++) {
                             // Adiciona um fragment para cada jogador
-                            FragmentFilho fragmentFilho = new FragmentFilho();
+                            FragmentFilho fragmentFilho = new FragmentFilho(viewPager);
                             adapter.addFrag(fragmentFilho, ultimaRodada.getJogadores().get(i).getNome());
 
                             // Adiciona os jogadores do banco tambem a uma lista local
@@ -398,7 +398,7 @@ public class PartidaAberta extends AppCompatActivity {
                         //todo:Gerar aqui de acordo com quem ganhou
                         for (int i = 0; i < jogadoresRodada.size(); i++) {
 
-                            FragmentFilho fragmentFilho = new FragmentFilho();
+                            FragmentFilho fragmentFilho = new FragmentFilho(viewPager);
                             fragmentFilho.setNome(jogadoresRodada.get(i).getNome());
                             listaFragments.add(fragmentFilho);
 
