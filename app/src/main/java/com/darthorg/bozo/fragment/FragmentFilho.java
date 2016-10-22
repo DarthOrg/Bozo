@@ -4,6 +4,7 @@ import android.app.Dialog;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.util.Log;
@@ -74,6 +75,7 @@ public class FragmentFilho extends Fragment {
 
     //Comandos externos
     private ViewPager viewPager;
+    private final int TEMPO_TELA = 1000 ;
 
     public FragmentFilho(ViewPager viewPager) {
         this.viewPager = viewPager;
@@ -288,17 +290,23 @@ public class FragmentFilho extends Fragment {
                                                   contador = contarPontos();
                                                   resultadoFinal.setText(contador + "");
 
-
-                                                  if (viewPager.getCurrentItem() == viewPager.getAdapter().getCount() - 1) {
-                                                      viewPager.setCurrentItem(0);
-
-                                                  } else {
-                                                      viewPager.setCurrentItem(viewPager.getCurrentItem() + 1);
-
-                                                  }
-
                                                   contarPecasUsadas();
                                                   dialogMarcarBozo.dismiss();
+
+                                                  new Handler().postDelayed(new Runnable() {
+                                                      public void run() {
+
+                                                          if (viewPager.getCurrentItem() == viewPager.getAdapter().getCount() - 1) {
+                                                              viewPager.setCurrentItem(0);
+
+                                                          } else {
+                                                              viewPager.setCurrentItem(viewPager.getCurrentItem() + 1);
+
+                                                          }
+                                                      }
+                                                  }, TEMPO_TELA);
+
+
                                               }
                                           });
                                           //Botão Cancelar
@@ -340,13 +348,18 @@ public class FragmentFilho extends Fragment {
                 contador = contarPontos();
                 resultadoFinal.setText(contador + "");
 
-                if (viewPager.getCurrentItem() == viewPager.getAdapter().getCount() - 1) {
-                    viewPager.setCurrentItem(0);
+                new Handler().postDelayed(new Runnable() {
+                    public void run() {
 
-                } else {
-                    viewPager.setCurrentItem(viewPager.getCurrentItem() + 1);
+                        if (viewPager.getCurrentItem() == viewPager.getAdapter().getCount() - 1) {
+                            viewPager.setCurrentItem(0);
 
-                }
+                        } else {
+                            viewPager.setCurrentItem(viewPager.getCurrentItem() + 1);
+
+                        }
+                    }
+                }, TEMPO_TELA);
 
 
                 contarPecasUsadas();
