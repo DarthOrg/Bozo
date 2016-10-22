@@ -75,7 +75,7 @@ public class FragmentFilho extends Fragment {
 
     //Comandos externos
     private ViewPager viewPager;
-    private final int TEMPO_TELA = 1000 ;
+    private final int TEMPO_TELA = 600 ;
 
     public FragmentFilho(ViewPager viewPager) {
         this.viewPager = viewPager;

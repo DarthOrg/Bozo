@@ -50,6 +50,7 @@
             app:counterEnabled="false">
 
             <EditText
+                android:maxLength="15"
                 android:id="@+id/edit_nome_grupo"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
