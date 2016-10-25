@@ -7,8 +7,9 @@
     <color name="colorAccent700">#0097a7</color>
     <color name="colorAccent800">#00838f</color>
     <color name="colorAccentA200">#18ffff</color>
+    <color name="colorAccentA100">#84FFFF</color>
     <color name="colorAccentTransparent">#4b607d8b</color>
-    <color name="colorAccentDark">#455a64</color>
+    <color name="colorAccentDark">#34495e</color>
 
     <!--ThemeSplash-->
     <color name="colorPrimary_splash">#FFFFFF</color>
@@ -24,6 +25,8 @@
     <color name="colorWhiteTransparente2">#5affffff</color>
     <color name="colorTrasnparente">#00ffffff</color>
     <color name="colorRed">#f44336</color>
+    <color name="colorRedFlat">#e74c3c</color>
+    <color name="colorLaranjaFlat">#e67e22</color>
     <color name="colorRedDark">#D32F2F</color>
     <color name="colorGreen">#009688</color>
     <color name="colorGreenA400">#00E676</color>

@@ -60,9 +60,9 @@
     <string name="ganhou_com">Ganhou com </string>
     <string name="pontos"> pontos</string>
     <string name="info_nenhum_grupo">Para criar um grupo de jogo clique no botão + ou no menu lateral e a opção Novo Grupo</string>
-    <string name="max_jogadores_permitidos">Máximo 10 jogadores.</string>
-    <string name="requer_jogadores">Adicione pelo menos 2 jogadores para criar o grupo</string>
-    <string name="requer_jogador">Adicione mais 1 ou mais jogadores para criar o grupo</string>
+    <string name="max_jogadores_permitidos">Foi mal! mais você só pode adicionar no máximo 10 Jogadores</string>
+    <string name="requer_jogadores">Ops! Adicione pelo menos 2 jogadores para prosseguir</string>
+    <string name="requer_jogador">Quase lá! adicione só mais 1 jogador para prosseguir</string>
 
 
     <!-- WELCOME -->
@@ -248,5 +248,10 @@ Na tabela no nosso app você vai marcar em Quina. Mas,observando bem, 2 duques e
     <string name="menssagem_salvar_grupo">Você pode salvar o seu grupo de jogo se quizer jogar mais tarde.</string>
     <string name="descartar_alteracoes">Descartar Alterações</string>
     <string name="tabela">Tabela</string>
+    <string name="anterior">ANTERIOR</string>
+    <string name="Textonomedogrupo">Primeiro você precisa escrever um nome para seu Grupo de jogo.</string>
+    <string name="proximo">PRÓXIMO</string>
+    <string name="TextoAdicionarJogadores">nome criado, agora adicione os jogadores para poder iniciar. Add até 10 jogadores.</string>
+    <string name="criarGrupo">Criar Grupo</string>
 
 </resources>

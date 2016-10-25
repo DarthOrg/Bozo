@@ -125,7 +125,7 @@ public class Inicio extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_novo_grupo) {
-            Intent intent = new Intent(Inicio.this, NovaPartida.class);
+            Intent intent = new Intent(Inicio.this, AdicionarJogadores.class);
             startActivity(intent);
 
         } else if (id == R.id.nav_instrucoes) {

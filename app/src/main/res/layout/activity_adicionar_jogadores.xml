@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorFundoInstruções"
+    android:orientation="vertical"
+    tools:context=".view.AdicionarJogadores">
+
+    <LinearLayout
+        android:id="@+id/fundotxtAJ"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@color/colorAccentDark">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btnAnterior"
+                android:layout_width="wrap_content"
+                android:layout_height="56dp"
+                android:layout_weight="1"
+                android:text="@string/anterior"
+                android:textColor="@color/colorAccentA100"
+                android:textSize="17dp"
+                android:layout_marginTop="5dp"
+                android:background="@color/colorTrasnparente"/>
+
+            <ImageButton
+                android:id="@id/btnCriar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_confirmado"
+                android:paddingTop="16dp"
+                android:layout_weight="1"
+                android:paddingBottom="16dp"
+                android:tint="@color/colorAccentA100"
+                android:background="@color/colorTrasnparente"/>
+
+        </LinearLayout>
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:paddingTop="10dp"
+            android:elevation="5dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:text="NOME PARTIDA"
+                android:textColor="@color/colorWhite"
+                android:layout_marginLeft="20dp"
+                android:layout_marginBottom="5dp"
+                android:textStyle="bold"
+                android:textSize="20dp"
+                android:textAllCaps="true"
+                android:id="@+id/titulodogrupo"
+                android:layout_gravity="left|top" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="@string/TextoAdicionarJogadores"
+                android:textSize="16dp"
+                android:textColor="@color/colorWhite"
+                android:id="@+id/txtAdicionarJogadores"
+                android:layout_below="@+id/titulodogrupo"
+                android:layout_alignLeft="@+id/titulodogrupo"
+                android:layout_alignStart="@+id/titulodogrupo"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginRight="20dp"/>
+
+            <ImageView
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/imageView3"
+                android:src="@drawable/img_jogadores"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="false"
+                android:layout_alignParentStart="true" />
+
+            <Button
+                android:id="@+id/btnAddJogador"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="16dp"
+                android:layout_marginBottom="10dp"
+                android:layout_marginRight="10dp"
+                android:text="@string/adicionar_jogador"
+                android:textColor="@color/colorCinza"
+                android:backgroundTint="@color/colorWhite"
+                android:layout_gravity="right|bottom"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true" />
+
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+
+    <ListView
+        android:id="@+id/list_view_jogadores"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:cacheColorHint="@color/colorBlack" />
+
+
+
+</LinearLayout>

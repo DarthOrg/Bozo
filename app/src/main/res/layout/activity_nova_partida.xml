@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/paginaDadosGrupo"
@@ -9,98 +9,104 @@
     android:orientation="vertical"
     tools:context=".view.NovaPartida">
 
-    <android.support.design.widget.AppBarLayout
-        android:id="@+id/view"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:theme="@style/AppTheme.WhiteBotton"
-        android:background="@color/colorAccent">
 
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <!--TOOLBAR TOPO-->
-            <android.support.v7.widget.Toolbar
-                android:id="@+id/toolbar"
-                android:layout_width="match_parent"
-                android:layout_height="?attr/actionBarSize"
-                app:title="@string/novo_grupo"/>
-
-        </RelativeLayout>
-
-    </android.support.design.widget.AppBarLayout>
-
-    <!--Editar nome grupo-->
     <LinearLayout
-        android:id="@+id/campoEditarNomegrupo"
+        android:id="@+id/fundotxtAJ"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/view"
-        android:orientation="vertical">
-
-        <android.support.design.widget.TextInputLayout
-            android:id="@+id/til_jogador"
-            android:layout_width="match_parent"
-            android:layout_margin="16dp"
-            android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:theme="@style/AppTheme.Dark"
-            android:textColorHint="@color/colorCinza"
-            app:counterEnabled="false">
-
-            <EditText
-                android:maxLength="15"
-                android:id="@+id/edit_nome_grupo"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:hint="@string/nome_do_grupo"
-                android:theme="@style/AppTheme.Dark"
-                android:inputType="textCapCharacters|text"
-                android:singleLine="true"
-                android:textColor="@color/colorBlack"
-                android:textColorHint="@color/colorStatusBar" />
-        </android.support.design.widget.TextInputLayout>
-
-    </LinearLayout>
-
-    <android.support.v7.widget.CardView
-        android:layout_width="match_parent"
-        android:layout_below="@+id/campoEditarNomegrupo"
-        android:layout_margin="10dp"
-        app:cardBackgroundColor="@color/colorWhite"
-        android:layout_height="match_parent">
-
+        android:orientation="vertical"
+        android:background="@color/colorAccentDark">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="horizontal">
 
             <Button
-                android:id="@+id/btnAddJogador"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:padding="16dp"
-                android:text="@string/adicionar_jogador"
-                android:textColor="@color/colorCinza"
-                android:background="@color/colorWhite"
-                android:layout_gravity="center_horizontal" />
+                android:id="@+id/btnCancelar"
+                android:layout_width="wrap_content"
+                android:layout_height="56dp"
+                android:layout_weight="1"
+                android:text="@string/cancelar"
+                android:textColor="@color/colorAccentA100"
+                android:textSize="17dp"
+                android:background="@color/colorTrasnparente"/>
 
-            <ListView
-                android:id="@+id/list_view_jogadores"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:cacheColorHint="@color/colorBlack" />
+            <Button
+                android:id="@+id/btnProximo"
+                android:layout_width="wrap_content"
+                android:layout_height="56dp"
+                android:layout_weight="1"
+                android:textColor="@color/colorAccentA100"
+                android:textSize="17dp"
+                android:background="@color/colorTrasnparente"
+                android:text="@string/proximo"/>
+
 
         </LinearLayout>
 
-    </android.support.v7.widget.CardView>
+        <LinearLayout
+            android:id="@+id/campoEditarNomegrupo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/view"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:elevation="5dp">
+
+                <TextView
+                    android:layout_width="155dp"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:text="@string/Textonomedogrupo"
+                    android:textSize="17dp"
+                    android:textColor="@color/colorWhite"
+                    android:id="@+id/textView9"
+                    android:layout_marginLeft="20dp"
+                    android:layout_centerVertical="true" />
+
+                <ImageView
+                    android:layout_width="150dp"
+                    android:layout_height="150dp"
+                    android:id="@+id/imageView3"
+                    android:src="@drawable/img_nomegrupo"
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentEnd="true" />
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
 
 
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/til_jogador"
+        android:layout_width="match_parent"
+        android:layout_margin="16dp"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:theme="@style/AppTheme.Dark"
+        android:textColorHint="@color/colorCinza"
+        app:counterEnabled="false">
 
+        <EditText
+            android:maxLength="20"
+            android:id="@+id/edit_nome_grupo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="@string/nome_do_grupo"
+            android:theme="@style/AppTheme.Dark"
 
+            android:inputType="textCapCharacters|text"
+            android:singleLine="true"
+            android:textColor="@color/colorBlack"
+            android:textColorHint="@color/colorStatusBar" />
+    </android.support.design.widget.TextInputLayout>
 
-
-</RelativeLayout>
+</LinearLayout>
