@@ -149,5 +149,11 @@
     <string name="menssagem_salvar_grupo">You can save your game group if you want to play later.</string>
     <string name="descartar_alteracoes">Discard changes</string>
     <string name="tabela">Table</string>
+    <string name="TextoAdicionarJogadores"> We\'re almost there now add players to be able to start. Maximum 10 players.</string>
+    <string name="criarGrupo">Create Group</string>
+    <string name="Textonomedogrupo">First you need to write a name for your game group.</string>
+    <string name="comecar">Start</string>
+    <string name="proximo">Next</string>
+    <string name="voltar">Back</string>
 
 </resources>

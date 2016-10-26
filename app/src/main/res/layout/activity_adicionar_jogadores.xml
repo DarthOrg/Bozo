@@ -12,98 +12,93 @@
         android:id="@+id/fundotxtAJ"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:background="@color/colorAccentDark">
+        android:background="@color/colorAccentDark"
+        android:orientation="vertical">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
             android:orientation="horizontal">
 
             <Button
                 android:id="@+id/btnAnterior"
                 android:layout_width="wrap_content"
-                android:layout_height="56dp"
+                android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="@string/anterior"
+                android:background="@color/colorTrasnparente"
+                android:text="@string/voltar"
                 android:textColor="@color/colorAccentA100"
-                android:textSize="17dp"
-                android:layout_marginTop="5dp"
-                android:background="@color/colorTrasnparente"/>
+                android:textSize="17dp" />
 
-            <ImageButton
-                android:id="@id/btnCriar"
+            <Button
+                android:id="@+id/btnCriar"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/ic_confirmado"
-                android:paddingTop="16dp"
                 android:layout_weight="1"
-                android:paddingBottom="16dp"
-                android:tint="@color/colorAccentA100"
-                android:background="@color/colorTrasnparente"/>
+                android:background="@color/colorTrasnparente"
+                android:text="@string/comecar"
+                android:textColor="@color/colorAccentA100"
+                android:textSize="17dp" />
 
         </LinearLayout>
 
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="150dp"
-            android:paddingTop="10dp"
-            android:elevation="5dp">
+            android:layout_height="wrap_content"
+            android:elevation="5dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:paddingTop="10dp">
 
             <TextView
+                android:id="@+id/titulodogrupo"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceSmall"
-                android:text="NOME PARTIDA"
-                android:textColor="@color/colorWhite"
-                android:layout_marginLeft="20dp"
+                android:layout_gravity="left|top"
                 android:layout_marginBottom="5dp"
-                android:textStyle="bold"
-                android:textSize="20dp"
+                android:text="NOME PARTIDA"
                 android:textAllCaps="true"
-                android:id="@+id/titulodogrupo"
-                android:layout_gravity="left|top" />
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textColor="@color/colorWhite"
+                android:textSize="20dp"
+                android:textStyle="bold" />
 
             <TextView
+                android:id="@+id/txtAdicionarJogadores"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceMedium"
-                android:text="@string/TextoAdicionarJogadores"
-                android:textSize="16dp"
-                android:textColor="@color/colorWhite"
-                android:id="@+id/txtAdicionarJogadores"
-                android:layout_below="@+id/titulodogrupo"
                 android:layout_alignLeft="@+id/titulodogrupo"
-                android:layout_alignStart="@+id/titulodogrupo"
-                android:layout_alignParentRight="true"
                 android:layout_alignParentEnd="true"
-                android:layout_marginRight="20dp"/>
+                android:layout_alignParentRight="true"
+                android:layout_alignStart="@+id/titulodogrupo"
+                android:layout_below="@+id/titulodogrupo"
+                android:layout_marginRight="20dp"
+                android:text="@string/TextoAdicionarJogadores"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="@color/colorWhite"
+                android:textSize="16dp" />
+
 
             <ImageView
-                android:layout_width="150dp"
-                android:layout_height="wrap_content"
-                android:id="@+id/imageView3"
-                android:src="@drawable/img_jogadores"
-                android:layout_alignParentBottom="true"
-                android:layout_alignParentRight="true"
-                android:layout_alignParentEnd="false"
-                android:layout_alignParentStart="true" />
+                android:id="@+id/imgJogadores"
+                android:layout_width="130dp"
+                android:layout_height="70dp"
+                android:layout_alignParentLeft="true"
+                android:layout_below="@+id/txtAdicionarJogadores"
+                android:layout_gravity="bottom|left"
+                android:src="@drawable/img_jogadores" />
 
             <Button
                 android:id="@+id/btnAddJogador"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:padding="16dp"
-                android:layout_marginBottom="10dp"
-                android:layout_marginRight="10dp"
-                android:text="@string/adicionar_jogador"
-                android:textColor="@color/colorCinza"
-                android:backgroundTint="@color/colorWhite"
-                android:layout_gravity="right|bottom"
-                android:layout_alignParentBottom="true"
                 android:layout_alignParentRight="true"
-                android:layout_alignParentEnd="true" />
+                android:layout_below="@+id/txtAdicionarJogadores"
+                android:backgroundTint="@color/colorWhite"
+                android:text="@string/adicionar_jogador"
+                android:textColor="@color/colorCinza" />
 
 
         </RelativeLayout>
@@ -116,7 +111,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:cacheColorHint="@color/colorBlack" />
-
 
 
 </LinearLayout>

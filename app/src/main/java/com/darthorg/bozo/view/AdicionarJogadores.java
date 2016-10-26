@@ -3,10 +3,10 @@ package com.darthorg.bozo.view;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Build;
+import android.os.Bundle;
 import android.os.SystemClock;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,7 +14,6 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -33,7 +32,7 @@ public class AdicionarJogadores extends AppCompatActivity {
     ListView listView;
 
     Button btnAddJogador, btnAnterior;
-    ImageButton btnCriar;
+    Button btnCriar;
     TextView txtAddJ;
     LinearLayout txtFAJ;
 
@@ -230,7 +229,7 @@ public class AdicionarJogadores extends AppCompatActivity {
     private void getIDs() {
 
         btnAnterior = (Button) findViewById(R.id.btnAnterior);
-        btnCriar = (ImageButton) findViewById(R.id.btnCriar);
+        btnCriar = (Button) findViewById(R.id.btnCriar);
         btnAddJogador = (Button) findViewById(R.id.btnAddJogador);
 
         txtAddJ = (TextView) findViewById(R.id.txtAdicionarJogadores);

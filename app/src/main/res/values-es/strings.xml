@@ -204,5 +204,11 @@ Los  dados pueden ser de cualquier valor, siempre que sean iguales. El valor que
     <string name="menssagem_salvar_grupo">Puede guardar su grupo de juego si quiere jugar más tarde.</string>
     <string name="descartar_alteracoes">Descartar Alteraciones</string>
     <string name="tabela">Tabla</string>
+    <string name="TextoAdicionarJogadores">Falta poco, ahora añadir a los jugadores a ser capaz de empezar. 10 jugadores como máximo.</string>
+    <string name="criarGrupo">Crear Juego</string>
+    <string name="Textonomedogrupo">Lo primero que necesita para escribir un nombre para el grupo de juego.</string>
+    <string name="comecar">Empezar</string>
+    <string name="proximo">Siguiente</string>
+    <string name="voltar">Retorno</string>
 
 </resources>

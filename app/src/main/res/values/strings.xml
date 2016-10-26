@@ -248,10 +248,11 @@ Na tabela no nosso app você vai marcar em Quina. Mas,observando bem, 2 duques e
     <string name="menssagem_salvar_grupo">Você pode salvar o seu grupo de jogo se quizer jogar mais tarde.</string>
     <string name="descartar_alteracoes">Descartar Alterações</string>
     <string name="tabela">Tabela</string>
-    <string name="anterior">ANTERIOR</string>
+    <string name="voltar">Voltar</string>
     <string name="Textonomedogrupo">Primeiro você precisa escrever um nome para seu Grupo de jogo.</string>
     <string name="proximo">PRÓXIMO</string>
-    <string name="TextoAdicionarJogadores">nome criado, agora adicione os jogadores para poder iniciar. Add até 10 jogadores.</string>
+    <string name="TextoAdicionarJogadores">Estamos quase lá, agora adicione os jogadores para poder iniciar.Máximo 10 jogadores</string>
     <string name="criarGrupo">Criar Grupo</string>
+    <string name="comecar">Começar</string>
 
 </resources>
