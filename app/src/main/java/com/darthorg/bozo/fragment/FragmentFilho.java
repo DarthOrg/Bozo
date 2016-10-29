@@ -22,6 +22,7 @@ import android.widget.TextView;
 import com.darthorg.bozo.R;
 import com.darthorg.bozo.adapter.ValoresPecasGridAdapter;
 import com.darthorg.bozo.model.PecaBozo;
+import com.darthorg.bozo.view.PartidaAberta;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -67,6 +68,9 @@ public class FragmentFilho extends Fragment {
     private boolean ganhando;
     private boolean empatado;
     private boolean acabouRodada;
+    private boolean ultimaJogada;
+    private boolean hasGeneralDeBoca;
+
 
     // variavel necessaria para inflar o layout do AlertDialog
     private LayoutInflater dialogInflater;
@@ -75,7 +79,8 @@ public class FragmentFilho extends Fragment {
 
     //Comandos externos
     private ViewPager viewPager;
-    private final int TEMPO_TELA = 500 ;
+    private final int TEMPO_TELA = 500;
+
 
     public FragmentFilho(ViewPager viewPager) {
         this.viewPager = viewPager;
@@ -139,7 +144,6 @@ public class FragmentFilho extends Fragment {
      * @param button
      */
     public void cliquePeca(final PecaBozo pecaBozo, final Button button) {
-
 
         button.setOnClickListener(new View.OnClickListener() {
                                       @Override
@@ -290,21 +294,13 @@ public class FragmentFilho extends Fragment {
                                                   contador = contarPontos();
                                                   resultadoFinal.setText(contador + "");
 
-                                                  contarPecasUsadas();
+                                                  if (pecaBozo.getNome() == "General") {
+                                                      hasGeneralDeBoca = false;
+                                                  }
+
                                                   dialogMarcarBozo.dismiss();
 
-                                                  new Handler().postDelayed(new Runnable() {
-                                                      public void run() {
-
-                                                          if (viewPager.getCurrentItem() == viewPager.getAdapter().getCount() - 1) {
-                                                              viewPager.setCurrentItem(0);
-
-                                                          } else {
-                                                              viewPager.setCurrentItem(viewPager.getCurrentItem() + 1);
-
-                                                          }
-                                                      }
-                                                  }, TEMPO_TELA);
+                                                  gerenciarJogo();
 
 
                                               }
@@ -319,11 +315,9 @@ public class FragmentFilho extends Fragment {
                                           });
                                           dialogMarcarBozo.setCancelable(true);
                                           dialogMarcarBozo.show();
-
                                       }
+
                                   }
-
-
         );
     }
 
@@ -336,6 +330,8 @@ public class FragmentFilho extends Fragment {
      * @param dialog   Dialog em que o gridview esta
      */
     private void cliqueValor(GridView gridView, final PecaBozo peca, final Button btn, final Dialog dialog) {
+
+
         gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -348,25 +344,49 @@ public class FragmentFilho extends Fragment {
                 contador = contarPontos();
                 resultadoFinal.setText(contador + "");
 
-                new Handler().postDelayed(new Runnable() {
-                    public void run() {
-
-                        if (viewPager.getCurrentItem() == viewPager.getAdapter().getCount() - 1) {
-                            viewPager.setCurrentItem(0);
-
-                        } else {
-                            viewPager.setCurrentItem(viewPager.getCurrentItem() + 1);
-
-                        }
-                    }
-                }, TEMPO_TELA);
-
-
-                contarPecasUsadas();
-
                 dialog.dismiss();
+
+                if (peca.getNome() == "General" && position == 2) {
+                    hasGeneralDeBoca = true;
+
+                    PartidaAberta partidaAberta = (PartidaAberta) getActivity();
+                    partidaAberta.finalizarRodada();
+                } else if (peca.getNome() == "General" && position != 2) {
+                    hasGeneralDeBoca = false;
+                }
+
+                gerenciarJogo();
             }
         });
+    }
+
+    public void gerenciarJogo() {
+
+        PartidaAberta.compararPontos();
+        contarPecasUsadas();
+
+        if (PartidaAberta.listaFragments.get(PartidaAberta.listaFragments.size() - 1).ultimaJogada) {
+
+            if (PartidaAberta.compararPontos() != null) {
+                PartidaAberta partidaAberta = (PartidaAberta) getActivity();
+                partidaAberta.finalizarRodada();
+            }
+
+
+        } else {
+
+            new Handler().postDelayed(new Runnable() {
+                public void run() {
+
+                    if (viewPager.getCurrentItem() == viewPager.getAdapter().getCount() - 1) {
+                        viewPager.setCurrentItem(0);
+
+                    } else {
+                        viewPager.setCurrentItem(viewPager.getCurrentItem() + 1);
+                    }
+                }
+            }, TEMPO_TELA);
+        }
     }
 
     public void obterPecasBozo() {
@@ -448,6 +468,7 @@ public class FragmentFilho extends Fragment {
         if (contadorPecas >= 10) {
             Log.i("pecasUsadas", "ACABOUUUUU");
             acabouRodada = true;
+            ultimaJogada = true;
         } else {
             Log.i("pecasUsadas", "A PARTIDA AINDA ESTA ROLANDO");
             acabouRodada = false;
@@ -480,5 +501,9 @@ public class FragmentFilho extends Fragment {
 
     public String getNome() {
         return nome;
+    }
+
+    public boolean hasGeneralDeBoca() {
+        return hasGeneralDeBoca;
     }
 }

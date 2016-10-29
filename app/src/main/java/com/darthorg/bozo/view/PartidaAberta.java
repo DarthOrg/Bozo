@@ -48,9 +48,9 @@ public class PartidaAberta extends AppCompatActivity {
 
     //Listas usadas no decorrer do jogo
     private ArrayList<Rodada> listRodadas = new ArrayList<>();
-    private List<Jogador> jogadoresRodada = new ArrayList<>();
-    private List<FragmentFilho> listaFragments;
-    private List<FragmentFilho> listEmpatados;
+    private static List<Jogador> jogadoresRodada = new ArrayList<>();
+    public static List<FragmentFilho> listaFragments;
+    private static List<FragmentFilho> listEmpatados;
 
     //Controllers
     private PartidaController partidaController;
@@ -423,7 +423,7 @@ public class PartidaAberta extends AppCompatActivity {
      *
      * @return retorna um ganhador
      */
-    public Jogador compararPontos() {
+    public static Jogador compararPontos() {
 
         FragmentFilho ganhando = listaFragments.get(0);
         Jogador ganhador = null;
@@ -434,7 +434,7 @@ public class PartidaAberta extends AppCompatActivity {
             listaFragments.get(i).setGanhando(false);
             listaFragments.get(i).setEmpatado(false);
             // Não compara ninguem igual e com pontuacao igual a zero
-            if (!ganhando.equals(listaFragments.get(i)) && listaFragments.get(i).getContador() != 0) {
+            if (!ganhando.equals(listaFragments.get(i)) ) {
                 if (ganhando.getContador() < listaFragments.get(i).getContador()) {
                     //Outra pessoa esta ganhando
                     ganhando.setGanhando(false);
@@ -481,7 +481,9 @@ public class PartidaAberta extends AppCompatActivity {
         int fragmentsCompletos = 0;
 
         for (int i = 0; i < listaFragments.size(); i++) {
-            if (listaFragments.get(i).isAcabouRodada()) {
+            if (listaFragments.get(i).hasGeneralDeBoca()) {
+                return true;
+            } else if (listaFragments.get(i).isAcabouRodada()) {
                 fragmentsCompletos++;
             }
         }
@@ -623,107 +625,110 @@ public class PartidaAberta extends AppCompatActivity {
         int id = item.getItemId();
 
         if (id == R.id.action_finalizar) {
-
-            AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
-            alertDialogBuilder.setCancelable(true);
-
-            if (verificaSeRodadaAcabou()) {
-
-                if (compararPontos() != null) {
-
-
-                    AlertDialog.Builder builder = new AlertDialog.Builder(this);
-                    builder.setTitle(compararPontos().getNome() + getString(R.string.ganhou));
-                    builder.setIcon(R.drawable.ic_jogador);
-                    builder.setMessage(getString(R.string.pergunta_nova_rodada))
-                            .setPositiveButton(getString(R.string.jogar), new DialogInterface.OnClickListener() {
-                                public void onClick(DialogInterface dialog, int id) {
-                                    dialog.dismiss();
-                                    configurarNovaRodada(compararPontos().getNome());
-                                }
-                            })
-                            .setNegativeButton(getString(R.string.cancelar), new DialogInterface.OnClickListener() {
-                                @Override
-                                public void onClick(DialogInterface dialog, int which) {
-                                    dialog.dismiss();
-                                }
-                            })
-                            .setNeutralButton(getString(R.string.sair), new DialogInterface.OnClickListener() {
-                                public void onClick(DialogInterface dialog, int id) {
-                                    //todo: uma hr isso vai dar bug nervoso
-                                    dialog.dismiss();
-                                    configurarNovaRodada(compararPontos().getNome());
-                                    saveAndQuit();
-                                }
-                            });
-
-                    builder.show();
-
-                } else {
-
-                    LayoutInflater inflater = getLayoutInflater();
-
-                    View dialoglayout = inflater.inflate(R.layout.dialog_empate, null);
-
-                    final RadioGroup rgEmpate = (RadioGroup) dialoglayout.findViewById(R.id.rgDialogEmpate);
-
-                    for (int i = 0; i < listEmpatados.size(); i++) {
-                        RadioButton rdbtn = new RadioButton(this);
-                        rdbtn.setId(i);
-                        rdbtn.setText(listEmpatados.get(i).getNome());
-                        rgEmpate.addView(rdbtn);
-                    }
-
-                    AlertDialog.Builder builder = new AlertDialog.Builder(PartidaAberta.this);
-                    builder.setTitle(getString(R.string.empate));
-                    builder.setIcon(R.drawable.ic_groupo);
-                    builder.setMessage(getString(R.string.decisao_empate));
-
-                    builder.setPositiveButton(getString(R.string.finalizar_rodada), new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                            dialog.dismiss();
-                            configurarNovaRodada(listEmpatados.get(rgEmpate.getCheckedRadioButtonId()).getNome());
-                        }
-                    });
-
-                    builder.setNegativeButton(getString(R.string.cancelar), new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                            dialog.dismiss();
-                        }
-                    });
-
-                    builder.setView(dialoglayout);
-                    builder.show();
-
-                }
-
-            } else {
-
-                AlertDialog.Builder builder = new AlertDialog.Builder(this);
-                builder.setTitle(getString(R.string.aviso));
-                builder.setIcon(R.drawable.ic_aviso);
-                builder.setMessage(getString(R.string.rodada_incompleta))
-                        .setPositiveButton(getString(R.string.sair), new DialogInterface.OnClickListener() {
-                            public void onClick(DialogInterface dialog, int id) {
-                                dialog.dismiss();
-                                saveAndQuit();
-                            }
-                        })
-                        .setNegativeButton(R.string.cancelar, new DialogInterface.OnClickListener() {
-                            public void onClick(DialogInterface dialog, int id) {
-                                dialog.dismiss();
-                            }
-                        });
-                builder.show();
-
-            }
+            finalizarRodada();
         }
 
         return super.
 
                 onOptionsItemSelected(item);
+    }
+
+    public void finalizarRodada() {
+        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
+        alertDialogBuilder.setCancelable(true);
+
+        if (verificaSeRodadaAcabou()) {
+
+            if (compararPontos() != null) {
+
+
+                AlertDialog.Builder builder = new AlertDialog.Builder(this);
+                builder.setTitle(compararPontos().getNome() + getString(R.string.ganhou));
+                builder.setIcon(R.drawable.ic_jogador);
+                builder.setMessage(getString(R.string.pergunta_nova_rodada))
+                        .setPositiveButton(getString(R.string.jogar), new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                dialog.dismiss();
+                                configurarNovaRodada(compararPontos().getNome());
+                            }
+                        })
+                        .setNegativeButton(getString(R.string.cancelar), new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                dialog.dismiss();
+                            }
+                        })
+                        .setNeutralButton(getString(R.string.sair), new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                //todo: uma hr isso vai dar bug nervoso
+                                configurarNovaRodada(compararPontos().getNome());
+                                saveAndQuit();
+                                dialog.dismiss();
+                            }
+                        });
+
+                builder.show();
+
+            } else {
+
+                LayoutInflater inflater = getLayoutInflater();
+
+                View dialoglayout = inflater.inflate(R.layout.dialog_empate, null);
+
+                final RadioGroup rgEmpate = (RadioGroup) dialoglayout.findViewById(R.id.rgDialogEmpate);
+
+                for (int i = 0; i < listEmpatados.size(); i++) {
+                    RadioButton rdbtn = new RadioButton(this);
+                    rdbtn.setId(i);
+                    rdbtn.setText(listEmpatados.get(i).getNome());
+                    rgEmpate.addView(rdbtn);
+                }
+
+                AlertDialog.Builder builder = new AlertDialog.Builder(PartidaAberta.this);
+                builder.setTitle(getString(R.string.empate));
+                builder.setIcon(R.drawable.ic_groupo);
+                builder.setMessage(getString(R.string.decisao_empate));
+
+                builder.setPositiveButton(getString(R.string.finalizar_rodada), new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
+                        configurarNovaRodada(listEmpatados.get(rgEmpate.getCheckedRadioButtonId()).getNome());
+                    }
+                });
+
+                builder.setNegativeButton(getString(R.string.cancelar), new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
+                    }
+                });
+
+                builder.setView(dialoglayout);
+                builder.show();
+
+            }
+
+        } else {
+
+            AlertDialog.Builder builder = new AlertDialog.Builder(this);
+            builder.setTitle(getString(R.string.aviso));
+            builder.setIcon(R.drawable.ic_aviso);
+            builder.setMessage(getString(R.string.rodada_incompleta))
+                    .setPositiveButton(getString(R.string.sair), new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int id) {
+                            dialog.dismiss();
+                            saveAndQuit();
+                        }
+                    })
+                    .setNegativeButton(R.string.cancelar, new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int id) {
+                            dialog.dismiss();
+                        }
+                    });
+            builder.show();
+
+        }
     }
 
     @Override
