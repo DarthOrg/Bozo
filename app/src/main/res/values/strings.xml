@@ -251,8 +251,10 @@ Na tabela no nosso app você vai marcar em Quina. Mas,observando bem, 2 duques e
     <string name="voltar">Voltar</string>
     <string name="Textonomedogrupo">Primeiro você precisa escrever um nome para seu Grupo de jogo.</string>
     <string name="proximo">PRÓXIMO</string>
-    <string name="TextoAdicionarJogadores">Estamos quase lá, agora adicione os jogadores para poder iniciar.Máximo 10 jogadores</string>
+    <string name="TextoAdicionarJogadores">Agora adicione os jogadores para começar. Lembre-se no máximo 10 jogadores.</string>
     <string name="criarGrupo">Criar Grupo</string>
     <string name="comecar">Começar</string>
+    <string name="Mulher">Mulher</string>
+    <string name="Homem">Homen</string>
 
 </resources>

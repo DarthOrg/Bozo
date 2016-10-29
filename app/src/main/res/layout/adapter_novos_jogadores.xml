@@ -11,11 +11,10 @@
 
         <ImageButton
             android:id="@+id/imageButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
             android:layout_marginRight="16dp"
-            android:background="@color/colorTrasnparente"
-            android:src="@drawable/ic_jogador"
+            android:background="@drawable/img_add_jogadores"
             android:tint="@color/colorCinza" />
 
         <TextView
