@@ -48,7 +48,7 @@ public class PartidaAberta extends AppCompatActivity {
 
     //Listas usadas no decorrer do jogo
     private ArrayList<Rodada> listRodadas = new ArrayList<>();
-    private static List<Jogador> jogadoresRodada = new ArrayList<>();
+    private static List<Jogador> jogadoresRodada;
     public static List<FragmentFilho> listaFragments;
     private static List<FragmentFilho> listEmpatados;
 
@@ -90,6 +90,8 @@ public class PartidaAberta extends AppCompatActivity {
         bottomSheetDialog = new BottomSheetDialog(this);
         bottomSheetDialogView = getLayoutInflater().inflate(R.layout.bottom_sheet, null);
         bottomSheetDialog.setContentView(bottomSheetDialogView);
+
+        jogadoresRodada = new ArrayList<>();
 
 
         //Busca os Ids nos Xml
@@ -434,7 +436,7 @@ public class PartidaAberta extends AppCompatActivity {
             listaFragments.get(i).setGanhando(false);
             listaFragments.get(i).setEmpatado(false);
             // Não compara ninguem igual e com pontuacao igual a zero
-            if (!ganhando.equals(listaFragments.get(i)) ) {
+            if (!ganhando.equals(listaFragments.get(i))) {
                 if (ganhando.getContador() < listaFragments.get(i).getContador()) {
                     //Outra pessoa esta ganhando
                     ganhando.setGanhando(false);
