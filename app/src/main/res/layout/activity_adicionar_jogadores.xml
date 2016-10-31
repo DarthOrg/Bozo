@@ -47,23 +47,22 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:elevation="5dp"
-            android:paddingLeft="10dp"
-            android:paddingRight="10dp"
-            android:paddingTop="10dp">
+            android:elevation="5dp">
 
             <TextView
                 android:id="@+id/titulodogrupo"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="left|top"
-                android:layout_marginBottom="5dp"
+                android:layout_marginBottom="10dp"
                 android:text="NOME PARTIDA"
                 android:textAllCaps="true"
                 android:textAppearance="?android:attr/textAppearanceSmall"
                 android:textColor="@color/colorWhite"
                 android:textSize="20dp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:layout_marginTop="16dp"
+                android:layout_marginLeft="16dp" />
 
             <TextView
                 android:id="@+id/txtAdicionarJogadores"
@@ -74,11 +73,12 @@
                 android:layout_alignParentRight="true"
                 android:layout_alignStart="@+id/titulodogrupo"
                 android:layout_below="@+id/titulodogrupo"
-                android:layout_marginRight="20dp"
+                android:layout_marginRight="16dp"
                 android:text="@string/TextoAdicionarJogadores"
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:textColor="@color/colorWhite"
-                android:textSize="16dp" />
+                android:textSize="16dp"
+                android:layout_marginBottom="10dp" />
 
 
             <ImageView
@@ -94,11 +94,13 @@
                 android:id="@+id/btnAddJogador"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
-                android:layout_below="@+id/txtAdicionarJogadores"
                 android:backgroundTint="@color/colorWhite"
                 android:text="@string/adicionar_jogador"
-                android:textColor="@color/colorCinza" />
+                android:textColor="@color/colorCinza"
+                android:layout_alignBottom="@+id/imgJogadores"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
+                android:layout_margin="16dp" />
 
 
         </RelativeLayout>

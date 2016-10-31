@@ -129,12 +129,12 @@ public class AdicionarJogadores extends AppCompatActivity {
                         }
                     }).start();
                 } else {
-                        Intent intent = new Intent(AdicionarJogadores.this, PartidaAberta.class);
-                        intent.putExtra("nomepartida", tituloGrupo.getText().toString());
-                        intent.putStringArrayListExtra("jogadores", jogadores);
-                        intent.putExtra("partidaNova", true);
-                        startActivity(intent);
-                        finish();
+                    Intent intent = new Intent(AdicionarJogadores.this, PartidaAberta.class);
+                    intent.putExtra("nomepartida", tituloGrupo.getText().toString());
+                    intent.putStringArrayListExtra("jogadores", jogadores);
+                    intent.putExtra("partidaNova", true);
+                    startActivity(intent);
+                    finish();
                 }
 
             }
@@ -145,7 +145,7 @@ public class AdicionarJogadores extends AppCompatActivity {
         listView.setAdapter(adapter);
 
 
-       // tituloGrupo.setText(partida.getNome());
+        // tituloGrupo.setText(partida.getNome());
 
         btnAddJogador.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -156,6 +156,7 @@ public class AdicionarJogadores extends AppCompatActivity {
                     txtFAJ.setBackgroundColor(getResources().getColor(R.color.colorRedFlat));
                     txtAddJ.setText(R.string.max_jogadores_permitidos);
                     btnAddJogador.setVisibility(View.GONE);
+                    btnCriar.setTextColor(getResources().getColor(R.color.colorWhite));
                     btnAnterior.setTextColor(getResources().getColor(R.color.colorWhite));
                     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
                         Window window = getWindow();
@@ -174,6 +175,7 @@ public class AdicionarJogadores extends AppCompatActivity {
                                     txtAddJ.setText(R.string.TextoAdicionarJogadores);
                                     btnAddJogador.setVisibility(View.VISIBLE);
                                     txtFAJ.setBackgroundColor(getResources().getColor(R.color.colorAccentDark));
+                                    btnCriar.setTextColor(getResources().getColor(R.color.colorAccentA100));
                                     btnAnterior.setTextColor(getResources().getColor(R.color.colorAccentA100));
                                     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
                                         Window window = getWindow();
@@ -186,40 +188,40 @@ public class AdicionarJogadores extends AppCompatActivity {
                     }).start();
                 }else {
 
-                LayoutInflater inflater = getLayoutInflater();
+                    LayoutInflater inflater = getLayoutInflater();
 
-                View dialoglayout = inflater.inflate(R.layout.dialog_novo_jogador, null);
+                    View dialoglayout = inflater.inflate(R.layout.dialog_novo_jogador, null);
 
-                final EditText etNomeJogador = (EditText) dialoglayout.findViewById(R.id.edit_nome_novo_jogador);
+                    final EditText etNomeJogador = (EditText) dialoglayout.findViewById(R.id.edit_nome_novo_jogador);
 
-                AlertDialog.Builder builder = new AlertDialog.Builder(AdicionarJogadores.this);
-                builder.setTitle(getString(R.string.adicionar_jogador));
-                builder.setIcon(R.drawable.ic_add_jogador);
+                    AlertDialog.Builder builder = new AlertDialog.Builder(AdicionarJogadores.this);
+                    builder.setTitle(getString(R.string.adicionar_jogador));
+                    builder.setIcon(R.drawable.ic_add_jogador);
 
-                builder.setPositiveButton(getString(R.string.adicionar), new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
+                    builder.setPositiveButton(getString(R.string.adicionar), new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
                             if (!TextUtils.isEmpty(etNomeJogador.getText().toString())) {
                                 jogadores.add(etNomeJogador.getText().toString());
                                 adapter.notifyDataSetChanged();
                                 etNomeJogador.setText(null);
                                 dialog.dismiss();
+                            }
+
                         }
+                    });
 
-                    }
-                });
+                    builder.setNegativeButton(getString(R.string.cancelar), new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            dialog.dismiss();
+                        }
+                    });
 
-                builder.setNegativeButton(getString(R.string.cancelar), new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        dialog.dismiss();
-                    }
-                });
+                    builder.setView(dialoglayout);
+                    builder.show();
 
-                builder.setView(dialoglayout);
-                builder.show();
-
-            }
+                }
             }
         });
 
