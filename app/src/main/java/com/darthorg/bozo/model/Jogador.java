@@ -6,7 +6,7 @@ import android.os.Parcelable;
 /**
  * Created by Gustavo on 01/07/2016.
  */
-public class Jogador implements Parcelable {
+public class Jogador implements Parcelable, Comparable<Jogador> {
     private String nome;
     private int pontuacao;
     private long idJogador;
@@ -79,4 +79,14 @@ public class Jogador implements Parcelable {
         this.idRodada = idRodada;
     }
 
+    @Override
+    public int compareTo(Jogador another) {
+        if (this.pontuacao > another.pontuacao) {
+            return -1;
+        }
+        if (this.pontuacao < another.pontuacao) {
+            return 1;
+        }
+        return 0;
+    }
 }

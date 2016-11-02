@@ -34,6 +34,7 @@ import com.darthorg.bozo.model.Partida;
 import com.darthorg.bozo.model.Rodada;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 
@@ -339,7 +340,9 @@ public class PartidaAberta extends AppCompatActivity {
                         }
                     } else {
                         //Não é a primeira rodada , entao pega os jogadores da rodada anterior
-                        //todo:Gerar aqui de acordo com quem ganhou
+
+                        Collections.sort(jogadoresRodada);
+
                         for (int i = 0; i < jogadoresRodada.size(); i++) {
 
                             FragmentFilho fragmentFilho = new FragmentFilho(viewPager);
@@ -378,6 +381,9 @@ public class PartidaAberta extends AppCompatActivity {
 
                         //Configura o jogo a partir da ultima rodada
                         Rodada ultimaRodada = partida.getRodadas().get(partida.getRodadas().size() - 1);
+
+                        Collections.sort(ultimaRodada.getJogadores());
+
                         for (int i = 0; i < ultimaRodada.getJogadores().size(); i++) {
                             // Adiciona um fragment para cada jogador
                             FragmentFilho fragmentFilho = new FragmentFilho(viewPager);
@@ -397,7 +403,8 @@ public class PartidaAberta extends AppCompatActivity {
                         }
                     } else {
 
-                        //todo:Gerar aqui de acordo com quem ganhou
+                        Collections.sort(jogadoresRodada);
+
                         for (int i = 0; i < jogadoresRodada.size(); i++) {
 
                             FragmentFilho fragmentFilho = new FragmentFilho(viewPager);
@@ -425,6 +432,7 @@ public class PartidaAberta extends AppCompatActivity {
      *
      * @return retorna um ganhador
      */
+
     public static Jogador compararPontos() {
 
         FragmentFilho ganhando = listaFragments.get(0);
@@ -502,6 +510,7 @@ public class PartidaAberta extends AppCompatActivity {
             Jogador j = new Jogador();
             j.setNome(jogadoresRodada.get(i).getNome());
             j.setPontuacao(listaFragments.get(i).getContador());
+            jogadoresRodada.get(i).setPontuacao(listaFragments.get(i).getContador());
             auxJogadoresRodadas.add(j);
         }
 

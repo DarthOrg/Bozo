@@ -16,6 +16,7 @@ import com.darthorg.bozo.controller.PartidaController;
 import com.darthorg.bozo.model.Partida;
 import com.darthorg.bozo.model.Rodada;
 
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -62,6 +63,8 @@ public class PartidasListAdapter extends BaseAdapter {
 
         //Busca a ultima rodada
         Rodada ultimaRodada = mPartidaList.get(position).getRodadas().get(mPartidaList.get(position).getRodadas().size() - 1);
+
+        Collections.sort(ultimaRodada.getJogadores());
 
         // String com onde ficaram os nomes dos jogadoress
         String nomesJogadores = "";
