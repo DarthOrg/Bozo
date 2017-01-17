@@ -13,8 +13,9 @@
             android:id="@+id/imageButton"
             android:layout_width="45dp"
             android:layout_height="45dp"
+            android:src="@drawable/ic_jogador"
             android:layout_marginRight="16dp"
-            android:background="@drawable/img_add_jogadores"
+            android:background="@drawable/circulo_transparente"
             android:tint="@color/colorCinza" />
 
         <TextView

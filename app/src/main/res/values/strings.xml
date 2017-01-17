@@ -12,7 +12,7 @@
     <string name="configuracoes">Configurações</string>
     <string name="adicionar">Adicionar</string>
     <string name="cancelar">Cancelar</string>
-    <string name="nome_do_grupo">Nome do Grupo</string>
+    <string name="nome_do_grupo">Nome do Marcador</string>
     <string name="jogador">" Jogador "</string>
     <string name="remover_jogador">Remover Jogador</string>
     <string name="remover">Remover</string>
@@ -26,7 +26,7 @@
     <string name="placar">Placar</string>
     <string name="parar">Parar</string>
     <string name="deletar">Deletar</string>
-    <string name="deletar_grupo">Deletar Grupo</string>
+    <string name="deletar_grupo">Excluir</string>
 
     <!-- TITULOS -->
     <string name="grupo">"Grupo "</string>
@@ -54,12 +54,12 @@
     <string name="rodadas">Rodadas</string>
     <string name="todos_os_direitos_reservados">Todos os direitos reservados.</string>
     <string name="recurso_nao_suportado">Recurso não suportado no seu dispositivo</string>
-    <string name="pergunta_deletar_partida">"Você deseja realmente deletar grupo "</string>
+    <string name="pergunta_deletar_partida">"Excluir grupo "</string>
     <string name="grupo_deletado">Grupo deletado</string>
-    <string name="erro_grupo_deletado">Ocorreu um erro ao deletar o grupo</string>
+    <string name="erro_grupo_excluido">Ocorreu um erro ao excluir o grupo</string>
     <string name="ganhou_com">Ganhou com </string>
     <string name="pontos"> pontos</string>
-    <string name="info_nenhum_grupo">Para criar um grupo de jogo clique no botão + ou no menu lateral e a opção Novo Grupo</string>
+    <string name="info_nenhum_grupo">Nenhum marcador salvo</string>
     <string name="max_jogadores_permitidos">Foi mal! mais você só pode adicionar no máximo 10 Jogadores</string>
     <string name="requer_jogadores">Ops! Adicione pelo menos 2 jogadores para prosseguir</string>
     <string name="requer_jogador">Quase lá! adicione só mais 1 jogador para prosseguir</string>
@@ -70,11 +70,11 @@
     <string name="titulo_slide1_welcome">Primeiro</string>
     <string name="subtitulo_slide1_welcome">Você deve ter um copo de bozó com 5 dados</string>
     <!-- slide2 -->
-    <string name="titulo_slide2_welcome">Criar novo grupo</string>
-    <string name="subtitulo_slide2_welcome">Para criar um novo grupo clique no botão +</string>
+    <string name="titulo_slide2_welcome">Criar um marcador</string>
+    <string name="subtitulo_slide2_welcome">Para criar um novo clique no botão iniciar marcador</string>
     <!-- slide3 -->
-    <string name="titulo_slide3_welcome">Dados do grupo</string>
-    <string name="subtitulo_slide3_welcome">Aqui você adiciona nome do grupo e os jogadores</string>
+    <string name="titulo_slide3_welcome">Dados do Marcador</string>
+    <string name="subtitulo_slide3_welcome">Aqui você adiciona nome do marcador e os jogadores</string>
     <!-- slide4 -->
     <string name="titulo_slide4_welcome">Marcador do bozó</string>
     <string name="subtitulo_slide4_welcome">Nesta tela você vai marcar os valores que conseguir jogando com o copo de bozó</string>
@@ -249,12 +249,22 @@ Na tabela no nosso app você vai marcar em Quina. Mas,observando bem, 2 duques e
     <string name="descartar_alteracoes">Descartar Alterações</string>
     <string name="tabela">Tabela</string>
     <string name="voltar">Voltar</string>
-    <string name="Textonomedogrupo">Primeiro você precisa escrever um nome para seu Grupo de jogo.</string>
+    <string name="Textonomedogrupo">Primeiro você precisa escrever um nome para seu Marcador de Bozó.</string>
     <string name="proximo">PRÓXIMO</string>
     <string name="TextoAdicionarJogadores">Agora adicione os jogadores para começar. Lembre-se no máximo 10 jogadores.</string>
     <string name="criarGrupo">Criar Grupo</string>
     <string name="comecar">Começar</string>
     <string name="Mulher">Mulher</string>
     <string name="Homem">Homen</string>
+    <string name="Inicio">Inicio</string>
+    <string name="novo_marcador">Novo Marcador</string>
+    <string name="definicoes">Definições</string>
+    <string name="marcador_bozo">Marcador Bozó</string>
+    <string name="marcadores_salvos">Marcadores salvos</string>
+    <string name="excluir">excluir</string>
+    <string name="grupo_excluido">Grupo excluido</string>
+    <string name="jogadores">Jogadores</string>
+    <string name="marcador">Marcador</string>
+    <string name="marcador_rapido">Marcador rapído</string>
 
 </resources>

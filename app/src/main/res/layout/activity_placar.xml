@@ -4,88 +4,85 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorFundoInstruções"
     android:orientation="vertical"
+    android:background="@color/colorAccentDarkWhite"
     android:theme="@style/AppTheme.WhiteBotton"
     tools:context=".view.Placar">
 
-    <android.support.design.widget.AppBarLayout
-        android:id="@+id/appbar"
+
+    <android.support.v7.widget.Toolbar
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:fitsSystemWindows="true"
-        app:elevation="5dp">
+        android:theme="@style/AppTheme.WhiteBotton"
+        android:minHeight="?attr/actionBarSize"
+        android:id="@+id/toolbar"
+        app:title="Placar" />
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginTop="-40dp">
 
         <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="56dp"
-            android:layout_gravity="center_horizontal">
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
 
-            <android.support.v7.widget.Toolbar
-                android:id="@+id/toolbar"
-                android:layout_width="match_parent"
-                android:layout_height="?attr/actionBarSize"
-                android:background="@color/colorAccent"
-                android:fitsSystemWindows="true"
-                app:layout_scrollFlags="scroll|enterAlways" />
+
+            <Button
+                android:text="250"
+                android:background="@drawable/circulo_white"
+                android:layout_width="75dp"
+                android:layout_height="75dp"
+                android:textSize="25dp"
+                android:textColor="@color/colorBlack"
+                android:id="@+id/btnQuantRodadas" />
 
             <TextView
                 android:id="@+id/Titulo"
+                android:elevation="@dimen/fab_elevation_lollipop"
                 android:layout_width="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="50dp"
+                android:textColor="@color/colorBlack"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:text="@string/total"
-                android:textAppearance="?android:attr/textAppearanceMedium"
-                android:textColor="@color/colorWhiteTransparente"
-                android:textSize="15dp"
-                android:layout_centerVertical="true"
-                android:layout_alignRight="@+id/btnQuantRodadas"
-                android:layout_alignEnd="@+id/btnQuantRodadas"
-                android:layout_margin="32dp" />
+                android:text="Total"/>
 
-            <Button
-                android:id="@+id/btnQuantRodadas"
-                android:layout_width="25dp"
-                android:layout_height="25dp"
-                android:layout_gravity="right|center_vertical"
-                android:background="@drawable/circulo"
-                android:backgroundTint="@color/colorWhite"
-                android:text="38"
-                android:textColor="@color/colorAccent"
-                android:textSize="15dp"
-                android:layout_centerVertical="true"
-                android:layout_alignParentRight="true"
-                android:layout_alignParentEnd="true"
-                android:layout_margin="16dp" />
 
         </RelativeLayout>
 
 
-    </android.support.design.widget.AppBarLayout>
-
-    <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="10dp">
-
-        <TextView
+        <ImageButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/rodadas"
-            android:textColor="@color/colorCinzaEscuro"
-            android:layout_gravity="left|bottom"
-            android:textSize="15dp" />
+            android:layout_gravity="center"
+            android:background="@color/colorTrasnparente"
+            android:src="@drawable/ic_wifi"
+            android:layout_marginTop="-10dp"/>
 
-    </FrameLayout>
+    </LinearLayout>
 
-    <ListView
-        android:id="@+id/list_view_placar"
+    <TextView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:background="@color/colorFundoPartida"
-        android:dividerHeight="1dp" />
+        android:layout_height="wrap_content"
+        android:text="Ganhadores por rodada"
+        android:textAlignment="center"
+        android:textColor="@color/colorWhite"/>
+
+        <ListView
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="5dp"
+            android:id="@+id/list_view_placar"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"/>
 
 
 </LinearLayout>

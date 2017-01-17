@@ -4,9 +4,37 @@
 
 
     <item
+        android:id="@+id/action_add_jogador"
+        android:title="Adionar jogador"
+        android:orderInCategory="100"
+        android:icon="@drawable/ic_add_jogador_white"
+        app:showAsAction="always">
+
+    </item>
+
+    <item
+        android:id="@+id/action_excluir_jogador"
+        android:title="Excluir jogador"
+        android:orderInCategory="100"
+        android:icon="@drawable/ic_deletar_jogador_white"
+        app:showAsAction="always">
+
+    </item>
+
+    <item
+        android:id="@+id/action_placar"
+        android:title="Placar jogadores"
+        android:orderInCategory="100"
+        android:icon="@drawable/ic_placar_white"
+        app:showAsAction="always">
+
+    </item>
+
+
+    <item
         android:id="@+id/action_finalizar"
         android:title="@string/finalizar_rodada"
-
+        android:icon="@drawable/ic_sair_white"
         android:orderInCategory="100"
         app:showAsAction="always"/>
 

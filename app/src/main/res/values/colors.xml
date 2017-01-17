@@ -10,6 +10,7 @@
     <color name="colorAccentA100">#84FFFF</color>
     <color name="colorAccentTransparent">#4b607d8b</color>
     <color name="colorAccentDark">#34495e</color>
+    <color name="colorAccentDarkWhite">#798794</color>
 
     <!--ThemeSplash-->
     <color name="colorPrimary_splash">#FFFFFF</color>
@@ -23,6 +24,7 @@
     <color name="colorWhite">#ffffff</color>
     <color name="colorWhiteTransparente">#b3ffffff</color>
     <color name="colorWhiteTransparente2">#5affffff</color>
+    <color name="colorRedTransparente">#5aff0000</color>
     <color name="colorTrasnparente">#00ffffff</color>
     <color name="colorRed">#f44336</color>
     <color name="colorRedFlat">#e74c3c</color>
@@ -31,7 +33,7 @@
     <color name="colorGreen">#009688</color>
     <color name="colorGreenA400">#00E676</color>
     <color name="colorGreenA700">#00C853</color>
-    <color name="colorGreenDark">#00796B</color>
+    <color name="colorGreenDark">#009688</color>
     <color name="colorGreenLight">#8eb8cc</color>
     <color name="colorFundoPartida">#ededed</color>
     <color name="colorFundoInstruções">#ededed</color>
@@ -96,10 +98,10 @@
     </array>
 
     <!--Cores Welcome slide-->
-    <color name="colorWelcomeSlide1">#00838F</color>
-    <color name="colorWelcomeSlide2">#0097A7</color>
-    <color name="colorWelcomeSlide3">#00ACC1</color>
-    <color name="colorWelcomeSlide4">#00BCD4</color>
+    <color name="colorWelcomeSlide1">#34495e</color>
+    <color name="colorWelcomeSlide2">#798794</color>
+    <color name="colorWelcomeSlide3">#34495e</color>
+    <color name="colorWelcomeSlide4">#798794</color>
 
     <array name="array_welcome_dot_ativo">
         <item>@color/colorWhite</item>

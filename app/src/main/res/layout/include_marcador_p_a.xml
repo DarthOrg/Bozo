@@ -1,432 +1,426 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:id="@+id/fundoGanhando"
+    android:background="@color/colorAccentDark"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
-    <LinearLayout
+    <android.support.v7.widget.CardView
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginBottom="0dp"
+        android:background="@color/colorTrasnparente"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:layout_height="match_parent">
 
         <LinearLayout
+            android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginRight="5dp"
-            android:layout_marginLeft="5dp"
-            android:orientation="horizontal">
-
-            <FrameLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/az"
-                    android:textAppearance="?android:attr/textAppearanceSmall"
-                    android:textColor="@color/colorCinza"
-                    android:textSize="8dp"
-                    android:layout_marginBottom="10dp"
-                    android:layout_gravity="center_horizontal|bottom" />
-
-                <Button
-                    android:layout_width="match_parent"
-                    android:layout_height="100dp"
-                    android:text="0"
-                    android:textSize="35dp"
-                    android:textColor="@color/colorCinza"
-                    android:background="@color/colorTrasnparente"
-                    android:id="@+id/btnAz" />
+            android:layout_height="match_parent">
 
 
-            </FrameLayout>
 
-            <RelativeLayout
-                android:layout_width="1dp"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@color/colorStatusBar"/>
+                android:layout_weight="1"
+                android:orientation="horizontal">
 
-            <FrameLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1">
-
-                <Button
+                <FrameLayout
                     android:layout_width="match_parent"
-                    android:layout_height="100dp"
-                    android:text="0"
-                    android:textSize="35dp"
-                    android:textColor="@color/colorCinza"
-                    android:background="@color/colorTrasnparente"
-                    android:id="@+id/btnFull" />
+                    android:layout_height="match_parent"
+                    android:layout_weight="1">
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/full"
-                    android:textAppearance="?android:attr/textAppearanceSmall"
-                    android:textColor="@color/colorCinza"
-                    android:textSize="8dp"
-                    android:layout_marginBottom="10dp"
-                    android:layout_gravity="center_horizontal|bottom" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/az"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:textColor="@color/colorCinza"
+                        android:textSize="10dp"
+                        android:layout_marginBottom="10dp"
+                        android:layout_gravity="center_horizontal|bottom" />
+
+                    <Button
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="0"
+                        android:textSize="35dp"
+                        android:textColor="@color/colorCinza"
+                        android:background="@color/colorTrasnparente"
+                        android:id="@+id/btnAz" />
 
 
-            </FrameLayout>
+                </FrameLayout>
 
-            <RelativeLayout
-                android:layout_width="1dp"
-                android:layout_height="match_parent"
-                android:background="@color/colorStatusBar"/>
+                <RelativeLayout
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/colorStatusBar"/>
 
-            <FrameLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1">
-
-                <Button
+                <FrameLayout
                     android:layout_width="match_parent"
-                    android:layout_height="100dp"
-                    android:text="0"
-                    android:textSize="35dp"
-                    android:textColor="@color/colorCinza"
-                    android:background="@color/colorTrasnparente"
-                    android:id="@+id/btnQuadra" />
+                    android:layout_height="match_parent"
+                    android:layout_weight="1">
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/quadra"
-                    android:textAppearance="?android:attr/textAppearanceSmall"
-                    android:textColor="@color/colorCinza"
-                    android:textSize="8dp"
-                    android:layout_marginBottom="10dp"
-                    android:layout_gravity="center_horizontal|bottom" />
+                    <Button
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="0"
+                        android:textSize="35dp"
+                        android:textColor="@color/colorCinza"
+                        android:background="@color/colorTrasnparente"
+                        android:id="@+id/btnFull" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/full"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:textColor="@color/colorCinza"
+                        android:textSize="10dp"
+                        android:layout_marginBottom="10dp"
+                        android:layout_gravity="center_horizontal|bottom" />
 
 
-            </FrameLayout>
+                </FrameLayout>
 
-        </LinearLayout>
+                <RelativeLayout
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/colorStatusBar"/>
 
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="@color/colorStatusBar"/>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginRight="5dp"
-            android:layout_marginLeft="5dp"
-            android:orientation="horizontal">
-
-            <FrameLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1">
-
-                <Button
+                <FrameLayout
                     android:layout_width="match_parent"
-                    android:layout_height="100dp"
-                    android:text="0"
-                    android:textSize="35dp"
-                    android:textColor="@color/colorCinza"
-                    android:background="@color/colorTrasnparente"
-                    android:id="@+id/btnDuque" />
+                    android:layout_height="match_parent"
+                    android:layout_weight="1">
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/duque"
-                    android:textAppearance="?android:attr/textAppearanceSmall"
-                    android:textColor="@color/colorCinza"
-                    android:textSize="8dp"
-                    android:layout_marginBottom="10dp"
-                    android:layout_gravity="center_horizontal|bottom" />
+                    <Button
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="0"
+                        android:textSize="35dp"
+                        android:textColor="@color/colorCinza"
+                        android:background="@color/colorTrasnparente"
+                        android:id="@+id/btnQuadra" />
 
-
-            </FrameLayout>
-
-            <RelativeLayout
-                android:layout_width="1dp"
-                android:layout_height="match_parent"
-                android:background="@color/colorStatusBar"/>
-
-            <FrameLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1">
-
-                <Button
-                    android:layout_width="match_parent"
-                    android:layout_height="100dp"
-                    android:text="0"
-                    android:textSize="35dp"
-                    android:textColor="@color/colorCinza"
-                    android:background="@color/colorTrasnparente"
-                    android:id="@+id/btnSeguida" />
-
-                <TextView
-                    android:id="@+id/indicador_general"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/seguida"
-                    android:textAppearance="?android:attr/textAppearanceSmall"
-                    android:textColor="@color/colorCinza"
-                    android:textSize="8dp"
-                    android:layout_marginBottom="10dp"
-                    android:layout_gravity="center_horizontal|bottom" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/quadra"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:textColor="@color/colorCinza"
+                        android:textSize="10dp"
+                        android:layout_marginBottom="10dp"
+                        android:layout_gravity="center_horizontal|bottom" />
 
 
-            </FrameLayout>
+                </FrameLayout>
 
-            <RelativeLayout
-                android:layout_width="1dp"
-                android:layout_height="match_parent"
-                android:background="@color/colorStatusBar"/>
-
-            <FrameLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1">
-
-                <Button
-                    android:id="@+id/btnQuina"
-                    android:layout_width="match_parent"
-                    android:layout_height="100dp"
-                    android:text="0"
-                    android:textSize="35dp"
-                    android:textColor="@color/colorCinza"
-                    android:background="@color/colorTrasnparente"/>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/quina"
-                    android:textAppearance="?android:attr/textAppearanceSmall"
-                    android:textColor="@color/colorCinza"
-                    android:textSize="8dp"
-                    android:layout_marginBottom="10dp"
-                    android:layout_gravity="center_horizontal|bottom" />
-
-
-            </FrameLayout>
-
-        </LinearLayout>
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="@color/colorStatusBar"/>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginRight="5dp"
-            android:layout_marginLeft="5dp"
-            android:orientation="horizontal">
-
-            <FrameLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1">
-
-                <Button
-                    android:layout_width="match_parent"
-                    android:layout_height="100dp"
-                    android:text="0"
-                    android:textSize="35dp"
-                    android:textColor="@color/colorCinza"
-                    android:background="@color/colorTrasnparente"
-                    android:id="@+id/btnTerno" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/terno"
-                    android:textAppearance="?android:attr/textAppearanceSmall"
-                    android:textColor="@color/colorCinza"
-                    android:textSize="8dp"
-                    android:layout_marginBottom="10dp"
-                    android:layout_gravity="center_horizontal|bottom" />
-
-
-            </FrameLayout>
-
-            <RelativeLayout
-                android:layout_width="1dp"
-                android:layout_height="match_parent"
-                android:background="@color/colorStatusBar"/>
-
-            <FrameLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1">
-
-                <Button
-                    android:layout_width="match_parent"
-                    android:layout_height="100dp"
-                    android:text="0"
-                    android:textSize="35dp"
-                    android:textColor="@color/colorCinza"
-                    android:background="@color/colorTrasnparente"
-                    android:id="@+id/btnQuadrada" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/quadrada"
-                    android:textAppearance="?android:attr/textAppearanceSmall"
-                    android:textColor="@color/colorCinza"
-                    android:textSize="8dp"
-                    android:layout_marginBottom="10dp"
-                    android:layout_gravity="center_horizontal|bottom" />
-
-
-            </FrameLayout>
-
-            <RelativeLayout
-                android:layout_width="1dp"
-                android:layout_height="match_parent"
-                android:background="@color/colorStatusBar"/>
-
-            <FrameLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1">
-
-                <Button
-                    android:layout_width="match_parent"
-                    android:layout_height="100dp"
-                    android:text="0"
-                    android:textSize="35dp"
-                    android:textColor="@color/colorCinza"
-                    android:background="@color/colorTrasnparente"
-                    android:id="@+id/btnSena" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/sena"
-                    android:textAppearance="?android:attr/textAppearanceSmall"
-                    android:textColor="@color/colorCinza"
-                    android:textSize="8dp"
-                    android:layout_marginBottom="10dp"
-                    android:layout_gravity="center_horizontal|bottom" />
-
-
-            </FrameLayout>
-
-        </LinearLayout>
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="@color/colorStatusBar"/>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginRight="5dp"
-            android:layout_marginLeft="5dp"
-            android:orientation="horizontal">
-
-            <FrameLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1">
-
-                <Button
-                    android:layout_width="match_parent"
-                    android:layout_height="100dp"
-                    android:background="@color/colorTrasnparente"/>
-
-
-
-            </FrameLayout>
-
-            <RelativeLayout
-                android:layout_width="1dp"
-                android:layout_height="match_parent"
-                android:background="@color/colorStatusBar"/>
-
-            <FrameLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1">
-
-                <Button
-                    android:layout_width="match_parent"
-                    android:layout_height="100dp"
-                    android:text="0"
-                    android:textSize="35dp"
-                    android:textColor="@color/colorCinza"
-                    android:background="@color/colorTrasnparente"
-                    android:id="@+id/btnGeneral" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/general"
-                    android:textAppearance="?android:attr/textAppearanceSmall"
-                    android:textColor="@color/colorCinza"
-                    android:textSize="8dp"
-                    android:layout_marginBottom="10dp"
-                    android:layout_gravity="center_horizontal|bottom" />
-
-
-            </FrameLayout>
-
-            <RelativeLayout
-                android:layout_width="1dp"
-                android:layout_height="match_parent"
-                android:background="@color/colorStatusBar"/>
-
-            <FrameLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1">
-
-                <Button
-                    android:layout_width="match_parent"
-                    android:layout_height="100dp"
-                    android:background="@color/colorTrasnparente"/>
-
-
-
-            </FrameLayout>
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginRight="5dp"
-            android:layout_marginLeft="5dp"
-            android:orientation="horizontal">
+            </LinearLayout>
 
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
-                android:layout_gravity="center_horizontal"
-                android:background="@color/colorTrasnparente"
-                android:layout_weight="1"/>
+                android:background="@color/colorStatusBar"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1">
+
+                    <Button
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="0"
+                        android:textSize="35dp"
+                        android:textColor="@color/colorCinza"
+                        android:background="@color/colorTrasnparente"
+                        android:id="@+id/btnDuque" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/duque"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:textColor="@color/colorCinza"
+                        android:textSize="10dp"
+                        android:layout_marginBottom="10dp"
+                        android:layout_gravity="center_horizontal|bottom" />
+
+
+                </FrameLayout>
+
+                <RelativeLayout
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/colorStatusBar"/>
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1">
+
+                    <Button
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="0"
+                        android:textSize="35dp"
+                        android:textColor="@color/colorCinza"
+                        android:background="@color/colorTrasnparente"
+                        android:id="@+id/btnSeguida" />
+
+                    <TextView
+                        android:id="@+id/indicador_general"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/seguida"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:textColor="@color/colorCinza"
+                        android:textSize="10dp"
+                        android:layout_marginBottom="10dp"
+                        android:layout_gravity="center_horizontal|bottom" />
+
+
+                </FrameLayout>
+
+                <RelativeLayout
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/colorStatusBar"/>
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1">
+
+                    <Button
+                        android:id="@+id/btnQuina"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="0"
+                        android:textSize="35dp"
+                        android:textColor="@color/colorCinza"
+                        android:background="@color/colorTrasnparente"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/quina"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:textColor="@color/colorCinza"
+                        android:textSize="10dp"
+                        android:layout_marginBottom="10dp"
+                        android:layout_gravity="center_horizontal|bottom" />
+
+
+                </FrameLayout>
+
+            </LinearLayout>
+
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
-                android:layout_gravity="center_horizontal"
-                android:background="@color/colorStatusBar"
-                android:layout_weight="1"/>
+                android:background="@color/colorStatusBar"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1">
+
+                    <Button
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="0"
+                        android:textSize="35dp"
+                        android:textColor="@color/colorCinza"
+                        android:background="@color/colorTrasnparente"
+                        android:id="@+id/btnTerno" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/terno"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:textColor="@color/colorCinza"
+                        android:textSize="10dp"
+                        android:layout_marginBottom="10dp"
+                        android:layout_gravity="center_horizontal|bottom" />
+
+
+                </FrameLayout>
+
+                <RelativeLayout
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/colorStatusBar"/>
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1">
+
+                    <Button
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="0"
+                        android:textSize="35dp"
+                        android:textColor="@color/colorCinza"
+                        android:background="@color/colorTrasnparente"
+                        android:id="@+id/btnQuadrada" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/quadrada"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:textColor="@color/colorCinza"
+                        android:textSize="10dp"
+                        android:layout_marginBottom="10dp"
+                        android:layout_gravity="center_horizontal|bottom" />
+
+
+                </FrameLayout>
+
+                <RelativeLayout
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/colorStatusBar"/>
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1">
+
+                    <Button
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="0"
+                        android:textSize="35dp"
+                        android:textColor="@color/colorCinza"
+                        android:background="@color/colorTrasnparente"
+                        android:id="@+id/btnSena" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/sena"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:textColor="@color/colorCinza"
+                        android:textSize="10dp"
+                        android:layout_marginBottom="10dp"
+                        android:layout_gravity="center_horizontal|bottom" />
+
+
+                </FrameLayout>
+
+            </LinearLayout>
+
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
-                android:layout_gravity="center_horizontal"
-                android:background="@color/colorTrasnparente"
-                android:layout_weight="1"/>
+                android:background="@color/colorStatusBar"/>
+
+            <LinearLayout
+                android:id="@+id/fundoGanhandoTabela"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@color/colorAccentDark"
+                android:orientation="horizontal">
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1">
+
+                    <Button
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@color/colorTrasnparente"/>
+
+
+
+                </FrameLayout>
+
+                <RelativeLayout
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/colorStatusBar"/>
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/colorFundo"
+                    android:layout_weight="1">
+
+                    <Button
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="0"
+                        android:textSize="35dp"
+                        android:textColor="@color/colorCinza"
+                        android:background="@color/colorTrasnparente"
+                        android:id="@+id/btnGeneral" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/general"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:textColor="@color/colorCinza"
+                        android:textSize="10dp"
+                        android:layout_marginBottom="10dp"
+                        android:layout_gravity="center_horizontal|bottom" />
+
+
+                </FrameLayout>
+
+                <RelativeLayout
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/colorStatusBar"/>
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1">
+
+                    <Button
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@color/colorTrasnparente"/>
+
+
+
+                </FrameLayout>
+
+            </LinearLayout>
+
 
         </LinearLayout>
 
 
-    </LinearLayout>
 
-</ScrollView>
+
+    </android.support.v7.widget.CardView>
+
+
+
+
+
+</LinearLayout>

@@ -1,10 +1,14 @@
 package com.darthorg.bozo.adapter;
 
+import android.annotation.TargetApi;
 import android.content.Context;
+import android.os.Build;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.Button;
 import android.widget.FrameLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.darthorg.bozo.R;
@@ -38,6 +42,7 @@ public class ValoresPecasGridAdapter extends BaseAdapter {
         return valoresPossiveis.get(position);
     }
 
+    @TargetApi(Build.VERSION_CODES.M)
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
 
@@ -47,10 +52,11 @@ public class ValoresPecasGridAdapter extends BaseAdapter {
         TextView txtValores = (TextView) view.findViewById(R.id.tvValorPeca);
 
         txtValores.setText(String.valueOf(valoresPossiveis.get(position)));
+//
+//        if (position == 0) {
+//            frameLayout.setBackground(mContext.getResources().getDrawable(R.color.colorBlackTransparente));
+//        }
 
-        if (position == 0) {
-            frameLayout.setBackground(mContext.getResources().getDrawable(R.color.colorBlackTransparente));
-        }
 
         return view;
     }

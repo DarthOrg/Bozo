@@ -5,6 +5,9 @@ import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
+import android.support.design.widget.BottomSheetBehavior;
+import android.support.design.widget.BottomSheetDialog;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.util.Log;
@@ -16,6 +19,7 @@ import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.GridView;
 import android.widget.ImageButton;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -33,6 +37,11 @@ import java.util.List;
  * Versao 2
  */
 public class FragmentFilho extends Fragment {
+
+    // BottonSheetDialog
+    private BottomSheetDialog bottomSheetDialog;
+    private View bottomSheetDialogView;
+    private BottomSheetBehavior mBottomSheetBehavior;
 
 
     private String nome;
@@ -63,7 +72,7 @@ public class FragmentFilho extends Fragment {
 
     //variaveis que controlam o jogo
     private TextView resultadoFinal;
-    private Button txtGanhando;
+    private TextView txtGanhando;
     private int contador = 0;
     private boolean ganhando;
     private boolean empatado;
@@ -71,11 +80,13 @@ public class FragmentFilho extends Fragment {
     private boolean ultimaJogada;
     private boolean hasGeneralDeBoca;
 
+    private LinearLayout fundoGanhandoTabela,fundoGanhando;
+
 
     // variavel necessaria para inflar o layout do AlertDialog
     private LayoutInflater dialogInflater;
 
-    RelativeLayout fundoResultado;
+    LinearLayout fundoResultado;
 
     //Comandos externos
     private ViewPager viewPager;
@@ -98,6 +109,8 @@ public class FragmentFilho extends Fragment {
             buttons.get(i).setText(pecasBozo.get(i).getPontuacao());
         }
 
+
+
         resultadoFinal.setText(contador + "");
         fundoResultado.setVisibility(View.INVISIBLE);
         return view;
@@ -109,7 +122,7 @@ public class FragmentFilho extends Fragment {
         // TextView textview = (TextView) view.findViewById(R.id.meuTextView);
 
         resultadoFinal = (TextView) view.findViewById(R.id.txtResultadoJogador);
-        fundoResultado = (RelativeLayout) view.findViewById(R.id.fundoresultado);
+        fundoResultado = (LinearLayout) view.findViewById(R.id.fundoresultado);
 
         btnAz = (Button) view.findViewById(R.id.btnAz);
         btnDuque = (Button) view.findViewById(R.id.btnDuque);
@@ -122,7 +135,10 @@ public class FragmentFilho extends Fragment {
         btnSena = (Button) view.findViewById(R.id.btnSena);
         btnGeneral = (Button) view.findViewById(R.id.btnGeneral);
 
-        txtGanhando = (Button) view.findViewById(R.id.txtGanhando);
+        txtGanhando = (TextView) view.findViewById(R.id.txtGanhando);
+
+        fundoGanhando = (LinearLayout) view.findViewById(R.id.fundoGanhando);
+        fundoGanhandoTabela = (LinearLayout) view.findViewById(R.id.fundoGanhandoTabela);
     }
 
     private void setEvents() {
@@ -149,20 +165,34 @@ public class FragmentFilho extends Fragment {
                                       @Override
                                       public void onClick(View v) {
 
-                                          //Dialog para Adicionar Jogador
-                                          final Dialog dialogMarcarBozo = new Dialog(getContext());
+                                          //Bottom Sheet Dialog btn MAIS
+                                          bottomSheetDialog = new BottomSheetDialog(getContext());
+                                          bottomSheetDialogView = getLayoutInflater(Bundle.EMPTY).inflate(R.layout.dialog_pontos, null);
+                                          bottomSheetDialog.setContentView(bottomSheetDialogView);
 
-                                          // Configura a view para o Dialog
-                                          dialogMarcarBozo.getWindow().requestFeature(Window.FEATURE_NO_TITLE);
-                                          dialogMarcarBozo.setContentView(R.layout.dialog_pontos);
 
-                                          //Recupera os componentes do layout do custondialog
-                                          //   final EditText et = (EditText) dialogMarcarBozo.findViewById(R.id.etPonto);
-                                          TextView tituloPonto = (TextView) dialogMarcarBozo.findViewById(R.id.tituloPonto);
-                                          Button btnRiscar = (Button) dialogMarcarBozo.findViewById(R.id.btnRiscar);
-                                          GridView gridValoresPecas = (GridView) dialogMarcarBozo.findViewById(R.id.gvValoresPecas);
+                                          TextView tituloPonto = (TextView) bottomSheetDialog.findViewById(R.id.tituloPonto);
+//                                          FloatingActionButton btnRiscar = (FloatingActionButton) bottomSheetDialog.findViewById(R.id.btnRiscar);
+                                          Button btnRiscar = (Button) bottomSheetDialog.findViewById(R.id.btnRiscar);
+                                          GridView gridValoresPecas = (GridView) bottomSheetDialog.findViewById(R.id.gvValoresPecas);
                                           ValoresPecasGridAdapter valores;
-                                          ImageButton btnCancelar = (ImageButton) dialogMarcarBozo.findViewById(R.id.btnCancelar);
+//                                          ImageButton btnCancelar = (ImageButton) bottomSheetDialog.findViewById(R.id.btnCancelar);
+
+
+//                                          //Dialog para Adicionar Jogador
+//                                          final Dialog dialogMarcarBozo = new Dialog(getContext());
+//
+//                                          // Configura a view para o Dialog
+//                                          dialogMarcarBozo.getWindow().requestFeature(Window.FEATURE_NO_TITLE);
+//                                          dialogMarcarBozo.setContentView(R.layout.dialog_pontos);
+//
+//                                          //Recupera os componentes do layout do custondialog
+//                                          //   final EditText et = (EditText) dialogMarcarBozo.findViewById(R.id.etPonto);
+//                                          TextView tituloPonto = (TextView) dialogMarcarBozo.findViewById(R.id.tituloPonto);
+//                                          Button btnRiscar = (Button) dialogMarcarBozo.findViewById(R.id.btnRiscar);
+//                                          GridView gridValoresPecas = (GridView) dialogMarcarBozo.findViewById(R.id.gvValoresPecas);
+//                                          ValoresPecasGridAdapter valores;
+//                                          ImageButton btnCancelar = (ImageButton) dialogMarcarBozo.findViewById(R.id.btnCancelar);
 
 
                                           switch (pecaBozo.getNome()) {
@@ -173,9 +203,9 @@ public class FragmentFilho extends Fragment {
                                                   valores = new ValoresPecasGridAdapter(getContext(), pecaBozoAz.getValoresPossiveis());
                                                   gridValoresPecas.setAdapter(valores);
 
-                                                  cliqueValor(gridValoresPecas, pecaBozoAz, button, dialogMarcarBozo);
+                                                  cliqueValor(gridValoresPecas, pecaBozoAz, button, bottomSheetDialog);
 
-                                                  btnRiscar.setText(getString(R.string.riscar) + getString(R.string.az));
+//                                                  btnRiscar.setText(getString(R.string.riscar) + getString(R.string.az));
                                                   break;
                                               case nomeDuque:
                                                   tituloPonto.setText(getString(R.string.duque));
@@ -184,9 +214,9 @@ public class FragmentFilho extends Fragment {
                                                   valores = new ValoresPecasGridAdapter(getContext(), pecaBozoDuque.getValoresPossiveis());
                                                   gridValoresPecas.setAdapter(valores);
 
-                                                  cliqueValor(gridValoresPecas, pecaBozoDuque, button, dialogMarcarBozo);
+                                                  cliqueValor(gridValoresPecas, pecaBozoDuque, button, bottomSheetDialog);
 
-                                                  btnRiscar.setText(getString(R.string.riscar) + getString(R.string.duque));
+//                                                  btnRiscar.setText(getString(R.string.riscar) + getString(R.string.duque));
                                                   break;
                                               case nomeTerno:
                                                   tituloPonto.setText(getString(R.string.terno));
@@ -195,9 +225,9 @@ public class FragmentFilho extends Fragment {
                                                   valores = new ValoresPecasGridAdapter(getContext(), pecaBozoTerno.getValoresPossiveis());
                                                   gridValoresPecas.setAdapter(valores);
 
-                                                  cliqueValor(gridValoresPecas, pecaBozoTerno, button, dialogMarcarBozo);
+                                                  cliqueValor(gridValoresPecas, pecaBozoTerno, button, bottomSheetDialog);
 
-                                                  btnRiscar.setText(getString(R.string.riscar) + getString(R.string.terno));
+//                                                  btnRiscar.setText(getString(R.string.riscar) + getString(R.string.terno));
                                                   break;
                                               case nomeQuadra:
                                                   tituloPonto.setText(getString(R.string.quadra));
@@ -206,9 +236,9 @@ public class FragmentFilho extends Fragment {
                                                   valores = new ValoresPecasGridAdapter(getContext(), pecaBozoQuadra.getValoresPossiveis());
                                                   gridValoresPecas.setAdapter(valores);
 
-                                                  cliqueValor(gridValoresPecas, pecaBozoQuadra, button, dialogMarcarBozo);
+                                                  cliqueValor(gridValoresPecas, pecaBozoQuadra, button, bottomSheetDialog);
 
-                                                  btnRiscar.setText(getString(R.string.riscar) + getString(R.string.quadra));
+//                                                  btnRiscar.setText(getString(R.string.riscar) + getString(R.string.quadra));
                                                   break;
                                               case nomeQuina:
                                                   tituloPonto.setText(getString(R.string.quina));
@@ -217,9 +247,9 @@ public class FragmentFilho extends Fragment {
                                                   valores = new ValoresPecasGridAdapter(getContext(), pecaBozoQuina.getValoresPossiveis());
                                                   gridValoresPecas.setAdapter(valores);
 
-                                                  cliqueValor(gridValoresPecas, pecaBozoQuina, button, dialogMarcarBozo);
+                                                  cliqueValor(gridValoresPecas, pecaBozoQuina, button, bottomSheetDialog);
 
-                                                  btnRiscar.setText(getString(R.string.riscar) + getString(R.string.quina));
+//                                                  btnRiscar.setText(getString(R.string.riscar) + getString(R.string.quina));
                                                   break;
                                               case nomeSena:
                                                   tituloPonto.setText(getString(R.string.sena));
@@ -228,9 +258,9 @@ public class FragmentFilho extends Fragment {
                                                   valores = new ValoresPecasGridAdapter(getContext(), pecaBozoSena.getValoresPossiveis());
                                                   gridValoresPecas.setAdapter(valores);
 
-                                                  cliqueValor(gridValoresPecas, pecaBozoSena, button, dialogMarcarBozo);
+                                                  cliqueValor(gridValoresPecas, pecaBozoSena, button, bottomSheetDialog);
 
-                                                  btnRiscar.setText(getString(R.string.riscar) + getString(R.string.sena));
+//                                                  btnRiscar.setText(getString(R.string.riscar) + getString(R.string.sena));
                                                   break;
                                               case nomeFull:
                                                   tituloPonto.setText(getString(R.string.full));
@@ -239,9 +269,9 @@ public class FragmentFilho extends Fragment {
                                                   valores = new ValoresPecasGridAdapter(getContext(), pecaBozoFull.getValoresPossiveis());
                                                   gridValoresPecas.setAdapter(valores);
 
-                                                  cliqueValor(gridValoresPecas, pecaBozoFull, button, dialogMarcarBozo);
+                                                  cliqueValor(gridValoresPecas, pecaBozoFull, button, bottomSheetDialog);
 
-                                                  btnRiscar.setText(getString(R.string.riscar) + getString(R.string.full));
+//                                                  btnRiscar.setText(getString(R.string.riscar) + getString(R.string.full));
                                                   break;
                                               case nomeSeguida:
                                                   tituloPonto.setText(getString(R.string.seguida));
@@ -249,9 +279,9 @@ public class FragmentFilho extends Fragment {
                                                   valores = new ValoresPecasGridAdapter(getContext(), pecaBozoSeguida.getValoresPossiveis());
                                                   gridValoresPecas.setAdapter(valores);
 
-                                                  cliqueValor(gridValoresPecas, pecaBozoSeguida, button, dialogMarcarBozo);
+                                                  cliqueValor(gridValoresPecas, pecaBozoSeguida, button, bottomSheetDialog);
 
-                                                  btnRiscar.setText(getString(R.string.riscar) + getString(R.string.seguida));
+//                                                  btnRiscar.setText(getString(R.string.riscar) + getString(R.string.seguida));
                                                   break;
                                               case nomeQuadrada:
                                                   tituloPonto.setText(getString(R.string.quadrada));
@@ -260,9 +290,9 @@ public class FragmentFilho extends Fragment {
                                                   valores = new ValoresPecasGridAdapter(getContext(), pecaBozoQuadrada.getValoresPossiveis());
                                                   gridValoresPecas.setAdapter(valores);
 
-                                                  cliqueValor(gridValoresPecas, pecaBozoQuadrada, button, dialogMarcarBozo);
+                                                  cliqueValor(gridValoresPecas, pecaBozoQuadrada, button, bottomSheetDialog);
 
-                                                  btnRiscar.setText(getString(R.string.riscar) + getString(R.string.quadrada));
+//                                                  btnRiscar.setText(getString(R.string.riscar) + getString(R.string.quadrada));
                                                   break;
                                               case nomeGeneral:
                                                   tituloPonto.setText(getString(R.string.general));
@@ -271,9 +301,9 @@ public class FragmentFilho extends Fragment {
                                                   valores = new ValoresPecasGridAdapter(getContext(), pecaBozoGeneral.getValoresPossiveis());
                                                   gridValoresPecas.setAdapter(valores);
 
-                                                  cliqueValor(gridValoresPecas, pecaBozoGeneral, button, dialogMarcarBozo);
+                                                  cliqueValor(gridValoresPecas, pecaBozoGeneral, button, bottomSheetDialog);
 
-                                                  btnRiscar.setText(getString(R.string.riscar) + getString(R.string.general));
+//                                                  btnRiscar.setText(getString(R.string.riscar) + getString(R.string.general));
                                                   break;
                                               default:
                                                   break;
@@ -285,7 +315,7 @@ public class FragmentFilho extends Fragment {
                                               public void onClick(View view) {
 
                                                   button.setText("X");
-                                                  button.setTextColor(Color.RED);
+                                                  button.setTextColor(getResources().getColor(R.color.colorRed));
 
                                                   // Necessario para fazer a verificação
                                                   pecaBozo.setRiscado(true);
@@ -298,23 +328,14 @@ public class FragmentFilho extends Fragment {
                                                       hasGeneralDeBoca = false;
                                                   }
 
-                                                  dialogMarcarBozo.dismiss();
+                                                  bottomSheetDialog.dismiss();
 
                                                   gerenciarJogo();
 
 
                                               }
                                           });
-                                          //Botão Cancelar
-                                          btnCancelar.setOnClickListener(new View.OnClickListener() {
-                                              @Override
-                                              public void onClick(View view) {
-                                                  dialogMarcarBozo.dismiss();
-                                                  return;
-                                              }
-                                          });
-                                          dialogMarcarBozo.setCancelable(true);
-                                          dialogMarcarBozo.show();
+                                          bottomSheetDialog.show();
                                       }
 
                                   }
@@ -423,7 +444,7 @@ public class FragmentFilho extends Fragment {
 
     private void buttomColor() {
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP) {
-            txtGanhando.setBackgroundColor(getResources().getColor(R.color.colorGreenA400));
+            txtGanhando.setTextColor(getResources().getColor(R.color.colorWhiteTransparente));
         }
     }
 
@@ -439,6 +460,7 @@ public class FragmentFilho extends Fragment {
         return pontos;
     }
 
+
     public void setGanhando(boolean ganhando) {
         this.ganhando = ganhando;
 
@@ -446,14 +468,24 @@ public class FragmentFilho extends Fragment {
             if (fundoResultado != null) {
                 if (ganhando) {
                     txtGanhando.setText(getString(R.string.ganhando));
+                    txtGanhando.setTextColor(getResources().getColor(R.color.colorWhiteTransparente));
+                    txtGanhando.setVisibility(View.VISIBLE);
                     fundoResultado.setVisibility(View.VISIBLE);
-                    buttomColor();
+                    fundoGanhando.setBackgroundColor(getResources().getColor(R.color.colorGreenDark));
+                    fundoGanhandoTabela.setBackgroundColor(getResources().getColor(R.color.colorGreenDark));
+
+
                 } else {
+                    txtGanhando.setVisibility(View.INVISIBLE);
                     fundoResultado.setVisibility(View.INVISIBLE);
+                    fundoGanhando.setBackgroundColor(getResources().getColor(R.color.colorAccentDark));
+                    fundoGanhandoTabela.setBackgroundColor(getResources().getColor(R.color.colorAccentDark));
                 }
             }
         }
     }
+
+
 
     public void contarPecasUsadas() {
 

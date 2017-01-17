@@ -9,7 +9,7 @@
         android:layout_height="300dp"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
-        android:src="@drawable/img_welcome_um" />
+        android:src="@drawable/img_inicio" />
 
     <TextView
         android:id="@+id/textView18"
@@ -39,12 +39,11 @@
         android:id="@+id/textView20"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignEnd="@+id/textView18"
-        android:layout_alignRight="@+id/textView18"
-        android:layout_below="@+id/imageView22"
-        android:text="@string/criar"
+        android:text="Inciar marcador"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:textColor="@color/colorFundoPartida" />
+        android:textColor="@color/colorFundoPartida"
+        android:layout_below="@+id/imageView22"
+        android:layout_centerHorizontal="true" />
 
 
 </RelativeLayout>

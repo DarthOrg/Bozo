@@ -19,7 +19,9 @@
         </activity>
         <activity
             android:name=".Welcome"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait">
+
+        </activity>
         <activity
             android:name=".view.NovaPartida"
             android:screenOrientation="portrait" />
@@ -33,11 +35,8 @@
             android:name=".view.Sobre"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".view.Inicio"
-            android:screenOrientation="portrait" />
-        <activity
             android:name=".view.Instrucoes"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait" />
         <!--
      ATTENTION: This was auto-generated to add Google Play services to your project for
      App Indexing.  See https://g.co/AppIndexing/AndroidStudio for more information.
@@ -46,7 +45,9 @@
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
 
-        <activity android:name=".view.AdicionarJogadores"></activity>
+        <activity android:name=".view.AdicionarJogadores" />
+        <activity android:name=".view.Inicio"
+            android:screenOrientation="portrait" ></activity>
     </application>
 
 </manifest>
