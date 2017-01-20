@@ -770,8 +770,10 @@ public class PartidaAberta extends AppCompatActivity {
         alertDialogBuilder.setCancelable(true);
 
         if (verificaSeRodadaAcabou()) {
+            
+            if (compararPontos() != null) {
 
-            AlertDialog.Builder builderFimRodada = new AlertDialog.Builder(this);
+                AlertDialog.Builder builderFimRodada = new AlertDialog.Builder(this);
 
                 LayoutInflater layoutInflater = getLayoutInflater();
                 final View dialoglayout = layoutInflater.inflate(R.layout.dialog_fim_rodada, null);
