@@ -24,7 +24,6 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.darthorg.bozo.R;
@@ -778,7 +777,14 @@ public class PartidaAberta extends AppCompatActivity {
                 AlertDialog.Builder builder = new AlertDialog.Builder(this);
                 builder.setTitle(compararPontos().getNome() + getString(R.string.ganhou));
                 builder.setIcon(R.drawable.ic_jogador);
-                builder.setMessage(getString(R.string.pergunta_nova_rodada))
+
+                String jogadoresPontuacao = "";
+
+                for (int i = 0; i < listaFragments.size(); i++) {
+                    jogadoresPontuacao += jogadoresRodada.get(i).getNome() + " : " + listaFragments.get(i).getContador() + "\n"  ;
+                }
+
+                builder.setMessage(jogadoresPontuacao + "\n" + getString(R.string.pergunta_nova_rodada))
                         .setPositiveButton(getString(R.string.jogar), new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int id) {
                                 dialog.dismiss();
