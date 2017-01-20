@@ -2,15 +2,13 @@ package com.darthorg.bozo.view;
 
 import android.content.Intent;
 import android.os.Build;
-import android.os.Handler;
+import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -18,16 +16,13 @@ import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.ListView;
-import android.widget.Toast;
 
 import com.darthorg.bozo.R;
-import com.darthorg.bozo.Splash;
-import com.darthorg.bozo.Welcome;
 import com.darthorg.bozo.adapter.PartidasListAdapter;
+import com.darthorg.bozo.adapter.UltimaPartidaAdapter;
 import com.darthorg.bozo.controller.PartidaController;
 import com.darthorg.bozo.model.Partida;
 
-import java.util.EmptyStackException;
 import java.util.List;
 
 import static android.view.View.VISIBLE;
@@ -42,9 +37,9 @@ public class Inicio extends AppCompatActivity {
     private List<Partida> partidaList;
 
 
-    private ListView listViewPartidasInicio;
-    private PartidasListAdapter partidasListAdapterInicio;
-    private List<Partida> partidaListInicio;
+    private ListView listViewUltimaPartida;
+    private UltimaPartidaAdapter ultimaPartidaAdapter;
+    private Partida ultimaPartida;
 
 
     FloatingActionButton fabCompartilhar, fabDefinicoes, novoMarcador, fabMSalvos, fabInstrucoes;
@@ -52,8 +47,6 @@ public class Inicio extends AppCompatActivity {
     Button cardNovoMarcador;
     LinearLayout ultimo_salvo;
 
-
-//    private final int SPLASH = 10000;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,6 +58,7 @@ public class Inicio extends AppCompatActivity {
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         toolbar.setNavigationIcon(getResources().getDrawable(R.drawable.ic_marcador));
         setSupportActionBar(toolbar);
+
 
         //Botões FAB
         fabCompartilhar = (FloatingActionButton) findViewById(R.id.fabCompartilhar);
@@ -81,23 +75,11 @@ public class Inicio extends AppCompatActivity {
         novoMarcador.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (ultimo_salvo.getVisibility() == VISIBLE){
-                    ultimo_salvo.setVisibility(View.GONE);
-                }else {
-                    Intent intent = new Intent(Inicio.this, NovaPartida.class);
-                    startActivity(intent);
-                }
+                Intent intent = new Intent(Inicio.this, NovaPartida.class);
+                startActivity(intent);
+
             }
         });
-
-        novoMarcador.setOnLongClickListener(new View.OnLongClickListener() {
-            @Override
-            public boolean onLongClick(View view) {
-                    ultimo_salvo.setVisibility(VISIBLE);
-                return true;
-            }
-        });
-
 
         cardNovoMarcador.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -111,13 +93,7 @@ public class Inicio extends AppCompatActivity {
         fabMSalvos.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (ultimo_salvo.getVisibility() == VISIBLE){
-                    ultimo_salvo.setVisibility(View.GONE);
-                    cardMSalvos.setVisibility(VISIBLE);
-                }else{
-                    cardMSalvos.setVisibility(VISIBLE);
-                }
-
+                cardMSalvos.setVisibility(VISIBLE);
             }
         });
 
@@ -125,10 +101,10 @@ public class Inicio extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 // Compartilhar app
-            Intent share = new Intent(Intent.ACTION_SEND);
-            share.setType("text/plain");
-            share.putExtra(Intent.EXTRA_TEXT, getString(R.string.compartilhar_app) + getString(R.string.url_googleplay));
-            startActivity(Intent.createChooser(share, getString(R.string.titulo_compartilhar_app)));
+                Intent share = new Intent(Intent.ACTION_SEND);
+                share.setType("text/plain");
+                share.putExtra(Intent.EXTRA_TEXT, getString(R.string.compartilhar_app) + getString(R.string.url_googleplay));
+                startActivity(Intent.createChooser(share, getString(R.string.titulo_compartilhar_app)));
             }
         });
         fabInstrucoes.setOnClickListener(new View.OnClickListener() {
@@ -140,19 +116,19 @@ public class Inicio extends AppCompatActivity {
         });
 
 
-
-
         listViewPartidas = (ListView) findViewById(R.id.list_view_partidas);
-        listViewPartidasInicio = (ListView) findViewById(R.id.list_view_partidas_inicio);
+        listViewUltimaPartida = (ListView) findViewById(R.id.list_view_ultima_partida);
 
         //Aparecer imagem quando a lista estiver vazia
         listViewPartidas.setEmptyView(findViewById(R.id.listVazio));
 
         PartidaController partidaController = new PartidaController(Inicio.this);
         partidaList = partidaController.buscarPartidas();
+
+
         partidasListAdapter = new PartidasListAdapter(getApplicationContext(), partidaList, this);
+
         listViewPartidas.setAdapter(partidasListAdapter);
-        listViewPartidasInicio.setAdapter(partidasListAdapter);
 
         listViewPartidas.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -164,27 +140,16 @@ public class Inicio extends AppCompatActivity {
             }
         });
 
-        listViewPartidasInicio.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent intent = new Intent(Inicio.this, PartidaAberta.class);
-                intent.putExtra("partidaSalva", partidaList.get(position).getIdPartida());
-                intent.putExtra("partidaNova", false);
-                startActivity(intent);
-            }
-        });
-
-
+        trazerUltimaPartida();
 
     }
+
     @Override
     public void onBackPressed() {
 
         if (cardMSalvos.getVisibility() == VISIBLE) {
             cardMSalvos.setVisibility(View.GONE);
-        } else if (ultimo_salvo.getVisibility() == VISIBLE){
-            ultimo_salvo.setVisibility(View.GONE);
-        } else{
+        } else {
             finish();
         }
 
@@ -203,11 +168,10 @@ public class Inicio extends AppCompatActivity {
 
         if (id == R.id.action_sair) {
             cardMSalvos.setVisibility(View.GONE);
+            trazerUltimaPartida();
         }
 
-        return super.
-
-                onOptionsItemSelected(item);
+        return super.onOptionsItemSelected(item);
     }
 
     public void atualizarLista() {
@@ -216,13 +180,38 @@ public class Inicio extends AppCompatActivity {
         partidasListAdapter = new PartidasListAdapter(getApplicationContext(), partidaList, this);
         listViewPartidas.setAdapter(partidasListAdapter);
 
+    }
 
+    public void trazerUltimaPartida() {
+
+        PartidaController partidaController = new PartidaController(Inicio.this);
+        ultimaPartida = partidaController.buscarUltimaPartida();
+        if (ultimaPartida != null) {
+            ultimo_salvo.setVisibility(VISIBLE);
+
+            ultimaPartidaAdapter = new UltimaPartidaAdapter(getApplicationContext(), ultimaPartida, this);
+            listViewUltimaPartida.setAdapter(ultimaPartidaAdapter);
+
+            listViewUltimaPartida.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                @Override
+                public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                    Intent intent = new Intent(Inicio.this, PartidaAberta.class);
+                    intent.putExtra("partidaSalva", partidaList.get(position).getIdPartida());
+                    intent.putExtra("partidaNova", false);
+                    startActivity(intent);
+                }
+            });
+        } else {
+            ultimo_salvo.setVisibility(View.GONE);
+        }
     }
 
     @Override
     protected void onRestart() {
         super.onRestart();
         atualizarLista();
+
+        trazerUltimaPartida();
     }
 
     private void changeStatusBarColor() {

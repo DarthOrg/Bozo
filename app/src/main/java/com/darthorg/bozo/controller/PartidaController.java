@@ -80,4 +80,18 @@ public class PartidaController {
 
         return partidasBD;
     }
+
+    public Partida buscarUltimaPartida() {
+
+        Partida ultimaPartida = partidaDAO.buscarUltimaPartida();
+
+        if(ultimaPartida != null ) {
+
+            ultimaPartida.setRodadas(buscarRodadasPartida(ultimaPartida.getIdPartida()));
+            for (int j = 0; j < ultimaPartida.getRodadas().size(); j++) {
+                ultimaPartida.getRodadas().get(j).setJogadores(rodadaController.buscarJogadoresRodada(ultimaPartida.getRodadas().get(j).getIdRodada()));
+            }
+        }
+        return ultimaPartida;
+    }
 }

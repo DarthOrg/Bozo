@@ -141,20 +141,20 @@
                         android:layout_height="wrap_content"
                         android:orientation="vertical">
 
-                        <Button
+                        <TextView
+                            android:textColor="@color/colorAccentDark"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="Ultimo Marcador salvo"
-                            android:textAllCaps="false"
-                            android:textAlignment="viewStart"
+                            android:text="Último Marcador salvo"
                             android:background="@color/colorTrasnparente"
                             android:paddingLeft="16dp"
-                            android:paddingRight="16dp"/>
+                            android:paddingRight="16dp"
+                            android:padding="6dp"/>
 
                         <ListView
-                            android:id="@+id/list_view_partidas_inicio"
+                            android:id="@+id/list_view_ultima_partida"
                             android:layout_width="match_parent"
-                            android:layout_height="70dp"
+                            android:layout_height="wrap_content"
                             android:dividerHeight="1dp"
                             android:cacheColorHint="@color/colorBlack"
                             android:divider="@color/colorFundoInstruções" />

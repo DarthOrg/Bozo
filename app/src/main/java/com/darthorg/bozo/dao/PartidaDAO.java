@@ -125,6 +125,27 @@ public class PartidaDAO {
         return partida;
     }
 
+    public Partida buscarUltimaPartida() {
+
+        Partida partida = null;
+
+        String[] colunas = new String[]{"_id", "nome"};
+        // DataModel.getTabelaPartidas(), colunas, null, null, null, null, "_id DESC", "1"
+        Cursor cursor = db.query(DataModel.getTabelaPartidas(), colunas, null, null, null, null, " _id DESC ", "1");
+
+        if (cursor.getCount() > 0) {
+            cursor.moveToFirst();
+            do {
+                Partida p = new Partida();
+                p.setIdPartida(cursor.getLong(0));
+                p.setNome(cursor.getString(1));
+                partida = p ;
+
+            } while (cursor.moveToNext());
+        }
+        return partida;
+    }
+
 
     /**
      * Método que busca os Jogadores de acordo com o id da partida
