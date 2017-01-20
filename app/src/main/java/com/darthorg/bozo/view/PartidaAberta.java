@@ -771,42 +771,73 @@ public class PartidaAberta extends AppCompatActivity {
 
         if (verificaSeRodadaAcabou()) {
 
-            if (compararPontos() != null) {
+            AlertDialog.Builder builderFimRodada = new AlertDialog.Builder(this);
+
+                LayoutInflater layoutInflater = getLayoutInflater();
+                final View dialoglayout = layoutInflater.inflate(R.layout.dialog_fim_rodada, null);
+
+                builderFimRodada.setIcon(R.drawable.ic_circulos_pequenos);
+                builderFimRodada.setTitle("Acabou a rodada");
+
+                builderFimRodada.setView(dialoglayout);
 
 
-                AlertDialog.Builder builder = new AlertDialog.Builder(this);
-                builder.setTitle(compararPontos().getNome() + getString(R.string.ganhou));
-                builder.setIcon(R.drawable.ic_jogador);
+
+                final TextView ganhadorRodada = (TextView) dialoglayout.findViewById(R.id.ganhadorRodada);
+                final TextView jogadoresFimRodada = (TextView) dialoglayout.findViewById(R.id.jogadoresFimRodada);
+                final Button btnJogarNovaRodada = (Button) dialoglayout.findViewById(R.id.btnJogarNovaRodada);
+                final Button btncancelar = (Button) dialoglayout.findViewById(R.id.btncancelar);
+                final Button btnSairMarcador = (Button) dialoglayout.findViewById(R.id.btnSairMarcador);
+                final Button btnPlacarRodada = (Button) dialoglayout.findViewById(R.id.btnPlacarRodada);
+
+
+                final AlertDialog dialog = builderFimRodada.create();
 
                 String jogadoresPontuacao = "";
 
                 for (int i = 0; i < listaFragments.size(); i++) {
-                    jogadoresPontuacao += jogadoresRodada.get(i).getNome() + " : " + listaFragments.get(i).getContador() + "\n"  ;
+                    jogadoresPontuacao += jogadoresRodada.get(i).getNome() + " : " + listaFragments.get(i).getContador() + "\n" +"----------"+ "\n" ;
                 }
 
-                builder.setMessage(jogadoresPontuacao + "\n" + getString(R.string.pergunta_nova_rodada))
-                        .setPositiveButton(getString(R.string.jogar), new DialogInterface.OnClickListener() {
-                            public void onClick(DialogInterface dialog, int id) {
-                                dialog.dismiss();
-                                configurarNovaRodada(compararPontos().getNome());
-                            }
-                        })
-                        .setNegativeButton(getString(R.string.cancelar), new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog, int which) {
-                                dialog.dismiss();
-                            }
-                        })
-                        .setNeutralButton(getString(R.string.sair), new DialogInterface.OnClickListener() {
-                            public void onClick(DialogInterface dialog, int id) {
-                                //todo: uma hr isso vai dar bug nervoso
-                                configurarNovaRodada(compararPontos().getNome());
-                                saveAndQuit();
-                                dialog.dismiss();
-                            }
-                        });
+                ganhadorRodada.setText(compararPontos().getNome());
+                jogadoresFimRodada.setText(jogadoresPontuacao);
 
-                builder.show();
+                btnJogarNovaRodada.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        configurarNovaRodada(compararPontos().getNome());
+                        dialog.dismiss();
+                    }
+                });
+                btncancelar.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        dialog.dismiss();
+                    }
+                });
+                btnSairMarcador.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        //todo: uma hr isso vai dar bug nervoso
+                        configurarNovaRodada(compararPontos().getNome());
+                        saveAndQuit();
+                        dialog.dismiss();
+                    }
+                });
+                btnPlacarRodada.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        if (jogadoresFimRodada.getVisibility() == View.VISIBLE){
+                            jogadoresFimRodada.setVisibility(View.GONE);
+                        }else if (jogadoresFimRodada.getVisibility() == View.GONE){
+                            jogadoresFimRodada.setVisibility(View.VISIBLE);
+                        }
+
+                    }
+                });
+
+                dialog.show();
+            
 
             } else {
 
