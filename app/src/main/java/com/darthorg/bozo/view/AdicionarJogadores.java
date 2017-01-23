@@ -17,6 +17,7 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.darthorg.bozo.R;
 import com.darthorg.bozo.adapter.NovosJogadoresListAdapter;
@@ -151,6 +152,8 @@ public class AdicionarJogadores extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
+
+
                 if (jogadores.size() == 10){
 
                     txtFAJ.setBackgroundColor(getResources().getColor(R.color.colorRedFlat));
@@ -206,6 +209,8 @@ public class AdicionarJogadores extends AppCompatActivity {
                                 adapter.notifyDataSetChanged();
                                 etNomeJogador.setText(null);
                                 dialog.dismiss();
+                            }else {
+                                Toast.makeText(getApplicationContext(), "Nenhum jogador foi adicionado", Toast.LENGTH_LONG).show();
                             }
 
                         }
