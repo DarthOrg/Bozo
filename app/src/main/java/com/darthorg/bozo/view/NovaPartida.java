@@ -2,14 +2,17 @@ package com.darthorg.bozo.view;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.darthorg.bozo.R;
 
@@ -48,7 +51,38 @@ public class NovaPartida extends AppCompatActivity {
                 intent.putExtra("nomepartida",edit_nome_grupo.getText().toString());
                 startActivity(intent);
                 finish();
-            }
+            }else {
+                    AlertDialog.Builder builderFimRodada = new AlertDialog.Builder(NovaPartida.this);
+
+                    LayoutInflater layoutInflater = getLayoutInflater();
+                    final View dialoglayout = layoutInflater.inflate(R.layout.dialog_partida_aberta, null);
+
+                    builderFimRodada.setView(dialoglayout);
+
+                    final Button btnOk = (Button) dialoglayout.findViewById(R.id.btnAcao);
+                    final Button btnCancelar = (Button) dialoglayout.findViewById(R.id.btnCancelarPopup);
+                    final  TextView txtTitulo = (TextView) dialoglayout.findViewById(R.id.tituloPopup);
+                    final  TextView txtTexto = (TextView) dialoglayout.findViewById(R.id.txtPopup);
+                    final LinearLayout fundo = (LinearLayout) dialoglayout.findViewById(R.id.fundoPopUp);
+
+
+                    final AlertDialog dialog = builderFimRodada.create();
+
+
+                    txtTitulo.setText("Ops!");
+                    txtTexto.setText("Você deve adicionar um nome para seu Marcador");
+                    fundo.setBackgroundColor(getResources().getColor(R.color.colorLaranja));
+
+                    btnOk.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            dialog.dismiss();
+                        }
+                    });
+
+
+                    dialog.show();
+                }
 
 
             }
