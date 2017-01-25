@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@color/colorAccentDarkWhite"
+    android:background="@color/colorWhiteFundo"
     android:theme="@style/AppTheme.WhiteBotton"
     tools:context=".view.Placar">
 
@@ -16,7 +16,15 @@
         android:theme="@style/AppTheme.WhiteBotton"
         android:minHeight="?attr/actionBarSize"
         android:id="@+id/toolbar"
-        app:title="Placar" />
+        android:elevation="5dp"
+        android:background="@color/colorLaranja"
+        app:title="@string/placar" />
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:elevation="5dp"
+        android:background="@color/colorLaranja"></FrameLayout>
 
     <LinearLayout
         android:orientation="vertical"
@@ -26,12 +34,14 @@
         android:layout_centerHorizontal="true"
         android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp"
+        android:elevation="5dp"
         android:layout_marginTop="-40dp">
 
         <RelativeLayout
             android:layout_gravity="center"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp">
 
 
             <Button
@@ -51,28 +61,19 @@
                 android:layout_marginTop="50dp"
                 android:textColor="@color/colorBlack"
                 android:layout_height="wrap_content"
-                android:text="Total"/>
+                android:text="@string/total"/>
 
 
         </RelativeLayout>
-
-
-        <ImageButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:background="@color/colorTrasnparente"
-            android:src="@drawable/ic_wifi"
-            android:layout_marginTop="-10dp"/>
 
     </LinearLayout>
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Ganhadores por rodada"
+        android:text="@string/ganhadoresPorRodada"
         android:textAlignment="center"
-        android:textColor="@color/colorWhite"/>
+        android:textColor="@color/colorAccentDarkWhite"/>
 
         <ListView
             android:layout_marginLeft="10dp"

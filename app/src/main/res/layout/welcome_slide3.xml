@@ -24,14 +24,14 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Primeiro"
+                android:text="@string/texto2Welcome3"
                 android:textSize="12dp"
                 android:layout_gravity="center"
                 android:textColor="@color/colorWhite"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Nome do marcador"
+                android:text="@string/texto3Welcome3"
                 android:textSize="12dp"
                 android:textColor="@color/colorWhite"
                 android:layout_gravity="center"/>
@@ -48,14 +48,14 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Por ultimo"
+                android:text="@string/texto4Welcome3"
                 android:textSize="12dp"
                 android:layout_gravity="center"
                 android:textColor="@color/colorWhite"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Nome dos jogadores"
+                android:text="@string/texto5Welcome3"
                 android:textSize="12dp"
                 android:textColor="@color/colorWhite"
                 android:layout_gravity="center"/>
@@ -100,7 +100,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="@string/titulo_slide3_welcome"
+        android:text="@string/dadosDoMarcador"
         android:id="@+id/textView18"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
@@ -112,7 +112,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="@string/subtitulo_slide3_welcome"
+        android:text="@string/texto1Welcome3"
         android:id="@+id/textView19"
         android:layout_below="@+id/textView18"
         android:layout_centerHorizontal="true"

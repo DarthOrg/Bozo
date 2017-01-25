@@ -1,3 +1,246 @@
 <resources>
     <string name="app_name">Marcador Bozó</string>
+
+
+    <!-- Botões -->
+    <string name="voltar">Voltar</string>
+    <string name="comecar">Começar</string>
+    <string name="adicionarJogador">Adicionar jogador</string>
+    <string name="cancelar">Cancelar</string>
+    <string name="proximo">Próximo</string>
+    <string name="novoMarcador">Novo marcador</string>
+    <string name="jogar">Jogar</string>
+    <string name="sairDoMarcador">Sair do marcador</string>
+    <string name="ok">Ok</string>
+
+    <!--Titulos-->
+    <string name="nomeMarcador">Nome Marcador</string>
+    <string name="ultimoMarcadorSalvo">Último Marcador Salvo</string>
+    <string name="placar">Placar</string>
+    <string name="nomeJogador">Nome jogador</string>
+    <string name="marcadoresSalvos">Marcadores salvos</string>
+    <string name="ganhador">Ganhador</string>
+    <string name="placarDaRodada">Placar da rodada</string>
+    <string name="limiteJogadores">Limite 10 jogadores</string>
+    <string name="tituloPonto">Titulo ponto</string>
+    <string name="primeiro">Primeiro</string>
+    <string name="criarUmMarcador">Criar um marcador</string>
+    <string name="marcadorDoBozo">Marcador do Bozó</string>
+    <string name="dadosDoMarcador">Dados do marcador</string>
+
+    <!--SUBTitulos-->
+    <string name="ganhadoresPorRodada">Ganhadores por rodada</string>
+    <string name="tabela">Tabela</string>
+    <string name="textoWelcome1">Você deve ter um copo de bozó com 5 dados</string>
+    <string name="textoWelcome2">Para criar um novo clique no botão Iniciar marcador</string>
+    <string name="textoWelcome3">Nesta tela você vai marcar os valores que conseguir jogando com o copo de bozó</string>
+    <string name="texto1Welcome3">Aqui você adiciona nome do marcador e os jogadores</string>
+    <string name="texto2Welcome3">Primeiro</string>
+    <string name="texto3Welcome3">Nome do marcador</string>
+    <string name="texto4Welcome3">Por ultimo</string>
+    <string name="texto5Welcome3">Nome dos jogadores</string>
+
+    <!--Nomes peças-->
+
+    <!-- Textos -->
+    <string name="textoAdicionarJogadores">Agora adicione os jogadores para começar. Lembre-se no máximo 10 jogadores.</string>
+    <string name="textoNovaPartida">Primeiro você precisa escrever um nome para seu Marcador de Bozó</string>
+    <string name="total">Total</string>
+    <string name="pontos">Pontos</string>
+    <string name="nenhumMarcador">Nenhum marcador</string>
+    <string name="nomeGanhador">Nome ganhador</string>
+    <string name="valores">Valores</string>
+    <string name="textoOutraRodada">Quer jogar outra rodada?</string>
+    <string name="textoLimeiteJogadores">Ops! Você só pode adicionar no máximo 10 jogadores</string>
+    <string name="XRiscar">X Riscar</string>
+    <string name="ganhando">Ganhando</string>
+
+    <!-- String JAVA -->
+    <string name="removerJogador">Remover jogador</string>
+    <string name="finalizarRodada">Finalizar rodada</string>
+    <string name="inciarMarcador">Iniciar Marcador</string>
+    <string name="apagarMarcador">Apagar Marcador</string>
+    <string name="apagar">Apagar</string>
+    <string name="textoApagarMarcador">Apagar marcador</string>
+    <string name="marcadorApagado">Marcador apagado</string>
+    <string name="erroApagarMarcador">Erro ao apagar marcador</string>
+    <string name="requer_jogadores">Ops! Adicione pelo menos 2 jogadores para começar</string>
+    <string name="requer_jogador">Quase lá! Adiciona só mais 1 jogador para começar</string>
+    <string name="adicionar">Adicionar</string>
+    <string name="compartilharApp">Compartilhar APP</string>
+    <string name="textoCompartilharApp">Baixe Marcador Bozó na GooglePlay</string>
+    <string name="recurso_nao_suportado">Recurso não suportado no seu dispositivo</string>
+    <string name="parar">Parar</string>
+    <string name="jogador">Jogador</string>
+    <string name="foiAdicionado">foi adicionado</string>
+    <string name="titulo_salvar_e_sair">Deseja salvar antes de sair?</string>
+    <string name="menssagem_salvar_grupo">Você pode salvar seu marcador se quiser jogar mais tarde.</string>
+    <string name="salvar">Salvar</string>
+    <string name="salvando">Salvando só um momento...</string>
+    <string name="marcador">Marcador</string>
+    <string name="salvo_com_sucesso">salvo com sucesso</string>
+    <string name="descartar">Descartar</string>
+    <string name="descartar_alteracoes">Descartar Alterações</string>
+    <string name="sair">Sair</string>
+    <string name="sair_sem_jogar">Você não jogou nenhuma rodada.\nDeseja sair assim mesmo?</string>
+    <string name="remover">Remover</string>
+    <string name="textoRemoverJogador">Este jogador não vai mais jogar.\nTem certeza?</string>
+    <string name="ops">Oops!</string>
+    <string name="textoOpsRemoverJogador">Você não pode remover mais jogadores. O marcador deve ter no minimo 2 jogadores.</string>
+    <string name="empate">Empate</string>
+    <string name="texto_decisao_empate">Os jogadores devem decidir nos dados.\nSelecione o jogador que ganhou</string>
+    <string name="finalizar">Finalizar</string>
+    <string name="aviso">Aviso</string>
+    <string name="rodada_incompleta">Alguns jogadores ainda não completaram todos os espaços. Deseja sair ?</string>
+    <string name="nenhum_jogador_adicionado">Nenhum jogador foi adicionado</string>
+
+    <!-- INTRUÇÕES -->
+    <string name="comoJogar">Como jogar?</string>
+    <string name="Texto1">Primeiro você vai precisar, de um copo de Bozó e 5 dados.</string>
+    <string name="Texto2">Depois  os participantes, vão ter que decidir quem vai começar.
+        Á varias maneiras, mais vamos a explicação. O jogador que for começar vai colocar os 5 dados dentro do copo e chacoalhar
+        até misturar bem e depois lança na mesa, ai remove o copo com cuidado para não desvirar os dados.
+        Caso o dado depois que o copo for desvirado, estiverem um encima do outro esse erro de jogada não é contada e o jogador
+        pode jogar outra vez. Lembrando que na hora de misturar os dados no copo, a boca do mesmo deve estar fechado para não
+        cair nenhum dado para fora.
+        Feito então o primeiro lance, o jogador ainda terá mais duas chances para lançar os dados. Então só para confirmar
+        depois da primeira jogada ele escolhera qual tipo de jogada vai querer.
+        </string>
+    <string name="Texto3">Tipos de jogadas na seta á direita</string>
+    <string name="Texto4">Os tipos de jogadas possiveis dentro do Bozó são essas: Áz, Duque, Terno, Quadra, Quina, Sena,
+        Full, Seguida, Quadrada, General, como na ilustração abaixo. A marcação que você fizer vai depender das pedras que vier, depois das três tacadas.
+         Mas vôce pode marcar o que quiser, mais um bom jogador segue um estrategia.
+    </string>
+    <string name="Marcacao">Marcação</string>
+    <string name="Texto5">Quando jogar os dados, ele te dará 5 valores.
+        Usando a estratégia básica, você vai escolher os valores que mais se repetem ou os que valem mais pontos.
+        É so você lembrar que para marcar deve-se somar os valores obtidos por determinado jogo que você escolheu.
+        com as exceções de Full, Seguida, Quadrada e General, porque essas jogadas já possui uma pontuação definida.</string>
+    <string name="Texto6">No momento de marcar os pontos você não pode somar todos os pontos e sim escolher um tipo de jogo,para depois poder somar. Por exemplo, se eu tiver 2 Duques e 3 quinas, na primeira jogada das três possiveis.
+Mas supondo que eu queira a Quina, pois vale mais pontos e é a que mais se repete, então eu somo tudo, totalizando 15 pontos de Quina.
+Na tabela no nosso app você vai marcar em Quina. Mas,observando bem, 2 duques e 3 quinas também é uma jogada Full e ainda é de boca. Então eu posso marcar 15 pontos na tabela, na jogada Full. Mas se a jogada General for de bôca.Ai o valor passa a ser de 100 pontos e a jogada é finalizada imediatamente porque o jogador que fez o general de bôca,ganha a partida com o ponto soberano, independente se outro jogador estiver ganhando.</string>
+
+    <string name="txtComojogarLer">
+        Vamos aprender como jogar Bozó.
+        Primeiro de tudo você vai precisar. de um copo de Bozó e Cinco dados. Depois  Os participantes vão ter que decidir quem vai começar.
+        Á várias maneiras de se desidir isso, mais vamos a explicação. O jogador que for começar vai colocar os Cinco dados dentro do copo e chacoalhar
+        até misturar bem. E depois lança na mesa. Ai remove o copo com cuidado. para não desvirar os dados.
+        Caso o dado depois que o copo for desvirado. Estiverem um encima do outro. Esse erro de jogada não é contada, e o jogador
+        pode jogar outra vez. Lembrando! Que na hora de misturar os dados no copo, a bôca do mesmo deve estar fechado para não
+        cair nenhum dado para fora do copo.
+        Feito então o primeiro lance. O jogador ainda terá mais duas chances para lançar os dados. Só para confirmar.
+        Depois da primeira jogáda ele escolherá qual tipo de jogada vai querer fazer.
+
+        Se você quiser mais detalhes das jogadas empurre a tela para esquerda ou clique na seta para a direita, para mais informções.
+
+        Os tipos de jogadas possiveis dentro do Bozó. São essas. As. Duque. Terno. Quadra. Quina. Sena.
+        Fúl. Seguida. Quadrada. General. Como na ilustração abaixo. A marcação que você fizer. Vai depender
+        das pedras que vier, epois das três tacadas.
+         Mas vôce pode marcar o que quiser. Pois um bom jogador segue um estratégia.
+        Já que estamos falando de estratégia, usando a estratégia básica. Você vai escolher os valores que mais se repetem ou os que valem mais pontos.
+        Lembrando que para marcar deve-se somar os valores obtidos pelo jogo que você escolheu. Mais tem umas exceções como
+        a jogada. Fúl. Seguida. Quadrada. General. Por que essas jogadas já tem pontuações definidas.
+
+        Na hora de marcar os pontos você não pode somar todos os pontos e sim escolher um tipo de jogo
+         para depois poder somar. Vou dar um exemplo aqui para você. Se eu tiver Dois duques.E três quinas.
+        Neste exemplo vou falar dois tipos de jogadas possíveis. Bom a primeira vamos supor que eu queira a quina. Por que vale mais e também é
+        a que mais se repete. Ai eu vou somar essas Tês quinas, totalizando Quinze pontos. Êntão eu marco na tabela no nosso aplicativo. Quinze pontos em quina.
+        Já o outro tipo de jogada. Como você pode observar. Quando você tem Dois dados  que é do valor duque. E Tês dados do valor de quina. É formada
+        também a jogada Fúl.
+
+        Que por ventura foi feita na primeira tacada. E quando esse tipo de jogada é realizada em uma tacada só. Usa-se o termo jogada de bôca.
+        então a jogada ganha 5 pontos a mais e o Fúl. Passa a valer 15 pontos. Ai eu posso marcar na tabela. na Joagada Fúl.
+
+        Um exemplo importante. É o general de bôca. Quando o jogador faz uma jogada de general de bôca ou seja se vier cinco pedras de qualqer
+         valor todas iguais. O general de quarenta pontos. Passa a ser cem pontos. Ai não tem jeito. O jogador que fez esse tipo de jogada.
+         Ganha imediatamente com ponto soberano. E a partida é finalizada independente se outro jogador já estivesse ganhando.
+
+        Basicamente é assim que se joga um Bozó.
+    </string>
+
+    <!--Informaçoes de cada Dado-->
+    <string name="TextoDadoAz">Ou jogada Áz ou também chamado de número 1.
+        O dado Áz tem a soma de seus valores que podem variar de 1 a 5 pontos.</string>
+    <string name="lerAz">O, Dado, As. Ou, jogada As. Também pode ser chamado de número Um.
+        O, Dado, As tem a soma de seus valores que podem variar de Um, a Cinco pontos.</string>
+
+    <string name="TextoDadoDuque">Ou jogada Duque ou também chamado de número 2.
+        O dado Duque tem a soma de seus valores que podem variar de 2 a 10 pontos.</string>
+    <string name="lerDuque">Dado Duque. Ou jogada Duque. Também pode ser chamado de número Dois.
+        O dado Duque tem a soma de seus valores que podem variar de Dois, a Dez pontos.</string>
+
+    <string name="TextoDadoTerno">Ou jogada Terno ou também chamado de número 3.
+        O dado Terno tem a soma de seus valores que podem variar de 3 a 15 pontos.</string>
+    <string name="lerTerno">O Dado Terno. Ou jogada Terno. Também pode ser chamado de número Três.
+        O dado Terno tem a soma de seus valores que podem variar de Três, a Quinze pontos.</string>
+
+    <string name="TextoDadoQuadra">Ou jogada Quadra ou também chamado de número 4.
+        O dado Quadra tem a soma de seus valores que podem variar de 4 a 20 pontos.</string>
+    <string name="lerQuadra">O Dado Quadra. Ou jogada Quadra. Também pode ser chamado de número Quatro.
+        O dado Quadra tem a soma de seus valores que podem variar de Quatro, a Vinte pontos.</string>
+
+    <string name="TextoDadoQuina">Ou jogada Quina ou também chamado de número 5.
+        O dado Quina tem a soma de seus valores que podem variar de 5 a 25 pontos.</string>
+    <string name="lerQuina">O Dado Quina. Ou jogada Quina. Também pode ser chamado de número Cinco.
+        O dado Quina tem a soma de seus valores que podem variar de Cinco, a Vinte e cinco pontos.</string>
+
+    <string name="TextoDadoSena">Ou jogada Sena ou também chamado de número 6.
+        O dado Sena tem a soma de seus valores que podem variar de 6 a 30 pontos.</string>
+    <string name="lerSena">O Dado Sena. Ou jogada Sena. Também pode ser chamado de número Seis.
+        O dado Sena tem a soma de seus valores que podem variar de Seis, a Trinta pontos.</string>
+
+    <string name="TextoDadosFull">Para poder formar a jogada full, você precisa dos cinco dados. Dois dados devem ser do um valor,
+        já os outros três dados de outro valor.Por exemplo, os primeiros dois dados os valores são 6-6 os outros três dados seria
+        4-4-4 como na ilustração encima. O valor da jogada full é de 10 pontos mas se a jogada for de bôca o valor passa a ser 15 pontos.
+    </string>
+
+    <string name="lerFull">Fúl. Para poder formar a jogada Fúl.
+         Você precisa dos cinco dados.
+         Dois dados devem ser do um valor. já os outros três dados de outro valor.
+         Por exemplo. Os primeiros dois dados. Os valores são. Seis, e Seis. Os outros três dados seria Quatro, Quatro, Quatro.
+         Como na ilustração encima. O valor da jogada Fúl é de dez pontos.
+         Mas se a jogada for de bôca o valor passa a ser quinze pontos.
+      Mais o que é Fúl de bôca? Fúl de bôca é quando a jogada é realizada de uma só vez.</string>
+
+    <string name="TextoDadosSeguida">Para formar a jogada seguida.
+        Existe dois tipos de sequência dos dados. A primeira sequência é de 1 a 5
+         e a outra sequência é de 2 a 6, por exemplo 1-2-3-4-5 e a outra sequência seria 2-3-4-5-6.
+        Como na ilustração encima. O valor a ser marcado da jogada seguida é de 20 pontos, mas se a jogada for de bôca o ponto passa a ser 25.
+     </string>
+
+    <string name="lerSeguida">Seguida. Para formar a jogada seguida.
+        existe dois tipos de sequência dos dados. A primeira sequência é de 1 a Cinco. E a outra sequência é de 2 a Seis.
+        Por exemplo. Um, Dois, Três, Quatro, e Cinco. E a outra sequência seria. dois, três, quatro, cinco, e seis.
+        Como na ilustração encima. O valor a ser marcado da jogada seguida é de vinte pontos. Mas se a jogada for de bôca o ponto passa a ser vite e cinco.
+     Mais o que é seguida de bôca? Seguida de bôca é quando a jogada é realizada de uma só vez.
+    </string>
+
+    <string name="TextoDadosQuadrada">Para poder fazer uma jogada quadrada deve ter 4 números iguais.
+        Por exemplo, 2-2-2-2 como na ilustração encima.
+        Esses quatros dados iguais podem ser de qualquer valor, e o valor que deve ser marcado na jogada quadrada é de 30 pontos.
+        Mas se a quadrada for de boca o valor passa a ser de 35 pontos.</string>
+
+    <string name="lerQuadrada">Quadrada. Para poder fazer uma jogada quadrada deve ter quatro números iguais.
+        Por exemplo. Dois, Dois, Dois,  e Dois. Como na ilustração encima.
+        esses quatros dados iguais podem ser de qualquer valor. e o valor que deve ser marcado na jogada Quadrada é de trinta pontos.
+        Mas se a quadrada for de boca o valor passa a ser de trinta e cinco pontos. Mais o que é quadrada de bôca?
+         Quadrada de bôca é quando a jogada é realizada de uma só vez.</string>
+
+    <string name="TextoDadosGeneral">Para formar a jogada General você vai precisar que todos os cincos dados sejam do mesmo valor.
+        Por exemplo, 5-5-5-5-5 esses dados podem ser de qualquer valor, desde que sejam iguais.
+        O valor a ser marcado na jogada General é de quarenta pontos. Mas se a jogada General for de bôca.
+         Ai o valor passa a ser de 100 pontos e a jogada é finalizada imediatamente porque o jogador que fez o general de bôca,
+        ganha a partida com o ponto soberano, independente se outro jogador estiver ganhando.</string>
+
+    <string name="lerGeneral">General. Para formar a jogada General. Você vai precisar que todos os cincos dados sejam do mesmo valor. Por exemplo.
+        Cinco, Cinco, Cinco, Cinco, e Cinco. Esses dados podem ser de qualquer valor. Desde que sejam iguais.
+        O valor a ser marcado na jogada General é de quarenta pontos. Mas se a jogada General for de bôca.
+         Ai o valor passa a ser de cem pontos. E a jogada é finalizada imediatamente.
+         Porque o jogador que fez o general de bôca. Ganha a partida com o ponto soberano.
+         Independente se outro jogador estiver ganhando. Mais o que é general de bôca?
+         General de bôca é quando a jogada é realizada de uma só vez. E á rodada termina.</string>
+    <string name="textoAdicionarNomeMarcador">Você deve adicionar um nome para seu Marcador</string>
+    <string name="textoRodada">Parabéns!\nMelhor jogador desta rodada</string>
+
+
 </resources>

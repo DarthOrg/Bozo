@@ -18,7 +18,7 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="40dp"
-        android:text="@string/titulo_slide2_welcome"
+        android:text="@string/criarUmMarcador"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:textColor="@color/colorWhite"
         android:textSize="20dp" />
@@ -30,7 +30,7 @@
         android:layout_below="@+id/textView18"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="10dp"
-        android:text="@string/subtitulo_slide2_welcome"
+        android:text="@string/textoWelcome2"
         android:textAppearance="?android:attr/textAppearanceSmall"
         android:textColor="@color/colorWhite"
         android:textSize="12dp" />
@@ -39,7 +39,7 @@
         android:id="@+id/textView20"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Inciar marcador"
+        android:text="@string/inciarMarcador"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:textColor="@color/colorFundoPartida"
         android:layout_below="@+id/imageView22"

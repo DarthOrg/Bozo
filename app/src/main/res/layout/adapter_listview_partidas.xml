@@ -50,7 +50,7 @@
             android:id="@+id/txt_lista_nome_partida"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/nome_do_grupo"
+            android:text="@string/nomeMarcador"
             android:layout_gravity="center_vertical"
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:textColor="@color/colorBlack"
@@ -68,9 +68,9 @@
                 android:tint="@color/colorStatusBar"
                 android:layout_marginRight="5dp"
                 android:focusable="false"
-                android:drawableStart="@drawable/ic_groupo_mini"
                 android:layout_gravity="center_vertical"
-                android:background="@color/colorTrasnparente"/>
+                android:background="@color/colorTrasnparente"
+                android:drawableLeft="@drawable/ic_groupo_mini" />
 
             <TextView
                 android:id="@+id/tvJogadoresUltimaRodada"
@@ -79,7 +79,7 @@
                 android:layout_below="@+id/txt_lista_nome_partida"
                 android:layout_toEndOf="@+id/imageButton2"
                 android:layout_toRightOf="@+id/imageButton2"
-                android:text="@string/nome_jogador"
+                android:text="@string/nomeJogador"
                 android:textAppearance="?android:attr/textAppearanceSmall"
                 android:textColor="@color/colorStatusBar"
                 android:textSize="10dp"
@@ -109,7 +109,7 @@
                 android:layout_width="50dp"
                 android:layout_height="72dp"
                 android:background="@color/colorTrasnparente"
-                android:drawableEnd="@drawable/ic_deletar"
+                android:drawableRight="@drawable/ic_deletar"
                 android:focusable="false"
                 android:paddingRight="13dp"
                 android:layout_gravity="center" />

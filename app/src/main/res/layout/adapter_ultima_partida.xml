@@ -52,7 +52,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
-                android:text="@string/nome_do_grupo"
+                android:text="@string/nomeMarcador"
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:textColor="@color/colorBlack"
                 android:textSize="20dp" />
@@ -81,7 +81,7 @@
                     android:layout_gravity="center_vertical"
                     android:layout_toEndOf="@+id/imageButton2"
                     android:layout_toRightOf="@+id/imageButton2"
-                    android:text="@string/nome_jogador"
+                    android:text="@string/nomeJogador"
                     android:textAppearance="?android:attr/textAppearanceSmall"
                     android:textColor="@color/colorStatusBar"
                     android:textSize="10dp" />

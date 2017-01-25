@@ -1,104 +1,6 @@
 <resources>
     <string name="app_name">Marcador Bozó</string>
 
-    <!-- String Comuns -->
-    <string name="adicionar_jogador">Add player</string>
-    <string name="criar">Create</string>
-    <string name="grupos_de_jogo">Game groups</string>
-    <string name="novo_grupo">New group</string>
-    <string name="intrucoes">Instructions</string>
-    <string name="cor_de_destaque">Highlight color</string>
-    <string name="sobre">About</string>
-    <string name="configuracoes">Settings</string>
-    <string name="adicionar">Add</string>
-    <string name="cancelar">Cancel</string>
-    <string name="nome_do_grupo">Group name</string>
-    <string name="jogador">" Player "</string>
-    <string name="remover_jogador">Remove Player</string>
-    <string name="remover">Remove</string>
-    <string name="pergunta_remover_jogador">"Remove the player "</string>
-    <string name="salvar">Save</string>
-    <string name="descartar">Discard</string>
-    <string name="sair">Get out</string>
-    <string name="sim">Yes</string>
-    <string name="jogar">Play</string>
-    <string name="riscar">"Scratch "</string>
-    <string name="placar">Scoreboard</string>
-    <string name="parar">Stop</string>
-    <string name="deletar">Delete</string>
-    <string name="deletar_grupo">Delete group</string>
-
-    <!-- TITULOS -->
-    <string name="grupo">"Group "</string>
-    <string name="ganhou">" Has won"</string>
-    <string name="empate">A tie</string>
-    <string name="aviso">Notice</string>
-    <string name="mais">MORE</string>
-    <string name="ganhando">Earning</string>
-    <string name="total">Total</string>
-    <string name="nenhum_grupo">No group</string>
-    <string name="nome_jogador">Player name</string>
-    <string name="versao_app">Version</string>
-    <string name="finalizar_rodada">Finish round</string>
-
-    <!-- INFOS -->
-    <string name="toast_foi_adicionado">" was added "</string>
-    <string name="limite_exclusao_jogadores">You can not delete more players</string>
-    <string name="titulo_salvar_e_sair">Do you want to save before exiting?</string>
-    <string name="salvando">Saving just a moment ...</string>
-    <string name="salvo_com_sucesso">" saved successfully"</string>
-    <string name="sair_sem_jogar">You have not played any round.\nYou want to leave anyway?</string>
-    <string name="pergunta_nova_rodada">You want to play another round?</string>
-    <string name="decisao_empate">Players must decide the dice.\n Select the player who won:</string>
-    <string name="rodada_incompleta">Some players have not yet completed all spaces. You want to leave?</string>
-    <string name="rodadas">Spins</string>
-    <string name="todos_os_direitos_reservados">All rights reserved.</string>
-    <string name="recurso_nao_suportado">Unsupported feature on your device</string>
-    <string name="pergunta_deletar_partida">"Do you really want to delete group "</string>
-    <string name="grupo_deletado">Deleted group</string>
-    <string name="erro_grupo_deletado">An error occurred when deleting the group</string>
-    <string name="ganhou_com">He won with </string>
-    <string name="pontos"> points</string>
-    <string name="info_nenhum_grupo">To create a game group click the + button on the side menu and the New Group option</string>
-    <string name="max_jogadores_permitidos">Maximum 10 players.</string>
-    <string name="requer_jogadores">Add at least 2 players to create the group</string>
-    <string name="requer_jogador">Add more 1 or more players to create the group</string>
-
-
-    <!-- WELCOME -->
-    <!-- slide1 -->
-    <string name="titulo_slide1_welcome">First</string>
-    <string name="subtitulo_slide1_welcome">You must have a glass of bozo with 5 dice</string>
-    <!-- slide2 -->
-    <string name="titulo_slide2_welcome">Create new group</string>
-    <string name="subtitulo_slide2_welcome">To create a new group click the +</string>
-    <!-- slide3 -->
-    <string name="titulo_slide3_welcome">Group data</string>
-    <string name="subtitulo_slide3_welcome">Here you add the group name and players</string>
-    <!-- slide4 -->
-    <string name="titulo_slide4_welcome">Marker bozó</string>
-    <string name="subtitulo_slide4_welcome">On this screen you will score the values you get playing with the glass of bozó</string>
-
-    <!-- INICIO -->
-    <string name="navigation_drawer_open">Open navigation drawer</string>
-    <string name="navigation_drawer_close">Close navigation drawer</string>
-
-    <!-- Compartilhar app-->
-    <string name="compartilhar_app">"Download Marcador Bozó on Google Play "</string>
-    <string name="url_googleplay">https://play.google.com/store/apps/details?id=com.adobe.psmobile</string>
-    <string name="titulo_compartilhar_app">Share APP</string>
-
-    <!-- NOMES DAS PEÇAS DO BOZÓ -->
-    <string name="az">Áz</string>
-    <string name="duque">Duque</string>
-    <string name="terno">Terno</string>
-    <string name="quadra">Quadra</string>
-    <string name="quina">Quina</string>
-    <string name="sena">Sena</string>
-    <string name="full">Full</string>
-    <string name="seguida">Seguida</string>
-    <string name="quadrada">Quadrada</string>
-    <string name="general">General</string>
 
     <!-- INTRUÇÕES -->
     <string name="comoJogar">How to play?</string>
@@ -146,14 +48,88 @@
     <string name="TextoDadosGeneral">To form the General move you will need all five data are of the same value For example 5-5-5-5-5 data can be of any value if they are equal. The value to be marked on the move General is forty points. But if the move is General of mouth. Ai the value becomes 100 points and the move is completed immediately because the player who made the general\'s mouth wins the match with the sovereign point, regardless of whether another player is winning.</string>
 
     <string name="lerGeneral">General to form the general move you will need all five data are of the same value for example. Five, five, five, five, and five. Such data may be any value. Since they are equal. The value to be marked on the move General is forty points. But if the move is General of mouth. Ai the value becomes a hundred points. And the move is terminated immediately. Because the player who made the general\'s mouth. Wins the game with the sovereign point. Regardless if another player is winning. More what is general of mouth? General\'s mouth when the move is performed once. And will round ends.</string>
-    <string name="menssagem_salvar_grupo">You can save your game group if you want to play later.</string>
-    <string name="descartar_alteracoes">Discard changes</string>
-    <string name="tabela">Table</string>
-    <string name="TextoAdicionarJogadores"> We\'re almost there now add players to be able to start. Maximum 10 players.</string>
-    <string name="criarGrupo">Create Group</string>
-    <string name="Textonomedogrupo">First you need to write a name for your game group.</string>
-    <string name="comecar">Start</string>
+    <string name="XRiscar">X Scratch</string>
+    <string name="adicionar">Add</string>
+    <string name="adicionarJogador">Add player</string>
+    <string name="apagar">Delete</string>
+    <string name="apagarMarcador">Delete Bookmark</string>
+    <string name="aviso">Notice</string>
+    <string name="cancelar">Cancel</string>
+    <string name="comecar">Begin</string>
+    <string name="compartilharApp">Share APP</string>
+    <string name="criarUmMarcador">Create a bookmark</string>
+    <string name="dadosDoMarcador">Bookmark data</string>
+    <string name="descartar">Discard</string>
+    <string name="descartar_alteracoes">Discard Changes</string>
+    <string name="empate">A tie</string>
+    <string name="erroApagarMarcador">Error deleting bookmark</string>
+    <string name="finalizar">Finish</string>
+    <string name="finalizarRodada">Finish round</string>
+    <string name="foiAdicionado">was added</string>
+    <string name="ganhador">Winner</string>
+    <string name="ganhadoresPorRodada">Winners per round</string>
+    <string name="ganhando">Winning</string>
+    <string name="inciarMarcador">Start Bookmark</string>
+    <string name="jogador">Player</string>
+    <string name="jogar">Play</string>
+    <string name="limiteJogadores">Limit 10 players</string>
+    <string name="marcador">Highlighter</string>
+    <string name="marcadorApagado">Marker off</string>
+    <string name="marcadorDoBozo">Bozó Scoreboard</string>
+    <string name="marcadoresSalvos">Saved bookmarks</string>
+    <string name="menssagem_salvar_grupo">You can save your bookmark if you want to play later.</string>
+    <string name="nenhumMarcador">No Bookmarks</string>
+    <string name="nenhum_jogador_adicionado">No player was added</string>
+    <string name="nomeGanhador">Winning name</string>
+    <string name="nomeJogador">Player name</string>
+    <string name="nomeMarcador">Name Score</string>
+    <string name="novoMarcador">New bookmark</string>
+    <string name="ok">Ok</string>
+    <string name="ops">Oops!</string>
+    <string name="parar">Stop</string>
+    <string name="placar">Score</string>
+    <string name="placarDaRodada">Round Score</string>
+    <string name="pontos">Points</string>
+    <string name="primeiro">First</string>
     <string name="proximo">Next</string>
+    <string name="recurso_nao_suportado">Feature not supported on your device</string>
+    <string name="remover">Remove</string>
+    <string name="removerJogador">Remove player</string>
+    <string name="requer_jogador">Almost there! Add only 1 player to start</string>
+    <string name="requer_jogadores">Oops! Add at least 2 players to get started</string>
+    <string name="rodada_incompleta">Some players have not yet completed all the spaces. Do you want to quit?</string>
+    <string name="sair">Get out</string>
+    <string name="sairDoMarcador">Exit bookmark</string>
+    <string name="sair_sem_jogar">You did not play any round.\nDo you want to leave anyway?</string>
+    <string name="salvando">Saving just a moment ...</string>
+    <string name="salvar">Save</string>
+    <string name="salvo_com_sucesso">saved successfully</string>
+    <string name="tabela">Table</string>
+    <string name="texto1Welcome3">Here you add marker name and players</string>
+    <string name="texto2Welcome3">First</string>
+    <string name="texto3Welcome3">Bookmark Name</string>
+    <string name="texto4Welcome3">Lastly</string>
+    <string name="texto5Welcome3">Name of players</string>
+    <string name="textoAdicionarJogadores">Now add the players to start. Remember a maximum of 10 players.</string>
+    <string name="textoApagarMarcador">Delete bookmark</string>
+    <string name="textoCompartilharApp">Download Bullet Bozo on Google Play</string>
+    <string name="textoLimeiteJogadores">Oops! You can only add up to 10 players</string>
+    <string name="textoNovaPartida">First you need to write a name for your Bozo Scoreboard</string>
+    <string name="textoOpsRemoverJogador">You can not remove more players. The marker must have at least 2 players.</string>
+    <string name="textoOutraRodada">Want to play another round?</string>
+    <string name="textoRemoverJogador">This player is no longer going to play.\nAre you sure?</string>
+    <string name="textoWelcome1">You should have a glass of bozó with 5 dice</string>
+    <string name="textoWelcome2">To create a new click on the Start button</string>
+    <string name="textoWelcome3">In this screen you will mark the values that you can play with the bozó cup</string>
+    <string name="texto_decisao_empate">Players must decide on the dice.\nSelect the player who won</string>
+    <string name="tituloPonto">Title point</string>
+    <string name="titulo_salvar_e_sair">Do you want to save before leaving?</string>
+    <string name="total">All</string>
+    <string name="ultimoMarcadorSalvo">Last Saved Score</string>
+    <string name="valores">Values</string>
     <string name="voltar">Back</string>
+    <string name="textoAdicionarNomeMarcador">You must add a name for your bookmark</string>
+    <string name="textoRodada">Congratulations!\nBest player of this round</string>
+
 
 </resources>

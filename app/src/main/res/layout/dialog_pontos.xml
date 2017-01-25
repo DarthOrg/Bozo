@@ -15,7 +15,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
-            android:text="Titulo ponto"
+            android:text="@string/tituloPonto"
             android:textAlignment="center"
             android:textAllCaps="true"
             android:layout_marginLeft="16dp"
@@ -24,7 +24,7 @@
             android:textColor="@color/colorBlack"/>
 
         <Button
-            android:text="X Riscar"
+            android:text="@string/XRiscar"
             android:textColor="@color/colorWhite"
             android:backgroundTint="@color/colorRed"
             android:layout_width="wrap_content"

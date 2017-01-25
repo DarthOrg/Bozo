@@ -20,7 +20,7 @@
                 android:layout_marginBottom="-5dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Ganhador"
+                android:text="@string/ganhador"
                 android:textAlignment="center"
                 android:layout_gravity="center"
                 android:textSize="13sp"
@@ -30,7 +30,7 @@
                 android:id="@+id/ganhadorRodada"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Wendell"
+                android:text="@string/nomeGanhador"
                 android:textAlignment="center"
                 android:layout_gravity="center"
                 android:textSize="25sp"
@@ -53,7 +53,7 @@
 
             <Button
                 android:id="@+id/btnPlacarRodada"
-                android:text="Placar da rodada"
+                android:text="@string/placarDaRodada"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@color/colorTrasnparente"
@@ -69,7 +69,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:text="Wendell"
+                android:text="@string/valores"
                 android:visibility="gone"
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"
@@ -95,7 +95,7 @@
         android:background="@color/colorWhiteFundo">
 
         <Button
-            android:text="Quer jogar outra rodada?"
+            android:text="@string/textoOutraRodada"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/colorTrasnparente"
@@ -106,7 +106,7 @@
 
         <Button
             android:id="@+id/btnJogarNovaRodada"
-            android:text="Jogar"
+            android:text="@string/jogar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/colorTrasnparente"
@@ -118,7 +118,7 @@
 
         <Button
             android:id="@+id/btncancelar"
-            android:text="Cancelar"
+            android:text="@string/cancelar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/colorTrasnparente"
@@ -130,7 +130,7 @@
 
         <Button
             android:id="@+id/btnSairMarcador"
-            android:text="Sair do marcador"
+            android:text="@string/sairDoMarcador"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/colorTrasnparente"

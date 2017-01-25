@@ -1,105 +1,6 @@
 <resources>
     <string name="app_name">Marcador Bozó</string>
 
-    <!-- String Comuns -->
-    <string name="adicionar_jogador">Añadir jugador</string>
-    <string name="criar"> Crear</string>
-    <string name="grupos_de_jogo">Grupos de juego</string>
-    <string name="novo_grupo">Grupo nuevo</string>
-    <string name="intrucoes">Instrucciones</string>
-    <string name="cor_de_destaque">Color de realce</string>
-    <string name="sobre">Sobre</string>
-    <string name="configuracoes"> Ajustes</string>
-    <string name="adicionar"> Añadir</string>
-    <string name="cancelar">Cancelar</string>
-    <string name="nome_do_grupo">Nombre del grupo</string>
-    <string name="jogador">" Jugador "</string>
-    <string name="remover_jogador">Eliminar jugador</string>
-    <string name="remover"> Eliminar</string>
-    <string name="pergunta_remover_jogador">"¿Eliminar jugador "</string>
-    <string name="salvar">Guardar</string>
-    <string name="descartar">Descartar</string>
-    <string name="sair">Salir</string>
-    <string name="sim">Sí</string>
-    <string name="jogar">Jugar</string>
-    <string name="riscar">"Tachar "</string>
-    <string name="placar">Puntuación</string>
-    <string name="parar">Detener</string>
-    <string name="deletar">Borrar</string>
-    <string name="deletar_grupo">Eliminar el grupo</string>
-
-    <!-- TITULOS -->
-    <string name="grupo">"Grupo "</string>
-    <string name="ganhou">" Ganó"</string>
-    <string name="empate">Empate</string>
-    <string name="aviso"> Advertencia</string>
-    <string name="mais">MÁS</string>
-    <string name="ganhando">Ganando</string>
-    <string name="total">Total</string>
-    <string name="nenhum_grupo">Ningún grupo</string>
-    <string name="nome_jogador">Nome del Jugador</string>
-    <string name="versao_app">Versión</string>
-    <string name="finalizar_rodada">Ronda completa</string>
-
-    <!-- INFOS -->
-    <string name="toast_foi_adicionado">"Fue añadido"</string>
-    <string name="limite_exclusao_jogadores">No se puede eliminar más jugadores</string>
-    <string name="titulo_salvar_e_sair"> ¿Quieres guardar antes de salir?</string>
-    <string name="salvando"> Guardando un momento ...</string>
-    <string name="salvo_com_sucesso">"Se ha guardado correctamente"</string>
-    <string name="sair_sem_jogar">No ha jugado una ronda. \n ¿Desea salir de todos modos?</string>
-    <string name="pergunta_nova_rodada"> ¿Quieres jugar otra ronda?</string>
-    <string name="decisao_empate">Los jugadores deben decidir en los dados. \nSeleccione el jugador que ganó</string>
-    <string name="rodada_incompleta"> Algunos jugadores aún no han completado todos los espacios. ¿Quieres salir?</string>
-    <string name="rodadas">Rondas</string>
-    <string name="todos_os_direitos_reservados">Todos los derechos reservados.</string>
-    <string name="recurso_nao_suportado">Función no compatible en el dispositivo</string>
-    <string name="pergunta_deletar_partida">"¿De verdad quiere eliminar el grupo  "</string>
-    <string name="grupo_deletado">Grupo eliminado</string>
-    <string name="erro_grupo_deletado">Se produjo un error al borrar el grupo.</string>
-    <string name="ganhou_com">Ganó con</string>
-    <string name="pontos">puntos</string>
-    <string name="info_nenhum_grupo">Para crear un grupo de juego, haga clic en el botón + o en el menú lateral en nuevo grupo.</string>
-    <string name="max_jogadores_permitidos">10 jugadores como máximo.</string>
-    <string name="requer_jogadores"> Añadir al menos 2 jugadores para crear el grupo</string>
-    <string name="requer_jogador">Añadir más 1 o más jugadores para crear el grupo</string>
-
-
-    <!-- WELCOME -->
-    <!-- slide1 -->
-    <string name="titulo_slide1_welcome">Primero</string>
-    <string name="subtitulo_slide1_welcome">Debe tener un vaso de bozo con 5 dados.</string>
-    <!-- slide2 -->
-    <string name="titulo_slide2_welcome"> Crear nuevo grupo</string>
-    <string name="subtitulo_slide2_welcome">Para crear un nuevo grupo, haga clic en el signo +</string>
-    <!-- slide3 -->
-    <string name="titulo_slide3_welcome">Datos del Grupo.</string>
-    <string name="subtitulo_slide3_welcome">A continuación se agrega el nombre del grupo y jugadores</string>
-    <!-- slide4 -->
-    <string name="titulo_slide4_welcome">Marcador do bozó</string>
-    <string name="subtitulo_slide4_welcome"> En esta pantalla podrá anotar los valores que empieza a jugar con el vaso de bozo</string>
-
-    <!-- INICIO -->
-    <string name="navigation_drawer_open">Open navigation drawer</string>
-    <string name="navigation_drawer_close">Close navigation drawer</string>
-
-    <!-- Compartilhar app-->
-    <string name="compartilhar_app">"Descarga Marcador de Bozó en Google Play  "</string>
-    <string name="url_googleplay">https://play.google.com/store/apps/details?id=com.adobe.psmobile</string>
-    <string name="titulo_compartilhar_app">Compartir App</string>
-
-    <!-- NOMES DAS PEÇAS DO BOZÓ -->
-    <string name="az">Áz</string>
-    <string name="duque">Duque</string>
-    <string name="terno">Terno</string>
-    <string name="quadra">Quadra</string>
-    <string name="quina">Quina</string>
-    <string name="sena">Sena</string>
-    <string name="full">Full</string>
-    <string name="seguida">Seguida</string>
-    <string name="quadrada">Quadrada</string>
-    <string name="general">General</string>
-
     <!-- INTRUÇÕES -->
     <string name="comoJogar"> ¿Como jugar?</string>
     <string name="Texto1">Lo primero que necesita una taza de Bozo y cinco dados.</string>
@@ -201,14 +102,88 @@ Más lo que es "Full de boca"? "Full de boca" es cuando el jugada se lleva una v
 
     <string name="lerGeneral">Para formar el Juego General necesitas los cinco dados sean del mismo valor. Por ejemplo : cinco,cinco,cinco,cinco,cinco.
 Los  dados pueden ser de cualquier valor, siempre que sean iguales. El valor que se marcó en el movimiento General es de cuarenta puntos. Pero si el movimiento es el general de la boca. Ai el valor se convierte en 100 puntos y se completa el movimiento de inmediato, porque el jugador que hizo el "General de boca", gana el juego con el punto soberana, independientemente de si otro jugador está ganando.</string>
-    <string name="menssagem_salvar_grupo">Puede guardar su grupo de juego si quiere jugar más tarde.</string>
-    <string name="descartar_alteracoes">Descartar Alteraciones</string>
-    <string name="tabela">Tabla</string>
-    <string name="TextoAdicionarJogadores">Falta poco, ahora añadir a los jugadores a ser capaz de empezar. 10 jugadores como máximo.</string>
-    <string name="criarGrupo">Crear Juego</string>
-    <string name="Textonomedogrupo">Lo primero que necesita para escribir un nombre para el grupo de juego.</string>
-    <string name="comecar">Empezar</string>
+    <string name="XRiscar">X Borrar</string>
+    <string name="adicionar">Añadir</string>
+    <string name="adicionarJogador">Añadir jugador</string>
+    <string name="apagar">Borrar</string>
+    <string name="apagarMarcador">Eliminar marcador</string>
+    <string name="aviso">Advertencia</string>
+    <string name="cancelar">Cancelar</string>
+    <string name="comecar">Comienzo</string>
+    <string name="compartilharApp">Compartir APP</string>
+    <string name="criarUmMarcador">Crear un marcador</string>
+    <string name="dadosDoMarcador">Datos de marcadores</string>
+    <string name="descartar">Descartar</string>
+    <string name="descartar_alteracoes">Descartar cambios</string>
+    <string name="empate">Dibujar</string>
+    <string name="erroApagarMarcador">Marcador de borrado de error</string>
+    <string name="finalizar">Final</string>
+    <string name="finalizarRodada">Terminar la vta</string>
+    <string name="foiAdicionado">se añadió</string>
+    <string name="ganhador">Ganador</string>
+    <string name="ganhadoresPorRodada">Los ganadores en cada ronda</string>
+    <string name="ganhando">Ganadora</string>
+    <string name="inciarMarcador">Marcador de inicio</string>
+    <string name="jogador">Jugador</string>
+    <string name="jogar">Jugar</string>
+    <string name="limiteJogadores">Limite 10 jugadores</string>
+    <string name="marcador">Marcador</string>
+    <string name="marcadorApagado">Los favoritos borrados</string>
+    <string name="marcadoresSalvos">Marcadores guardan</string>
+    <string name="marcadorDoBozo">Marcador do Bozó</string>
+    <string name="menssagem_salvar_grupo">Puede guardar sus favoritos si desea jugar más tarde.</string>
+    <string name="nenhumMarcador">Sin marcador</string>
+    <string name="nenhum_jogador_adicionado">Ningún jugador ha sido añadido</string>
+    <string name="nomeGanhador">ganador del nombre</string>
+    <string name="nomeJogador">El jugador nombre</string>
+    <string name="nomeMarcador">Nombre del marcador</string>
+    <string name="novoMarcador">Nuevo marcador</string>
+    <string name="ok">bien</string>
+    <string name="ops">Ups!</string>
+    <string name="parar">Detener</string>
+    <string name="placar">Puntuación</string>
+    <string name="placarDaRodada">Cuadro de indicadores ronda</string>
+    <string name="pontos">Puntos</string>
+    <string name="primeiro">Primero</string>
     <string name="proximo">Siguiente</string>
+    <string name="recurso_nao_suportado">Función no compatible en el dispositivo</string>
+    <string name="remover">Eliminar</string>
+    <string name="removerJogador">Quitar jugador</string>
+    <string name="requer_jogador">¡Casi allí! Añade a sólo 1 jugador más para empezar</string>
+    <string name="requer_jogadores">Ups! Añadir al menos 2 jugadores para empezar</string>
+    <string name="rodada_incompleta">Algunos jugadores aún no han completado todos los espacios. ¿Quieres salir?</string>
+    <string name="sair">Dejar</string>
+    <string name="sairDoMarcador">Marcador de la salida</string>
+    <string name="salvando">Guardando un momento ...</string>
+    <string name="salvar">Guardar</string>
+    <string name="sair_sem_jogar">No ha jugado una ronda. \\nQue quiere dejar de todos modos?</string>
+    <string name="salvo_com_sucesso">guardado con éxito</string>
+    <string name="tabela">Mesa</string>
+    <string name="texto1Welcome3">Aquí se agrega nombre del marcador y jugadores</string>
+    <string name="texto2Welcome3">Primero</string>
+    <string name="texto3Welcome3">Nombre del marcador</string>
+    <string name="texto4Welcome3">Por ultimo</string>
+    <string name="texto5Welcome3">Nombre de los jugadores</string>
+    <string name="textoAdicionarJogadores">Ahora agregue jugadores para empezar. Recuerde que un máximo de 10 jugadores.</string>
+    <string name="textoAdicionarNomeMarcador">Debe añadir un nombre para el marcador</string>
+    <string name="textoApagarMarcador">Borra el marcador</string>
+    <string name="textoCompartilharApp">Descarga Favorito Bozo en Google Play</string>
+    <string name="textoLimeiteJogadores">Ups! Sólo se pueden añadir hasta 10 jugadores</string>
+    <string name="textoNovaPartida">En primer lugar tiene que escribir un nombre para el marcador de Bozo</string>
+    <string name="textoOpsRemoverJogador">No se puede quitar más jugadores. La etiqueta debe tener por lo menos 2 jugadores.</string>
+    <string name="textoOutraRodada">¿Quieres jugar otra ronda?</string>
+    <string name="textoRemoverJogador">Este jugador no se reproducirá.\\n ¿Está seguro?</string>
+    <string name="textoWelcome1">Debe tener un vaso de bozo con datos 5</string>
+    <string name="textoWelcome2">Para crear un nuevo clic en el botón Inicio marcador</string>
+    <string name="textoWelcome3">En esta pantalla podrá anotar los valores que empieza a jugar con el vaso de bozo</string>
+    <string name="texto_decisao_empate">Los jugadores deben decidir los datos. \\nSeleccione el jugador que ganó</string>
+    <string name="tituloPonto">Punto del título</string>
+    <string name="titulo_salvar_e_sair">¿Quieres guardar antes de salir?</string>
+    <string name="total">Total</string>
+    <string name="ultimoMarcadorSalvo">Ultimo Goleador guardadas</string>
+    <string name="valores">Valores</string>
     <string name="voltar">Retorno</string>
+    <string name="textoRodada">Félicitations!\nMeilleur joueur de ce tour</string>
+
 
 </resources>

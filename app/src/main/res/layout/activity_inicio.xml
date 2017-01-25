@@ -145,11 +145,11 @@
                             android:textColor="@color/colorAccentDark"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="Último Marcador salvo"
+                            android:text="@string/ultimoMarcadorSalvo"
                             android:background="@color/colorTrasnparente"
                             android:paddingLeft="16dp"
                             android:paddingRight="16dp"
-                            android:padding="6dp"/>
+                            android:padding="10dp"/>
 
                         <ListView
                             android:id="@+id/list_view_ultima_partida"
@@ -157,7 +157,8 @@
                             android:layout_height="wrap_content"
                             android:dividerHeight="1dp"
                             android:cacheColorHint="@color/colorBlack"
-                            android:divider="@color/colorFundoInstruções" />
+                            android:divider="@color/colorFundoInstruções"
+                            android:layout_marginBottom="20dp"/>
 
                     </LinearLayout>
 

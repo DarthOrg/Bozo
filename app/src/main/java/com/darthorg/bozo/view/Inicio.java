@@ -103,8 +103,8 @@ public class Inicio extends AppCompatActivity {
                 // Compartilhar app
                 Intent share = new Intent(Intent.ACTION_SEND);
                 share.setType("text/plain");
-                share.putExtra(Intent.EXTRA_TEXT, getString(R.string.compartilhar_app) + getString(R.string.url_googleplay));
-                startActivity(Intent.createChooser(share, getString(R.string.titulo_compartilhar_app)));
+                share.putExtra(Intent.EXTRA_TEXT, getString(R.string.textoCompartilharApp)+" " + getString(R.string.url_googleplay));
+                startActivity(Intent.createChooser(share, getString(R.string.compartilharApp)));
             }
         });
         fabInstrucoes.setOnClickListener(new View.OnClickListener() {
@@ -153,25 +153,6 @@ public class Inicio extends AppCompatActivity {
             finish();
         }
 
-    }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.inicio_menu, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(final MenuItem item) {
-
-        int id = item.getItemId();
-
-        if (id == R.id.action_sair) {
-            cardMSalvos.setVisibility(View.GONE);
-            trazerUltimaPartida();
-        }
-
-        return super.onOptionsItemSelected(item);
     }
 
     public void atualizarLista() {

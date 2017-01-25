@@ -86,18 +86,18 @@ public class PartidasListAdapter extends BaseAdapter {
                 AlertDialog.Builder alertDialog = new AlertDialog.Builder(parentActivity);
 
                 alertDialog.setCancelable(true);
-                alertDialog.setTitle(mContext.getString(R.string.deletar_grupo));
-                alertDialog.setMessage(mContext.getString(R.string.pergunta_deletar_partida) + mPartidaList.get(position).getNome() + " ? ");
-                alertDialog.setPositiveButton(mContext.getString(R.string.excluir), new DialogInterface.OnClickListener() {
+                alertDialog.setTitle(mContext.getString(R.string.apagarMarcador));
+                alertDialog.setMessage(mContext.getString(R.string.textoApagarMarcador) +" "+ mPartidaList.get(position).getNome() + " ? ");
+                alertDialog.setPositiveButton(mContext.getString(R.string.apagar), new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
                         PartidaController partidaController = new PartidaController(mContext);
 
                         if (partidaController.deletarPartida(mPartidaList.get(position))) {
                             mPartidaList.remove(mPartidaList.get(position));
                             notifyDataSetChanged();
-                            Toast.makeText(mContext, mContext.getString(R.string.grupo_excluido), Toast.LENGTH_SHORT).show();
+                            Toast.makeText(mContext, mContext.getString(R.string.marcadorApagado), Toast.LENGTH_SHORT).show();
                         } else {
-                            Toast.makeText(mContext, mContext.getString(R.string.erro_grupo_excluido), Toast.LENGTH_SHORT).show();
+                            Toast.makeText(mContext, mContext.getString(R.string.erroApagarMarcador), Toast.LENGTH_SHORT).show();
                         }
                         dialog.dismiss();
 

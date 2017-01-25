@@ -82,7 +82,7 @@ public class AdicionarJogadores extends AppCompatActivity {
                                 @Override
                                 public void run() {
 
-                                    txtAddJ.setText(R.string.TextoAdicionarJogadores);
+                                    txtAddJ.setText(R.string.textoAdicionarJogadores);
                                     txtFAJ.setBackgroundColor(getResources().getColor(R.color.colorAccentDark));
                                     btnCriar.setVisibility(View.VISIBLE);
                                     btnAnterior.setVisibility(View.VISIBLE);
@@ -116,7 +116,7 @@ public class AdicionarJogadores extends AppCompatActivity {
                                 @Override
                                 public void run() {
 
-                                    txtAddJ.setText(R.string.TextoAdicionarJogadores);
+                                    txtAddJ.setText(R.string.textoAdicionarJogadores);
                                     txtFAJ.setBackgroundColor(getResources().getColor(R.color.colorAccentDark));
                                     btnCriar.setVisibility(View.VISIBLE);
                                     btnAnterior.setVisibility(View.VISIBLE);
@@ -157,7 +157,7 @@ public class AdicionarJogadores extends AppCompatActivity {
                 if (jogadores.size() == 10){
 
                     txtFAJ.setBackgroundColor(getResources().getColor(R.color.colorRedFlat));
-                    txtAddJ.setText(R.string.max_jogadores_permitidos);
+                    txtAddJ.setText(R.string.textoLimeiteJogadores);
                     btnAddJogador.setVisibility(View.GONE);
                     btnCriar.setTextColor(getResources().getColor(R.color.colorWhite));
                     btnAnterior.setTextColor(getResources().getColor(R.color.colorWhite));
@@ -175,7 +175,7 @@ public class AdicionarJogadores extends AppCompatActivity {
                                 @Override
                                 public void run() {
 
-                                    txtAddJ.setText(R.string.TextoAdicionarJogadores);
+                                    txtAddJ.setText(R.string.textoAdicionarJogadores);
                                     btnAddJogador.setVisibility(View.VISIBLE);
                                     txtFAJ.setBackgroundColor(getResources().getColor(R.color.colorAccentDark));
                                     btnCriar.setTextColor(getResources().getColor(R.color.colorAccentA100));
@@ -198,7 +198,7 @@ public class AdicionarJogadores extends AppCompatActivity {
                     final EditText etNomeJogador = (EditText) dialoglayout.findViewById(R.id.edit_nome_novo_jogador);
 
                     AlertDialog.Builder builder = new AlertDialog.Builder(AdicionarJogadores.this);
-                    builder.setTitle(getString(R.string.adicionar_jogador));
+                    builder.setTitle(getString(R.string.adicionarJogador));
                     builder.setIcon(R.drawable.ic_add_jogador);
 
                     builder.setPositiveButton(getString(R.string.adicionar), new DialogInterface.OnClickListener() {

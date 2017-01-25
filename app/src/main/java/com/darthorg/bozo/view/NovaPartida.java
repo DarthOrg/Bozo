@@ -69,8 +69,8 @@ public class NovaPartida extends AppCompatActivity {
                     final AlertDialog dialog = builderFimRodada.create();
 
 
-                    txtTitulo.setText("Ops!");
-                    txtTexto.setText("Você deve adicionar um nome para seu Marcador");
+                    txtTitulo.setText(getString(R.string.ops));
+                    txtTexto.setText(R.string.textoAdicionarNomeMarcador);
                     fundo.setBackgroundColor(getResources().getColor(R.color.colorLaranja));
 
                     btnOk.setOnClickListener(new View.OnClickListener() {

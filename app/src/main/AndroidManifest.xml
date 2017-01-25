@@ -32,9 +32,6 @@
             android:name=".view.Placar"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".view.Sobre"
-            android:screenOrientation="portrait" />
-        <activity
             android:name=".view.Instrucoes"
             android:screenOrientation="portrait" />
         <!--
