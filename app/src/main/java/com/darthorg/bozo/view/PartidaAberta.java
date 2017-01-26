@@ -687,11 +687,6 @@ public class PartidaAberta extends AppCompatActivity {
             }
 
 
-        }else if (id == R.id.action_placar){
-            Intent intent = new Intent(PartidaAberta.this, Placar.class);
-            intent.putParcelableArrayListExtra("rodadasfinalizadas", listRodadas);
-            startActivity(intent);
-
         }
 
         return super.
