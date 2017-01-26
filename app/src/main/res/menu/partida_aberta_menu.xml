@@ -22,16 +22,6 @@
     </item>
 
     <item
-        android:id="@+id/action_placar"
-        android:title="@string/placarDaRodada"
-        android:orderInCategory="100"
-        android:icon="@drawable/ic_placar_white"
-        app:showAsAction="always">
-
-    </item>
-
-
-    <item
         android:id="@+id/action_finalizar"
         android:title="@string/finalizarRodada"
         android:icon="@drawable/ic_sair_white"
