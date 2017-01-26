@@ -29,9 +29,6 @@
             android:name=".view.PartidaAberta"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".view.Placar"
-            android:screenOrientation="portrait" />
-        <activity
             android:name=".view.Instrucoes"
             android:screenOrientation="portrait" />
         <!--
