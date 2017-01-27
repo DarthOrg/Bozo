@@ -1,35 +1,35 @@
 package com.darthorg.bozo.fragment;
 
 import android.app.Dialog;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.design.widget.BottomSheetBehavior;
 import android.support.design.widget.BottomSheetDialog;
-import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.Window;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.GridView;
-import android.widget.ImageButton;
 import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.darthorg.bozo.R;
 import com.darthorg.bozo.adapter.ValoresPecasGridAdapter;
 import com.darthorg.bozo.model.PecaBozo;
+import com.darthorg.bozo.view.Inicio;
 import com.darthorg.bozo.view.PartidaAberta;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import static android.content.Context.MODE_PRIVATE;
 
 /**
  * Created by Gustavo on 11/07/2016.
@@ -42,7 +42,6 @@ public class FragmentFilho extends Fragment {
     private BottomSheetDialog bottomSheetDialog;
     private View bottomSheetDialogView;
     private BottomSheetBehavior mBottomSheetBehavior;
-
 
     private String nome;
     private Button btnAz, btnDuque, btnTerno, btnQuadrada, btnSeguida, btnFull, btnQuina, btnSena, btnGeneral, btnQuadra;
@@ -80,7 +79,7 @@ public class FragmentFilho extends Fragment {
     private boolean ultimaJogada;
     private boolean hasGeneralDeBoca;
 
-    private LinearLayout fundoGanhandoTabela,fundoGanhando;
+    private LinearLayout fundoGanhandoTabela, fundoGanhando;
 
 
     // variavel necessaria para inflar o layout do AlertDialog
@@ -103,12 +102,17 @@ public class FragmentFilho extends Fragment {
         obterPecasBozo();
         setEvents();
 
+        SharedPreferences preferencias = getContext().getSharedPreferences(Inicio.PREF_CONFIG, MODE_PRIVATE);
+        int prefPontuacao = preferencias.getInt("pref_pontuacao", 0);
+        for (PecaBozo peca : pecasBozo) {
+            peca.atualizarValoresPossiveisPref(prefPontuacao);
+        }
+
         dialogInflater = inflater;
 
         for (int i = 0; i < pecasBozo.size(); i++) {
             buttons.get(i).setText(pecasBozo.get(i).getPontuacao());
         }
-
 
 
         resultadoFinal.setText(contador + "");
@@ -484,7 +488,6 @@ public class FragmentFilho extends Fragment {
             }
         }
     }
-
 
 
     public void contarPecasUsadas() {

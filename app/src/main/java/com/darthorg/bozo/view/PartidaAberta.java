@@ -3,13 +3,12 @@ package com.darthorg.bozo.view;
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
-import android.support.design.widget.BottomSheetDialog;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.TabLayout;
-import android.support.design.widget.TextInputEditText;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -81,7 +80,7 @@ public class PartidaAberta extends AppCompatActivity {
     private Intent intent;
     private Bundle bundleParams;
 
-//    private TextView tituloGrupo;
+    //    private TextView tituloGrupo;
     private final int PROGRESS_SAVE_TIME = 1000;
 
 
@@ -90,8 +89,13 @@ public class PartidaAberta extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_partida_aberta);
         changeStatusBarColor();
-        // Evita que a tela bloqueie sozinha
-        getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
+
+        SharedPreferences preferences = getSharedPreferences(Inicio.PREF_CONFIG, MODE_PRIVATE);
+        boolean prefTelaLigada = preferences.getBoolean("pref_display_ligado", true);
+        if (prefTelaLigada) {
+            // Evita que a tela bloqueie sozinha
+            getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
+        }
 
         jogadoresRodada = new ArrayList<>();
 
@@ -428,7 +432,7 @@ public class PartidaAberta extends AppCompatActivity {
                                                 //Insere a partida no banco
                                                 partidaController.inserirPartida(partida);
 
-                                                Toast.makeText(getApplicationContext(), getString(R.string.marcador) + partida.getNome() +" "+ getString(R.string.salvo_com_sucesso), Toast.LENGTH_LONG).show();
+                                                Toast.makeText(getApplicationContext(), getString(R.string.marcador) + partida.getNome() + " " + getString(R.string.salvo_com_sucesso), Toast.LENGTH_LONG).show();
                                                 builder.dismiss();
                                                 finish();
                                             }
@@ -505,9 +509,9 @@ public class PartidaAberta extends AppCompatActivity {
 
         if (id == R.id.action_finalizar) {
             finalizarRodada();
-        }else if (id == R.id.action_add_jogador){
+        } else if (id == R.id.action_add_jogador) {
 
-            if (jogadoresRodada.size() < 10){
+            if (jogadoresRodada.size() < 10) {
 
                 LayoutInflater inflater = getLayoutInflater();
 
@@ -544,9 +548,9 @@ public class PartidaAberta extends AppCompatActivity {
                                 viewPager.setCurrentItem(adapter.getCount() - 1);
                             }
 
-                            Toast.makeText(getApplicationContext(), getString(R.string.jogador) +" "+ etNomeJogador.getText().toString() + getString(R.string.foiAdicionado), Toast.LENGTH_LONG).show();
+                            Toast.makeText(getApplicationContext(), getString(R.string.jogador) + " " + etNomeJogador.getText().toString() + getString(R.string.foiAdicionado), Toast.LENGTH_LONG).show();
                             dialog.dismiss();
-                        }else {
+                        } else {
                             Toast.makeText(getApplicationContext(), R.string.nenhum_jogador_adicionado, Toast.LENGTH_LONG).show();
                         }
                     }
@@ -562,7 +566,7 @@ public class PartidaAberta extends AppCompatActivity {
                 builder.setView(dialoglayout);
                 builder.show();
 
-            }else {
+            } else {
 
                 AlertDialog.Builder builderFimRodada = new AlertDialog.Builder(this);
 
@@ -584,16 +588,13 @@ public class PartidaAberta extends AppCompatActivity {
                 });
 
 
-
                 dialog.show();
             }
 
 
+        } else if (id == R.id.action_excluir_jogador) {
 
-
-        }else if (id == R.id.action_excluir_jogador){
-
-            if (adapter.getCount() > 2){
+            if (adapter.getCount() > 2) {
 
 
                 AlertDialog.Builder builderFimRodada = new AlertDialog.Builder(this);
@@ -605,15 +606,15 @@ public class PartidaAberta extends AppCompatActivity {
 
                 final Button btnRemover = (Button) dialoglayout.findViewById(R.id.btnAcao);
                 final Button btnCancelar = (Button) dialoglayout.findViewById(R.id.btnCancelarPopup);
-                final  TextView txtTitulo = (TextView) dialoglayout.findViewById(R.id.tituloPopup);
-                final  TextView txtTexto = (TextView) dialoglayout.findViewById(R.id.txtPopup);
+                final TextView txtTitulo = (TextView) dialoglayout.findViewById(R.id.tituloPopup);
+                final TextView txtTexto = (TextView) dialoglayout.findViewById(R.id.txtPopup);
                 final LinearLayout fundo = (LinearLayout) dialoglayout.findViewById(R.id.fundoPopUp);
 
 
                 final AlertDialog dialog = builderFimRodada.create();
 
 
-                txtTitulo.setText(getString(R.string.remover)+" "+jogadoresRodada.get(viewPager.getCurrentItem()).getNome());
+                txtTitulo.setText(getString(R.string.remover) + " " + jogadoresRodada.get(viewPager.getCurrentItem()).getNome());
                 txtTitulo.setTextColor(getResources().getColor(R.color.colorRed));
                 txtTexto.setText(R.string.textoRemoverJogador);
                 txtTexto.setTextColor(getResources().getColor(R.color.colorBlackTransparente2));
@@ -653,7 +654,7 @@ public class PartidaAberta extends AppCompatActivity {
 
                 dialog.show();
 
-            }else {
+            } else {
                 AlertDialog.Builder builderFimRodada = new AlertDialog.Builder(PartidaAberta.this);
 
                 LayoutInflater layoutInflater = getLayoutInflater();
@@ -663,8 +664,8 @@ public class PartidaAberta extends AppCompatActivity {
 
                 final Button btnOk = (Button) dialoglayout.findViewById(R.id.btnAcao);
                 final Button btnCancelar = (Button) dialoglayout.findViewById(R.id.btnCancelarPopup);
-                final  TextView txtTitulo = (TextView) dialoglayout.findViewById(R.id.tituloPopup);
-                final  TextView txtTexto = (TextView) dialoglayout.findViewById(R.id.txtPopup);
+                final TextView txtTitulo = (TextView) dialoglayout.findViewById(R.id.tituloPopup);
+                final TextView txtTexto = (TextView) dialoglayout.findViewById(R.id.txtPopup);
                 final LinearLayout fundo = (LinearLayout) dialoglayout.findViewById(R.id.fundoPopUp);
 
 
@@ -699,7 +700,7 @@ public class PartidaAberta extends AppCompatActivity {
         alertDialogBuilder.setCancelable(true);
 
         if (verificaSeRodadaAcabou()) {
-            
+
             if (compararPontos() != null) {
 
                 AlertDialog.Builder builderFimRodada = new AlertDialog.Builder(this);
@@ -711,7 +712,6 @@ public class PartidaAberta extends AppCompatActivity {
                 builderFimRodada.setTitle("Acabou a rodada");
 
                 builderFimRodada.setView(dialoglayout);
-
 
 
                 final TextView ganhadorRodada = (TextView) dialoglayout.findViewById(R.id.ganhadorRodada);
@@ -727,7 +727,7 @@ public class PartidaAberta extends AppCompatActivity {
                 String jogadoresPontuacao = "";
 
                 for (int i = 0; i < listaFragments.size(); i++) {
-                    jogadoresPontuacao += jogadoresRodada.get(i).getNome() + " : " + listaFragments.get(i).getContador() + "\n" +"----------"+ "\n" ;
+                    jogadoresPontuacao += jogadoresRodada.get(i).getNome() + " : " + listaFragments.get(i).getContador() + "\n" + "----------" + "\n";
                 }
 
                 ganhadorRodada.setText(compararPontos().getNome());
@@ -758,9 +758,9 @@ public class PartidaAberta extends AppCompatActivity {
                 btnPlacarRodada.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        if (jogadoresFimRodada.getVisibility() == View.VISIBLE){
+                        if (jogadoresFimRodada.getVisibility() == View.VISIBLE) {
                             jogadoresFimRodada.setVisibility(View.GONE);
-                        }else if (jogadoresFimRodada.getVisibility() == View.GONE){
+                        } else if (jogadoresFimRodada.getVisibility() == View.GONE) {
                             jogadoresFimRodada.setVisibility(View.VISIBLE);
                         }
 
@@ -768,7 +768,7 @@ public class PartidaAberta extends AppCompatActivity {
                 });
 
                 dialog.show();
-            
+
 
             } else {
 
