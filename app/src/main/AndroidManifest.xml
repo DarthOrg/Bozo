@@ -19,9 +19,7 @@
         </activity>
         <activity
             android:name=".Welcome"
-            android:screenOrientation="portrait">
-
-        </activity>
+            android:screenOrientation="portrait"></activity>
         <activity
             android:name=".view.NovaPartida"
             android:screenOrientation="portrait" />
@@ -40,8 +38,14 @@
             android:value="@integer/google_play_services_version" />
 
         <activity android:name=".view.AdicionarJogadores" />
-        <activity android:name=".view.Inicio"
-            android:screenOrientation="portrait" ></activity>
+        <activity
+            android:name=".view.Inicio"
+            android:screenOrientation="portrait" />
+        <activity android:name=".view.Definicoes"
+            android:screenOrientation="portrait">
+
+
+        </activity>
     </application>
 
 </manifest>

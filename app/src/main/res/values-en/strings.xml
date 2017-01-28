@@ -130,6 +130,16 @@
     <string name="voltar">Back</string>
     <string name="textoAdicionarNomeMarcador">You must add a name for your bookmark</string>
     <string name="textoRodada">Congratulations!\nBest player of this round</string>
+    <string name="definicoes">Definitions</string>
+    <string name="desligado">Off</string>
+    <string name="ligado">On</string>
+    <string name="luz_de_fundo_no_marcador">Backlight on marker</string>
+    <string name="pecasTrocadas">"Parts exchanged for "</string>
+    <string name="sobre">About</string>
+    <string name="textoDesligado">Backlight Off</string>
+    <string name="textoLigado">Backlight On</string>
+    <string name="textoDialogValoresPecas">"Select the value of the part you want for your marker "</string>
+    <string name="valoresTabela">"Table Values "</string>
 
 
 </resources>

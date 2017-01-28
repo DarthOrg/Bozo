@@ -184,6 +184,16 @@ Los  dados pueden ser de cualquier valor, siempre que sean iguales. El valor que
     <string name="valores">Valores</string>
     <string name="voltar">Retorno</string>
     <string name="textoRodada">Félicitations!\nMeilleur joueur de ce tour</string>
+    <string name="definicoes">Ajustes</string>
+    <string name="desligado">Apagado</string>
+    <string name="ligado">Conectado</string>
+    <string name="luz_de_fundo_no_marcador">marcador de retroiluminación</string>
+    <string name="pecasTrocadas">"Intercambiada por partes "</string>
+    <string name="sobre">Acerca</string>
+    <string name="textoDesligado">Apague la retroiluminación</string>
+    <string name="textoLigado">Contraluz en las</string>
+    <string name="textoDialogValoresPecas">"Seleccione el valor de la pieza para su marcador "</string>
+    <string name="valoresTabela">"Valores de la tabla "</string>
 
 
 </resources>

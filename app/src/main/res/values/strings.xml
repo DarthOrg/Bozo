@@ -252,6 +252,21 @@ Na tabela no nosso app você vai marcar em Quina. Mas,observando bem, 2 duques e
          General de bôca é quando a jogada é realizada de uma só vez. E á rodada termina.</string>
     <string name="textoAdicionarNomeMarcador">Você deve adicionar um nome para seu Marcador</string>
     <string name="textoRodada">Parabéns!\nMelhor jogador desta rodada</string>
+    <string name="definicoes">Definições</string>
+    <string name="valoresPecas1" translatable="false">10 / 20 / 30 / 40</string>
+    <string name="valoresPecas2" translatable="false">20 / 30 / 40 / 50</string>
+    <string name="valoresTabela">"Valores da tabela "</string>
+    <string name="ligado">Ligado</string>
+    <string name="textoLigado">Luz de fundo Ligada</string>
+    <string name="desligado">Desligado</string>
+    <string name="textoDesligado">Luz de fundo Desligada</string>
+    <string name="luz_de_fundo_no_marcador">Luz de fundo no marcador</string>
+    <string name="valoresPecas1Selecionado" translatable="false">( 10 / 20 / 30 / 40 )</string>
+    <string name="valoresPecas2Selecionado" translatable="false">( 20 / 30 / 40 / 50 )</string>
+    <string name="pecasTrocadas">"Peças trocadas para "</string>
+    <string name="textoDialogValoresPecas">"Selecione o valor da peça que vc deseja para o seu marcador "</string>
+    <string name="nomePecasFSQG" translatable="false">( Full / Seguida / Quadrada / General )</string>
+    <string name="sobre">Sobre</string>
 
 
 </resources>
