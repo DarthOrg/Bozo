@@ -139,7 +139,7 @@
     <string name="textoDesligado">Backlight Off</string>
     <string name="textoLigado">Backlight On</string>
     <string name="textoDialogValoresPecas">"Select the value of the part you want for your marker "</string>
-    <string name="valoresTabela">"Table Values "</string>
+    <string name="valoresTabela">Table Values</string>
 
 
 </resources>

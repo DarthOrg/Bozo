@@ -255,7 +255,7 @@ Na tabela no nosso app você vai marcar em Quina. Mas,observando bem, 2 duques e
     <string name="definicoes">Definições</string>
     <string name="valoresPecas1" translatable="false">10 / 20 / 30 / 40</string>
     <string name="valoresPecas2" translatable="false">20 / 30 / 40 / 50</string>
-    <string name="valoresTabela">"Valores da tabela "</string>
+    <string name="valoresTabela">Valores da tabela</string>
     <string name="ligado">Ligado</string>
     <string name="textoLigado">Luz de fundo Ligada</string>
     <string name="desligado">Desligado</string>

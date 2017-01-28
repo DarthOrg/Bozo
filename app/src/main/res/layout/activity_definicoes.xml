@@ -1,156 +1,138 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_definicoes"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:background="@color/colorWhite"
+    android:orientation="vertical"
     tools:context="com.darthorg.bozo.view.Definicoes">
 
-<android.support.v7.widget.Toolbar
-    android:theme="@style/AppTheme.WhiteBotton"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:background="@color/colorAccentDark"
-    android:layout_alignParentTop="true"
-    android:layout_alignParentLeft="true"
-    android:layout_alignParentStart="true"
-    app:title="@string/definicoes"
-    android:id="@+id/toolbar_RS"
-    android:elevation="5dp"/>
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar_RS"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:background="@color/colorAccentDark"
+        android:elevation="5dp"
+        android:theme="@style/AppTheme.WhiteBotton"
+        app:title="@string/definicoes" />
 
-<ScrollView
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:layout_below="@+id/toolbar_RS"
-    android:layout_centerHorizontal="true">
-
-
-    <LinearLayout
-        android:orientation="vertical"
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@+id/toolbar_RS"
         android:layout_centerHorizontal="true">
 
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-
-            <TextView
-                android:text="@string/ligado"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentBottom="true"
-                android:paddingBottom="5dp"
-                android:paddingLeft="16dp"
-                android:textSize="14sp"
-                android:id="@+id/txtLuzFundo" />
-
-            <Switch
-                android:text="@string/luz_de_fundo_no_marcador"
-                android:layout_width="match_parent"
-                android:layout_height="60dp"
-                android:id="@+id/swirchLuzFundo"
-                android:padding="16dp"
-                android:autoText="false"
-                android:textOn="Ativo"
-                android:textOff="Não quero"
-                android:checked="true"
-                android:textSize="18sp"
-                android:layout_alignParentTop="true"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true"
-                android:textAllCaps="false" />
-
-        </RelativeLayout>
-
-        <FrameLayout
-            android:layout_width="match_parent"
-            android:layout_height="0.5dp"
-            android:background="@color/colorBlackTransparente3"
-            android:layout_marginLeft="13dp"
-            android:layout_marginRight="13dp"/>
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:orientation="horizontal">
+            android:layout_height="match_parent"
+            android:layout_below="@+id/toolbar_RS"
+            android:layout_centerHorizontal="true"
+            android:orientation="vertical">
 
-            <RelativeLayout
+
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1">
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="16dp">
 
-
-                <TextView
-                    android:text="@string/valoresPecas1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentBottom="true"
-                    android:textAlignment="textStart"
-                    android:paddingBottom="12dp"
-                    android:paddingLeft="16dp"
-                    android:textSize="14sp"
-                    android:id="@+id/txtValorespecas" />
-
-                <Button
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="60dp"
-                    android:background="@color/colorTrasnparente"
-                    android:text="@string/valoresTabela"
-                    android:textAlignment="textStart"
-                    android:paddingBottom="16dp"
-                    android:paddingLeft="16dp"
-                    android:textAllCaps="false"
-                    android:id="@+id/btnValoresPecas"
-                    android:textSize="18sp" />
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
 
-            </RelativeLayout>
+                    <Switch
+                        android:id="@+id/swirchLuzFundo"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:checked="true"
+                        android:text="@string/luz_de_fundo_no_marcador"
+                        android:textAllCaps="false"
+                        android:textOff="Não quero"
+                        android:textOn="Ativo"
+                        android:textSize="18sp" />
+
+                    <TextView
+                        android:id="@+id/txtLuzFundo"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="@string/ligado" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:background="@color/colorBlackTransparente" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="16dp">
+
+                <LinearLayout
+                    android:id="@+id/llValoresPecas"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="@string/valoresTabela"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                        android:textSize="18sp" />
+
+                    <TextView
+                        android:id="@+id/txtValorespecas"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="@string/valoresPecas1" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:background="@color/colorBlackTransparente" />
+
+            <LinearLayout
+                android:id="@+id/llSobre"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="16dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="@string/sobre"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                        android:textSize="18sp" />
+
+                </LinearLayout>
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:background="@color/colorBlackTransparente" />
+
 
         </LinearLayout>
-
-
-
-        <FrameLayout
-            android:layout_width="match_parent"
-            android:layout_height="0.5dp"
-            android:background="@color/colorBlackTransparente3"
-            android:layout_marginLeft="13dp"
-            android:layout_marginRight="13dp"/>
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="60dp">
-
-            <Button
-                android:layout_width="match_parent"
-                android:layout_height="60dp"
-                android:background="@color/colorTrasnparente"
-                android:text="@string/sobre"
-                android:layout_centerVertical="true"
-                android:textAlignment="textStart"
-                android:paddingLeft="16dp"
-                android:textAllCaps="false"
-                android:textSize="18dp"
-                android:id="@+id/btnSobre" />
-
-
-        </RelativeLayout>
-
-        <FrameLayout
-            android:layout_width="match_parent"
-            android:layout_height="0.5dp"
-            android:background="@color/colorBlackTransparente3"
-            android:layout_marginLeft="13dp"
-            android:layout_marginRight="13dp"/>
-
-
-    </LinearLayout>
-</ScrollView>
+    </ScrollView>
 
 
 </LinearLayout>
