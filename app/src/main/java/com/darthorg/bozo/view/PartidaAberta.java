@@ -91,7 +91,7 @@ public class PartidaAberta extends AppCompatActivity {
         changeStatusBarColor();
 
         SharedPreferences preferences = getSharedPreferences(Inicio.PREF_CONFIG, MODE_PRIVATE);
-        boolean prefTelaLigada = preferences.getBoolean("pref_display_ligado",true);
+        boolean prefTelaLigada = preferences.getBoolean("pref_display_ligado", true);
         if (prefTelaLigada) {
             // Evita que a tela bloqueie sozinha
             getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
@@ -723,14 +723,12 @@ public class PartidaAberta extends AppCompatActivity {
 
 
                 final AlertDialog dialog = builderFimRodada.create();
+                ganhadorRodada.setText(compararPontos().getNome());
 
                 String jogadoresPontuacao = "";
 
-                for (int i = 0; i < listaFragments.size(); i++) {
-                    jogadoresPontuacao += jogadoresRodada.get(i).getNome() + " : " + listaFragments.get(i).getContador() + "\n" + "----------" + "\n";
-                }
+                jogadoresPontuacao = placarJogadoresRodada();
 
-                ganhadorRodada.setText(compararPontos().getNome());
                 jogadoresFimRodada.setText(jogadoresPontuacao);
 
                 btnJogarNovaRodada.setOnClickListener(new View.OnClickListener() {
@@ -830,6 +828,28 @@ public class PartidaAberta extends AppCompatActivity {
             builder.show();
 
         }
+    }
+
+    private String placarJogadoresRodada() {
+
+        String placar = "";
+
+        List<Jogador> jogadoresPlacar = new ArrayList<>();
+
+
+                for (int i = 0; i < listaFragments.size(); i++) {
+                    Jogador jogador = new Jogador();
+                    jogador.setNome(jogadoresRodada.get(i).getNome());
+                    jogador.setPontuacao(listaFragments.get(i).getContador());
+                    jogadoresPlacar.add(jogador);
+                }
+
+                Collections.sort(jogadoresPlacar);
+                for (int i = 0; i < jogadoresPlacar.size(); i++) {
+                    placar += (i + 1) + "° " + jogadoresPlacar.get(i).getNome() + " : " + jogadoresPlacar.get(i).getPontuacao() + "\n" + "---------------" + "\n";
+                }
+
+        return placar;
     }
 
     @Override
