@@ -158,6 +158,7 @@ public class Inicio extends AppCompatActivity {
     @Override
     public void onBackPressed() {
 
+        trazerUltimaPartida();
         if (cardMSalvos.getVisibility() == VISIBLE) {
             cardMSalvos.setVisibility(View.GONE);
         } else {
