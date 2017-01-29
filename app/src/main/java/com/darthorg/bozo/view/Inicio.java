@@ -1,12 +1,12 @@
 package com.darthorg.bozo.view;
 
+import android.app.Dialog;
+import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.CardView;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.Window;
@@ -29,8 +29,6 @@ import static android.view.View.VISIBLE;
 public class Inicio extends AppCompatActivity {
 
     public static final String PREF_CONFIG = "CONFIG_PONTUACAO";
-    private SharedPreferences.Editor editor;
-    private SharedPreferences preferencias;
 
     private Toolbar toolbar;
 
@@ -45,8 +43,6 @@ public class Inicio extends AppCompatActivity {
 
 
     FloatingActionButton fabCompartilhar, fabDefinicoes, novoMarcador, fabMSalvos, fabInstrucoes;
-    CardView cardMSalvos;
-    Button cardNovoMarcador;
     LinearLayout ultimo_salvo;
 
 
@@ -56,11 +52,6 @@ public class Inicio extends AppCompatActivity {
         setContentView(R.layout.activity_inicio);
         changeStatusBarColor();
 
-        //Toobar do include marcadores salvos
-        toolbar = (Toolbar) findViewById(R.id.toolbar);
-        toolbar.setNavigationIcon(getResources().getDrawable(R.drawable.ic_marcador));
-        setSupportActionBar(toolbar);
-
 
         //Botões FAB
         fabCompartilhar = (FloatingActionButton) findViewById(R.id.fabCompartilhar);
@@ -68,10 +59,7 @@ public class Inicio extends AppCompatActivity {
         fabMSalvos = (FloatingActionButton) findViewById(R.id.fabMSalvos);
         fabInstrucoes = (FloatingActionButton) findViewById(R.id.fabInstrucoes);
 
-        //PopUp marcadores salvos
         novoMarcador = (FloatingActionButton) findViewById(R.id.novo_marcador);
-        cardMSalvos = (CardView) findViewById(R.id.CardMSalvos);
-        cardNovoMarcador = (Button) findViewById(R.id.cardBtnNovoMarcador);
         ultimo_salvo = (LinearLayout) findViewById(R.id.ultimo_salvo);
 
         novoMarcador.setOnClickListener(new View.OnClickListener() {
@@ -83,13 +71,6 @@ public class Inicio extends AppCompatActivity {
             }
         });
 
-        cardNovoMarcador.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(Inicio.this, NovaPartida.class);
-                startActivity(intent);
-            }
-        });
 
         fabDefinicoes.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -103,7 +84,60 @@ public class Inicio extends AppCompatActivity {
         fabMSalvos.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                cardMSalvos.setVisibility(VISIBLE);
+                // Implementar dialog
+                final Dialog dialogMarcadoresSalvos = new Dialog(Inicio.this);
+                dialogMarcadoresSalvos.setContentView(R.layout.dialog_marcadores_salvos);
+                dialogMarcadoresSalvos.getWindow().setLayout(WindowManager.LayoutParams.MATCH_PARENT, WindowManager.LayoutParams.MATCH_PARENT);
+
+                //Toobar do include marcadores salvos
+                toolbar = (Toolbar) dialogMarcadoresSalvos.findViewById(R.id.toolbar);
+                toolbar.setNavigationIcon(getResources().getDrawable(R.drawable.ic_marcador));
+                setSupportActionBar(toolbar);
+
+
+                Button btnNovoMarcador = (Button) dialogMarcadoresSalvos.findViewById(R.id.btnNovoMarcador);
+                btnNovoMarcador.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Intent intent = new Intent(Inicio.this, NovaPartida.class);
+                        startActivity(intent);
+                    }
+                });
+
+                listViewPartidas = (ListView) dialogMarcadoresSalvos.findViewById(R.id.list_view_partidas);
+
+                //Aparecer imagem quando a lista estiver vazia
+                listViewPartidas.setEmptyView(dialogMarcadoresSalvos.findViewById(R.id.listVazio));
+
+                //Traz as partidas Salvas
+                PartidaController partidaController = new PartidaController(Inicio.this);
+                partidaList = partidaController.buscarPartidas();
+                partidasListAdapter = new PartidasListAdapter(getApplicationContext(), partidaList, Inicio.this);
+                listViewPartidas.setAdapter(partidasListAdapter);
+
+                //Ao clicar em uma partida
+                listViewPartidas.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                    @Override
+                    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                        Intent intent = new Intent(Inicio.this, PartidaAberta.class);
+                        intent.putExtra("partidaSalva", partidaList.get(position).getIdPartida());
+                        intent.putExtra("partidaNova", false);
+                        dialogMarcadoresSalvos.dismiss();
+                        startActivity(intent);
+                    }
+                });
+
+                dialogMarcadoresSalvos.setOnDismissListener(new DialogInterface.OnDismissListener() {
+                    @Override
+                    public void onDismiss(DialogInterface dialog) {
+                        atualizarTrazerUltimaPartida();
+                    }
+                });
+
+                dialogMarcadoresSalvos.setCancelable(true);
+                dialogMarcadoresSalvos.show();
+
+
             }
         });
 
@@ -126,45 +160,14 @@ public class Inicio extends AppCompatActivity {
         });
 
 
-        listViewPartidas = (ListView) findViewById(R.id.list_view_partidas);
         listViewUltimaPartida = (ListView) findViewById(R.id.list_view_ultima_partida);
-
-        //Aparecer imagem quando a lista estiver vazia
-        listViewPartidas.setEmptyView(findViewById(R.id.listVazio));
-
-        PartidaController partidaController = new PartidaController(Inicio.this);
-        partidaList = partidaController.buscarPartidas();
-
-
-        partidasListAdapter = new PartidasListAdapter(getApplicationContext(), partidaList, this);
-
-        listViewPartidas.setAdapter(partidasListAdapter);
-
-        listViewPartidas.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent intent = new Intent(Inicio.this, PartidaAberta.class);
-                intent.putExtra("partidaSalva", partidaList.get(position).getIdPartida());
-                intent.putExtra("partidaNova", false);
-                startActivity(intent);
-            }
-        });
-
-
-        trazerUltimaPartida();
+        atualizarTrazerUltimaPartida();
 
     }
 
     @Override
     public void onBackPressed() {
-
-        trazerUltimaPartida();
-        if (cardMSalvos.getVisibility() == VISIBLE) {
-            cardMSalvos.setVisibility(View.GONE);
-        } else {
-            finish();
-        }
-
+        finish();
     }
 
     public void atualizarLista() {
@@ -175,7 +178,7 @@ public class Inicio extends AppCompatActivity {
 
     }
 
-    public void trazerUltimaPartida() {
+    public void atualizarTrazerUltimaPartida() {
 
         PartidaController partidaController = new PartidaController(Inicio.this);
         ultimaPartida = partidaController.buscarUltimaPartida();
@@ -204,7 +207,7 @@ public class Inicio extends AppCompatActivity {
         super.onRestart();
         atualizarLista();
 
-        trazerUltimaPartida();
+        atualizarTrazerUltimaPartida();
     }
 
     private void changeStatusBarColor() {

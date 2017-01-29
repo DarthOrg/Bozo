@@ -29,8 +29,6 @@ public class PartidasListAdapter extends BaseAdapter {
     private Activity parentActivity;
 
     //Construtor
-
-
     public PartidasListAdapter(Context mContext, List<Partida> mPartidaList, Activity parentActivity) {
         this.mContext = mContext;
         this.mPartidaList = mPartidaList;
