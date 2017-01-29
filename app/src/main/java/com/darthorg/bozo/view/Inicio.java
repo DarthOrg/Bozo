@@ -170,14 +170,6 @@ public class Inicio extends AppCompatActivity {
         finish();
     }
 
-    public void atualizarLista() {
-        PartidaController partidaController = new PartidaController(Inicio.this);
-        partidaList = partidaController.buscarPartidas();
-        partidasListAdapter = new PartidasListAdapter(getApplicationContext(), partidaList, this);
-        listViewPartidas.setAdapter(partidasListAdapter);
-
-    }
-
     public void atualizarTrazerUltimaPartida() {
 
         PartidaController partidaController = new PartidaController(Inicio.this);
@@ -205,8 +197,6 @@ public class Inicio extends AppCompatActivity {
     @Override
     protected void onRestart() {
         super.onRestart();
-        atualizarLista();
-
         atualizarTrazerUltimaPartida();
     }
 
