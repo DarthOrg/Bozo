@@ -184,7 +184,7 @@ public class Inicio extends AppCompatActivity {
                 @Override
                 public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                     Intent intent = new Intent(Inicio.this, PartidaAberta.class);
-                    intent.putExtra("partidaSalva", partidaList.get(position).getIdPartida());
+                    intent.putExtra("partidaSalva", ultimaPartida.getIdPartida());
                     intent.putExtra("partidaNova", false);
                     startActivity(intent);
                 }
