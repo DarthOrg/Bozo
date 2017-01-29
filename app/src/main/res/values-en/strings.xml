@@ -98,7 +98,7 @@
     <string name="requer_jogador">Almost there! Add only 1 player to start</string>
     <string name="requer_jogadores">Oops! Add at least 2 players to get started</string>
     <string name="rodada_incompleta">Some players have not yet completed all the spaces. Do you want to quit?</string>
-    <string name="sair">Get out</string>
+    <string name="sair">Exit</string>
     <string name="sairDoMarcador">Exit bookmark</string>
     <string name="sair_sem_jogar">You did not play any round.\nDo you want to leave anyway?</string>
     <string name="salvando">Saving just a moment ...</string>

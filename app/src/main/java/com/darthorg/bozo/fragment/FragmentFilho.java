@@ -1,5 +1,6 @@
 package com.darthorg.bozo.fragment;
 
+import android.annotation.SuppressLint;
 import android.app.Dialog;
 import android.content.SharedPreferences;
 import android.graphics.Color;
@@ -91,7 +92,10 @@ public class FragmentFilho extends Fragment {
     private ViewPager viewPager;
     private final int TEMPO_TELA = 500;
 
+    public FragmentFilho() {
+    }
 
+    @SuppressLint("ValidFragment")
     public FragmentFilho(ViewPager viewPager) {
         this.viewPager = viewPager;
     }
