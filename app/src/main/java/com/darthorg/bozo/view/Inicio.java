@@ -6,8 +6,10 @@ import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -15,6 +17,7 @@ import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import com.darthorg.bozo.R;
 import com.darthorg.bozo.adapter.PartidasListAdapter;
@@ -85,11 +88,20 @@ public class Inicio extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 // Implementar dialog
-                final Dialog dialogMarcadoresSalvos = new Dialog(Inicio.this);
-                dialogMarcadoresSalvos.setContentView(R.layout.dialog_marcadores_salvos);
-                dialogMarcadoresSalvos.getWindow().setLayout(WindowManager.LayoutParams.MATCH_PARENT, WindowManager.LayoutParams.MATCH_PARENT);
 
-                Button btnNovoMarcador = (Button) dialogMarcadoresSalvos.findViewById(R.id.btnNovoMarcador);
+                final AlertDialog.Builder builder = new AlertDialog.Builder(Inicio.this);
+
+                LayoutInflater layoutInflater = getLayoutInflater();
+                final View dialoglayout = layoutInflater.inflate(R.layout.dialog_marcadores_salvos, null);
+
+                builder.setView(dialoglayout);
+
+
+                final AlertDialog dialog = builder.create();
+
+
+
+                Button btnNovoMarcador = (Button) dialoglayout.findViewById(R.id.btnNovoMarcador);
                 btnNovoMarcador.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
@@ -98,10 +110,10 @@ public class Inicio extends AppCompatActivity {
                     }
                 });
 
-                listViewPartidas = (ListView) dialogMarcadoresSalvos.findViewById(R.id.list_view_partidas);
+                listViewPartidas = (ListView) dialoglayout.findViewById(R.id.list_view_partidas);
 
                 //Aparecer imagem quando a lista estiver vazia
-                listViewPartidas.setEmptyView(dialogMarcadoresSalvos.findViewById(R.id.listVazio));
+                listViewPartidas.setEmptyView(dialoglayout.findViewById(R.id.listVazio));
 
                 //Traz as partidas Salvas
                 PartidaController partidaController = new PartidaController(Inicio.this);
@@ -116,20 +128,20 @@ public class Inicio extends AppCompatActivity {
                         Intent intent = new Intent(Inicio.this, PartidaAberta.class);
                         intent.putExtra("partidaSalva", partidaList.get(position).getIdPartida());
                         intent.putExtra("partidaNova", false);
-                        dialogMarcadoresSalvos.dismiss();
+                        dialog.dismiss();
                         startActivity(intent);
                     }
                 });
 
-                dialogMarcadoresSalvos.setOnDismissListener(new DialogInterface.OnDismissListener() {
+                builder.setOnDismissListener(new DialogInterface.OnDismissListener() {
                     @Override
                     public void onDismiss(DialogInterface dialog) {
                         atualizarTrazerUltimaPartida();
                     }
                 });
 
-                dialogMarcadoresSalvos.setCancelable(true);
-                dialogMarcadoresSalvos.show();
+
+                dialog.show();
 
 
             }
