@@ -196,6 +196,7 @@ Los  dados pueden ser de cualquier valor, siempre que sean iguales. El valor que
     <string name="valoresTabela">Valores de la tabla</string>
     <string name="versao">"Versión : "</string>
     <string name="versao_padrao">Versión : 1.1</string>
+    <string name="todos_direitos_reservados">Derechos reservados.</string>
 
 
 </resources>

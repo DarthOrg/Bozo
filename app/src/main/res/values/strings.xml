@@ -269,6 +269,7 @@ Na tabela no nosso app você vai marcar em Quina. Mas,observando bem, 2 duques e
     <string name="sobre">Sobre</string>
     <string name="versao">"Versão : "</string>
     <string name="versao_padrao">Versão : 1.1</string>
+    <string name="todos_direitos_reservados">Todos direitos reservados.</string>
 
 
 </resources>
