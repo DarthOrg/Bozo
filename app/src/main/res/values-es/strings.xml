@@ -194,6 +194,8 @@ Los  dados pueden ser de cualquier valor, siempre que sean iguales. El valor que
     <string name="textoLigado">Contraluz en las</string>
     <string name="textoDialogValoresPecas">"Seleccione el valor de la pieza para su marcador "</string>
     <string name="valoresTabela">Valores de la tabla</string>
+    <string name="versao">"Versión : "</string>
+    <string name="versao_padrao">Versión : 1.1</string>
 
 
 </resources>

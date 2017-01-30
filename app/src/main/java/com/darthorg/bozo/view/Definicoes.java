@@ -70,6 +70,16 @@ public class Definicoes extends AppCompatActivity {
                 AlertDialog.Builder builder = new AlertDialog.Builder(Definicoes.this);
                 LayoutInflater layoutInflater = getLayoutInflater();
                 View dialoglayout = layoutInflater.inflate(R.layout.dialog_sobre, null);
+
+                TextView txtVersão = (TextView) dialoglayout.findViewById(R.id.txtVersao);
+
+                try {
+                    String versao = getApplicationContext().getPackageManager().getPackageInfo(getApplicationContext().getPackageName(), 0).versionName;
+                    txtVersão.setText(getString(R.string.versao) + versao);
+                }catch (Exception e){
+                    txtVersão.setText(R.string.versao_padrao);
+                }
+
                 builder.setCancelable(true);
                 builder.setView(dialoglayout);
                 builder.show();

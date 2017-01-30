@@ -267,6 +267,8 @@ Na tabela no nosso app você vai marcar em Quina. Mas,observando bem, 2 duques e
     <string name="textoDialogValoresPecas">"Selecione o valor da peça que vc deseja para o seu marcador "</string>
     <string name="nomePecasFSQG" translatable="false">( Full / Seguida / Quadrada / General )</string>
     <string name="sobre">Sobre</string>
+    <string name="versao">"Versão : "</string>
+    <string name="versao_padrao">Versão : 1.1</string>
 
 
 </resources>

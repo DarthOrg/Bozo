@@ -140,6 +140,8 @@
     <string name="textoLigado">Backlight On</string>
     <string name="textoDialogValoresPecas">"Select the value of the part you want for your marker "</string>
     <string name="valoresTabela">Table Values</string>
+    <string name="versao">"Version : "</string>
+    <string name="versao_padrao">Version : 1.1</string>
 
 
 </resources>
