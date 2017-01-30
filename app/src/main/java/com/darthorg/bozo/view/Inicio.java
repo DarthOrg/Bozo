@@ -1,6 +1,5 @@
 package com.darthorg.bozo.view;
 
-import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Build;
@@ -17,7 +16,6 @@ import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.ListView;
-import android.widget.TextView;
 
 import com.darthorg.bozo.R;
 import com.darthorg.bozo.adapter.PartidasListAdapter;
@@ -133,7 +131,7 @@ public class Inicio extends AppCompatActivity {
                     }
                 });
 
-                builder.setOnDismissListener(new DialogInterface.OnDismissListener() {
+                dialog.setOnDismissListener(new DialogInterface.OnDismissListener() {
                     @Override
                     public void onDismiss(DialogInterface dialog) {
                         atualizarTrazerUltimaPartida();
