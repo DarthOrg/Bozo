@@ -16,14 +16,17 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <android.support.v7.widget.Toolbar
-                android:id="@+id/toolbar"
+            <Button
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/colorFundoInstruções"
-                android:minHeight="?attr/actionBarSize"
-                android:theme="?attr/actionBarTheme"
-                app:title="@string/marcadoresSalvos" />
+                android:background="@color/colorTrasnparente"
+                android:drawableLeft="@drawable/ic_marcador"
+                android:drawablePadding="10dp"
+                android:paddingLeft="10dp"
+                android:text="@string/marcadoresSalvos"
+                android:textAlignment="textStart"
+                android:textAllCaps="false"
+                android:textSize="18dp" />
 
             <RelativeLayout
                 android:layout_width="match_parent"

@@ -79,7 +79,7 @@
     <string name="adicionar">Adicionar</string>
     <string name="compartilharApp">Compartilhar APP</string>
     <string name="textoCompartilharApp">Baixe Marcador Bozó na GooglePlay</string>
-    <string name="url_googleplay" translatable="false">https://play.google.com/store/apps/details?id=com.adobe.psmobile</string>
+    <string name="url_googleplay" translatable="false">https://play.google.com/store/apps/details?id=com.darthorg.bozo</string>
     <string name="recurso_nao_suportado">Recurso não suportado no seu dispositivo</string>
     <string name="parar">Parar</string>
     <string name="jogador">Jogador</string>

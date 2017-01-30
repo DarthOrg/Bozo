@@ -89,12 +89,6 @@ public class Inicio extends AppCompatActivity {
                 dialogMarcadoresSalvos.setContentView(R.layout.dialog_marcadores_salvos);
                 dialogMarcadoresSalvos.getWindow().setLayout(WindowManager.LayoutParams.MATCH_PARENT, WindowManager.LayoutParams.MATCH_PARENT);
 
-                //Toobar do include marcadores salvos
-                toolbar = (Toolbar) dialogMarcadoresSalvos.findViewById(R.id.toolbar);
-                toolbar.setNavigationIcon(getResources().getDrawable(R.drawable.ic_marcador));
-                setSupportActionBar(toolbar);
-
-
                 Button btnNovoMarcador = (Button) dialogMarcadoresSalvos.findViewById(R.id.btnNovoMarcador);
                 btnNovoMarcador.setOnClickListener(new View.OnClickListener() {
                     @Override
