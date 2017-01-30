@@ -104,6 +104,7 @@ public class Inicio extends AppCompatActivity {
                     @Override
                     public void onClick(View view) {
                         Intent intent = new Intent(Inicio.this, NovaPartida.class);
+                        dialog.dismiss();
                         startActivity(intent);
                     }
                 });
