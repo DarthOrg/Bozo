@@ -21,66 +21,91 @@
         android:layout_marginBottom="10dp"
         android:gravity="center">
 
-
-        <android.support.design.widget.FloatingActionButton
-            android:layout_height="wrap_content"
+        <RelativeLayout
             android:layout_width="wrap_content"
-            android:src="@drawable/ic_compartilhar"
-            android:clickable="true"
-            android:layout_weight="1"
-            android:tint="@color/colorBlack"
-            android:layout_gravity="center"
-            android:id="@+id/fabCompartilhar"
-            app:backgroundTint="@android:color/white"
-            android:layout_margin="10dp" />
-
-        <android.support.design.widget.FloatingActionButton
             android:layout_height="wrap_content"
+            android:layout_weight="1">
+
+            <android.support.design.widget.FloatingActionButton
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:src="@drawable/ic_compartilhar"
+                android:clickable="true"
+                android:tint="@color/colorBlack"
+                android:layout_centerInParent="true"
+                android:id="@+id/fabCompartilhar"
+                app:backgroundTint="@android:color/white"
+                android:layout_margin="10dp" />
+        </RelativeLayout>
+        <RelativeLayout
             android:layout_width="wrap_content"
-            android:src="@drawable/ic_configuracoes"
-            android:clickable="true"
-            android:layout_weight="1"
-            android:tint="@color/colorBlack"
-            android:layout_gravity="center"
-            android:id="@+id/fabDefinicoes"
-            app:backgroundTint="@android:color/white"
-            android:layout_margin="6dp" />
-
-
-        <android.support.design.widget.FloatingActionButton
-            android:layout_height="65dp"
-            android:layout_width="65dp"
-            android:src="@drawable/ic_play_white"
-            android:clickable="true"
-            android:tint="@color/colorWhite"
-            android:id="@+id/novo_marcador"
-            android:layout_margin="10dp" />
-
-
-        <android.support.design.widget.FloatingActionButton
             android:layout_height="wrap_content"
+            android:layout_weight="1">
+
+            <android.support.design.widget.FloatingActionButton
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:src="@drawable/ic_configuracoes"
+                android:clickable="true"
+                android:tint="@color/colorBlack"
+                android:layout_centerInParent="true"
+                android:id="@+id/fabDefinicoes"
+                app:backgroundTint="@android:color/white"
+                android:layout_margin="6dp" />
+        </RelativeLayout>
+        <RelativeLayout
             android:layout_width="wrap_content"
-            android:src="@drawable/ic_marcador"
-            android:clickable="true"
-            android:tint="@color/colorBlack"
-            android:layout_weight="1"
-            android:layout_gravity="center"
-            android:id="@+id/fabMSalvos"
-            app:backgroundTint="@android:color/white"
-            android:layout_margin="6dp" />
-
-
-        <android.support.design.widget.FloatingActionButton
             android:layout_height="wrap_content"
+            android:layout_weight="1">
+
+            <android.support.design.widget.FloatingActionButton
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:src="@drawable/ic_play_white"
+                android:clickable="true"
+                android:layout_centerInParent="true"
+                android:tint="@color/colorWhite"
+                android:id="@+id/novo_marcador"
+                android:layout_margin="10dp" />
+        </RelativeLayout>
+
+        <RelativeLayout
             android:layout_width="wrap_content"
-            android:src="@drawable/ic_instrucoes"
-            android:clickable="true"
-            android:tint="@color/colorBlack"
-            android:layout_gravity="center"
-            android:layout_weight="1"
-            android:id="@+id/fabInstrucoes"
-            app:backgroundTint="@android:color/white"
-            android:layout_margin="10dp"/>
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+
+            <android.support.design.widget.FloatingActionButton
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:src="@drawable/ic_marcador"
+                android:clickable="true"
+                android:tint="@color/colorBlack"
+                android:layout_centerInParent="true"
+                android:id="@+id/fabMSalvos"
+                app:backgroundTint="@android:color/white"
+                android:layout_margin="6dp" />
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+
+            <android.support.design.widget.FloatingActionButton
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:src="@drawable/ic_instrucoes"
+                android:clickable="true"
+                android:layout_centerInParent="true"
+                android:tint="@color/colorBlack"
+                android:id="@+id/fabInstrucoes"
+                app:backgroundTint="@android:color/white"
+                android:layout_margin="10dp"/>
+        </RelativeLayout>
+
+
+
+
+
 
     </LinearLayout>
 
