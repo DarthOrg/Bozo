@@ -264,7 +264,7 @@ Na tabela no nosso app você vai marcar em Quina. Mas,observando bem, 2 duques e
     <string name="valoresPecas1Selecionado" translatable="false">( 10 / 20 / 30 / 40 )</string>
     <string name="valoresPecas2Selecionado" translatable="false">( 20 / 30 / 40 / 50 )</string>
     <string name="pecasTrocadas">"Peças trocadas para "</string>
-    <string name="textoDialogValoresPecas">"Selecione o valor da peça que vc deseja para o seu marcador "</string>
+    <string name="textoDialogValoresPecas">Selecione o valor da peça que vc deseja para o seu marcador</string>
     <string name="nomePecasFSQG" translatable="false">( Full / Seguida / Quadrada / General )</string>
     <string name="sobre">Sobre</string>
     <string name="versao">"Versão : "</string>
