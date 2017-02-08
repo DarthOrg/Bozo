@@ -6,11 +6,70 @@
     android:background="@color/colorAccent"
     android:layout_height="match_parent">
 
+
     <android.support.v4.view.ViewPager
         android:id="@+id/viewPagerMarcadorJogador"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_weight="1" />
+
+    <LinearLayout
+        android:id="@+id/fundoGanhandoTabela"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:layout_alignParentBottom="true"
+        android:background="@color/colorTrasnparente"
+        android:orientation="horizontal">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <android.support.design.widget.FloatingActionButton
+                android:id="@+id/fabADDJogador"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:clickable="true"
+                android:layout_margin="16dp"
+                app:fabSize="normal"
+                app:backgroundTint="@color/colorWhite"
+                app:srcCompat="@drawable/ic_jogador" />
+
+
+
+        </FrameLayout>
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/colorTrasnparente"
+            android:layout_weight="1"/>
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+
+
+            <ImageButton
+                android:id="@+id/fabDados"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:src="@drawable/ic_dado"
+                android:background="@drawable/circulo_transparente"
+                android:layout_margin="16dp"
+                android:layout_gravity="center"/>
+
+
+
+
+        </FrameLayout>
+
+    </LinearLayout>
 
     <LinearLayout
         android:orientation="vertical"
