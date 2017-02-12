@@ -1,18 +1,12 @@
 package com.darthorg.bozo.view;
 
-import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.hardware.Sensor;
-import android.hardware.SensorEvent;
-import android.hardware.SensorEventListener;
-import android.hardware.SensorManager;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
-import android.support.design.widget.BottomSheetBehavior;
 import android.support.design.widget.BottomSheetDialog;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.TabLayout;
@@ -37,7 +31,6 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.darthorg.bozo.DadosVirtuais;
 import com.darthorg.bozo.R;
 import com.darthorg.bozo.adapter.TabsDinamicosAdapter;
 import com.darthorg.bozo.controller.PartidaController;
@@ -49,7 +42,6 @@ import com.darthorg.bozo.model.Rodada;
 
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Iterator;
 import java.util.List;
 
 
@@ -131,7 +123,7 @@ public class PartidaAberta extends AppCompatActivity {
         fabDados.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(PartidaAberta.this, DadosVirtuais.class);
+                Intent intent = new Intent(PartidaAberta.this, CopoVirtual.class);
                 startActivity(intent);
             }
         });
