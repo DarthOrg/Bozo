@@ -1,0 +1,323 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/activity_dados_virtuais"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.darthorg.bozo.DadosVirtuais"
+    android:weightSum="1">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar_RS"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:layout_marginTop="25dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:background="@color/colorTrasnparente"
+        android:elevation="5dp"
+        android:theme="@style/AppTheme.WhiteBotton"
+        app:title="Dados virtuais"
+        app:navigationIcon="@drawable/ic_sair_white"/>
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/recebeDados">
+
+
+        <!--Mesa-->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/colorAccentDarkWhite">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/imagem_desenhos"
+                android:scaleType="centerCrop"/>
+            <!--Dados copo-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:orientation="vertical">
+
+
+                <!--3 dados-->
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="85dp"
+                    android:elevation="-5dp">
+
+
+                    <!--dado 1-->
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1">
+
+                        <ImageButton
+                            android:layout_width="60dp"
+                            android:layout_height="60dp"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:layout_margin="10dp"
+                            android:elevation="5dp"
+                            android:background="@drawable/retangulo_white"
+                            android:src="@drawable/ic_dado_um"/>
+
+                    </RelativeLayout>
+
+                    <!--dado 2-->
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent">
+
+                        <ImageButton
+                            android:layout_width="60dp"
+                            android:layout_height="60dp"
+                            android:layout_centerInParent="true"
+                            android:elevation="5dp"
+                            android:layout_margin="10dp"
+                            android:background="@drawable/retangulo_white"
+                            android:src="@drawable/ic_dado_dois"/>
+
+                    </RelativeLayout>
+
+                    <!--dado 3-->
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1">
+
+                        <ImageButton
+                            android:layout_width="60dp"
+                            android:layout_height="60dp"
+                            android:layout_alignParentLeft="true"
+                            android:layout_centerVertical="true"
+                            android:layout_margin="10dp"
+                            android:elevation="5dp"
+                            android:background="@drawable/retangulo_white"
+                            android:src="@drawable/ic_dado_tres"/>
+
+                    </RelativeLayout>
+
+
+
+                </LinearLayout>
+
+                <!--2 dados-->
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="85dp"
+                    android:elevation="-5dp">
+
+                    <!--dado 4-->
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1">
+
+                        <ImageButton
+                            android:layout_width="60dp"
+                            android:layout_height="60dp"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:layout_margin="10dp"
+                            android:elevation="5dp"
+                            android:background="@drawable/retangulo_white"
+                            android:src="@drawable/ic_dado_um"/>
+
+                    </RelativeLayout>
+
+                    <!--dado 5-->
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1">
+
+                        <ImageButton
+                            android:layout_width="60dp"
+                            android:layout_height="60dp"
+                            android:layout_alignParentLeft="true"
+                            android:layout_centerVertical="true"
+                            android:layout_margin="10dp"
+                            android:elevation="5dp"
+                            android:background="@drawable/retangulo_white"
+                            android:src="@drawable/ic_dado_dois"/>
+
+                    </RelativeLayout>
+
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+            <!--dado botões-->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_margin="10dp"
+                android:layout_centerInParent="true">
+
+                <Button
+                    android:id="@+id/pedir_embaixo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Parar e pedir Embaixo"
+                    android:textSize="13dp"
+                    android:visibility="gone"
+                    android:textColor="@color/colorBlackTransparente185"
+                    android:backgroundTint="@color/colorWhiteFundo"
+                    android:textAllCaps="true"/>
+
+                <Button
+                    android:id="@+id/parar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Parar"
+                    android:textSize="13dp"
+                    android:visibility="gone"
+                    android:textColor="@color/colorWhite"
+                    android:backgroundTint="@color/colorAccent"
+                    android:textAllCaps="true"/>
+
+                <Button
+                    android:id="@+id/jogar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Jogar dados"
+                    android:textSize="13dp"
+                    android:textColor="@color/colorWhite"
+                    android:backgroundTint="@color/colorAccent"
+                    android:textAllCaps="true"/>
+
+            </LinearLayout>
+
+
+        </RelativeLayout>
+    </android.support.v7.widget.CardView>
+
+    <!--Onde os dados vão ser arrastados-->
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorBlackTransparente25"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:elevation="-5dp"
+        android:layout_alignParentStart="true"
+        android:id="@+id/recebeDados">
+
+        <!--Texto informando o tipo de jogada que ele realizou-->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Você tem 3 chances"
+            android:textSize="15dp"
+            android:textAlignment="center"
+            android:padding="10dp"
+            />
+
+        <!--linha dados abaixo-->
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="85dp"
+        android:elevation="-5dp">
+
+        <!--dado 1-->
+        <RelativeLayout
+               android:layout_width="match_parent"
+               android:layout_height="match_parent"
+               android:layout_weight="1">
+
+               <ImageButton
+                   android:layout_width="60dp"
+                   android:layout_height="60dp"
+                   android:layout_centerInParent="true"
+                   android:elevation="5dp"
+                   android:background="@drawable/retangulo_white"
+                   android:src="@drawable/ic_dado_um"/>
+
+           </RelativeLayout>
+
+        <!--dado 2-->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <ImageButton
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_centerInParent="true"
+                android:elevation="5dp"
+                android:background="@drawable/retangulo_white"
+                android:src="@drawable/ic_dado_dois"/>
+
+        </RelativeLayout>
+
+        <!--dado 3-->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <ImageButton
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_centerInParent="true"
+                android:elevation="5dp"
+                android:background="@drawable/retangulo_white"
+                android:src="@drawable/ic_dado_tres"/>
+
+        </RelativeLayout>
+
+        <!--dado 4-->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <ImageButton
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_centerInParent="true"
+                android:elevation="5dp"
+                android:background="@drawable/retangulo_white"
+                android:src="@drawable/ic_dado_quatro"/>
+
+        </RelativeLayout>
+
+        <!--dado 5-->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <ImageButton
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_centerInParent="true"
+                android:elevation="5dp"
+                android:background="@drawable/retangulo_white"
+                android:src="@drawable/ic_dado_cinco"/>
+
+        </RelativeLayout>
+
+
+    </LinearLayout>
+
+    </LinearLayout>
+
+</RelativeLayout>
