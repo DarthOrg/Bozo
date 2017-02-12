@@ -22,7 +22,7 @@
         android:background="@color/colorTrasnparente"
         android:orientation="horizontal">
 
-        <FrameLayout
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1">
@@ -33,14 +33,15 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:clickable="true"
-                android:layout_margin="16dp"
                 app:fabSize="normal"
+                android:layout_margin="16dp"
+                android:layout_centerInParent="true"
                 app:backgroundTint="@color/colorWhite"
                 app:srcCompat="@drawable/ic_jogador" />
 
 
 
-        </FrameLayout>
+        </RelativeLayout>
 
         <FrameLayout
             android:layout_width="match_parent"
@@ -48,26 +49,29 @@
             android:background="@color/colorTrasnparente"
             android:layout_weight="1"/>
 
-        <FrameLayout
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1">
 
 
 
-            <ImageButton
+            <android.support.design.widget.FloatingActionButton
                 android:id="@+id/fabDados"
-                android:layout_width="60dp"
-                android:layout_height="60dp"
-                android:src="@drawable/ic_dado"
-                android:background="@drawable/circulo_transparente"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:clickable="true"
                 android:layout_margin="16dp"
-                android:layout_gravity="center"/>
+                android:layout_centerInParent="true"
+                app:fabSize="normal"
+                app:backgroundTint="@color/colorWhite"
+                app:srcCompat="@drawable/ic_dado_quina" />
 
 
 
 
-        </FrameLayout>
+        </RelativeLayout>
 
     </LinearLayout>
 

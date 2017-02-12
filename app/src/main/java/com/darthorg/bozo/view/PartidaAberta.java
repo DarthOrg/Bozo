@@ -37,6 +37,7 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.darthorg.bozo.DadosVirtuais;
 import com.darthorg.bozo.R;
 import com.darthorg.bozo.adapter.TabsDinamicosAdapter;
 import com.darthorg.bozo.controller.PartidaController;
@@ -81,8 +82,7 @@ public class PartidaAberta extends AppCompatActivity {
     private ImageButton BSplacar, BSaddJogador, BSremoverJogador;
 //    ImageButton fabMais;
 
-     public FloatingActionButton fabADDJogador;
-    public ImageButton fabDados;
+     public FloatingActionButton fabADDJogador,fabDados;
 
 
     //Responsaveis por trazer os dados da Activity anterior
@@ -92,10 +92,13 @@ public class PartidaAberta extends AppCompatActivity {
     //    private TextView tituloGrupo;
     private final int PROGRESS_SAVE_TIME = 1000;
 
-    // BottonSheetDialog
+    // BottonSheetDialog Jogador
     private BottomSheetDialog bottomSheetDialog;
     private View bottomSheetDialogView;
-    private BottomSheetBehavior mBottomSheetBehavior;
+
+    // BottonSheetDialog DAdo
+    private BottomSheetDialog bottomSheetDialogDado;
+    private View bottomSheetDialogViewDado;
 
 
 
@@ -124,6 +127,14 @@ public class PartidaAberta extends AppCompatActivity {
         bundleParams = intent.getExtras();
 
 
+        //FAB Dados
+        fabDados.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(PartidaAberta.this, DadosVirtuais.class);
+                startActivity(intent);
+            }
+        });
 
         //Método que configura a partida
         configurarPartida();
@@ -134,7 +145,7 @@ public class PartidaAberta extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                //Bottom Sheet Dialog btn MAIS
+                //Bottom Sheet Dialog btn jogador
                 bottomSheetDialog = new BottomSheetDialog(PartidaAberta.this);
                 bottomSheetDialogView = getLayoutInflater().inflate(R.layout.dialog_jogador, null);
                 bottomSheetDialog.setContentView(bottomSheetDialogView);
@@ -373,7 +384,7 @@ public class PartidaAberta extends AppCompatActivity {
         tabLayout = (TabLayout) findViewById(R.id.tabLayoutJogadores);
 
         fabADDJogador = (FloatingActionButton) findViewById(R.id.fabADDJogador);
-        fabDados = (ImageButton) findViewById(R.id.fabDados);
+        fabDados = (FloatingActionButton) findViewById(R.id.fabDados);
 
     }
 

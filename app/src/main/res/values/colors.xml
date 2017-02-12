@@ -16,12 +16,27 @@
     <color name="colorPrimary_splash">#FFFFFF</color>
     <color name="colorStatusBar">#b4b4b4</color>
 
+
+    <color name="colorWhite">#ffffff</color>
+    <color name="colorWhiteTransparente185">#b9ffffff</color>
+    <color name="colorWhiteTransparente127">#7fffffff</color>
+    <color name="colorWhiteTransparente61">#3dffffff</color>
+    <color name="colorWhiteFundo">#f5f5f5</color>
+    <color name="colorBlackCinza">#131313</color>
+    <color name="colorBlack">#000000</color>
+    <color name="colorBlackTransparente185">#b9000000</color>
+    <color name="colorBlackTransparente127">#7f000000</color>
+    <color name="colorBlackTransparente85">#55000000</color>
+    <color name="colorBlackTransparente61">#3d000000</color>
+    <color name="colorBlackTransparente25">#19000000</color>
+
+    <color name="colorTransparente">#00000000</color>
+
     <!--ThemeDistaque-->
     <color name="colorPrimary_distaque">#607D8B</color>
     <color name="colorPrimaryDark_distaque">#455A64</color>
 
     <!--cores-->
-    <color name="colorWhite">#ffffff</color>
     <color name="colorWhiteTransparente">#b3ffffff</color>
     <color name="colorWhiteTransparente2">#5affffff</color>
     <color name="colorRedTransparente">#5aff0000</color>
@@ -38,9 +53,7 @@
     <color name="colorGreenLight">#8eb8cc</color>
     <color name="colorFundoPartida">#ededed</color>
     <color name="colorFundoInstruções">#ededed</color>
-    <color name="colorWhiteFundo">#f5f5f5</color>
     <color name="colorBtnFab">#e9e9e9</color>
-    <color name="colorBlack">#000000</color>
     <color name="colorBlackTransparente">#4b000000</color>
     <color name="colorBlackTransparente2">#a5000000</color>
     <color name="colorBlackTransparente3">#3f000000</color>

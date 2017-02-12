@@ -19,7 +19,7 @@
         </activity>
         <activity
             android:name=".Welcome"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".view.NovaPartida"
             android:screenOrientation="portrait" />
@@ -41,11 +41,11 @@
         <activity
             android:name=".view.Inicio"
             android:screenOrientation="portrait" />
-        <activity android:name=".view.Definicoes"
-            android:screenOrientation="portrait">
-
-
-        </activity>
+        <activity
+            android:name=".view.Definicoes"
+            android:screenOrientation="portrait"></activity>
+        <activity android:name=".DadosVirtuais"
+            android:screenOrientation="portrait"></activity>
     </application>
 
 </manifest>

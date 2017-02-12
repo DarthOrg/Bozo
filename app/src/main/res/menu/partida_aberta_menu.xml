@@ -7,6 +7,7 @@
         android:id="@+id/action_add_jogador"
         android:title="@string/adicionarJogador"
         android:orderInCategory="100"
+        android:visible="false"
         android:icon="@drawable/ic_add_jogador_white"
         app:showAsAction="always">
 
@@ -16,6 +17,7 @@
         android:id="@+id/action_excluir_jogador"
         android:title="@string/removerJogador"
         android:orderInCategory="100"
+        android:visible="false"
         android:icon="@drawable/ic_deletar_jogador_white"
         app:showAsAction="always">
 
