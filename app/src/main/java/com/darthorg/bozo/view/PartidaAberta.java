@@ -1,12 +1,19 @@
 package com.darthorg.bozo.view;
 
+import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.hardware.Sensor;
+import android.hardware.SensorEvent;
+import android.hardware.SensorEventListener;
+import android.hardware.SensorManager;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
+import android.support.design.widget.BottomSheetBehavior;
+import android.support.design.widget.BottomSheetDialog;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
@@ -41,6 +48,7 @@ import com.darthorg.bozo.model.Rodada;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Iterator;
 import java.util.List;
 
 
@@ -73,7 +81,8 @@ public class PartidaAberta extends AppCompatActivity {
     private ImageButton BSplacar, BSaddJogador, BSremoverJogador;
 //    ImageButton fabMais;
 
-    FloatingActionButton fabMais;
+     public FloatingActionButton fabADDJogador;
+    public ImageButton fabDados;
 
 
     //Responsaveis por trazer os dados da Activity anterior
@@ -82,6 +91,12 @@ public class PartidaAberta extends AppCompatActivity {
 
     //    private TextView tituloGrupo;
     private final int PROGRESS_SAVE_TIME = 1000;
+
+    // BottonSheetDialog
+    private BottomSheetDialog bottomSheetDialog;
+    private View bottomSheetDialogView;
+    private BottomSheetBehavior mBottomSheetBehavior;
+
 
 
     @Override
@@ -108,8 +123,218 @@ public class PartidaAberta extends AppCompatActivity {
         intent = getIntent();
         bundleParams = intent.getExtras();
 
+
+
         //Método que configura a partida
         configurarPartida();
+
+
+        //Add jogador FAB
+        fabADDJogador.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                //Bottom Sheet Dialog btn MAIS
+                bottomSheetDialog = new BottomSheetDialog(PartidaAberta.this);
+                bottomSheetDialogView = getLayoutInflater().inflate(R.layout.dialog_jogador, null);
+                bottomSheetDialog.setContentView(bottomSheetDialogView);
+
+                final Button btnAdicionar = (Button) bottomSheetDialog.findViewById(R.id.adicionarJogador);
+                final Button btnRemover = (Button) bottomSheetDialog.findViewById(R.id.removerJogador);
+
+
+                btnAdicionar.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+
+                        bottomSheetDialog.dismiss();
+
+                        if (jogadoresRodada.size() < 10) {
+
+                            LayoutInflater inflater = getLayoutInflater();
+
+                            View dialoglayout = inflater.inflate(R.layout.dialog_novo_jogador, null);
+
+                            final EditText etNomeJogador = (EditText) dialoglayout.findViewById(R.id.edit_nome_novo_jogador);
+
+                            AlertDialog.Builder builder = new AlertDialog.Builder(PartidaAberta.this);
+                            builder.setTitle(getString(R.string.adicionarJogador));
+                            builder.setIcon(R.drawable.ic_add_jogador);
+
+                            builder.setPositiveButton(getString(R.string.adicionar), new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+
+                                    if (!TextUtils.isEmpty(etNomeJogador.getText())) {
+
+                                        FragmentFilho fragmentFilho = new FragmentFilho(viewPager);
+                                        Jogador jogador = new Jogador();
+                                        jogador.setNome(etNomeJogador.getText().toString());
+                                        fragmentFilho.setNome(etNomeJogador.getText().toString());
+
+                                        // Adiciona o jogador numa lista local de jogadores
+                                        jogadoresRodada.add(jogador);
+
+                                        listaFragments.add(fragmentFilho);
+
+                                        //Adiciona o Fragment nas tabs
+                                        adapter.addFrag(fragmentFilho, etNomeJogador.getText().toString());
+                                        // Notifica o Adapter que um novo fragment foi adicionado
+                                        adapter.notifyDataSetChanged();
+                                        if (adapter.getCount() > 0) {
+                                            tabLayout.setupWithViewPager(viewPager);
+                                            viewPager.setCurrentItem(adapter.getCount() - 1);
+                                        }
+
+                                        Toast.makeText(getApplicationContext(), getString(R.string.jogador) + " " + etNomeJogador.getText().toString() + getString(R.string.foiAdicionado), Toast.LENGTH_LONG).show();
+                                        dialog.dismiss();
+                                    } else {
+                                        Toast.makeText(getApplicationContext(), R.string.nenhum_jogador_adicionado, Toast.LENGTH_LONG).show();
+                                    }
+                                }
+                            });
+
+                            builder.setNegativeButton(getString(R.string.cancelar), new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    dialog.dismiss();
+                                }
+                            });
+
+                            builder.setView(dialoglayout);
+                            builder.show();
+
+                        } else {
+
+                            AlertDialog.Builder builderFimRodada = new AlertDialog.Builder(PartidaAberta.this);
+
+                            LayoutInflater layoutInflater = getLayoutInflater();
+                            final View dialoglayout = layoutInflater.inflate(R.layout.dialog_partida_aberta, null);
+
+                            builderFimRodada.setView(dialoglayout);
+
+                            final Button btnOK = (Button) dialoglayout.findViewById(R.id.btnAcao);
+
+
+                            final AlertDialog dialog = builderFimRodada.create();
+
+                            btnOK.setOnClickListener(new View.OnClickListener() {
+                                @Override
+                                public void onClick(View v) {
+                                    dialog.dismiss();
+                                }
+                            });
+
+
+                            dialog.show();
+                        }
+                    }
+                });
+
+                btnRemover.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        bottomSheetDialog.dismiss();
+                        if (adapter.getCount() > 2) {
+
+
+                            AlertDialog.Builder builderRemoverJogador = new AlertDialog.Builder(PartidaAberta.this);
+
+                            LayoutInflater layoutInflater = getLayoutInflater();
+                            final View dialoglayout = layoutInflater.inflate(R.layout.dialog_partida_aberta, null);
+
+                            builderRemoverJogador.setView(dialoglayout);
+
+                            final Button btnRemover = (Button) dialoglayout.findViewById(R.id.btnAcao);
+                            final Button btnCancelar = (Button) dialoglayout.findViewById(R.id.btnCancelarPopup);
+                            final TextView txtTitulo = (TextView) dialoglayout.findViewById(R.id.tituloPopup);
+                            final TextView txtTexto = (TextView) dialoglayout.findViewById(R.id.txtPopup);
+                            final LinearLayout fundo = (LinearLayout) dialoglayout.findViewById(R.id.fundoPopUp);
+
+
+                            final AlertDialog dialogRemoverJogador = builderRemoverJogador.create();
+
+
+                            txtTitulo.setText(getString(R.string.remover) + " " + jogadoresRodada.get(viewPager.getCurrentItem()).getNome());
+                            txtTitulo.setTextColor(getResources().getColor(R.color.colorRed));
+                            txtTexto.setText(R.string.textoRemoverJogador);
+                            txtTexto.setTextColor(getResources().getColor(R.color.colorBlackTransparente2));
+                            btnCancelar.setVisibility(View.VISIBLE);
+                            btnCancelar.setTextColor(getResources().getColor(R.color.colorBlackTransparente2));
+                            fundo.setBackgroundColor(getResources().getColor(R.color.colorWhiteFundo));
+                            btnRemover.setText(getString(R.string.remover));
+                            btnRemover.setTextColor(getResources().getColor(R.color.colorRed));
+                            btnRemover.setOnClickListener(new View.OnClickListener() {
+                                @Override
+                                public void onClick(View v) {
+
+                                    //remove o fragment da lista
+                                    listaFragments.remove(viewPager.getCurrentItem());
+
+                                    // Remove o jogador da rodada
+                                    jogadoresRodada.remove(viewPager.getCurrentItem());
+
+                                    // Remove o Fragment
+                                    adapter.removeFrag(viewPager.getCurrentItem());
+
+                                    // Notifica o adapter que um fragment foi removido
+                                    adapter.notifyDataSetChanged();
+                                    // vincula denovo o viewpager com o tablayout
+                                    tabLayout.setupWithViewPager(viewPager);
+
+                                    dialogRemoverJogador.dismiss();
+                                }
+                            });
+
+                            btnCancelar.setOnClickListener(new View.OnClickListener() {
+                                @Override
+                                public void onClick(View v) {
+                                    dialogRemoverJogador.dismiss();
+                                }
+                            });
+
+                            dialogRemoverJogador.show();
+
+                        } else {
+                            AlertDialog.Builder builderRemoverJogador2 = new AlertDialog.Builder(PartidaAberta.this);
+
+                            LayoutInflater layoutInflater = getLayoutInflater();
+                            final View dialoglayout = layoutInflater.inflate(R.layout.dialog_partida_aberta, null);
+
+                            builderRemoverJogador2.setView(dialoglayout);
+
+                            final Button btnOk = (Button) dialoglayout.findViewById(R.id.btnAcao);
+                            final Button btnCancelar = (Button) dialoglayout.findViewById(R.id.btnCancelarPopup);
+                            final TextView txtTitulo = (TextView) dialoglayout.findViewById(R.id.tituloPopup);
+                            final TextView txtTexto = (TextView) dialoglayout.findViewById(R.id.txtPopup);
+                            final LinearLayout fundo = (LinearLayout) dialoglayout.findViewById(R.id.fundoPopUp);
+
+
+                            final AlertDialog dialogRemoverJogador2 = builderRemoverJogador2.create();
+
+
+                            txtTitulo.setText(R.string.ops);
+                            txtTexto.setText(R.string.textoOpsRemoverJogador);
+                            fundo.setBackgroundColor(getResources().getColor(R.color.colorLaranja));
+
+                            btnOk.setOnClickListener(new View.OnClickListener() {
+                                @Override
+                                public void onClick(View v) {
+                                    dialogRemoverJogador2.dismiss();
+                                }
+                            });
+
+
+                            dialogRemoverJogador2.show();
+                        }
+                    }
+                });
+
+
+                bottomSheetDialog.show();
+            }
+
+        });
 
         //Compara os pontos e mostra quem esta ganhando
         viewPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
@@ -130,6 +355,7 @@ public class PartidaAberta extends AppCompatActivity {
 
     }
 
+
     private void changeStatusBarColor() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             Window window = getWindow();
@@ -145,6 +371,9 @@ public class PartidaAberta extends AppCompatActivity {
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         viewPager = (ViewPager) findViewById(R.id.viewPagerMarcadorJogador);
         tabLayout = (TabLayout) findViewById(R.id.tabLayoutJogadores);
+
+        fabADDJogador = (FloatingActionButton) findViewById(R.id.fabADDJogador);
+        fabDados = (ImageButton) findViewById(R.id.fabDados);
 
     }
 
@@ -509,187 +738,7 @@ public class PartidaAberta extends AppCompatActivity {
 
         if (id == R.id.action_finalizar) {
             finalizarRodada();
-        } else if (id == R.id.action_add_jogador) {
-
-            if (jogadoresRodada.size() < 10) {
-
-                LayoutInflater inflater = getLayoutInflater();
-
-                View dialoglayout = inflater.inflate(R.layout.dialog_novo_jogador, null);
-
-                final EditText etNomeJogador = (EditText) dialoglayout.findViewById(R.id.edit_nome_novo_jogador);
-
-                AlertDialog.Builder builder = new AlertDialog.Builder(PartidaAberta.this);
-                builder.setTitle(getString(R.string.adicionarJogador));
-                builder.setIcon(R.drawable.ic_add_jogador);
-
-                builder.setPositiveButton(getString(R.string.adicionar), new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-
-                        if (!TextUtils.isEmpty(etNomeJogador.getText())) {
-
-                            FragmentFilho fragmentFilho = new FragmentFilho(viewPager);
-                            Jogador jogador = new Jogador();
-                            jogador.setNome(etNomeJogador.getText().toString());
-                            fragmentFilho.setNome(etNomeJogador.getText().toString());
-
-                            // Adiciona o jogador numa lista local de jogadores
-                            jogadoresRodada.add(jogador);
-
-                            listaFragments.add(fragmentFilho);
-
-                            //Adiciona o Fragment nas tabs
-                            adapter.addFrag(fragmentFilho, etNomeJogador.getText().toString());
-                            // Notifica o Adapter que um novo fragment foi adicionado
-                            adapter.notifyDataSetChanged();
-                            if (adapter.getCount() > 0) {
-                                tabLayout.setupWithViewPager(viewPager);
-                                viewPager.setCurrentItem(adapter.getCount() - 1);
-                            }
-
-                            Toast.makeText(getApplicationContext(), getString(R.string.jogador) + " " + etNomeJogador.getText().toString() + getString(R.string.foiAdicionado), Toast.LENGTH_LONG).show();
-                            dialog.dismiss();
-                        } else {
-                            Toast.makeText(getApplicationContext(), R.string.nenhum_jogador_adicionado, Toast.LENGTH_LONG).show();
-                        }
-                    }
-                });
-
-                builder.setNegativeButton(getString(R.string.cancelar), new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        dialog.dismiss();
-                    }
-                });
-
-                builder.setView(dialoglayout);
-                builder.show();
-
-            } else {
-
-                AlertDialog.Builder builderFimRodada = new AlertDialog.Builder(this);
-
-                LayoutInflater layoutInflater = getLayoutInflater();
-                final View dialoglayout = layoutInflater.inflate(R.layout.dialog_partida_aberta, null);
-
-                builderFimRodada.setView(dialoglayout);
-
-                final Button btnOK = (Button) dialoglayout.findViewById(R.id.btnAcao);
-
-
-                final AlertDialog dialog = builderFimRodada.create();
-
-                btnOK.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        dialog.dismiss();
-                    }
-                });
-
-
-                dialog.show();
-            }
-
-
-        } else if (id == R.id.action_excluir_jogador) {
-
-            if (adapter.getCount() > 2) {
-
-
-                AlertDialog.Builder builderFimRodada = new AlertDialog.Builder(this);
-
-                LayoutInflater layoutInflater = getLayoutInflater();
-                final View dialoglayout = layoutInflater.inflate(R.layout.dialog_partida_aberta, null);
-
-                builderFimRodada.setView(dialoglayout);
-
-                final Button btnRemover = (Button) dialoglayout.findViewById(R.id.btnAcao);
-                final Button btnCancelar = (Button) dialoglayout.findViewById(R.id.btnCancelarPopup);
-                final TextView txtTitulo = (TextView) dialoglayout.findViewById(R.id.tituloPopup);
-                final TextView txtTexto = (TextView) dialoglayout.findViewById(R.id.txtPopup);
-                final LinearLayout fundo = (LinearLayout) dialoglayout.findViewById(R.id.fundoPopUp);
-
-
-                final AlertDialog dialog = builderFimRodada.create();
-
-
-                txtTitulo.setText(getString(R.string.remover) + " " + jogadoresRodada.get(viewPager.getCurrentItem()).getNome());
-                txtTitulo.setTextColor(getResources().getColor(R.color.colorRed));
-                txtTexto.setText(R.string.textoRemoverJogador);
-                txtTexto.setTextColor(getResources().getColor(R.color.colorBlackTransparente2));
-                btnCancelar.setVisibility(View.VISIBLE);
-                btnCancelar.setTextColor(getResources().getColor(R.color.colorBlackTransparente2));
-                fundo.setBackgroundColor(getResources().getColor(R.color.colorWhiteFundo));
-                btnRemover.setText(getString(R.string.remover));
-                btnRemover.setTextColor(getResources().getColor(R.color.colorRed));
-                btnRemover.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-
-                        //remove o fragment da lista
-                        listaFragments.remove(viewPager.getCurrentItem());
-
-                        // Remove o jogador da rodada
-                        jogadoresRodada.remove(viewPager.getCurrentItem());
-
-                        // Remove o Fragment
-                        adapter.removeFrag(viewPager.getCurrentItem());
-
-                        // Notifica o adapter que um fragment foi removido
-                        adapter.notifyDataSetChanged();
-                        // vincula denovo o viewpager com o tablayout
-                        tabLayout.setupWithViewPager(viewPager);
-
-                        dialog.dismiss();
-                    }
-                });
-
-                btnCancelar.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        dialog.dismiss();
-                    }
-                });
-
-                dialog.show();
-
-            } else {
-                AlertDialog.Builder builderFimRodada = new AlertDialog.Builder(PartidaAberta.this);
-
-                LayoutInflater layoutInflater = getLayoutInflater();
-                final View dialoglayout = layoutInflater.inflate(R.layout.dialog_partida_aberta, null);
-
-                builderFimRodada.setView(dialoglayout);
-
-                final Button btnOk = (Button) dialoglayout.findViewById(R.id.btnAcao);
-                final Button btnCancelar = (Button) dialoglayout.findViewById(R.id.btnCancelarPopup);
-                final TextView txtTitulo = (TextView) dialoglayout.findViewById(R.id.tituloPopup);
-                final TextView txtTexto = (TextView) dialoglayout.findViewById(R.id.txtPopup);
-                final LinearLayout fundo = (LinearLayout) dialoglayout.findViewById(R.id.fundoPopUp);
-
-
-                final AlertDialog dialog = builderFimRodada.create();
-
-
-                txtTitulo.setText(R.string.ops);
-                txtTexto.setText(R.string.textoOpsRemoverJogador);
-                fundo.setBackgroundColor(getResources().getColor(R.color.colorLaranja));
-
-                btnOk.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        dialog.dismiss();
-                    }
-                });
-
-
-                dialog.show();
-            }
-
-
         }
-
         return super.
 
                 onOptionsItemSelected(item);
