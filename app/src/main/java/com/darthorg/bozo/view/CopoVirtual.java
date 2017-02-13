@@ -9,6 +9,7 @@ import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import android.os.Build;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -22,6 +23,7 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 
 import com.darthorg.bozo.R;
@@ -33,6 +35,9 @@ public class CopoVirtual extends AppCompatActivity {
 
     SensorManager sensorManager;
     Sensor sensorEmAcao;
+
+    LinearLayout linearLayout,dadosEmbaixo;
+    ImageView copo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,24 +65,38 @@ public class CopoVirtual extends AppCompatActivity {
         findViewById(R.id.lugar5).setOnDragListener(new MyOnDragListener(5));
         findViewById(R.id.llAreaPrincipal).setOnDragListener(new MyOnDragListener(5));
 
-        final Button pedir_embaixo = (Button) findViewById(R.id.pedir_embaixo);
-        final Button jogar = (Button) findViewById(R.id.jogar);
+        final FloatingActionButton atualizar = (FloatingActionButton) findViewById(R.id.atualizar);
+        final FloatingActionButton jogar = (FloatingActionButton) findViewById(R.id.jogarDados);
+        final FloatingActionButton embaixo = (FloatingActionButton) findViewById(R.id.embaixo);
+
+        copo = (ImageView) findViewById(R.id.copo);
 
         jogar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                LinearLayout linearLayout = (LinearLayout) findViewById(R.id.llAreaPrincipal);
+                linearLayout = (LinearLayout) findViewById(R.id.llAreaPrincipal);
 
                 sensorManager.registerListener(new MySensorEvent(linearLayout), sensorEmAcao, SensorManager.SENSOR_DELAY_GAME);
+
+                linearLayout.setVisibility(View.GONE);
+                copo.setVisibility(View.VISIBLE);
+
+                copo.setRotation(45);
             }
         });
-        pedir_embaixo.setOnClickListener(new View.OnClickListener() {
+        atualizar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 finish();
                 Intent intent = new Intent(CopoVirtual.this,CopoVirtual.class);
                 startActivity(intent);
                 }
+        });
+        embaixo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
         });
 
     }
@@ -109,6 +128,8 @@ public class CopoVirtual extends AppCompatActivity {
 
         LinearLayout containerPrincipal = (LinearLayout) layoutContainerPrincipal;
         List<ImageButton> dadosParaEmbaralhar = new ArrayList<>();
+
+
 
         //Recupera os ImageViews
         for (int i = 0; i < containerPrincipal.getChildCount(); i++) {
@@ -164,6 +185,8 @@ public class CopoVirtual extends AppCompatActivity {
             embaralharDados(linearLayout);
             if (event.values[1] < -8 && (event.values[0] < 2 && event.values[0] > -2)) {
                 sensorManager.unregisterListener(this);
+                linearLayout.setVisibility(View.VISIBLE);
+                copo.setVisibility(View.GONE);
             }
         }
 
