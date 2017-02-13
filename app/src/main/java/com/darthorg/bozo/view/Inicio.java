@@ -14,6 +14,7 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 
@@ -53,6 +54,14 @@ public class Inicio extends AppCompatActivity {
         setContentView(R.layout.activity_inicio);
         changeStatusBarColor();
 
+        ImageView copoVirtual = (ImageView) findViewById(R.id.copoVirtual);
+        copoVirtual.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Inicio.this,CopoVirtual.class);
+                startActivity(intent);
+            }
+        });
 
         //Botões FAB
         fabCompartilhar = (FloatingActionButton) findViewById(R.id.fabCompartilhar);

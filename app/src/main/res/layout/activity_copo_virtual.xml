@@ -39,126 +39,84 @@
                 android:layout_height="match_parent"
                 android:src="@drawable/imagem_desenhos"
                 android:scaleType="centerCrop"/>
+
             <!--Dados copo-->
+
+
             <LinearLayout
+                android:id="@+id/llAreaPrincipal"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_centerInParent="true"
-                android:orientation="vertical">
+                android:layout_height="match_parent"
+                android:layout_centerInParent="true">
 
-
-                <!--3 dados-->
-                <LinearLayout
-                    android:orientation="horizontal"
-                    android:layout_width="match_parent"
-                    android:layout_height="85dp"
-                    android:elevation="-5dp">
-
-
-                    <!--dado 1-->
-                    <RelativeLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1">
-
-                        <ImageButton
-                            android:layout_width="60dp"
-                            android:layout_height="60dp"
-                            android:layout_alignParentRight="true"
-                            android:layout_centerVertical="true"
-                            android:layout_margin="10dp"
-                            android:elevation="5dp"
-                            android:background="@drawable/retangulo_white"
-                            android:src="@drawable/ic_dado_um"/>
-
-                    </RelativeLayout>
-
-                    <!--dado 2-->
-                    <RelativeLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent">
-
-                        <ImageButton
-                            android:layout_width="60dp"
-                            android:layout_height="60dp"
-                            android:layout_centerInParent="true"
-                            android:elevation="5dp"
-                            android:layout_margin="10dp"
-                            android:background="@drawable/retangulo_white"
-                            android:src="@drawable/ic_dado_dois"/>
-
-                    </RelativeLayout>
-
-                    <!--dado 3-->
-                    <RelativeLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1">
-
-                        <ImageButton
-                            android:layout_width="60dp"
-                            android:layout_height="60dp"
-                            android:layout_alignParentLeft="true"
-                            android:layout_centerVertical="true"
-                            android:layout_margin="10dp"
-                            android:elevation="5dp"
-                            android:background="@drawable/retangulo_white"
-                            android:src="@drawable/ic_dado_tres"/>
-
-                    </RelativeLayout>
-
-
-
-                </LinearLayout>
-
-                <!--2 dados-->
-                <LinearLayout
-                    android:orientation="horizontal"
-                    android:layout_width="match_parent"
-                    android:layout_height="85dp"
-                    android:elevation="-5dp">
-
-                    <!--dado 4-->
-                    <RelativeLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1">
-
-                        <ImageButton
-                            android:layout_width="60dp"
-                            android:layout_height="60dp"
-                            android:layout_alignParentRight="true"
-                            android:layout_centerVertical="true"
-                            android:layout_margin="10dp"
-                            android:elevation="5dp"
-                            android:background="@drawable/retangulo_white"
-                            android:src="@drawable/ic_dado_um"/>
-
-                    </RelativeLayout>
-
-                    <!--dado 5-->
-                    <RelativeLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1">
-
-                        <ImageButton
-                            android:layout_width="60dp"
-                            android:layout_height="60dp"
-                            android:layout_alignParentLeft="true"
-                            android:layout_centerVertical="true"
-                            android:layout_margin="10dp"
-                            android:elevation="5dp"
-                            android:background="@drawable/retangulo_white"
-                            android:src="@drawable/ic_dado_dois"/>
-
-                    </RelativeLayout>
-
-
-                </LinearLayout>
-
+                <!--dado 1-->
+                <ImageButton
+                    android:id="@+id/dado1"
+                    android:src="@drawable/ic_dado_um"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:elevation="5dp"
+                    android:padding="5dp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/retangulo_white"
+                    />
+                <!--dado 2-->
+                <ImageButton
+                    android:id="@+id/dado2"
+                    android:src="@drawable/ic_dado_dois"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:elevation="5dp"
+                    android:padding="5dp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/retangulo_white"
+                    />
+                <!--dado 3-->
+                <ImageButton
+                    android:id="@+id/dado3"
+                    android:src="@drawable/ic_dado_tres"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:elevation="5dp"
+                    android:padding="5dp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/retangulo_white"
+                    />
+                <!--dado 4-->
+                <ImageButton
+                    android:id="@+id/dado4"
+                    android:src="@drawable/ic_dado_quatro"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:elevation="5dp"
+                    android:padding="5dp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/retangulo_white"
+                    />
+                <!--dado 5-->
+                <ImageButton
+                    android:id="@+id/dado5"
+                    android:src="@drawable/ic_dado_cinco"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:padding="5dp"
+                    android:elevation="5dp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/retangulo_white"
+                    />
 
             </LinearLayout>
+
+
+
+
+
+
 
             <!--dado botões-->
             <LinearLayout
@@ -172,23 +130,12 @@
                     android:id="@+id/pedir_embaixo"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Parar e pedir Embaixo"
+                    android:text="Jogar Novamente"
                     android:textSize="13dp"
-                    android:visibility="gone"
                     android:textColor="@color/colorBlackTransparente185"
                     android:backgroundTint="@color/colorWhiteFundo"
                     android:textAllCaps="true"/>
 
-                <Button
-                    android:id="@+id/parar"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Parar"
-                    android:textSize="13dp"
-                    android:visibility="gone"
-                    android:textColor="@color/colorWhite"
-                    android:backgroundTint="@color/colorAccent"
-                    android:textAllCaps="true"/>
 
                 <Button
                     android:id="@+id/jogar"
@@ -232,88 +179,48 @@
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="85dp"
-        android:elevation="-5dp">
+        android:layout_height="85dp">
 
         <!--dado 1-->
-        <RelativeLayout
+        <LinearLayout
+            android:id="@+id/lugar1"
+            android:orientation="vertical"
                android:layout_width="match_parent"
                android:layout_height="match_parent"
-               android:layout_weight="1">
-
-               <ImageButton
-                   android:layout_width="60dp"
-                   android:layout_height="60dp"
-                   android:layout_centerInParent="true"
-                   android:elevation="5dp"
-                   android:background="@drawable/retangulo_white"
-                   android:src="@drawable/ic_dado_um"/>
-
-           </RelativeLayout>
+               android:layout_weight="1"/>
 
         <!--dado 2-->
-        <RelativeLayout
+        <LinearLayout
+            android:id="@+id/lugar2"
+            android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_weight="1">
-
-            <ImageButton
-                android:layout_width="60dp"
-                android:layout_height="60dp"
-                android:layout_centerInParent="true"
-                android:elevation="5dp"
-                android:background="@drawable/retangulo_white"
-                android:src="@drawable/ic_dado_dois"/>
-
-        </RelativeLayout>
+            android:layout_weight="1"/>
 
         <!--dado 3-->
-        <RelativeLayout
+        <LinearLayout
+            android:id="@+id/lugar3"
+            android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_weight="1">
-
-            <ImageButton
-                android:layout_width="60dp"
-                android:layout_height="60dp"
-                android:layout_centerInParent="true"
-                android:elevation="5dp"
-                android:background="@drawable/retangulo_white"
-                android:src="@drawable/ic_dado_tres"/>
-
-        </RelativeLayout>
+            android:layout_weight="1"/>
 
         <!--dado 4-->
-        <RelativeLayout
+        <LinearLayout
+            android:id="@+id/lugar4"
+            android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_weight="1">
-
-            <ImageButton
-                android:layout_width="60dp"
-                android:layout_height="60dp"
-                android:layout_centerInParent="true"
-                android:elevation="5dp"
-                android:background="@drawable/retangulo_white"
-                android:src="@drawable/ic_dado_quatro"/>
-
-        </RelativeLayout>
+            android:layout_weight="1"/>
 
         <!--dado 5-->
-        <RelativeLayout
+        <LinearLayout
+            android:id="@+id/lugar5"
+            android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_weight="1">
+            android:layout_weight="1"/>
 
-            <ImageButton
-                android:layout_width="60dp"
-                android:layout_height="60dp"
-                android:layout_centerInParent="true"
-                android:elevation="5dp"
-                android:background="@drawable/retangulo_white"
-                android:src="@drawable/ic_dado_cinco"/>
-
-        </RelativeLayout>
 
 
     </LinearLayout>

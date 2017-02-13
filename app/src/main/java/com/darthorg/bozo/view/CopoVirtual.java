@@ -1,18 +1,38 @@
 package com.darthorg.bozo.view;
 
+import android.content.ClipData;
+import android.content.ClipDescription;
+import android.content.Context;
+import android.content.Intent;
+import android.hardware.Sensor;
+import android.hardware.SensorEvent;
+import android.hardware.SensorEventListener;
+import android.hardware.SensorManager;
 import android.os.Build;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
+import android.view.DragEvent;
 import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.ImageButton;
+import android.widget.LinearLayout;
 
 import com.darthorg.bozo.R;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class CopoVirtual extends AppCompatActivity {
+
+    SensorManager sensorManager;
+    Sensor sensorEmAcao;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,33 +44,40 @@ public class CopoVirtual extends AppCompatActivity {
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
+        sensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
+        sensorEmAcao = sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
+
+        findViewById(R.id.dado1).setOnTouchListener(new MyTouchListener());
+        findViewById(R.id.dado2).setOnTouchListener(new MyTouchListener());
+        findViewById(R.id.dado3).setOnTouchListener(new MyTouchListener());
+        findViewById(R.id.dado4).setOnTouchListener(new MyTouchListener());
+        findViewById(R.id.dado5).setOnTouchListener(new MyTouchListener());
+
+        findViewById(R.id.lugar1).setOnDragListener(new MyOnDragListener(1));
+        findViewById(R.id.lugar2).setOnDragListener(new MyOnDragListener(2));
+        findViewById(R.id.lugar3).setOnDragListener(new MyOnDragListener(3));
+        findViewById(R.id.lugar4).setOnDragListener(new MyOnDragListener(4));
+        findViewById(R.id.lugar5).setOnDragListener(new MyOnDragListener(5));
+        findViewById(R.id.llAreaPrincipal).setOnDragListener(new MyOnDragListener(5));
+
         final Button pedir_embaixo = (Button) findViewById(R.id.pedir_embaixo);
-        final Button parar = (Button) findViewById(R.id.parar);
         final Button jogar = (Button) findViewById(R.id.jogar);
 
         jogar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                jogar.setVisibility(View.GONE);
-                parar.setVisibility(View.VISIBLE);
-                pedir_embaixo.setVisibility(View.VISIBLE);
-            }
-        });
-        parar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                jogar.setVisibility(View.VISIBLE);
-                parar.setVisibility(View.GONE);
-                pedir_embaixo.setVisibility(View.GONE);
+                LinearLayout linearLayout = (LinearLayout) findViewById(R.id.llAreaPrincipal);
+
+                sensorManager.registerListener(new MySensorEvent(linearLayout), sensorEmAcao, SensorManager.SENSOR_DELAY_GAME);
             }
         });
         pedir_embaixo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                jogar.setVisibility(View.VISIBLE);
-                parar.setVisibility(View.GONE);
-                pedir_embaixo.setVisibility(View.GONE);
-            }
+                finish();
+                Intent intent = new Intent(CopoVirtual.this,CopoVirtual.class);
+                startActivity(intent);
+                }
         });
 
     }
@@ -76,5 +103,152 @@ public class CopoVirtual extends AppCompatActivity {
         if (Build.VERSION.SDK_INT >= 21) {
             getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_STABLE | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN);
         }
+    }
+
+    public List<ImageButton> embaralharDados(ViewGroup layoutContainerPrincipal) {
+
+        LinearLayout containerPrincipal = (LinearLayout) layoutContainerPrincipal;
+        List<ImageButton> dadosParaEmbaralhar = new ArrayList<>();
+
+        //Recupera os ImageViews
+        for (int i = 0; i < containerPrincipal.getChildCount(); i++) {
+            dadosParaEmbaralhar.add((ImageButton) containerPrincipal.getChildAt(i));
+        }
+
+        //Para cada imageView
+        for (ImageButton img : dadosParaEmbaralhar) {
+            int random = (int) (Math.random() * 6) + 1;
+            img.setTag(random);
+        }
+
+        trocarImagens(dadosParaEmbaralhar);
+
+        return dadosParaEmbaralhar;
+    }
+
+    private void trocarImagens(List<ImageButton> imageButtonsComTag) {
+
+        for (ImageButton imgButton : imageButtonsComTag) {
+            int tag = (int) imgButton.getTag();
+
+            switch (tag) {
+                case 1:
+                    imgButton.setImageResource(R.drawable.ic_dado_um);
+                    break;
+                case 2:
+                    imgButton.setImageResource(R.drawable.ic_dado_dois);
+                    break;
+                case 3:
+                    imgButton.setImageResource(R.drawable.ic_dado_tres);
+                    break;
+                case 4:
+                    imgButton.setImageResource(R.drawable.ic_dado_quatro);
+                    break;
+                case 5:
+                    imgButton.setImageResource(R.drawable.ic_dado_cinco);
+                    break;
+            }
+        }
+    }
+
+    class MySensorEvent implements SensorEventListener {
+
+        LinearLayout linearLayout;
+
+        public MySensorEvent(LinearLayout linearLayout) {
+            this.linearLayout = linearLayout;
+        }
+
+        @Override
+        public void onSensorChanged(SensorEvent event) {
+            embaralharDados(linearLayout);
+            if (event.values[1] < -8 && (event.values[0] < 2 && event.values[0] > -2)) {
+                sensorManager.unregisterListener(this);
+            }
+        }
+
+        @Override
+        public void onAccuracyChanged(Sensor sensor, int accuracy) {
+
+        }
+    }
+
+    class MyTouchListener implements View.OnTouchListener {
+
+        @Override
+        public boolean onTouch(View v, MotionEvent event) {
+            ClipData data = ClipData.newPlainText("simple_text", "text");
+            View.DragShadowBuilder sb = new View.DragShadowBuilder(v);
+            v.startDrag(data, sb, v, 0);
+            return true;
+
+        }
+    }
+
+    class MyOnDragListener implements View.OnDragListener {
+
+        private int num;
+
+        public MyOnDragListener(int num) {
+            this.num = num;
+        }
+
+        @Override
+        public boolean onDrag(View v, DragEvent event) {
+            int action = event.getAction();
+            View draggedView = (View) event.getLocalState();
+            ;
+
+            switch (action) {
+                case DragEvent.ACTION_DRAG_STARTED:
+                    if (event.getClipDescription().hasMimeType(ClipDescription.MIMETYPE_TEXT_PLAIN)) {
+                        draggedView.setVisibility(View.INVISIBLE);
+                        return true;
+                    }
+                    return false;
+                case DragEvent.ACTION_DRAG_ENTERED:
+                    Log.i("DRAG AND DROP", num + "-" + "ACTION_DRAG_ENTERED");
+                    break;
+                case DragEvent.ACTION_DRAG_EXITED:
+                    Log.i("DRAG AND DROP", num + "-" + "ACTION_DRAG_EXITED");
+                    break;
+
+                case DragEvent.ACTION_DRAG_LOCATION:
+                    Log.i("DRAG AND DROP", num + "-" + "ACTION_DRAG_LOCATION");
+                    break;
+
+                case DragEvent.ACTION_DROP:
+                    Log.i("DRAG AND DROP", num + "-" + "ACTION_DROP");
+
+                    LinearLayout container = (LinearLayout) v; // Recebe
+                    ViewGroup owner = (ViewGroup) draggedView.getParent(); // Linear de quem esta vindo
+
+                    if (owner != container) {
+                        if (container.getId() == R.id.llAreaPrincipal || container.getChildAt(0) == null) {
+                            owner.removeView(draggedView);
+                            container.addView(draggedView);
+                            draggedView.setVisibility(View.VISIBLE);
+
+                        } else {
+                            View filho = container.getChildAt(0);
+                            container.removeView(filho);
+                            owner.removeView(draggedView);
+
+                            container.addView(draggedView);
+                            draggedView.setVisibility(View.VISIBLE);
+                            owner.addView(filho);
+                            filho.setVisibility(View.VISIBLE);
+                        }
+                    }
+                    return true;
+                case DragEvent.ACTION_DRAG_ENDED:
+                    Log.i("DRAG AND DROP", num + "-" + "ACTION_DRAG_ENDED");
+                    draggedView.setVisibility(View.VISIBLE);
+                    break;
+
+            }
+            return false;
+        }
+
     }
 }
