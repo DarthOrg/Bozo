@@ -125,4 +125,5 @@
     <string name="lerQuina">Dado Quina. Ou déplacer Quina. Il peut aussi être appelé le numéro cinq.\n         La Quina a donné la somme de ses valeurs peut aller de cinq à vingt-cinq points.</string>
     <string name="lerSeguida">Puis. Pour former le prochain mouvement.\n         il existe deux types de données de séquence. La première séquence est de 1 à cinq. Et l\'autre séquence est comprise entre deux et six.\n         Par exemple. Un, deux, trois, quatre et cinq. Et l\'autre entraînerait. deux, trois, quatre, cinq et six.\n         Comme dans encima illustration. La valeur à marquer alors le mouvement est de vingt points. Mais si le mouvement est à la bouche le point devient vite-cinq.\n      Plus qui est suivie par la bouche? Ensuite, la bouche est quand le déplacement est effectué une fois.</string>
     <string name="lerSena">Compte tenu de la Seine. Seine ou en déplacement. Il peut aussi être appelé Six nombre.\n         Seine de données est la somme de ses valeurs, qui peuvent varier de six à trente points.</string>
+    <string name="instrucoes">Instructions</string>
 </resources>

@@ -118,7 +118,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
-                        android:text="@string/in"
+                        android:text="@string/instrucoes"
                         android:textAppearance="@style/TextAppearance.AppCompat.Large"
                         android:textSize="18sp" />
 

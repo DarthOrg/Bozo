@@ -44,7 +44,7 @@ public class Inicio extends AppCompatActivity {
     private Partida ultimaPartida;
 
 
-    FloatingActionButton fabCompartilhar, fabDefinicoes, novoMarcador, fabMSalvos, fabInstrucoes;
+    FloatingActionButton fabCompartilhar, fabDefinicoes, novoMarcador, fabMSalvos, fabCopoVirtual;
     LinearLayout ultimo_salvo;
 
 
@@ -67,7 +67,7 @@ public class Inicio extends AppCompatActivity {
         fabCompartilhar = (FloatingActionButton) findViewById(R.id.fabCompartilhar);
         fabDefinicoes = (FloatingActionButton) findViewById(R.id.fabDefinicoes);
         fabMSalvos = (FloatingActionButton) findViewById(R.id.fabMSalvos);
-        fabInstrucoes = (FloatingActionButton) findViewById(R.id.fabInstrucoes);
+        fabCopoVirtual = (FloatingActionButton) findViewById(R.id.copoVirtual);
 
         novoMarcador = (FloatingActionButton) findViewById(R.id.novo_marcador);
         ultimo_salvo = (LinearLayout) findViewById(R.id.ultimo_salvo);
@@ -165,10 +165,10 @@ public class Inicio extends AppCompatActivity {
                 startActivity(Intent.createChooser(share, getString(R.string.compartilharApp)));
             }
         });
-        fabInstrucoes.setOnClickListener(new View.OnClickListener() {
+        fabCopoVirtual.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(Inicio.this, Instrucoes.class);
+                Intent intent = new Intent(Inicio.this, CopoVirtual.class);
                 startActivity(intent);
             }
         });

@@ -1,6 +1,7 @@
 package com.darthorg.bozo.view;
 
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
@@ -28,7 +29,7 @@ public class Definicoes extends AppCompatActivity {
     private SharedPreferences.Editor editor;
     private SharedPreferences preferencias;
 
-    LinearLayout llValoresPecas, llSobre;
+    LinearLayout llValoresPecas, llSobre, llInstrucoes;
     TextView txtValorespecas, txtLuzFundo;
     Switch swichtLuzFundo;
 
@@ -42,6 +43,7 @@ public class Definicoes extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         llSobre = (LinearLayout) findViewById(R.id.llSobre);
+        llInstrucoes = (LinearLayout) findViewById(R.id.llInstrucoes);
         txtLuzFundo = (TextView) findViewById(R.id.txtLuzFundo);
         swichtLuzFundo = (Switch) findViewById(R.id.swirchLuzFundo);
         llValoresPecas = (LinearLayout) findViewById(R.id.llValoresPecas);
@@ -63,6 +65,13 @@ public class Definicoes extends AppCompatActivity {
             swichtLuzFundo.setChecked(false);
         }
 
+        llInstrucoes.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Definicoes.this, Instrucoes.class);
+                startActivity(intent);
+            }
+        });
 
         llSobre.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -37,7 +37,6 @@
             <ImageView
                 android:layout_width="200dp"
                 android:layout_height="200dp"
-                android:id="@+id/copoVirtual"
                 android:layout_gravity="center"
                 android:src="@drawable/copo_bozo"
                 android:layout_marginBottom="125dp" />
@@ -101,6 +100,102 @@
             </LinearLayout>
 
         </FrameLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:layout_marginBottom="10dp"
+        android:gravity="center">
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+
+            <android.support.design.widget.FloatingActionButton
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:src="@drawable/ic_compartilhar"
+                android:clickable="true"
+                android:tint="@color/colorBlack"
+                android:layout_centerInParent="true"
+                android:id="@+id/fabCompartilhar"
+                app:backgroundTint="@android:color/white"
+                android:layout_margin="10dp" />
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+
+            <android.support.design.widget.FloatingActionButton
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:src="@drawable/ic_configuracoes"
+                android:clickable="true"
+                android:tint="@color/colorBlack"
+                android:layout_centerInParent="true"
+                android:id="@+id/fabDefinicoes"
+                app:backgroundTint="@android:color/white"
+                android:layout_margin="6dp" />
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+
+            <android.support.design.widget.FloatingActionButton
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:src="@drawable/ic_play_white"
+                android:clickable="true"
+                android:layout_centerInParent="true"
+                android:tint="@color/colorWhite"
+                android:id="@+id/novo_marcador"
+                android:layout_margin="10dp" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+
+            <android.support.design.widget.FloatingActionButton
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:src="@drawable/ic_marcador"
+                android:clickable="true"
+                android:tint="@color/colorBlack"
+                android:layout_centerInParent="true"
+                android:id="@+id/fabMSalvos"
+                app:backgroundTint="@android:color/white"
+                android:layout_margin="6dp" />
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+
+            <android.support.design.widget.FloatingActionButton
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:src="@drawable/ic_dado_quina"
+                android:clickable="true"
+                android:layout_centerInParent="true"
+                android:tint="@color/colorBlack"
+                android:id="@+id/copoVirtual"
+                app:backgroundTint="@android:color/white"
+                android:layout_margin="10dp"/>
+        </RelativeLayout>
+
+
+
+
+
+
     </LinearLayout>
 
 

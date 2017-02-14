@@ -27,7 +27,6 @@
         android:layout_height="match_parent"
         android:layout_above="@+id/recebeDados">
 
-
         <!--Mesa-->
         <RelativeLayout
             android:layout_width="match_parent"
@@ -40,10 +39,19 @@
                 android:src="@drawable/imagem_desenhos"
                 android:scaleType="centerCrop"/>
 
+            <ImageView
+                android:id="@+id/copo"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/copo"
+                android:padding="10dp"
+                android:scaleType="centerInside"/>
+
             <!--Dados copo-->
 
 
             <LinearLayout
+                android:visibility="gone"
                 android:id="@+id/llAreaPrincipal"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -120,32 +128,65 @@
 
             <!--dado botões-->
             <LinearLayout
-                android:layout_width="wrap_content"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_alignParentBottom="true"
-                android:layout_margin="10dp"
-                android:layout_centerInParent="true">
+                android:layout_marginBottom="10dp"
+                android:gravity="center">
 
-                <Button
-                    android:id="@+id/pedir_embaixo"
+                <RelativeLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Jogar Novamente"
-                    android:textSize="13dp"
-                    android:textColor="@color/colorBlackTransparente185"
-                    android:backgroundTint="@color/colorWhiteFundo"
-                    android:textAllCaps="true"/>
+                    android:layout_weight="1">
 
-
-                <Button
-                    android:id="@+id/jogar"
+                    <android.support.design.widget.FloatingActionButton
+                        android:layout_height="wrap_content"
+                        android:layout_width="wrap_content"
+                        android:src="@drawable/ic_embaixo"
+                        android:clickable="true"
+                        app:fabSize="mini"
+                        android:tint="@color/colorBlack"
+                        android:layout_centerInParent="true"
+                        android:id="@+id/embaixo"
+                        app:backgroundTint="@android:color/white"
+                        android:layout_margin="6dp" />
+                </RelativeLayout>
+                <RelativeLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Jogar dados"
-                    android:textSize="13dp"
-                    android:textColor="@color/colorWhite"
-                    android:backgroundTint="@color/colorAccent"
-                    android:textAllCaps="true"/>
+                    android:layout_weight="1">
+
+                    <android.support.design.widget.FloatingActionButton
+                        android:layout_height="wrap_content"
+                        android:layout_width="wrap_content"
+                        android:src="@drawable/ic_play_white"
+                        android:clickable="true"
+                        app:fabSize="normal"
+                        android:layout_centerInParent="true"
+                        android:tint="@color/colorWhite"
+                        android:id="@+id/jogarDados"
+                        android:layout_margin="10dp" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1">
+
+                    <android.support.design.widget.FloatingActionButton
+                        android:layout_height="wrap_content"
+                        android:layout_width="wrap_content"
+                        android:src="@drawable/ic_atualizar"
+                        android:clickable="true"
+                        app:fabSize="mini"
+                        android:tint="@color/colorBlack"
+                        android:layout_centerInParent="true"
+                        android:id="@+id/atualizar"
+                        app:backgroundTint="@android:color/white"
+                        android:layout_margin="6dp" />
+                </RelativeLayout>
+
 
             </LinearLayout>
 
