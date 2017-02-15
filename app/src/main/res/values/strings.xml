@@ -271,6 +271,7 @@ Na tabela no nosso app você vai marcar em Quina. Mas,observando bem, 2 duques e
     <string name="versao_padrao">Versão : 1.1</string>
     <string name="todos_direitos_reservados">Todos direitos reservados.</string>
     <string name="instrucoes">Instruções</string>
+    <string name="copo_virtual">Copo virtual</string>
 
 
 </resources>

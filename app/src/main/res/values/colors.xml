@@ -11,6 +11,7 @@
     <color name="colorAccentTransparent">#4b607d8b</color>
     <color name="colorAccentDark">#34495e</color>
     <color name="colorAccentDarkWhite">#798794</color>
+    <color name="colorAccentDarkWhite2">#abb3bc</color>
 
     <!--ThemeSplash-->
     <color name="colorPrimary_splash">#FFFFFF</color>

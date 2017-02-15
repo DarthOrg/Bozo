@@ -14,84 +14,22 @@
         android:layout_weight="1" />
 
     <LinearLayout
-        android:id="@+id/fundoGanhandoTabela"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:layout_alignParentBottom="true"
-        android:background="@color/colorTrasnparente"
-        android:orientation="horizontal">
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1">
-
-            <android.support.design.widget.FloatingActionButton
-                android:id="@+id/fabADDJogador"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:clickable="true"
-                app:fabSize="normal"
-                app:backgroundTint="@color/colorWhite"
-                app:srcCompat="@drawable/ic_jogador"
-                android:layout_centerVertical="true"
-                android:layout_centerHorizontal="true" />
-
-
-        </RelativeLayout>
-
-        <FrameLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@color/colorTrasnparente"
-            android:layout_weight="1"/>
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1">
-
-
-
-            <android.support.design.widget.FloatingActionButton
-                android:id="@+id/fabDados"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:clickable="true"
-                android:layout_margin="16dp"
-                android:layout_centerInParent="true"
-                app:fabSize="normal"
-                app:backgroundTint="@color/colorWhite"
-                app:srcCompat="@drawable/ic_dado_quina" />
-
-
-
-
-        </RelativeLayout>
-
-    </LinearLayout>
-
-    <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="220dp"
         android:theme="@style/AppTheme.WhiteBotton">
 
-        <android.support.v7.widget.Toolbar
-            android:id="@+id/toolbar"
-            android:theme="@style/AppTheme.WhiteBotton"
-            android:popupTheme="@style/AppTheme.Dark"
-            android:layout_height="?attr/actionBarSize"
-            android:layout_width="match_parent"
-            app:layout_scrollFlags="scroll|enterAlways"
-            android:background="@color/colorWhiteTransparente2"
-            android:minHeight="0dp"
-            android:layout_alignParentTop="true">
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:theme="@style/AppTheme.WhiteBotton"
+                android:popupTheme="@style/AppTheme.Dark"
+                android:layout_height="?attr/actionBarSize"
+                android:layout_width="match_parent"
+                app:layout_scrollFlags="scroll|enterAlways"
+                android:background="@color/colorWhiteTransparente2"
+                android:minHeight="0dp"
+                android:layout_alignParentTop="true"/>
 
-        </android.support.v7.widget.Toolbar>
 
         <RelativeLayout
             android:layout_width="match_parent"

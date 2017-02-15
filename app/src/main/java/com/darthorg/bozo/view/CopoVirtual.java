@@ -3,7 +3,6 @@ package com.darthorg.bozo.view;
 import android.content.ClipData;
 import android.content.ClipDescription;
 import android.content.Context;
-import android.content.Intent;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
@@ -12,6 +11,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.DragEvent;
@@ -24,6 +24,9 @@ import android.view.WindowManager;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.darthorg.bozo.R;
 
@@ -35,8 +38,11 @@ public class CopoVirtual extends AppCompatActivity {
     SensorManager sensorManager;
     Sensor sensorEmAcao;
 
-    LinearLayout linearLayout, dadosEmbaixo;
-    ImageView copo;
+    LinearLayout linearLayout, dadosEmbaixo,receberDados;
+    RelativeLayout RLjogar, RLEmbaixo;
+    ImageView copo,sombra;
+    CardView caixaMenssagem;
+    TextView menssagem;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,11 +70,18 @@ public class CopoVirtual extends AppCompatActivity {
         findViewById(R.id.lugar5).setOnDragListener(new MyOnDragListener(5));
         findViewById(R.id.llAreaPrincipal).setOnDragListener(new MyOnDragListener(6));
 
-        final FloatingActionButton atualizar = (FloatingActionButton) findViewById(R.id.atualizar);
+//        final FloatingActionButton atualizar = (FloatingActionButton) findViewById(R.id.atualizar);
         final FloatingActionButton jogar = (FloatingActionButton) findViewById(R.id.jogarDados);
-        final FloatingActionButton embaixo = (FloatingActionButton) findViewById(R.id.embaixo);
+        final FloatingActionButton embaixo = (FloatingActionButton) findViewById(R.id.pedir_embaixo);
+
+        receberDados = (LinearLayout) findViewById(R.id.recebeDados);
+        caixaMenssagem = (CardView) findViewById(R.id.caixaMenssagem);
+        menssagem = (TextView) findViewById(R.id.menssagem);
+        RLjogar = (RelativeLayout) findViewById(R.id.rl_btnJogar);
+        RLEmbaixo = (RelativeLayout) findViewById(R.id.rl_btnEmbaixo);
 
         copo = (ImageView) findViewById(R.id.copo);
+        sombra = (ImageView) findViewById(R.id.sombra);
 
         jogar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -79,22 +92,22 @@ public class CopoVirtual extends AppCompatActivity {
 
                 linearLayout.setVisibility(View.GONE);
                 copo.setVisibility(View.VISIBLE);
-            }
-        });
-        atualizar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                finish();
-                Intent intent = new Intent(CopoVirtual.this, CopoVirtual.class);
-                startActivity(intent);
-            }
-        });
-        embaixo.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+                sombra.setVisibility(View.VISIBLE);
+                RLjogar.setVisibility(View.GONE);
+                RLEmbaixo.setVisibility(View.VISIBLE);
+                menssagem.setText("\nCHACOALHE O CELULAR\n\nPara jogar os dados vire o celular de cabeça para baixo, caso queira 'EMBAIXO' clique na seta para baixo.\n");
 
             }
         });
+
+        embaixo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getApplicationContext(),"Embaixo ATIVADO joque os dados",Toast.LENGTH_LONG).show();
+            }
+        });
+
+
 
     }
 
@@ -114,10 +127,7 @@ public class CopoVirtual extends AppCompatActivity {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             Window window = getWindow();
             window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
-            window.setStatusBarColor(getResources().getColor(R.color.colorBlackTransparente25));
-        }
-        if (Build.VERSION.SDK_INT >= 21) {
-            getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_STABLE | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN);
+            window.setStatusBarColor(getResources().getColor(R.color.colorAccentDarkWhite2));
         }
     }
 
@@ -189,6 +199,11 @@ public class CopoVirtual extends AppCompatActivity {
                 sensorManager.unregisterListener(this);
                 linearLayout.setVisibility(View.VISIBLE);
                 copo.setVisibility(View.GONE);
+                sombra.setVisibility(View.GONE);
+                caixaMenssagem.setVisibility(View.GONE);
+                receberDados.setVisibility(View.VISIBLE);
+                RLjogar.setVisibility(View.VISIBLE);
+                RLEmbaixo.setVisibility(View.GONE);
             }
         }
 

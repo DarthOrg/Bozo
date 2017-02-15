@@ -12,14 +12,13 @@
         android:id="@+id/toolbar_RS"
         android:layout_width="match_parent"
         android:layout_height="56dp"
-        android:layout_marginTop="25dp"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:background="@color/colorTrasnparente"
         android:elevation="5dp"
+        app:title=" "
         android:theme="@style/AppTheme.WhiteBotton"
-        app:title="Copo virtual"
         app:navigationIcon="@drawable/ic_sair_white"/>
 
     <android.support.v7.widget.CardView
@@ -31,7 +30,7 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@color/colorAccentDarkWhite">
+            android:background="@color/colorAccentDarkWhite2">
 
             <ImageView
                 android:layout_width="match_parent"
@@ -40,16 +39,22 @@
                 android:scaleType="centerCrop"/>
 
             <ImageView
+                android:id="@+id/sombra"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/img_sombra_copo"
+                android:padding="10dp"
+                android:scaleType="center"/>
+
+            <ImageView
                 android:id="@+id/copo"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:src="@drawable/copo"
+                android:src="@drawable/img_copo"
                 android:padding="10dp"
-                android:scaleType="centerInside"/>
+                android:scaleType="center"/>
 
             <!--Dados copo-->
-
-
             <LinearLayout
                 android:visibility="gone"
                 android:id="@+id/llAreaPrincipal"
@@ -120,14 +125,29 @@
 
             </LinearLayout>
 
+            <android.support.v7.widget.CardView
+                android:id="@+id/caixaMenssagem"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="50dp"
+                android:layout_marginRight="50dp"
+                android:layout_marginTop="50dp"
+                android:layout_above="@+id/botoes">
 
-
-
-
-
+                <TextView
+                    android:id="@+id/menssagem"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:textSize="12dp"
+                    android:textAlignment="center"
+                    android:text="Clique e chacoalhe o celular"
+                    />
+            </android.support.v7.widget.CardView>
 
             <!--dado botões-->
             <LinearLayout
+                android:id="@+id/botoes"
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -136,6 +156,7 @@
                 android:gravity="center">
 
                 <RelativeLayout
+                    android:id="@+id/rl_btnJogar"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1">
@@ -143,24 +164,7 @@
                     <android.support.design.widget.FloatingActionButton
                         android:layout_height="wrap_content"
                         android:layout_width="wrap_content"
-                        android:src="@drawable/ic_embaixo"
-                        android:clickable="true"
-                        app:fabSize="mini"
-                        android:tint="@color/colorBlack"
-                        android:layout_centerInParent="true"
-                        android:id="@+id/embaixo"
-                        app:backgroundTint="@android:color/white"
-                        android:layout_margin="6dp" />
-                </RelativeLayout>
-                <RelativeLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1">
-
-                    <android.support.design.widget.FloatingActionButton
-                        android:layout_height="wrap_content"
-                        android:layout_width="wrap_content"
-                        android:src="@drawable/ic_play_white"
+                        android:src="@drawable/ic_balancar_copo"
                         android:clickable="true"
                         app:fabSize="normal"
                         android:layout_centerInParent="true"
@@ -170,6 +174,8 @@
                 </RelativeLayout>
 
                 <RelativeLayout
+                    android:id="@+id/rl_btnEmbaixo"
+                    android:visibility="gone"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1">
@@ -177,15 +183,15 @@
                     <android.support.design.widget.FloatingActionButton
                         android:layout_height="wrap_content"
                         android:layout_width="wrap_content"
-                        android:src="@drawable/ic_atualizar"
+                        android:src="@drawable/ic_embaixo"
                         android:clickable="true"
-                        app:fabSize="mini"
-                        android:tint="@color/colorBlack"
+                        app:fabSize="normal"
                         android:layout_centerInParent="true"
-                        android:id="@+id/atualizar"
-                        app:backgroundTint="@android:color/white"
-                        android:layout_margin="6dp" />
+                        android:tint="@color/colorWhite"
+                        android:id="@+id/pedir_embaixo"
+                        android:layout_margin="10dp" />
                 </RelativeLayout>
+
 
 
             </LinearLayout>
@@ -202,6 +208,7 @@
         android:background="@color/colorBlackTransparente25"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
+        android:visibility="gone"
         android:elevation="-5dp"
         android:layout_alignParentStart="true"
         android:id="@+id/recebeDados">
