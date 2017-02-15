@@ -9,9 +9,9 @@ import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import android.os.Build;
+import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.DragEvent;
@@ -21,7 +21,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
-import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -36,7 +35,7 @@ public class CopoVirtual extends AppCompatActivity {
     SensorManager sensorManager;
     Sensor sensorEmAcao;
 
-    LinearLayout linearLayout,dadosEmbaixo;
+    LinearLayout linearLayout, dadosEmbaixo;
     ImageView copo;
 
     @Override
@@ -63,7 +62,7 @@ public class CopoVirtual extends AppCompatActivity {
         findViewById(R.id.lugar3).setOnDragListener(new MyOnDragListener(3));
         findViewById(R.id.lugar4).setOnDragListener(new MyOnDragListener(4));
         findViewById(R.id.lugar5).setOnDragListener(new MyOnDragListener(5));
-        findViewById(R.id.llAreaPrincipal).setOnDragListener(new MyOnDragListener(5));
+        findViewById(R.id.llAreaPrincipal).setOnDragListener(new MyOnDragListener(6));
 
         final FloatingActionButton atualizar = (FloatingActionButton) findViewById(R.id.atualizar);
         final FloatingActionButton jogar = (FloatingActionButton) findViewById(R.id.jogarDados);
@@ -80,17 +79,15 @@ public class CopoVirtual extends AppCompatActivity {
 
                 linearLayout.setVisibility(View.GONE);
                 copo.setVisibility(View.VISIBLE);
-
-                copo.setRotation(45);
             }
         });
         atualizar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 finish();
-                Intent intent = new Intent(CopoVirtual.this,CopoVirtual.class);
+                Intent intent = new Intent(CopoVirtual.this, CopoVirtual.class);
                 startActivity(intent);
-                }
+            }
         });
         embaixo.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -113,7 +110,7 @@ public class CopoVirtual extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    public void fullscreenTransparent(){
+    public void fullscreenTransparent() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             Window window = getWindow();
             window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
@@ -128,7 +125,6 @@ public class CopoVirtual extends AppCompatActivity {
 
         LinearLayout containerPrincipal = (LinearLayout) layoutContainerPrincipal;
         List<ImageButton> dadosParaEmbaralhar = new ArrayList<>();
-
 
 
         //Recupera os ImageViews
@@ -168,6 +164,9 @@ public class CopoVirtual extends AppCompatActivity {
                 case 5:
                     imgButton.setImageResource(R.drawable.ic_dado_cinco);
                     break;
+                case 6:
+                    imgButton.setImageResource(R.drawable.ic_dado_seis);
+                    break;
             }
         }
     }
@@ -183,6 +182,9 @@ public class CopoVirtual extends AppCompatActivity {
         @Override
         public void onSensorChanged(SensorEvent event) {
             embaralharDados(linearLayout);
+
+            copo.setRotation((int)event.values[0] * 5);
+
             if (event.values[1] < -8 && (event.values[0] < 2 && event.values[0] > -2)) {
                 sensorManager.unregisterListener(this);
                 linearLayout.setVisibility(View.VISIBLE);
@@ -220,7 +222,6 @@ public class CopoVirtual extends AppCompatActivity {
         public boolean onDrag(View v, DragEvent event) {
             int action = event.getAction();
             View draggedView = (View) event.getLocalState();
-            ;
 
             switch (action) {
                 case DragEvent.ACTION_DRAG_STARTED:
