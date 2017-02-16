@@ -50,9 +50,10 @@ public class CopoVirtual extends AppCompatActivity {
         setContentView(R.layout.activity_copo_virtual);
         fullscreenTransparent();
 
-        final Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar_RS);
+        final Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        toolbar.setNavigationIcon(getResources().getDrawable(R.drawable.ic_sair_white));
 
         sensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
         sensorEmAcao = sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
@@ -106,7 +107,6 @@ public class CopoVirtual extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(),"Embaixo ATIVADO joque os dados",Toast.LENGTH_LONG).show();
             }
         });
-
 
 
     }
