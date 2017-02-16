@@ -14,7 +14,7 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_above="@+id/recebeDados"
+            android:layout_above="@+id/caixa"
             android:background="@color/colorAccentDarkWhite2">
 
             <ImageView
@@ -38,6 +38,89 @@
                 android:src="@drawable/img_copo"
                 android:padding="10dp"
                 android:scaleType="center"/>
+
+            <!--Dados copo Encima-->
+            <LinearLayout
+                android:visibility="gone"
+                android:id="@+id/llDadosEncima"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_centerInParent="true">
+
+
+                <!--dado 1-->
+                <ImageButton
+                    android:id="@+id/dadoEncima1"
+                    android:src="@drawable/ic_dado_um"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="-75dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:padding="5dp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/retangulo_white_transparente"
+                    />
+                <!--dado 2-->
+                <ImageButton
+                    android:id="@+id/dadoEncima2"
+                    android:src="@drawable/ic_dado_dois"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="-75dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:padding="5dp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/retangulo_white_transparente"
+                    />
+                <!--dado 3-->
+                <ImageButton
+                    android:id="@+id/dadoEncima3"
+                    android:src="@drawable/ic_dado_tres"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="-75dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:padding="5dp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/retangulo_white_transparente"
+                    />
+                <!--dado 4-->
+                <ImageButton
+                    android:id="@+id/dadoEncima4"
+                    android:src="@drawable/ic_dado_quatro"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="-75dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:padding="5dp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/retangulo_white_transparente"
+                    />
+                <!--dado 5-->
+                <ImageButton
+                    android:id="@+id/dadoEncima5"
+                    android:src="@drawable/ic_dado_cinco"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="-75dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:padding="5dp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/retangulo_white_transparente"
+                    />
+
+
+            </LinearLayout>
 
             <!--Dados copo-->
             <LinearLayout
@@ -108,27 +191,11 @@
                     android:background="@drawable/retangulo_white"
                     />
 
+
             </LinearLayout>
 
-            <android.support.v7.widget.CardView
-                android:id="@+id/caixaMenssagem"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="50dp"
-                android:layout_marginRight="50dp"
-                android:layout_marginTop="50dp"
-                android:layout_above="@+id/botoes">
 
-                <TextView
-                    android:id="@+id/menssagem"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="5dp"
-                    android:textSize="12dp"
-                    android:textAlignment="center"
-                    android:text="Clique e chacoalhe o celular"
-                    />
-            </android.support.v7.widget.CardView>
+
 
             <!--dado botões-->
             <LinearLayout
@@ -139,6 +206,7 @@
                 android:layout_alignParentBottom="true"
                 android:layout_marginBottom="10dp"
                 android:gravity="center">
+
 
                 <RelativeLayout
                     android:id="@+id/rl_btnJogar"
@@ -177,6 +245,53 @@
                         android:layout_margin="10dp" />
                 </RelativeLayout>
 
+                <RelativeLayout
+                    android:id="@+id/rl_btnAtualizar"
+                    android:visibility="gone"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1">
+
+                    <android.support.design.widget.FloatingActionButton
+                        android:layout_height="wrap_content"
+                        android:layout_width="wrap_content"
+                        android:src="@drawable/ic_atualizar"
+                        android:clickable="true"
+                        app:fabSize="normal"
+                        android:layout_centerInParent="true"
+                        android:tint="@color/colorWhite"
+                        android:id="@+id/atualizar"
+                        android:layout_margin="10dp" />
+                </RelativeLayout>
+
+                <LinearLayout
+                    android:id="@+id/rl_btnOlhar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:visibility="gone"
+                    android:orientation="vertical">
+
+
+                    <android.support.design.widget.FloatingActionButton
+                        android:layout_height="wrap_content"
+                        android:layout_width="wrap_content"
+                        android:src="@drawable/ic_olhar"
+                        android:clickable="true"
+                        android:tint="@color/colorWhite"
+                        app:fabSize="normal"
+                        android:layout_gravity="center"
+                        android:id="@+id/olhar"
+                        android:layout_margin="10dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Espiar valores encima"
+                        android:textColor="@color/colorWhite"
+                        android:layout_gravity="center"/>
+                </LinearLayout>
+
 
 
             </LinearLayout>
@@ -200,18 +315,18 @@
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/colorBlackTransparente25"
+        android:background="@color/colorWhiteFundo"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
-        android:visibility="gone"
         android:layout_alignParentStart="true"
-        android:id="@+id/recebeDados">
+        android:id="@+id/caixa">
 
         <!--Texto informando o tipo de jogada que ele realizou-->
         <TextView
+            android:id="@+id/txtMenssagem"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Você tem 3 chances"
+            android:text="Você tem 3 jogadas"
             android:textSize="15dp"
             android:textAlignment="center"
             android:padding="10dp"
@@ -219,9 +334,11 @@
 
         <!--linha dados abaixo-->
     <LinearLayout
+        android:id="@+id/recebeDados"
         android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="85dp">
+        android:layout_height="85dp"
+        android:visibility="gone">
 
         <!--dado 1-->
         <LinearLayout
