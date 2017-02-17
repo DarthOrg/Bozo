@@ -32,6 +32,8 @@ import android.widget.TextView;
 import com.darthorg.bozo.R;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 public class CopoVirtual extends AppCompatActivity {
@@ -300,13 +302,15 @@ public class CopoVirtual extends AppCompatActivity {
                 chances--;
                 switch (chances) {
                     case 2:
+                        verificarJogada();
                         txtMenssagem.setText("Você tem mais " + chances + " jogadas");
                         break;
                     case 1:
+                        verificarJogada();
                         txtMenssagem.setText("Você tem só mais " + chances + " jogada");
                         break;
                     case 0:
-                        //todo: verificarjogada
+                        verificarJogada();
                         RlBtnJogar.setVisibility(View.GONE);
                         RlBtnAtualizar.setVisibility(View.VISIBLE);
                         break;
@@ -324,6 +328,77 @@ public class CopoVirtual extends AppCompatActivity {
         @Override
         public void onAccuracyChanged(Sensor sensor, int accuracy) {
 
+        }
+    }
+
+    private String verificarJogada() {
+
+        List<Integer> valoresDados = new ArrayList<>();
+
+        //pega os valores dos dados que estão na area principal
+        for (int i = 0; i < llAreaPrincipal.getChildCount(); i++) {
+            valoresDados.add((int) llAreaPrincipal.getChildAt(i).getTag());
+        }
+
+        //pega os valores dos dados que estão na area secundária
+        for (int i = 0; i < llAreaInferiorReceberDados.getChildCount(); i++) {
+            LinearLayout linearLayoutPosicoes = (LinearLayout) llAreaInferiorReceberDados.getChildAt(i);
+            if (linearLayoutPosicoes.getChildCount() != 0) {
+                valoresDados.add((int) linearLayoutPosicoes.getChildAt(0).getTag());
+            }
+
+        }
+
+        obterJogada(valoresDados);
+
+        return null;
+    }
+
+    private void obterJogada(List<Integer> valoresDados) {
+
+        Collections.sort(valoresDados);
+
+        //Seguida
+        List<Integer> seguidaI = Arrays.asList(1, 2, 3, 4, 5);
+        List<Integer> seguidaII = Arrays.asList(2, 3, 4, 5, 6);
+        if (valoresDados.equals(seguidaI) || valoresDados.equals(seguidaII)) {
+            // Seguida
+            Log.i("JOGADA : ", "SEGUIDA");
+        }
+
+        //Demais jogadas
+        int countPar = 0;
+        int countTrio = 0;
+        int numQuadrada = 0;
+        int numGeneral = 0;
+
+        for (int i = 0; i < valoresDados.size(); i++) {
+
+            int num = Collections.frequency(valoresDados, valoresDados.get(i));
+
+            if (num == 2)
+                countPar = valoresDados.get(i);
+            if (num == 3)
+                countTrio = valoresDados.get(i);
+            if (num == 4)
+                numQuadrada = valoresDados.get(i);
+            if (num == 5)
+                numGeneral = valoresDados.get(i);
+
+
+            if (countPar != 0 && countTrio != 0) {
+                //Full
+                Log.i("JOGADA : ", "FULL DE " + countPar + " E " + countTrio);
+                break;
+            } else if (numQuadrada != 0) {
+                //Quadrada
+                Log.i("JOGADA : ", "QUADRADA DE " + numQuadrada);
+                break;
+            } else if (numGeneral != 0) {
+                //General
+                Log.i("JOGADA : ", "GENERAL DE " + numGeneral);
+                break;
+            }
         }
     }
 
