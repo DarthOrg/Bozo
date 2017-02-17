@@ -45,7 +45,9 @@
                 android:id="@+id/llDadosEncima"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_centerInParent="true">
+                android:layout_centerInParent="true"
+                android:orientation="horizontal"
+                android:paddingTop="75dp">
 
 
                 <!--dado 1-->
@@ -54,12 +56,6 @@
                     android:src="@drawable/ic_dado_um"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="-75dp"
-                    android:layout_marginLeft="5dp"
-                    android:layout_marginRight="5dp"
-                    android:layout_marginBottom="5dp"
-                    android:padding="5dp"
-                    android:layout_gravity="center"
                     android:background="@drawable/retangulo_white_transparente"
                     />
                 <!--dado 2-->
@@ -68,12 +64,6 @@
                     android:src="@drawable/ic_dado_dois"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="-75dp"
-                    android:layout_marginLeft="5dp"
-                    android:layout_marginRight="5dp"
-                    android:layout_marginBottom="5dp"
-                    android:padding="5dp"
-                    android:layout_gravity="center"
                     android:background="@drawable/retangulo_white_transparente"
                     />
                 <!--dado 3-->
@@ -82,12 +72,6 @@
                     android:src="@drawable/ic_dado_tres"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="-75dp"
-                    android:layout_marginLeft="5dp"
-                    android:layout_marginRight="5dp"
-                    android:layout_marginBottom="5dp"
-                    android:padding="5dp"
-                    android:layout_gravity="center"
                     android:background="@drawable/retangulo_white_transparente"
                     />
                 <!--dado 4-->
@@ -96,28 +80,22 @@
                     android:src="@drawable/ic_dado_quatro"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="-75dp"
-                    android:layout_marginLeft="5dp"
-                    android:layout_marginRight="5dp"
-                    android:layout_marginBottom="5dp"
-                    android:padding="5dp"
-                    android:layout_gravity="center"
                     android:background="@drawable/retangulo_white_transparente"
                     />
-                <!--dado 5-->
-                <ImageButton
-                    android:id="@+id/dadoEncima5"
-                    android:src="@drawable/ic_dado_cinco"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="-75dp"
-                    android:layout_marginLeft="5dp"
-                    android:layout_marginRight="5dp"
-                    android:layout_marginBottom="5dp"
-                    android:padding="5dp"
-                    android:layout_gravity="center"
-                    android:background="@drawable/retangulo_white_transparente"
-                    />
+                <!--&lt;!&ndash;dado 5&ndash;&gt;-->
+                <!--<ImageButton-->
+                    <!--android:id="@+id/dadoEncima5"-->
+                    <!--android:src="@drawable/ic_dado_cinco"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_marginTop="-75dp"-->
+                    <!--android:layout_marginLeft="5dp"-->
+                    <!--android:layout_marginRight="5dp"-->
+                    <!--android:layout_marginBottom="5dp"-->
+                    <!--android:padding="5dp"-->
+                    <!--android:layout_gravity="center"-->
+                    <!--android:background="@drawable/retangulo_white_transparente"-->
+                    <!--/>-->
 
 
             </LinearLayout>
@@ -265,7 +243,7 @@
                 </RelativeLayout>
 
                 <LinearLayout
-                    android:id="@+id/rl_btnOlhar"
+                    android:id="@+id/ll_btnOlhar"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"

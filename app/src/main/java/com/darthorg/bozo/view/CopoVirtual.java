@@ -12,14 +12,11 @@ import android.hardware.SensorManager;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.CardView;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.DragEvent;
-import android.view.Menu;
 import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
@@ -31,7 +28,6 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.darthorg.bozo.R;
 
@@ -43,17 +39,17 @@ public class CopoVirtual extends AppCompatActivity {
     SensorManager sensorManager;
     Sensor sensorEmAcao;
 
-    ImageButton dadoEncima1,dadoEncima2,dadoEncima3,dadoEncima4,dadoEncima5;
+    //ImageButton dadoEncima1,dadoEncima2,dadoEncima3,dadoEncima4,dadoEncima5;
 
-    LinearLayout linearLayout, receberDados,dadosEncima,RLOlharEncima;
-    RelativeLayout RLjogar, RLEmbaixo,RLAtualizar;
-    ImageView copo,sombra;
-    FloatingActionButton jogar,embaixo,atualizar,olhar;
+    LinearLayout llAreaPrincipal, llAreaInferiorReceberDados, llDadosEmcima, llBtnOlhar;
+    RelativeLayout RlBtnJogar, RlBtnEmbaixo, RlBtnAtualizar;
+    ImageView ImageViewCopo, ImageViewSombra;
+    FloatingActionButton FabJogar, FabEmbaixo, FabAtualizar, FabOlhar;
     Toolbar toolbar;
     TextView txtMenssagem;
     private int chances = 3;
-    private int btnEmbaixo = 0;
-    private int btnolhar = 0;
+    private boolean pedirEmBaixo = false;
+    private boolean olharCima = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -83,108 +79,85 @@ public class CopoVirtual extends AppCompatActivity {
         findViewById(R.id.llAreaPrincipal).setOnDragListener(new MyOnDragListener(6));
 
 
-
-        jogar.setOnClickListener(new View.OnClickListener() {
+        FabJogar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                linearLayout = (LinearLayout) findViewById(R.id.llAreaPrincipal);
+                llAreaPrincipal = (LinearLayout) findViewById(R.id.llAreaPrincipal);
 
-                sensorManager.registerListener(new MySensorEvent(linearLayout), sensorEmAcao, SensorManager.SENSOR_DELAY_GAME);
-                linearLayout.setVisibility(View.GONE);
-                copo.setVisibility(View.VISIBLE);
-                sombra.setVisibility(View.VISIBLE);
-                RLjogar.setVisibility(View.GONE);
-                RLEmbaixo.setVisibility(View.VISIBLE);
-                RLOlharEncima.setVisibility(View.GONE);
-                dadosEncima.setVisibility(View.GONE);
+                sensorManager.registerListener(new MySensorEvent(llAreaPrincipal), sensorEmAcao, SensorManager.SENSOR_DELAY_GAME);
+                llAreaPrincipal.setVisibility(View.GONE);
+                ImageViewCopo.setVisibility(View.VISIBLE);
+                ImageViewSombra.setVisibility(View.VISIBLE);
+                RlBtnJogar.setVisibility(View.GONE);
+                RlBtnEmbaixo.setVisibility(View.VISIBLE);
+                llBtnOlhar.setVisibility(View.GONE);
+                llDadosEmcima.setVisibility(View.GONE);
                 txtMenssagem.setText("Chacoalhe o celular.");
-                btnEmbaixo = 0;
-
 
             }
         });
 
-        embaixo.setOnClickListener(new View.OnClickListener() {
+        FabEmbaixo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                btnEmbaixo ++;
-                switch (btnEmbaixo){
-                    case 1:
-                        txtMenssagem.setText("Embaixo ATIVO");
-                        break;
-                    case 2:
-                        txtMenssagem.setText("Embaixo DESATIVADO");
-                        btnEmbaixo = 0;
-                        break;
-                }
+                pedirEmBaixo = !pedirEmBaixo;
+                if (pedirEmBaixo)
+                    txtMenssagem.setText("Embaixo ATIVO");
+                else
+                    txtMenssagem.setText("Embaixo DESATIVADO");
             }
         });
 
-        atualizar.setOnClickListener(new View.OnClickListener() {
+        FabAtualizar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 finish();
-                Intent intent = new Intent(CopoVirtual.this,CopoVirtual.class);
+                Intent intent = new Intent(CopoVirtual.this, CopoVirtual.class);
                 startActivity(intent);
             }
         });
 
-        olhar.setOnClickListener(new View.OnClickListener() {
+        FabOlhar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                btnolhar ++;
-                switch (btnolhar){
-                    case 1:
-                        dadosEncima.setVisibility(View.VISIBLE);
-                        break;
-                    case 2:
-                        dadosEncima.setVisibility(View.GONE);
-                        btnolhar = 0;
-                        break;
-                }
+                olharCima = !olharCima;
+                if (olharCima) {
+                    gerarImageViewsDadosEmcima(llAreaPrincipal);
+                    llDadosEmcima.setVisibility(View.VISIBLE);
+                } else
+                    llDadosEmcima.setVisibility(View.GONE);
             }
         });
-
-
-
     }
 
-    public void IDs(){
+    public void IDs() {
         //Toobar
         toolbar = (Toolbar) findViewById(R.id.toolbar);
 
         //FAB
-        jogar = (FloatingActionButton) findViewById(R.id.jogarDados);
-        embaixo = (FloatingActionButton) findViewById(R.id.pedir_embaixo);
-        atualizar = (FloatingActionButton) findViewById(R.id.atualizar);
-        olhar = (FloatingActionButton) findViewById(R.id.olhar);
+        FabJogar = (FloatingActionButton) findViewById(R.id.jogarDados);
+        FabEmbaixo = (FloatingActionButton) findViewById(R.id.pedir_embaixo);
+        FabAtualizar = (FloatingActionButton) findViewById(R.id.atualizar);
+        FabOlhar = (FloatingActionButton) findViewById(R.id.olhar);
 
         //LinearLayout
-        receberDados = (LinearLayout) findViewById(R.id.recebeDados);
-        dadosEncima = (LinearLayout) findViewById(R.id.llDadosEncima);
-        RLOlharEncima = (LinearLayout) findViewById(R.id.rl_btnOlhar);
+        llAreaInferiorReceberDados = (LinearLayout) findViewById(R.id.recebeDados);
+        llDadosEmcima = (LinearLayout) findViewById(R.id.llDadosEncima);
+        llBtnOlhar = (LinearLayout) findViewById(R.id.ll_btnOlhar);
 
         //RelativeLayout
-        RLjogar = (RelativeLayout) findViewById(R.id.rl_btnJogar);
-        RLEmbaixo = (RelativeLayout) findViewById(R.id.rl_btnEmbaixo);
-        RLAtualizar = (RelativeLayout) findViewById(R.id.rl_btnAtualizar);
+        RlBtnJogar = (RelativeLayout) findViewById(R.id.rl_btnJogar);
+        RlBtnEmbaixo = (RelativeLayout) findViewById(R.id.rl_btnEmbaixo);
+        RlBtnAtualizar = (RelativeLayout) findViewById(R.id.rl_btnAtualizar);
 
         //ImageView
-        copo = (ImageView) findViewById(R.id.copo);
-        sombra = (ImageView) findViewById(R.id.sombra);
+        ImageViewCopo = (ImageView) findViewById(R.id.copo);
+        ImageViewSombra = (ImageView) findViewById(R.id.sombra);
 
         //Texto
-        txtMenssagem =(TextView) findViewById(R.id.txtMenssagem);
-
-        //Dados Encima
-        dadoEncima1 = (ImageButton) findViewById(R.id.dadoEncima1);
-        dadoEncima2 = (ImageButton) findViewById(R.id.dadoEncima2);
-        dadoEncima3 = (ImageButton) findViewById(R.id.dadoEncima3);
-        dadoEncima4 = (ImageButton) findViewById(R.id.dadoEncima4);
-        dadoEncima5 = (ImageButton) findViewById(R.id.dadoEncima5);
+        txtMenssagem = (TextView) findViewById(R.id.txtMenssagem);
 
     }
-
 
 
     @Override
@@ -254,59 +227,97 @@ public class CopoVirtual extends AppCompatActivity {
                     break;
             }
         }
-
-
     }
+
+    private void gerarImageViewsDadosEmcima(LinearLayout llDadosEmbaralhados) {
+
+        List<ImageButton> ImageButtons = new ArrayList<>();
+        llDadosEmcima.removeAllViews();
+
+        for (int i = 0; i < llDadosEmbaralhados.getChildCount(); i++) {
+            int tag = (int) llDadosEmbaralhados.getChildAt(i).getTag();
+            ImageButton img = new ImageButton(CopoVirtual.this);
+            img.setTag(dadoEmbaixo(tag));
+            llDadosEmcima.addView(img);
+            ImageButtons.add(img);
+        }
+
+        trocarImagens(ImageButtons);
+    }
+
+    private int dadoEmbaixo(int dado) {
+        int dadoEmbaixo = 0;
+
+        switch (dado) {
+            case 1:
+                dadoEmbaixo = 6;
+                break;
+            case 2:
+                dadoEmbaixo = 5;
+                break;
+            case 3:
+                dadoEmbaixo = 4;
+                break;
+            case 4:
+                dadoEmbaixo = 3;
+                break;
+            case 5:
+                dadoEmbaixo = 2;
+                break;
+            case 6:
+                dadoEmbaixo = 1;
+                break;
+        }
+
+        return dadoEmbaixo;
+    }
+
 
     class MySensorEvent implements SensorEventListener {
 
-        LinearLayout linearLayout;
+        LinearLayout llDadosAEmbaralhar;
 
-        public MySensorEvent(LinearLayout linearLayout) {
-            this.linearLayout = linearLayout;
+        public MySensorEvent(LinearLayout llDadosAEmbaralhar) {
+            this.llDadosAEmbaralhar = llDadosAEmbaralhar;
         }
 
         @Override
         public void onSensorChanged(SensorEvent event) {
-            embaralharDados(linearLayout);
+            embaralharDados(llDadosAEmbaralhar);
 
-            copo.setRotation((int)event.values[0] * 5);
+            ImageViewCopo.setRotation((int) event.values[0] * 5);
 
             if (event.values[1] < -8 && (event.values[0] < 2 && event.values[0] > -2)) {
-                sensorManager.unregisterListener(this);
-                linearLayout.setVisibility(View.VISIBLE);
-                copo.setVisibility(View.GONE);
-                sombra.setVisibility(View.GONE);
-                receberDados.setVisibility(View.VISIBLE);
-                RLjogar.setVisibility(View.VISIBLE);
-                RLEmbaixo.setVisibility(View.GONE);
 
-                chances --;
-                switch (chances){
+                sensorManager.unregisterListener(this);
+                llDadosAEmbaralhar.setVisibility(View.VISIBLE);
+                ImageViewCopo.setVisibility(View.GONE);
+                ImageViewSombra.setVisibility(View.GONE);
+                llAreaInferiorReceberDados.setVisibility(View.VISIBLE);
+                RlBtnJogar.setVisibility(View.VISIBLE);
+                RlBtnEmbaixo.setVisibility(View.GONE);
+
+                chances--;
+                switch (chances) {
                     case 2:
-                        txtMenssagem.setText("Você tem mais "+chances+" jogadas");
+                        txtMenssagem.setText("Você tem mais " + chances + " jogadas");
                         break;
                     case 1:
-                        txtMenssagem.setText("Você tem só mais "+chances+" jogada");
+                        txtMenssagem.setText("Você tem só mais " + chances + " jogada");
                         break;
                     case 0:
-                        txtMenssagem.setText("SEGUIDA DE BOCA");
-                        RLjogar.setVisibility(View.GONE);
-                        RLAtualizar.setVisibility(View.VISIBLE);
+                        //todo: verificarjogada
+                        RlBtnJogar.setVisibility(View.GONE);
+                        RlBtnAtualizar.setVisibility(View.VISIBLE);
                         break;
                 }
 
-                switch (btnEmbaixo){
-                    case 1:
-                        RLOlharEncima.setVisibility(View.VISIBLE);
-                        break;
-                    case 2:
-                        RLOlharEncima.setVisibility(View.GONE);
-                        btnEmbaixo = 0;
-                        break;
-                }
-
-
+                //Se ele pediu embaixo mostrar
+                if (pedirEmBaixo) {
+                    llBtnOlhar.setVisibility(View.VISIBLE);
+                    pedirEmBaixo = false;
+                } else
+                    llBtnOlhar.setVisibility(View.GONE);
             }
         }
 
@@ -386,6 +397,7 @@ public class CopoVirtual extends AppCompatActivity {
                 case DragEvent.ACTION_DRAG_ENDED:
                     Log.i("DRAG AND DROP", num + "-" + "ACTION_DRAG_ENDED");
                     draggedView.setVisibility(View.VISIBLE);
+                    gerarImageViewsDadosEmcima(llAreaPrincipal);
                     break;
 
             }
@@ -393,7 +405,8 @@ public class CopoVirtual extends AppCompatActivity {
         }
 
     }
-    public void AlertaSair(){
+
+    public void AlertaSair() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle(getString(R.string.sair));
         builder.setMessage("Você não terminou sua jogada, deseja sair assim mesmo?")
@@ -411,17 +424,17 @@ public class CopoVirtual extends AppCompatActivity {
         builder.show();
     }
 
-    public void opçãoSair(){
-        if (chances == 3){
+    public void opçãoSair() {
+        if (chances == 3) {
             finish();
-        }else if (chances  == 2){
+        } else if (chances == 2) {
             AlertaSair();
-        }else if (chances  == 1){
+        } else if (chances == 1) {
             AlertaSair();
-        }else if (chances  == 0){
+        } else if (chances == 0) {
             AlertDialog.Builder builder = new AlertDialog.Builder(this);
             builder.setTitle("Lembrete");
-            builder.setMessage("Antes de sair sua jogada foi\n"+txtMenssagem.getText().toString())
+            builder.setMessage("Antes de sair sua jogada foi\n" + txtMenssagem.getText().toString())
                     .setPositiveButton(getString(R.string.sair), new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int id) {
                             finish();
