@@ -41,8 +41,6 @@ public class CopoVirtual extends AppCompatActivity {
     SensorManager sensorManager;
     Sensor sensorEmAcao;
 
-    //ImageButton dadoEncima1,dadoEncima2,dadoEncima3,dadoEncima4,dadoEncima5;
-
     LinearLayout llAreaPrincipal, llAreaInferiorReceberDados, llDadosEmcima, llBtnOlhar;
     RelativeLayout RlBtnJogar, RlBtnEmbaixo, RlBtnAtualizar;
     ImageView ImageViewCopo, ImageViewSombra;
@@ -300,17 +298,28 @@ public class CopoVirtual extends AppCompatActivity {
                 RlBtnEmbaixo.setVisibility(View.GONE);
 
                 chances--;
+                String jogada = verificarJogada();
                 switch (chances) {
                     case 2:
-                        verificarJogada();
-                        txtMenssagem.setText("Você tem mais " + chances + " jogadas");
+                        if (jogada != null) {
+                            txtMenssagem.setText(jogada + "\n Você tem mais " + chances + " jogadas");
+                            RlBtnAtualizar.setVisibility(View.VISIBLE);
+                        } else
+                            txtMenssagem.setText("Você tem mais " + chances + " jogadas");
+
+
                         break;
                     case 1:
-                        verificarJogada();
-                        txtMenssagem.setText("Você tem só mais " + chances + " jogada");
+                        if (jogada != null) {
+                            txtMenssagem.setText(jogada + "\n Você tem mais " + chances + " jogadas");
+                            RlBtnAtualizar.setVisibility(View.VISIBLE);
+                        } else
+                            txtMenssagem.setText("Você tem só mais " + chances + " jogada");
                         break;
                     case 0:
-                        verificarJogada();
+                        if (jogada != null)
+                            txtMenssagem.setText(jogada);
+
                         RlBtnJogar.setVisibility(View.GONE);
                         RlBtnAtualizar.setVisibility(View.VISIBLE);
                         break;
@@ -349,12 +358,10 @@ public class CopoVirtual extends AppCompatActivity {
 
         }
 
-        obterJogada(valoresDados);
-
-        return null;
+        return obterJogada(valoresDados);
     }
 
-    private void obterJogada(List<Integer> valoresDados) {
+    private String obterJogada(List<Integer> valoresDados) {
 
         Collections.sort(valoresDados);
 
@@ -363,7 +370,10 @@ public class CopoVirtual extends AppCompatActivity {
         List<Integer> seguidaII = Arrays.asList(2, 3, 4, 5, 6);
         if (valoresDados.equals(seguidaI) || valoresDados.equals(seguidaII)) {
             // Seguida
-            Log.i("JOGADA : ", "SEGUIDA");
+            if (chances == 2)
+                return "Seguida de Boca";
+            else
+                return "Seguida";
         }
 
         //Demais jogadas
@@ -388,18 +398,26 @@ public class CopoVirtual extends AppCompatActivity {
 
             if (countPar != 0 && countTrio != 0) {
                 //Full
-                Log.i("JOGADA : ", "FULL DE " + countPar + " E " + countTrio);
-                break;
+                if (chances == 2)
+                    return "Full de Boca";
+                else
+                    return "Full de " + countPar + " e " + countTrio;
+
             } else if (numQuadrada != 0) {
                 //Quadrada
-                Log.i("JOGADA : ", "QUADRADA DE " + numQuadrada);
-                break;
+                if (chances == 2)
+                    return "Quadrada de Boca ";
+                else
+                    return "Quadrada de " + numQuadrada;
             } else if (numGeneral != 0) {
                 //General
-                Log.i("JOGADA : ", "GENERAL DE " + numGeneral);
-                break;
+                if (chances == 2)
+                    return "General de Boca";
+                else
+                    return "General de " + numGeneral;
             }
         }
+        return null;
     }
 
     class MyTouchListener implements View.OnTouchListener {
