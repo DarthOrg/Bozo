@@ -42,12 +42,10 @@
     <color name="colorWhiteTransparente2">#5affffff</color>
     <color name="colorRedTransparente">#5aff0000</color>
     <color name="colorTrasnparente">#00ffffff</color>
-    <color name="colorRed">#f44336</color>
     <color name="colorRedFlat">#e74c3c</color>
     <color name="colorLaranjaFlat">#e67e22</color>
     <color name="colorLaranja">#f99b1d</color>
     <color name="colorRedDark">#D32F2F</color>
-    <color name="colorGreen">#009688</color>
     <color name="colorGreenA400">#00E676</color>
     <color name="colorGreenA700">#00C853</color>
     <color name="colorGreenDark">#009688</color>
@@ -65,6 +63,21 @@
     <color name="colorFundo">#f9f9f9</color>
     <color name="colorFABAccent">#607D8B</color>
     <color name="colorFABPressedAccent">#455A64</color>
+
+    <!--Cores personalizadas-->
+    <color name="colornormal">#4d4d4d</color>
+    <color name="colorRed">#e40004</color>
+    <color name="colorPink">#FF4081</color>
+    <color name="colorPurple">#7B1FA2</color>
+    <color name="colorPurpleDeep">#7C4DFF</color>
+    <color name="colorIndigo">#3F51B5</color>
+    <color name="colorBlue">#448AFF</color>
+    <color name="colorGreen">#8BC34A</color>
+    <color name="colorOrange">#FF5722</color>
+    <color name="colorGrey">#9E9E9E</color>
+    <color name="colorGreyTransparent">#9E9E9E</color>
+    <color name="colorGreyBlue">#607D8B</color>
+    <color name="colorGreyLight">#bdc3c7</color>
 
 
     <!--Cores texto-->

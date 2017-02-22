@@ -14,6 +14,8 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.CompoundButton;
+import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
@@ -29,7 +31,7 @@ public class Definicoes extends AppCompatActivity {
     private SharedPreferences.Editor editor;
     private SharedPreferences preferencias;
 
-    LinearLayout llValoresPecas, llSobre, llInstrucoes;
+    LinearLayout llValoresPecas, llSobre, llInstrucoes,llTemaCopo;
     TextView txtValorespecas, txtLuzFundo;
     Switch swichtLuzFundo;
 
@@ -44,6 +46,7 @@ public class Definicoes extends AppCompatActivity {
 
         llSobre = (LinearLayout) findViewById(R.id.llSobre);
         llInstrucoes = (LinearLayout) findViewById(R.id.llInstrucoes);
+        llTemaCopo = (LinearLayout) findViewById(R.id.llTemaCopo);
         txtLuzFundo = (TextView) findViewById(R.id.txtLuzFundo);
         swichtLuzFundo = (Switch) findViewById(R.id.swirchLuzFundo);
         llValoresPecas = (LinearLayout) findViewById(R.id.llValoresPecas);
@@ -70,6 +73,33 @@ public class Definicoes extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(Definicoes.this, Instrucoes.class);
                 startActivity(intent);
+            }
+        });
+
+        llTemaCopo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                AlertDialog.Builder builder = new AlertDialog.Builder(Definicoes.this);
+                LayoutInflater layoutInflater = getLayoutInflater();
+                View dialoglayout = layoutInflater.inflate(R.layout.dialog_tema_copo, null);
+
+                ImageButton btnTemaNormal = (ImageButton) dialoglayout.findViewById(R.id.btnTemaNormal);
+                ImageButton btnTemaRed = (ImageButton) dialoglayout.findViewById(R.id.btnTemaRed);
+                ImageButton btnTemaPurple = (ImageButton) dialoglayout.findViewById(R.id.btnTemaPurple);
+                ImageButton btnTemaPink = (ImageButton) dialoglayout.findViewById(R.id.btnTemaPink);
+                ImageButton btnTemaBlue = (ImageButton) dialoglayout.findViewById(R.id.btnTemaBlue);
+                ImageButton btnTemaGreen = (ImageButton) dialoglayout.findViewById(R.id.btnTemaGreen);
+                ImageButton btnTemaOrange = (ImageButton) dialoglayout.findViewById(R.id.btnTemaOrange);
+                ImageButton btnTemaDarth = (ImageButton) dialoglayout.findViewById(R.id.btnTemaDarth);
+                ImageButton btnTemaFerro = (ImageButton) dialoglayout.findViewById(R.id.btnTemaFerro);
+                ImageButton btnTemaStarWars = (ImageButton) dialoglayout.findViewById(R.id.btnTemaStarWars);
+                ImageButton btnTemaFlor = (ImageButton) dialoglayout.findViewById(R.id.btnTemaFlor);
+                ImageButton btnTemaFrozen = (ImageButton) dialoglayout.findViewById(R.id.btnTemaFrozen);
+                ImageButton btnTemaGato = (ImageButton) dialoglayout.findViewById(R.id.btnTemaGato);
+
+                builder.setCancelable(true);
+                builder.setView(dialoglayout);
+                builder.show();
             }
         });
 
