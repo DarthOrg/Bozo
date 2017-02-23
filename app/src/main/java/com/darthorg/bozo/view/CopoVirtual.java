@@ -62,6 +62,7 @@ public class CopoVirtual extends AppCompatActivity {
 
     private int chances = 4;
     private int pedirEmBaixo = 0;
+    private boolean olharCima = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -146,7 +147,12 @@ public class CopoVirtual extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 btnEspiarEncima.setVisibility(View.GONE);
-                llDadosEncima.setVisibility(View.VISIBLE);
+                olharCima = !olharCima;
+                if (olharCima) {
+                    gerarImageViewsDadosEmcima(llAreaPrincipal);
+                    llDadosEncima.setVisibility(View.VISIBLE);
+                } else
+                    llDadosEncima.setVisibility(View.GONE);
             }
         });
     }
@@ -491,7 +497,7 @@ public class CopoVirtual extends AppCompatActivity {
                 String jogada = verificarJogada();
                 if (jogada != null) {
                     menssagem4.setText(jogada);
-                    menssagem4.setTextSize(20);
+                    menssagem4.setTextSize(25);
                     menssagem4.setTextColor(getResources().getColor(R.color.colorAccent));
                     btnAtualizar.setVisibility(View.VISIBLE);
                     btnCopo.setVisibility(View.GONE);
