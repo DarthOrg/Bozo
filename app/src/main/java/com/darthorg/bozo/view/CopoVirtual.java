@@ -52,7 +52,8 @@ public class CopoVirtual extends AppCompatActivity {
     Button btnAtualizar, btnAtivarCopo, btnEspiarEncima;
 
     FloatingActionButton btnPedirEmbaixo;
-    TextView menssagem1, menssagem2, menssagem3, menssagem4;
+    TextView menssagem1, menssagem3, menssagem4;
+    Button menssagem2;
     Toolbar toolbar;
 
     SharedPreferences prefs;
@@ -62,6 +63,8 @@ public class CopoVirtual extends AppCompatActivity {
             verificarTema(sharedPreferences);
         }
     };
+
+    MySensorEvent eventListener;
 
     private void verificarTema(SharedPreferences sharedPreferences) {
         int tema = sharedPreferences.getInt("pref_tema", 0);
@@ -110,7 +113,8 @@ public class CopoVirtual extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 chances();
-                sensorManager.registerListener(new MySensorEvent(llAreaPrincipal), sensorEmAcao, SensorManager.SENSOR_DELAY_GAME);
+                eventListener = new MySensorEvent(llAreaPrincipal);
+                sensorManager.registerListener(eventListener, sensorEmAcao, SensorManager.SENSOR_DELAY_NORMAL);
                 menssagem2.setVisibility(View.VISIBLE);
                 btnAtivarCopo.setVisibility(View.GONE);
                 btnPedirEmbaixo.setVisibility(View.VISIBLE);
@@ -124,7 +128,10 @@ public class CopoVirtual extends AppCompatActivity {
         btnCopo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                sensorManager.registerListener(new MySensorEvent(llAreaPrincipal), sensorEmAcao, SensorManager.SENSOR_DELAY_GAME);
+
+                eventListener = new MySensorEvent(llAreaPrincipal);
+
+                sensorManager.registerListener(eventListener, sensorEmAcao, SensorManager.SENSOR_DELAY_GAME);
                 copo.setVisibility(View.VISIBLE);
                 sombra.setVisibility(View.VISIBLE);
                 menssagem2.setVisibility(View.VISIBLE);
@@ -169,6 +176,13 @@ public class CopoVirtual extends AppCompatActivity {
                     llDadosEncima.setVisibility(View.GONE);
             }
         });
+
+        menssagem2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                jogarDados(eventListener);
+            }
+        });
     }
 
     public void IDs() {
@@ -193,7 +207,7 @@ public class CopoVirtual extends AppCompatActivity {
         sombra = (ImageView) findViewById(R.id.sombra);
         btnCopo = (ImageButton) findViewById(R.id.btnCopo);
         menssagem1 = (TextView) findViewById(R.id.menssagem1);
-        menssagem2 = (TextView) findViewById(R.id.menssagem2);
+        menssagem2 = (Button) findViewById(R.id.menssagem2);
         menssagem3 = (TextView) findViewById(R.id.menssagem3);
         menssagem4 = (TextView) findViewById(R.id.menssagem4);
 
@@ -342,49 +356,10 @@ public class CopoVirtual extends AppCompatActivity {
         public void onSensorChanged(SensorEvent event) {
             embaralharDados(llDadosAEmbaralhar);
 
-            copo.setRotation((int) event.values[0] * -5);
+            copo.setRotation((int) event.values[0] * 5);
 
-            if (event.values[1] < -8 && (event.values[0] < 2 && event.values[0] > -2)) {
-
-                sensorManager.unregisterListener(this);
-
-                //Aparecer na Area principal
-                llAreaPrincipal.setVisibility(View.VISIBLE);
-                llAreaInferiorCaixa.setVisibility(View.VISIBLE);
-                btnCopo.setVisibility(View.VISIBLE);
-                menssagem4.setVisibility(View.VISIBLE);
-
-                //Esconder na Area Principal
-                copo.setVisibility(View.GONE);
-                sombra.setVisibility(View.GONE);
-                menssagem2.setVisibility(View.GONE);
-                btnPedirEmbaixo.setVisibility(View.GONE);
-                menssagem3.setVisibility(View.GONE);
-
-                switch (pedirEmBaixo) {
-                    case 1:
-                        menssagem4.setText("Valores Embaixo visivel");
-                        btnEspiarEncima.setVisibility(View.VISIBLE);
-                        break;
-                    case 2:
-                        menssagem4.setText("Valores Encima visivel");
-                        btnEspiarEncima.setVisibility(View.GONE);
-                        break;
-                }
-
-
-                String jogada = verificarJogada();
-                if (jogada != null) {
-                    menssagem4.setText(jogada);
-                    menssagem4.setTextSize(25);
-                    menssagem4.setTextColor(getResources().getColor(R.color.colorAccent));
-                    btnAtualizar.setVisibility(View.VISIBLE);
-                    btnCopo.setVisibility(View.GONE);
-                }
-
-                chances();
-
-
+            if ((int) event.values[1] < -5 && ((int) event.values[0] < 6 && (int) event.values[0] > -6)) {
+                jogarDados(this);
             }
         }
 
@@ -393,6 +368,7 @@ public class CopoVirtual extends AppCompatActivity {
 
         }
     }
+
 
     public void pedirEmbaixo() {
         pedirEmBaixo++;
@@ -427,6 +403,46 @@ public class CopoVirtual extends AppCompatActivity {
                 btnAtualizar.setVisibility(View.VISIBLE);
                 break;
         }
+    }
+
+    public void jogarDados(SensorEventListener listener) {
+        sensorManager.unregisterListener(listener);
+
+        //Aparecer na Area principal
+        llAreaPrincipal.setVisibility(View.VISIBLE);
+        llAreaInferiorCaixa.setVisibility(View.VISIBLE);
+        btnCopo.setVisibility(View.VISIBLE);
+        menssagem4.setVisibility(View.VISIBLE);
+
+        //Esconder na Area Principal
+        copo.setVisibility(View.GONE);
+        sombra.setVisibility(View.GONE);
+        menssagem2.setVisibility(View.GONE);
+        btnPedirEmbaixo.setVisibility(View.GONE);
+        menssagem3.setVisibility(View.GONE);
+
+        switch (pedirEmBaixo) {
+            case 1:
+                menssagem4.setText("Valores Embaixo visivel");
+                btnEspiarEncima.setVisibility(View.VISIBLE);
+                break;
+            case 2:
+                menssagem4.setText("Valores Encima visivel");
+                btnEspiarEncima.setVisibility(View.GONE);
+                break;
+        }
+
+
+        String jogada = verificarJogada();
+        if (jogada != null) {
+            menssagem4.setText(jogada);
+            menssagem4.setTextSize(25);
+            menssagem4.setTextColor(getResources().getColor(R.color.colorAccent));
+            btnAtualizar.setVisibility(View.VISIBLE);
+            btnCopo.setVisibility(View.GONE);
+        }
+
+        chances();
     }
 
     private String verificarJogada() {
