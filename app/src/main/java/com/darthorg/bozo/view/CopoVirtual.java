@@ -5,6 +5,7 @@ import android.content.ClipDescription;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
@@ -17,7 +18,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.DragEvent;
-import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.MotionEvent;
@@ -33,6 +33,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.darthorg.bozo.R;
+import com.darthorg.bozo.utils.TemaUtils;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -44,21 +45,31 @@ public class CopoVirtual extends AppCompatActivity {
     SensorManager sensorManager;
     Sensor sensorEmAcao;
 
-    LinearLayout llAreaPrincipal,llDadosEncima,llAreaInferiorReceberDados,llAreaInferiorCaixa;
-
+    LinearLayout llAreaPrincipal, llDadosEncima, llAreaInferiorReceberDados, llAreaInferiorCaixa;
     RelativeLayout mesa;
-
-    ImageView copo,sombra;
-
+    ImageView copo, sombra;
     ImageButton btnCopo;
-
-    Button btnAtualizar,btnAtivarCopo,btnEspiarEncima;
+    Button btnAtualizar, btnAtivarCopo, btnEspiarEncima;
 
     FloatingActionButton btnPedirEmbaixo;
-
-    TextView menssagem1,menssagem2,menssagem3,menssagem4;
-
+    TextView menssagem1, menssagem2, menssagem3, menssagem4;
     Toolbar toolbar;
+
+    SharedPreferences prefs;
+    SharedPreferences.OnSharedPreferenceChangeListener listener = new SharedPreferences.OnSharedPreferenceChangeListener() {
+        @Override
+        public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String s) {
+            verificarTema(sharedPreferences);
+        }
+    };
+
+    private void verificarTema(SharedPreferences sharedPreferences) {
+        int tema = sharedPreferences.getInt("pref_tema", 0);
+        if (tema == 0)
+            copo.setImageResource(R.drawable.img_copo);
+        else
+            copo.setImageResource(tema);
+    }
 
     private int chances = 4;
     private int pedirEmBaixo = 0;
@@ -70,6 +81,10 @@ public class CopoVirtual extends AppCompatActivity {
         setContentView(R.layout.activity_copo_virtual);
         fullscreenTransparent();
         IDs();
+
+        prefs = getSharedPreferences(Definicoes.PREF_CONFIG, MODE_PRIVATE);
+        prefs.registerOnSharedPreferenceChangeListener(listener);
+        verificarTema(prefs);
 
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -101,7 +116,6 @@ public class CopoVirtual extends AppCompatActivity {
                 btnPedirEmbaixo.setVisibility(View.VISIBLE);
                 menssagem3.setVisibility(View.VISIBLE);
                 menssagem1.setVisibility(View.GONE);
-
 
 
             }
@@ -189,7 +203,6 @@ public class CopoVirtual extends AppCompatActivity {
         btnEspiarEncima = (Button) findViewById(R.id.btnEspiarEncima);
 
 
-
     }
 
 
@@ -206,144 +219,10 @@ public class CopoVirtual extends AppCompatActivity {
 
         if (id == android.R.id.home) {
             opcaoSair();
-        }else if (id == R.id.action_atualizar){
+        } else if (id == R.id.action_atualizar) {
             opcaoAtualizar();
-        }
-        else if (id == R.id.action_tema_copo){
-
-            AlertDialog.Builder builderRemoverJogador = new AlertDialog.Builder(CopoVirtual.this);
-
-            LayoutInflater layoutInflater = getLayoutInflater();
-            final View dialoglayout = layoutInflater.inflate(R.layout.dialog_tema_copo, null);
-
-            builderRemoverJogador.setView(dialoglayout);
-
-            ImageButton btnTemaNormal = (ImageButton) dialoglayout.findViewById(R.id.btnTemaNormal);
-            ImageButton btnTemaRed = (ImageButton) dialoglayout.findViewById(R.id.btnTemaRed);
-            ImageButton btnTemaPurple = (ImageButton) dialoglayout.findViewById(R.id.btnTemaPurple);
-            ImageButton btnTemaPink = (ImageButton) dialoglayout.findViewById(R.id.btnTemaPink);
-            ImageButton btnTemaBlue = (ImageButton) dialoglayout.findViewById(R.id.btnTemaBlue);
-            ImageButton btnTemaGreen = (ImageButton) dialoglayout.findViewById(R.id.btnTemaGreen);
-            ImageButton btnTemaOrange = (ImageButton) dialoglayout.findViewById(R.id.btnTemaOrange);
-            ImageButton btnTemaDarth = (ImageButton) dialoglayout.findViewById(R.id.btnTemaDarth);
-            ImageButton btnTemaFerro = (ImageButton) dialoglayout.findViewById(R.id.btnTemaFerro);
-            ImageButton btnTemaStarWars = (ImageButton) dialoglayout.findViewById(R.id.btnTemaStarWars);
-            ImageButton btnTemaFlor = (ImageButton) dialoglayout.findViewById(R.id.btnTemaFlor);
-            ImageButton btnTemaFrozen = (ImageButton) dialoglayout.findViewById(R.id.btnTemaFrozen);
-            ImageButton btnTemaGato = (ImageButton) dialoglayout.findViewById(R.id.btnTemaGato);
-
-            builderRemoverJogador.setTitle("Tema do copo");
-            builderRemoverJogador.setIcon(getResources().getDrawable(R.drawable.ic_tema));
-            builderRemoverJogador.setMessage("Escolha o tema para seu copo");
-            final AlertDialog dialog = builderRemoverJogador.create();
-
-
-            btnTemaNormal.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    copo.setImageDrawable(getResources().getDrawable(R.drawable.img_copo));
-                    btnCopo.setImageDrawable(getResources().getDrawable(R.drawable.img_copo));
-                    dialog.dismiss();
-                }
-            });
-            btnTemaRed.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    copo.setImageDrawable(getResources().getDrawable(R.drawable.copo_red));
-                    btnCopo.setImageDrawable(getResources().getDrawable(R.drawable.copo_red));
-                    dialog.dismiss();
-                }
-            });
-            btnTemaPurple.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    copo.setImageDrawable(getResources().getDrawable(R.drawable.copo_purple));
-                    btnCopo.setImageDrawable(getResources().getDrawable(R.drawable.copo_purple));
-                    dialog.dismiss();
-                }
-            });
-            btnTemaPink.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    copo.setImageDrawable(getResources().getDrawable(R.drawable.copo_pink));
-                    btnCopo.setImageDrawable(getResources().getDrawable(R.drawable.copo_pink));
-                    dialog.dismiss();
-                }
-            });
-            btnTemaBlue.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    copo.setImageDrawable(getResources().getDrawable(R.drawable.copo_blue));
-                    btnCopo.setImageDrawable(getResources().getDrawable(R.drawable.copo_blue));
-                    dialog.dismiss();
-                }
-            });
-            btnTemaGreen.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    copo.setImageDrawable(getResources().getDrawable(R.drawable.copo_green));
-                    btnCopo.setImageDrawable(getResources().getDrawable(R.drawable.copo_green));
-                    dialog.dismiss();
-                }
-            });
-            btnTemaOrange.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    copo.setImageDrawable(getResources().getDrawable(R.drawable.copo_orange));
-                    btnCopo.setImageDrawable(getResources().getDrawable(R.drawable.copo_orange));
-                    dialog.dismiss();
-                }
-            });
-            btnTemaDarth.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    copo.setImageDrawable(getResources().getDrawable(R.drawable.copo_darth));
-                    btnCopo.setImageDrawable(getResources().getDrawable(R.drawable.copo_darth));
-                    dialog.dismiss();
-                }
-            });
-            btnTemaFerro.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    copo.setImageDrawable(getResources().getDrawable(R.drawable.copo_ferro));
-                    btnCopo.setImageDrawable(getResources().getDrawable(R.drawable.copo_ferro));
-                    dialog.dismiss();
-                }
-            });
-            btnTemaStarWars.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    copo.setImageDrawable(getResources().getDrawable(R.drawable.copo_star_wars));
-                    btnCopo.setImageDrawable(getResources().getDrawable(R.drawable.copo_star_wars));
-                    dialog.dismiss();
-                }
-            });
-            btnTemaFlor.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    copo.setImageDrawable(getResources().getDrawable(R.drawable.copo_flor));
-                    btnCopo.setImageDrawable(getResources().getDrawable(R.drawable.copo_flor));
-                    dialog.dismiss();
-                }
-            });
-            btnTemaFrozen.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    copo.setImageDrawable(getResources().getDrawable(R.drawable.copo_frozen));
-                    btnCopo.setImageDrawable(getResources().getDrawable(R.drawable.copo_frozen));
-                    dialog.dismiss();
-                }
-            });
-            btnTemaGato.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    copo.setImageDrawable(getResources().getDrawable(R.drawable.copo_gato));
-                    btnCopo.setImageDrawable(getResources().getDrawable(R.drawable.copo_gato));
-                    dialog.dismiss();
-                }
-            });
-
-            dialog.show();
+        } else if (id == R.id.action_tema_copo) {
+            TemaUtils.mudarTema(CopoVirtual.this, getLayoutInflater());
         }
 
         return super.onOptionsItemSelected(item);
@@ -482,7 +361,7 @@ public class CopoVirtual extends AppCompatActivity {
                 btnPedirEmbaixo.setVisibility(View.GONE);
                 menssagem3.setVisibility(View.GONE);
 
-                switch (pedirEmBaixo){
+                switch (pedirEmBaixo) {
                     case 1:
                         menssagem4.setText("Valores Embaixo visivel");
                         btnEspiarEncima.setVisibility(View.VISIBLE);
@@ -515,14 +394,15 @@ public class CopoVirtual extends AppCompatActivity {
         }
     }
 
-    public void pedirEmbaixo(){
+    public void pedirEmbaixo() {
         pedirEmBaixo++;
-        switch (pedirEmBaixo){
+        switch (pedirEmBaixo) {
             case 1:
                 btnPedirEmbaixo.setImageDrawable(getResources().getDrawable(R.drawable.ic_confirmar_welcome));
                 menssagem3.setText("Embaixo selecionado");
                 break;
-            case 2: case 0:
+            case 2:
+            case 0:
                 btnPedirEmbaixo.setImageDrawable(getResources().getDrawable(R.drawable.ic_embaixo));
                 menssagem3.setText("Pedir Embaixo");
                 pedirEmBaixo = 0;
@@ -530,17 +410,17 @@ public class CopoVirtual extends AppCompatActivity {
         }
     }
 
-    public void chances(){
+    public void chances() {
         chances--;
         switch (chances) {
             case 3:
-                    menssagem2.setText("Para jogar os dados vire o copo"+"\n\n"+"Você tem " + chances + " jogadas");
+                menssagem2.setText("Para jogar os dados vire o copo" + "\n\n" + "Você tem " + chances + " jogadas");
                 break;
             case 2:
-                    menssagem2.setText("Para jogar os dados vire o copo"+"\n\n"+"Você tem mais " + chances + " jogadas");
+                menssagem2.setText("Para jogar os dados vire o copo" + "\n\n" + "Você tem mais " + chances + " jogadas");
                 break;
             case 1:
-                    menssagem2.setText("Para jogar os dados vire o copo"+"\n\n"+"Você tem só mais " + chances + " jogada");
+                menssagem2.setText("Para jogar os dados vire o copo" + "\n\n" + "Você tem só mais " + chances + " jogada");
                 break;
             case 0:
                 btnCopo.setVisibility(View.GONE);
@@ -709,13 +589,16 @@ public class CopoVirtual extends AppCompatActivity {
     }
 
     public void opcaoAtualizar() {
-        switch (chances){
-            case 4: case 3: case 0:
+        switch (chances) {
+            case 4:
+            case 3:
+            case 0:
                 finish();
                 Intent intent = new Intent(CopoVirtual.this, CopoVirtual.class);
                 startActivity(intent);
                 break;
-            case 2: case 1:
+            case 2:
+            case 1:
                 AlertDialog.Builder builder = new AlertDialog.Builder(this);
                 builder.setTitle("Atualizar");
                 builder.setMessage("Você não terminou sua jogada, deseja atualizar assim mesmo?")
@@ -739,11 +622,14 @@ public class CopoVirtual extends AppCompatActivity {
     }
 
     public void opcaoSair() {
-        switch (chances){
-            case 4 : case 3:
+        switch (chances) {
+            case 4:
+            case 3:
                 finish();
                 break;
-            case 2 : case 1 : case 0 :
+            case 2:
+            case 1:
+            case 0:
                 AlertDialog.Builder builder = new AlertDialog.Builder(this);
                 builder.setTitle(getString(R.string.sair));
                 builder.setMessage("Você não terminou sua jogada, deseja sair assim mesmo?")

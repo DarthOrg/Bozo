@@ -14,8 +14,6 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.CompoundButton;
-import android.widget.ImageButton;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
@@ -24,14 +22,15 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.darthorg.bozo.R;
+import com.darthorg.bozo.utils.TemaUtils;
 
 public class Definicoes extends AppCompatActivity {
 
-    public static final String PREF_CONFIG = "CONFIG_PONTUACAO";
+    public static final String PREF_CONFIG = "CONFIG_GERAL";
     private SharedPreferences.Editor editor;
     private SharedPreferences preferencias;
 
-    LinearLayout llValoresPecas, llSobre, llInstrucoes,llTemaCopo;
+    LinearLayout llValoresPecas, llSobre, llInstrucoes, llTemaCopo;
     TextView txtValorespecas, txtLuzFundo;
     Switch swichtLuzFundo;
 
@@ -79,27 +78,7 @@ public class Definicoes extends AppCompatActivity {
         llTemaCopo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                AlertDialog.Builder builder = new AlertDialog.Builder(Definicoes.this);
-                LayoutInflater layoutInflater = getLayoutInflater();
-                View dialoglayout = layoutInflater.inflate(R.layout.dialog_tema_copo, null);
-
-                ImageButton btnTemaNormal = (ImageButton) dialoglayout.findViewById(R.id.btnTemaNormal);
-                ImageButton btnTemaRed = (ImageButton) dialoglayout.findViewById(R.id.btnTemaRed);
-                ImageButton btnTemaPurple = (ImageButton) dialoglayout.findViewById(R.id.btnTemaPurple);
-                ImageButton btnTemaPink = (ImageButton) dialoglayout.findViewById(R.id.btnTemaPink);
-                ImageButton btnTemaBlue = (ImageButton) dialoglayout.findViewById(R.id.btnTemaBlue);
-                ImageButton btnTemaGreen = (ImageButton) dialoglayout.findViewById(R.id.btnTemaGreen);
-                ImageButton btnTemaOrange = (ImageButton) dialoglayout.findViewById(R.id.btnTemaOrange);
-                ImageButton btnTemaDarth = (ImageButton) dialoglayout.findViewById(R.id.btnTemaDarth);
-                ImageButton btnTemaFerro = (ImageButton) dialoglayout.findViewById(R.id.btnTemaFerro);
-                ImageButton btnTemaStarWars = (ImageButton) dialoglayout.findViewById(R.id.btnTemaStarWars);
-                ImageButton btnTemaFlor = (ImageButton) dialoglayout.findViewById(R.id.btnTemaFlor);
-                ImageButton btnTemaFrozen = (ImageButton) dialoglayout.findViewById(R.id.btnTemaFrozen);
-                ImageButton btnTemaGato = (ImageButton) dialoglayout.findViewById(R.id.btnTemaGato);
-
-                builder.setCancelable(true);
-                builder.setView(dialoglayout);
-                builder.show();
+                TemaUtils.mudarTema(Definicoes.this, getLayoutInflater());
             }
         });
 
@@ -115,7 +94,7 @@ public class Definicoes extends AppCompatActivity {
                 try {
                     String versao = getApplicationContext().getPackageManager().getPackageInfo(getApplicationContext().getPackageName(), 0).versionName;
                     txtVersão.setText(getString(R.string.versao) + versao);
-                }catch (Exception e){
+                } catch (Exception e) {
                     txtVersão.setText(R.string.versao_padrao);
                 }
 
@@ -188,10 +167,10 @@ public class Definicoes extends AppCompatActivity {
                 radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
                     @Override
                     public void onCheckedChanged(RadioGroup group, int checkedId) {
-                        if (radioGroup.getCheckedRadioButtonId() == R.id.opcao1){
+                        if (radioGroup.getCheckedRadioButtonId() == R.id.opcao1) {
                             radio1.setTextColor(getResources().getColor(R.color.colorAccent));
                             radio2.setTextColor(getResources().getColor(R.color.colorBlack));
-                        }else {
+                        } else {
                             radio2.setTextColor(getResources().getColor(R.color.colorAccent));
                             radio1.setTextColor(getResources().getColor(R.color.colorBlack));
                         }

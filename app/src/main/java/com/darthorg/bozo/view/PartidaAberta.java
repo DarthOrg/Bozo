@@ -100,7 +100,7 @@ public class PartidaAberta extends AppCompatActivity {
         setContentView(R.layout.activity_partida_aberta);
         changeStatusBarColor();
 
-        SharedPreferences preferences = getSharedPreferences(Inicio.PREF_CONFIG, MODE_PRIVATE);
+        SharedPreferences preferences = getSharedPreferences(Definicoes.PREF_CONFIG, MODE_PRIVATE);
         boolean prefTelaLigada = preferences.getBoolean("pref_display_ligado", true);
         if (prefTelaLigada) {
             // Evita que a tela bloqueie sozinha

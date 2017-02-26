@@ -24,6 +24,7 @@ import android.widget.TextView;
 import com.darthorg.bozo.R;
 import com.darthorg.bozo.adapter.ValoresPecasGridAdapter;
 import com.darthorg.bozo.model.PecaBozo;
+import com.darthorg.bozo.view.Definicoes;
 import com.darthorg.bozo.view.Inicio;
 import com.darthorg.bozo.view.PartidaAberta;
 
@@ -106,7 +107,7 @@ public class FragmentFilho extends Fragment {
         obterPecasBozo();
         setEvents();
 
-        SharedPreferences preferencias = getContext().getSharedPreferences(Inicio.PREF_CONFIG, MODE_PRIVATE);
+        SharedPreferences preferencias = getContext().getSharedPreferences(Definicoes.PREF_CONFIG, MODE_PRIVATE);
         int prefPontuacao = preferencias.getInt("pref_pontuacao", 0);
         for (PecaBozo peca : pecasBozo) {
             peca.atualizarValoresPossiveisPref(prefPontuacao);

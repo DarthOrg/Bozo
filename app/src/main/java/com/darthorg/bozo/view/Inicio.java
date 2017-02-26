@@ -30,8 +30,6 @@ import static android.view.View.VISIBLE;
 
 public class Inicio extends AppCompatActivity {
 
-    public static final String PREF_CONFIG = "CONFIG_PONTUACAO";
-
     private Toolbar toolbar;
 
     private ListView listViewPartidas;
