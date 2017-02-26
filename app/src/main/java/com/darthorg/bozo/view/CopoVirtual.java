@@ -454,19 +454,22 @@ public class CopoVirtual extends AppCompatActivity {
             valoresDados.add((int) llAreaPrincipal.getChildAt(i).getTag());
         }
 
-        //pega os valores dos dados que estão na area secundária
-        for (int i = 0; i < llAreaInferiorReceberDados.getChildCount(); i++) {
-            LinearLayout linearLayoutPosicoes = (LinearLayout) llAreaInferiorReceberDados.getChildAt(i);
-            if (linearLayoutPosicoes.getChildCount() != 0) {
-                valoresDados.add((int) linearLayoutPosicoes.getChildAt(0).getTag());
+        if (valoresDados.size() != 5) {
+            //pega os valores dos dados que estão na area secundária
+            for (int i = 0; i < llAreaInferiorReceberDados.getChildCount(); i++) {
+                LinearLayout linearLayoutPosicoes = (LinearLayout) llAreaInferiorReceberDados.getChildAt(i);
+                if (linearLayoutPosicoes.getChildCount() != 0) {
+                    valoresDados.add((int) linearLayoutPosicoes.getChildAt(0).getTag());
+                }
             }
 
+            return obterJogada(valoresDados, false);
         }
 
-        return obterJogada(valoresDados);
+        return obterJogada(valoresDados, true);
     }
 
-    private String obterJogada(List<Integer> valoresDados) {
+    private String obterJogada(List<Integer> valoresDados, boolean deBoca) {
 
         Collections.sort(valoresDados);
 
@@ -475,7 +478,7 @@ public class CopoVirtual extends AppCompatActivity {
         List<Integer> seguidaII = Arrays.asList(2, 3, 4, 5, 6);
         if (valoresDados.equals(seguidaI) || valoresDados.equals(seguidaII)) {
             // Seguida
-            if (chances == 2)
+            if (deBoca)
                 return "Seguida de Boca";
             else
                 return "Seguida";
@@ -503,20 +506,20 @@ public class CopoVirtual extends AppCompatActivity {
 
             if (countPar != 0 && countTrio != 0) {
                 //Full
-                if (chances == 2)
+                if (deBoca)
                     return "Full de Boca";
                 else
                     return "Full de " + countPar + " e " + countTrio;
 
             } else if (numQuadrada != 0) {
                 //Quadrada
-                if (chances == 2)
+                if (deBoca)
                     return "Quadrada de Boca ";
                 else
                     return "Quadrada de " + numQuadrada;
             } else if (numGeneral != 0) {
                 //General
-                if (chances == 2)
+                if (deBoca)
                     return "General de Boca";
                 else
                     return "General de " + numGeneral;
