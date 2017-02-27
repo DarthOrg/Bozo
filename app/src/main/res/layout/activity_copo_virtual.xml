@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -7,16 +8,17 @@
 
     <!-- Area jogo -->
     <LinearLayout
+        android:id="@+id/llAreaJogo"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:visibility="gone">
         <!-- llAreaPrincipal -->
         <LinearLayout
             android:id="@+id/llAreaPrincipal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:background="@color/cardview_dark_background"
             android:orientation="vertical">
 
             <LinearLayout
@@ -27,16 +29,34 @@
                 android:orientation="horizontal">
 
                 <ImageButton
+                    android:id="@+id/dado1"
                     android:layout_width="60dp"
-                    android:layout_height="60dp" />
+                    android:layout_height="60dp"
+                    android:layout_margin="5dp"
+                    android:background="@drawable/retangulo_white"
+                    android:elevation="5dp"
+                    android:padding="5dp"
+                    android:src="@drawable/ic_dado_um" />
 
                 <ImageButton
+                    android:id="@+id/dado2"
                     android:layout_width="60dp"
-                    android:layout_height="60dp" />
+                    android:layout_height="60dp"
+                    android:layout_margin="5dp"
+                    android:background="@drawable/retangulo_white"
+                    android:elevation="5dp"
+                    android:padding="5dp"
+                    android:src="@drawable/ic_dado_dois" />
 
                 <ImageButton
+                    android:id="@+id/dado3"
                     android:layout_width="60dp"
-                    android:layout_height="60dp" />
+                    android:layout_height="60dp"
+                    android:layout_margin="5dp"
+                    android:background="@drawable/retangulo_white"
+                    android:elevation="5dp"
+                    android:padding="5dp"
+                    android:src="@drawable/ic_dado_tres" />
             </LinearLayout>
 
             <LinearLayout
@@ -47,30 +67,83 @@
                 android:orientation="horizontal">
 
                 <ImageButton
+                    android:id="@+id/dado4"
                     android:layout_width="60dp"
-                    android:layout_height="60dp" />
+                    android:layout_height="60dp"
+                    android:layout_margin="5dp"
+                    android:background="@drawable/retangulo_white"
+                    android:elevation="5dp"
+                    android:padding="5dp"
+                    android:src="@drawable/ic_dado_quatro" />
 
                 <ImageButton
+                    android:id="@+id/dado5"
                     android:layout_width="60dp"
-                    android:layout_height="60dp" />
+                    android:layout_height="60dp"
+                    android:layout_margin="5dp"
+                    android:background="@drawable/retangulo_white"
+                    android:elevation="5dp"
+                    android:padding="5dp"
+                    android:src="@drawable/ic_dado_cinco" />
+
             </LinearLayout>
 
         </LinearLayout>
 
+        <!-- Espiar cima -->
+        <Button
+            android:id="@+id/btnEspiarEncima"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+
+            android:background="@color/colorTransparente"
+            android:drawableLeft="@drawable/ic_olhar"
+            android:drawablePadding="10dp"
+            android:padding="5dp"
+            android:text="Espiar valores Encima"
+            android:textAlignment="center"
+            android:textAllCaps="false"
+            android:visibility="gone" />
+
+        <!-- Texto especial -->
+        <TextView
+            android:id="@+id/txtEspecial"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Valores Encima visivel"
+            android:textAlignment="center"
+            android:visibility="gone" />
+
         <!-- Açoes -->
         <LinearLayout
+            android:id="@+id/llAcoes"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:visibility="gone">
 
             <ImageButton
-                android:layout_width="40dp"
-                android:layout_height="40dp" />
+                android:id="@+id/btnJogarDenovo"
+                android:layout_width="65dp"
+                android:layout_height="65dp"
+                android:layout_gravity="center_horizontal"
+                android:background="@color/colorTransparente"
+                android:scaleType="centerCrop"
+                android:src="@drawable/copo" />
 
-            <ImageButton
-                android:layout_width="40dp"
-                android:layout_height="40dp" />
+            <Button
+                android:id="@+id/btnAtualizar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@color/colorTransparente"
+                android:drawableTop="@drawable/ic_atualizar"
+                android:text="Recomeçar"
+                android:textAlignment="center"
+                android:textAllCaps="false" />
+
         </LinearLayout>
 
         <!--llAreaInferiorReceberDados-->
@@ -147,9 +220,9 @@
         </LinearLayout>
     </LinearLayout>
 
-
     <!-- Dados em cima -->
     <LinearLayout
+        android:id="@+id/llareaEmCima"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/cardview_light_background"
@@ -181,35 +254,85 @@
 
     <!-- Copo -->
     <FrameLayout
+        android:id="@+id/frameContainerCopo"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/cardview_light_background"
-        android:visibility="gone">
+        android:visibility="visible">
 
         <ImageView
             android:id="@+id/ivCopo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
             android:src="@drawable/img_copo" />
 
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
             android:src="@drawable/img_sombra_copo" />
 
         <Button
+            android:id="@+id/btnInstrucaoJogar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center|bottom"
+            android:layout_marginBottom="30dp"
             android:background="@color/colorTransparente"
             android:drawablePadding="10dp"
             android:drawableTop="@drawable/ic_balancar_copo"
             android:text="Clique no copo para poder chacoalhar"
             android:textAlignment="center"
             android:textAllCaps="false"
-            android:layout_marginBottom="30dp"
             android:textColor="@color/colorBlack"
-            android:textSize="10sp" />
+            android:textSize="12sp"
+            android:visibility="visible" />
+
+        <Button
+            android:id="@+id/btnJogarDados"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center|top"
+            android:layout_marginTop="10dp"
+            android:background="@color/colorTransparente"
+            android:drawablePadding="10dp"
+            android:drawableTop="@drawable/ic_seta_encima"
+            android:text="Para jogar os dados vire o copo"
+            android:textAlignment="center"
+            android:textAllCaps="false"
+            android:textColor="@color/colorBlack"
+            android:visibility="gone" />
+
+        <LinearLayout
+            android:id="@+id/llPedirEmbaixo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center|bottom"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <android.support.design.widget.FloatingActionButton
+                android:id="@+id/btnPedirEmbaixo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:clickable="true"
+                android:src="@drawable/ic_embaixo"
+                android:tint="@color/colorBlack"
+                app:backgroundTint="@android:color/white" />
+
+            <TextView
+                android:id="@+id/txtPedirEmbaixo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:text="Pedir Embaixo"
+                android:textColor="@color/colorBlack" />
+        </LinearLayout>
+
+
     </FrameLayout>
 
 </FrameLayout>
