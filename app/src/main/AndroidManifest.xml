@@ -43,10 +43,11 @@
             android:screenOrientation="portrait" />
         <activity
             android:name=".view.Definicoes"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".view.CopoVirtual"
             android:screenOrientation="portrait"></activity>
-        <activity android:name=".view.CopoVirtual"
-            android:screenOrientation="portrait">
-        </activity>
+        <activity android:name=".view.Tema"></activity>
     </application>
 
 </manifest>

@@ -65,7 +65,7 @@
     <color name="colorFABPressedAccent">#455A64</color>
 
     <!--Cores personalizadas-->
-    <color name="colornormal">#4d4d4d</color>
+    <color name="colorNormal">#4d4d4d</color>
     <color name="colorRed">#e40004</color>
     <color name="colorPink">#FF4081</color>
     <color name="colorPurple">#7B1FA2</color>
@@ -78,6 +78,13 @@
     <color name="colorGreyTransparent">#9E9E9E</color>
     <color name="colorGreyBlue">#607D8B</color>
     <color name="colorGreyLight">#bdc3c7</color>
+    <color name="colorFlores">#e3e3e3</color>
+    <color name="colorFerro">#9f3744</color>
+    <color name="colorDarh">#282828</color>
+    <color name="colorStarWars">#000000</color>
+    <color name="colorGato">#ff456e</color>
+    <color name="colorFrozen">#92d9ef</color>
+    <color name="colorHulk">#00aa5c</color>
 
 
     <!--Cores texto-->

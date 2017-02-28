@@ -1,42 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:paddingBottom="20dp"
-    android:paddingLeft="20dp"
-    android:paddingRight="20dp">
+    android:orientation="vertical">
 
-    <GridView
-        android:id="@+id/gvTemas"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_weight="2"
-        android:columnWidth="60dp"
-        android:numColumns="3"
-        android:stretchMode="spacingWidth"
-        android:verticalSpacing="10dp"></GridView>
-
-
-    <LinearLayout
+    <ImageView
+        android:id="@+id/sombra"
+        android:visibility="visible"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:gravity="center"
-        android:orientation="horizontal">
+        android:src="@drawable/img_sombra_copo"/>
+
+    <ImageView
+        android:id="@+id/copoVeiw"
+        android:visibility="visible"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:src="@drawable/img_copo"/>
 
 
-        <ImageButton
-            android:id="@+id/btnTemaPadrao"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:layout_gravity="center"
-            android:layout_margin="10dp"
-            android:background="@drawable/circulo_normal"
-            android:src="@drawable/ic_atualizar_white" />
-
-
-    </LinearLayout>
-
-
-</LinearLayout>
+</RelativeLayout>
