@@ -14,6 +14,8 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.CompoundButton;
+import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
@@ -33,6 +35,8 @@ public class Definicoes extends AppCompatActivity {
     LinearLayout llValoresPecas, llSobre, llInstrucoes, llTemaCopo;
     TextView txtValorespecas, txtLuzFundo;
     Switch swichtLuzFundo;
+    ImageButton btnViewCopo;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,6 +54,44 @@ public class Definicoes extends AppCompatActivity {
         swichtLuzFundo = (Switch) findViewById(R.id.swirchLuzFundo);
         llValoresPecas = (LinearLayout) findViewById(R.id.llValoresPecas);
         txtValorespecas = (TextView) findViewById(R.id.txtValorespecas);
+        btnViewCopo = (ImageButton) findViewById(R.id.btnViewCopo);
+
+        btnViewCopo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //Abre o alert
+                AlertDialog.Builder builder = new AlertDialog.Builder(Definicoes.this);
+                LayoutInflater layoutInflater = getLayoutInflater();
+                final View dialoglayout = layoutInflater.inflate(R.layout.dialog_tema_copo, null);
+                builder.setView(dialoglayout);
+
+                ImageView copoView = (ImageView) dialoglayout.findViewById(R.id.copoVeiw);
+
+                builder.setTitle("Tema atual");
+                builder.setIcon(R.drawable.ic_olhar);
+
+                //Coloca na ImageView o tema escolhido
+//                copoView.setImageResource(tema);
+
+                builder.setPositiveButton("Alterar", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+
+                        Intent intent = new Intent(Definicoes.this,Tema.class);
+                        startActivity(intent);
+                        dialog.dismiss();
+                    }
+                })
+                        .setNegativeButton(R.string.cancelar, new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                dialog.dismiss();
+                            }
+                        });
+                builder.show();
+            }
+        });
+
+
+
 
         preferencias = getSharedPreferences(PREF_CONFIG, MODE_PRIVATE);
         boolean displayLigado = preferencias.getBoolean("pref_display_ligado", true);
@@ -78,7 +120,10 @@ public class Definicoes extends AppCompatActivity {
         llTemaCopo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                TemaUtils.mudarTema(Definicoes.this, getLayoutInflater());
+
+//            TemaUtils.mudarTema(CopoVirtual.this, getLayoutInflater());
+                Intent intent = new Intent(Definicoes.this,Tema.class);
+                startActivity(intent);
             }
         });
 
