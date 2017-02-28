@@ -236,7 +236,8 @@ public class CopoVirtual extends AppCompatActivity {
         } else if (id == R.id.action_atualizar) {
             opcaoAtualizar();
         } else if (id == R.id.action_tema_copo) {
-            TemaUtils.mudarTema(CopoVirtual.this, getLayoutInflater());
+            Intent intent = new Intent(CopoVirtual.this,Tema.class);
+            startActivity(intent);
         }
 
         return super.onOptionsItemSelected(item);
