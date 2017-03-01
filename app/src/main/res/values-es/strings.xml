@@ -173,7 +173,7 @@ Los  dados pueden ser de cualquier valor, siempre que sean iguales. El valor que
     <string name="textoOpsRemoverJogador">No se puede quitar más jugadores. La etiqueta debe tener por lo menos 2 jugadores.</string>
     <string name="textoOutraRodada">¿Quieres jugar otra ronda?</string>
     <string name="textoRemoverJogador">Este jugador no se reproducirá.\\n ¿Está seguro?</string>
-    <string name="textoWelcome1">Debe tener un vaso de bozo con datos 5</string>
+    <string name="textoWelcome1">Debe tener un vaso de bozo con 5 datos o utilizar nuestro vaso virtual.</string>
     <string name="textoWelcome2">Para crear un nuevo clic en el botón Inicio marcador</string>
     <string name="textoWelcome3">En esta pantalla podrá anotar los valores que empieza a jugar con el vaso de bozo</string>
     <string name="texto_decisao_empate">Los jugadores deben decidir los datos. \\nSeleccione el jugador que ganó</string>

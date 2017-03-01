@@ -118,7 +118,7 @@
     <string name="textoOpsRemoverJogador">You can not remove more players. The marker must have at least 2 players.</string>
     <string name="textoOutraRodada">Want to play another round?</string>
     <string name="textoRemoverJogador">This player is no longer going to play.\nAre you sure?</string>
-    <string name="textoWelcome1">You should have a glass of bozó with 5 dice</string>
+    <string name="textoWelcome1">You should have a bozo glass with 5 dice or use our virtual glass.</string>
     <string name="textoWelcome2">To create a new click on the Start button</string>
     <string name="textoWelcome3">In this screen you will mark the values that you can play with the bozó cup</string>
     <string name="texto_decisao_empate">Players must decide on the dice.\nSelect the player who won</string>

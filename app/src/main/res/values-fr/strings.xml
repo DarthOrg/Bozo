@@ -80,7 +80,7 @@
     <string name="textoNovaPartida">D\'abord, vous devez saisir un nom pour votre marqueur Bozo</string>
     <string name="textoOpsRemoverJogador">Vous ne pouvez pas supprimer plus de joueurs. L\'étiquette doit avoir au moins 2 joueurs.</string>
     <string name="textoOutraRodada">Vous voulez jouer un autre tour?</string>
-    <string name="textoWelcome1">Vous devez avoir un verre de bozo avec des données 5</string>
+    <string name="textoWelcome1">Vous devez avoir un verre de bozo avec des données 5 ou utilisez notre verre virtuel.</string>
     <string name="textoWelcome2">Pour créer un nouveau cliquez sur le marqueur de bouton Démarrer</string>
     <string name="textoWelcome3">Sur cet écran, vous marquerez les valeurs que vous obtenez en jouant avec le verre de bozo</string>
     <string name="tituloPonto">Point de titre</string>

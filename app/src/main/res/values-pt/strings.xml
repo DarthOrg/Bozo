@@ -31,7 +31,7 @@
     <!--SUBTitulos-->
     <string name="ganhadoresPorRodada">Ganhadores por rodada</string>
     <string name="tabela">Tabela</string>
-    <string name="textoWelcome1">Você deve ter um copo de bozó com 5 dados</string>
+    <string name="textoWelcome1">Você deve ter um copo de bozó com 5 dados ou use nosso copo virtual.</string>
     <string name="textoWelcome2">Para criar um novo clique no botão Iniciar marcador</string>
     <string name="textoWelcome3">Nesta tela você vai marcar os valores que conseguir jogando com o copo de bozó</string>
     <string name="texto1Welcome3">Aqui você adiciona nome do marcador e os jogadores</string>
