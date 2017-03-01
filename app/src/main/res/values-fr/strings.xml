@@ -162,4 +162,7 @@
     <string name="visualizar_tema_atual">Voir le numéro actuel</string>
     <string name="vizualizar">Visualiser</string>
     <string name="voce_tem">Vous avez</string>
+    <string name="mail_feedback_message">Salut! Votre commentaire est très important pour nous. Dites-nous ce qui est arrivé!</string>
+    <string name="mail_feedback_subject">Je dis quelque chose à nous!</string>
+    <string name="title_send_feedback">Envoyer feedback</string>
 </resources>

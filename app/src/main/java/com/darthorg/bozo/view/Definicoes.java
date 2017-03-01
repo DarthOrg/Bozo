@@ -31,10 +31,9 @@ public class Definicoes extends AppCompatActivity {
     private SharedPreferences.Editor editor;
     private SharedPreferences preferencias;
 
-    LinearLayout llValoresPecas, llSobre, llInstrucoes, llTemaCopo;
+    LinearLayout llValoresPecas;
     TextView txtValorespecas, txtLuzFundo;
     Switch swichtLuzFundo;
-    ImageButton btnViewCopo;
 
 
     @Override
@@ -46,16 +45,12 @@ public class Definicoes extends AppCompatActivity {
         final Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar_RS);
         setSupportActionBar(toolbar);
 
-        llSobre = (LinearLayout) findViewById(R.id.llSobre);
-        llInstrucoes = (LinearLayout) findViewById(R.id.llInstrucoes);
-        llTemaCopo = (LinearLayout) findViewById(R.id.llTemaCopo);
         txtLuzFundo = (TextView) findViewById(R.id.txtLuzFundo);
         swichtLuzFundo = (Switch) findViewById(R.id.swirchLuzFundo);
-        llValoresPecas = (LinearLayout) findViewById(R.id.llValoresPecas);
         txtValorespecas = (TextView) findViewById(R.id.txtValorespecas);
-        btnViewCopo = (ImageButton) findViewById(R.id.btnViewCopo);
 
-        btnViewCopo.setOnClickListener(new View.OnClickListener() {
+        //Visualizar o copo Atual
+        findViewById(R.id.btnViewCopo).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 //Abre o alert
@@ -87,11 +82,9 @@ public class Definicoes extends AppCompatActivity {
                             }
                         });
                 builder.show();
+
             }
         });
-
-
-
 
         preferencias = getSharedPreferences(PREF_CONFIG, MODE_PRIVATE);
         boolean displayLigado = preferencias.getBoolean("pref_display_ligado", true);
@@ -109,17 +102,19 @@ public class Definicoes extends AppCompatActivity {
             swichtLuzFundo.setChecked(false);
         }
 
-        llInstrucoes.setOnClickListener(new View.OnClickListener() {
+        //Instruções
+        findViewById(R.id.llInstrucoes).setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
+            public void onClick(View view) {
                 Intent intent = new Intent(Definicoes.this, Instrucoes.class);
                 startActivity(intent);
             }
         });
 
-        llTemaCopo.setOnClickListener(new View.OnClickListener() {
+        //Tema copo
+        findViewById(R.id.llTemaCopo).setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
+            public void onClick(View view) {
 
 //            TemaUtils.mudarTema(CopoVirtual.this, getLayoutInflater());
                 Intent intent = new Intent(Definicoes.this,Tema.class);
@@ -127,9 +122,10 @@ public class Definicoes extends AppCompatActivity {
             }
         });
 
-        llSobre.setOnClickListener(new View.OnClickListener() {
+        //Sobre
+        findViewById(R.id.llSobre).setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
+            public void onClick(View view) {
                 AlertDialog.Builder builder = new AlertDialog.Builder(Definicoes.this);
                 LayoutInflater layoutInflater = getLayoutInflater();
                 View dialoglayout = layoutInflater.inflate(R.layout.dialog_sobre, null);
@@ -180,9 +176,11 @@ public class Definicoes extends AppCompatActivity {
             txtValorespecas.setText(getString(R.string.valoresPecas2));
         }
 
-        llValoresPecas.setOnClickListener(new View.OnClickListener() {
+        //Valores peças
+        findViewById(R.id.llValoresPecas).setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
+            public void onClick(View view) {
+
 
                 AlertDialog.Builder builder = new AlertDialog.Builder(Definicoes.this);
 
@@ -249,12 +247,31 @@ public class Definicoes extends AppCompatActivity {
 
 
                 builder.show();
-
             }
         });
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
+
+
+        //Feed Back
+        findViewById(R.id.llFeedBack).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                sendFeedback();
+            }
+        });
+
+    }
+
+    //Feed Back
+    private void sendFeedback() {
+        final Intent _Intent = new Intent(android.content.Intent.ACTION_SEND);
+        _Intent.setType("text/html");
+        _Intent.putExtra(android.content.Intent.EXTRA_EMAIL, new String[]{ getString(R.string.mail_feedback_email) });
+        _Intent.putExtra(android.content.Intent.EXTRA_SUBJECT, getString(R.string.mail_feedback_subject));
+        _Intent.putExtra(android.content.Intent.EXTRA_TEXT, getString(R.string.mail_feedback_message));
+        startActivity(Intent.createChooser(_Intent, getString(R.string.title_send_feedback)));
     }
 
     @Override

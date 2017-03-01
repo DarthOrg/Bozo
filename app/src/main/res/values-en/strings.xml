@@ -180,6 +180,9 @@
     <string name="visualizar_tema_atual">View current topic</string>
     <string name="vizualizar">View</string>
     <string name="voce_tem">You have</string>
+    <string name="mail_feedback_message">Hi! Your comment is very important to us. Tell us what happened!</string>
+    <string name="mail_feedback_subject">I say something to us!</string>
+    <string name="title_send_feedback">Send feedback</string>
 
 
 </resources>

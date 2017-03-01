@@ -290,6 +290,9 @@ Na tabela no nosso app você vai marcar em Quina. Mas,observando bem, 2 duques e
     <string name="visualizar_tema_atual">Visualizar tema atual</string>
     <string name="vizualizar">Visualizar</string>
     <string name="voce_tem">Você tem</string>
+    <string name="mail_feedback_subject">Digo algo para nós!</string>
+    <string name="mail_feedback_message">Oi! seu comentario é muito importante para nós. Diga-nos o ocorreu!</string>
+    <string name="title_send_feedback">Enviar feedback</string>
 
 
 </resources>

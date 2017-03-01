@@ -234,6 +234,9 @@ Los  dados pueden ser de cualquier valor, siempre que sean iguales. El valor que
     <string name="visualizar_tema_atual">Ver edición actual</string>
     <string name="vizualizar">Visualizar</string>
     <string name="voce_tem">Tú tienes</string>
+    <string name="mail_feedback_message">Hola! Su comentario es muy importante para nosotros. Cuéntanos lo que pasó!</string>
+    <string name="mail_feedback_subject">Digo algo para nosotros!</string>
+    <string name="title_send_feedback">Enviar feedback</string>
 
 
 </resources>

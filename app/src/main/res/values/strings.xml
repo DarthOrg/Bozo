@@ -308,4 +308,13 @@ Na tabela no nosso app você vai marcar em Quina. Mas,observando bem, 2 duques e
     <string name="visualizar_tema_atual">Visualizar tema atual</string>
 
 
+    //Feed back
+    <string name="button_feedback" translatable="false">FeedBack</string>
+    <string name="title_send_feedback">Enviar feedback</string>
+
+    <string name="mail_feedback_email" translatable="false">darthorgmobile@gmail.com</string>
+    <string name="mail_feedback_subject">Digo algo para nós!</string>
+    <string name="mail_feedback_message">Oi! seu comentario é muito importante para nós. Diga-nos o ocorreu!</string>
+
+
 </resources>
