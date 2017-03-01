@@ -24,7 +24,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.darthorg.bozo.R;
-import com.darthorg.bozo.utils.TemaUtils;
 
 public class Definicoes extends AppCompatActivity {
 

@@ -33,7 +33,6 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.darthorg.bozo.R;
-import com.darthorg.bozo.utils.TemaUtils;
 
 import java.util.ArrayList;
 import java.util.Arrays;
