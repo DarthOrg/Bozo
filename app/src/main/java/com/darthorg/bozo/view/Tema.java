@@ -1,6 +1,7 @@
 package com.darthorg.bozo.view;
 
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Build;
 import android.support.design.widget.FloatingActionButton;
@@ -9,6 +10,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
@@ -70,13 +72,14 @@ public class Tema extends AppCompatActivity {
 
                     ImageView copoView = (ImageView) dialoglayout.findViewById(R.id.copoVeiw);
 
-                    builder.setTitle("Pré vizualização");
+                    builder.setTitle(getString(R.string.vizualizar));
+                    builder.setMessage(getString(R.string.menssagem_visualizar));
                     builder.setIcon(R.drawable.ic_olhar);
 
                     //Coloca na ImageView o tema escolhido
                     copoView.setImageResource(temaEscolhido);
 
-                            builder.setPositiveButton("Definir", new DialogInterface.OnClickListener() {
+                            builder.setPositiveButton(getString(R.string.aplicar), new DialogInterface.OnClickListener() {
                                 public void onClick(DialogInterface dialog, int id) {
 
                                     //Altera o SharedPreferences
@@ -92,17 +95,6 @@ public class Tema extends AppCompatActivity {
                                 }
                             });
                     builder.show();
-                }
-            });
-
-            FloatingActionButton imgRedefinir = (FloatingActionButton) findViewById(R.id.btnTemaPadrao);
-            imgRedefinir.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    editor.putInt("pref_tema", 0);
-                    editor.commit();
-                    finish();
-                    Toast.makeText(getApplicationContext(),"Tema restaurado",Toast.LENGTH_LONG).show();
                 }
             });
 
@@ -137,18 +129,63 @@ public class Tema extends AppCompatActivity {
     }
 
     @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_tema_copo, menu);
+        return true;
+    }
+
+
+    @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
 
         if (id == android.R.id.home) {
             menssagemSair();
+        } else if (id == R.id.action_restaurar) {
+            restaurar();
+        } else if (id == R.id.action_vizualizar) {
+            //Abre o alert
+            AlertDialog.Builder builder = new AlertDialog.Builder(Tema.this);
+            LayoutInflater layoutInflater = getLayoutInflater();
+            final View dialoglayout = layoutInflater.inflate(R.layout.dialog_tema_copo, null);
+            builder.setView(dialoglayout);
+
+            ImageView copoView = (ImageView) dialoglayout.findViewById(R.id.copoVeiw);
+
+            builder.setTitle(getString(R.string.olhando_tema));
+            builder.setIcon(R.drawable.ic_olhar);
+
+            //Coloca na ImageView o tema escolhido
+//                copoView.setImageResource(tema);
+
+            builder.setPositiveButton(getString(R.string.voltar), new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int id) {
+                            dialog.dismiss();
+                        }
+                    });
+            builder.setPositiveButton(getString(R.string.restaurar), new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dialog, int id) {
+                    restaurar();
+                    dialog.dismiss();
+                }
+            });
+            builder.show();
         }
 
         return super.onOptionsItemSelected(item);
     }
+    public void restaurar(){
+        final SharedPreferences preferencias = getSharedPreferences(PREF_CONFIG, MODE_PRIVATE);
+        final SharedPreferences.Editor editor = preferencias.edit();
+        editor.putInt("pref_tema", 0);
+        editor.commit();
+        finish();
+        Toast.makeText(getApplicationContext(), R.string.tema_restaurado,Toast.LENGTH_LONG).show();
+    }
+
     public void menssagemSair(){
         finish();
-        Toast.makeText(getApplicationContext(),"Nenhum tema selecionado",Toast.LENGTH_LONG).show();
+        Toast.makeText(getApplicationContext(), R.string.nenhum_tem_restaurado,Toast.LENGTH_LONG).show();
     }
 
 

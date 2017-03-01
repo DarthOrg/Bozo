@@ -357,7 +357,7 @@ public class CopoVirtual extends AppCompatActivity {
         public void onSensorChanged(SensorEvent event) {
             embaralharDados(llDadosAEmbaralhar);
 
-            copo.setRotation((int) event.values[0] * 5);
+            copo.setRotation((int) event.values[0] * -5);
 
             if ((int) event.values[1] < -5 && ((int) event.values[0] < 6 && (int) event.values[0] > -6)) {
                 jogarDados(this);
@@ -376,12 +376,12 @@ public class CopoVirtual extends AppCompatActivity {
         switch (pedirEmBaixo) {
             case 1:
                 btnPedirEmbaixo.setImageDrawable(getResources().getDrawable(R.drawable.ic_confirmar_welcome));
-                menssagem3.setText("Embaixo selecionado");
+                menssagem3.setText(R.string.embaixo_selecionado);
                 break;
             case 2:
             case 0:
                 btnPedirEmbaixo.setImageDrawable(getResources().getDrawable(R.drawable.ic_embaixo));
-                menssagem3.setText("Pedir Embaixo");
+                menssagem3.setText(R.string.pedir_embaixo);
                 pedirEmBaixo = 0;
                 break;
         }
@@ -391,13 +391,13 @@ public class CopoVirtual extends AppCompatActivity {
         chances--;
         switch (chances) {
             case 3:
-                menssagem2.setText("Para jogar os dados vire o copo" + "\n\n" + "Você tem " + chances + " jogadas");
+                menssagem2.setText(getString(R.string.para_jogar_dados) + "\n\n" + getString(R.string.voce_tem) + chances + getString(R.string.jogadas));
                 break;
             case 2:
-                menssagem2.setText("Para jogar os dados vire o copo" + "\n\n" + "Você tem mais " + chances + " jogadas");
+                menssagem2.setText(getString(R.string.para_jogar_dados) + "\n\n" + getString(R.string.voce_tem) + chances + getString(R.string.jogadas));
                 break;
             case 1:
-                menssagem2.setText("Para jogar os dados vire o copo" + "\n\n" + "Você tem só mais " + chances + " jogada");
+                menssagem2.setText(getString(R.string.para_jogar_dados) + "\n\n" + getString(R.string.voce_tem) + chances + getString(R.string.jogada));
                 break;
             case 0:
                 btnCopo.setVisibility(View.GONE);
@@ -424,12 +424,14 @@ public class CopoVirtual extends AppCompatActivity {
 
         switch (pedirEmBaixo) {
             case 1:
-                menssagem4.setText("Valores Embaixo visivel");
+                menssagem4.setText(R.string.valores_embaixo_visivel);
                 btnEspiarEncima.setVisibility(View.VISIBLE);
                 break;
             case 2:
-                menssagem4.setText("Valores Encima visivel");
+            case 0:
+                menssagem4.setText(R.string.valores_encima_visivel);
                 btnEspiarEncima.setVisibility(View.GONE);
+                pedirEmBaixo = 0;
                 break;
         }
 
@@ -480,9 +482,9 @@ public class CopoVirtual extends AppCompatActivity {
         if (valoresDados.equals(seguidaI) || valoresDados.equals(seguidaII)) {
             // Seguida
             if (deBoca)
-                return "Seguida de Boca";
+                return getString(R.string.seguida_boca);
             else
-                return "Seguida";
+                return getString(R.string.seguida);
         }
 
         //Demais jogadas
@@ -508,22 +510,22 @@ public class CopoVirtual extends AppCompatActivity {
             if (countPar != 0 && countTrio != 0) {
                 //Full
                 if (deBoca)
-                    return "Full de Boca";
+                    return getString(R.string.full_boca);
                 else
-                    return "Full de " + countPar + " e " + countTrio;
+                    return getString(R.string.full) + getString(R.string.de) + countPar + getString(R.string.e) + countTrio;
 
             } else if (numQuadrada != 0) {
                 //Quadrada
                 if (deBoca)
-                    return "Quadrada de Boca ";
+                    return getString(R.string.quadrada_boca);
                 else
-                    return "Quadrada de " + numQuadrada;
+                    return getString(R.string.quadrada)+ getString(R.string.de) + numQuadrada;
             } else if (numGeneral != 0) {
                 //General
                 if (deBoca)
-                    return "General de Boca";
+                    return getString(R.string.general_boca);
                 else
-                    return "General de " + numGeneral;
+                    return getString(R.string.general)+ getString(R.string.de) + numGeneral;
             }
         }
         return null;
@@ -620,9 +622,9 @@ public class CopoVirtual extends AppCompatActivity {
             case 2:
             case 1:
                 AlertDialog.Builder builder = new AlertDialog.Builder(this);
-                builder.setTitle("Atualizar");
-                builder.setMessage("Você não terminou sua jogada, deseja atualizar assim mesmo?")
-                        .setPositiveButton("Atualizar", new DialogInterface.OnClickListener() {
+                builder.setTitle(getString(R.string.atualizar));
+                builder.setMessage(getString(R.string.menssagem_atualizar))
+                        .setPositiveButton(getString(R.string.atualizar), new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int id) {
                                 finish();
                                 Intent intent = new Intent(CopoVirtual.this, CopoVirtual.class);
@@ -652,7 +654,7 @@ public class CopoVirtual extends AppCompatActivity {
             case 0:
                 AlertDialog.Builder builder = new AlertDialog.Builder(this);
                 builder.setTitle(getString(R.string.sair));
-                builder.setMessage("Você não terminou sua jogada, deseja sair assim mesmo?")
+                builder.setMessage(getString(R.string.menssagem_sair))
                         .setPositiveButton(getString(R.string.sair), new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int id) {
                                 finish();

@@ -67,13 +67,14 @@ public class Definicoes extends AppCompatActivity {
 
                 ImageView copoView = (ImageView) dialoglayout.findViewById(R.id.copoVeiw);
 
-                builder.setTitle("Tema atual");
+
+                builder.setTitle(getString(R.string.olhando_tema));
                 builder.setIcon(R.drawable.ic_olhar);
 
                 //Coloca na ImageView o tema escolhido
 //                copoView.setImageResource(tema);
 
-                builder.setPositiveButton("Alterar", new DialogInterface.OnClickListener() {
+                builder.setPositiveButton(getString(R.string.alterar), new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
 
                         Intent intent = new Intent(Definicoes.this,Tema.class);

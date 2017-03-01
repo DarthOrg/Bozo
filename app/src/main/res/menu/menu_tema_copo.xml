@@ -4,20 +4,18 @@
 
 
     <item
-        android:id="@+id/action_tema_copo"
-        android:title="@string/tema_do_copo"
+        android:id="@+id/action_restaurar"
+        android:title="@string/restaurar"
         android:orderInCategory="100"
-        android:visible="true"
-        android:icon="@drawable/ic_tema"
         app:showAsAction="always">
 
     </item>
 
     <item
-        android:id="@+id/action_atualizar"
-        android:title="@string/atualizar"
+        android:id="@+id/action_vizualizar"
+        android:title="@string/visualizar_tema_atual"
         android:orderInCategory="100"
-        android:icon="@drawable/ic_atualizar"
+        android:icon="@drawable/ic_olhar"
         app:showAsAction="always">
 
     </item>

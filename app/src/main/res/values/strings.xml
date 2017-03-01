@@ -273,6 +273,39 @@ Na tabela no nosso app você vai marcar em Quina. Mas,observando bem, 2 duques e
     <string name="instrucoes">Instruções</string>
     <string name="copo_virtual">Copo virtual</string>
     <string name="atualizar">Atualizar</string>
+    <string name="temas">Temas</string>
+    <string name="alterar_copo_bozo">Alterar copo de Bozó</string>
+    <string name="vizualizar">Visualizar</string>
+    <string name="menssagem_visualizar">Seu copo de Bozó ficaria desse jeito. Depois que aplicar o tema.</string>
+    <string name="aplicar">Aplicar</string>
+    <string name="olhando_tema">Olhando tema atual</string>
+    <string name="restaurar">Restaurar</string>
+    <string name="tema_restaurado">Tema restaurado</string>
+    <string name="nenhum_tem_restaurado">Nenhum tema selecionado</string>
+    <string name="alterar">Alterar</string>
+    <string name="embaixo_selecionado">Embaixo selecionado</string>
+    <string name="pedir_embaixo">Pedir Embaixo</string>
+    <string name="para_jogar_dados">Para jogar os dados vire o copo</string>
+    <string name="voce_tem">Você tem</string>
+    <string name="jogadas">" jogadas"</string>
+    <string name="jogada">" jogada"</string>
+    <string name="valores_embaixo_visivel">Valores Embaixo visível</string>
+    <string name="valores_encima_visivel">Valores em cima visível</string>
+    <string name="seguida_boca">Seguida de Primeira</string>
+    <string name="full_boca">Full de Primeira</string>
+    <string name="de">" de "</string>
+    <string name="e">" e "</string>
+    <string name="quadrada_boca">\"Quadrada de Primeira \"</string>
+    <string name="general_boca">General de Primeira</string>
+    <string name="menssagem_atualizar">Você não terminou sua jogada, deseja atualizar assim mesmo?</string>
+    <string name="menssagem_sair">Você não terminou sua jogada, deseja sair assim mesmo?</string>
+    <string name="espiar_valores_encima">Espiar valores em cima</string>
+    <string name="comecar_tudo_de_novo">Começar tudo de novo</string>
+    <string name="menssagem_arrastar_dados">Arraste os dados até aqui para separa-los do copo.</string>
+    <string name="menssagem_1">Clique no copo para poder chacoalhar</string>
+    <string name="menssagem2">Para jogar os dados vire o copo</string>
+    <string name="tema_do_copo">Tema do copo</string>
+    <string name="visualizar_tema_atual">Visualizar tema atual</string>
 
 
 </resources>
