@@ -217,7 +217,6 @@ Los  dados pueden ser de cualquier valor, siempre que sean iguales. El valor que
     <string name="menssagem_arrastar_dados">Arrastre los datos hasta el momento para separarlos de la taza.</string>
     <string name="menssagem_atualizar">No ha terminado su movimiento, que desea actualizar todos modos?</string>
     <string name="menssagem_sair">No ha terminado su movimiento, que quiere dejar de todos modos?</string>
-    <string name="menssagem_visualizar">Su Copa Bozo sería de esa manera. Después de aplicar el tema.</string>
     <string name="nenhum_tem_restaurado">No tema seleccionado</string>
     <string name="olhando_tema">En regardant thème actuel</string>
     <string name="para_jogar_dados">Para lanzar los dados a su vez la copa</string>
@@ -226,7 +225,7 @@ Los  dados pueden ser de cualquier valor, siempre que sean iguales. El valor que
     <string name="restaurar">Restaurar</string>
     <string name="seguida_boca">Seguida de Primeiro</string>
     <string name="tema_do_copo">Taza tema</string>
-    <string name="tema_restaurado">Tema restaurado</string>
+    <string name="tema_restaurado">Vidrio restaurada</string>
     <string name="temas">Temas</string>
     <string name="duque" translatable="false"></string>
     <string name="valores_embaixo_visivel">Los valores por debajo visibles</string>
@@ -237,6 +236,10 @@ Los  dados pueden ser de cualquier valor, siempre que sean iguales. El valor que
     <string name="mail_feedback_message">Hola! Su comentario es muy importante para nosotros. Cuéntanos lo que pasó!</string>
     <string name="mail_feedback_subject">Digo algo para nosotros!</string>
     <string name="title_send_feedback">Enviar feedback</string>
+    <string name="menssagens_sem_modificacoes">No hay cambios aquí</string>
+    <string name="aplicar_copo">Aplicar taza de Bozó</string>
+    <string name="menssagem_tema_aplicado">Copa cambiado correctamente</string>
+    <string name="menssagem_visualizar">El cristal después de la aplicación es de esa manera.</string>
 
 
 </resources>

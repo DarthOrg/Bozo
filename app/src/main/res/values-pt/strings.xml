@@ -274,7 +274,7 @@ Na tabela no nosso app você vai marcar em Quina. Mas,observando bem, 2 duques e
     <string name="menssagem_arrastar_dados">Arraste os dados até aqui para separa-los do copo.</string>
     <string name="menssagem_atualizar">Você não terminou sua jogada, deseja atualizar assim mesmo?</string>
     <string name="menssagem_sair">Você não terminou sua jogada, deseja sair assim mesmo?</string>
-    <string name="menssagem_visualizar">Seu copo de Bozó ficaria desse jeito. Depois que aplicar o tema.</string>
+    <string name="menssagem_visualizar">O copo depois de aplicado fica desse jeito.</string>
     <string name="nenhum_tem_restaurado">Nenhum tema selecionado</string>
     <string name="olhando_tema">Olhando tema atual</string>
     <string name="para_jogar_dados">Para jogar os dados vire o copo</string>
@@ -283,7 +283,7 @@ Na tabela no nosso app você vai marcar em Quina. Mas,observando bem, 2 duques e
     <string name="restaurar">Restaurar</string>
     <string name="seguida_boca">Seguida de Primeira</string>
     <string name="tema_do_copo">Tema do copo</string>
-    <string name="tema_restaurado">Tema restaurado</string>
+    <string name="tema_restaurado">Copo restaurado</string>
     <string name="temas">Temas</string>
     <string name="valores_embaixo_visivel">Valores Embaixo visível</string>
     <string name="valores_encima_visivel">Valores em cima visível</string>
@@ -293,6 +293,9 @@ Na tabela no nosso app você vai marcar em Quina. Mas,observando bem, 2 duques e
     <string name="mail_feedback_subject">Digo algo para nós!</string>
     <string name="mail_feedback_message">Oi! seu comentario é muito importante para nós. Diga-nos o ocorreu!</string>
     <string name="title_send_feedback">Enviar feedback</string>
+    <string name="menssagem_tema_aplicado">Copo alterado com sucesso</string>
+    <string name="menssagens_sem_modificacoes">Sem modificações por aqui</string>
+    <string name="aplicar_copo">Aplicar copo de Bozó</string>
 
 
 </resources>

@@ -164,7 +164,6 @@
     <string name="menssagem_arrastar_dados">Drag the dice here to separate them from the glass.</string>
     <string name="menssagem_atualizar">You have not finished your move, do you want to update anyway?</string>
     <string name="menssagem_sair">You have not finished your move, do you want to leave anyway?</string>
-    <string name="menssagem_visualizar">His glass of Bozzo would look like this. After that apply the theme.</string>
     <string name="nenhum_tem_restaurado">No topics selected</string>
     <string name="olhando_tema">Looking at current topic</string>
     <string name="para_jogar_dados">To play the dice turn the cup</string>
@@ -173,7 +172,7 @@
     <string name="restaurar">Restore</string>
     <string name="seguida_boca">Seguida de First</string>
     <string name="tema_do_copo">Cup Theme</string>
-    <string name="tema_restaurado">Theme restored</string>
+    <string name="tema_restaurado">Restored glass</string>
     <string name="temas">Themes</string>
     <string name="valores_embaixo_visivel">Values Below visible</string>
     <string name="valores_encima_visivel">Values on top visible</string>
@@ -183,6 +182,10 @@
     <string name="mail_feedback_message">Hi! Your comment is very important to us. Tell us what happened!</string>
     <string name="mail_feedback_subject">I say something to us!</string>
     <string name="title_send_feedback">Send feedback</string>
+    <string name="menssagens_sem_modificacoes">No changes here</string>
+    <string name="aplicar_copo">Apply glass of Bozó</string>
+    <string name="menssagem_tema_aplicado">Successfully altered glass</string>
+    <string name="menssagem_visualizar">The glass after it is applied stays that way.</string>
 
 
 </resources>

@@ -34,6 +34,23 @@ public class Definicoes extends AppCompatActivity {
     LinearLayout llValoresPecas;
     TextView txtValorespecas, txtLuzFundo;
     Switch swichtLuzFundo;
+    ImageView copoView;
+
+    SharedPreferences prefs;
+    SharedPreferences.OnSharedPreferenceChangeListener listener = new SharedPreferences.OnSharedPreferenceChangeListener() {
+        @Override
+        public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String s) {
+            verificarTema(sharedPreferences);
+        }
+    };
+
+    private void verificarTema(SharedPreferences sharedPreferences) {
+        int tema = sharedPreferences.getInt("pref_tema", 0);
+        if (tema == 0)
+            copoView.setImageResource(R.drawable.img_copo);
+        else
+            copoView.setImageResource(tema);
+    }
 
 
     @Override
@@ -59,14 +76,17 @@ public class Definicoes extends AppCompatActivity {
                 final View dialoglayout = layoutInflater.inflate(R.layout.dialog_tema_copo, null);
                 builder.setView(dialoglayout);
 
-                ImageView copoView = (ImageView) dialoglayout.findViewById(R.id.copoVeiw);
+                copoView = (ImageView) dialoglayout.findViewById(R.id.copoVeiw);
 
 
                 builder.setTitle(getString(R.string.olhando_tema));
                 builder.setIcon(R.drawable.ic_olhar);
 
-                //Coloca na ImageView o tema escolhido
-//                copoView.setImageResource(tema);
+                prefs = getSharedPreferences(Definicoes.PREF_CONFIG, MODE_PRIVATE);
+                prefs.registerOnSharedPreferenceChangeListener(listener);
+                verificarTema(prefs);
+
+
 
                 builder.setPositiveButton(getString(R.string.alterar), new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {

@@ -145,7 +145,6 @@
     <string name="menssagem_arrastar_dados">Faites glisser les données à ce jour pour les séparer de la coupe.</string>
     <string name="menssagem_atualizar">Vous avez pas fini votre déménagement, vous souhaitez mettre à jour de toute façon?</string>
     <string name="menssagem_sair">Vous avez pas fini votre déménagement, vous voulez laisser de toute façon?</string>
-    <string name="menssagem_visualizar">Sa Coupe Bozo serait de cette façon. Après avoir appliqué le thème.</string>
     <string name="nenhum_tem_restaurado">Aucun thème sélectionné</string>
     <string name="olhando_tema">En cuanto a tema actual</string>
     <string name="para_jogar_dados">Pour lancer les dés tourner la tasse</string>
@@ -154,7 +153,7 @@
     <string name="restaurar">Restaurer</string>
     <string name="seguida_boca">Seguida de Premiére</string>
     <string name="tema_do_copo">Thème tasse</string>
-    <string name="tema_restaurado">Thème restauré</string>
+    <string name="tema_restaurado">Verre restauré</string>
     <string name="temas">Thèmes</string>
     <string name="duque" translatable="false"></string>
     <string name="valores_embaixo_visivel">Les valeurs ci-dessous visible</string>
@@ -165,4 +164,8 @@
     <string name="mail_feedback_message">Salut! Votre commentaire est très important pour nous. Dites-nous ce qui est arrivé!</string>
     <string name="mail_feedback_subject">Je dis quelque chose à nous!</string>
     <string name="title_send_feedback">Envoyer feedback</string>
+    <string name="menssagens_sem_modificacoes">Aucun changement n\'a ici</string>
+    <string name="aplicar_copo">Appliquer tasse de Bozó</string>
+    <string name="menssagem_tema_aplicado">Coupe changé avec succès</string>
+    <string name="menssagem_visualizar">Le verre après l\'application est de cette façon.</string>
 </resources>

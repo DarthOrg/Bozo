@@ -37,6 +37,24 @@ import static com.darthorg.bozo.view.Definicoes.PREF_CONFIG;
 
 public class Tema extends AppCompatActivity {
 
+    ImageView copoViewAtual;
+
+    SharedPreferences prefs;
+    SharedPreferences.OnSharedPreferenceChangeListener listener = new SharedPreferences.OnSharedPreferenceChangeListener() {
+        @Override
+        public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String s) {
+            verificarTema(sharedPreferences);
+        }
+    };
+
+    private void verificarTema(SharedPreferences sharedPreferences) {
+        int tema = sharedPreferences.getInt("pref_tema", 0);
+        if (tema == 0)
+            copoViewAtual.setImageResource(R.drawable.img_copo);
+        else
+            copoViewAtual.setImageResource(tema);
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -72,9 +90,9 @@ public class Tema extends AppCompatActivity {
 
                     ImageView copoView = (ImageView) dialoglayout.findViewById(R.id.copoVeiw);
 
-                    builder.setTitle(getString(R.string.vizualizar));
+                    builder.setTitle(getString(R.string.aplicar_copo));
                     builder.setMessage(getString(R.string.menssagem_visualizar));
-                    builder.setIcon(R.drawable.ic_olhar);
+                    builder.setIcon(R.drawable.ic_confirmar_welcome);
 
                     //Coloca na ImageView o tema escolhido
                     copoView.setImageResource(temaEscolhido);
@@ -87,6 +105,7 @@ public class Tema extends AppCompatActivity {
                                     editor.commit();
                                     dialog.dismiss();
                                     finish();
+                                    Toast.makeText(getApplicationContext(), R.string.menssagem_tema_aplicado,Toast.LENGTH_LONG).show();
                                 }
                             })
                             .setNegativeButton(R.string.cancelar, new DialogInterface.OnClickListener() {
@@ -150,15 +169,16 @@ public class Tema extends AppCompatActivity {
             final View dialoglayout = layoutInflater.inflate(R.layout.dialog_tema_copo, null);
             builder.setView(dialoglayout);
 
-            ImageView copoView = (ImageView) dialoglayout.findViewById(R.id.copoVeiw);
+            copoViewAtual = (ImageView) dialoglayout.findViewById(R.id.copoVeiw);
 
             builder.setTitle(getString(R.string.olhando_tema));
             builder.setIcon(R.drawable.ic_olhar);
 
-            //Coloca na ImageView o tema escolhido
-//                copoView.setImageResource(tema);
+            prefs = getSharedPreferences(Definicoes.PREF_CONFIG, MODE_PRIVATE);
+            prefs.registerOnSharedPreferenceChangeListener(listener);
+            verificarTema(prefs);
 
-            builder.setPositiveButton(getString(R.string.voltar), new DialogInterface.OnClickListener() {
+            builder.setNegativeButton(getString(R.string.voltar), new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int id) {
                             dialog.dismiss();
                         }
@@ -175,17 +195,37 @@ public class Tema extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
     public void restaurar(){
-        final SharedPreferences preferencias = getSharedPreferences(PREF_CONFIG, MODE_PRIVATE);
-        final SharedPreferences.Editor editor = preferencias.edit();
-        editor.putInt("pref_tema", 0);
-        editor.commit();
-        finish();
-        Toast.makeText(getApplicationContext(), R.string.tema_restaurado,Toast.LENGTH_LONG).show();
+        //Abre o alert
+        AlertDialog.Builder builder = new AlertDialog.Builder(Tema.this);
+        LayoutInflater layoutInflater = getLayoutInflater();
+
+        builder.setTitle(getString(R.string.restaurar));
+        builder.setIcon(R.drawable.ic_atualizar);
+        builder.setMessage("Tem certeza que deseja restaurar seu copo?");
+
+        builder.setNegativeButton(getString(R.string.cancelar), new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int id) {
+                dialog.dismiss();
+            }
+        });
+        builder.setPositiveButton(getString(R.string.restaurar), new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int id) {
+                final SharedPreferences preferencias = getSharedPreferences(PREF_CONFIG, MODE_PRIVATE);
+                final SharedPreferences.Editor editor = preferencias.edit();
+                editor.putInt("pref_tema", 0);
+                editor.commit();
+                finish();
+                Toast.makeText(getApplicationContext(), R.string.tema_restaurado,Toast.LENGTH_LONG).show();
+                dialog.dismiss();
+            }
+        });
+        builder.show();
+
     }
 
     public void menssagemSair(){
         finish();
-        Toast.makeText(getApplicationContext(), R.string.nenhum_tem_restaurado,Toast.LENGTH_LONG).show();
+        Toast.makeText(getApplicationContext(), R.string.menssagens_sem_modificacoes,Toast.LENGTH_LONG).show();
     }
 
 
