@@ -1,13 +1,11 @@
 package com.darthorg.bozo.view;
 
 import android.content.DialogInterface;
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Build;
-import android.support.design.widget.FloatingActionButton;
+import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -17,16 +15,13 @@ import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.AdapterView;
-import android.widget.Button;
 import android.widget.GridView;
-import android.widget.ImageButton;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.darthorg.bozo.R;
 import com.darthorg.bozo.adapter.TemasGridAdapter;
+import com.darthorg.bozo.model.TemaCopo;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -123,26 +118,26 @@ public class Tema extends AppCompatActivity {
 
 
 
-    private static List<com.darthorg.bozo.model.TemaCopo> getTemas() {
+    private static List<TemaCopo> getTemas() {
 
         List<com.darthorg.bozo.model.TemaCopo> temasCopo = new ArrayList<>();
 
         //Temas cores
-        temasCopo.add(new com.darthorg.bozo.model.TemaCopo(R.drawable.ic_cores, R.color.colorRed, R.drawable.copo_red));
-        temasCopo.add(new com.darthorg.bozo.model.TemaCopo(R.drawable.ic_cores, R.color.colorPink, R.drawable.copo_pink));
-        temasCopo.add(new com.darthorg.bozo.model.TemaCopo(R.drawable.ic_cores, R.color.colorPurple, R.drawable.copo_purple));
-        temasCopo.add(new com.darthorg.bozo.model.TemaCopo(R.drawable.ic_cores, R.color.colorBlue, R.drawable.copo_blue));
-        temasCopo.add(new com.darthorg.bozo.model.TemaCopo(R.drawable.ic_cores, R.color.colorGreen, R.drawable.copo_green));
-        temasCopo.add(new com.darthorg.bozo.model.TemaCopo(R.drawable.ic_cores, R.color.colorOrange, R.drawable.copo_orange));
+        temasCopo.add(new TemaCopo(R.drawable.ic_cores, R.color.colorRed, R.drawable.copo_red));
+        temasCopo.add(new TemaCopo(R.drawable.ic_cores, R.color.colorPink, R.drawable.copo_pink));
+        temasCopo.add(new TemaCopo(R.drawable.ic_cores, R.color.colorPurple, R.drawable.copo_purple));
+        temasCopo.add(new TemaCopo(R.drawable.ic_cores, R.color.colorBlue, R.drawable.copo_blue));
+        temasCopo.add(new TemaCopo(R.drawable.ic_cores, R.color.colorGreen, R.drawable.copo_green));
+        temasCopo.add(new TemaCopo(R.drawable.ic_cores, R.color.colorOrange, R.drawable.copo_orange));
 
         //Temas desenhos
-        temasCopo.add(new com.darthorg.bozo.model.TemaCopo(R.drawable.ic_darth, R.color.colorDarh, R.drawable.copo_darth));
-        temasCopo.add(new com.darthorg.bozo.model.TemaCopo(R.drawable.ic_ferro, R.color.colorFerro, R.drawable.copo_ferro));
-        temasCopo.add(new com.darthorg.bozo.model.TemaCopo(R.drawable.ic_hulk, R.color.colorHulk, R.drawable.copo_hulk));
-        temasCopo.add(new com.darthorg.bozo.model.TemaCopo(R.drawable.ic_star_wars, R.color.colorStarWars, R.drawable.copo_star_wars));
-        temasCopo.add(new com.darthorg.bozo.model.TemaCopo(R.drawable.ic_flores, R.color.colorFlores, R.drawable.copo_flores));
-        temasCopo.add(new com.darthorg.bozo.model.TemaCopo(R.drawable.ic_frozen, R.color.colorFrozen, R.drawable.copo_frozen));
-        temasCopo.add(new com.darthorg.bozo.model.TemaCopo(R.drawable.ic_gato, R.color.colorGato, R.drawable.copo_gato));
+        temasCopo.add(new TemaCopo(R.drawable.ic_darth, R.color.colorDarh, R.drawable.copo_darth));
+        temasCopo.add(new TemaCopo(R.drawable.ic_ferro, R.color.colorFerro, R.drawable.copo_ferro));
+        temasCopo.add(new TemaCopo(R.drawable.ic_hulk, R.color.colorHulk, R.drawable.copo_hulk));
+        temasCopo.add(new TemaCopo(R.drawable.ic_star_wars, R.color.colorStarWars, R.drawable.copo_star_wars));
+        temasCopo.add(new TemaCopo(R.drawable.ic_flores, R.color.colorFlores, R.drawable.copo_flores));
+        temasCopo.add(new TemaCopo(R.drawable.ic_frozen, R.color.colorFrozen, R.drawable.copo_frozen));
+        temasCopo.add(new TemaCopo(R.drawable.ic_gato, R.color.colorGato, R.drawable.copo_gato));
 
         return temasCopo;
     }
