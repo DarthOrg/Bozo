@@ -196,7 +196,7 @@ public class Tema extends AppCompatActivity {
 
         builder.setTitle(getString(R.string.restaurar));
         builder.setIcon(R.drawable.ic_atualizar);
-        builder.setMessage("Tem certeza que deseja restaurar seu copo?");
+        builder.setMessage(getString(R.string.menssagem_resturar));
 
         builder.setNegativeButton(getString(R.string.cancelar), new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int id) {
