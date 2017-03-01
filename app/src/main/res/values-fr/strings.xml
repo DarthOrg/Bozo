@@ -168,4 +168,5 @@
     <string name="aplicar_copo">Appliquer tasse de Bozó</string>
     <string name="menssagem_tema_aplicado">Coupe changé avec succès</string>
     <string name="menssagem_visualizar">Le verre après l\'application est de cette façon.</string>
+    <string name="menssagem_resturar">Etes-vous sûr que vous voulez restaurer votre verre?</string>
 </resources>

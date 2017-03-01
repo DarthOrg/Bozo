@@ -186,6 +186,7 @@
     <string name="aplicar_copo">Apply glass of Bozó</string>
     <string name="menssagem_tema_aplicado">Successfully altered glass</string>
     <string name="menssagem_visualizar">The glass after it is applied stays that way.</string>
+    <string name="menssagem_resturar">Are you sure you want to restore your glass?</string>
 
 
 </resources>

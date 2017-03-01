@@ -318,6 +318,7 @@ Na tabela no nosso app você vai marcar em Quina. Mas,observando bem, 2 duques e
     <string name="menssagem_tema_aplicado">Copo alterado com sucesso</string>
     <string name="menssagens_sem_modificacoes">Sem modificações por aqui</string>
     <string name="aplicar_copo">Aplicar copo de Bozó</string>
+    <string name="menssagem_resturar">Tem certeza que deseja restaurar seu copo?</string>
 
 
 </resources>

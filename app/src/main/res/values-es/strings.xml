@@ -240,6 +240,7 @@ Los  dados pueden ser de cualquier valor, siempre que sean iguales. El valor que
     <string name="aplicar_copo">Aplicar taza de Bozó</string>
     <string name="menssagem_tema_aplicado">Copa cambiado correctamente</string>
     <string name="menssagem_visualizar">El cristal después de la aplicación es de esa manera.</string>
+    <string name="menssagem_resturar">¿Seguro que desea restaurar el vidrio?</string>
 
 
 </resources>
