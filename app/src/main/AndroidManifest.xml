@@ -47,7 +47,8 @@
         <activity
             android:name=".view.CopoVirtual"
             android:screenOrientation="portrait"></activity>
-        <activity android:name=".view.Tema"></activity>
+       <activity android:name=".view.Tema"
+            android:screenOrientation="portrait"></activity>
     </application>
 
 </manifest>
