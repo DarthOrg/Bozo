@@ -212,15 +212,15 @@ Los  dados pueden ser de cualquier valor, siempre que sean iguales. El valor que
     <string name="general_boca">General de primeiro</string>
     <string name="jogada">\" juego\"</string>
     <string name="jogadas">juegos</string>
-    <string name="menssagem2">Para lanzar los dados a su vez la copa</string>
-    <string name="menssagem_1">Haga clic en la copa para poder sacudir</string>
-    <string name="menssagem_arrastar_dados">Arrastre los datos hasta el momento para separarlos de la taza.</string>
+    <string name="menssagemVireCopo">Para lanzar los dados a su vez la taza</string>
+    <string name="menssagemClickChacoalhar">Haga clic en la taza para poder sacudir</string>
+    <string name="menssagem_arrastar_dados">Arrastre los datos aquí para montar su movimiento.</string>
     <string name="menssagem_atualizar">No ha terminado su movimiento, que desea actualizar todos modos?</string>
     <string name="menssagem_sair">No ha terminado su movimiento, que quiere dejar de todos modos?</string>
     <string name="nenhum_tem_restaurado">No tema seleccionado</string>
     <string name="olhando_tema">En regardant thème actuel</string>
-    <string name="para_jogar_dados">Para lanzar los dados a su vez la copa</string>
-    <string name="pedir_embaixo">Sous Demande</string>
+    <string name="para_jogar_dados">Para lanzar los dados a su vez la taza</string>
+    <string name="pedir_embaixo">Pedir a bajo</string>
     <string name="quadrada_boca">"Quadrada de Primeiro "</string>
     <string name="restaurar">Restaurar</string>
     <string name="seguida_boca">Seguida de Primeiro</string>
@@ -238,8 +238,17 @@ Los  dados pueden ser de cualquier valor, siempre que sean iguales. El valor que
     <string name="title_send_feedback">Enviar feedback</string>
     <string name="menssagens_sem_modificacoes">No hay cambios aquí</string>
     <string name="aplicar_copo">Aplicar taza de Bozó</string>
-    <string name="menssagem_tema_aplicado">Copa cambiado correctamente</string>
+    <string name="menssagem_tema_aplicado">Taza cambiado correctamente</string>
     <string name="menssagem_visualizar">El cristal después de la aplicación es de esa manera.</string>
+    <string name="menssagem_resturar">¿Seguro que desea restaurar el vidrio?</string>
+    <string name="acabaram_suas_chances">Terminaron sus posibilidades</string>
+    <string name="jogada_disponivel">" jugar disponibles"</string>
+    <string name="jogada_especial">Jugar especial</string>
+    <string name="jogadas_disponiveis">" juegos disponibles"</string>
+    <string name="menssagem_recomecar">" jugadas, que desea reiniciar todos modos?"</string>
+    <string name="recomecar">Recomenzar</string>
+    <string name="voce_ainda_tem">"Tú aún tienes "</string>
+    <string name="dados_em_cima">Los datos sobre las</string>
 
 
 </resources>

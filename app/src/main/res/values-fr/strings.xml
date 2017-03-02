@@ -140,15 +140,15 @@
     <string name="general_boca">General de première</string>
     <string name="jogada">" déménagement"</string>
     <string name="jogadas">" jeux"</string>
-    <string name="menssagem2">Pour lancer les dés tourner la tasse</string>
-    <string name="menssagem_1">Cliquez sur la coupe pour être en mesure de secouer</string>
-    <string name="menssagem_arrastar_dados">Faites glisser les données à ce jour pour les séparer de la coupe.</string>
+    <string name="menssagemVireCopo">Pour lancer les dés tourner la tasse</string>
+    <string name="menssagemClickChacoalhar">Cliquez sur la coupe pour être en mesure de secouer</string>
+    <string name="menssagem_arrastar_dados">Faites glisser les données ici pour monter votre déménagement.</string>
     <string name="menssagem_atualizar">Vous avez pas fini votre déménagement, vous souhaitez mettre à jour de toute façon?</string>
     <string name="menssagem_sair">Vous avez pas fini votre déménagement, vous voulez laisser de toute façon?</string>
     <string name="nenhum_tem_restaurado">Aucun thème sélectionné</string>
     <string name="olhando_tema">En cuanto a tema actual</string>
     <string name="para_jogar_dados">Pour lancer les dés tourner la tasse</string>
-    <string name="pedir_embaixo">En Solicitud</string>
+    <string name="pedir_embaixo">Demander à sous</string>
     <string name="quadrada_boca">"Quadrado de Premiére "</string>
     <string name="restaurar">Restaurer</string>
     <string name="seguida_boca">Seguida de Premiére</string>
@@ -168,4 +168,13 @@
     <string name="aplicar_copo">Appliquer tasse de Bozó</string>
     <string name="menssagem_tema_aplicado">Coupe changé avec succès</string>
     <string name="menssagem_visualizar">Le verre après l\'application est de cette façon.</string>
+    <string name="menssagem_resturar">Etes-vous sûr que vous voulez restaurer votre verre?</string>
+    <string name="acabaram_suas_chances">Ils ont fini leurs chances</string>
+    <string name="jogada_disponivel">" jouer disponibles"</string>
+    <string name="jogada_especial">Jouer spéciale</string>
+    <string name="jogadas_disponiveis">" available plays"</string>
+    <string name="menssagem_recomecar">" pièces, vous voulez redémarrer de toute façon?"</string>
+    <string name="recomecar">Recommencer</string>
+    <string name="voce_ainda_tem">"Vous avez encore "</string>
+    <string name="dados_em_cima">Les données relatives aux</string>
 </resources>

@@ -2,6 +2,21 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
+    <item
+        android:id="@+id/action_espiar"
+        android:title="@string/espiar_valores_encima"
+        android:orderInCategory="100"
+        android:visible="false"
+        android:icon="@drawable/ic_olhar"
+        app:showAsAction="always"/>
+
+    <item
+        android:id="@+id/action_jogadas"
+        android:title="@string/quantidade_de_jogadas"
+        android:orderInCategory="100"
+        android:visible="true"
+        android:icon="@drawable/ic_3"
+        app:showAsAction="always"/>
 
     <item
         android:id="@+id/action_tema_copo"
@@ -9,18 +24,14 @@
         android:orderInCategory="100"
         android:visible="true"
         android:icon="@drawable/ic_tema"
-        app:showAsAction="always">
-
-    </item>
+        app:showAsAction="always"/>
 
     <item
         android:id="@+id/action_atualizar"
         android:title="@string/atualizar"
         android:orderInCategory="100"
         android:icon="@drawable/ic_atualizar"
-        app:showAsAction="always">
-
-    </item>
+        app:showAsAction="always"/>
 
 
 

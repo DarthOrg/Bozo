@@ -118,7 +118,7 @@
     <string name="textoOpsRemoverJogador">You can not remove more players. The marker must have at least 2 players.</string>
     <string name="textoOutraRodada">Want to play another round?</string>
     <string name="textoRemoverJogador">This player is no longer going to play.\nAre you sure?</string>
-    <string name="textoWelcome1">You should have a bozo glass with 5 dice or use our virtual glass.</string>
+    <string name="textoWelcome1">You should have a bozo cup with 5 dice or use our virtual cup.</string>
     <string name="textoWelcome2">To create a new click on the Start button</string>
     <string name="textoWelcome3">In this screen you will mark the values that you can play with the bozó cup</string>
     <string name="texto_decisao_empate">Players must decide on the dice.\nSelect the player who won</string>
@@ -145,7 +145,7 @@
     <string name="todos_direitos_reservados">All rights reserved.</string>
     <string name="instrucoes">Instructions</string>
     <string name="alterar">Change</string>
-    <string name="alterar_copo_bozo">Change glass of Bozó</string>
+    <string name="alterar_copo_bozo">Change cup of Bozó</string>
     <string name="aplicar">Apply</string>
     <string name="atualizar">Update</string>
     <string name="comecar_tudo_de_novo">Start all over again</string>
@@ -159,20 +159,20 @@
     <string name="general_boca">General of first</string>
     <string name="jogada">" played"</string>
     <string name="jogadas">" plays"</string>
-    <string name="menssagem2">To play the dice turn the cup</string>
-    <string name="menssagem_1">Click on the glass to be able to shake</string>
-    <string name="menssagem_arrastar_dados">Drag the dice here to separate them from the glass.</string>
+    <string name="menssagemVireCopo">To play the dice turn the cup</string>
+    <string name="menssagemClickChacoalhar">Click on the cup to be able to shake</string>
+    <string name="menssagem_arrastar_dados">Drag the dice here to set up your move.</string>
     <string name="menssagem_atualizar">You have not finished your move, do you want to update anyway?</string>
     <string name="menssagem_sair">You have not finished your move, do you want to leave anyway?</string>
     <string name="nenhum_tem_restaurado">No topics selected</string>
     <string name="olhando_tema">Looking at current topic</string>
     <string name="para_jogar_dados">To play the dice turn the cup</string>
-    <string name="pedir_embaixo">Ask for it underneath</string>
+    <string name="pedir_embaixo">Ask under</string>
     <string name="quadrada_boca">"Quadrada de First "</string>
     <string name="restaurar">Restore</string>
     <string name="seguida_boca">Seguida de First</string>
     <string name="tema_do_copo">Cup Theme</string>
-    <string name="tema_restaurado">Restored glass</string>
+    <string name="tema_restaurado">Restored cup</string>
     <string name="temas">Themes</string>
     <string name="valores_embaixo_visivel">Values Below visible</string>
     <string name="valores_encima_visivel">Values on top visible</string>
@@ -183,9 +183,18 @@
     <string name="mail_feedback_subject">I say something to us!</string>
     <string name="title_send_feedback">Send feedback</string>
     <string name="menssagens_sem_modificacoes">No changes here</string>
-    <string name="aplicar_copo">Apply glass of Bozó</string>
-    <string name="menssagem_tema_aplicado">Successfully altered glass</string>
-    <string name="menssagem_visualizar">The glass after it is applied stays that way.</string>
+    <string name="aplicar_copo">Apply cup of Bozó</string>
+    <string name="menssagem_tema_aplicado">Successfully altered cup</string>
+    <string name="menssagem_visualizar">The cup after it is applied stays that way.</string>
+    <string name="menssagem_resturar">Are you sure you want to restore your cup?</string>
+    <string name="acabaram_suas_chances">No more chances</string>
+    <string name="jogada_disponivel">" available play"</string>
+    <string name="jogada_especial">Special play</string>
+    <string name="jogadas_disponiveis">" available plays"</string>
+    <string name="menssagem_recomecar">" plays, do you want to restart anyway?"</string>
+    <string name="recomecar">Restart</string>
+    <string name="voce_ainda_tem">"You still have "</string>
+    <string name="dados_em_cima">Data above</string>
 
 
 </resources>

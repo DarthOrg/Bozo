@@ -269,9 +269,9 @@ Na tabela no nosso app você vai marcar em Quina. Mas,observando bem, 2 duques e
     <string name="general_boca">General de Primeira</string>
     <string name="jogada">" jogada"</string>
     <string name="jogadas">" jogadas"</string>
-    <string name="menssagem2">Para jogar os dados vire o copo</string>
-    <string name="menssagem_1">Clique no copo para poder chacoalhar</string>
-    <string name="menssagem_arrastar_dados">Arraste os dados até aqui para separa-los do copo.</string>
+    <string name="menssagemVireCopo">Para jogar os dados vire o copo</string>
+    <string name="menssagemClickChacoalhar">Clique no copo para poder chacoalhar</string>
+    <string name="menssagem_arrastar_dados">Arraste os dados até aqui para montar sua jogada.</string>
     <string name="menssagem_atualizar">Você não terminou sua jogada, deseja atualizar assim mesmo?</string>
     <string name="menssagem_sair">Você não terminou sua jogada, deseja sair assim mesmo?</string>
     <string name="menssagem_visualizar">O copo depois de aplicado fica desse jeito.</string>
@@ -296,6 +296,15 @@ Na tabela no nosso app você vai marcar em Quina. Mas,observando bem, 2 duques e
     <string name="menssagem_tema_aplicado">Copo alterado com sucesso</string>
     <string name="menssagens_sem_modificacoes">Sem modificações por aqui</string>
     <string name="aplicar_copo">Aplicar copo de Bozó</string>
+    <string name="menssagem_resturar">Tem certeza que deseja restaurar seu copo?</string>
+    <string name="acabaram_suas_chances">Acabaram suas chances</string>
+    <string name="jogada_disponivel">" jogada disponível"</string>
+    <string name="jogada_especial">Jogada especial</string>
+    <string name="jogadas_disponiveis">" jogadas disponíveis"</string>
+    <string name="menssagem_recomecar">" jogadas , deseja recomeçar assim mesmo?"</string>
+    <string name="recomecar">Recomeçar</string>
+    <string name="voce_ainda_tem">"Você ainda tem "</string>
+    <string name="dados_em_cima">Dados em cima</string>
 
 
 </resources>
