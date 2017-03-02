@@ -12,6 +12,7 @@ import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import android.os.Build;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.DragEvent;
@@ -27,6 +28,7 @@ import android.widget.FrameLayout;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import com.darthorg.bozo.R;
 
@@ -46,6 +48,7 @@ public class CopoVirtual extends AppCompatActivity {
             llAreaDadosCima, llAreaInferiorContainer, llPedirEmbaixo, llAreaJogo, llAcoes;
 
     Button btnInstrucaoJogar, btnJogarDados, btnAtualizar;
+    FloatingActionButton btnPedirEmbaixo;
     ImageButton btnJogarDenovo;
 
     FrameLayout frameContainerCopo;
@@ -62,7 +65,6 @@ public class CopoVirtual extends AppCompatActivity {
 
     private int chances = 3;
     private boolean pedirEmBaixo = false;
-    private boolean olharCima = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -141,6 +143,14 @@ public class CopoVirtual extends AppCompatActivity {
 
             }
         });
+
+        btnPedirEmbaixo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                pedirEmBaixo = !pedirEmBaixo;
+            }
+        });
+
     }
 
     public void IDs() {
@@ -164,6 +174,7 @@ public class CopoVirtual extends AppCompatActivity {
         llAcoes = (LinearLayout) findViewById(R.id.llAcoes);
         btnJogarDenovo = (ImageButton) findViewById(R.id.btnJogarDenovo);
         btnAtualizar = (Button) findViewById(R.id.btnAtualizar);
+        btnPedirEmbaixo = (FloatingActionButton) findViewById(R.id.btnPedirEmbaixo);
 
 
         // ------- COPO ----------------//
@@ -268,18 +279,23 @@ public class CopoVirtual extends AppCompatActivity {
         }
     }
 
-    private void gerarImageViewsDadosEmcima(LinearLayout llDadosEmbaralhados) {
+    private void gerarImageViewsDadosEmcima() {
 
         List<ImageButton> ImageButtons = new ArrayList<>();
         llAreaDadosCima.removeAllViews();
 
-        for (int i = 0; i < llDadosEmbaralhados.getChildCount(); i++) {
-            int tag = (int) llDadosEmbaralhados.getChildAt(i).getTag();
-            ImageButton img = new ImageButton(CopoVirtual.this);
-            img.setTag(dadoEmbaixo(tag));
-            llAreaDadosCima.addView(img);
-            ImageButtons.add(img);
+
+        for (int i = 0; i < llAreaPrincipal.getChildCount(); i++) {
+            LinearLayout ll = (LinearLayout) llAreaPrincipal.getChildAt(i);
+            for (int j = 0; j < ll.getChildCount(); j++) {
+                int tag = (int) ll.getChildAt(j).getTag();
+                ImageButton img = (ImageButton) getLayoutInflater().inflate(R.layout.img_dados_cima, llAreaDadosCima, false);
+                img.setTag(dadoEmbaixo(tag));
+                llAreaDadosCima.addView(img);
+                ImageButtons.add(img);
+            }
         }
+
 
         trocarImagens(ImageButtons);
     }
@@ -318,10 +334,38 @@ public class CopoVirtual extends AppCompatActivity {
         llAcoes.setVisibility(View.VISIBLE);
         chances--;
 
+        int filhos = llAreaPrincipal.getChildCount();
+
         if (chances == 0) {
             btnJogarDenovo.setVisibility(View.GONE);
         }
 
+        String jogada = verificarJogada();
+        TextView txtJogada = (TextView) findViewById(R.id.txtEspecial);
+        if (jogada != null) {
+            txtJogada.setText(jogada);
+            txtJogada.setVisibility(View.VISIBLE);
+        } else {
+            txtJogada.setVisibility(View.GONE);
+        }
+
+        Button btnEspiarCima = (Button) findViewById(R.id.btnEspiarEmCima);
+        final LinearLayout containerAreaEmCima = (LinearLayout) findViewById(R.id.containerAreaEmCima);
+        if (pedirEmBaixo) {
+            gerarImageViewsDadosEmcima();
+            btnEspiarCima.setVisibility(View.VISIBLE);
+            btnEspiarCima.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    containerAreaEmCima.setVisibility(View.VISIBLE);
+                }
+            });
+        } else {
+            btnEspiarCima.setVisibility(View.GONE);
+            containerAreaEmCima.setVisibility(View.GONE);
+        }
+
+        pedirEmBaixo = false;
     }
 
     private String verificarJogada() {
@@ -332,7 +376,7 @@ public class CopoVirtual extends AppCompatActivity {
         for (int i = 0; i < llAreaPrincipal.getChildCount(); i++) {
             LinearLayout ll = (LinearLayout) llAreaPrincipal.getChildAt(i);
             for (int j = 0; j < ll.getChildCount(); j++) {
-                valoresDados.add((int) ll.getChildAt(i).getTag());
+                valoresDados.add((Integer) ll.getChildAt(j).getTag());
             }
         }
 
@@ -341,7 +385,7 @@ public class CopoVirtual extends AppCompatActivity {
             for (int i = 0; i < llAreaInferiorReceberDados.getChildCount(); i++) {
                 LinearLayout linearLayoutPosicoes = (LinearLayout) llAreaInferiorReceberDados.getChildAt(i);
                 if (linearLayoutPosicoes.getChildCount() != 0) {
-                    valoresDados.add((int) linearLayoutPosicoes.getChildAt(0).getTag());
+                    valoresDados.add((Integer) linearLayoutPosicoes.getChildAt(0).getTag());
                 }
             }
             return obterJogada(valoresDados, false);
@@ -451,15 +495,13 @@ public class CopoVirtual extends AppCompatActivity {
                 Intent intent = new Intent(CopoVirtual.this, CopoVirtual.class);
                 startActivity(intent);
                 break;
-            case 1:
+            default:
                 AlertDialog.Builder builder = new AlertDialog.Builder(this);
-                builder.setTitle("Atualizar");
-                builder.setMessage("Você não terminou sua jogada, deseja atualizar assim mesmo?")
-                        .setPositiveButton("Atualizar", new DialogInterface.OnClickListener() {
+                builder.setTitle("Reiniciar");
+                builder.setMessage("Você ainda tem " + chances + " chances , deseja reiniciar assim mesmo?")
+                        .setPositiveButton(getString(R.string.sair), new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int id) {
                                 finish();
-                                Intent intent = new Intent(CopoVirtual.this, CopoVirtual.class);
-                                startActivity(intent);
                                 dialog.dismiss();
                             }
                         })
@@ -474,14 +516,15 @@ public class CopoVirtual extends AppCompatActivity {
     }
 
     public void opcaoSair() {
+
         switch (chances) {
-            case 3:
+            case 0:
                 finish();
                 break;
-            case 0:
+            default:
                 AlertDialog.Builder builder = new AlertDialog.Builder(this);
                 builder.setTitle(getString(R.string.sair));
-                builder.setMessage("Você não terminou sua jogada, deseja sair assim mesmo?")
+                builder.setMessage("Você ainda tem " + chances + " chances , deseja sair assim mesmo?")
                         .setPositiveButton(getString(R.string.sair), new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int id) {
                                 finish();
@@ -512,7 +555,7 @@ public class CopoVirtual extends AppCompatActivity {
 
             ivCopo.setRotation((int) event.values[0] * -5);
 
-            if ((int) event.values[1] < -5 && ((int) event.values[0] < 6 && (int) event.values[0] > -6)) {
+            if (event.values[1] < -5 && (event.values[0] < 6 && event.values[0] > -6)) {
                 jogarDados(this);
             }
         }
@@ -596,7 +639,7 @@ public class CopoVirtual extends AppCompatActivity {
                 case DragEvent.ACTION_DRAG_ENDED:
                     // Log.i("DRAG AND DROP", num + "-" + "ACTION_DRAG_ENDED");
                     draggedView.setVisibility(View.VISIBLE);
-                    //gerarImageViewsDadosEmcima(llAreaPrincipal);
+                    gerarImageViewsDadosEmcima();
                     break;
 
             }

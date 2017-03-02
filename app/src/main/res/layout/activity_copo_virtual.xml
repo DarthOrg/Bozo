@@ -1,338 +1,349 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context="com.darthorg.bozo.view.CopoVirtual">
 
-    <!-- Area jogo -->
-    <LinearLayout
-        android:id="@+id/llAreaJogo"
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:visibility="gone">
-        <!-- llAreaPrincipal -->
+        android:layout_height="56dp"
+        android:background="@color/colorWhiteFundo"
+        app:title=" " />
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <!-- Area jogo -->
         <LinearLayout
-            android:id="@+id/llAreaPrincipal"
+            android:id="@+id/llAreaJogo"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:orientation="vertical">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="center|bottom"
-                android:orientation="horizontal">
-
-                <ImageButton
-                    android:id="@+id/dado1"
-                    android:layout_width="60dp"
-                    android:layout_height="60dp"
-                    android:layout_margin="5dp"
-                    android:background="@drawable/retangulo_white"
-                    android:elevation="5dp"
-                    android:padding="5dp"
-                    android:src="@drawable/ic_dado_um" />
-
-                <ImageButton
-                    android:id="@+id/dado2"
-                    android:layout_width="60dp"
-                    android:layout_height="60dp"
-                    android:layout_margin="5dp"
-                    android:background="@drawable/retangulo_white"
-                    android:elevation="5dp"
-                    android:padding="5dp"
-                    android:src="@drawable/ic_dado_dois" />
-
-                <ImageButton
-                    android:id="@+id/dado3"
-                    android:layout_width="60dp"
-                    android:layout_height="60dp"
-                    android:layout_margin="5dp"
-                    android:background="@drawable/retangulo_white"
-                    android:elevation="5dp"
-                    android:padding="5dp"
-                    android:src="@drawable/ic_dado_tres" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="center|top"
-                android:orientation="horizontal">
-
-                <ImageButton
-                    android:id="@+id/dado4"
-                    android:layout_width="60dp"
-                    android:layout_height="60dp"
-                    android:layout_margin="5dp"
-                    android:background="@drawable/retangulo_white"
-                    android:elevation="5dp"
-                    android:padding="5dp"
-                    android:src="@drawable/ic_dado_quatro" />
-
-                <ImageButton
-                    android:id="@+id/dado5"
-                    android:layout_width="60dp"
-                    android:layout_height="60dp"
-                    android:layout_margin="5dp"
-                    android:background="@drawable/retangulo_white"
-                    android:elevation="5dp"
-                    android:padding="5dp"
-                    android:src="@drawable/ic_dado_cinco" />
-
-            </LinearLayout>
-
-        </LinearLayout>
-
-        <!-- Espiar cima -->
-        <Button
-            android:id="@+id/btnEspiarEncima"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-
-            android:background="@color/colorTransparente"
-            android:drawableLeft="@drawable/ic_olhar"
-            android:drawablePadding="10dp"
-            android:padding="5dp"
-            android:text="Espiar valores Encima"
-            android:textAlignment="center"
-            android:textAllCaps="false"
-            android:visibility="gone" />
-
-        <!-- Texto especial -->
-        <TextView
-            android:id="@+id/txtEspecial"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:text="Valores Encima visivel"
-            android:textAlignment="center"
-            android:visibility="gone" />
-
-        <!-- Açoes -->
-        <LinearLayout
-            android:id="@+id/llAcoes"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:orientation="horizontal"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
             android:visibility="gone">
 
-            <ImageButton
-                android:id="@+id/btnJogarDenovo"
-                android:layout_width="65dp"
-                android:layout_height="65dp"
-                android:layout_gravity="center_horizontal"
-                android:background="@color/colorTransparente"
-                android:scaleType="centerCrop"
-                android:src="@drawable/copo" />
+            <!-- Dados em cima -->
+            <LinearLayout
+                android:id="@+id/containerAreaEmCima"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/colorAccentDark"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:visibility="gone">
 
+                <LinearLayout
+                    android:id="@+id/llareaEmCima"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="horizontal"></LinearLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="5dp"
+                    android:text="Dados em cima"
+                    android:textColor="@color/colorWhite" />
+
+            </LinearLayout>
+
+            <!-- llAreaPrincipal -->
+            <LinearLayout
+                android:id="@+id/llAreaPrincipal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center|bottom"
+                    android:orientation="horizontal">
+
+                    <ImageButton
+                        android:id="@+id/dado1"
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:layout_margin="5dp"
+                        android:background="@drawable/retangulo_white"
+                        android:elevation="5dp"
+                        android:padding="5dp"
+                        android:src="@drawable/ic_dado_um" />
+
+                    <ImageButton
+                        android:id="@+id/dado2"
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:layout_margin="5dp"
+                        android:background="@drawable/retangulo_white"
+                        android:elevation="5dp"
+                        android:padding="5dp"
+                        android:src="@drawable/ic_dado_dois" />
+
+                    <ImageButton
+                        android:id="@+id/dado3"
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:layout_margin="5dp"
+                        android:background="@drawable/retangulo_white"
+                        android:elevation="5dp"
+                        android:padding="5dp"
+                        android:src="@drawable/ic_dado_tres" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center|top"
+                    android:orientation="horizontal">
+
+                    <ImageButton
+                        android:id="@+id/dado4"
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:layout_margin="5dp"
+                        android:background="@drawable/retangulo_white"
+                        android:elevation="5dp"
+                        android:padding="5dp"
+                        android:src="@drawable/ic_dado_quatro" />
+
+                    <ImageButton
+                        android:id="@+id/dado5"
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:layout_margin="5dp"
+                        android:background="@drawable/retangulo_white"
+                        android:elevation="5dp"
+                        android:padding="5dp"
+                        android:src="@drawable/ic_dado_cinco" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <!-- Espiar cima -->
             <Button
-                android:id="@+id/btnAtualizar"
+                android:id="@+id/btnEspiarEmCima"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@color/colorTransparente"
-                android:drawableTop="@drawable/ic_atualizar"
-                android:text="Recomeçar"
-                android:textAlignment="center"
-                android:textAllCaps="false" />
+                android:layout_gravity="center"
 
+                android:background="@color/colorTransparente"
+                android:drawableLeft="@drawable/ic_olhar"
+                android:drawablePadding="10dp"
+                android:padding="5dp"
+                android:text="Espiar valores Encima"
+                android:textAlignment="center"
+                android:textAllCaps="false"
+                android:visibility="gone" />
+
+            <!-- Texto especial -->
+            <TextView
+                android:id="@+id/txtEspecial"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:padding="5dp"
+                android:text="Jogada especial"
+                android:textAlignment="center"
+                android:textColor="@color/colorAccent800"
+                android:textSize="24dp"
+                android:visibility="gone" />
+
+            <!-- Açoes -->
+            <LinearLayout
+                android:id="@+id/llAcoes"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:visibility="gone">
+
+                <ImageButton
+                    android:id="@+id/btnJogarDenovo"
+                    android:layout_width="65dp"
+                    android:layout_height="65dp"
+                    android:layout_gravity="center_horizontal"
+                    android:background="@color/colorTransparente"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/copo" />
+
+                <Button
+                    android:id="@+id/btnAtualizar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@color/colorTransparente"
+                    android:drawableTop="@drawable/ic_atualizar"
+                    android:text="Recomeçar"
+                    android:textAlignment="center"
+                    android:textAllCaps="false" />
+
+            </LinearLayout>
+
+            <!--llAreaInferiorReceberDados-->
+            <LinearLayout
+                android:id="@+id/llAreaInferiorCaixa"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:background="@color/colorAccentDark"
+                android:orientation="vertical"
+                android:visibility="visible">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:text="Arraste os dados até aqui para montar sua jogada."
+                    android:textAlignment="center"
+                    android:textColor="@color/colorWhite" />
+
+                <LinearLayout
+                    android:id="@+id/llAreaInferiorReceberDados"
+                    android:layout_width="match_parent"
+                    android:layout_height="70dp"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:id="@+id/lugar1"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/lugar2"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/lugar3"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/lugar4"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/lugar5"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                    </LinearLayout>
+                </LinearLayout>
+
+            </LinearLayout>
         </LinearLayout>
 
-        <!--llAreaInferiorReceberDados-->
-        <LinearLayout
-            android:id="@+id/llAreaInferiorCaixa"
+        <!-- Copo -->
+        <FrameLayout
+            android:id="@+id/frameContainerCopo"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_centerHorizontal="true"
-            android:background="@color/colorAccentDark"
-            android:orientation="vertical"
+            android:layout_height="match_parent"
+            android:background="@color/cardview_light_background"
             android:visibility="visible">
 
-            <TextView
-                android:layout_width="match_parent"
+            <ImageView
+                android:id="@+id/ivCopo"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:padding="10dp"
-                android:text="Arraste os dados até aqui para montar sua jogada."
+                android:layout_gravity="center"
+                android:src="@drawable/img_copo" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:src="@drawable/img_sombra_copo" />
+
+            <Button
+                android:id="@+id/btnInstrucaoJogar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center|bottom"
+                android:layout_marginBottom="30dp"
+                android:background="@color/colorTransparente"
+                android:drawablePadding="10dp"
+                android:drawableTop="@drawable/ic_balancar_copo"
+                android:text="Clique no copo para poder chacoalhar"
                 android:textAlignment="center"
-                android:textColor="@color/colorWhite" />
+                android:textAllCaps="false"
+                android:textColor="@color/colorBlack"
+                android:textSize="12sp"
+                android:visibility="visible" />
+
+            <Button
+                android:id="@+id/btnJogarDados"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center|top"
+                android:layout_marginTop="10dp"
+                android:background="@color/colorTransparente"
+                android:drawablePadding="10dp"
+                android:drawableTop="@drawable/ic_seta_encima"
+                android:text="Para jogar os dados vire o copo"
+                android:textAlignment="center"
+                android:textAllCaps="false"
+                android:textColor="@color/colorBlack"
+                android:visibility="gone" />
 
             <LinearLayout
-                android:id="@+id/llAreaInferiorReceberDados"
-                android:layout_width="match_parent"
-                android:layout_height="70dp"
-                android:orientation="horizontal">
+                android:id="@+id/llPedirEmbaixo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center|bottom"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:visibility="gone">
 
-                <LinearLayout
-                    android:id="@+id/lugar1"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:orientation="vertical">
+                <android.support.design.widget.FloatingActionButton
+                    android:id="@+id/btnPedirEmbaixo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:clickable="true"
+                    android:src="@drawable/ic_embaixo"
+                    android:tint="@color/colorBlack"
+                    app:backgroundTint="@android:color/white" />
 
-                </LinearLayout>
-
-                <LinearLayout
-                    android:id="@+id/lugar2"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:orientation="vertical">
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:id="@+id/lugar3"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:orientation="vertical">
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:id="@+id/lugar4"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:orientation="vertical">
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:id="@+id/lugar5"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:orientation="vertical">
-
-                </LinearLayout>
+                <TextView
+                    android:id="@+id/txtPedirEmbaixo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:text="Pedir Embaixo"
+                    android:textColor="@color/colorBlack" />
             </LinearLayout>
 
-        </LinearLayout>
-    </LinearLayout>
 
-    <!-- Dados em cima -->
-    <LinearLayout
-        android:id="@+id/llareaEmCima"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/cardview_light_background"
-        android:gravity="center"
-        android:orientation="horizontal"
-        android:visibility="gone">
-
-        <ImageButton
-            android:layout_width="40dp"
-            android:layout_height="40dp" />
-
-        <ImageButton
-            android:layout_width="40dp"
-            android:layout_height="40dp" />
-
-        <ImageButton
-            android:layout_width="40dp"
-            android:layout_height="40dp" />
-
-        <ImageButton
-            android:layout_width="40dp"
-            android:layout_height="40dp" />
-
-        <ImageButton
-            android:layout_width="40dp"
-            android:layout_height="40dp" />
-
-    </LinearLayout>
-
-    <!-- Copo -->
-    <FrameLayout
-        android:id="@+id/frameContainerCopo"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@color/cardview_light_background"
-        android:visibility="visible">
-
-        <ImageView
-            android:id="@+id/ivCopo"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:src="@drawable/img_copo" />
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:src="@drawable/img_sombra_copo" />
-
-        <Button
-            android:id="@+id/btnInstrucaoJogar"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center|bottom"
-            android:layout_marginBottom="30dp"
-            android:background="@color/colorTransparente"
-            android:drawablePadding="10dp"
-            android:drawableTop="@drawable/ic_balancar_copo"
-            android:text="Clique no copo para poder chacoalhar"
-            android:textAlignment="center"
-            android:textAllCaps="false"
-            android:textColor="@color/colorBlack"
-            android:textSize="12sp"
-            android:visibility="visible" />
-
-        <Button
-            android:id="@+id/btnJogarDados"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center|top"
-            android:layout_marginTop="10dp"
-            android:background="@color/colorTransparente"
-            android:drawablePadding="10dp"
-            android:drawableTop="@drawable/ic_seta_encima"
-            android:text="Para jogar os dados vire o copo"
-            android:textAlignment="center"
-            android:textAllCaps="false"
-            android:textColor="@color/colorBlack"
-            android:visibility="gone" />
-
-        <LinearLayout
-            android:id="@+id/llPedirEmbaixo"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center|bottom"
-            android:gravity="center"
-            android:orientation="vertical"
-            android:visibility="gone">
-
-            <android.support.design.widget.FloatingActionButton
-                android:id="@+id/btnPedirEmbaixo"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-                android:clickable="true"
-                android:src="@drawable/ic_embaixo"
-                android:tint="@color/colorBlack"
-                app:backgroundTint="@android:color/white" />
-
-            <TextView
-                android:id="@+id/txtPedirEmbaixo"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="5dp"
-                android:text="Pedir Embaixo"
-                android:textColor="@color/colorBlack" />
-        </LinearLayout>
-
-
+        </FrameLayout>
     </FrameLayout>
 
-</FrameLayout>
+</LinearLayout>
