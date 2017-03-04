@@ -44,12 +44,10 @@ public class CopoVirtual extends AppCompatActivity {
     SensorManager sensorManager;
     Sensor sensorEmAcao;
 
-    ImageView ivCopo,corFundoEmbaixo;
-
-    View ativarCopo;
+    ImageView ivCopo, corFundoEmbaixo;
 
     LinearLayout llAreaPrincipal, llAreaInferiorReceberDados,
-            llAreaDadosCima, llAreaInferiorContainer, llPedirEmbaixo, llAreaJogo, llAcoes,containerAreaEmCima;
+            llAreaDadosCima, llAreaInferiorContainer, llPedirEmbaixo, llAreaJogo, llAcoes, containerAreaEmCima;
 
     Button btnInstrucaoJogar, btnJogarDados, btnAtualizar;
 
@@ -75,7 +73,6 @@ public class CopoVirtual extends AppCompatActivity {
     MySensorEvent eventListener;
 
     private int chances = 3;
-    private int embaixoClick = 0;
     private boolean pedirEmBaixo = false;
     private final int TIME = 2000;
 
@@ -115,17 +112,23 @@ public class CopoVirtual extends AppCompatActivity {
             llAreaPrincipal.getChildAt(i).setOnDragListener(new MyOnDragListener());
         }
 
-        ativarCopo.setOnClickListener(new View.OnClickListener() {
+        ivCopo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
-                eventListener = new MySensorEvent(llAreaPrincipal);
+                if (eventListener == null) {
+                    eventListener = new MySensorEvent(llAreaPrincipal);
+                } else {
+                    sensorManager.unregisterListener(eventListener);
+                    eventListener = null;
+                    eventListener = new MySensorEvent(llAreaPrincipal);
+                }
+
                 sensorManager.registerListener(eventListener, sensorEmAcao, SensorManager.SENSOR_DELAY_GAME);
 
                 llPedirEmbaixo.setVisibility(View.VISIBLE);
                 btnInstrucaoJogar.setVisibility(View.GONE);
                 btnJogarDados.setVisibility(View.VISIBLE);
-                ativarCopo.setVisibility(View.GONE);
             }
         });
 
@@ -140,23 +143,19 @@ public class CopoVirtual extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                eventListener = new MySensorEvent(llAreaPrincipal);
-                sensorManager.registerListener(eventListener, sensorEmAcao, SensorManager.SENSOR_DELAY_GAME);
-
                 llAreaJogo.setVisibility(View.GONE);
-                llPedirEmbaixo.setVisibility(View.VISIBLE);
+                llPedirEmbaixo.setVisibility(View.GONE);
                 frameContainerCopo.setVisibility(View.VISIBLE);
-                btnInstrucaoJogar.setVisibility(View.GONE);
+                btnInstrucaoJogar.setVisibility(View.VISIBLE);
                 ivCopo.setRotation(0);
                 toolbar.setBackgroundColor(getResources().getColor(R.color.colorTransparente));
-                btnJogarDados.setVisibility(View.VISIBLE);
+                btnJogarDados.setVisibility(View.GONE);
                 btnPedirEmbaixo.setVisibility(View.VISIBLE);
                 btnAtualizar.setVisibility(View.GONE);
                 btnPedirEmbaixo.setImageDrawable(getResources().getDrawable(R.drawable.ic_embaixo));
                 txtPedirEmbaixo.setTextColor(getResources().getColor(R.color.colorBlack));
                 txtPedirEmbaixo.setText(getString(R.string.pedir_embaixo));
                 corFundoEmbaixo.setVisibility(View.GONE);
-                embaixoClick = 0;
                 espiarValoresEmCima.setVisible(false);
 
             }
@@ -180,7 +179,17 @@ public class CopoVirtual extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 pedirEmBaixo = !pedirEmBaixo;
-                clickEmbaixo();
+                if (pedirEmBaixo) {
+                    btnPedirEmbaixo.setImageDrawable(getResources().getDrawable(R.drawable.ic_confirmar_welcome));
+                    txtPedirEmbaixo.setTextColor(getResources().getColor(R.color.colorWhite));
+                    txtPedirEmbaixo.setText(getString(R.string.embaixo_selecionado));
+                    corFundoEmbaixo.setVisibility(View.VISIBLE);
+                } else {
+                    btnPedirEmbaixo.setImageDrawable(getResources().getDrawable(R.drawable.ic_embaixo));
+                    txtPedirEmbaixo.setTextColor(getResources().getColor(R.color.colorBlack));
+                    txtPedirEmbaixo.setText(getString(R.string.pedir_embaixo));
+                    corFundoEmbaixo.setVisibility(View.GONE);
+                }
             }
         });
 
@@ -210,8 +219,6 @@ public class CopoVirtual extends AppCompatActivity {
         btnJogarDenovo = (ImageButton) findViewById(R.id.btnJogarDenovo);
         btnAtualizar = (Button) findViewById(R.id.btnAtualizar);
         btnPedirEmbaixo = (FloatingActionButton) findViewById(R.id.btnPedirEmbaixo);
-        ativarCopo = (View) findViewById(R.id.ativarCopo);
-
 
         // ------- COPO ----------------//
         //FrameLayoutCopo
@@ -225,39 +232,15 @@ public class CopoVirtual extends AppCompatActivity {
 
         //Textos
         txtPedirEmbaixo = (TextView) findViewById(R.id.txtPedirEmbaixo);
-
-
     }
 
-
-    private void clickEmbaixo(){
-        embaixoClick++;
-        switch (embaixoClick){
-            case 0:
-            case 2:
-                btnPedirEmbaixo.setImageDrawable(getResources().getDrawable(R.drawable.ic_embaixo));
-                txtPedirEmbaixo.setTextColor(getResources().getColor(R.color.colorBlack));
-                txtPedirEmbaixo.setText(getString(R.string.pedir_embaixo));
-                corFundoEmbaixo.setVisibility(View.GONE);
-                embaixoClick = 0;
-                break;
-
-            case 1:
-                btnPedirEmbaixo.setImageDrawable(getResources().getDrawable(R.drawable.ic_confirmar_welcome));
-                txtPedirEmbaixo.setTextColor(getResources().getColor(R.color.colorWhite));
-                txtPedirEmbaixo.setText(getString(R.string.embaixo_selecionado));
-                corFundoEmbaixo.setVisibility(View.VISIBLE);
-                break;
-
-        }
-    }
 
     private void verificarTema(SharedPreferences sharedPreferences) {
         int tema = sharedPreferences.getInt("pref_tema", 0);
-        if (tema == 0){
+        if (tema == 0) {
             ivCopo.setImageResource(R.drawable.img_copo);
             btnJogarDenovo.setImageResource(R.drawable.img_copo);
-        }else{
+        } else {
             ivCopo.setImageResource(tema);
             btnJogarDenovo.setImageResource(tema);
         }
@@ -280,9 +263,9 @@ public class CopoVirtual extends AppCompatActivity {
         } else if (id == R.id.action_atualizar) {
             opcaoAtualizar();
         } else if (id == R.id.action_tema_copo) {
-            Intent intent = new Intent(CopoVirtual.this,Tema.class);
+            Intent intent = new Intent(CopoVirtual.this, Tema.class);
             startActivity(intent);
-        } else if (id == R.id.action_jogadas){
+        } else if (id == R.id.action_jogadas) {
             final TextView txtJogadas = (TextView) findViewById(R.id.txtJogadas);
             txtJogadas.setVisibility(View.VISIBLE);
             new Handler().postDelayed(new Runnable() {
@@ -290,7 +273,7 @@ public class CopoVirtual extends AppCompatActivity {
                     txtJogadas.setVisibility(View.GONE);
                 }
             }, TIME);
-            switch (chances){
+            switch (chances) {
                 case 3:
                     txtJogadas.setText(chances + getString(R.string.jogadas_disponiveis));
                     break;
@@ -304,7 +287,7 @@ public class CopoVirtual extends AppCompatActivity {
                     txtJogadas.setText(R.string.acabaram_suas_chances);
                     break;
             }
-        }else if (id == R.id.action_espiar) {
+        } else if (id == R.id.action_espiar) {
             containerAreaEmCima.setVisibility(View.VISIBLE);
             containerAreaEmCima.setBackgroundColor(getResources().getColor(R.color.colorBlackTransparente25));
             toolbar.setBackgroundColor(getResources().getColor(R.color.colorBlackTransparente25));
@@ -435,7 +418,7 @@ public class CopoVirtual extends AppCompatActivity {
         llAreaJogo.setVisibility(View.VISIBLE); //mostra os dados
         llAcoes.setVisibility(View.VISIBLE);
         chances--;
-        switch (chances){
+        switch (chances) {
             case 3:
                 quantidadeJogadas.setIcon(R.drawable.ic_3);
                 break;
@@ -516,7 +499,7 @@ public class CopoVirtual extends AppCompatActivity {
             if (deBoca) {
                 btnAtualizar.setVisibility(View.VISIBLE);
                 return getString(R.string.seguida_boca);
-            }else {
+            } else {
                 return getString(R.string.seguida);
             }
         }
@@ -546,7 +529,7 @@ public class CopoVirtual extends AppCompatActivity {
                 if (deBoca) {
                     btnAtualizar.setVisibility(View.VISIBLE);
                     return getString(R.string.full_boca);
-                }else {
+                } else {
                     return getString(R.string.full) + countPar + getString(R.string.e) + countTrio;
                 }
             } else if (numQuadrada != 0) {
@@ -554,7 +537,7 @@ public class CopoVirtual extends AppCompatActivity {
                 if (deBoca) {
                     btnAtualizar.setVisibility(View.VISIBLE);
                     return getString(R.string.seguida);
-                }else {
+                } else {
                     return getString(R.string.quadrada) + numQuadrada;
                 }
             } else if (numGeneral != 0) {
@@ -562,7 +545,7 @@ public class CopoVirtual extends AppCompatActivity {
                 if (deBoca) {
                     btnAtualizar.setVisibility(View.VISIBLE);
                     return getString(R.string.general_boca);
-                }else {
+                } else {
                     return getString(R.string.general) + numGeneral;
                 }
             }
@@ -652,7 +635,7 @@ public class CopoVirtual extends AppCompatActivity {
         switch (chances) {
             case 3:
             case 0:
-                    finish();
+                finish();
                 chances = 0;
                 break;
             case 2:

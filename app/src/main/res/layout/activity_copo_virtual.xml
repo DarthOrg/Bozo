@@ -346,16 +346,8 @@
 
             </LinearLayout>
 
-            <View
-                android:id="@+id/ativarCopo"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@color/colorTrasnparente"/>
-
-
         </FrameLayout>
     </FrameLayout>
-
 
     <TextView
         android:id="@+id/txtJogadas"

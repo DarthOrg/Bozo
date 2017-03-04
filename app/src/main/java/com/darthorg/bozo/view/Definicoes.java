@@ -3,6 +3,7 @@ package com.darthorg.bozo.view;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
@@ -14,7 +15,6 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.CompoundButton;
-import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
@@ -87,11 +87,10 @@ public class Definicoes extends AppCompatActivity {
                 verificarTema(prefs);
 
 
-
                 builder.setPositiveButton(getString(R.string.alterar), new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
 
-                        Intent intent = new Intent(Definicoes.this,Tema.class);
+                        Intent intent = new Intent(Definicoes.this, Tema.class);
                         startActivity(intent);
                         dialog.dismiss();
                     }
@@ -137,7 +136,7 @@ public class Definicoes extends AppCompatActivity {
             public void onClick(View view) {
 
 //            TemaUtils.mudarTema(CopoVirtual.this, getLayoutInflater());
-                Intent intent = new Intent(Definicoes.this,Tema.class);
+                Intent intent = new Intent(Definicoes.this, Tema.class);
                 startActivity(intent);
             }
         });
@@ -273,7 +272,6 @@ public class Definicoes extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
 
-
         //Feed Back
         findViewById(R.id.llFeedBack).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -286,12 +284,21 @@ public class Definicoes extends AppCompatActivity {
 
     //Feed Back
     private void sendFeedback() {
-        final Intent _Intent = new Intent(android.content.Intent.ACTION_SEND);
+        /* final Intent _Intent = new Intent(android.content.Intent.ACTION_SEND);
         _Intent.setType("text/html");
         _Intent.putExtra(android.content.Intent.EXTRA_EMAIL, new String[]{ getString(R.string.mail_feedback_email) });
         _Intent.putExtra(android.content.Intent.EXTRA_SUBJECT, getString(R.string.mail_feedback_subject));
         _Intent.putExtra(android.content.Intent.EXTRA_TEXT, getString(R.string.mail_feedback_message));
-        startActivity(Intent.createChooser(_Intent, getString(R.string.title_send_feedback)));
+        startActivity(Intent.createChooser(_Intent, getString(R.string.title_send_feedback))); */
+
+
+        Intent intent = new Intent(Intent.ACTION_SENDTO);
+        intent.setData(Uri.parse("mailto:")); // only email apps should handle this
+        intent.putExtra(Intent.EXTRA_EMAIL, getString(R.string.mail_feedback_email));
+        intent.putExtra(Intent.EXTRA_SUBJECT, getString(R.string.mail_feedback_subject));
+        if (intent.resolveActivity(getPackageManager()) != null) {
+            startActivity(intent);
+        }
     }
 
     @Override
