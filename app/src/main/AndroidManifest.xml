@@ -3,6 +3,7 @@
     package="com.darthorg.bozo">
 
     <application
+        android:name=".application.CustomApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -17,6 +18,15 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <service
+            android:name=".notification.CustomNotificationExtenderService"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.onesignal.NotificationExtender" />
+            </intent-filter>
+        </service>
+
         <activity
             android:name=".Welcome"
             android:screenOrientation="portrait" />
@@ -47,7 +57,8 @@
         <activity
             android:name=".view.CopoVirtual"
             android:screenOrientation="portrait"></activity>
-       <activity android:name=".view.Tema"
+        <activity
+            android:name=".view.Tema"
             android:screenOrientation="portrait"></activity>
     </application>
 
