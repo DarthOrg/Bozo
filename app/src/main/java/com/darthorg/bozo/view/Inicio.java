@@ -2,12 +2,13 @@ package com.darthorg.bozo.view;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.Window;
@@ -23,19 +24,21 @@ import com.darthorg.bozo.adapter.PartidasListAdapter;
 import com.darthorg.bozo.adapter.UltimaPartidaAdapter;
 import com.darthorg.bozo.controller.PartidaController;
 import com.darthorg.bozo.model.Partida;
+import com.darthorg.bozo.util.Util;
 
 import java.util.List;
 
+import me.drakeet.materialdialog.MaterialDialog;
+
 import static android.view.View.VISIBLE;
+import static com.darthorg.bozo.view.Definicoes.PREF_CONFIG;
 
 public class Inicio extends AppCompatActivity {
 
-    private Toolbar toolbar;
 
     private ListView listViewPartidas;
     private PartidasListAdapter partidasListAdapter;
     private List<Partida> partidaList;
-
 
     private ListView listViewUltimaPartida;
     private UltimaPartidaAdapter ultimaPartidaAdapter;
@@ -45,6 +48,8 @@ public class Inicio extends AppCompatActivity {
     FloatingActionButton fabCompartilhar, fabDefinicoes, novoMarcador, fabMSalvos, fabCopoVirtual;
     LinearLayout ultimo_salvo;
 
+    MaterialDialog mMaterialDialog;
+    private SharedPreferences preferencias;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,11 +57,14 @@ public class Inicio extends AppCompatActivity {
         setContentView(R.layout.activity_inicio);
         changeStatusBarColor();
 
+        preferencias = getSharedPreferences(PREF_CONFIG, MODE_PRIVATE);
+        verificarNotificacaoAtualizacao(preferencias);
+
         ImageView copoVirtual = (ImageView) findViewById(R.id.copoVirtual);
         copoVirtual.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Inicio.this,CopoVirtual.class);
+                Intent intent = new Intent(Inicio.this, CopoVirtual.class);
                 startActivity(intent);
             }
         });
@@ -78,7 +86,6 @@ public class Inicio extends AppCompatActivity {
 
             }
         });
-
 
         fabDefinicoes.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -103,7 +110,6 @@ public class Inicio extends AppCompatActivity {
 
 
                 final AlertDialog dialog = builder.create();
-
 
 
                 Button btnNovoMarcador = (Button) dialoglayout.findViewById(R.id.btnNovoMarcador);
@@ -219,4 +225,59 @@ public class Inicio extends AppCompatActivity {
             window.setStatusBarColor(getResources().getColor(R.color.colorAccentDark));
         }
     }
+
+
+    public void showUpdateAppDialog(boolean atualizacaoObrigatoria) {
+
+        mMaterialDialog = new MaterialDialog(this)
+                .setTitle(R.string.dialog_title)
+                .setMessage(R.string.dialog_message)
+                .setCanceledOnTouchOutside(false)
+                .setPositiveButton(R.string.dialog_positive_label, new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        String packageName = getPackageName();
+                        Intent intent;
+
+                        try {
+                            intent = new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=" + packageName));
+                            startActivity(intent);
+                        } catch (android.content.ActivityNotFoundException e) {
+                            intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/details?id=" + packageName));
+                            startActivity(intent);
+                        }
+                    }
+                });
+
+        if (!atualizacaoObrigatoria) {
+            mMaterialDialog.setNegativeButton(R.string.dialog_negative_label, new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    mMaterialDialog.dismiss();
+                }
+            });
+        }
+
+        mMaterialDialog.show();
+    }
+
+    public void verificarNotificacaoAtualizacao(SharedPreferences preferencias) {
+
+        int codigoVersaoAtual = preferencias.getInt("version", 0);
+        int nivelAtualizacao = preferencias.getInt("nivel_atualizacao", 0);
+        int versaoInstalada = Util.getPackageInfo(this).versionCode;
+
+        if (codigoVersaoAtual != 0 && nivelAtualizacao != 0) {
+            if (codigoVersaoAtual > versaoInstalada) {
+                if (nivelAtualizacao == 2) {
+                    // Atualização obrigadoria
+                    showUpdateAppDialog(true);
+                } else if (nivelAtualizacao == 1) {
+                    //Atualização normal
+                    showUpdateAppDialog(false);
+                }
+            }
+        }
+    }
+
 }

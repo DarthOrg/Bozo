@@ -12,7 +12,6 @@ public class CustomApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-
         OneSignal.startInit(this).init();
     }
 }

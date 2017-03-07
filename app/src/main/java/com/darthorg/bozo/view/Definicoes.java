@@ -16,7 +16,6 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.CompoundButton;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Switch;
@@ -24,6 +23,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.darthorg.bozo.R;
+import com.darthorg.bozo.util.Util;
 
 public class Definicoes extends AppCompatActivity {
 
@@ -31,12 +31,11 @@ public class Definicoes extends AppCompatActivity {
     private SharedPreferences.Editor editor;
     private SharedPreferences preferencias;
 
-    LinearLayout llValoresPecas;
     TextView txtValorespecas, txtLuzFundo;
     Switch swichtLuzFundo;
     ImageView copoView;
 
-    SharedPreferences prefs;
+
     SharedPreferences.OnSharedPreferenceChangeListener listener = new SharedPreferences.OnSharedPreferenceChangeListener() {
         @Override
         public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String s) {
@@ -82,9 +81,9 @@ public class Definicoes extends AppCompatActivity {
                 builder.setTitle(getString(R.string.olhando_tema));
                 builder.setIcon(R.drawable.ic_olhar);
 
-                prefs = getSharedPreferences(Definicoes.PREF_CONFIG, MODE_PRIVATE);
-                prefs.registerOnSharedPreferenceChangeListener(listener);
-                verificarTema(prefs);
+                preferencias = getSharedPreferences(Definicoes.PREF_CONFIG, MODE_PRIVATE);
+                preferencias.registerOnSharedPreferenceChangeListener(listener);
+                verificarTema(preferencias);
 
 
                 builder.setPositiveButton(getString(R.string.alterar), new DialogInterface.OnClickListener() {
@@ -152,8 +151,7 @@ public class Definicoes extends AppCompatActivity {
                 TextView txtVersão = (TextView) dialoglayout.findViewById(R.id.txtVersao);
 
                 try {
-                    String versao = getApplicationContext().getPackageManager().getPackageInfo(getApplicationContext().getPackageName(), 0).versionName;
-                    txtVersão.setText(getString(R.string.versao) + versao);
+                    txtVersão.setText(getString(R.string.versao) + Util.getPackageInfo(getApplicationContext()).versionName);
                 } catch (Exception e) {
                     txtVersão.setText(R.string.versao_padrao);
                 }

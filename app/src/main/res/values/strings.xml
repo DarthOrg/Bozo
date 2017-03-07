@@ -328,6 +328,10 @@ Na tabela no nosso app você vai marcar em Quina. Mas,observando bem, 2 duques e
     <string name="jogada_especial">Jogada especial</string>
     <string name="dados_em_cima">Dados em cima</string>
     <string name="quantidade_de_jogadas">Quantidade de jogadas</string>
+    <string name="dialog_title">Nova Versão do App</string>
+    <string name="dialog_message">Está disponível a nova versão do aplicativo Jaguar App, clique no botão abaixo para realizar a atualização. Essa nova versão é mais leve e segura.</string>
+    <string name="dialog_positive_label">Atualizar</string>
+    <string name="dialog_negative_label">Depois</string>
 
 
 </resources>
