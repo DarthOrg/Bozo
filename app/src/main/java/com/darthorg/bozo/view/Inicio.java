@@ -256,8 +256,15 @@ public class Inicio extends AppCompatActivity {
                     mMaterialDialog.dismiss();
                 }
             });
+        } else {
+            mMaterialDialog.setNegativeButton(R.string.dialog_negative_label, new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    mMaterialDialog.dismiss();
+                    finish();
+                }
+            });
         }
-
         mMaterialDialog.show();
     }
 
