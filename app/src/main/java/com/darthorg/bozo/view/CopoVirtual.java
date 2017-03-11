@@ -490,6 +490,42 @@ public class CopoVirtual extends AppCompatActivity {
     private String obterJogada(List<Integer> valoresDados, boolean deBoca) {
 
         Collections.sort(valoresDados);
+        int pontuacao = prefs.getInt("pref_pontuacao",1);
+
+        String mensagemFullDeBoca = getString(R.string.full_boca);
+        String mensagemFull = getString(R.string.full);
+        String mensagemQuadradaDeBoca = getString(R.string.quadrada_boca);
+        String mensagemQuadrada = getString(R.string.quadrada);
+        String mensagemSeguidaDeBoca = getString(R.string.seguida_boca);
+        String mensagemSeguida = getString(R.string.seguida);
+        String mensagemGeneralDeBoca = getString(R.string.general_boca) + "\n (100)";
+        String mensagemGeneral = getString(R.string.general);
+
+
+        if(pontuacao == 1){
+            mensagemFullDeBoca += "\n (15)";
+            mensagemFull += "\n (10)";
+
+            mensagemSeguidaDeBoca += "\n (25)";
+            mensagemSeguida += "\n (20)";
+
+            mensagemQuadradaDeBoca += "\n (30)";
+            mensagemQuadrada += "\n (35)";
+
+            mensagemGeneral += "\n (40)";
+        }else if(pontuacao == 2){
+            mensagemFullDeBoca += "\n (25)";
+            mensagemFull += "\n (20)";
+
+
+            mensagemSeguidaDeBoca += "\n (35)";
+            mensagemSeguida += "\n (30)";
+
+            mensagemQuadradaDeBoca += "\n (45)";
+            mensagemQuadrada += "\n (40)";
+
+            mensagemGeneral += "\n (50)";
+        }
 
         //Seguida
         List<Integer> seguidaI = Arrays.asList(1, 2, 3, 4, 5);
@@ -498,9 +534,9 @@ public class CopoVirtual extends AppCompatActivity {
             // Seguida
             if (deBoca) {
                 btnAtualizar.setVisibility(View.VISIBLE);
-                return getString(R.string.seguida_boca);
+                return mensagemSeguidaDeBoca;
             } else {
-                return getString(R.string.seguida);
+                return mensagemSeguida;
             }
         }
 
@@ -528,25 +564,25 @@ public class CopoVirtual extends AppCompatActivity {
                 //Full
                 if (deBoca) {
                     btnAtualizar.setVisibility(View.VISIBLE);
-                    return getString(R.string.full_boca);
+                    return mensagemFullDeBoca;
                 } else {
-                    return getString(R.string.full) + countPar + getString(R.string.e) + countTrio;
+                    return mensagemFull;
                 }
             } else if (numQuadrada != 0) {
                 //Quadrada
                 if (deBoca) {
                     btnAtualizar.setVisibility(View.VISIBLE);
-                    return getString(R.string.seguida);
+                    return mensagemQuadradaDeBoca;
                 } else {
-                    return getString(R.string.quadrada) + numQuadrada;
+                    return mensagemQuadrada;
                 }
             } else if (numGeneral != 0) {
                 //General
                 if (deBoca) {
                     btnAtualizar.setVisibility(View.VISIBLE);
-                    return getString(R.string.general_boca);
+                    return mensagemGeneralDeBoca;
                 } else {
-                    return getString(R.string.general) + numGeneral;
+                    return mensagemGeneral;
                 }
             }
         }
