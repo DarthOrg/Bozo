@@ -509,8 +509,8 @@ public class CopoVirtual extends AppCompatActivity {
             mensagemSeguidaDeBoca += "\n (25)";
             mensagemSeguida += "\n (20)";
 
-            mensagemQuadradaDeBoca += "\n (30)";
-            mensagemQuadrada += "\n (35)";
+            mensagemQuadradaDeBoca += "\n (35)";
+            mensagemQuadrada += "\n (30)";
 
             mensagemGeneral += "\n (40)";
         }else if(pontuacao == 2){
