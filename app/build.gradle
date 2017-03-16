@@ -2,7 +2,7 @@ apply plugin: 'com.android.application'
 
 android {
     compileSdkVersion 23
-    buildToolsVersion "23.0.3"
+    buildToolsVersion '25.0.0'
 
     defaultConfig {
         applicationId "com.darthorg.bozo"
@@ -44,7 +44,6 @@ dependencies {
     compile 'com.github.shell-software:fab:1.0.5'
     compile 'com.github.clans:fab:1.4.0'
     compile 'com.github.clans:fab:1.6.2'
-    compile 'me.drakeet.materialdialog:library:1.2.2'
     compile 'com.nispok:snackbar:2.10.10'
 
     /* PARA USO DO MATERIAL DIALOG */
@@ -59,6 +58,9 @@ dependencies {
     compile "com.google.android.gms:play-services-location:+"
     // play-services-analytics is only needed when using 8.1.0 or older.
    // compile 'com.google.android.gms:play-services-analytics:+'
+
+    // Google AdmMob
+    compile 'com.google.android.gms:play-services-ads:10.2.0'
 
     compile 'ca.gcastle:BottomNavigation:1.0.0'
     compile('com.mikepenz.materialdrawer:library:2.8.2@aar') {

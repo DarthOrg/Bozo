@@ -39,6 +39,7 @@ import com.darthorg.bozo.fragment.FragmentFilho;
 import com.darthorg.bozo.model.Jogador;
 import com.darthorg.bozo.model.Partida;
 import com.darthorg.bozo.model.Rodada;
+import com.google.android.gms.ads.AdView;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -92,13 +93,20 @@ public class PartidaAberta extends AppCompatActivity {
     private BottomSheetDialog bottomSheetDialogDado;
     private View bottomSheetDialogViewDado;
 
-
+    private AdView adViewPartidaAberta;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_partida_aberta);
         changeStatusBarColor();
+
+        //Propagandas
+        adViewPartidaAberta = (AdView) findViewById(R.id.adViewPartidaAberta);
+//        if(Util.existeConexao(this)) {
+//            AdRequest adRequest = new AdRequest.Builder().build();
+//            adViewPartidaAberta.loadAd(adRequest);
+//        }
 
         SharedPreferences preferences = getSharedPreferences(Definicoes.PREF_CONFIG, MODE_PRIVATE);
         boolean prefTelaLigada = preferences.getBoolean("pref_display_ligado", true);
@@ -146,8 +154,30 @@ public class PartidaAberta extends AppCompatActivity {
             public void onPageScrollStateChanged(int state) {
             }
         });
+    }
 
+    @Override
+    protected void onPause() {
+        if(adViewPartidaAberta != null){
+            adViewPartidaAberta.pause();
+        }
+        super.onPause();
+    }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        if(adViewPartidaAberta != null){
+            adViewPartidaAberta.resume();
+        }
+    }
+
+    @Override
+    protected void onDestroy() {
+        if(adViewPartidaAberta != null){
+            adViewPartidaAberta.destroy();
+        }
+        super.onDestroy();
     }
 
 

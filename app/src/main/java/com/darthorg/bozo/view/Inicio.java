@@ -25,6 +25,8 @@ import com.darthorg.bozo.adapter.UltimaPartidaAdapter;
 import com.darthorg.bozo.controller.PartidaController;
 import com.darthorg.bozo.model.Partida;
 import com.darthorg.bozo.util.Util;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
 
 import java.util.List;
 
@@ -51,11 +53,20 @@ public class Inicio extends AppCompatActivity {
     MaterialDialog mMaterialDialog;
     private SharedPreferences preferencias;
 
+    private AdView adView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_inicio);
         changeStatusBarColor();
+
+        //Propagandas
+        adView = (AdView) findViewById(R.id.adView);
+        if(Util.existeConexao(this)) {
+            AdRequest adRequest = new AdRequest.Builder().build();
+            adView.loadAd(adRequest);
+        }
 
         preferencias = getSharedPreferences(PREF_CONFIG, MODE_PRIVATE);
         verificarNotificacaoAtualizacao(preferencias);
@@ -181,6 +192,30 @@ public class Inicio extends AppCompatActivity {
         listViewUltimaPartida = (ListView) findViewById(R.id.list_view_ultima_partida);
         atualizarTrazerUltimaPartida();
 
+    }
+
+    @Override
+    protected void onPause() {
+        if(adView != null){
+            adView.pause();
+        }
+        super.onPause();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        if(adView != null){
+            adView.resume();
+        }
+    }
+
+    @Override
+    protected void onDestroy() {
+        if(adView != null){
+            adView.destroy();
+        }
+        super.onDestroy();
     }
 
     @Override
