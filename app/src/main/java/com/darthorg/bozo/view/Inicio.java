@@ -292,7 +292,7 @@ public class Inicio extends AppCompatActivity {
                 }
             });
         } else {
-            mMaterialDialog.setNegativeButton(R.string.dialog_negative_label, new View.OnClickListener() {
+            mMaterialDialog.setNegativeButton(R.string.sair, new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     mMaterialDialog.dismiss();
