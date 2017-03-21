@@ -332,8 +332,7 @@ Na tabela no nosso app você vai marcar em Quina. Mas,observando bem, 2 duques e
     <string name="dialog_message">Está disponível a nova versão do aplicativo Jaguar App, clique no botão abaixo para realizar a atualização. Essa nova versão é mais leve e segura.</string>
     <string name="dialog_positive_label">Atualizar</string>
     <string name="dialog_negative_label">Depois</string>
-    <string name="id_admob_banner" translatable="false">ca-app-pub-5707033930169935/3733937608</string>
-    <string name="id_banner_area_jogo" translatable="false">ca-app-pub-5707033930169935/6408202403</string>
 
+    <string name="id_admob_banner" translatable="false">ca-app-pub-5707033930169935/3733937608</string>
 
 </resources>

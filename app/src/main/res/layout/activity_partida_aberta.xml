@@ -6,12 +6,6 @@
     android:background="@color/colorAccent"
     android:layout_height="match_parent">
 
-    <!--<com.google.android.gms.ads.AdView-->
-        <!--android:id="@+id/adViewPartidaAberta"-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--app:adSize="BANNER"-->
-        <!--app:adUnitId="@string/id_banner_area_jogo" />-->
 
     <android.support.v4.view.ViewPager
         android:id="@+id/viewPagerMarcadorJogador"
