@@ -155,7 +155,6 @@
     <string name="tema_do_copo">Thème tasse</string>
     <string name="tema_restaurado">Verre restauré</string>
     <string name="temas">Thèmes</string>
-    <string name="duque" translatable="false"></string>
     <string name="valores_embaixo_visivel">Les valeurs ci-dessous visible</string>
     <string name="valores_encima_visivel">Los valores en visible</string>
     <string name="visualizar_tema_atual">Voir le numéro actuel</string>

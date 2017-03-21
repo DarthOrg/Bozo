@@ -227,7 +227,6 @@ Los  dados pueden ser de cualquier valor, siempre que sean iguales. El valor que
     <string name="tema_do_copo">Taza tema</string>
     <string name="tema_restaurado">Vidrio restaurada</string>
     <string name="temas">Temas</string>
-    <string name="duque" translatable="false"></string>
     <string name="valores_embaixo_visivel">Los valores por debajo visibles</string>
     <string name="valores_encima_visivel">Les valeurs sur visible</string>
     <string name="visualizar_tema_atual">Ver edición actual</string>
