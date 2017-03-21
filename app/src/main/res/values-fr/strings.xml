@@ -177,4 +177,9 @@
     <string name="recomecar">Recommencer</string>
     <string name="voce_ainda_tem">"Vous avez encore "</string>
     <string name="dados_em_cima">Les données relatives aux</string>
+    <string name="dialog_message">Il est disponible la nouvelle version de l\'application Jaguar App, cliquez sur le bouton ci-dessous pour effectuer la mise à jour. Cette nouvelle version est plus léger et plus sûr.</string>
+    <string name="dialog_negative_label">Puis</string>
+    <string name="dialog_positive_label">Mettre à jour</string>
+    <string name="dialog_title">Nouvelle mise à jour</string>
+    <string name="quantidade_de_jogadas">Nombre de pièces</string>
 </resources>

@@ -249,6 +249,11 @@ Los  dados pueden ser de cualquier valor, siempre que sean iguales. El valor que
     <string name="recomecar">Recomenzar</string>
     <string name="voce_ainda_tem">"Tú aún tienes "</string>
     <string name="dados_em_cima">Los datos sobre las</string>
+    <string name="dialog_message">Está disponible la nueva versión de la aplicación Jaguar App, haga clic en el botón de abajo para realizar la actualización. Esta nueva versión es más ligero y más seguro.</string>
+    <string name="dialog_negative_label">Entonces</string>
+    <string name="dialog_positive_label">Actualización</string>
+    <string name="dialog_title">Nueva actualización</string>
+    <string name="quantidade_de_jogadas">Número de obras</string>
 
 
 </resources>

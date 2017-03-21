@@ -328,11 +328,11 @@ Na tabela no nosso app você vai marcar em Quina. Mas,observando bem, 2 duques e
     <string name="jogada_especial">Jogada especial</string>
     <string name="dados_em_cima">Dados em cima</string>
     <string name="quantidade_de_jogadas">Quantidade de jogadas</string>
-    <string name="dialog_title">Nova Atualização</string>
     <string name="dialog_message">Está disponível a nova versão do aplicativo Marcador Bozó, clique no botão abaixo para realizar a atualização. Essa nova versão é mais completa.</string>
     <string name="dialog_positive_label">Atualizar</string>
     <string name="dialog_negative_label">Depois</string>
 
     <string name="id_admob_banner" translatable="false">ca-app-pub-5707033930169935/3733937608</string>
+    <string name="dialog_title">Nova Atualização</string>
 
 </resources>

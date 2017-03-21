@@ -195,6 +195,11 @@
     <string name="recomecar">Restart</string>
     <string name="voce_ainda_tem">"You still have "</string>
     <string name="dados_em_cima">Data above</string>
+    <string name="dialog_message">The new version of the Jaguar App application is available, click the button below to perform the update. This new version is lighter and safer.</string>
+    <string name="dialog_negative_label">After</string>
+    <string name="dialog_positive_label">Update</string>
+    <string name="dialog_title">New update</string>
+    <string name="quantidade_de_jogadas">Number of plays</string>
 
 
 </resources>
