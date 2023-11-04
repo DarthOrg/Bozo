@@ -1,55 +1,56 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="65dp"
+    android:background="@color/colorFundoInstruções"
     android:paddingLeft="10dp"
-    android:paddingRight="10dp"
     android:paddingTop="81dp"
-    android:background="@color/colorFundoInstruções">
+    android:paddingRight="10dp"
+    android:paddingBottom="65dp">
 
 
-
-        <LinearLayout
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_above="@+id/tituloI"
         android:layout_centerInParent="true"
         android:gravity="center_horizontal"
-        android:orientation="vertical"
-        android:layout_above="@+id/tituloI">
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/ic_dado_az"
-                android:tint="@color/colorCinza"
-                android:layout_gravity="center"
-                android:id="@+id/imageView6"/>
-    </LinearLayout>
+        android:orientation="vertical">
 
-        <LinearLayout
-            android:id="@+id/tituloI"
+        <ImageView
+            android:id="@+id/imageView6"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:gravity="center_horizontal|center_vertical"
-            android:orientation="vertical">
+            android:layout_gravity="center"
+            android:src="@drawable/ic_dado_az"
+            app:tint="@color/colorCinza" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/tituloI"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:gravity="center_horizontal|center_vertical"
+        android:orientation="vertical">
 
 
-            <TextView
-                android:id="@+id/tituloInstrucoes"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Como jogar?"
-                android:textColor="@color/colorTrasnparente"
-                android:textSize="@dimen/slide_title"
-                android:textStyle="bold"
-                android:layout_marginTop="5dp"
-                android:layout_marginBottom="5dp" />
+        <TextView
+            android:id="@+id/tituloInstrucoes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:text="Como jogar?"
+            android:textColor="@color/colorTrasnparente"
+            android:textSize="@dimen/slide_title"
+            android:textStyle="bold" />
 
 
-        </LinearLayout>
+    </LinearLayout>
 
-    <android.support.v7.widget.CardView
+    <androidx.cardview.widget.CardView
 
         android:id="@+id/textView4"
         android:layout_width="wrap_content"
@@ -60,15 +61,15 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:layout_margin="10dp"
             android:text="@string/TextoDadoAz"
             android:textAlignment="center"
-            android:textSize="13dp"
-            android:layout_margin="10dp"
-            android:textColor="@color/colorCinza" />
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="@color/colorCinza"
+            android:textSize="13dp" />
 
 
-    </android.support.v7.widget.CardView>
+    </androidx.cardview.widget.CardView>
 
 
 </RelativeLayout>

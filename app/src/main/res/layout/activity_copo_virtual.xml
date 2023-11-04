@@ -7,7 +7,7 @@
     android:background="@color/colorWhiteFundo"
     tools:context="com.darthorg.bozo.view.CopoVirtual">
 
-    <android.support.v7.widget.Toolbar
+    <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="56dp"
@@ -325,7 +325,7 @@
                 android:visibility="gone">
 
 
-                <android.support.design.widget.FloatingActionButton
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
                     android:id="@+id/btnPedirEmbaixo"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"

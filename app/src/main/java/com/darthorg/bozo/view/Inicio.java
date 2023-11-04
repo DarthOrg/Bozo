@@ -6,9 +6,6 @@ import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.v7.app.AlertDialog;
-import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.Window;
@@ -25,8 +22,8 @@ import com.darthorg.bozo.adapter.UltimaPartidaAdapter;
 import com.darthorg.bozo.controller.PartidaController;
 import com.darthorg.bozo.model.Partida;
 import com.darthorg.bozo.util.Util;
-import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.AdView;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+
 
 import java.util.List;
 
@@ -34,6 +31,9 @@ import me.drakeet.materialdialog.MaterialDialog;
 
 import static android.view.View.VISIBLE;
 import static com.darthorg.bozo.view.Definicoes.PREF_CONFIG;
+
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
 
 public class Inicio extends AppCompatActivity {
 
@@ -53,20 +53,12 @@ public class Inicio extends AppCompatActivity {
     MaterialDialog mMaterialDialog;
     private SharedPreferences preferencias;
 
-    private AdView adView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_inicio);
         changeStatusBarColor();
-
-        //Propagandas
-        adView = (AdView) findViewById(R.id.adView);
-        if(Util.existeConexao(this)) {
-            AdRequest adRequest = new AdRequest.Builder().build();
-            adView.loadAd(adRequest);
-        }
 
         preferencias = getSharedPreferences(PREF_CONFIG, MODE_PRIVATE);
         verificarNotificacaoAtualizacao(preferencias);
@@ -196,30 +188,23 @@ public class Inicio extends AppCompatActivity {
 
     @Override
     protected void onPause() {
-        if(adView != null){
-            adView.pause();
-        }
         super.onPause();
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-        if(adView != null){
-            adView.resume();
-        }
+
     }
 
     @Override
     protected void onDestroy() {
-        if(adView != null){
-            adView.destroy();
-        }
         super.onDestroy();
     }
 
     @Override
     public void onBackPressed() {
+        super.onBackPressed();
         finish();
     }
 

@@ -84,7 +84,7 @@
     </LinearLayout>
 
 
-    <android.support.design.widget.TextInputLayout
+    <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/til_jogador"
         android:layout_width="match_parent"
         android:layout_margin="16dp"
@@ -107,6 +107,6 @@
             android:singleLine="true"
             android:textColor="@color/colorBlack"
             android:textColorHint="@color/colorStatusBar" />
-    </android.support.design.widget.TextInputLayout>
+    </com.google.android.material.textfield.TextInputLayout>
 
 </LinearLayout>

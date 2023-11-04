@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="horizontal"
     android:padding="10dp">
 
@@ -16,7 +17,7 @@
             android:src="@drawable/ic_jogador"
             android:layout_marginRight="16dp"
             android:background="@drawable/circulo_transparente"
-            android:tint="@color/colorCinza" />
+            app:tint="@color/colorCinza" />
 
         <TextView
             android:id="@+id/txtNovoJogador"

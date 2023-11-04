@@ -7,7 +7,7 @@
     android:layout_height="match_parent">
 
 
-    <android.support.v4.view.ViewPager
+    <androidx.viewpager.widget.ViewPager
         android:id="@+id/viewPagerMarcadorJogador"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -22,7 +22,7 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true">
 
-            <android.support.v7.widget.Toolbar
+            <androidx.appcompat.widget.Toolbar
                 android:id="@+id/toolbar"
                 android:theme="@style/AppTheme.WhiteBotton"
                 android:popupTheme="@style/AppTheme.Dark"
@@ -39,7 +39,7 @@
             android:layout_height="108dp"
             android:background="@color/colorWhiteTransparente2"/>
 
-        <android.support.design.widget.TabLayout
+        <com.google.android.material.tabs.TabLayout
             android:id="@+id/tabLayoutJogadores"
             android:layout_width="match_parent"
             android:layout_height="56dp"
@@ -51,16 +51,8 @@
             app:tabIndicatorHeight="60dp"
             android:layout_alignParentBottom="true">
 
-            <android.support.design.widget.TabItem
-                android:layout_height="wrap_content"
-                android:layout_width="wrap_content"
-                android:text="Tab1" />
 
-            <android.support.design.widget.TabItem
-                android:layout_height="wrap_content"
-                android:layout_width="wrap_content"
-                android:text="Tab2" />
-        </android.support.design.widget.TabLayout>
+        </com.google.android.material.tabs.TabLayout>
     </LinearLayout>
 
 

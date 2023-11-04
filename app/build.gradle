@@ -1,18 +1,18 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 23
-    buildToolsVersion '25.0.0'
+    compileSdk 34
 
     defaultConfig {
         applicationId "com.darthorg.bozo"
         manifestPlaceholders = [onesignal_app_id: "0832ba70-d4e7-490f-a5da-30ad9f83fb63",
                                 // Project number pulled from dashboard, local value is ignored.
                                 onesignal_google_project_number: "30304590258"]
-        minSdkVersion 16
-        targetSdkVersion 23
+        minSdkVersion 19
+        targetSdkVersion 33
         versionCode 4
         versionName "1.2.0"
+        multiDexEnabled true
     }
     buildTypes {
         release {
@@ -20,51 +20,52 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+    namespace 'com.darthorg.bozo'
 }
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
-    testCompile 'junit:junit:4.12'
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    testImplementation 'junit:junit:4.12'
 
-    compile 'com.android.support:appcompat-v7:22.2.0'
-    compile 'com.android.support:appcompat-v7:23.1.1'
-    compile 'com.android.support:appcompat-v7:23.4.0'
-    compile 'com.android.support:support-v4:22.2.0'
-    compile 'com.android.support:cardview-v7:22.2.0'
-    compile 'com.android.support:recyclerview-v7:22.2.0'
-    compile 'com.android.support:design:22.2.0'
-    compile 'com.android.support:design:23.1.0'
-    compile 'com.android.support:design:23.4.0'
-    compile 'com.nineoldandroids:library:2.4.0'
-    compile 'com.daimajia.easing:library:1.0.1@aar'
-    compile 'junit:junit:4.12'
-    compile 'com.melnykov:floatingactionbutton:1.3.0'
+    implementation 'androidx.appcompat:appcompat:1.6.1'
+    implementation 'androidx.appcompat:appcompat:1.6.1'
+    implementation 'androidx.appcompat:appcompat:1.6.1'
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    implementation 'androidx.cardview:cardview:1.0.0'
+    implementation 'androidx.recyclerview:recyclerview:1.3.2'
+    implementation 'com.google.android.material:material:1.10.0'
+    implementation 'com.google.android.material:material:1.10.0'
+    implementation 'com.google.android.material:material:1.10.0'
+    implementation 'com.nineoldandroids:library:2.4.0'
+    implementation 'com.daimajia.easing:library:1.0.1@aar'
+    implementation 'junit:junit:4.12'
+    implementation 'com.melnykov:floatingactionbutton:1.3.0'
 
-    compile 'com.daimajia.androidanimations:library:1.1.3@aar'
-    compile 'com.github.shell-software:fab:1.0.5'
-    compile 'com.github.clans:fab:1.4.0'
-    compile 'com.github.clans:fab:1.6.2'
-    compile 'com.nispok:snackbar:2.10.10'
+    implementation 'com.android.support:multidex:1.0.3'
+
+    implementation 'com.daimajia.androidanimations:library:1.1.3@aar'
+    implementation 'com.github.shell-software:fab:1.0.5'
+    implementation 'com.github.clans:fab:1.6.2'
+    implementation 'com.github.clans:fab:1.6.2'
+    implementation 'com.nispok:snackbar:2.10.10'
 
     /* PARA USO DO MATERIAL DIALOG */
-    compile 'me.drakeet.materialdialog:library:1.3.1'
+    implementation 'me.drakeet.materialdialog:library:1.3.1'
 
 
     // Notificações com OneSignal
-    compile 'com.onesignal:OneSignal:3.+@aar'
+    implementation 'com.onesignal:OneSignal:5.0.3@aar'
     // Required for OneSignal, even if you have added FCM.
-    compile 'com.google.android.gms:play-services-gcm:+'
+    //noinspection GradleCompatible
+    implementation 'com.google.android.gms:play-services-gcm:+'
     // Required for geotagging
-    compile "com.google.android.gms:play-services-location:+"
+    implementation "com.google.android.gms:play-services-location:+"
     // play-services-analytics is only needed when using 8.1.0 or older.
-   // compile 'com.google.android.gms:play-services-analytics:+'
+    implementation 'com.google.android.gms:play-services-analytics:+'
 
-    // Google AdmMob
-    compile 'com.google.android.gms:play-services-ads:10.2.0'
-
-    compile 'ca.gcastle:BottomNavigation:1.0.0'
-    compile('com.mikepenz.materialdrawer:library:2.8.2@aar') {
+    implementation 'ca.gcastle:BottomNavigation:1.0.0'
+    implementation('com.mikepenz.materialdrawer:library:2.8.2@aar') {
         transitive = true
     }
-    compile 'com.android.support.constraint:constraint-layout:1.0.0-beta4'
+    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
 }

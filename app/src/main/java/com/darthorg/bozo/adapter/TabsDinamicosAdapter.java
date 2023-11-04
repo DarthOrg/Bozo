@@ -1,14 +1,16 @@
 package com.darthorg.bozo.adapter;
 
 import android.content.Context;
-import android.support.design.widget.TabLayout;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentStatePagerAdapter;
-import android.support.v4.app.FragmentTransaction;
-import android.support.v4.view.ViewPager;
 import android.util.Log;
 import android.view.ViewGroup;
+
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentStatePagerAdapter;
+import androidx.fragment.app.FragmentTransaction;
+import androidx.viewpager.widget.ViewPager;
+
+import com.google.android.material.tabs.TabLayout;
 
 import java.util.ArrayList;
 
@@ -16,7 +18,7 @@ import java.util.ArrayList;
  * Created by Gustavo on 11/07/2016.
  */
 public class TabsDinamicosAdapter extends FragmentStatePagerAdapter {
-    private final ArrayList<Fragment> mFragmentList = new ArrayList<>();
+    private final ArrayList<Fragment> mFragmentList;
     private final ArrayList<String> mFragmentTitleList = new ArrayList<>();
     Context context;
     ViewPager viewPager;
@@ -27,6 +29,7 @@ public class TabsDinamicosAdapter extends FragmentStatePagerAdapter {
         this.context = context;
         this.viewPager = viewPager;
         this.tabLayout = tabLayout;
+        mFragmentList = new ArrayList<>();
     }
 
     @Override

@@ -2,6 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/colorFundoInstruções">
 
 
@@ -23,7 +24,7 @@
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:src="@drawable/ic_dado_sena"
-                android:tint="@color/colorCinza"
+                app:tint="@color/colorCinza"
                 android:layout_gravity="left|center_vertical"
                 android:id="@+id/imageView8"
                 android:layout_marginRight="55dp" />
@@ -32,7 +33,7 @@
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:src="@drawable/ic_dado_sena"
-                android:tint="@color/colorCinza"
+                app:tint="@color/colorCinza"
                 android:layout_gravity="right|center_vertical" />
 
         </FrameLayout>
@@ -45,14 +46,14 @@
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:src="@drawable/ic_dado_quadra"
-                android:tint="@color/colorCinza"
+                app:tint="@color/colorCinza"
                 android:layout_gravity="center" />
 
             <ImageView
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:src="@drawable/ic_dado_quadra"
-                android:tint="@color/colorCinza"
+                app:tint="@color/colorCinza"
                 android:layout_gravity="center"
                 android:id="@+id/imageView6"
                 android:layout_marginRight="55dp" />
@@ -61,7 +62,7 @@
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:src="@drawable/ic_dado_quadra"
-                android:tint="@color/colorCinza"
+                app:tint="@color/colorCinza"
                 android:layout_gravity="center"
                 android:id="@+id/imageView7"
                 android:layout_marginLeft="55dp" />
@@ -94,7 +95,7 @@
 
     </LinearLayout>
 
-    <android.support.v7.widget.CardView
+    <androidx.cardview.widget.CardView
 
         android:id="@+id/textView4"
         android:layout_width="wrap_content"
@@ -113,7 +114,7 @@
             android:textColor="@color/colorCinza" />
 
 
-    </android.support.v7.widget.CardView>
+    </androidx.cardview.widget.CardView>
 
 
 </RelativeLayout>

@@ -7,10 +7,6 @@ import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
-import android.support.design.widget.BottomSheetBehavior;
-import android.support.design.widget.BottomSheetDialog;
-import android.support.v4.app.Fragment;
-import android.support.v4.view.ViewPager;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -25,13 +21,18 @@ import com.darthorg.bozo.R;
 import com.darthorg.bozo.adapter.ValoresPecasGridAdapter;
 import com.darthorg.bozo.model.PecaBozo;
 import com.darthorg.bozo.view.Definicoes;
-import com.darthorg.bozo.view.Inicio;
 import com.darthorg.bozo.view.PartidaAberta;
+import com.google.android.material.bottomsheet.BottomSheetBehavior;
+import com.google.android.material.bottomsheet.BottomSheetDialog;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import static android.content.Context.MODE_PRIVATE;
+
+import androidx.fragment.app.Fragment;
+import androidx.viewpager.widget.ViewPager;
+
 
 /**
  * Created by Gustavo on 11/07/2016.
@@ -176,7 +177,7 @@ public class FragmentFilho extends Fragment {
 
                                           //Bottom Sheet Dialog btn MAIS
                                           bottomSheetDialog = new BottomSheetDialog(getContext());
-                                          bottomSheetDialogView = getLayoutInflater(Bundle.EMPTY).inflate(R.layout.dialog_pontos, null);
+                                          bottomSheetDialogView = onGetLayoutInflater(Bundle.EMPTY).inflate(R.layout.dialog_pontos, null);
                                           bottomSheetDialog.setContentView(bottomSheetDialogView);
 
 

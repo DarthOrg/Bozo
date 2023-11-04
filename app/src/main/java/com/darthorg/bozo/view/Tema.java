@@ -5,9 +5,6 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
-import android.support.v7.app.AlertDialog;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -29,6 +26,9 @@ import java.util.List;
 
 import static com.darthorg.bozo.view.Definicoes.PREF_CONFIG;
 
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 
 public class Tema extends AppCompatActivity {
@@ -244,6 +244,7 @@ public class Tema extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
+        super.onBackPressed();
         menssagemSair();
     }
 

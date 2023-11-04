@@ -29,8 +29,8 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/textView18"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="10dp"
         android:layout_marginLeft="30dp"
+        android:layout_marginTop="10dp"
         android:layout_marginRight="30dp"
         android:text="@string/textoWelcome2"
         android:textAppearance="?android:attr/textAppearanceSmall"
@@ -41,11 +41,11 @@
         android:id="@+id/textView20"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/imageView22"
+        android:layout_centerHorizontal="true"
         android:text="@string/inciarMarcador"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:textColor="@color/colorFundoPartida"
-        android:layout_below="@+id/imageView22"
-        android:layout_centerHorizontal="true" />
+        android:textColor="@color/colorFundoPartida" />
 
 
 </RelativeLayout>

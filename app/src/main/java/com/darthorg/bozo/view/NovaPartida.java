@@ -2,8 +2,6 @@ package com.darthorg.bozo.view;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AlertDialog;
-import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,6 +11,9 @@ import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.darthorg.bozo.R;
 
@@ -79,35 +80,20 @@ public class NovaPartida extends AppCompatActivity {
                             dialog.dismiss();
                         }
                     });
-
-
                     dialog.show();
                 }
-
-
             }
         });
-
-
-
 
     }
 
 
 
     private void getIDs() {
-
-
-
         edit_nome_grupo = (EditText) findViewById(R.id.edit_nome_grupo);
-
         btnCancelar = (Button) findViewById(R.id.btnCancelar);
         btnProximo = (Button) findViewById(R.id.btnProximo);
-
-
         txtAddJ = (TextView) findViewById(R.id.txtAdicionarJogadores);
         txtFAJ = (LinearLayout) findViewById(R.id.fundotxtAJ);
-
-
     }
 }
